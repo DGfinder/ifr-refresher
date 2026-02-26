@@ -1,27 +1,38 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { GoalIndicator } from "@/components/GoalIndicator";
+import { useState, useMemo, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { SessionPresets, type PresetId } from "@/components/SessionPresets";
 import { DrillView } from "@/components/DrillView";
 import { QuizView } from "@/components/QuizView";
+import { ProgramFilter } from "@/components/ProgramFilter";
 import { sections } from "@/data/sections";
 import { getSectionsForProgram, drillPrograms } from "@/data/drillPrograms";
 import { useProgram } from "@/contexts/ProgramContext";
 import { cn } from "@/lib/utils";
 
-export default function DrillPage() {
-  const { programId } = useProgram();
+function DrillPageContent() {
+  const searchParams = useSearchParams();
+  const { programId, setProgramId } = useProgram();
 
-  // Get program defaults
+  // Get initial mode from URL or program default
+  const urlMode = searchParams.get("mode");
   const program = drillPrograms.find((p) => p.id === programId);
-  const defaultMode = program?.defaultMode ?? "flashcards";
+  const defaultMode = urlMode === "quiz" ? "quiz" : (program?.defaultMode ?? "flashcards");
 
   const [drillSubMode, setDrillSubMode] = useState<"flashcards" | "quiz">(defaultMode);
   const [drillWeakFocus, setDrillWeakFocus] = useState(false);
   const [activePreset, setActivePreset] = useState<PresetId>("smart");
+  const [showFilters, setShowFilters] = useState(false);
 
-  // Filter sections by program
+  // Sync mode with URL param
+  useEffect(() => {
+    if (urlMode === "quiz") {
+      setDrillSubMode("quiz");
+    }
+  }, [urlMode]);
+
+  // Filter sections by program (godmode/custom shows all)
   const programSections = useMemo(() => {
     const ids = getSectionsForProgram(programId, sections.map((s) => s.sectionId));
     return sections.filter((s) => ids.includes(s.sectionId));
@@ -39,10 +50,9 @@ export default function DrillPage() {
 
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-6">
-      <GoalIndicator />
-
-      {/* Sub-mode toggle: Flashcards | Quiz */}
-      <div className="mb-6 flex justify-center">
+      {/* Top controls row */}
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+        {/* Sub-mode toggle: Flashcards | Quiz */}
         <div className="inline-flex rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-0.5">
           <button
             onClick={() => setDrillSubMode("flashcards")}
@@ -67,7 +77,38 @@ export default function DrillPage() {
             Quiz
           </button>
         </div>
+
+        {/* Filter toggle button */}
+        <button
+          onClick={() => setShowFilters(!showFilters)}
+          className={cn(
+            "flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm transition-colors",
+            showFilters
+              ? "border-[var(--ifr-accent)] bg-[var(--ifr-accent)]/10 text-[var(--ifr-accent)]"
+              : "border-[var(--ifr-border)] bg-[var(--ifr-surface)] text-[var(--ifr-text-muted)] hover:border-[var(--ifr-accent)]/50"
+          )}
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+          </svg>
+          Filters
+          {programId !== "godmode" && (
+            <span className="rounded-full bg-[var(--ifr-accent)] px-1.5 py-0.5 text-xs text-white">
+              1
+            </span>
+          )}
+        </button>
       </div>
+
+      {/* Collapsible filter panel */}
+      {showFilters && (
+        <div className="mb-6 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+          <ProgramFilter
+            programId={programId}
+            onProgramChange={setProgramId}
+          />
+        </div>
+      )}
 
       {/* Session presets */}
       <SessionPresets activePreset={activePreset} onSelectPreset={handlePresetChange} />
@@ -79,5 +120,19 @@ export default function DrillPage() {
         <QuizView sections={programSections} programId={programId} />
       )}
     </div>
+  );
+}
+
+export default function DrillPage() {
+  return (
+    <Suspense fallback={
+      <div className="mx-auto max-w-[1100px] px-6 py-6">
+        <div className="flex justify-center py-12">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-[var(--ifr-accent)] border-t-transparent" />
+        </div>
+      </div>
+    }>
+      <DrillPageContent />
+    </Suspense>
   );
 }

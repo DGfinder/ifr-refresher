@@ -1,0 +1,783 @@
+{
+  "version": "1.0",
+  "sectionId": "casa-traps-gotchas",
+  "sectionTitle": "CASA Traps & Gotchas",
+  "sectionDescription": "High-frequency Australian IFR traps: the misconception, the actual rule, and how examiners will frame it.",
+  "categories": [
+    {
+      "id": "regulatory-recency",
+      "title": "Regulatory & Recency",
+      "description": "Licensing, recency, and Part 61/91 traps.",
+      "moduleIds": ["TRAP-004", "TRAP-009"]
+    },
+    {
+      "id": "minima-alternates-fuel",
+      "title": "Minima, Alternates & Fuel",
+      "description": "Weather minima, alternate planning, and fuel requirement traps.",
+      "moduleIds": ["TRAP-002", "TRAP-003", "TRAP-005", "TRAP-006", "TRAP-010"]
+    },
+    {
+      "id": "pbn-gnss-raim",
+      "title": "PBN, GNSS & RAIM",
+      "description": "Navigation system, RAIM, and PBN designation traps.",
+      "moduleIds": ["TRAP-001", "TRAP-007", "TRAP-008"]
+    }
+  ],
+  "modules": [
+    {
+      "id": "TRAP-001",
+      "title": "RAIM Loss Reporting Trap",
+      "categoryId": "pbn-gnss-raim",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["raim", "gnss", "atc", "reporting", "controlled-airspace"],
+      "summary": "Pilots often think any RAIM loss requires immediate ATC notification. The actual rule allows for transient outages before reporting is required.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Misconception"
+        },
+        {
+          "type": "text",
+          "text": "Many pilots believe that any RAIM loss must be reported to ATC immediately, the moment the flag or alert appears. This leads to rushed, unnecessary calls and suggests a lack of understanding of the actual requirement."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Actual Rule"
+        },
+        {
+          "type": "text",
+          "text": "In controlled airspace, you must advise ATC if GNSS integrity (RAIM) is unavailable for longer than 5 minutes while you are using GNSS as your primary navigation source. Brief, transient outages do not require immediate notification. The key is whether the outage is persistent enough to affect your navigation capability and ATC's separation planning."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Transient RAIM loss (a few seconds or a minute): confirm it is genuine, monitor, but no immediate ATC call required",
+            "RAIM loss persisting beyond approximately 5 minutes: advise ATC and state your remaining navigation capability",
+            "The 5-minute threshold reflects the point where the outage affects operational planning, not just momentary annoyance"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How an Examiner Will Frame It"
+        },
+        {
+          "type": "qa",
+          "question": "You are in controlled airspace navigating on GNSS and RAIM flags for about 30 seconds then returns. What action do you take?",
+          "answer": "I would note the outage, confirm RAIM has returned and is stable, and continue monitoring. A brief, transient RAIM flag that resolves quickly does not require an ATC call. If it had persisted beyond about 5 minutes, I would advise ATC and state my remaining navigation capability."
+        },
+        {
+          "type": "qa",
+          "question": "At what point does RAIM loss require you to advise ATC in controlled airspace?",
+          "answer": "If RAIM is unavailable for more than about 5 minutes while I am using GNSS as my primary navigation source, I must advise ATC. The call should include what navigation capability I still have, such as reverting to VOR/DME."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Memory Hook"
+        },
+        {
+          "type": "text",
+          "text": "Five minutes to fix, then tell ATC."
+        }
+      ],
+      "refs": [
+        {
+          "source": "AIP ENR 1.5",
+          "note": "IFR rules including GNSS/RAIM reporting requirements",
+          "url": "https://www.airservicesaustralia.com/aip/aip.asp"
+        },
+        {
+          "source": "Part 91 MOS",
+          "note": "GNSS navigation and integrity requirements",
+          "url": "https://www.casa.gov.au/part-91-manual-standards"
+        }
+      ]
+    },
+    {
+      "id": "TRAP-002",
+      "title": "Take-off vs Approach Minima Confusion",
+      "categoryId": "minima-alternates-fuel",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["minima", "takeoff", "approach", "visibility", "obstacles"],
+      "summary": "Take-off minima serve a completely different purpose than approach minima. Confusing the two reveals a fundamental gap in understanding.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Misconception"
+        },
+        {
+          "type": "text",
+          "text": "Pilots often think take-off minima work like approach minima: you need a certain visibility to depart just as you need a certain visibility to land. Some believe take-off minima exist so you can return and land if something goes wrong immediately after departure."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Actual Rule"
+        },
+        {
+          "type": "text",
+          "text": "Take-off minima are primarily about obstacle clearance, not landing capability. They ensure you have sufficient visibility to see and avoid obstacles during the initial climb, or to fly a departure procedure that provides obstacle protection. The logic is fundamentally different from approach minima."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Approach minima: ensure you can transition from instruments to visual flight and land safely",
+            "Take-off minima: ensure you can see obstacles or fly a procedure that clears them during initial climb",
+            "You can legally depart below approach minima if take-off minima are met, even though you could not immediately return",
+            "The assumption is not that you will turn around; it is that you will continue to an alternate or wait for conditions to improve"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How an Examiner Will Frame It"
+        },
+        {
+          "type": "qa",
+          "question": "The take-off minima are 1600m visibility. The approach minima for the same runway are 2400m RVR. Conditions are 1800m. Can you depart? Can you return immediately if needed?",
+          "answer": "I can legally depart because conditions meet take-off minima. However, I cannot expect to return immediately and land on that runway, because conditions are below approach minima. Take-off minima are about obstacle clearance during departure, not about guaranteeing a return option. My planning must account for this by having a suitable alternate or waiting for conditions to improve at destination."
+        },
+        {
+          "type": "qa",
+          "question": "Why do take-off minima exist if they are not about being able to return and land?",
+          "answer": "Take-off minima exist to ensure obstacle clearance during the initial climb phase. The visibility requirement allows you to see and avoid obstacles, or it ensures you can fly a departure procedure that provides obstacle protection. The planning assumption is that if you need to return, you will either hold for conditions to improve or divert to an alternate where conditions are suitable."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Memory Hook"
+        },
+        {
+          "type": "text",
+          "text": "Take-off is about obstacles, not options."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Part 91 MOS",
+          "note": "Take-off and landing minima requirements",
+          "url": "https://www.casa.gov.au/part-91-manual-standards"
+        },
+        {
+          "source": "AIP ENR 1.5",
+          "note": "IFR departure procedures and minima",
+          "url": "https://www.airservicesaustralia.com/aip/aip.asp"
+        }
+      ]
+    },
+    {
+      "id": "TRAP-003",
+      "title": "\"Legal But Stupid\" Alternates",
+      "categoryId": "minima-alternates-fuel",
+      "level": "advanced",
+      "estReadingMinutes": 5,
+      "tags": ["alternate", "planning", "judgement", "weather", "operational"],
+      "summary": "Meeting legal alternate requirements is the floor, not the ceiling. Examiners test whether you understand the difference between minimum compliance and sound judgement.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Misconception"
+        },
+        {
+          "type": "text",
+          "text": "If the TAF shows weather at or above alternate minima at ETA, the aerodrome is a good alternate. Pilots often stop their analysis once legal requirements are satisfied, treating regulatory compliance as the end point rather than the starting point."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Actual Rule"
+        },
+        {
+          "type": "text",
+          "text": "Legal alternate requirements set the minimum bar for planning. They do not guarantee the alternate is operationally sensible. Examiners and airline interviewers specifically test whether you can distinguish between what is legal and what is wise."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Legal requirements define the minimum forecast conditions for an aerodrome to count as an alternate",
+            "Operational judgement considers: trend, reliability of the TAF, single-approach aerodromes, terrain, time of day, fatigue",
+            "A TAF showing exactly minima with deteriorating trend is legal but operationally marginal",
+            "An alternate 300nm away when a closer option exists may be legal but adds unnecessary risk"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How an Examiner Will Frame It"
+        },
+        {
+          "type": "qa",
+          "question": "Your planned alternate has a TAF showing conditions exactly at alternate minima with a TEMPO for conditions slightly below. The aerodrome has only one approach type. Is this a good alternate?",
+          "answer": "It meets minimum legal requirements, but I would not call it a good alternate. The TEMPO introduces uncertainty, conditions are already at the floor, and a single-approach aerodrome offers no backup if that approach is unavailable. I would look for an alternate with better forecast margins, a second approach type, or both. Legal is the starting point, not the standard I should aim for."
+        },
+        {
+          "type": "qa",
+          "question": "How do you explain the difference between a legal alternate and a good alternate to a junior pilot?",
+          "answer": "A legal alternate satisfies the regulatory requirements for planning purposes. A good alternate is one where I would actually feel comfortable diverting to at 2am, tired, with weather deteriorating. Legal gets you past the planning check; judgement gets you on the ground safely. I plan for the alternate I would want to use, not just the one that ticks the box."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Memory Hook"
+        },
+        {
+          "type": "text",
+          "text": "Legal gets you started; judgement gets you home."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Part 91 MOS",
+          "note": "Alternate aerodrome planning requirements",
+          "url": "https://www.casa.gov.au/part-91-manual-standards"
+        },
+        {
+          "source": "AIP ENR 1.5",
+          "note": "Alternate requirements and weather considerations",
+          "url": "https://www.airservicesaustralia.com/aip/aip.asp"
+        }
+      ]
+    },
+    {
+      "id": "TRAP-004",
+      "title": "Part 61 IFR Recency Window Confusion",
+      "categoryId": "regulatory-recency",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["recency", "part-61", "ipc", "currency", "licensing"],
+      "summary": "IFR recency is not a simple rolling 90-day window. Understanding what resets recency versus what merely maintains it is essential for legal IFR operations.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Misconception"
+        },
+        {
+          "type": "text",
+          "text": "Many pilots believe IFR recency works like a rolling 90-day window: fly any IFR flight within the period and you remain current. Some think any instrument approach resets the clock. This oversimplification can lead to operating without valid recency."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Actual Rule"
+        },
+        {
+          "type": "text",
+          "text": "Part 61 MOS specifies particular recency requirements for instrument rating privileges. These typically include specific tasks (approaches, holding, tracking) within defined periods. An IPC (Instrument Proficiency Check) resets your recency when it has lapsed. Flying a random IFR leg does not necessarily satisfy all recency elements."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Recency requirements specify particular tasks: approaches, holding, instrument time",
+            "You must complete the specified tasks within the specified period to remain current",
+            "Once recency lapses, an IPC with an approved examiner is required to restore privileges",
+            "Flying IFR does not automatically reset recency; you must complete the specific required tasks",
+            "Single-pilot IFR operations may have additional recency requirements"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How an Examiner Will Frame It"
+        },
+        {
+          "type": "qa",
+          "question": "You flew an IFR sector last month but did not fly any approaches. Your last approach was 95 days ago. Are you IFR current?",
+          "answer": "I need to check the specific recency requirements in Part 61 MOS. If the requirement includes a certain number of approaches within a defined period and I have not met that requirement, I am not current for IFR operations, regardless of having flown an IFR sector recently. The recency requirement is task-specific, not just about flying under IFR generally."
+        },
+        {
+          "type": "qa",
+          "question": "What is the difference between maintaining recency and resetting recency after it has lapsed?",
+          "answer": "Maintaining recency means completing the required tasks within the specified period before it expires. Resetting recency after it has lapsed requires an IPC with an approved examiner. You cannot simply fly the required tasks after your recency has lapsed; the IPC is the prescribed method to restore your instrument rating privileges."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Memory Hook"
+        },
+        {
+          "type": "text",
+          "text": "Recency resets at the IPC, not with any flight."
+        }
+      ],
+      "refs": [
+        {
+          "source": "CASR Part 61",
+          "note": "Flight crew licensing and instrument rating requirements",
+          "url": "https://www.legislation.gov.au/Series/F1998B00220"
+        },
+        {
+          "source": "Part 61 MOS",
+          "note": "Instrument rating recency requirements and IPC standards",
+          "url": "https://www.casa.gov.au/part-61-manual-standards"
+        }
+      ]
+    },
+    {
+      "id": "TRAP-005",
+      "title": "Circling Minima Category Trap",
+      "categoryId": "minima-alternates-fuel",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["circling", "minima", "category", "speed", "approach"],
+      "summary": "Approach category is determined by speed, not aircraft type. Flying faster than category limits means using higher minima, regardless of what the aircraft is normally classified as.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Misconception"
+        },
+        {
+          "type": "text",
+          "text": "Pilots often assume approach category is fixed by aircraft type. A Category B aircraft is always Category B, a Category C aircraft is always Category C. They use the minima for their aircraft's nominal category without considering actual operating speed."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Actual Rule"
+        },
+        {
+          "type": "text",
+          "text": "Approach category is based on 1.3 times Vso at maximum certificated landing weight. If your actual approach speed exceeds the upper limit for your normal category, you must use minima for the higher category. The category follows your speed, not your aircraft registration."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Category is defined by 1.3 Vso at maximum landing weight",
+            "If your actual speed exceeds the category limit, use the next higher category minima",
+            "Factors that increase approach speed: high landing weight, contaminated runway, ice accretion, flap limitations",
+            "You cannot use Category A minima while flying at Category B speeds",
+            "This applies to all approach minima, especially circling where the protected area varies by category"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How an Examiner Will Frame It"
+        },
+        {
+          "type": "qa",
+          "question": "Your aircraft is normally Category B, but due to a flap limitation you must fly the approach at 145 knots. Which circling minima do you use?",
+          "answer": "I would need to check whether 145 knots exceeds the Category B upper limit. If it does, I must use Category C circling minima. The category is determined by my actual approach speed, not the aircraft's nominal classification. Flying Category B minima at Category C speeds would put me outside the protected airspace."
+        },
+        {
+          "type": "qa",
+          "question": "Why does circling category matter more than straight-in category for this issue?",
+          "answer": "For circling approaches, the category determines the size of the protected manoeuvring area. A Category C aircraft has a larger protected area than Category B, which is reflected in higher minima and wider obstacle clearance surfaces. If I fly at Category C speeds using Category B minima, I may manoeuvre outside the protected area where obstacle clearance is not guaranteed."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Memory Hook"
+        },
+        {
+          "type": "text",
+          "text": "Category follows speed, not aircraft."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Part 91 MOS",
+          "note": "Approach category definitions and circling minima",
+          "url": "https://www.casa.gov.au/part-91-manual-standards"
+        },
+        {
+          "source": "AIP ENR 1.5",
+          "note": "Instrument approach procedures and categories",
+          "url": "https://www.airservicesaustralia.com/aip/aip.asp"
+        }
+      ]
+    },
+    {
+      "id": "TRAP-006",
+      "title": "LSALT vs MSA Misuse",
+      "categoryId": "minima-alternates-fuel",
+      "level": "core",
+      "estReadingMinutes": 5,
+      "tags": ["lsalt", "msa", "terrain", "enroute", "emergency"],
+      "summary": "LSALT and MSA serve different purposes and have different buffers. Using MSA as if it were LSALT can put you uncomfortably close to terrain.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Misconception"
+        },
+        {
+          "type": "text",
+          "text": "Pilots often treat MSA as interchangeable with LSALT, assuming either provides the same level of terrain clearance for general IFR flight. Some believe MSA can be used for enroute terrain clearance whenever it appears on a chart."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Actual Rule"
+        },
+        {
+          "type": "text",
+          "text": "LSALT (Lowest Safe Altitude) is calculated for specific routes or areas and provides terrain and obstacle clearance for enroute IFR navigation. MSA (Minimum Sector Altitude) is published for the vicinity of an aerodrome, typically within 25nm, and is intended for emergency use during approach operations. They have different clearance buffers and different intended applications."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "LSALT: calculated for specific routes or grid areas, typically 1000ft clearance (2000ft in mountainous terrain)",
+            "MSA: published for sectors around a navigation aid or aerodrome, provides 1000ft clearance within that sector",
+            "MSA is for emergency use in the approach environment, not for enroute navigation",
+            "MSA sectors may not align with your actual track",
+            "LSALT is route-specific; MSA is point-centred"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How an Examiner Will Frame It"
+        },
+        {
+          "type": "qa",
+          "question": "You are enroute, 30nm from destination, in IMC. The approach chart shows an MSA of 4500ft for your sector. Can you use this as your enroute minimum altitude?",
+          "answer": "MSA is not designed for enroute use. It provides terrain clearance within a defined radius of the aerodrome, typically 25nm, and is intended for emergency situations in the approach environment. At 30nm I am outside the MSA coverage area. I should use the published LSALT for my route segment, or my correctly calculated LSALT if none is published."
+        },
+        {
+          "type": "qa",
+          "question": "What is the practical difference between LSALT and MSA that affects how you use them?",
+          "answer": "LSALT is calculated specifically for the route I am flying and gives me terrain clearance along that track. MSA is centred on a point and divided into sectors; it gives me clearance within that sector but is not tailored to any specific route. LSALT is my primary enroute protection. MSA is a fallback for emergencies in the terminal area when I cannot fly a published procedure."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Memory Hook"
+        },
+        {
+          "type": "text",
+          "text": "LSALT for the route, MSA for the worst day."
+        }
+      ],
+      "refs": [
+        {
+          "source": "AIP ENR 1.7",
+          "note": "Altimetry procedures including LSALT and MSA definitions",
+          "url": "https://www.airservicesaustralia.com/aip/aip.asp"
+        },
+        {
+          "source": "Part 91 MOS",
+          "note": "IFR minimum altitude requirements",
+          "url": "https://www.casa.gov.au/part-91-manual-standards"
+        }
+      ]
+    },
+    {
+      "id": "TRAP-007",
+      "title": "PBN/GNSS Failure Logic",
+      "categoryId": "pbn-gnss-raim",
+      "level": "advanced",
+      "estReadingMinutes": 5,
+      "tags": ["gnss", "failure", "pbn", "diversion", "navigation"],
+      "summary": "GNSS failure does not automatically mean immediate diversion. The correct response depends on phase of flight, available alternate navigation, and airspace requirements.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Misconception"
+        },
+        {
+          "type": "text",
+          "text": "When GNSS fails or RAIM is lost, pilots often believe they must immediately divert to the nearest aerodrome. This oversimplified response ignores the actual decision logic and may lead to poor choices."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Actual Rule"
+        },
+        {
+          "type": "text",
+          "text": "GNSS failure response depends on multiple factors: phase of flight, whether you have alternate navigation capability, airspace requirements, and the nature of the failure. The response is a structured decision process, not an automatic diversion."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Enroute with alternate nav (VOR/DME): revert to conventional navigation, advise ATC of capability change, continue to destination if approach is available",
+            "Enroute without alternate nav: advise ATC, request vectors or assistance, consider diversion to aerodrome with conventional approach",
+            "Terminal area: assess whether you can complete a conventional approach at destination or need to divert",
+            "On GNSS approach: RAIM loss before FAF means you cannot commence; after FAF you must discontinue unless you have approved backup guidance",
+            "Controlled vs uncontrolled airspace affects reporting requirements"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How an Examiner Will Frame It"
+        },
+        {
+          "type": "qa",
+          "question": "Enroute at FL250, your GNSS fails completely. You have DME/DME capability and there are VORs along your route. Destination has an ILS. Walk me through your decision process.",
+          "answer": "First, I confirm the failure and what navigation I still have. With DME/DME and VORs available, I can continue navigating conventionally. I advise ATC of my reduced navigation capability. I check that destination has a conventional approach I can use, which it does with the ILS. There is no need for immediate diversion; I can continue to destination and fly the ILS. If destination only had GNSS approaches, I would need to consider an alternate with conventional approaches."
+        },
+        {
+          "type": "qa",
+          "question": "Your aircraft has no conventional navigation capability. GNSS fails enroute in controlled airspace. What are your options?",
+          "answer": "This is a more serious situation. I advise ATC immediately that I have lost all navigation capability. I request radar vectors and assistance. My options are to obtain vectors to an aerodrome where I can complete a visual approach in VMC, or to request an ILS or VOR approach if ATC can vector me to final. If conditions are IMC throughout, I may need to declare an emergency to obtain priority handling and vectors to the nearest suitable aerodrome."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Memory Hook"
+        },
+        {
+          "type": "text",
+          "text": "GNSS fails? Check what you've got, then decide."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Part 91 MOS",
+          "note": "GNSS requirements and failure procedures",
+          "url": "https://www.casa.gov.au/part-91-manual-standards"
+        },
+        {
+          "source": "AIP ENR 1.5",
+          "note": "Navigation failure procedures and reporting",
+          "url": "https://www.airservicesaustralia.com/aip/aip.asp"
+        }
+      ]
+    },
+    {
+      "id": "TRAP-008",
+      "title": "RNP vs RNAV Naming Confusion",
+      "categoryId": "pbn-gnss-raim",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["rnp", "rnav", "pbn", "navigation", "monitoring"],
+      "summary": "RNP and RNAV are not interchangeable terms. RNP requires onboard performance monitoring and alerting that RNAV does not. This distinction affects what procedures you can fly.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Misconception"
+        },
+        {
+          "type": "text",
+          "text": "Pilots often use RNP and RNAV interchangeably, assuming they mean the same thing. Some believe any GPS-equipped aircraft can fly any RNP procedure. This confusion can lead to flying procedures the aircraft is not approved for."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Actual Rule"
+        },
+        {
+          "type": "text",
+          "text": "RNAV (Area Navigation) requires the aircraft to navigate within a specified accuracy. RNP (Required Navigation Performance) adds a requirement for onboard performance monitoring and alerting. The aircraft must be able to detect when it cannot meet the required performance and alert the crew. This is a fundamental difference in system capability."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "RNAV: navigate accurately within a specified lateral tolerance",
+            "RNP: RNAV plus onboard monitoring that confirms you are meeting the required performance",
+            "RNP systems alert the crew if performance degrades below the required level",
+            "An RNAV-only aircraft cannot fly RNP procedures, even if it can navigate accurately",
+            "RNP AR (Authorization Required) procedures have additional requirements and lower minima"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How an Examiner Will Frame It"
+        },
+        {
+          "type": "qa",
+          "question": "What is the fundamental difference between RNAV and RNP that affects which procedures you can fly?",
+          "answer": "The fundamental difference is onboard performance monitoring. RNAV requires the aircraft to navigate accurately, but does not require the system to monitor and confirm that accuracy. RNP requires the system to continuously monitor its own performance and alert me if it degrades below the required level. This monitoring capability is what allows RNP procedures to have tighter tolerances and lower minima."
+        },
+        {
+          "type": "qa",
+          "question": "Your aircraft is approved for RNAV 1 but not RNP 1. Can you fly an RNP 1 approach if you can navigate accurately enough?",
+          "answer": "No. Even if my navigation accuracy is sufficient, I cannot fly an RNP 1 approach without RNP 1 approval. The approval requires onboard performance monitoring and alerting capability, not just accurate navigation. Without that system capability, I am not approved for the procedure regardless of my actual track-keeping accuracy."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Memory Hook"
+        },
+        {
+          "type": "text",
+          "text": "RNP = RNAV plus monitoring."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Part 91 MOS",
+          "note": "PBN navigation specifications and requirements",
+          "url": "https://www.casa.gov.au/part-91-manual-standards"
+        },
+        {
+          "source": "AIP ENR 1.5",
+          "note": "PBN procedures and aircraft requirements",
+          "url": "https://www.airservicesaustralia.com/aip/aip.asp"
+        }
+      ]
+    },
+    {
+      "id": "TRAP-009",
+      "title": "Part 91 Rules \"Override\" Myth",
+      "categoryId": "regulatory-recency",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["part-91", "part-121", "part-135", "regulatory", "hierarchy"],
+      "summary": "Part 121 or Part 135 operations do not override Part 91. Part 91 always applies as the floor. Higher Parts add requirements; they cannot relax the baseline.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Misconception"
+        },
+        {
+          "type": "text",
+          "text": "Pilots sometimes believe that operating under Part 121 or Part 135 means Part 91 no longer applies. They think the AOC operation \"replaces\" the general operating rules, or that company procedures can override Part 91 requirements."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Actual Rule"
+        },
+        {
+          "type": "text",
+          "text": "Part 91 applies to all flights in Australian territory. Part 121 and Part 135 add requirements on top of Part 91; they do not replace or relax Part 91. A company operations manual can be more restrictive than Part 91 but cannot permit something Part 91 prohibits."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Part 91 is the regulatory floor for all operations",
+            "Part 121/135 layer additional requirements for air transport operations",
+            "If Part 91 requires something, Part 121/135 cannot waive it",
+            "Company procedures must meet or exceed Part 91 requirements",
+            "A company can prohibit circling at certain aerodromes but cannot authorise operations below Part 91 minima"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How an Examiner Will Frame It"
+        },
+        {
+          "type": "qa",
+          "question": "You operate under a Part 121 AOC. A colleague suggests that Part 91 fuel requirements do not apply because Part 121 has its own fuel rules. Is this correct?",
+          "answer": "No. Part 91 fuel requirements apply to all IFR flights. Part 121 typically adds additional fuel requirements, such as specific contingency percentages, but the Part 91 baseline always applies. Part 121 cannot reduce or waive Part 91 requirements; it can only add to them. I must comply with both Part 91 and Part 121 fuel requirements, using whichever is more restrictive."
+        },
+        {
+          "type": "qa",
+          "question": "Can a company operations manual authorise operations that Part 91 prohibits if the AOC holder believes it is safe?",
+          "answer": "No. Company operations manuals must comply with CASR and MOS requirements. They can add restrictions beyond the regulatory baseline but cannot relax regulatory requirements. If Part 91 or the MOS prohibits something, the company cannot authorise it through internal procedures, regardless of their safety assessment."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Memory Hook"
+        },
+        {
+          "type": "text",
+          "text": "Part 91 is the floor, never the ceiling."
+        }
+      ],
+      "refs": [
+        {
+          "source": "CASR Part 91",
+          "note": "General operating and flight rules applying to all operations",
+          "url": "https://www.legislation.gov.au/Series/F1998B00220"
+        },
+        {
+          "source": "CASR Part 121/135",
+          "note": "Air transport operations requirements"
+        }
+      ]
+    },
+    {
+      "id": "TRAP-010",
+      "title": "Alternate Requirements with Mixed Approach Types",
+      "categoryId": "minima-alternates-fuel",
+      "level": "advanced",
+      "estReadingMinutes": 5,
+      "tags": ["alternate", "minima", "approach", "planning", "weather"],
+      "summary": "Alternate minima vary by approach type. You must consider which approach you will actually be able to fly at the alternate, not just whether any approach exists.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Misconception"
+        },
+        {
+          "type": "text",
+          "text": "Pilots often assume that if an aerodrome has an approach and the TAF meets some alternate requirement, it qualifies as an alternate. They may not consider that different approach types have different alternate minima, or that the approach they would actually use may not be available."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Actual Rule"
+        },
+        {
+          "type": "text",
+          "text": "Alternate minima are specified for different approach types. A precision approach (ILS) typically has lower alternate minima than a non-precision approach. You must plan based on the approach type you will actually be able to fly at your ETA, considering equipment status, NOTAMS, and your aircraft capability."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Precision approach alternates typically require ceiling 600ft and visibility 3200m (or as published)",
+            "Non-precision approach alternates typically require higher minima",
+            "If the ILS is NOTAMed unserviceable, you cannot use ILS alternate minima",
+            "Consider GNSS RAIM prediction for RNAV approaches at the alternate",
+            "An aerodrome may have multiple approaches but only one may be usable at your ETA"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "How an Examiner Will Frame It"
+        },
+        {
+          "type": "qa",
+          "question": "Your alternate has an ILS and an RNAV approach. The ILS is NOTAMed unserviceable. The TAF shows conditions that meet ILS alternate minima but not RNAV alternate minima. Is this a valid alternate?",
+          "answer": "No. With the ILS unserviceable, I must use RNAV alternate minima, which the TAF does not meet. I cannot plan on ILS alternate minima when the ILS is not available. I need to find a different alternate where the forecast meets the minima for an approach I can actually fly."
+        },
+        {
+          "type": "qa",
+          "question": "How do you determine which alternate minima to use when an aerodrome has multiple approach types?",
+          "answer": "I use the minima for the approach I will actually fly. This means checking NOTAMs for equipment serviceability, RAIM prediction for GNSS approaches, my aircraft capability, and any other factors that might make an approach unavailable. If the only usable approach is the RNAV and the ILS is unserviceable, I apply RNAV alternate minima even if ILS minima would be lower."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Memory Hook"
+        },
+        {
+          "type": "text",
+          "text": "Match the alternate minima to the approach you'll actually fly."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Part 91 MOS",
+          "note": "Alternate aerodrome minima by approach type",
+          "url": "https://www.casa.gov.au/part-91-manual-standards"
+        },
+        {
+          "source": "AIP ENR 1.5",
+          "note": "Alternate planning requirements",
+          "url": "https://www.airservicesaustralia.com/aip/aip.asp"
+        }
+      ]
+    }
+  ]
+}

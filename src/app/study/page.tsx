@@ -1,22 +1,24 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { GoalIndicator } from "@/components/GoalIndicator";
 import { CategoryList } from "@/components/CategoryList";
 import { ModuleList } from "@/components/ModuleList";
 import { ModuleDetail } from "@/components/ModuleDetail";
 import { SearchBar } from "@/components/SearchBar";
 import { SectionSelector } from "@/components/SectionSelector";
+import { ProgramFilter } from "@/components/ProgramFilter";
 import { sections } from "@/data/sections";
 import { getSectionsForProgram } from "@/data/drillPrograms";
 import { useProgram } from "@/contexts/ProgramContext";
 import { useProgress } from "@/hooks/useProgress";
+import { cn } from "@/lib/utils";
 
 export default function StudyPage() {
-  const { programId } = useProgram();
+  const { programId, setProgramId } = useProgram();
   const { getStatus, setStatus, getCompletionStats } = useProgress();
+  const [showFilters, setShowFilters] = useState(false);
 
-  // Filter sections by program
+  // Filter sections by program (godmode/custom shows all by default)
   const programSections = useMemo(() => {
     const ids = getSectionsForProgram(programId, sections.map((s) => s.sectionId));
     return sections.filter((s) => ids.includes(s.sectionId));
@@ -100,7 +102,6 @@ export default function StudyPage() {
     const moduleStatus = getStatus(currentSection.sectionId, selectedModule.id);
     return (
       <div className="mx-auto max-w-[1100px] px-6 py-6">
-        <GoalIndicator />
         <ModuleDetail
           module={selectedModule}
           status={moduleStatus}
@@ -114,7 +115,38 @@ export default function StudyPage() {
   // Show category/module list view
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-6">
-      <GoalIndicator />
+      {/* Filter toggle */}
+      <div className="mb-4 flex justify-end">
+        <button
+          onClick={() => setShowFilters(!showFilters)}
+          className={cn(
+            "flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm transition-colors",
+            showFilters
+              ? "border-[var(--ifr-accent)] bg-[var(--ifr-accent)]/10 text-[var(--ifr-accent)]"
+              : "border-[var(--ifr-border)] bg-[var(--ifr-surface)] text-[var(--ifr-text-muted)] hover:border-[var(--ifr-accent)]/50"
+          )}
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+          </svg>
+          Filter by Program
+          {programId !== "godmode" && (
+            <span className="rounded-full bg-[var(--ifr-accent)] px-1.5 py-0.5 text-xs text-white">
+              1
+            </span>
+          )}
+        </button>
+      </div>
+
+      {/* Collapsible filter panel */}
+      {showFilters && (
+        <div className="mb-6 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+          <ProgramFilter
+            programId={programId}
+            onProgramChange={setProgramId}
+          />
+        </div>
+      )}
 
       {/* Section selector */}
       <SectionSelector
