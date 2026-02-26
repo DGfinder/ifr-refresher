@@ -97,9 +97,14 @@ export function ModuleDetail({
 
       {/* Content */}
       <div className="prose-custom">
-        {module.content.map((block, index) => (
-          <ContentBlock key={index} block={block} />
-        ))}
+        {[...module.content]
+          .sort((a, b) => {
+            const ORDER: Record<string, number> = { law: 0, numbers: 1, reference: 2 };
+            return (ORDER[a.type] ?? -1) - (ORDER[b.type] ?? -1);
+          })
+          .map((block, index) => (
+            <ContentBlock key={index} block={block} />
+          ))}
       </div>
 
       {/* References */}

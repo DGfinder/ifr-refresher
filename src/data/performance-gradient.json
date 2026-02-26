@@ -1,0 +1,128 @@
+{
+  "version": "1.0",
+  "sectionId": "performance-gradient",
+  "sectionTitle": "Performance & Gradient",
+  "sectionDescription": "Speed definitions for multi-engine operations, take-off and landing performance factors, and gradient rate reference.",
+  "categories": [
+    {
+      "id": "perf-gradient",
+      "title": "Performance & Gradient",
+      "description": "Aircraft performance standards, speed definitions, and climb gradient requirements for IFR operations.",
+      "moduleIds": ["PGR-001", "PGR-002", "PGR-003"]
+    }
+  ],
+  "modules": [
+    {
+      "id": "PGR-001",
+      "title": "Speed Definitions",
+      "categoryId": "perf-gradient",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["speeds", "VMCA", "VMCG", "VSSE", "VYSE", "multi-engine"],
+      "summary": "Definitions of critical multi-engine speed concepts used in IFR operations and flight test standards.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "VMCA — Minimum Control Speed, air (red radial): critical engine inoperative, live engine at take-off power, landing gear retracted, maximum 5 degrees bank towards live engine, propeller feathered (only for aircraft with automatic feathering devices). The minimum speed at which it is possible to maintain directional control of the aircraft with the critical engine inoperative.",
+            "VMCG — Minimum Control Speed, ground: critical engine inoperative, live engine at take-off power. The minimum speed, whilst on the ground, at which it is possible to maintain directional control using only aerodynamic controls.",
+            "VSSE — Single Engine Safety Speed: the speed below which intentional simulated engine failures should not be conducted. A manufacturer-stated speed intended to provide a margin above VMCA.",
+            "VYSE — Single Engine Best Rate of Climb Speed (blue radial): critical engine inoperative, live engine at take-off power, landing gear retracted. The speed at which the best rate of climb can be achieved with the critical engine inoperative."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "5° — maximum bank angle towards live engine for VMCA determination",
+            "VMCA — red radial on airspeed indicator",
+            "VYSE — blue radial on airspeed indicator"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Aircraft Flight Manual (aircraft-specific)",
+            "Part 61 MOS — flight test standards"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "PGR-002",
+      "title": "Aeroplane Weight and Performance Limitations",
+      "categoryId": "perf-gradient",
+      "level": "core",
+      "estReadingMinutes": 3,
+      "tags": ["performance", "take-off", "landing", "MTOW", "factors", "unfactored charts"],
+      "summary": "Recommended performance factors for small aeroplanes with unfactored AFM charts, covering both take-off and landing distance required.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 91.795 / Part 91 MOS 24.02 — Take-off performance: for small aeroplanes, AFM take-off performance charts are normally unfactored and often do not contain information for runway slope, surface conditions, or wind. It is the pilot's responsibility to be satisfied that the runway is long enough (CASR 91.410).",
+            "For aeroplanes with unfactored take-off performance charts, the following factors are recommended on the take-off distance required: (a) 1.15 for MTOW 2,000 kg or less; (b) 1.25 for MTOW 3,500 kg or greater; (c) between 2,000 kg and 3,500 kg, use linear interpolation.",
+            "CASR 91.800 / Part 91 MOS 25.02 — Landing performance: for small aeroplanes, AFM landing performance charts are normally unfactored and often do not contain information for runway slope, surface conditions, or wind. It is the pilot's responsibility to be satisfied that the runway is long enough (CASR 91.410).",
+            "For aeroplanes with unfactored landing performance charts, the following factors are recommended on the landing distance required: (a) 1.15 for MTOW 2,000 kg or less; (b) 1.43 for MTOW 4,500 kg or greater; (c) between 2,000 kg and 4,500 kg, use linear interpolation."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "1.15 — take-off distance factor for MTOW ≤ 2,000 kg",
+            "1.25 — take-off distance factor for MTOW ≥ 3,500 kg",
+            "1.15 — landing distance factor for MTOW ≤ 2,000 kg",
+            "1.43 — landing distance factor for MTOW ≥ 4,500 kg",
+            "2,000 kg / 3,500 kg — take-off interpolation breakpoints",
+            "2,000 kg / 4,500 kg — landing interpolation breakpoints"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 91.410",
+            "CASR 91.795",
+            "CASR 91.800",
+            "Part 91 MOS 24.02",
+            "Part 91 MOS 25.02",
+            "Part 91 Plain English Guide — Take-off performance",
+            "Part 91 Plain English Guide — Landing performance"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "PGR-003",
+      "title": "Gradient Rate Nomograph",
+      "categoryId": "perf-gradient",
+      "level": "core",
+      "estReadingMinutes": 1,
+      "tags": ["gradient", "climb", "nomograph", "missed approach", "departure"],
+      "summary": "Reference to the Airservices Australia gradient rate nomograph for converting between climb gradient (%) and rate of climb (ft/min) at a given groundspeed.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "The gradient rate nomograph provides a means of converting between required climb gradient (expressed as a percentage) and rate of climb (expressed in ft/min) for a given groundspeed.",
+            "The nomograph is used to verify that aircraft performance meets published departure or missed approach climb gradient requirements.",
+            "Rate of climb (ft/min) = gradient (%) × groundspeed (kt) × 0.1013 (approximately)."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "Gradient (%) × GS (kt) × 0.1013 ≈ ROC (ft/min)"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Airservices Australia DAP — GINTA01 Gradient Rate Nomograph"
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

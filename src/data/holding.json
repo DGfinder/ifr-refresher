@@ -1,0 +1,94 @@
+{
+  "version": "1.0",
+  "sectionId": "holding",
+  "sectionTitle": "Holding",
+  "sectionDescription": "Holding pattern sector entries and holding limitations including speed, timing, turns, and exit requirements.",
+  "categories": [
+    {
+      "id": "holding",
+      "title": "Holding",
+      "description": "Holding pattern procedures, sector entry methods, and speed and timing limitations.",
+      "moduleIds": ["HLD-001", "HLD-002"]
+    }
+  ],
+  "modules": [
+    {
+      "id": "HLD-001",
+      "title": "Sector Entries",
+      "categoryId": "holding",
+      "level": "core",
+      "estReadingMinutes": 3,
+      "tags": ["holding", "sector entry", "parallel entry", "teardrop", "offset", "direct entry", "DME arc"],
+      "summary": "Procedures for Sector 1 (parallel), Sector 2 (offset/teardrop), Sector 3 (direct), and DME arc entries into the holding pattern.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Sector 1 entry (Parallel Entry): (a) on reaching the holding fix, turn onto an outbound heading for the appropriate time (from over or abeam the fix, whichever is later), or until reaching the limiting DME distance if earlier; then (b) turn onto the holding side to intercept the inbound track or return to the fix; then (c) on second arrival over the holding fix, turn to follow the holding pattern.",
+            "Sector 2 entry (Offset/Teardrop Entry): (a) on reaching the holding fix, turn onto a heading to make good a track of 30° from the reciprocal of the inbound track on the holding side; then (b) fly outbound: (1) for the appropriate period of time from the fix (up to a maximum of 1 minute 30 seconds where timing specified); or (2) until the limiting DME distance is attained where distance is specified; then (c) turn in the direction of the holding pattern to intercept the inbound track; then (d) on second arrival over the holding fix, turn to follow the holding pattern.",
+            "Sector 3 entry (Direct Entry): on reaching the holding fix, turn to follow the holding pattern. Outbound timing begins abeam the fix, or when the abeam position cannot be determined, from completion of the outbound turn.",
+            "DME Arc Entry: having reached the fix, the aircraft must enter the holding pattern in accordance with either Sector 1 or Sector 3 entry procedure."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "30° — offset track angle from reciprocal of inbound track for Sector 2 entry",
+            "1 minute 30 seconds — maximum outbound time for Sector 2 entry (where timing specified)"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 3.4",
+            "JEPP TERMINAL — Holding Procedures Para 4"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "HLD-002",
+      "title": "Holding Limitations",
+      "categoryId": "holding",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["holding", "speed limit", "outbound timing", "bank angle", "wind allowance", "exit speed"],
+      "summary": "Speed, timing, turns, wind allowance, and exit requirements for holding patterns.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 3.3(a) — Speed: IAS must not exceed: up to and including FL140: 230 KIAS (170 KIAS where approach limited to Cat A and B only); above FL140: 240 KIAS; above FL200: 265 KIAS.",
+            "AIP ENR 1.5 Para 3.3(b) — Outbound timing begins abeam the fix or on attaining the outbound heading, whichever comes later.",
+            "AIP ENR 1.5 Para 3.3(c) — Time/Distance outbound: outbound leg must be no longer than: (1) up to and including FL140: 1 minute or the time/distance limit on the chart; (2) above FL140: 1.5 minutes or the time/distance limit on the chart.",
+            "AIP ENR 1.5 Para 3.3(d) — Turns: all turns in nil wind should be at a bank angle of 25° or rate one, whichever requires the lesser bank.",
+            "AIP ENR 1.5 Para 3.3(e) — Wind allowance: allowance should be made in heading and timing to compensate for wind to ensure the inbound track is regained before passing the holding fix inbound.",
+            "AIP ENR 1.5 Para 3.3(f) — Exiting: jet aircraft in CTA must leave an en route holding pattern at 250 KT IAS, unless otherwise published or advised by ATC. Pilots may request a variation."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "230 KIAS — maximum holding speed up to and including FL140",
+            "170 KIAS — maximum holding speed where approach limited to Cat A and B",
+            "240 KIAS — maximum holding speed above FL140",
+            "265 KIAS — maximum holding speed above FL200",
+            "1 minute — maximum outbound time up to and including FL140",
+            "1.5 minutes — maximum outbound time above FL140",
+            "25° — maximum bank angle for turns in nil wind (or rate one if less bank required)",
+            "250 KT IAS — exit speed for jet aircraft leaving en route holding in CTA"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 3.3",
+            "JEPP TERMINAL — Holding Procedures 3"
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "version": "1.0",
+  "sectionId": "administrative-part61",
+  "sectionTitle": "Administrative & Part 61",
+  "sectionDescription": "CASR Part 61 definitions, MOS authority, IPC validity, instrument rating privileges and limitations, recent experience requirements, and IFR aircraft equipment.",
+  "categories": [
+    {
+      "id": "adm-part61",
+      "title": "Administrative & Part 61",
+      "description": "Licensing definitions, rating privileges, recency, and equipment requirements for IFR operations.",
+      "moduleIds": [
+        "ADM-001",
+        "ADM-002",
+        "ADM-003",
+        "ADM-004",
+        "ADM-005",
+        "ADM-006"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "ADM-001",
+      "title": "Part 61 Definitions — Categories and Classes",
+      "categoryId": "adm-part61",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["Part 61", "definitions", "category", "class"],
+      "summary": "Defines the categories and classes of aircraft for the purposes of CASR Part 61.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 61.015 — Each of the following is a category of aircraft: (a) aeroplane; (b) helicopter; (c) powered-lift aircraft; (d) gyroplane; (e) airship.",
+            "CASR 61.020(1) — Each of the following is a class of aircraft: (a) single-engine aeroplane; (b) multi-engine aeroplane; (c) single-engine helicopter; (ca) powered-lift aircraft; (d) single-engine gyroplane; (e) airship.",
+            "CASR 61.020(2) — For this Part, the single-engine aeroplane class includes: (a) multi-engine centre-line thrust aeroplanes; and (b) multi-engine aeroplanes prescribed by legislative instrument under regulation 61.050."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 61.015",
+            "CASR 61.020"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ADM-002",
+      "title": "Part 61 Manual of Standards",
+      "categoryId": "adm-part61",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["Part 61", "MOS", "Manual of Standards"],
+      "summary": "CASA's authority to issue a Manual of Standards for Part 61, and the matters it may address.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 61.035(1) — CASA may issue a Manual of Standards for Part 61 setting out matters relating to flight crew licences.",
+            "CASR 61.035(2) — The MOS may set out standards for: approvals under reg 61.040; aeronautical and other knowledge required for the grant of a licence, rating or endorsement; flight training; other training and development requirements; flight tests; aviation and general English language proficiency; general operating competencies for aircraft of a particular class or type and activities authorised by operational ratings and endorsements; competency in the use of an airborne collision avoidance system; flight reviews; instrument proficiency checks; night vision imaging system proficiency checks; aerial application proficiency checks; instructor proficiency checks; competencies for glider pilot licences."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 61.035"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ADM-003",
+      "title": "Validity of an Instrument Proficiency Check",
+      "categoryId": "adm-part61",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["IPC", "instrument proficiency check", "validity", "recency"],
+      "summary": "Sets out the validity period of an instrument proficiency check, including the early renewal rule.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "An IPC is valid from the date the holder passes the flight test to the end of the 12th month after the month in which the holder passes the flight test.",
+            "Alternatively, an IPC is valid for the period during which the holder is successfully participating in an operator's training and checking system for an IFR operation in the relevant aircraft.",
+            "If the holder successfully completes an IPC within 3 months before the validity of the existing check expires, the new check is valid to the end of the 12th month after the validity of the existing check (not from the date of the new check)."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "12 months — standard IPC validity period, calculated from the end of the month of the pass",
+            "3 months — early renewal window before expiry; backdated validity applies"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 61.880 para 3"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ADM-004",
+      "title": "Privileges and Limitations of an Instrument Rating",
+      "categoryId": "adm-part61",
+      "level": "core",
+      "estReadingMinutes": 3,
+      "tags": ["instrument rating", "privileges", "limitations", "circling", "single pilot"],
+      "summary": "Defines what the holder of an instrument rating is authorised to do, and the conditions and limitations that apply.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 61.855 — The holder of an instrument rating is authorised to pilot an aircraft: (a) under the IFR; or (b) at night under the VFR.",
+            "CASR 61.860 — Conduct an instrument approach only if the aircraft is equipped for that kind of operation.",
+            "CASR 61.860 — Pilot an aircraft in a single-pilot operation under the IFR only if, at some time in the past, the holder has passed an instrument rating flight test in a single-pilot aircraft or has completed an IPC in a single-pilot aircraft.",
+            "CASR 61.860 — Conduct a circling approach under the IFR only if: (a) the instrument rating flight test within the previous 12 months included a circling approach; or (b) the most recent IPC (or operator's proficiency check covering IFR operations, conducted by a flight examiner holding an IFR flight test endorsement) included a circling approach; or (c) the holder is successfully participating in an operator's training and checking system for an operation that includes circling approaches.",
+            "CASR 61.860 — Conduct an instrument approach only if the holder has completed training in the conduct of that approach and has demonstrated competence to CASA or an examiner."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "12 months — recency of instrument rating flight test for circling approach privilege"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 61.855",
+            "CASR 61.860",
+            "CASR 61.880",
+            "Subpart 61.E"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ADM-005",
+      "title": "Recent Experience Requirements",
+      "categoryId": "adm-part61",
+      "level": "core",
+      "estReadingMinutes": 3,
+      "tags": ["recent experience", "currency", "90 days", "single pilot", "IFR"],
+      "summary": "Sets out the recent experience requirements for exercising IFR privileges, including category-specific, approach-type-specific, and single-pilot requirements.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 61.870 — To fly under the IFR: must have conducted at least 3 instrument approach operations within the previous 90 days (in an aircraft or approved FSTD).",
+            "CASR 61.870 — To pilot an aircraft of a particular category: must have conducted at least 1 instrument approach in an aircraft of the same category within the previous 90 days.",
+            "CASR 61.870 — For a 2D approach: must have conducted at least 1 two-dimensional instrument approach within the previous 90 days.",
+            "CASR 61.870 — For a 3D approach: must have conducted at least 1 three-dimensional instrument approach within the previous 90 days.",
+            "CASR 61.870 — For azimuth guidance: must have conducted at least 1 two-dimensional instrument approach using azimuth guidance within the previous 90 days.",
+            "CASR 61.870 — For CDI use: must have conducted at least 1 instrument approach using a course deviation indicator within the previous 90 days.",
+            "CASR 61.870 — All the above requirements are met if the holder: (a) has successfully completed an operator proficiency check covering IFR operations within the previous 3 months; or (b) is successfully participating in an operator's training and checking system for an IFR operation.",
+            "CASR 61.875 — Single-pilot IFR: authorised to pilot an aircraft under the IFR in a single-pilot operation only if the holder has conducted a flight or simulated flight under the IFR in a single-pilot operation within the previous 6 months, with a duration of at least 1 hour, including at least 1 instrument approach or simulated instrument approach."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "3 approaches — minimum within previous 90 days to exercise IFR privileges",
+            "90 days — general IFR recent experience window",
+            "3 months — operator proficiency check window that satisfies all recent experience requirements",
+            "6 months — single-pilot IFR recent experience window",
+            "1 hour — minimum duration of qualifying single-pilot IFR flight"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 61.870",
+            "CASR 61.875"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ADM-006",
+      "title": "Aircraft Equipment — IFR",
+      "categoryId": "adm-part61",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["equipment", "IFR", "instruments", "altitude alerting", "lighting"],
+      "summary": "Minimum equipment requirements for IFR aeroplane operations under Part 91 MOS, including instruments, altitude alerting, inoperative equipment, lighting, and navigation lights.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 26.08 — IFR aeroplane must be equipped with: Approved GNSS; AI with primary and alternate power supply (unless independent of T+S or a second AI is required); ASI with pitot heat on at least one; ALT with alternate static source or balanced pair of flush static ports; VSI with alternate static source or balanced pair of flush static ports; T+S (slip only if second AI available; primary and alternate power supply unless independent or second AI available); DG with primary and alternate power supply (unless independent of T+S or second AI available); Compass; OAT; Clock (may be worn). All gyroscopic instruments must include equipment to show adequate power supply.",
+            "Part 91 MOS 26.25(1) — Altitude alerting system required for: piston-engine aircraft operating in controlled airspace above FL 150; unpressurised turbine-engine aircraft operating in controlled airspace above FL 150; pressurised turbine-engine aircraft operating in any controlled airspace.",
+            "Part 91 MOS 26.25(2) — Altitude alerting equipment must: include an assigned altitude indicator; alert flight crew if the aircraft approaches a preselected altitude; alert flight crew including by aural warning if the aircraft deviates from a preselected altitude.",
+            "Part 91 MOS 26.25(3) — Any aircraft (other than those in 26.25(1)) operating IFR in controlled airspace must at minimum be fitted with altitude alerting equipment that includes an assigned altitude indicator.",
+            "Part 91 MOS 26.04 — All required equipment must be operative unless: (a) another section of this Chapter provides otherwise (refer Part 91 MOS 28); or (b) the equipment is inoperative due to a defect approved as a permissible unserviceability, and is fitted or carried in accordance with that permissible unserviceability.",
+            "Part 91 MOS 26.21 — Cockpit lighting must: illuminate equipment, checklists and documents; be compatible with each item of equipment; allow reading of placards and instrument markings with eyes shielded from direct and reflected light; be of variable intensity. Cabin lighting required for seatbelt, oxygen, normal and emergency exits. Independent portable light required for each flight crew member.",
+            "Part 91 MOS 26.22 — Anti-collision lights: 1 red beacon, or 2 white strobes, or a combination of these.",
+            "Part 91 MOS 26.23 — When operating by night: at least 1 landing light required.",
+            "Part 91 MOS 26.24 — When operating by night: navigation lights must be fitted."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "FL 150 — altitude above which piston and unpressurised turbine aircraft require altitude alerting in controlled airspace",
+            "1 red beacon OR 2 white strobes — anti-collision light minimum requirement"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 91 MOS 26.04",
+            "Part 91 MOS 26.08",
+            "Part 91 MOS 26.21",
+            "Part 91 MOS 26.22",
+            "Part 91 MOS 26.23",
+            "Part 91 MOS 26.24",
+            "Part 91 MOS 26.25"
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

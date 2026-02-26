@@ -77,6 +77,55 @@ export function ContentBlock({ block }: ContentBlockProps) {
         </div>
       );
 
+    case "law":
+      return (
+        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            The Law
+          </p>
+          <ul className="space-y-2">
+            {block.content.map((item, i) => (
+              <li key={i} className="leading-relaxed text-foreground/90">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+
+    case "numbers":
+      if (!block.content.length) return null;
+      return (
+        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Key Numbers
+          </p>
+          <ul className="ml-4 list-disc space-y-1">
+            {block.content.map((item, i) => (
+              <li key={i} className="text-foreground/90">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+
+    case "reference":
+      return (
+        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Reference
+          </p>
+          <ul className="space-y-1">
+            {block.content.map((item, i) => (
+              <li key={i} className="font-mono text-sm text-foreground/80">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+
     default:
       return null;
   }

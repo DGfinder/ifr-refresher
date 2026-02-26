@@ -1,0 +1,699 @@
+{
+  "version": "1.0",
+  "sectionId": "approaches",
+  "sectionTitle": "Approaches",
+  "sectionDescription": "Instrument approach procedures including types of approaches, QNH requirements, operating minima, approach ban, LSALT, descent rules, circling, procedure turns, speeds, tolerances, DME/GNSS arrivals, visual approaches, landing minima, missed approach, and go-around in VMC.",
+  "categories": [
+    {
+      "id": "approaches-setup",
+      "title": "Approach Setup & Authorisation",
+      "description": "Pre-approach requirements, QNH, aerodrome operating minima, and approach ban.",
+      "moduleIds": ["APR-001", "APR-002", "APR-003", "APR-004", "APR-005"]
+    },
+    {
+      "id": "approaches-descent",
+      "title": "Descent & Circling",
+      "description": "Descent below MDA/DA, circling approaches, circling areas, and procedure turns.",
+      "moduleIds": ["APR-006", "APR-007", "APR-008", "APR-009"]
+    },
+    {
+      "id": "approaches-speeds-tolerances",
+      "title": "Speeds & Tolerances",
+      "description": "Approach speeds by aircraft category and instrument approach tolerances.",
+      "moduleIds": ["APR-010", "APR-011", "APR-012"]
+    },
+    {
+      "id": "approaches-dme-gnss",
+      "title": "DME / GNSS Arrivals",
+      "description": "DME and GNSS arrival procedures, general rules and controlled airspace operations.",
+      "moduleIds": ["APR-013", "APR-014"]
+    },
+    {
+      "id": "approaches-visual",
+      "title": "Visual Approaches",
+      "description": "Visual approach authorisation by ATC and pilot-initiated visual approach requirements.",
+      "moduleIds": ["APR-015", "APR-016"]
+    },
+    {
+      "id": "approaches-minima-missed",
+      "title": "Minima & Missed Approach",
+      "description": "Landing minima, missed approach triggers, navigational tolerance, and go-around in VMC.",
+      "moduleIds": ["APR-017", "APR-018", "APR-019"]
+    }
+  ],
+  "modules": [
+    {
+      "id": "APR-001",
+      "title": "Types of Instrument Approaches",
+      "categoryId": "approaches-setup",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["instrument approach", "2D", "3D", "NDB", "VOR", "ILS", "RNAV", "GNSS", "RNP"],
+      "summary": "Classification of instrument approaches into 2D and 3D types, and the specific approach types within each category.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Instrument Approach 2D (non-precision): NDB; VOR; DME or GNSS Arrival Procedure; RNP APCH LNAV; RNP APCH LP (previously RNAV (GNSS)); LLZ.",
+            "Instrument Approach 3D (precision/APV): ILS; MLS; GLS; RNP LNAV/VNAV (Baro); RNP LPV.",
+            "Azimuth guidance operations (2D using azimuth): NDB (using ADF); ILS; LLZ; RNP APCH LNAV; RNP APCH LP (previously RNAV (GNSS)); RNP LNAV/VNAV (Baro); RNP LPV; VOR.",
+            "Course deviation indicator operations (2D using CDI): DME or GNSS Arrival Procedure (using a CDI); VOR; DME/GNSS Arrival Procedure (using a CDI)."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 61 MOS Volume 2, Schedule 2, Section 5 — Operational Rating and Endorsement Standards"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-002",
+      "title": "Setting QNH Before IAF",
+      "categoryId": "approaches-setup",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["QNH", "IAF", "approach", "TAF QNH", "area QNH", "minima", "100FT"],
+      "summary": "QNH requirements prior to passing the IAF, approved sources, validity, and effect on published minima.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 14.03 / AIP ENR 1.5 Para 5.3 — Prior to passing the IAF, pilots must set either: (a) the actual aerodrome QNH from an approved source; or (b) the Forecast Aerodrome (TAF) QNH; or (c) the forecast Area QNH.",
+            "Where Airservices Australia approach charts show a shaded background to minima titles (IAL charts) or published minima (DME or GNSS Arrivals), the minima have been calculated using TAF QNH. These minima may be reduced by 100FT whenever an actual aerodrome QNH is set.",
+            "Jeppesen charts have minima for both actual aerodrome QNH and forecast aerodrome QNH.",
+            "Approved sources of actual QNH: ATC and ATIS (when not endorsing TAF QNH), AWIS, and Bureau of Meteorology accredited meteorological observers. An actual aerodrome QNH from an approved source is valid for 15 minutes from the time of receipt. METAR QNH does not meet this requirement.",
+            "When actual aerodrome QNH is not available, ATC will report TAF QNH on the ATIS: 'ACTUAL QNH NOT AVAILABLE, AERODROME FORECAST QNH...'. Forecast QNH reported by ATC or on ATIS is not an approved source of actual QNH.",
+            "Where the forecast Area QNH is used, the minima used must be increased by 50FT."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "100FT — reduction in minima when actual QNH replaces TAF QNH (Airservices charts)",
+            "50FT — addition to minima when Area QNH is used",
+            "15 minutes — validity of actual aerodrome QNH from an approved source"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 91 MOS 14.03",
+            "AIP ENR 1.5 Para 5.3",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures 7.3"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-003",
+      "title": "Aerodrome Operating Minima",
+      "categoryId": "approaches-setup",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["AOM", "operating minima", "MDA", "DA", "landing minima", "operator"],
+      "summary": "How aerodrome operating minima are determined and the factors that may require them to be set higher than published landing minima.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 1.18 — Landing minima are published on Australian approach charts as MDA/H or DA/H. Obstacle Clearance Altitude/Height is not published. Landing minima are the basis for determining AOM.",
+            "Operators must establish AOM for each aerodrome to be used for operations. After consideration of the following factors, operators may determine that their AOM should be higher than the published landing minima: (a) the type, performance and handling characteristics of the aeroplane; (b) the composition, experience and competence of the flight crew; (c) the means used to determine and report meteorological conditions."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 1.18",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures 2.6"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-004",
+      "title": "Approach Ban for IFR Flights",
+      "categoryId": "approaches-setup",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["approach ban", "RVR", "1000FT", "TDZ", "low visibility", "CASR 91.310"],
+      "summary": "The approach ban rule preventing descent below 1,000 ft AAL when RVR is continuously reported below landing minima.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 91.310 / Part 91 MOS 16 — For an aircraft conducting an IAP at an aerodrome that has an ATC service in operation and for which RVR reports are available for IAPs to the relevant runway: the PIC must not descend below 1,000FT AAL where the TDZ RVR (for other than low-visibility operations) or controlling zone RVR (for low-visibility operations) is reported by ATC as continually less than the landing minima for the IAP.",
+            "Despite the above, the PIC may continue the IAP if already below 1,000FT AAL when this information is received."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "1,000FT AAL — approach ban trigger height"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 91.310",
+            "Part 91 MOS 16"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-005",
+      "title": "Flying Below Lowest Safe Altitude",
+      "categoryId": "approaches-setup",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["LSALT", "lowest safe altitude", "IFR", "exceptions", "VIVAT"],
+      "summary": "The general prohibition on flight below published LSALT under IFR and the permitted exceptions (VIVAT mnemonic).",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 91.305 / AIP GEN 3.3 Para 4 — An aircraft must not be flown under the IFR lower than the published lowest safe altitude or the lowest safe altitude calculated in accordance with this section, unless permitted by CASR 91.265, 91.267 and 91.305 or another civil aviation legislation provision.",
+            "Exceptions to flying below LSALT (VIVAT mnemonic): Visual approach or departure; Instrument approach or departure; VMC by day; ATC clearance; Take-off or landing."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 91.265",
+            "CASR 91.267",
+            "CASR 91.305",
+            "AIP GEN 3.3 Para 4",
+            "JEPP ATC — Climb and Cruise 3.6.4"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-006",
+      "title": "Descent Below the Straight-in MDA or DA",
+      "categoryId": "approaches-descent",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["MDA", "DA", "descent", "visual reference", "VMC mnemonic", "APV"],
+      "summary": "Conditions that must be met before descending below the straight-in MDA or continuing below the DA during an APV.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 1.7.2 — Descent below the straight-in MDA, or continuation of the approach below the DA during APVs, may only occur when all three conditions are met (VMC mnemonic): (V) visual reference can be maintained; (M) all elements of the meteorological minima are equal to or greater than those published for the aircraft performance category (AIP ENR 1.5 Para 5.1.1); (C) the aircraft is continuously in a position from which a descent to a landing on the intended runway can be made at a normal rate of descent using normal flight manoeuvres, allowing touchdown within the touchdown zone.",
+            "Note: VMC in the above mnemonic does not mean visual meteorological conditions."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 1.7.2",
+            "AIP ENR 1.5 Para 5.1.1",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures 4.17.2"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-007",
+      "title": "Circling Approaches and Visual Circling",
+      "categoryId": "approaches-descent",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["circling", "MDA", "visual circling", "no-circling sector", "obstacle clearance"],
+      "summary": "Conditions for descent below circling MDA during visual circling, restrictions on circling, and day/night differences.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 1.6.6 — During visual circling, descent below the circling MDA may only occur when the pilot (VMC Day Obstacle Night MDA mnemonic): (a) maintains the aircraft within the circling area; and (b) maintains a visibility along the intended flight path not less than the minimum specified on the chart; and (c) maintains visual contact with the landing runway environment (runway threshold, approach lighting or other markings identifiable with the runway); and EITHER by day, while complying with (a), (b), (c): maintains visual contact with obstacles along the intended flight path and an obstacle clearance not less than the minimum for the aircraft performance category until aligned with the landing runway; OR by day and night: from a position within the circling area on the downwind, base or final leg, completes a continuous descent from MDA to the threshold using rates of descent and manoeuvres normal to the aircraft type.",
+            "AIP ENR 1.5 Para 1.6.2 — Visual circling is prohibited in 'no circling' sectors by day in less than VMC and at night.",
+            "After initial visual contact, the basic assumption is that the runway environment will be kept in sight while at the MDA for circling.",
+            "The visual circling procedure conducted at or above the circling MDA will provide protection from obstacles within the circling area. Spot heights on IAL charts do not necessarily indicate the highest terrain or all obstacles in the circling area. Before commencing an approach, pilots should familiarise themselves with obstacle locations by studying an appropriate topographic map."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 1.6.2",
+            "AIP ENR 1.5 Para 1.6.6",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures 4.16.2",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures 4.16.6"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-008",
+      "title": "Circling Areas",
+      "categoryId": "approaches-descent",
+      "level": "core",
+      "estReadingMinutes": 1,
+      "tags": ["circling area", "aircraft category", "obstacle clearance", "radius"],
+      "summary": "Circling area radii and minimum obstacle clearance heights by aircraft performance category.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 1.6.6 — Circling areas and obstacle clearance by aircraft category: Category A: 1.68NM radius, 300FT obstacle clearance; Category B: 2.66NM radius, 300FT obstacle clearance; Category C: 4.20NM radius, 400FT obstacle clearance; Category D: 5.28NM radius, 400FT obstacle clearance; Category E: 6.94NM radius, 500FT obstacle clearance."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "Cat A: 1.68NM radius, 300FT obstacle clearance",
+            "Cat B: 2.66NM radius, 300FT obstacle clearance",
+            "Cat C: 4.20NM radius, 400FT obstacle clearance",
+            "Cat D: 5.28NM radius, 400FT obstacle clearance",
+            "Cat E: 6.94NM radius, 500FT obstacle clearance"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 1.6.6",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures 4.16.6"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-009",
+      "title": "Procedure Turns",
+      "categoryId": "approaches-descent",
+      "level": "core",
+      "estReadingMinutes": 1,
+      "tags": ["procedure turn", "reversal procedure", "holding", "base turn"],
+      "summary": "Reference to AIP reversal procedures for procedure turns used during instrument approaches.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 2.8 — Reversal procedures (procedure turns) are depicted on applicable instrument approach charts. The procedure turn must be flown in accordance with the published chart. Unless the chart specifies otherwise, the procedure turn must be completed within the protected area depicted on the chart.",
+            "A procedure turn is not required when the approach is conducted: (a) using radar vectors to the final approach course; (b) from a holding fix; (c) where the chart is annotated 'NoPT'; or (d) when a straight-in procedure is available and approved."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 2.8",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures Para 4.10"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-010",
+      "title": "Approach Speeds",
+      "categoryId": "approaches-speeds-tolerances",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["approach speeds", "VAT", "aircraft category", "circling speed", "missed approach speed"],
+      "summary": "Aircraft performance category VAT thresholds and associated initial, intermediate, final, circling, and missed approach speed limits.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 1.15 — Approach speed categories are defined by VAT (speed at threshold with full landing configuration at maximum certified landing weight). Category A: VAT < 91 kt; Category B: VAT 91–120 kt; Category C: VAT 121–140 kt; Category D: VAT 141–165 kt; Category E: VAT 166–210 kt; Helicopter (H): N/A.",
+            "Initial and intermediate approach speeds: Cat A 90–150 kt (110 kt max for reversals); Cat B 120–180 kt (140 kt max for reversals); Cat C 160–240 kt; Cat D 185–250 kt; Cat E 185–250 kt; H 70–120 kt.",
+            "Final approach speeds: Cat A 70–100 kt; Cat B 85–130 kt; Cat C 115–160 kt; Cat D 130–185 kt; Cat E 155–230 kt; H 60–90 kt.",
+            "Maximum speeds for circling: Cat A 100 kt; Cat B 135 kt; Cat C 180 kt; Cat D 205 kt; Cat E 240 kt; H N/A.",
+            "Maximum speeds for missed approach: Cat A 110 kt; Cat B 150 kt; Cat C 240 kt; Cat D 265 kt; Cat E 275 kt; H 90 kt."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "Cat A VAT < 91 kt | Final 70–100 kt | Max circling 100 kt | Max missed 110 kt",
+            "Cat B VAT 91–120 kt | Final 85–130 kt | Max circling 135 kt | Max missed 150 kt",
+            "Cat C VAT 121–140 kt | Final 115–160 kt | Max circling 180 kt | Max missed 240 kt",
+            "Cat D VAT 141–165 kt | Final 130–185 kt | Max circling 205 kt | Max missed 265 kt",
+            "Cat E VAT 166–210 kt | Final 155–230 kt | Max circling 240 kt | Max missed 275 kt",
+            "110 kt — max speed for reversal procedures (Cat A); 140 kt — Cat B"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 1.15",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures Para 2.3"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-011",
+      "title": "Instrument Approach Tolerances — Flight Tests",
+      "categoryId": "approaches-speeds-tolerances",
+      "level": "core",
+      "estReadingMinutes": 1,
+      "tags": ["tolerances", "flight test", "instrument approach", "Part 61 MOS"],
+      "summary": "Instrument approach tolerances as specified in Part 61 MOS for flight test assessment purposes.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 61 MOS Volume 4, Schedule 8, Section 1, Table 5 — Instrument approach tolerances for flight tests are published in the Part 61 MOS and are used to assess pilot performance during instrument rating and IPC flight tests. Pilots must fly within these tolerances during any assessed approach."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 61 MOS Volume 4, Schedule 8, Section 1, Table 5"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-012",
+      "title": "Instrument Approach Tolerances — ILS",
+      "categoryId": "approaches-speeds-tolerances",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["ILS", "tolerances", "localiser", "glideslope", "half-scale", "full-scale", "missed approach"],
+      "summary": "Flight tolerances for ILS and GLS approaches, including the requirement to verify glidepath/altimeter at the fix and mandatory missed approach on full-scale deflection.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 7.3 — The final approach segment contains a fix at which the glide path/altimeter relationship should be verified. If the check indicates an unexplained discrepancy, the ILS/GLS approach should be discontinued.",
+            "Pilots must conform to the following flight tolerances: (a) to ensure obstacle clearance, both LOC/GLS final approach course and glideslope should be maintained within half-scale deflection (or equivalent on expanded scale); (b) if at any time during the approach after the FAP the LOC/GLS final approach course or glideslope indicates full-scale deflection, a missed approach should be commenced."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "Half-scale deflection — maximum tolerated LOC and glideslope deviation during ILS/GLS approach",
+            "Full-scale deflection — mandatory missed approach trigger (LOC or glideslope, after FAP)"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 7.3",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures Para 2.7.3.1"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-013",
+      "title": "DME or GNSS Arrivals — General",
+      "categoryId": "approaches-dme-gnss",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["DME arrival", "GNSS arrival", "sector", "FAF", "azimuth", "circling"],
+      "summary": "General rules for DME or GNSS arrival procedures, including descent authorisation, sector containment, and applicable subsections.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 11 — The DME or GNSS Arrival Procedure is an instrument approach procedure that provides descent guidance along a specified track or sector, to the visual circling area of an aerodrome. Azimuth guidance is required from the specified radio navigation aid. The requirements of AIP ENR 1.5 subsections 1.6, 1.9 and 1.13 apply.",
+            "Descent is not permitted until the aircraft is established within the appropriate sector or on the specified inbound track.",
+            "If manoeuvring within a sector is required, the pilot must ensure that the aircraft is contained within the sector, at or above the appropriate segment minimum safe altitude. Manoeuvring within a sector after passing the final approach fix is prohibited."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 11",
+            "AIP ENR 1.5 Para 1.6",
+            "AIP ENR 1.5 Para 1.9",
+            "AIP ENR 1.5 Para 1.13",
+            "JEPP TERMINAL — DME/GNSS Arrival Procedures"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-014",
+      "title": "DME or GNSS Arrivals — Operations in Controlled Airspace",
+      "categoryId": "approaches-dme-gnss",
+      "level": "core",
+      "estReadingMinutes": 3,
+      "tags": ["DME arrival", "GNSS arrival", "CTA", "clearance", "altitude restriction", "holding prohibited"],
+      "summary": "ATC clearance requirements, altitude restriction rules, and holding prohibitions for DME and GNSS arrivals in controlled airspace.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 11 — The clearance 'CLEARED DME (or GNSS) ARRIVAL' constitutes a clearance for final approach and authorises descent to the minimum altitude specified in the procedure. ATC is not permitted to impose any altitude restriction on such a clearance.",
+            "When cleared for a DME or GNSS Arrival in controlled airspace, an aircraft must not orbit, enter a holding pattern, or use holding pattern entry procedures. ATC will not issue a clearance that involves holding pattern entry.",
+            "When ATC cannot issue a clearance for an unrestricted arrival, the phrase 'DESCEND TO (level) NOT BELOW DME (or GNSS) STEPS' may be used. Such an instruction authorises descent in accordance with the DME or GNSS steps only to the specified altitude.",
+            "ATC may clear an aircraft to intercept the final approach segment of another instrument approach procedure using the phrase 'DESCEND TO (level) NOT BELOW DME (or GNSS) STEPS' with further instructions prior to reaching the cleared level.",
+            "Note 1: Where the track is not aligned with the landing runway, a clearance for a DME or GNSS Arrival includes a clearance to manoeuvre within the circling area to position the aircraft on final for landing.",
+            "Note 2: Some procedures commence in, or can take the aircraft into, Class G airspace on descent. Pilots should check procedures to ensure containment in CTA where required. Where possible, procedures are designed to provide 500FT separation from the CTA lower limit."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "500FT — minimum separation from CTA lower limit designed into DME/GNSS arrival procedures (where possible)"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 11",
+            "JEPP TERMINAL — DME/GNSS Arrival Procedures"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-015",
+      "title": "Visual Approaches — Rules Related to ATC",
+      "categoryId": "approaches-visual",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["visual approach", "ATC", "MVA", "30NM", "visibility", "vectoring"],
+      "summary": "Conditions under which ATC may issue a visual approach clearance, by day and night.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.1 Para 2.11.3.1 — ATC may issue a visual approach when (day and night): the aircraft is within 30NM of the aerodrome; the aircraft has continuous visual reference to ground or water; visibility is at least 5,000M; if being vectored, the aircraft is at or above the assigned MVA; and ATC issues heading or tracking instructions to intercept final or to position within the circling area."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "30NM — maximum distance from aerodrome for ATC to issue visual approach (day and night)",
+            "5,000M — minimum visibility for ATC-issued visual approach"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.1 Para 2.11.3.1",
+            "JEPP ATC — Departure, Approach and Landing Procedures 1.9.3.1"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-016",
+      "title": "Visual Approach Requirements for IFR Flights",
+      "categoryId": "approaches-visual",
+      "level": "core",
+      "estReadingMinutes": 3,
+      "tags": ["visual approach", "IFR", "pilot-initiated", "30NM", "5NM", "CTA", "PAPI", "glideslope"],
+      "summary": "Conditions under which an IFR pilot may discontinue or not commence an IAP and conduct a visual approach, with altitude and track requirements.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 1.14 — Pilot-initiated visual approach (day only): an IFR pilot need not commence or may discontinue an IAP when: within 30NM of the aerodrome; clear of cloud; in sight of ground or water; visibility at least 5,000M or aerodrome in sight.",
+            "The pilot must maintain at an altitude not less than: if in CTA — 500FT above the lower limit of the CTA unless clearance received to depart and re-enter CTA; LSALT/MSA, DGA step, or last assigned altitude if being vectored (CASR 91.265 or 91.267).",
+            "The pilot must maintain track/heading on the route authorised until within 5NM of the aerodrome, or within 3NM with aerodrome in sight if no IAP or not authorised to use IAP or if VFR.",
+            "Night pilot-initiated visual approach: within 30NM; visibility at least 5,000M.",
+            "At night, the pilot may discontinue the IAP early if: within 5NM on PAPI; within 7NM on PAPI (ILS runway); within 10NM on glideslope; or within 14NM on YSSY runways 16L and 34L established not below glideslope and less than full-scale azimuth deflection."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "30NM — maximum distance for pilot-initiated visual approach (day)",
+            "5,000M — minimum visibility for pilot-initiated visual approach",
+            "500FT — minimum margin above CTA lower limit when conducting visual approach",
+            "5NM — track maintenance requirement before visual manoeuvring (day, aerodrome in sight with IAP)",
+            "3NM — track maintenance requirement (no IAP or VFR)",
+            "5NM — on PAPI (night, may discontinue IAP)",
+            "7NM — on PAPI, ILS runway (night, may discontinue IAP)",
+            "10NM — on glideslope (night, may discontinue IAP)",
+            "14NM — YSSY 16L/34L, established on GS, less than full-scale azimuth deflection"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 1.14",
+            "CASR 91.265",
+            "CASR 91.267",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures 4.19"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-017",
+      "title": "Landing Minima",
+      "categoryId": "approaches-minima-missed",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["landing minima", "DA", "MDA", "RVR", "visibility", "approach lighting", "circling"],
+      "summary": "Minimum altitude and visibility requirements for precision/APV and non-precision approaches, including lighting system failure adjustments and circling.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 15.10(1) — For RNP APCH-LNAV/VNAV, RNP APCH-LPV, or precision approach: minimum altitude is the highest of: (a) the DA/DH on the approach chart; (b) relevant minima in the AFM; (c) relevant minima in the operator's exposition or operations manual.",
+            "Part 91 MOS 15.10(2) — For RNP APCH-LNAV/VNAV, RNP APCH-LPV, or precision approach: minimum visibility is the highest of: (a) the RVR or visibility on the chart; (b) relevant AFM minima; (c) relevant exposition/operations manual minima; (d) 800M if TDZ RVR not available or approach lighting beyond 420M from threshold is inoperative; (e) 1,200M if: approach cannot be flown to at least landing minima using a flight director, HUD, or autopilot; or aircraft not equipped with operative failure warning for primary attitude/heading reference; or high intensity runway edge lighting not in operation; or approach lighting beyond 210M from threshold is inoperative; (f) 1,500M if approach lighting system normally available is inoperative; (g) 1.5 × published RVR/visibility if lighting failure causes doubled spacing of runway edge lights.",
+            "Part 91 MOS 15.10(3) — For RNP APCH-LNAV, RNP APCH-LP, or other NPA: minimum altitude is the highest of: (a) the MDA/MDH on the chart; (b) relevant AFM minima; (c) relevant exposition/operations manual minima.",
+            "Part 91 MOS 15.10(4) — For RNP APCH-LNAV, RNP APCH-LP, or other NPA: minimum visibility is the highest of: (a) the visibility on the chart; (b) relevant AFM minima; (c) relevant exposition/operations manual minima; (d) if approach lighting normally available is inoperative — published visibility plus a value equivalent to the published length of the approach lighting system.",
+            "Part 91 MOS 15.10(5) — For a circling manoeuvre: minimum altitude is the highest of the circling minimum altitude on the chart, relevant AFM minima, or relevant exposition/operations manual minima.",
+            "Part 91 MOS 15.10(6) — For a circling manoeuvre: minimum visibility is the highest of the circling minimum visibility on the chart, relevant AFM minima, or relevant exposition/operations manual minima."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "800M — minimum visibility when TDZ RVR unavailable or approach lighting beyond 420M inoperative (precision/APV)",
+            "420M — threshold distance for approach lighting affecting 800M minimum",
+            "1,200M — minimum visibility when no FD/HUD/AP, no failure warning, no HIRL, or lighting beyond 210M inoperative",
+            "210M — threshold distance for approach lighting affecting 1,200M minimum",
+            "1,500M — minimum visibility when entire approach lighting system inoperative",
+            "1.5× — multiplier applied to published RVR/visibility when runway edge lights are doubled-spaced"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 91 MOS 15.10"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-018",
+      "title": "Missed Approaches",
+      "categoryId": "approaches-minima-missed",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["missed approach", "ROFL mnemonic", "RAIM", "navigational tolerance", "circling", "MAPT"],
+      "summary": "Triggers requiring a missed approach to be executed, and the definition of navigational tolerance.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 15.11 / AIP ENR 1.5 Para 1.9.1 — A missed approach must be executed (ROFL mnemonic): (S) straight-in landing cannot be effected unless a circling approach can be conducted in weather conditions equal to or better than those specified for circling; (N) not visual when reaching the DA/RA height or MAPT; (R) RAIM warning or loss of RAIM after the IAF or when below the MSA; (O) outside navigational tolerance during the final segment; (F) failure of aid or suspect aid and below MSA; (L) lost visual reference during circling.",
+            "Part 91 MOS 1.07 — Navigational tolerance means: (a) for PBN operations — the RNP value for the segment; (b) for VOR or LOC-based operations — full-scale deflection of the CDI; (c) for NDB-based operations — ±5° from the specified bearing; (d) for DME-based operations — ±2NM from the required arc; (e) for operations based on visual navigation — 1NM from the cleared track."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "Full-scale CDI deflection — navigational tolerance for VOR/LOC operations",
+            "±5° — navigational tolerance for NDB operations",
+            "±2NM — navigational tolerance for DME arc operations",
+            "1NM — navigational tolerance for visual navigation"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 91 MOS 1.07",
+            "Part 91 MOS 15.11",
+            "AIP ENR 1.5 Para 1.9.1",
+            "AIP ENR 1.5 Para 1.11",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures Para 4.12.1",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures Para 4.14"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "APR-019",
+      "title": "Go Around and Missed Approach Procedure in VMC",
+      "categoryId": "approaches-minima-missed",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["go around", "missed approach", "VMC", "visual approach", "runway track", "Class D parallel"],
+      "summary": "Procedures for go-arounds from visual approaches in VMC and for instrument approaches in VMC, including special Class D parallel runway procedures.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.1 Para 2.14 — An aircraft required to go around from a visual approach in VMC must initially climb on runway track, remain visual, and await instructions from ATC. If the aircraft cannot clear obstacles on runway track, the aircraft may turn.",
+            "If an aircraft is unable or does not wish to land from an instrument approach in VMC, it must carry out the published instrument missed approach procedure for the approach being flown, unless ATC directs otherwise.",
+            "At Class D aerodromes with parallel runways where contra-rotating circuit operations are in progress, if ATC instructs or a pilot initiates a go around, the pilot must: (a) commence climb to circuit altitude; (b) position the aircraft on the active side and parallel to the nominated duty runway, while maintaining separation from other aircraft; and (c) follow ATC instructions or re-enter the circuit from upwind."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.1 Para 2.14",
+            "JEPP ATC — Departure, Approach and Landing Procedures Para 1.12"
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

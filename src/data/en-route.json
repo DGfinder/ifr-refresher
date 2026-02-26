@@ -1,0 +1,122 @@
+{
+  "version": "1.0",
+  "sectionId": "en-route",
+  "sectionTitle": "En Route",
+  "sectionDescription": "Altimeter setting rules for QNH and transition layers, IFR navigation requirements, and deviation tolerances in controlled airspace.",
+  "categories": [
+    {
+      "id": "en-route",
+      "title": "En Route",
+      "description": "IFR en route procedures including altimeter setting, navigation requirements, and ATC deviation notification.",
+      "moduleIds": ["ENR-001", "ENR-002", "ENR-003"]
+    }
+  ],
+  "modules": [
+    {
+      "id": "ENR-001",
+      "title": "Local QNH, Area QNH and Transition Layers",
+      "categoryId": "en-route",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["QNH", "area QNH", "transition layer", "altimeter", "1013", "transition altitude"],
+      "summary": "Rules for altimeter settings below and above the transition altitude, and the timing of transitions between QNH and 1013.2 hPa.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.7 Para 2 — At or below the transition altitude, the altimeter setting must be: (a) the current local QNH (accurate or forecast) of a station along the route within 100NM of the aircraft; or (b) the current forecast Area QNH. QNH is available from a reporting station (AAIS, ATIS, AWIS, CA/GRS, VOLMET or WATIR), a TAF, the Area QNH forecast, or from ATS.",
+            "For an operation above the transition altitude, the altimeter setting must be 1013.2 hPa.",
+            "On climb: the altimeter setting must be changed from QNH to 1013.2 hPa after passing 10,000FT and before levelling off.",
+            "On descent: just before passing the transition layer, the altimeter setting must be changed from 1013.2 hPa to the relevant altimeter setting (local QNH or Area QNH as applicable)."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "100NM — maximum distance from reporting station for local QNH to be used",
+            "1013.2 hPa — standard altimeter setting above transition altitude",
+            "10,000FT — altitude after which QNH must be changed to 1013.2 hPa on climb (before levelling off)"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.7 Para 2",
+            "JEPP ATC — General Flight Procedures 1.2"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ENR-002",
+      "title": "Navigation Requirements Under the IFR",
+      "categoryId": "en-route",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["navigation", "IFR", "RNAV", "radio fix", "GNSS", "two hours"],
+      "summary": "Methods by which an aircraft operating under the IFR must be navigated, including area navigation, radio navigation, and visual reference.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.1 Para 4.1 — An aircraft operating under the IFR must be navigated by: (a) an approved area navigation system that meets performance requirements of the intended airspace or route; or (b) use of a radio navigation system or systems where, after allowing for tracking errors of ±9° from the last positive fix, the aircraft will come within the rated coverage of a radio aid that can be used as a fix. The maximum time interval between fixes must not exceed 2 hours; or (c) visual reference to the ground or water by day, on route segments where suitable en route radio navigation aids are not available, provided weather conditions permit VMC and visual position fixing requirements of AIP ENR 1.1 Para 4.1.2.1.b are able to be met.",
+            "Note: distance able to be flown = 6.66 × rated coverage. Maximum 2-hour interval between fixes still applies. A fix can be achieved before station passage with GNSS or co-located DME within rated coverage."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "±9° — maximum tracking error allowance from last positive fix for radio navigation",
+            "2 hours — maximum time interval between fixes under IFR",
+            "6.66 × rated coverage — maximum distance able to be flown using radio navigation"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.1 Para 4.1",
+            "AIP ENR 1.1 Para 4.1.2.1.b",
+            "JEPP ATC — General Flight Procedures 5.1"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ENR-003",
+      "title": "Deviations in Controlled Airspace",
+      "categoryId": "en-route",
+      "level": "core",
+      "estReadingMinutes": 1,
+      "tags": ["deviation", "ATC", "navigation tolerance", "NDB", "VOR", "RNP", "RNAV", "DME"],
+      "summary": "Navigation deviation tolerances requiring immediate notification to ATC when exceeded in controlled airspace.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.1 Para 4.6.2 — The pilot must immediately notify ATC for any of the following deviations: NDB: ±5°; LOC/VOR: half-scale deflection; RNP/RNAV: outside the prescribed RNP/RNAV value; DME: ±2NM; Visual: 1NM."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "±5° — NDB deviation requiring ATC notification",
+            "Half-scale deflection — LOC/VOR deviation requiring ATC notification",
+            "Outside prescribed RNP/RNAV value — RNP/RNAV deviation requiring ATC notification",
+            "±2NM — DME deviation requiring ATC notification",
+            "1NM — visual navigation deviation requiring ATC notification"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.1 Para 4.6.2",
+            "JEPP ATC — General Flight Procedures 5.6"
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "version": "1.0",
+  "sectionId": "miscellaneous-technical",
+  "sectionTitle": "Miscellaneous Technical",
+  "sectionDescription": "Technical reference tables: transponder codes, VHF theoretical range formula, radar and ADS-B coverage, and light signals to aircraft.",
+  "categories": [
+    {
+      "id": "misc-technical",
+      "title": "Miscellaneous Technical",
+      "description": "Reference tables and technical data for IFR operations.",
+      "moduleIds": ["MSC-001", "MSC-002", "MSC-003", "MSC-004"]
+    }
+  ],
+  "modules": [
+    {
+      "id": "MSC-001",
+      "title": "Transponder Codes",
+      "categoryId": "misc-technical",
+      "level": "core",
+      "estReadingMinutes": 1,
+      "tags": ["transponder", "squawk", "SSR", "codes"],
+      "summary": "Standard SSR transponder codes for different flight rule and airspace combinations in Australian airspace.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "VFR in Class E or G or OCTA: squawk 1200.",
+            "IFR OCTA: squawk 2000.",
+            "IFR in Class E or civil flights in CTA: squawk 3000.",
+            "Special purpose codes (e.g. 7600 communications failure, 7700 emergency) take precedence over the above."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "1200 — VFR in Class E, Class G, or OCTA",
+            "2000 — IFR OCTA",
+            "3000 — IFR in Class E or civil flights in CTA",
+            "7600 — communications failure",
+            "7700 — emergency"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.6 Para 7.1.4",
+            "JEPP ATC — ATS Surveillance Services and Procedures 7.1.4"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "MSC-002",
+      "title": "VHF Theoretical Maximum Range",
+      "categoryId": "misc-technical",
+      "level": "core",
+      "estReadingMinutes": 1,
+      "tags": ["VHF", "range", "radio", "formula", "communications"],
+      "summary": "Formula for calculating the theoretical maximum range of VHF radio transmissions based on transmitter elevation and receiver height.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "To determine the theoretical maximum range of VHF transmissions: d = 1.23 × (√Htx + √Hrx), where d = distance in NM, Htx = elevation in feet of transmitter, Hrx = height in feet above ground level of receiver."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "1.23 — constant in VHF range formula",
+            "d (NM) = 1.23 × (√Htx + √Hrx)"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "General aviation technical knowledge"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "MSC-003",
+      "title": "Radar and ADS-B Coverage",
+      "categoryId": "misc-technical",
+      "level": "core",
+      "estReadingMinutes": 1,
+      "tags": ["radar", "ADS-B", "surveillance", "coverage"],
+      "summary": "Reference to Airservices Australia radar and ADS-B coverage charts for Australian airspace.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Radar and ADS-B coverage in Australian airspace is depicted on charts published by CASA and Airservices Australia. Coverage varies by altitude and geographic location. ADS-B coverage at or above 5000FT is depicted on the Airservices Australia ADS-B 5000FT coverage chart.",
+            "Pilots operating IFR must be aware of whether they are within radar or ADS-B coverage, as this affects communications failure procedures and ATC surveillance capability."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "5000FT — reference altitude for ADS-B coverage charts"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASA — Chapter 4 Surveillance and ADS-B",
+            "Airservices Australia ADS-B 5000ft Coverage Chart"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "MSC-004",
+      "title": "Light Signals to Aircraft",
+      "categoryId": "misc-technical",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["light signals", "ATC", "tower", "radio failure", "visual signals"],
+      "summary": "ATC light signal meanings for aircraft in flight and on the airport, and acknowledgement procedures.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Steady green — in flight: authorised to land if pilot satisfied no collision risk exists; on airport: authorised to take-off if pilot satisfied no collision risk exists.",
+            "Steady red — in flight: give way to other aircraft and continue circling; on airport: stop.",
+            "Green flashes — in flight: return for landing; on airport: authorised to taxi if pilot satisfied no collision risk exists.",
+            "Red flashes — in flight: airport unsafe, do not land; on airport: taxi clear of landing area in use.",
+            "White flashes — in flight: no significance; on airport: return to starting point on airport.",
+            "Aircraft acknowledgement in flight — by day: rock wings (not expected on base and final); by night: flash landing lights twice or, if not equipped, flash navigation lights twice.",
+            "Aircraft acknowledgement on the ground — by day: move ailerons or rudder; by night: flash landing lights twice or, if not equipped, flash navigation lights twice."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 12",
+            "JEPP ATC — Airports and Ground Aids 4"
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "version": "1.0",
+  "sectionId": "airspace-atc-services",
+  "sectionTitle": "Airspace & ATC Services",
+  "sectionDescription": "Communications failure procedures, VMC definitions, and ATC phraseology for Class G, D and C airports.",
+  "categories": [
+    {
+      "id": "atc-procedures",
+      "title": "Airspace & ATC Services",
+      "description": "Communications failure, meteorological conditions, and phraseology for operating in Australian airspace.",
+      "moduleIds": ["ATC-001", "ATC-002", "ATC-003", "ATC-004", "ATC-005"]
+    }
+  ],
+  "modules": [
+    {
+      "id": "ATC-001",
+      "title": "Communications Failure",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 5,
+      "tags": ["communications failure", "squawk 7600", "SARTIME", "comms"],
+      "summary": "Procedures to follow in the event of communications failure, covering in-flight and on-ground indications, and actions in VMC, IMC, controlled and uncontrolled airspace.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Indications by an aircraft in flight — by day: rock wings; by night: flash landing lights twice or, if not equipped, flash navigation lights twice.",
+            "Indications by an aircraft on the ground — by day: waggle ailerons or rudder; by night: flash landing lights twice or, if not equipped, flash navigation lights twice.",
+            "If VFR in Class G airspace: (a) remain in VMC; (b) broadcast intentions prefixed 'TRANSMITTING BLIND'; (c) remain VFR in Class G and land at the nearest suitable aerodrome; (d) report arrival to ATS if on SARTIME or reporting schedules (SAR 1800 815 257).",
+            "If in controlled/restricted airspace or IFR in any airspace: (a) squawk 7600; (b) listen out on ATIS and/or voice modulated NAVAIDs; (c) transmit intentions and make normal position reports prefixed 'TRANSMITTING BLIND'. AND if in VMC and certain of maintaining VMC: stay in VMC and land at the most suitable aerodrome.",
+            "If in IMC or uncertain of maintaining VMC: (b) if no clearance limit received, proceed in accordance with the latest ATC route clearance acknowledged and climb to planned level; (c) if a clearance limit involving an altitude or route restriction has been received and acknowledged: (i) maintain last assigned level or MSA if higher for 3 minutes and/or (ii) hold at nominated location for 3 minutes, then (iii) proceed in accordance with the latest ATC route clearance acknowledged and climb to planned level.",
+            "If receiving an ATS surveillance service: (i) climb to MSA/LSALT; (ii) if being vectored, maintain last assigned vector for 2 minutes; then (iii) proceed in accordance with the latest ATC route clearance acknowledged.",
+            "If holding: (i) fly one more complete holding pattern; then (ii) proceed in accordance with the latest ATC route clearance acknowledged.",
+            "Destination procedures: (a) track to destination in accordance with flight plan; (b) commence descent in accordance with SOPs or flight plan; (c) descend to the initial approach altitude for the most suitable approach aid in accordance with published procedures; (d) carry out the approach to prescribed minima.",
+            "Actions at minima: (a) if visual at an uncontrolled aerodrome, continue to land provided a safe landing can be accomplished; if visual at a controlled aerodrome, continue to land only if clearance received via voice modulated NAVAID and/or light signal from Tower; (b) if not visual at minima, depart for a suitable alternate; (c) if insufficient fuel to divert, may hold or carry out additional approaches until visual; (d) certain Class D aerodromes have specific comms failure procedures shown in the FAC section."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "7600 — transponder code for communications failure",
+            "3 minutes — hold at nominated location before proceeding on last ATC clearance (IMC/uncertain VMC)",
+            "2 minutes — maintain last assigned vector before proceeding (if receiving surveillance service)"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "ERSA EMERG 1.5",
+            "JEPP EMERG — Emergency Procedures 3"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ATC-002",
+      "title": "Visual Meteorological Conditions",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["VMC", "VFR", "visibility", "cloud clearance", "airspace"],
+      "summary": "Minimum meteorological conditions for VFR flight in Class G, E, D and C airspace, including the special low-level Class G provision.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Class G VMC: 5000M (8KM above 10,000 ft); clear of cloud 1500M horizontal / 1000FT vertical. When below 3000FT AMSL or 1000FT AGL (whichever is higher), may remain clear of cloud and in sight of ground or water if radio carried and used on appropriate frequency.",
+            "Class E VMC: 5000M (8KM above 10,000 ft); clear of cloud 1500M horizontal / 1000FT vertical.",
+            "Class D VMC: 5000M visibility; clear of cloud 600M horizontal / 1000FT above / 500FT below.",
+            "Class C VMC: 5000M (8KM above 10,000 ft); clear of cloud 1500M horizontal / 1000FT vertical."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "5000M — visibility minimum (all classes below 10,000 ft)",
+            "8KM — visibility minimum above 10,000 ft (Class G, E, C)",
+            "1500M horizontal / 1000FT vertical — cloud clearance (Class G, E, C standard)",
+            "600M horizontal / 1000FT above / 500FT below — cloud clearance (Class D)",
+            "3000FT AMSL or 1000FT AGL — threshold for special Class G low-level provision"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 91 MOS Section 2.07"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ATC-003",
+      "title": "Class G Airports — Phraseology",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["phraseology", "Class G", "radio", "position report", "SARWATCH"],
+      "summary": "Standard radio phraseology for IFR operations at Class G airports, including taxi, departure reports, inbound calls, and SARWATCH cancellation.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Taxi: '[Centre] [Callsign] POB [number] IFR Taxiing [destination] For [aerodrome] RWY [number]'.",
+            "Departure report (in ADS-B or SSR coverage): '[Centre] [Callsign] [distance and direction of fix] Passing [altitude] Climbing to [level] Estimating [fix] at [time]'.",
+            "Departure report (outside ADS-B or SSR coverage): '[Centre] [Callsign] Departed [aerodrome] [time] Tracking [to intercept] [track] Climbing to [level] Estimating [fix] at [time]'.",
+            "Departure report (where radio contact unable to be established on ground, SARWATCH needed): '[Centre] [Callsign] Airborne [aerodrome] [time] Tracking [to intercept] [track] Climbing to [level] Estimating [fix] at [time]'.",
+            "Inbound (leaving CTA on descent): '[Centre] And all stations [aerodrome] [Callsign] [distance and direction] Leaving [level] Estimating [circuit/fix] [time] Centre and all stations [aerodrome]'.",
+            "Cancel SAR: '[Centre] [Callsign] Landed [aerodrome] Cancel SARWATCH'."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP GEN 3.4 Para 6",
+            "JEPP ATC — Communications 7"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ATC-004",
+      "title": "Class D Airports — Phraseology",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["phraseology", "Class D", "clearance", "taxi", "departure report"],
+      "summary": "Standard radio phraseology for IFR operations at Class D airports, including clearance delivery, taxi, departure reports, and inbound calls.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Airways clearance (where Delivery frequency specified): '[Aerodrome] Delivery [Callsign] To [destination] Request clearance'.",
+            "Airways clearance (where no Delivery frequency): '[Aerodrome] Ground [Callsign] To [destination] Request clearance'.",
+            "Taxi: '[Aerodrome] Ground [Callsign] POB [number] Information [ATIS] IFR Request taxi'.",
+            "Tower transfer (at holding point, ready): '[Aerodrome] Tower [Callsign] Ready'.",
+            "Departure report (tracking): '[Aerodrome] Tower [Callsign] Tracking [track] from the [aid] Climbing to [level]'.",
+            "Departure report (via SID): '[Aerodrome] Tower [Callsign] Tracking via the [SID name] Climbing to [level]'.",
+            "Inbound: '[Aerodrome] Tower [Callsign] Information [ATIS] [distance] miles on the [radial] radial Descending to [level] [Visual]'."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP GEN 3.4 Para 6",
+            "JEPP ATC — Communications 7"
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ATC-005",
+      "title": "Class C Airports — Phraseology",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["phraseology", "Class C", "clearance", "airborne report", "SID"],
+      "summary": "Standard radio phraseology for IFR operations at Class C airports, including clearance delivery, taxi, airborne reports, and first contact with approach.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Airways clearance (where Delivery frequency specified): '[Aerodrome] Delivery [Callsign] To [destination] Request clearance'.",
+            "Airways clearance (where no Delivery frequency): '[Aerodrome] Ground [Callsign] To [destination] Request clearance'.",
+            "Taxi: '[Aerodrome] Ground [Callsign] POB [number] Information [ATIS] IFR Request taxi'.",
+            "Tower transfer (at holding point, ready): '[Aerodrome] Tower [Callsign] Ready'.",
+            "Airborne report (SID with assigned heading): '[Aerodrome] Departures [Callsign] Turning [left/right] [heading] Passing [altitude] Climbing to [level]'.",
+            "Airborne report (maintain runway heading): '[Aerodrome] Departures [Callsign] Maintaining runway heading Passing [altitude] Climbing to [level]'.",
+            "Airborne report (procedural SID, no heading assigned): '[Aerodrome] Departures [Callsign] Passing [altitude] Climbing to [level]'.",
+            "Airborne report (assigned heading approximates runway bearing): '[Aerodrome] Departures [Callsign] Heading [heading] Passing [altitude] Climbing to [level]'.",
+            "First contact with approach: '[Aerodrome] Approach [Callsign] Cleared to [level] Information [ATIS] [Visual]'."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP GEN 3.4 Para 6",
+            "JEPP ATC — Communications 7"
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

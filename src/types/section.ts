@@ -28,7 +28,30 @@ export interface HierarchyBlock {
   items: string[];
 }
 
-export type ContentBlock = TextBlock | HeadingBlock | ListBlock | QABlock | HierarchyBlock;
+export interface LawBlock {
+  type: "law";
+  content: string[];
+}
+
+export interface NumbersBlock {
+  type: "numbers";
+  content: string[];
+}
+
+export interface ReferenceBlock {
+  type: "reference";
+  content: string[];
+}
+
+export type ContentBlock =
+  | TextBlock
+  | HeadingBlock
+  | ListBlock
+  | QABlock
+  | HierarchyBlock
+  | LawBlock
+  | NumbersBlock
+  | ReferenceBlock;
 
 export interface Reference {
   source: string;
