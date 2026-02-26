@@ -23,7 +23,7 @@ interface SessionPresetsProps {
 
 export function SessionPresets({ activePreset, onSelectPreset }: SessionPresetsProps) {
   return (
-    <div className="mb-6 flex gap-2 overflow-x-auto pb-2 md:justify-center md:overflow-visible md:pb-0">
+    <div className="flex gap-2 overflow-x-auto pb-2 md:overflow-visible md:pb-0">
       {presets.map((preset) => {
         const isActive = preset.id === activePreset;
         return (
