@@ -1,0 +1,527 @@
+{
+  "version": "1.0",
+  "sectionId": "advanced-ifr-regs-airline-ops",
+  "sectionTitle": "Advanced IFR Regs & Airline Operations",
+  "sectionDescription": "High-leverage interview and sim topics across Parts 91, 61, 135 and 121: airspace & services, take-off minima, PBN specifics, equipment requirements, lost comms, single-pilot vs multi-crew IFR, RVSM and airline-style operational control.",
+  "categories": [
+    {
+      "id": "adv-ifr-regs",
+      "title": "Advanced IFR Regulatory & Airline Ops",
+      "description": "Where Part 91, 61, 135, 121, AIP and airline SOPs actually bite in day-to-day IFR operations.",
+      "moduleIds": [
+        "ADV-001",
+        "ADV-002",
+        "ADV-003",
+        "ADV-004",
+        "ADV-005",
+        "ADV-006",
+        "ADV-007",
+        "ADV-008"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "ADV-001",
+      "title": "Airspace, Services and Class E/Procedural Nuance",
+      "categoryId": "adv-ifr-regs",
+      "level": "advanced",
+      "estReadingMinutes": 10,
+      "tags": [
+        "airspace",
+        "ENR 1.1",
+        "class-e",
+        "radar",
+        "procedural",
+        "svfr"
+      ],
+      "summary": "How AIP ENR 1.1 translates into real services: radar vs procedural separation, Class E transitions, what ATC guarantees, and where you're still very much on your own.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "Airspace classes and ATC services sound academic until you realise they define what you can actually expect from the system. Airline and 135 interviewers want to know if you understand where ATC owns the problem and where you absolutely still own it."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Radar vs procedural separation – what changes?"
+        },
+        {
+          "type": "qa",
+          "question": "How would you explain the difference between radar separation and procedural separation to an interviewer in one clear answer?",
+          "answer": "With radar separation, ATC has real-time position information and can separate aircraft tactically with headings, speeds and levels. With procedural separation, especially in non-radar environments, ATC relies on flight plans, estimates and position reports to keep aircraft apart. In radar airspace I still monitor, but I expect tactical vectors; in procedural airspace I know that my accurate reporting and timing are critical to the safety net."
+        },
+        {
+          "type": "qa",
+          "question": "In a non-radar Class G/low-level environment, what does ATC not provide you that you might subconsciously expect from radar environments?",
+          "answer": "They are not providing radar-based separation or constant monitoring of your exact position. I cannot assume they will see a conflict developing and step in. What they do provide is information, flight following where available, and sometimes procedural separation between IFR flights, but the granularity and responsiveness are very different from radar environments."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "IFR in Class E and the transition from Class G"
+        },
+        {
+          "type": "qa",
+          "question": "When you climb from Class G into Class E as IFR, what changes in terms of separation and responsibilities?",
+          "answer": "In Class G I am responsible for separating myself from other traffic, with ATC providing information when possible. When I enter Class E as IFR, ATC provides separation between IFR aircraft, but VFR aircraft are only required to receive traffic information. I still have to maintain a good lookout whenever I'm in VMC, but I can expect positive separation from other IFR traffic in Class E."
+        },
+        {
+          "type": "qa",
+          "question": "In Class E, are IFR aircraft separated from VFR aircraft? How would you phrase that precisely in an interview?",
+          "answer": "In Class E, ATC provides separation between IFR aircraft. VFR aircraft are not separated from IFR by ATC; they receive traffic information as far as practical. So as IFR I get separation from other IFR flights, but I still need to be alert for VFR traffic that may be in my vicinity."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Special VFR vs IFR"
+        },
+        {
+          "type": "qa",
+          "question": "How would you explain Special VFR to a panel, and when would you prefer to just go IFR instead?",
+          "answer": "Special VFR allows a VFR flight to operate in a control zone in conditions below standard VMC minima, under a clearance with additional restrictions. In practice, if I am instrument-rated and the aircraft is equipped, I would usually prefer to operate IFR once conditions are marginal. IFR gives me clearer terrain and separation protections. Special VFR is more of a tool for non-IFR aircraft than a go-to for an instrument-rated pilot in an IFR-capable aircraft."
+        }
+      ],
+      "refs": [
+        {
+          "source": "AIP",
+          "section": "ENR 1.1",
+          "note": "General rules, airspace classification and services."
+        },
+        {
+          "source": "CASR",
+          "part": "91",
+          "note": "Responsibilities in controlled and uncontrolled airspace."
+        }
+      ]
+    },
+    {
+      "id": "ADV-002",
+      "title": "IFR Equipment Requirements and Single-Pilot vs Multi-Crew",
+      "categoryId": "adv-ifr-regs",
+      "level": "advanced",
+      "estReadingMinutes": 10,
+      "tags": [
+        "equipment",
+        "IFR",
+        "part-91",
+        "single-pilot",
+        "multi-crew"
+      ],
+      "summary": "What equipment must be serviceable for IFR, where Part 91 draws the line, and how single-pilot IFR expectations differ from multi-crew airline operations.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "You don't need to recite full equipment lists, but you must know what's non-negotiable and how to think when something is inop. Panel questions in this area are really about your judgement under MEL/defect pressure."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Big-ticket IFR equipment ideas"
+        },
+        {
+          "type": "qa",
+          "question": "If an interviewer says: \"Walk me through how you think about equipment for IFR,\" what are the main points you'd hit?",
+          "answer": "I'd say I start with regulatory minima under Part 91 for IFR, then operator or Part 135/121 requirements, and finally the MEL. I check that I have the required instruments and nav/comm equipment for the route, approach type and airspace, including redundancy appropriate to the operation. If something is inop, I check whether it is allowed to be inoperative at all, whether there are operational limitations, and whether that leaves me comfortable with the risk for this particular flight rather than just technically legal."
+        },
+        {
+          "type": "qa",
+          "question": "From a high-level perspective, what equipment areas are you most focused on for IFR? You don't need to list every instrument.",
+          "answer": "I'm focused on attitude and performance instruments, altimetry, pitot-static system, navigation and communication equipment, anti-ice and de-ice where needed, and lighting for night operations. I'm also thinking about redundancy – for example, dual altimeters for certain operations, backup attitude sources and appropriate nav options if GNSS or a navaid fails."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Single-pilot IFR vs multi-crew expectations"
+        },
+        {
+          "type": "qa",
+          "question": "What are the major differences in expectation between single-pilot IFR under Part 91/135 and multi-crew airline IFR under Part 121?",
+          "answer": "Single-pilot IFR expects me to manage everything alone – aviate, navigate, communicate, manage automation and make decisions in real time. Under Part 121 the same technical rules exist, but they are embedded in SOPs, callouts, briefings and division of duties. I would tell the panel that my single-pilot IFR background has built a strong personal scan and workload management foundation, and that I'm ready to adapt that into a multi-crew environment where communication and shared mental models become just as important as flying skill."
+        },
+        {
+          "type": "qa",
+          "question": "How might equipment expectations tighten as you move from private IFR to 135 and then 121 operations?",
+          "answer": "Private IFR may legally allow more flexibility or minimal redundancy provided the rules are met, but 135 and especially 121 operations usually work to a higher internal standard. MELs can be stricter than the bare legal minimum, and an item that might be an inconvenience in private IFR could be a no-go in 135/121 because you're carrying passengers on a scheduled or commercial basis. I'd explain that I expect fewer \"it'll be right\" assumptions and more no-go decisions as the operation becomes more structured."
+        }
+      ],
+      "refs": [
+        {
+          "source": "CASR",
+          "part": "91",
+          "note": "IFR equipment and operating requirements."
+        },
+        {
+          "source": "CASR",
+          "part": "135",
+          "note": "Additional requirements for air transport in smaller aircraft."
+        },
+        {
+          "source": "CASR",
+          "part": "121",
+          "note": "Larger air transport operations."
+        }
+      ]
+    },
+    {
+      "id": "ADV-003",
+      "title": "Take-Off Minima, RVR and Lighting – Single-Pilot vs Airline",
+      "categoryId": "adv-ifr-regs",
+      "level": "advanced",
+      "estReadingMinutes": 11,
+      "tags": [
+        "take-off-minima",
+        "RVR",
+        "lighting",
+        "part-91",
+        "part-135",
+        "part-121"
+      ],
+      "summary": "How take-off minima, RVR and lighting combinations work, and how the rules harden as you move from single-pilot IFR to commercial and airline operations.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "Take-off minima are an easy area to be hand-wavy about: \"good enough, we'll see\". That's exactly what examiners and panels are listening for. They want to hear disciplined logic about when you go and when you wait."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Conceptual take-off minima structure"
+        },
+        {
+          "type": "qa",
+          "question": "How would you explain the point of take-off minima to a panel, without quoting numbers?",
+          "answer": "Take-off minima ensure that if we lose an engine or need to reject or go airborne into marginal conditions, we still have a safe path and a reasonable chance of staying within obstacle and visual limits. They factor in runway length, obstacles, lighting and crew/aircraft capability. I'd frame it as: they're there so we don't roll down a runway into conditions where an engine failure leaves us with no safe options."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "RVR, visibility and lighting – big ideas"
+        },
+        {
+          "type": "qa",
+          "question": "If asked generally: \"What drives how low your take-off RVR can be?\" what would you say?",
+          "answer": "It's a mix of runway lighting, marking, centreline and edge lights, reported RVR, aircraft equipment like auto-callouts and sometimes auto-thrust/auto-brake, and whether you're single-pilot or multi-crew under a particular approval. Better lighting and equipment, plus strong SOPs, allow lower RVR; weaker infrastructure and single-pilot operations require more conservative minima."
+        },
+        {
+          "type": "qa",
+          "question": "How does being single-pilot IFR typically change your take-off minima thinking compared with a two-crew airline jet?",
+          "answer": "Single-pilot IFR has higher workload and fewer cross-checks, so I'm looking for more margin. Even if a bare minimum is technically legal, I'd be more conservative in low visibility, especially at night. In a two-crew jet with strong SOPs, automation, better runway lighting and clear roles, we can safely operate at lower RVR under specific approvals. I'd tell a panel that as a single pilot I bias towards better than minimum conditions, not trying to emulate airline-level low-vis operations."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Lighting failures and take-off decisions"
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: You are ready to depart at night with good visibility, but some runway lights become unserviceable. What are you thinking about before accepting the take-off?",
+          "answer": "I'm thinking about whether the runway still meets the required lighting standard for night take-off, whether the unserviceabilities change the applicable minima, and whether my visual cues for centreline and runway end will be adequate if something goes wrong during the roll or initial climb. If there's any doubt that the lighting now falls below what the rules or company procedures demand, I would not depart until it's rectified or I can use another runway."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Part 91 MOS",
+          "chapter": "Take-off Minima",
+          "note": "General take-off minima framework."
+        },
+        {
+          "source": "AIP",
+          "section": "ENR 1.5",
+          "note": "Take-off and landing minima and lighting impacts."
+        },
+        {
+          "source": "CASR",
+          "part": "135",
+          "note": "Commercial take-off requirements."
+        }
+      ]
+    },
+    {
+      "id": "ADV-004",
+      "title": "PBN, RNAV 1 vs RNP 1 and RF Legs – Interview Level",
+      "categoryId": "adv-ifr-regs",
+      "level": "advanced",
+      "estReadingMinutes": 11,
+      "tags": [
+        "PBN",
+        "RNAV1",
+        "RNP1",
+        "RF-legs",
+        "navigation"
+      ],
+      "summary": "PBN concepts at the level you'll actually be asked: what RNAV 1 and RNP 1 mean, what \"required navigation performance\" actually implies, and what's special about RF legs.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "PBN is an area where it's easy to drown in acronyms. Most panels are not looking for that. They want to know if you understand what level of navigation performance you're claiming and what you'll do when the system can't provide it."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "RNAV 1 vs RNP 1 – plain language"
+        },
+        {
+          "type": "qa",
+          "question": "In simple terms, how would you explain RNAV 1 vs RNP 1 to a check captain?",
+          "answer": "Both RNAV 1 and RNP 1 mean the aircraft should stay within 1 NM of the intended track 95% of the time. The difference is that RNP places more explicit emphasis on onboard monitoring and alerting of performance – the system tells you when it cannot meet that standard. In other words, RNP adds integrity monitoring to the basic accuracy requirement."
+        },
+        {
+          "type": "qa",
+          "question": "When you say the aircraft is approved for RNAV 1 or RNP 1, what are you implicitly promising ATC and procedure designers?",
+          "answer": "I'm promising that the combination of aircraft equipment, database, crew procedures and operator approval can reliably keep the aircraft within the defined lateral accuracy and that the system will alert us if it cannot. That promise allows procedures and separation standards to assume certain containment areas and obstacle margins."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Required navigation performance monitoring"
+        },
+        {
+          "type": "qa",
+          "question": "From the flight deck perspective, what does \"navigation performance monitoring\" actually look like day to day?",
+          "answer": "Practically it means watching the FMS or GNSS integrity/accuracy indications, paying attention to alerts that the required performance is not met, and cross-checking with raw data or other sources when something looks off. It's also about not blindly accepting a PBN procedure when the system is already telling you it can't meet the required accuracy or integrity."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "RF legs – why people care"
+        },
+        {
+          "type": "qa",
+          "question": "What is special about an RF leg on an approach and what does that mean for you as a pilot?",
+          "answer": "An RF leg is a radius-to-fix turn – the procedure assumes the aircraft will fly a precise curved path between two fixes. Not all FMS or GNSS installations can do this correctly. As a pilot I need to know whether my aircraft and database are approved for RF legs; if not, I cannot just \"approximate\" the path with heading mode and expect the same containment and obstacle clearance."
+        }
+      ],
+      "refs": [
+        {
+          "source": "PBN Manual",
+          "note": "RNAV and RNP concept definitions."
+        },
+        {
+          "source": "CASR",
+          "part": "91",
+          "note": "Performance-based navigation operations."
+        }
+      ]
+    },
+    {
+      "id": "ADV-005",
+      "title": "Lost Comms, Route and Altitude Choices",
+      "categoryId": "adv-ifr-regs",
+      "level": "advanced",
+      "estReadingMinutes": 10,
+      "tags": [
+        "lost-comms",
+        "route",
+        "altitude",
+        "AIP"
+      ],
+      "summary": "How to talk through IFR lost communications decisions without getting lost in acronyms: what route you fly, what altitude you choose and how you justify the timing.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "Lost comms procedures are one of those \"just memorise the table\" topics for many pilots. Panels want more than that – they want to see whether you can explain the logic calmly and apply it to a scenario."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Principles, not just letters"
+        },
+        {
+          "type": "qa",
+          "question": "If you lose comms IFR in controlled airspace, what are the three big decisions you need to make and explain?",
+          "answer": "I need to decide: which route I'm going to fly, what altitude I'm going to use, and when I'm going to leave a holding or proceed to an approach. I would describe to the panel that I use the published lost comms hierarchy in the AIP to choose the route and altitude, and I aim to arrive at the destination and commence an approach at a time ATC can reasonably predict from my last clearance and flight plan."
+        },
+        {
+          "type": "qa",
+          "question": "How would you summarise the intent behind IFR lost comms procedures to a non-pilot on the panel?",
+          "answer": "The idea is that if I stop talking to ATC, I follow a predictable plan so they can keep others away from me. I fly a route and altitude that are either in my last clearance or in my flight plan, and I arrive for an approach at a time they can anticipate, rather than improvising something they cannot protect."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Conservative application"
+        },
+        {
+          "type": "qa",
+          "question": "In a lost comms situation, would you tend to take the most aggressive interpretation of the rules, or the most predictable and conservative, and why?",
+          "answer": "I would explicitly tell the panel I lean towards the most predictable and conservative interpretation that still complies with the procedures. The aim is not to squeeze every bit of flexibility out of the rules, but to fly a profile ATC are most likely to be protecting, while keeping terrain and fuel margins healthy."
+        }
+      ],
+      "refs": [
+        {
+          "source": "AIP",
+          "section": "ENR 1.1 / ENR 1.5",
+          "note": "IFR lost communications procedures."
+        }
+      ]
+    },
+    {
+      "id": "ADV-006",
+      "title": "Part 61 – Licences, Ratings and IFR Recency Traps",
+      "categoryId": "adv-ifr-regs",
+      "level": "advanced",
+      "estReadingMinutes": 10,
+      "tags": [
+        "part-61",
+        "licences",
+        "instrument-rating",
+        "recency"
+      ],
+      "summary": "Where pilots actually get bitten under Part 61: what your instrument rating really covers, how recency works and how you explain it without sounding confused.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "Part 61 is huge. You do not need to be a walking index, but you do need to clearly understand what privileges you hold, when you're current, and what you must do when you're not. Panels love a clean, structured answer here."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Privileges vs recency"
+        },
+        {
+          "type": "qa",
+          "question": "How would you explain the difference between holding an instrument rating and being allowed to use it tonight?",
+          "answer": "Holding the rating means I have the qualification. Being allowed to use it tonight depends on recency – have I flown the required instrument approaches and instrument time in the defined period, and do I meet any single-pilot IFR or operator-specific recency checks. I'd tell the panel I treat the rating as the starting point and recency as the ongoing proof I'm still at the standard."
+        },
+        {
+          "type": "qa",
+          "question": "You realise your IFR recency has lapsed a week before a planned IFR trip. What's your process and how do you phrase it?",
+          "answer": "I'd say I would immediately stop planning to dispatch IFR until I restore my recency. Depending on the rules and operator policies, that might be by flying the required approaches and time in a sim or aircraft under appropriate supervision, or by doing an IPC. I'd emphasise that I'd rather deal with the inconvenience early than risk operating in a grey area on the day."
+        }
+      ],
+      "refs": [
+        {
+          "source": "CASR",
+          "part": "61",
+          "note": "Licensing, ratings and recency provisions."
+        },
+        {
+          "source": "Part 61 MOS",
+          "note": "Instrument rating and IPC standards."
+        }
+      ]
+    },
+    {
+      "id": "ADV-007",
+      "title": "Part 135 vs Part 121 – Operational Mindset",
+      "categoryId": "adv-ifr-regs",
+      "level": "airline",
+      "estReadingMinutes": 11,
+      "tags": [
+        "part-135",
+        "part-121",
+        "operational-control",
+        "safety"
+      ],
+      "summary": "How the world changes as you move from private/charter to airline operations: operational control, dispatch, alternates, minima and culture.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "You are heading into the world where the regulation numbers (135, 121) have real cultural differences attached. Panels are sniffing for whether you understand that shift, not just the numbering."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "135 mindset vs 91 private"
+        },
+        {
+          "type": "qa",
+          "question": "How would you explain the step-up in expectations from Part 91 private IFR to Part 135 operations?",
+          "answer": "I'd say Part 135 brings more structured procedures, stricter fuel and alternate policies, clearer take-off and landing minima and usually a formalised safety and training system. You're no longer just making decisions for yourself; you're carrying paying passengers under an AOC, so the operator and regulator expect more discipline and less \"captain's discretion\" in marginal situations."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "121 airline environment"
+        },
+        {
+          "type": "qa",
+          "question": "What are the big conceptual differences you expect moving into a Part 121 jet operation?",
+          "answer": "I'd expect a dedicated operations and dispatch function, formal operational control shared between the company and the captain, a strong SMS and reporting culture, detailed SOPs for almost everything, and performance and minima rules that are usually tighter than the regulatory minimum. I'd explain that my job is to operate within that system, using my judgement inside those guardrails rather than freelancing decisions."
+        },
+        {
+          "type": "qa",
+          "question": "How would you summarise your attitude to company minima and policies in a 121 environment?",
+          "answer": "I'd say I treat company minima as hard limits, not suggestions. If they're higher than the regulation, that's because the company has judged that it needs that margin for the kind of operation it runs. My job is to respect those limits, give feedback through the SMS when appropriate, and avoid pushing into \"just this once\" exceptions."
+        }
+      ],
+      "refs": [
+        {
+          "source": "CASR",
+          "part": "135",
+          "note": "Air transport operations with smaller aeroplanes."
+        },
+        {
+          "source": "CASR",
+          "part": "121",
+          "note": "Larger air transport operations and airline-style rules."
+        }
+      ]
+    },
+    {
+      "id": "ADV-008",
+      "title": "RVSM Basics, Altimetry Checks and MEL Thinking",
+      "categoryId": "adv-ifr-regs",
+      "level": "airline",
+      "estReadingMinutes": 11,
+      "tags": [
+        "RVSM",
+        "altimetry",
+        "MEL",
+        "jet"
+      ],
+      "summary": "Enough RVSM and MEL awareness to not sound out of your depth when the panel starts talking about FL290+ operations, altimeter cross-checks and dispatch decisions.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "You don't need to be an RVSM engineer, but you do need to know what changes once you're playing in that FL290–410 band, and how MEL and altimetry discipline become non-negotiable."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "What RVSM actually means for you"
+        },
+        {
+          "type": "qa",
+          "question": "How would you explain RVSM to an interviewer in one concise paragraph?",
+          "answer": "RVSM is Reduced Vertical Separation Minimums – it halves the vertical separation between flight levels in the cruise, typically from 2 000 ft to 1 000 ft between FL290 and FL410. To make that safe, we need tighter control of altimetry performance, equipment serviceability and procedures. In practice, it means more stringent altimeter cross-checks, specific MEL items becoming no-go, and more conservative responses to any suspected altimetry problem."
+        },
+        {
+          "type": "qa",
+          "question": "Operationally, what are you most focused on when flying in RVSM airspace?",
+          "answer": "I'm focused on accurate altimetry and cross-checks, keeping the autopilot engaged as required, monitoring altitude deviations tightly, and reacting early to any TCAS or ATC feedback about level busts. I'd also mention adherence to the operator's RVSM procedures and MEL – if certain equipment is inop, we simply don't go into RVSM."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "MEL implications and altimeter issues"
+        },
+        {
+          "type": "qa",
+          "question": "In broad terms, how does RVSM affect MEL decisions around altimeters and related systems?",
+          "answer": "In RVSM, MEL items affecting altimetry, autopilot and transponders become much more restrictive. An issue that might still be dispatchable below RVSM levels could be a no-go if you intend to cruise in RVSM airspace. I'd say to the panel that I understand RVSM reduces the margin for error, so the company will not tolerate marginal altimetry or automation when we are operating there."
+        }
+      ],
+      "refs": [
+        {
+          "source": "RVSM Operational Manuals",
+          "note": "RVSM operational policies and procedures."
+        },
+        {
+          "source": "CASR",
+          "part": "91",
+          "note": "High-level altimetry and RVSM provisions."
+        }
+      ]
+    }
+  ]
+}

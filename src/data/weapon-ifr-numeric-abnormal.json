@@ -1,0 +1,259 @@
+{
+  "version": "1.0",
+  "sectionId": "weapon-ifr-numeric-abnormal",
+  "sectionTitle": "IFR Weapon Layer – Numeric & Abnormal",
+  "sectionDescription": "High-pressure numeric recall and abnormal IFR scenarios designed to exceed IPC level and reach airline interview depth.",
+  "categories": [
+    {
+      "id": "weapon-ifr",
+      "title": "Numeric & Abnormal IFR",
+      "description": "Numbers, traps and decision-making under pressure.",
+      "moduleIds": [
+        "WEAP-001",
+        "WEAP-002",
+        "WEAP-003",
+        "WEAP-004",
+        "WEAP-005",
+        "WEAP-006",
+        "WEAP-007",
+        "WEAP-008"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "WEAP-001",
+      "title": "Take-Off Alternate & Trigger Numbers",
+      "categoryId": "weapon-ifr",
+      "level": "advanced",
+      "estReadingMinutes": 6,
+      "tags": ["takeoff", "alternate", "numbers"],
+      "summary": "Numeric triggers that examiners love.",
+      "content": [
+        {
+          "type": "qa",
+          "question": "When is a take-off alternate required under IFR?",
+          "answer": "When weather at departure aerodrome is below landing minima, or if return to departure would not be possible due to weather, performance or runway constraints."
+        },
+        {
+          "type": "qa",
+          "question": "What is the typical maximum distance to a take-off alternate in a twin-engine turbine under 121 logic?",
+          "answer": "Generally within one hour at one-engine inoperative cruise speed (unless specific approvals exist)."
+        },
+        {
+          "type": "qa",
+          "question": "If RVR is reported for multiple touchdown zones, which value governs?",
+          "answer": "The controlling (lowest required) RVR value applicable to the runway segment used."
+        }
+      ]
+    },
+    {
+      "id": "WEAP-002",
+      "title": "Fuel Definitions – Precise Recall",
+      "categoryId": "weapon-ifr",
+      "level": "advanced",
+      "estReadingMinutes": 6,
+      "tags": ["fuel", "definitions"],
+      "summary": "Know the fuel stack without hesitation.",
+      "content": [
+        {
+          "type": "qa",
+          "question": "Define trip fuel.",
+          "answer": "Fuel required from take-off to landing at the destination aerodrome."
+        },
+        {
+          "type": "qa",
+          "question": "Define contingency fuel.",
+          "answer": "Fuel carried to account for unforeseen factors such as wind errors, ATC delays or minor route changes."
+        },
+        {
+          "type": "qa",
+          "question": "Define final reserve fuel.",
+          "answer": "Fuel required to fly for a specified period (e.g. 30 or 45 minutes depending on rules) at holding speed at 1 500 ft above aerodrome elevation."
+        },
+        {
+          "type": "qa",
+          "question": "What is isolated aerodrome fuel logic conceptually?",
+          "answer": "Additional fuel carried when no suitable alternate is available within range, ensuring safe diversion or extended holding capability."
+        }
+      ]
+    },
+    {
+      "id": "WEAP-003",
+      "title": "Recency Windows – Part 61",
+      "categoryId": "weapon-ifr",
+      "level": "advanced",
+      "estReadingMinutes": 5,
+      "tags": ["part-61", "recency"],
+      "summary": "Recency traps that catch people out.",
+      "content": [
+        {
+          "type": "qa",
+          "question": "What restores instrument rating recency if lapsed?",
+          "answer": "Completion of required instrument approaches and time under supervision or successful completion of an IPC."
+        },
+        {
+          "type": "qa",
+          "question": "Explain the difference between currency and proficiency.",
+          "answer": "Currency is meeting regulatory recency requirements; proficiency is actual competence and skill level. Being current does not automatically mean proficient."
+        }
+      ]
+    },
+    {
+      "id": "WEAP-004",
+      "title": "Approach Minima Categories",
+      "categoryId": "weapon-ifr",
+      "level": "advanced",
+      "estReadingMinutes": 6,
+      "tags": ["minima", "approach"],
+      "summary": "Precision vs non-precision logic.",
+      "content": [
+        {
+          "type": "qa",
+          "question": "What defines a precision approach?",
+          "answer": "An approach providing both lateral and vertical guidance meeting ICAO precision standards (e.g., ILS)."
+        },
+        {
+          "type": "qa",
+          "question": "What is the key operational difference between MDA and DA?",
+          "answer": "At DA a decision must be made immediately; at MDA descent must not continue below the altitude without required visual reference."
+        }
+      ]
+    },
+    {
+      "id": "WEAP-005",
+      "title": "Partial Panel in IMC",
+      "categoryId": "weapon-ifr",
+      "level": "airline",
+      "estReadingMinutes": 8,
+      "tags": ["abnormal", "partial-panel"],
+      "summary": "Classic IFR workload stress test.",
+      "content": [
+        {
+          "type": "qa",
+          "question": "You lose attitude indication in IMC. What is your immediate priority?",
+          "answer": "Maintain aircraft control using remaining reliable instruments, cross-check with standby instruments, reduce workload, and stabilise flight before troubleshooting."
+        },
+        {
+          "type": "qa",
+          "question": "Would you continue an approach partial panel to minima?",
+          "answer": "Only if aircraft control is fully stabilised, workload manageable and risk acceptable. Otherwise I would climb, declare as required and reposition or divert."
+        }
+      ]
+    },
+    {
+      "id": "WEAP-006",
+      "title": "GNSS Failure in PBN Arrival",
+      "categoryId": "weapon-ifr",
+      "level": "airline",
+      "estReadingMinutes": 8,
+      "tags": ["PBN", "GNSS", "abnormal"],
+      "summary": "Integrity is non-negotiable.",
+      "content": [
+        {
+          "type": "qa",
+          "question": "RAIM warning inside IAF on RNAV approach. What do you do?",
+          "answer": "Discontinue the approach unless alternate approved navigation exists. Advise ATC if integrity not restored within required time."
+        },
+        {
+          "type": "qa",
+          "question": "Why is integrity more important than raw accuracy?",
+          "answer": "Because without integrity monitoring, the system cannot guarantee containment within obstacle protection surfaces."
+        }
+      ]
+    },
+    {
+      "id": "WEAP-007",
+      "title": "Engine Failure After V1 in Low Visibility – Airline Framing",
+      "categoryId": "weapon-ifr",
+      "level": "airline",
+      "estReadingMinutes": 10,
+      "tags": ["V1", "engine-failure", "low-vis"],
+      "summary": "This is where airline thinking shows.",
+      "content": [
+        {
+          "type": "qa",
+          "question": "Engine failure immediately after V1 in low visibility. What is the first priority?",
+          "answer": "Maintain directional control, continue the take-off, achieve safe climb performance, comply with published engine-out procedure and stabilise before any non-essential actions."
+        },
+        {
+          "type": "qa",
+          "question": "Would you immediately plan to return?",
+          "answer": "Only after stabilising, completing memory items, assessing performance, weather and runway suitability. A rushed return in marginal visibility can compound risk."
+        }
+      ]
+    },
+    {
+      "id": "WEAP-008",
+      "title": "ATPL-Level IFR Performance Traps",
+      "categoryId": "weapon-ifr",
+      "level": "airline",
+      "estReadingMinutes": 10,
+      "tags": ["performance", "gradients", "balanced-field", "obstacles"],
+      "summary": "Conceptual performance traps that show whether you understand \"can we actually go\" beyond just quoting a gradient number.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "ATPL performance questions are rarely about exact formulae. They're about whether you understand the relationship between runway length, obstacles, weight, gradient and weather – and whether you'll say no when the numbers are marginal."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Balanced field and accelerate-stop thinking"
+        },
+        {
+          "type": "qa",
+          "question": "In plain language, how would you explain \"balanced field length\" to a panel?",
+          "answer": "Balanced field length is where the distance required to continue the take-off after an engine failure at V1 equals the distance required to reject at V1 and stop. It means the runway length and performance assumptions give you symmetrical options: if it fails at V1, you can either stop or go and still be inside the available runway and safety margins."
+        },
+        {
+          "type": "qa",
+          "question": "Why is it dangerous to treat any long runway as automatically \"performance fine\" without checking accelerate-stop or accelerate-go distances?",
+          "answer": "Because obstacles, slope, surface condition and weight can still make the accelerate-stop or accelerate-go distances longer than the available runway, even when it looks long. Assuming \"it's long so it's fine\" ignores the engine-out and rejected take-off cases where the performance margins really matter."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Climb gradients and obstacle clearance"
+        },
+        {
+          "type": "qa",
+          "question": "If a departure requires a higher-than-standard climb gradient, what are the three levers you genuinely have?",
+          "answer": "Reduce weight, delay or change to conditions with better performance (e.g. lower temperature or headwind, no contamination), or choose a different departure/runway profile that has a lower gradient requirement. Asking ATC for a \"visual\" workaround is not a substitute if obstacles still exist in the departure path."
+        },
+        {
+          "type": "qa",
+          "question": "How would you explain second segment climb to a check captain in practical terms?",
+          "answer": "Second segment climb is the engine-out climb performance after gear up and flap retraction, up to a specified height. It's the segment that must clear obstacles with one engine inoperative while meeting the required climb gradient. In practice I need to know that at our planned weight, temperature and configuration, the aircraft will actually achieve or exceed that gradient on the day."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Wet/contaminated runway and conservative choices"
+        },
+        {
+          "type": "qa",
+          "question": "How does a wet or contaminated runway change your take-off performance thinking?",
+          "answer": "It increases accelerate-stop distance and can change accelerate-go assumptions, so the available runway that was acceptable on a dry day may no longer be sufficient. It may also trigger different performance data or prohibitions in the AFM or company SOPs. My default is that contaminated conditions usually call for lower weight, more conservative decision points, or a delay, not a casual \"we'll be right\"."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "High and hot, obstacles and \"can we get back in\""
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: High elevation aerodrome, hot day, obstacles off the end of the runway. What performance questions are you asking before you even think about fuel and passengers?",
+          "answer": "Can we meet the required engine-out climb gradient on departure at the planned weight and temperature? If we lose an engine after V1, can we still clear obstacles on the engine-out procedure? And if we have to return, do we have enough landing performance for the weight and conditions? Only once those answers are solid do I worry about optimising fuel and payload."
+        }
+      ],
+      "refs": [
+        {
+          "source": "ATPL Performance Notes",
+          "note": "Climb gradient, balanced field and obstacle clearance concepts."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,705 @@
+{
+  "version": "1.0",
+  "sectionId": "regulatory-map",
+  "sectionTitle": "Regulatory Map & Hierarchy",
+  "sectionDescription": "Understand how Australian aviation regulation fits together: legal authority, hierarchy, and operational application.",
+  "categories": [
+    {
+      "id": "legal-foundation",
+      "title": "Legal Foundation",
+      "description": "The legislative basis for Australian aviation law and the hierarchy of regulatory instruments.",
+      "moduleIds": ["REGMAP-001"]
+    },
+    {
+      "id": "binding-regulation",
+      "title": "Binding Regulation",
+      "description": "Understanding CASR structure and how regulations apply to IFR operations.",
+      "moduleIds": ["REGMAP-002", "REGMAP-003"]
+    },
+    {
+      "id": "advisory-material",
+      "title": "Advisory & Operational Material",
+      "description": "Publications that guide operations but have varying legal weight.",
+      "moduleIds": ["REGMAP-003"]
+    },
+    {
+      "id": "conflict-resolution",
+      "title": "Conflict Resolution",
+      "description": "How to reason through conflicting guidance between regulatory documents.",
+      "moduleIds": ["REGMAP-004"]
+    },
+    {
+      "id": "interview-articulation",
+      "title": "Interview Articulation",
+      "description": "Techniques for explaining regulatory knowledge under examination.",
+      "moduleIds": ["REGMAP-005"]
+    }
+  ],
+  "modules": [
+    {
+      "id": "REGMAP-001",
+      "title": "The Legal Hierarchy",
+      "categoryId": "legal-foundation",
+      "level": "core",
+      "estReadingMinutes": 8,
+      "tags": ["regulatory", "legal", "hierarchy", "foundation"],
+      "summary": "Understanding the chain of legal authority from the Civil Aviation Act through to company operations manuals.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Regulatory Pyramid"
+        },
+        {
+          "type": "text",
+          "text": "Australian aviation law follows a strict hierarchy. Higher instruments always govern lower ones. Understanding this hierarchy is essential for resolving conflicts and articulating your legal obligations."
+        },
+        {
+          "type": "hierarchy",
+          "items": [
+            "Civil Aviation Act 1988",
+            "Civil Aviation Safety Regulations (CASR)",
+            "Manual of Standards (MOS)",
+            "Aeronautical Information Publication (AIP)",
+            "Aeronautical Information Circulars (AIC)",
+            "Civil Aviation Advisory Publications (CAAP)",
+            "Company Operations Manual"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Civil Aviation Act 1988"
+        },
+        {
+          "type": "text",
+          "text": "The Act is primary legislation passed by Parliament. It establishes CASA, grants regulation-making power, and sets the overarching safety framework. The Act cannot be changed by CASA - only Parliament can amend it."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Published by: Australian Parliament",
+            "Legal weight: Highest - primary legislation",
+            "Amendment: Requires Parliamentary process",
+            "Key content: CASA's powers, offence provisions, general duties"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Civil Aviation Safety Regulations (CASR)"
+        },
+        {
+          "type": "text",
+          "text": "CASR is subordinate legislation made under the Act. It contains the detailed rules that pilots must follow. CASR is legally binding and carries the force of law."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Published by: Governor-General on CASA's advice",
+            "Legal weight: Binding regulation",
+            "Amendment: Regulatory amendment process (Federal Register of Legislation)",
+            "Key content: Licensing (Part 61), operations (Part 91), air transport (Parts 121/135)"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Manual of Standards (MOS)"
+        },
+        {
+          "type": "text",
+          "text": "The MOS contains technical standards referenced by CASR. When CASR says 'as prescribed in the MOS', compliance with the MOS becomes mandatory. The MOS is a legislative instrument."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Published by: CASA",
+            "Legal weight: Binding when referenced by CASR",
+            "Amendment: CASA legislative instrument process",
+            "Key content: Technical standards, minima tables, training requirements"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Aeronautical Information Publication (AIP)"
+        },
+        {
+          "type": "text",
+          "text": "The AIP is Australia's consolidated aeronautical information, published by Airservices Australia. CASR 91.295 makes compliance with AIP mandatory for flights within Australian territory. This gives AIP operational binding force."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Published by: Airservices Australia",
+            "Legal weight: Operationally binding via CASR 91.295",
+            "Amendment: AIRAC cycle (28-day cycle)",
+            "Key content: Procedures, airspace, navigation aids, aerodrome information"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Lower-Tier Publications"
+        },
+        {
+          "type": "text",
+          "text": "AICs provide temporary or supplementary information. CAAPs are advisory - they explain how to comply with regulations but are not themselves binding. Company operations manuals must meet regulatory requirements and can be more restrictive than base regulations."
+        },
+        {
+          "type": "qa",
+          "question": "What is the difference between CASR and MOS in terms of legal authority?",
+          "answer": "CASR is subordinate legislation with direct legal force. The MOS is a legislative instrument that becomes binding only when specifically referenced by CASR. CASR establishes the obligation; the MOS provides the technical detail for compliance."
+        },
+        {
+          "type": "qa",
+          "question": "Why is AIP compliance mandatory even though Airservices Australia (not CASA) publishes it?",
+          "answer": "CASR 91.295 explicitly requires pilots to comply with AIP procedures when operating in Australian territory. This regulation 'lifts' AIP to binding status by reference, even though the AIP itself is not legislation."
+        },
+        {
+          "type": "qa",
+          "question": "Can a company operations manual permit something that CASR prohibits?",
+          "answer": "No. Company manuals can only be equal to or more restrictive than the regulatory baseline. They cannot relax CASR requirements. A company can prohibit circling approaches at certain aerodromes, but cannot authorise operations below published minima."
+        },
+        {
+          "type": "qa",
+          "question": "Where would you find the actual circling minima values for a Category C aircraft?",
+          "answer": "In the Part 91 Manual of Standards, which prescribes the specific visibility and ceiling values. CASR establishes that you must comply with MOS minima; the MOS contains the actual numbers."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Civil Aviation Act 1988",
+          "note": "Primary legislation establishing CASA and regulatory framework",
+          "url": "https://www.legislation.gov.au/Series/C2004A04529"
+        },
+        {
+          "source": "Civil Aviation Safety Regulations 1998",
+          "note": "Subordinate legislation containing operational rules",
+          "url": "https://www.legislation.gov.au/Series/F1998B00220"
+        },
+        {
+          "source": "CASR 91.295",
+          "note": "Requirement to comply with AIP procedures"
+        }
+      ]
+    },
+    {
+      "id": "REGMAP-002",
+      "title": "CASR Structure for IFR Pilots",
+      "categoryId": "binding-regulation",
+      "level": "core",
+      "estReadingMinutes": 7,
+      "tags": ["CASR", "Part 61", "Part 91", "Part 121", "Part 135", "regulatory"],
+      "summary": "How the key CASR Parts interact for IFR operations, and why Part 91 always applies.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Four Pillars for IFR Pilots"
+        },
+        {
+          "type": "text",
+          "text": "IFR pilots operating in Australia need to understand four key Parts of CASR. These Parts layer on top of each other - they do not replace each other."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Part 61 - Flight Crew Licensing"
+        },
+        {
+          "type": "text",
+          "text": "Part 61 governs who can fly. It covers licences, ratings, endorsements, medical requirements, and recency. Your instrument rating authority comes from Part 61, as do the requirements to maintain it."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Licence and rating issue",
+            "Privileges and limitations",
+            "Training and testing standards",
+            "Recency requirements (instrument proficiency checks)",
+            "Medical standards"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Part 91 - General Operating and Flight Rules"
+        },
+        {
+          "type": "text",
+          "text": "Part 91 is the foundation of all flight operations. It applies to everyone, always. Part 91 covers flight rules, equipment requirements, fuel planning, weather minima, and operational procedures. Even airline captains operating under Part 121 must still comply with Part 91."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "IFR flight rules and procedures",
+            "Fuel requirements",
+            "Weather minima",
+            "Equipment requirements",
+            "Altitude and cruising levels",
+            "Operating limitations"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Part 121 - Australian Air Transport Operations (Larger Aircraft)"
+        },
+        {
+          "type": "text",
+          "text": "Part 121 adds requirements for Regular Public Transport operations with larger aircraft. It introduces additional crew requirements, operational control, and dispatch procedures. Part 121 does not replace Part 91 - it adds to it."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Part 135 - Australian Air Transport Operations (Smaller Aircraft)"
+        },
+        {
+          "type": "text",
+          "text": "Part 135 covers charter and air transport with smaller aircraft. Like Part 121, it layers additional requirements on top of Part 91."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Layering Principle"
+        },
+        {
+          "type": "text",
+          "text": "A critical concept: higher Part numbers add requirements; they do not remove them. A Part 121 operation must comply with Part 61 (crew licensing), Part 91 (general operating rules), AND Part 121 (air transport specific rules). If Part 91 requires something, Part 121 cannot waive it unless specifically stated."
+        },
+        {
+          "type": "qa",
+          "question": "If you hold a Part 121 AOC, do Part 91 fuel requirements still apply?",
+          "answer": "Yes. Part 91 fuel requirements apply to all IFR flights. Part 121 may add additional fuel requirements (like contingency percentages), but the Part 91 baseline always applies. Part 121 cannot reduce Part 91 requirements."
+        },
+        {
+          "type": "qa",
+          "question": "Where do you find the privileges of an instrument rating?",
+          "answer": "Part 61 of CASR. Specifically, Part 61 Division 61.M covers instrument ratings, including privileges, limitations, and recency requirements."
+        },
+        {
+          "type": "qa",
+          "question": "Can a company's Part 121 operations manual permit flight into forecast thunderstorms if the captain deems it safe?",
+          "answer": "No. Part 91 weather requirements and the duty to operate safely cannot be overridden by company procedures. The operations manual can be more restrictive but cannot relax Part 91 requirements or the pilot-in-command's responsibilities."
+        },
+        {
+          "type": "qa",
+          "question": "A charter operator asks why they need to know Part 91 when they operate under Part 135. How do you explain this?",
+          "answer": "Part 135 builds on Part 91 - it does not replace it. Every Part 135 flight must comply with all applicable Part 91 rules plus the additional Part 135 requirements. Ignoring Part 91 means missing fundamental flight rules, fuel requirements, and weather minima."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Part 61 Manual of Standards",
+          "note": "Flight crew licensing standards and requirements",
+          "url": "https://www.casa.gov.au/part-61-manual-standards"
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "note": "General operating and flight rules standards",
+          "url": "https://www.casa.gov.au/part-91-manual-standards"
+        },
+        {
+          "source": "CASR Part 121",
+          "note": "Australian air transport operations - larger aircraft"
+        },
+        {
+          "source": "CASR Part 135",
+          "note": "Australian air transport operations - smaller aircraft"
+        }
+      ]
+    },
+    {
+      "id": "REGMAP-003",
+      "title": "MOS vs AIP: The Critical Distinction",
+      "categoryId": "binding-regulation",
+      "level": "core",
+      "estReadingMinutes": 6,
+      "tags": ["MOS", "AIP", "standards", "minima", "regulatory"],
+      "summary": "Understanding the difference between the Manual of Standards (technical binding standards) and the AIP (operational publication made binding by regulation).",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Two Different Instruments, Different Purposes"
+        },
+        {
+          "type": "text",
+          "text": "Pilots often confuse the MOS and AIP. Both are critical, but they serve different functions and have different legal mechanisms for their authority."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Manual of Standards (MOS)"
+        },
+        {
+          "type": "text",
+          "text": "The MOS is a legislative instrument published by CASA. It contains technical standards that CASR references. When CASR says 'in accordance with the Part 91 MOS', the MOS content becomes mandatory. The MOS is where you find specific values: approach category speeds, circling minima, training hour requirements."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Legislative instrument (created under the Legislation Act)",
+            "Published by CASA",
+            "Contains technical standards and specific values",
+            "Binding when referenced by CASR",
+            "Examples: approach category definitions, circling minima values, IPC requirements"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Aeronautical Information Publication (AIP)"
+        },
+        {
+          "type": "text",
+          "text": "The AIP is an operational publication produced by Airservices Australia under ICAO standards. It contains aeronautical information needed for flight: procedures, airspace, navigation aids, aerodrome data. CASR 91.295 makes AIP compliance mandatory for flights in Australian territory."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Operational publication (not a legislative instrument)",
+            "Published by Airservices Australia",
+            "Contains procedures, charts, airspace information",
+            "Binding via CASR 91.295",
+            "Examples: approach procedures, holding patterns, airspace boundaries"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Where Minima Come From"
+        },
+        {
+          "type": "text",
+          "text": "This is a common point of confusion. Approach minima on a chart come from multiple sources working together:"
+        },
+        {
+          "type": "list",
+          "style": "numbered",
+          "items": [
+            "CASR establishes that you must comply with minima",
+            "MOS prescribes the baseline minima values (e.g., circling minima by category)",
+            "AIP chart shows the specific minima for that procedure, calculated using obstacle data",
+            "Company operations manual may add further restrictions"
+          ]
+        },
+        {
+          "type": "text",
+          "text": "The MOS provides the method and baseline values. The AIP applies those standards to specific procedures. You fly the AIP minima, which must meet or exceed MOS requirements."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Interview Articulation"
+        },
+        {
+          "type": "text",
+          "text": "When asked about the difference, a clear answer structure helps:"
+        },
+        {
+          "type": "list",
+          "style": "numbered",
+          "items": [
+            "State what each document IS (MOS = legislative instrument with technical standards; AIP = operational publication with procedures)",
+            "Explain HOW each becomes binding (MOS = referenced by CASR; AIP = mandated by CASR 91.295)",
+            "Give an example showing interaction (circling minima values from MOS; specific procedure from AIP)"
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "What is the legal mechanism that makes AIP procedures mandatory?",
+          "answer": "CASR 91.295 requires pilots to comply with AIP procedures for flights within Australian territory. The AIP is not itself legislation, but this regulation gives it binding operational force."
+        },
+        {
+          "type": "qa",
+          "question": "If the AIP shows a circling minimum of 800 feet, but the MOS table shows 600 feet for your category, which applies?",
+          "answer": "The AIP minimum of 800 feet applies. The MOS provides baseline minima, but procedure designers may increase these based on obstacles, terrain, or other factors. You must always use the higher (more restrictive) value on the published procedure."
+        },
+        {
+          "type": "qa",
+          "question": "Explain in one sentence why the MOS matters to an IFR pilot.",
+          "answer": "The MOS contains the technical standards that define how IFR operations must be conducted - from approach category speeds to circling visibility requirements - and compliance is mandatory wherever CASR references the MOS."
+        },
+        {
+          "type": "qa",
+          "question": "Can CASA change the AIP?",
+          "answer": "CASA does not publish the AIP - Airservices Australia does. However, CASA can mandate changes to procedures or standards through the MOS, which Airservices must then reflect in the AIP. CASA can also issue regulatory amendments affecting how AIP is used."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Part 91 Manual of Standards",
+          "note": "Contains IFR technical standards and minima values",
+          "url": "https://www.casa.gov.au/part-91-manual-standards"
+        },
+        {
+          "source": "Aeronautical Information Publication (AIP)",
+          "note": "Australia's operational aeronautical information",
+          "url": "https://www.airservicesaustralia.com/aip/aip.asp"
+        },
+        {
+          "source": "CASR 91.295",
+          "note": "Requirement to comply with AIP procedures"
+        }
+      ]
+    },
+    {
+      "id": "REGMAP-004",
+      "title": "Conflict Resolution Logic",
+      "categoryId": "conflict-resolution",
+      "level": "advanced",
+      "estReadingMinutes": 6,
+      "tags": ["conflict", "hierarchy", "decision-making", "regulatory"],
+      "summary": "How to reason when regulatory documents appear to conflict, and the principles that govern resolution.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "When Documents Seem to Conflict"
+        },
+        {
+          "type": "text",
+          "text": "Pilots occasionally encounter situations where different documents appear to give conflicting guidance. Understanding conflict resolution logic is essential for both operations and interviews."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Principle 1: Hierarchy Governs"
+        },
+        {
+          "type": "text",
+          "text": "Higher-level instruments always prevail. The Civil Aviation Act overrides CASR if they conflict (though properly drafted regulations should not conflict with the Act). CASR overrides MOS. MOS baseline standards cannot be reduced by AIP procedures."
+        },
+        {
+          "type": "hierarchy",
+          "items": [
+            "Civil Aviation Act (highest authority)",
+            "CASR (regulations under the Act)",
+            "MOS (standards under CASR)",
+            "AIP (operational publication)",
+            "Company Manual (must meet or exceed above)"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Principle 2: Specific Overrides General"
+        },
+        {
+          "type": "text",
+          "text": "When a specific provision addresses your exact situation, it takes precedence over a general rule. If Part 91 has a general fuel rule but Part 121 has a specific fuel rule for your operation type, apply the specific rule (noting that Part 121 typically adds requirements rather than removing them)."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Principle 3: More Restrictive Applies"
+        },
+        {
+          "type": "text",
+          "text": "When multiple valid requirements apply, use the most restrictive. If MOS says 1600m visibility for circling and the company manual says 3000m, use 3000m. If the AIP chart shows higher minima than MOS baseline, use the chart."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Principle 4: Company Cannot Relax Regulations"
+        },
+        {
+          "type": "text",
+          "text": "A company operations manual can add restrictions but cannot remove regulatory requirements. If CASR requires something, the company cannot waive it. This is non-negotiable."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Common Conflict Scenarios"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "AIP procedure shows higher minima than MOS table: Use AIP (more restrictive)",
+            "Company SOP conflicts with AIP procedure: Follow AIP unless company is more restrictive",
+            "Old training material contradicts current CASR: CASR always current law",
+            "CAAP suggests one method, MOS requires another: MOS is binding, CAAP is advisory"
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "The company operations manual says pilots may descend below MDA to land if the runway is in sight. Is this valid?",
+          "answer": "No. MDA is a regulatory minimum. The company cannot authorise descent below MDA before reaching the missed approach point. This would be the company attempting to relax a CASR requirement, which is not permitted."
+        },
+        {
+          "type": "qa",
+          "question": "A CAAP recommends one technique for holding entry, but your company trains a different method. Which do you use?",
+          "answer": "CAAPs are advisory, not binding. If the company method is legal (complies with CASR and MOS requirements) and the company has approved it, you may use the company method. The CAAP provides guidance but does not mandate a specific technique."
+        },
+        {
+          "type": "qa",
+          "question": "How would you resolve an apparent conflict between an AIP procedure and an AIC?",
+          "answer": "First check the AIC effective dates - it may supersede the AIP until the next AIRAC cycle incorporates changes. If both are current, the AIC typically provides amendments or temporary changes to AIP. Read both carefully to understand if it's truly a conflict or an intended amendment."
+        },
+        {
+          "type": "qa",
+          "question": "Your company manual prohibits circling approaches at night. CASR permits them. Which applies?",
+          "answer": "The company prohibition applies. Companies can be more restrictive than regulations. While CASR permits night circling (with appropriate minima), the company has chosen to prohibit it. You must follow the company restriction."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Civil Aviation Act 1988",
+          "note": "Primary legislation - highest authority",
+          "url": "https://www.legislation.gov.au/Series/C2004A04529"
+        },
+        {
+          "source": "CASR Part 91",
+          "note": "General operating rules"
+        },
+        {
+          "source": "Legislation Act 2003",
+          "note": "Governs interpretation of legislative instruments"
+        }
+      ]
+    },
+    {
+      "id": "REGMAP-005",
+      "title": "How Examiners Frame Regulatory Questions",
+      "categoryId": "interview-articulation",
+      "level": "advanced",
+      "estReadingMinutes": 7,
+      "tags": ["interview", "examination", "articulation", "technique"],
+      "summary": "Understanding examiner intent, structuring regulatory answers, and avoiding common traps.",
+      "content": [
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "The Examiner's Perspective"
+        },
+        {
+          "type": "text",
+          "text": "Examiners ask regulatory questions to assess whether you understand why rules exist, not just what they are. They want to see evidence that you can apply regulatory knowledge to make sound operational decisions."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Legal vs Operational Answers"
+        },
+        {
+          "type": "text",
+          "text": "Many questions have both a legal answer (what the regulation says) and an operational answer (what you should actually do). Strong candidates address both. Weak candidates give only one."
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Legal answer: 'CASR requires...' - cite the rule",
+            "Operational answer: 'In practice, I would...' - describe application",
+            "Complete answer: Both, showing you understand why the rule exists"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The 'Legal But Unsafe' Trap"
+        },
+        {
+          "type": "text",
+          "text": "Examiners may describe a scenario that is technically legal but operationally questionable. They are testing whether you prioritise safety over minimum compliance. The correct response acknowledges legality but explains why you would choose a safer course."
+        },
+        {
+          "type": "text",
+          "text": "Example: 'The weather is exactly at minima and forecast to deteriorate after your ETA. Can you legally depart?' The answer is technically yes, but a good response discusses the operational risks and why you might choose to delay or plan enhanced alternates."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Articulation Techniques"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Structure Your Response"
+        },
+        {
+          "type": "list",
+          "style": "numbered",
+          "items": [
+            "State the rule or principle clearly",
+            "Cite the source (CASR, MOS, AIP)",
+            "Explain the purpose or intent behind the rule",
+            "Apply it to the scenario given"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Acknowledge Uncertainty Professionally"
+        },
+        {
+          "type": "text",
+          "text": "If unsure of a specific regulation number, say so professionally: 'I don't recall the exact CASR reference, but the requirement is...' This is better than guessing incorrectly. Examiners respect honesty about knowledge limits."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Avoid Common Mistakes"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Don't recite regulations without showing understanding",
+            "Don't give only the minimum legal answer when safety considerations apply",
+            "Don't guess regulation numbers - state the principle instead",
+            "Don't dismiss questions with 'company handles that' - show your own knowledge"
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "An examiner asks: 'Can you commence an approach if the weather is below minima?' How should you structure your answer?",
+          "answer": "First, state the legal position: CASR does not prohibit commencing an approach in below-minima weather - the restriction is on descending below MDA/DA without required visual reference. Then explain operationally: while legal to commence, you would consider whether the approach has value if weather is significantly below minima, fuel implications of a likely missed approach, and whether waiting for improvement is more sensible."
+        },
+        {
+          "type": "qa",
+          "question": "What is the examiner really testing when they ask 'where would you find that requirement?'",
+          "answer": "They are testing whether you understand the regulatory structure - which document governs what. Saying 'Part 91 MOS' shows you know the hierarchy and can locate requirements. Saying 'somewhere in the regs' suggests you have memorised answers without understanding the framework."
+        },
+        {
+          "type": "qa",
+          "question": "An examiner describes a scenario where continuing is legal but you feel uncomfortable. How do you handle this?",
+          "answer": "Acknowledge the legal position first, then explain your operational reasoning. 'While the regulations permit continuation in this scenario, I would be concerned about [specific factors]. My decision would be to [alternative course] because [safety rationale].' This shows you understand both the rules and their limits."
+        },
+        {
+          "type": "qa",
+          "question": "The examiner asks about a regulation you cannot recall precisely. What do you say?",
+          "answer": "Be honest and pivot to what you do know: 'I cannot recall the specific CASR reference, but the requirement is that [state the rule in substance]. I would verify the exact reference before operating.' This shows integrity and practical awareness that regulations should be checked before flight."
+        },
+        {
+          "type": "qa",
+          "question": "How do you demonstrate 'command knowledge' versus 'rote memorisation' in regulatory answers?",
+          "answer": "Rote memorisation sounds like reciting text. Command knowledge demonstrates why the rule exists, when it applies, and how you would apply it. Instead of 'CASR 91.405 says...', try 'The fuel requirement exists to ensure adequate reserve for contingencies. It requires [substance of rule], which means operationally I would [practical application].'"
+        }
+      ],
+      "refs": [
+        {
+          "source": "CASA Flight Examiner Handbook",
+          "note": "Guidance on examination standards and expectations"
+        },
+        {
+          "source": "Part 61 MOS",
+          "note": "Instrument rating test standards",
+          "url": "https://www.casa.gov.au/part-61-manual-standards"
+        }
+      ]
+    }
+  ]
+}

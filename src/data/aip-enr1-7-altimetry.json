@@ -1,0 +1,134 @@
+{
+  "version": "1.0",
+  "sectionId": "aip-enr1-7-altimetry",
+  "sectionTitle": "AIP ENR 1.7 Altimetry",
+  "sectionDescription": "Altimetry procedures, transition levels, QNH areas and pressure settings for IFR operations in Australia.",
+  "categories": [
+    {
+      "id": "altimetry-core",
+      "title": "Altimetry Fundamentals",
+      "description": "Core altimetry concepts, transition procedures and pressure settings.",
+      "moduleIds": [
+        "ALT-ENR1-7-CORE"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "ALT-ENR1-7-CORE",
+      "title": "Altimetry Procedures and Transition",
+      "categoryId": "altimetry-core",
+      "level": "core",
+      "estReadingMinutes": 8,
+      "tags": [
+        "altimetry",
+        "qnh",
+        "transition",
+        "flight-level",
+        "pressure"
+      ],
+      "summary": "Understanding Australian altimetry procedures including transition altitude/level, QNH areas, and when to use standard pressure settings.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "Altimetry underpins safe vertical separation. Mistakes in pressure settings or transition procedures are a fast track to CFIT or level busts. AIP ENR 1.7 sets out how Australia manages the boundary between altitude and flight level."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Transition altitude and transition level"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Transition altitude: the altitude at or below which aircraft use local QNH and vertical position is expressed as altitude.",
+            "Transition level: the lowest flight level available above transition altitude; at or above this level, aircraft use standard pressure (1013.2 hPa) and vertical position is expressed as flight level.",
+            "Transition layer: the airspace between transition altitude and transition level; aircraft should not normally level off in this layer."
+          ]
+        },
+        {
+          "type": "text",
+          "style": "body",
+          "text": "In Australia, the standard transition altitude is 10,000 ft. Below 10,000 ft you use area QNH; at or above FL110 you use standard pressure. The transition layer sits between 10,000 ft altitude and FL110."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "QNH areas and obtaining QNH"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Australia is divided into QNH areas, each with a defined area QNH value.",
+            "Area QNH is forecast and updated regularly; you can obtain it from ATIS, AWIS, ATC, or meteorological broadcasts.",
+            "When transiting between QNH areas, you should update your altimeter to the new area QNH to maintain correct altitude reference."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "When to change pressure settings"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Climbing through transition altitude: set standard pressure (1013.2 hPa) and report in flight levels.",
+            "Descending through transition level: set area QNH and report in altitudes.",
+            "Lateral transition between QNH areas below transition altitude: update to the new area QNH."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Common errors and traps"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Forgetting to reset QNH after descent, leading to incorrect terrain clearance.",
+            "Using the wrong QNH area value, especially near area boundaries.",
+            "Levelling off in the transition layer where separation standards are not guaranteed.",
+            "Confusing altitude and flight level in radio calls or clearances."
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "You are climbing through 10,000 ft. What pressure setting should you have, and how do you report your level?",
+          "answer": "At or below 10,000 ft you use area QNH and report altitude. When passing through transition altitude (10,000 ft), you set standard pressure (1013.2 hPa) and report flight levels once at or above FL110."
+        },
+        {
+          "type": "qa",
+          "question": "You are descending from FL150. ATC clears you to 7,000 ft. When do you change your altimeter setting?",
+          "answer": "When descending through the transition level (FL110), you set the area QNH before continuing descent below FL110. You would read back the clearance to 7,000 ft as an altitude, not a flight level."
+        },
+        {
+          "type": "qa",
+          "question": "An interviewer asks: Why is it dangerous to level off in the transition layer?",
+          "answer": "The transition layer is the gap between transition altitude and transition level where aircraft may be on different pressure settings. If you level off there, you could conflict with other aircraft who are correctly climbing or descending through the layer on different altimeter references, breaking the vertical separation that the system relies on."
+        },
+        {
+          "type": "qa",
+          "question": "You are flying at 8,000 ft and about to cross from one QNH area to another. The new area QNH is lower. What happens to your indicated altitude if you do not update the altimeter?",
+          "answer": "If you do not update to the lower QNH, your altimeter will continue to over-read. You will be flying lower than indicated, reducing your actual terrain clearance. This is the classic \"high to low, look out below\" trap."
+        }
+      ],
+      "refs": [
+        {
+          "source": "AIP",
+          "section": "ENR 1.7",
+          "note": "Altimetry procedures for Australian airspace."
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "Altimeter Settings",
+          "note": "Regulatory requirements for altimeter settings in IFR operations."
+        }
+      ]
+    }
+  ]
+}
