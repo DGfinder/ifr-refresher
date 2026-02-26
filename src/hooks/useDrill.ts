@@ -5,7 +5,7 @@ import type { Section } from "@/types/section";
 import type { DrillQuestion, DrillRating, DrillState, DrillStats } from "@/types/drill";
 import { buildDrillQuestions } from "@/utils/drill";
 
-const STORAGE_KEY = "ifrWeaponDrill";
+const STORAGE_KEY = "ifrDrill";
 
 interface UseDrillOptions {
   sectionId?: string | null;

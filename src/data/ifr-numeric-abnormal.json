@@ -1,11 +1,11 @@
 {
   "version": "1.0",
-  "sectionId": "weapon-ifr-numeric-abnormal",
-  "sectionTitle": "IFR Weapon Layer – Numeric & Abnormal",
+  "sectionId": "ifr-numeric-abnormal",
+  "sectionTitle": "IFR Numeric & Abnormal",
   "sectionDescription": "High-pressure numeric recall and abnormal IFR scenarios designed to exceed IPC level and reach airline interview depth.",
   "categories": [
     {
-      "id": "weapon-ifr",
+      "id": "ifr-essentials",
       "title": "Numeric & Abnormal IFR",
       "description": "Numbers, traps and decision-making under pressure.",
       "moduleIds": [
@@ -24,7 +24,7 @@
     {
       "id": "WEAP-001",
       "title": "Take-Off Alternate & Trigger Numbers",
-      "categoryId": "weapon-ifr",
+      "categoryId": "ifr-essentials",
       "level": "advanced",
       "estReadingMinutes": 6,
       "tags": ["takeoff", "alternate", "numbers"],
@@ -50,7 +50,7 @@
     {
       "id": "WEAP-002",
       "title": "Fuel Definitions – Precise Recall",
-      "categoryId": "weapon-ifr",
+      "categoryId": "ifr-essentials",
       "level": "advanced",
       "estReadingMinutes": 6,
       "tags": ["fuel", "definitions"],
@@ -81,7 +81,7 @@
     {
       "id": "WEAP-003",
       "title": "Recency Windows – Part 61",
-      "categoryId": "weapon-ifr",
+      "categoryId": "ifr-essentials",
       "level": "advanced",
       "estReadingMinutes": 5,
       "tags": ["part-61", "recency"],
@@ -102,7 +102,7 @@
     {
       "id": "WEAP-004",
       "title": "Approach Minima Categories",
-      "categoryId": "weapon-ifr",
+      "categoryId": "ifr-essentials",
       "level": "advanced",
       "estReadingMinutes": 6,
       "tags": ["minima", "approach"],
@@ -123,7 +123,7 @@
     {
       "id": "WEAP-005",
       "title": "Partial Panel in IMC",
-      "categoryId": "weapon-ifr",
+      "categoryId": "ifr-essentials",
       "level": "airline",
       "estReadingMinutes": 8,
       "tags": ["abnormal", "partial-panel"],
@@ -144,7 +144,7 @@
     {
       "id": "WEAP-006",
       "title": "GNSS Failure in PBN Arrival",
-      "categoryId": "weapon-ifr",
+      "categoryId": "ifr-essentials",
       "level": "airline",
       "estReadingMinutes": 8,
       "tags": ["PBN", "GNSS", "abnormal"],
@@ -165,7 +165,7 @@
     {
       "id": "WEAP-007",
       "title": "Engine Failure After V1 in Low Visibility – Airline Framing",
-      "categoryId": "weapon-ifr",
+      "categoryId": "ifr-essentials",
       "level": "airline",
       "estReadingMinutes": 10,
       "tags": ["V1", "engine-failure", "low-vis"],
@@ -186,7 +186,7 @@
     {
       "id": "WEAP-008",
       "title": "ATPL-Level IFR Performance Traps",
-      "categoryId": "weapon-ifr",
+      "categoryId": "ifr-essentials",
       "level": "airline",
       "estReadingMinutes": 10,
       "tags": ["performance", "gradients", "balanced-field", "obstacles"],

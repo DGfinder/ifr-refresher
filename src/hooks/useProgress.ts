@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import type { ModuleStatus, ProgressState } from "@/types/progress";
 import type { Module } from "@/types/section";
 
-const STORAGE_KEY = "ifrWeaponProgress";
+const STORAGE_KEY = "ifrProgress";
 
 function createModuleKey(sectionId: string, moduleId: string): string {
   return `${sectionId}:${moduleId}`;

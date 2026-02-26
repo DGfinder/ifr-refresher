@@ -137,7 +137,7 @@
         {
           "type": "text",
           "style": "body",
-          "text": "GNSS is your main IFR weapon, but it only counts as a reliable weapon if three things line up: approved installation, valid data, and continuous integrity. RAIM (Receiver Autonomous Integrity Monitoring) is the built-in lie detector that tells you whether the GNSS solution can be trusted for IFR navigation."
+          "text": "GNSS is your primary IFR navigation tool, but it only counts as reliable if three things line up: approved installation, valid data, and continuous integrity. RAIM (Receiver Autonomous Integrity Monitoring) is the built-in lie detector that tells you whether the GNSS solution can be trusted for IFR navigation."
         },
         {
           "type": "heading",
