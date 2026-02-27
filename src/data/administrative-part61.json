@@ -46,6 +46,46 @@
             "CASR 61.015",
             "CASR 61.020"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Category determines your licence structure; class determines your endorsements. Getting this wrong affects what you can legally fly.",
+            "Centre-line thrust aeroplanes (e.g., Cessna 337) are treated as single-engine class — this affects recency, training requirements, and IPC scope."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming multi-engine centre-line thrust requires a multi-engine class rating — it doesn't; it's single-engine class.",
+            "Confusing 'category' (aeroplane vs helicopter) with 'class' (single-engine vs multi-engine).",
+            "Forgetting that powered-lift aircraft are both a category and a class under Part 61.",
+            "Not realising that some multi-engine aeroplanes may be prescribed as single-engine class by legislative instrument."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What class is a Cessna 337 Skymaster? A: Single-engine class — multi-engine centre-line thrust aeroplanes are included in the single-engine aeroplane class.",
+            "Q: Name the five categories of aircraft under Part 61. A: Aeroplane, helicopter, powered-lift aircraft, gyroplane, airship.",
+            "Q: Is a multi-engine aeroplane always multi-engine class? A: No — centre-line thrust and prescribed aeroplanes are single-engine class.",
+            "Q: What's the difference between category and class? A: Category is the fundamental type (aeroplane, helicopter); class is a subdivision within category (single-engine, multi-engine)."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You've been flying a King Air (multi-engine class). A colleague suggests your centre-line thrust Cessna 337 time counts toward your multi-engine recency. Is this correct? A: No — the 337 is single-engine class, so it doesn't satisfy multi-engine recency requirements.",
+            "Q: Why does CASA treat centre-line thrust differently from conventional multi-engine? A: Centre-line thrust has no asymmetric thrust issues on engine failure, so the handling characteristics are closer to single-engine operations."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're a CPL holder with single-engine class rating. A charter company offers you a contract flying a Cessna 337 for aerial survey.",
+            "The chief pilot says 'It's multi-engine, so you'll need endorsement training.' You check Part 61.020.",
+            "Decision point: Is the chief pilot correct? Answer: No — the 337 is centre-line thrust and therefore single-engine class. You're legal to fly it under your existing class rating after appropriate type familiarisation."
+          ]
         }
       ],
       "refs": []
@@ -74,6 +114,44 @@
           "type": "reference",
           "content": [
             "CASR 61.035"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The MOS contains the actual standards you're tested against — the regulation gives CASA authority, but the MOS has the detail.",
+            "When preparing for an IPC or flight review, the MOS Schedule 8 (IPC) and Schedule 7 (flight review) specify exactly what the examiner must assess."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Looking only at the CASRs and missing the MOS — the regulation says 'in accordance with the MOS', so you need both documents.",
+            "Assuming MOS standards are suggestions rather than legal requirements — they have legislative force.",
+            "Not checking for MOS amendments — CASA updates the MOS more frequently than the CASRs."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Where do you find the actual flight test standards for an IPC? A: Part 61 MOS Schedule 8.",
+            "Q: Can CASA change IPC requirements without changing the CASRs? A: Yes — the MOS can be amended by legislative instrument without changing the parent regulation.",
+            "Q: What does the MOS cover for IPCs specifically? A: Flight test standards, competency requirements, and the specific manoeuvres and tolerances for the proficiency check."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your company training manual references Part 61 MOS standards. Why is it important to verify the MOS version is current? A: The MOS is updated by legislative instrument and may change between regulation amendments. Using an outdated version could mean training to superseded standards.",
+            "Q: How does the MOS relate to an operator's training and checking system? A: The MOS sets minimum standards; operators can exceed them but cannot go below. Training syllabi must meet or exceed MOS requirements."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're preparing for your IPC and your instructor hands you a 2019 copy of the Part 61 MOS.",
+            "You check the CASA website and find the MOS was amended in 2023.",
+            "Decision point: Does it matter? Answer: Yes — MOS amendments can change flight test requirements, tolerances, or competency standards. Always use the current version."
           ]
         }
       ],
@@ -107,6 +185,46 @@
           "type": "reference",
           "content": [
             "CASR 61.880 para 3"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The 3-month early renewal window is critical for planning — complete your IPC early and you get backdated validity, maximising your next cycle.",
+            "Operators using training and checking systems provide continuous validity, but the moment you leave that system, your IPC clock starts ticking from your last check."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Completing an IPC 4 months early and losing validity time — the 3-month backdating only applies within the window.",
+            "Confusing the 12-month IPC validity with the 12-month circling recency (they're separate requirements).",
+            "Assuming your IPC is valid because you're in a training and checking system — validity only continues while you're 'successfully participating'.",
+            "Not realising IPC validity is calculated to the end of the month, not the exact date of the check."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Your IPC expires 31 March. You complete a new IPC on 15 January. When does your new IPC expire? A: 31 March the following year — because you completed within the 3-month early window, validity backdates.",
+            "Q: Your IPC expires 31 March. You complete a new IPC on 15 December. When does your new IPC expire? A: 31 December the following year — you completed outside the 3-month window, so validity runs from the new check date.",
+            "Q: What does 'successfully participating' in a training and checking system mean? A: Completing all required checks and training within the operator's approved system while employed in IFR operations.",
+            "Q: Does an operator proficiency check replace an IPC? A: It can maintain IFR privileges while you're in the system, but is not itself an IPC for Part 61 purposes."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You resign from an airline on 1 June. Your last operator proficiency check was 1 March. When must you complete an IPC to continue exercising IFR privileges? A: Immediately — leaving the training and checking system means you need a current Part 61 IPC. Your operator check doesn't transfer.",
+            "Q: How would you plan IPC renewals to minimise disruption to your flying? A: Complete within the 3-month early window to maximise validity while maintaining uninterrupted privileges."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're a freelance charter pilot. Your IPC expires 30 November. A busy season means you can only book an IPC for either 20 August or 5 December.",
+            "August is 3+ months before expiry. December is 5 days after expiry.",
+            "Decision point: Which date gives you better validity? Answer: December — you'd be invalid for 5 days, but your new IPC would run to December next year. August would only run to November next year (3 months lost). However, you cannot legally fly IFR during those 5 days."
           ]
         }
       ],
@@ -144,6 +262,46 @@
             "CASR 61.860",
             "CASR 61.880",
             "Subpart 61.E"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The circling recency requirement catches many pilots — you need circling in your IPC or flight test within 12 months, not just 'any IPC'.",
+            "Single-pilot IFR has its own gate: you must have passed an IPC in a single-pilot aircraft at some point, or completed your IR flight test in one."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming an IPC automatically covers circling — it doesn't unless specifically included.",
+            "Confusing 12-month circling recency with 12-month IPC validity — circling requires the approach type in the check, not just a current IPC.",
+            "Flying single-pilot IFR without ever having demonstrated single-pilot competency in an IPC or IR flight test.",
+            "Conducting an approach type without training and competency demonstration — RNP approaches require specific endorsement."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Can you conduct a circling approach with a current IPC if circling wasn't included? A: Only if your IR flight test within the previous 12 months included circling, or you're in an operator's system covering circling.",
+            "Q: You've only ever flown multi-crew IFR. Can you fly single-pilot IFR charter? A: Not until you've completed an IPC in a single-pilot aircraft or passed an IR flight test in one.",
+            "Q: What's required before conducting an RNP approach? A: Training in that approach type and demonstrated competence to CASA or an examiner, plus appropriate aircraft and crew certification.",
+            "Q: Your IPC was in a Baron (multi-pilot capable but flown single-pilot). Does this qualify you for single-pilot IFR? A: Yes, if the IPC was conducted as a single-pilot operation."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You're transitioning from airline flying to single-pilot charter. Your airline IPCs were all multi-crew. What must you do before your first single-pilot IFR flight? A: Complete an IPC in a single-pilot aircraft. Your multi-crew experience doesn't satisfy the single-pilot requirement.",
+            "Q: A training captain asks why circling needs to be specifically included in IPCs. How would you explain the regulatory basis? A: CASR 61.860 requires circling recency within 12 months through flight test, IPC, or operator check — it's a separate privilege gate, not automatic with instrument currency."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You completed your IPC three months ago in a simulator. The check included ILS, VOR, and RNAV approaches but not circling.",
+            "Today you're planning a charter to an aerodrome where only a circling approach is available.",
+            "Decision point: Are you legal for the circling approach? Answer: Only if your IR flight test within the previous 12 months included circling, or you're in an operator's system that covers circling. Your recent IPC without circling doesn't qualify."
           ]
         }
       ],
@@ -186,6 +344,48 @@
           "content": [
             "CASR 61.870",
             "CASR 61.875"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The 90-day/3-approach rule is the baseline, but type-specific recency (2D, 3D, azimuth, CDI) catches pilots who've only been flying one approach type.",
+            "Single-pilot IFR has its own 6-month recency — separate from the 90-day general IFR currency. You can be 90-day current but 6-month expired for single-pilot."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Flying an ILS (3D) when your last 90 days only included VOR approaches (2D) — you need at least one 3D approach in currency.",
+            "Assuming FSTD approaches count for category recency — they count for approach type but not for the 'one in actual aircraft of same category' requirement.",
+            "Letting single-pilot IFR recency lapse while maintaining general IFR currency — you can't fly single-pilot after 6 months without a qualifying flight.",
+            "Forgetting that the 1-hour minimum for single-pilot recency must include at least one approach.",
+            "Not recognising that CDI and azimuth guidance are separate recency requirements."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You flew three NDB approaches in the last 90 days. Are you current for an RNP LNAV approach? A: Yes for general IFR and 2D approaches. But check if RNP requires CDI — if so, you need CDI recency from a CDI-based approach.",
+            "Q: Your last single-pilot IFR flight was 7 months ago. Can you fly IFR today in a single-pilot operation? A: No — you need a single-pilot IFR flight within 6 months, at least 1 hour duration with at least one approach.",
+            "Q: You completed an operator proficiency check 2 months ago. Does this satisfy all recency requirements? A: Yes — an operator proficiency check within 3 months satisfies all 61.870 requirements.",
+            "Q: What's the minimum to regain single-pilot IFR currency? A: A flight or simulated flight under IFR in single-pilot operation, at least 1 hour, including at least one instrument approach.",
+            "Q: Can simulator time count toward the 90-day approaches? A: Yes, approaches in an approved FSTD count toward the 3-approach and approach-type requirements."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You're transitioning to a single-pilot charter role after 2 years of multi-crew airline flying. What recency issues should you address? A: Single-pilot IFR recency (6-month rule) — your airline flying doesn't count. You need a qualifying single-pilot IFR flight before your first charter.",
+            "Q: How would you track recency for a pilot flying both multi-crew and single-pilot operations? A: Track separately: 90-day approaches (general), approach types (2D/3D/azimuth/CDI), category-specific, and single-pilot 6-month currency. Operator checks reset most, but single-pilot needs specific tracking."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're a Part 141 instructor who does occasional single-pilot charter. Your last charter was 5 months ago (single-pilot IFR, multiple approaches).",
+            "Your recent flying has been instructional in the right seat (student flying, you monitoring). You've logged plenty of instrument approaches in the last 90 days.",
+            "Decision point: Are you current for a single-pilot IFR charter tomorrow? Answer: Check if your instruction time counts as 'single-pilot operation'. If the student was PIC-under-supervision and you were monitoring, you may not have been operating single-pilot. You may need a qualifying single-pilot flight before the charter."
           ]
         }
       ],
@@ -231,6 +431,48 @@
             "Part 91 MOS 26.23",
             "Part 91 MOS 26.24",
             "Part 91 MOS 26.25"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Equipment requirements drive MEL decisions — understanding what's actually required versus 'nice to have' determines whether you can legally dispatch.",
+            "Altitude alerting requirements differ by aircraft type and airspace — pressurised turbines need it everywhere in CTA, others only above FL150."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming all IFR aircraft need full altitude alerting — basic assigned altitude indicator is sufficient for most aircraft below FL150.",
+            "Forgetting the second AI can replace slip indicator, DG independence, and alternate power requirements — but only if it's actually fitted.",
+            "Dispatching at night without verifying landing light and navigation light serviceability.",
+            "Not recognising 'operative unless permissible unserviceability' — MEL items must be formally approved, not just 'we'll manage without it'.",
+            "Confusing anti-collision light options: 1 red beacon OR 2 white strobes, not 'one of each'."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Your aircraft has one AI with primary power only. Is this legal for IFR? A: Only if it's independent of T+S, or a second AI is fitted. Otherwise, alternate power supply is required.",
+            "Q: What altitude alerting is required for a piston aircraft at FL100 in Class C? A: Assigned altitude indicator only — full alerting with aural warning is only required for piston above FL150.",
+            "Q: Can you dispatch IFR at night with inoperative navigation lights? A: No — navigation lights are required for night operations under 26.24.",
+            "Q: The slip indicator (ball) is inoperative. Can you fly IFR? A: Only if a second AI is available — slip indicator can be dispensed with when second AI is fitted.",
+            "Q: What's the anti-collision light requirement? A: One red beacon, OR two white strobes, OR a combination."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your MEL shows 'Altitude Alerter INOP — VFR only'. The dispatch planner wants to know why. Explain the regulatory basis. A: Part 91 MOS 26.25 requires altitude alerting with aural warning for pressurised turbines in all CTA, and for all aircraft in CTA above FL150. Without it, IFR dispatch into controlled airspace is not permitted.",
+            "Q: How would you assess an MEL item that says 'One AI may be inoperative'? What conditions must be met? A: Verify the remaining AI has primary and alternate power (or is independent of T+S), and that slip indication remains available. The second AI provision in 26.08 may allow dispatch, but all dependent requirements must still be satisfied."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're conducting pre-flight on a piston single for an IFR charter. The maintenance release shows 'Altitude alerter U/S — MEL reference pending'.",
+            "Your route is in Class G to FL120, then Class E to FL150, landing at a controlled aerodrome (Class D).",
+            "Decision point: Can you legally dispatch? Answer: Check 26.25 — piston aircraft below FL150 only need assigned altitude indicator, not full alerting. If the basic altitude indicator still shows assigned altitude, you may be legal. However, the MEL reference must be resolved before dispatch. You cannot self-MEL."
           ]
         }
       ],

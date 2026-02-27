@@ -2,13 +2,13 @@
   "version": "1.0",
   "sectionId": "departure",
   "sectionTitle": "Departure",
-  "sectionDescription": "Pre-departure altimeter checks, take-off minima, and standard departure and take-off safety briefing frameworks.",
+  "sectionDescription": "Pre-departure altimeter checks and take-off minima requirements.",
   "categories": [
     {
       "id": "departure",
       "title": "Departure",
-      "description": "Altimeter accuracy checks, take-off minima, and IFR departure briefing requirements.",
-      "moduleIds": ["DEP-001", "DEP-002", "DEP-003", "DEP-004"]
+      "description": "Altimeter accuracy checks and take-off minima for IFR operations.",
+      "moduleIds": ["DEP-001", "DEP-002"]
     }
   ],
   "modules": [
@@ -29,7 +29,7 @@
             "When two altimeters are required and one reads within 60FT and the other between 60FT and 75FT: flight under IFR to the first point of landing (where re-check is possible) is approved. If the error exceeds 60FT on re-check, the altimeter must be considered unserviceable.",
             "When two altimeters are fitted but only one required: may continue IFR provided one reads within 60FT. If the remaining altimeter has an error exceeding 75FT, it must be placarded unserviceable and the maintenance release endorsed.",
             "When only one altimeter fitted and it reads between 60FT and 75FT error: flight to first point of landing for re-check is approved. If error exceeds 60FT on re-check, the altimeter is to be considered unserviceable for IFR.",
-            "AIP ENR 1.7 Para 1.3 — VFR altimeters: should read site elevation to within 100FT (110FT at test sites above 3,300FT). If continuing with two altimeters and one has ≥100FT error, the faulty altimeter must be placarded unserviceable.",
+            "AIP ENR 1.7 Para 1.3 — VFR altimeters: should read site elevation to within 100FT (110FT at test sites above 3,300FT). If continuing with two altimeters and one has 100FT or more error, the faulty altimeter must be placarded unserviceable and the error noted in the maintenance release.",
             "AIP ENR 1.7 Para 1.4 — A QNH can be considered accurate only if provided by AAIS, ATC, ATIS, AWIS, CA/GRS, or WATIR. QNH from an authorised weather forecast must not be used for checking altimeter accuracy. Site elevation must be derived from aerodrome survey data authorised by CASA or an NAA, or supplied in writing by the aerodrome operator."
           ]
         },
@@ -39,7 +39,8 @@
             "60FT — IFR altimeter accuracy standard (within 60FT = serviceable)",
             "75FT — IFR altimeter unserviceability threshold (error exceeding ±75FT = unserviceable)",
             "100FT — VFR altimeter accuracy standard",
-            "110FT — VFR altimeter accuracy standard at test sites above 3,300FT"
+            "110FT — VFR altimeter accuracy standard at test sites above 3,300FT",
+            "3,300FT — elevation threshold for VFR altimeter tolerance change"
           ]
         },
         {
@@ -49,7 +50,50 @@
             "AIP ENR 1.7 Para 1.2",
             "AIP ENR 1.7 Para 1.3",
             "AIP ENR 1.7 Para 1.4",
-            "JEPP ATC — General Flight Procedures 1.1"
+            "JEPP ATC — General Flight Procedures 1.1, 1.1.2, 1.1.3, 1.1.4"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The 60FT vs 75FT distinction matters: 60FT is serviceable, above 75FT is unserviceable. Between 60-75FT creates a conditional dispatch situation.",
+            "METAR QNH is NOT an approved source — this catches pilots who assume any official QNH is valid for the check."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Using METAR QNH for the altimeter check — it's an observation, not an approved source. Use ATIS, AWIS, ATC, or accredited observer.",
+            "Confusing the 60FT standard with the 75FT unserviceability limit — the grey zone between requires specific procedures.",
+            "Not rechecking at another location when the first check fails — you get one recheck at a different point on the field.",
+            "VFR tolerance (100FT) is more relaxed but pilots sometimes apply it to IFR flights.",
+            "Accepting forecast QNH for accuracy check — forecast QNH is for setting altimeters, not checking accuracy."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Your altimeter reads 85FT high with accurate QNH. What's its status? A: Unserviceable — error exceeds ±75FT.",
+            "Q: Your altimeter reads 68FT low. What's its status? A: Serviceable for flight to first point of landing for recheck. If error exceeds 60FT on recheck, it's unserviceable.",
+            "Q: You set ATIS QNH but want to verify accuracy. ATIS shows QNH 1015. Can you use this? A: Yes — ATIS (when providing actual QNH, not TAF QNH) is an approved source.",
+            "Q: The METAR shows QNH 1016. Can you use this for your pre-flight altimeter check? A: No — METAR is observation data, not an approved source for accuracy checking.",
+            "Q: You have two altimeters. One reads 55FT error, the other 70FT. Can you depart IFR? A: Yes — flight to first point of landing is approved. One reads within 60FT (serviceable), the other is in the 60-75FT grey zone."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your SOP says 'cross-check altimeters agree within 75FT'. How does this relate to the individual accuracy requirement? A: Cross-check for agreement is separate from individual accuracy against QNH. Both altimeters could agree with each other but both be 100FT in error. SOP cross-check is additional to, not replacement for, accuracy check.",
+            "Q: Both altimeters show errors between 60-75FT but in opposite directions (one high, one low). What's the procedure? A: Both are in the grey zone. You can fly to first point of landing for recheck. If either exceeds 60FT on recheck, that altimeter is unserviceable. Consider the implications of opposite errors for altitude reference."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're at Essendon for an IFR departure. ATIS shows QNH 1018. You set both altimeters to 1018.",
+            "Left altimeter shows field elevation +52FT. Right altimeter shows field elevation +73FT.",
+            "Decision point: Can you depart IFR?",
+            "Answer: Yes. Left is within 60FT (serviceable). Right is between 60-75FT (grey zone) — approved for flight to first landing for recheck. You can depart, but must recheck at destination. If right exceeds 60FT on recheck, placard unserviceable and note in maintenance release."
           ]
         }
       ],
@@ -69,8 +113,8 @@
           "content": [
             "Part 91 MOS 15.06 — Take-off minima for other aeroplanes (not qualifying multi-engine, not low-visibility): (a) cloud ceiling of 300FT; and (b) visibility of 2,000M.",
             "Part 91 MOS 15.03 — A PIC must not commence take-off if, at the time of take-off: (a) the meteorological conditions are less than the take-off minima; or (b) the meteorological conditions that would exist if it were necessary to return to land due to engine failure are not: (i) at or above the landing minima for any IAP that the PIC is able to conduct at the aerodrome; or (ii) such as to allow a visual approach for the return to land.",
-            "Part 91 MOS 15.05 — Take-off minima for qualifying multi-engine aeroplanes (not low-visibility): visibility of 800M. Note: this minima can be reduced to 550M under certain conditions (refer Part 91 MOS 15.05).",
-            "Part 91 MOS 15.02 — A qualifying multi-engine aeroplane means an IFR multi-engine aeroplane that is: (a) operated by at least 2 pilots; or if piston/turboprop with operative autofeather, 1 pilot; or if turbojet, 1 pilot; and (b) in the event of engine failure, capable of maintaining terrain clearance until reaching the minimum height for IFR flight."
+            "Part 91 MOS 15.05 — Take-off minima for qualifying multi-engine aeroplanes (not low-visibility): visibility of 800M. This minima can be reduced to 550M under certain conditions.",
+            "Part 91 MOS 15.02 — A qualifying multi-engine aeroplane means an IFR multi-engine aeroplane that is: (a) operated by: (i) at least 2 pilots; or (ii) if piston or turboprop with operative autofeather, 1 pilot; or (iii) if turbojet, 1 pilot; and (b) in the event of engine failure, capable of maintaining terrain clearance until reaching the minimum height for IFR flight."
           ]
         },
         {
@@ -79,7 +123,7 @@
             "300FT — minimum cloud ceiling for standard take-off",
             "2,000M — minimum visibility for standard take-off",
             "800M — minimum visibility for qualifying multi-engine aeroplane take-off",
-            "550M — minimum visibility for qualifying multi-engine under specific conditions (Part 91 MOS 15.05)"
+            "550M — minimum visibility for qualifying multi-engine under specific conditions"
           ]
         },
         {
@@ -90,78 +134,47 @@
             "Part 91 MOS 15.05",
             "Part 91 MOS 15.06"
           ]
-        }
-      ],
-      "refs": []
-    },
-    {
-      "id": "DEP-003",
-      "title": "Sample Departure Briefing",
-      "categoryId": "departure",
-      "level": "core",
-      "estReadingMinutes": 2,
-      "tags": ["departure briefing", "SID", "terrain", "QNH", "MSA"],
-      "summary": "Standard framework for an IFR departure briefing covering chart, navigation aid, departure procedure, terrain, weather, and considerations.",
-      "content": [
+        },
         {
-          "type": "law",
+          "type": "ops_context",
           "content": [
-            "Chart: state aerodrome, departure title, index number, effective date. State aid tuned, identified and tested to frequency; or confirm procedure loaded, tracks/distances/heights verified and RAIM available.",
-            "Flying the departure: read initial climb instructions from chart; discuss assigned altitude.",
-            "Terrain: discuss MSAs.",
-            "Weather: discuss conditions from AWIS, ATIS, or TAF; consider wind effect on tracks; discuss QNH and confirm reasonableness; discuss weather at destination and confirm suitability.",
-            "Considerations and questions: discuss relevant chart notes and NOTAMs; discuss plan to achieve MSA in the event of engine failure and options available; discuss special considerations (recent chart changes, traffic); ask other crewmember if they have further items."
+            "Take-off minima aren't just about 'can I see the runway' — the return-to-land consideration means you're also planning for engine failure on departure.",
+            "Qualifying multi-engine gets lower minima because it can maintain terrain clearance on one engine. Single-engine doesn't have that luxury."
           ]
         },
         {
-          "type": "numbers",
-          "content": []
-        },
-        {
-          "type": "reference",
+          "type": "traps",
           "content": [
-            "AIP ENR 1.5 — Departure procedures",
-            "DAP — applicable departure chart"
-          ]
-        }
-      ],
-      "refs": []
-    },
-    {
-      "id": "DEP-004",
-      "title": "Sample Take-off Safety Briefing",
-      "categoryId": "departure",
-      "level": "core",
-      "estReadingMinutes": 2,
-      "tags": ["take-off briefing", "VMCA", "VR", "VYSE", "engine failure", "reject"],
-      "summary": "Standard framework for a multi-engine IFR take-off safety briefing covering V-speeds, engine failure decisions, and post-VYSE actions.",
-      "content": [
-        {
-          "type": "law",
-          "content": [
-            "State V-speeds: VMCA, VR, VYSE.",
-            "Before VR: any abnormality — maintain aircraft control and reject the take-off.",
-            "At or after VR and before VYSE (critical malfunction): maintain aircraft control and either land (if runway permits) or accelerate to VYSE, selecting flap up above 300FT.",
-            "Above VYSE: maintain aircraft control, prevent yaw, mixture up, pitch up, power up, gear up, flaps up — then dead leg/dead engine, confirm and feather.",
-            "State plan for meteorological conditions, terrain and facilities: circle to land turning towards the live engine (if appropriate); or continue to nominated alternate.",
-            "If performance is not achieved to climb or maintain level flight: state options.",
-            "Discuss simulated or actual emergencies and who has control of the aircraft."
+            "Assuming all multi-engine aircraft qualify for 800M minima — they must be 'qualifying multi-engine' with terrain clearance capability on one engine.",
+            "Forgetting the return-to-land provision — if you can't land back due to weather, you can't depart.",
+            "Single-pilot piston multi-engine without autofeather doesn't qualify for 800M minima — needs two pilots, or autofeather, or be a turbojet.",
+            "Not checking landing minima for return — your take-off minima are linked to your landing minima for that aerodrome."
           ]
         },
         {
-          "type": "numbers",
+          "type": "ipc_questions",
           "content": [
-            "300FT — height at which flaps are selected up after VYSE acceleration",
-            "VR — rotate speed",
-            "VMCA — minimum control speed, air",
-            "VYSE — single engine best rate of climb speed (blue radial)"
+            "Q: Standard IFR take-off minima are? A: 300FT ceiling and 2000M visibility.",
+            "Q: What makes an aeroplane 'qualifying multi-engine'? A: Must be capable of maintaining terrain clearance to minimum IFR height on one engine, and operated by 2 pilots, or 1 pilot with autofeather (piston/turboprop), or 1 pilot in a turbojet.",
+            "Q: You're in a single-engine IFR aircraft. Ceiling is 200FT, visibility 3000M. Can you depart? A: No — you need 300FT ceiling minimum.",
+            "Q: You're in a qualifying multi-engine. Same weather. Can you depart? A: No — qualifying multi-engine only reduces visibility requirement to 800M. You still need to consider return-to-land conditions.",
+            "Q: Landing minima at your departure aerodrome are 500FT and 1600M. Current weather is ceiling 400FT, visibility 2500M. Can you depart? A: No — MOS 15.03 requires conditions for return-to-land if engine failure. Weather below landing minima means you can't land back."
           ]
         },
         {
-          "type": "reference",
+          "type": "airline_questions",
           "content": [
-            "Aircraft Flight Manual (aircraft-specific)",
-            "Part 91 MOS — Take-off requirements"
+            "Q: Your company operates turbine singles into regional ports. Weather shows 300FT ceiling, 2000M vis. Can you depart? A: You meet standard minima (300FT/2000M). But verify landing minima for return — if the approach requires better than current conditions, you cannot depart until weather improves or you have an engine-out plan that doesn't require return.",
+            "Q: A captain argues that with 800M visibility they can depart because 'we're multi-engine'. What additional factors must be verified? A: The aircraft must be 'qualifying multi-engine' — can it maintain terrain clearance to minimum IFR height on one engine from this specific aerodrome? Plus return-to-land conditions must exist. Just being multi-engine isn't enough."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're departing Launceston in a Beechcraft Baron (piston twin, single pilot, no autofeather). Weather is ceiling 350FT, visibility 900M.",
+            "The Baron can maintain terrain clearance on one engine from this runway.",
+            "Decision point: What are your take-off minima?",
+            "Answer: Standard minima (300FT/2000M), not qualifying multi-engine (800M). Without autofeather, a single-pilot piston multi needs standard minima. Current visibility 900M doesn't meet the 2000M requirement. You cannot depart."
           ]
         }
       ],

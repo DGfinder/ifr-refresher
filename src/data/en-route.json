@@ -44,6 +44,49 @@
             "AIP ENR 1.7 Para 2",
             "JEPP ATC — General Flight Procedures 1.2"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The 100NM limit for local QNH catches pilots who fly long legs without updating — outside 100NM you need a new source or use Area QNH.",
+            "Changing QNH at the wrong point (before passing 10,000FT on climb, or after the transition layer on descent) creates altitude errors."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Using local QNH from a station more than 100NM away — switch to Area QNH or find a closer source.",
+            "Changing to 1013.2 hPa before passing 10,000FT on climb — change AFTER passing 10,000FT, before levelling.",
+            "Forgetting to change from 1013.2 to QNH on descent until below the transition layer — change JUST BEFORE entering.",
+            "Assuming METAR QNH is valid for en route — it's not an approved source unless from specific reporting stations.",
+            "Using Area QNH without recognising the +50FT minima addition required."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're cruising at FL150. When did you change to 1013.2 hPa? A: After passing 10,000FT and before levelling at FL150.",
+            "Q: You're descending from FL200 to 7000FT. When do you change to QNH? A: Just before passing the transition layer (just before passing FL110).",
+            "Q: The nearest reporting station is 120NM away. Can you use its QNH? A: No — 100NM is the limit for local QNH. Use Area QNH instead.",
+            "Q: What are approved sources for en route QNH? A: Reporting stations (AAIS, ATIS, AWIS, CA/GRS, VOLMET, WATIR), TAF, Area QNH forecast, or ATS.",
+            "Q: You're using Area QNH. Any implications for your approach minima? A: Add 50FT to published minima when using Area QNH."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your FMC auto-sets QNH from database. How do you verify it's correct? A: Cross-check against ATC-provided QNH, ATIS, or AWIS. Database QNH is a starting point, not a verified source.",
+            "Q: During cruise, you notice the QNH you set 2 hours ago was from a station now 150NM behind. What action? A: Update to Area QNH or request current QNH from ATC. The 100NM limit has been exceeded."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're climbing out of Brisbane, passing 8000FT, cleared to FL250. Your altimeter is set to Brisbane QNH 1018.",
+            "Passing 10,500FT you realise you haven't changed to 1013.2 hPa yet.",
+            "Decision point: What do you do?",
+            "Answer: Change to 1013.2 hPa immediately. You're above 10,000FT and should have changed already. With QNH 1018 (higher than standard), your true altitude was higher than indicated — switching now will show you at a slightly higher flight level than you thought. Inform ATC if there's any altitude discrepancy."
+          ]
         }
       ],
       "refs": []
@@ -79,6 +122,48 @@
             "AIP ENR 1.1 Para 4.1.2.1.b",
             "JEPP ATC — General Flight Procedures 5.1"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "GNSS doesn't remove the 2-hour fix requirement — but co-located DME or GNSS allows you to fix before station passage, extending practical range.",
+            "The ±9° tracking error allowance is surprisingly generous, but only useful if you'll actually reach a suitable fix within rated coverage."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming GNSS replaces all radio navigation requirements — GNSS is an 'area navigation system' option, but radio nav backup may still be required for some operations.",
+            "Exceeding 2 hours between fixes — maximum interval must not exceed 2 hours regardless of navigation method.",
+            "Planning visual navigation for IFR segments without verifying VMC conditions are assured and visual fixing requirements can be met.",
+            "Using 6.66 × rated coverage formula without understanding the ±9° basis — it's theoretical maximum, not practical guidance."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're navigating by radio nav. What's the maximum time between fixes? A: 2 hours.",
+            "Q: What's the formula basis for radio navigation planning? A: After allowing ±9° tracking error from the last fix, the aircraft must come within rated coverage of a radio aid usable as a fix.",
+            "Q: Can you navigate IFR by visual reference? A: Yes, on segments without suitable radio nav aids, if by day in VMC with visual position fixing available.",
+            "Q: You have GNSS. Do radio nav requirements still apply? A: If navigating by approved RNAV, the radio nav requirements don't apply — but the 2-hour fix interval applies to all methods.",
+            "Q: What does 'd = 6.66 × rated coverage' represent? A: Maximum distance you can theoretically fly using radio nav before needing a fix, based on ±9° tracking accuracy."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your planned route has a 2.5-hour segment with no radio nav coverage and GNSS as primary navigation. Is this acceptable? A: GNSS provides continuous fixing, so the 2-hour fix requirement is satisfied (GNSS provides fixes continuously). The 2-hour limit applies to radio nav, not RNAV.",
+            "Q: Flight planning shows 'GNSS REQUIRED' for a segment. Your GNSS fails en route. What are your options? A: You cannot continue on that segment. Divert to a route with radio nav coverage or return. The 'GNSS REQUIRED' notation means no radio nav alternative exists."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're planning a route through remote western Queensland. The leg between two waypoints is 180NM with no VORs in range.",
+            "Your aircraft has IFR-approved GNSS and a VOR receiver.",
+            "Decision point: How do you plan navigation for this segment?",
+            "Answer: Use GNSS as primary — it provides continuous position fixing, satisfying navigation requirements. VOR is backup but outside coverage for this segment. If GNSS fails, you'd need to divert to an area with radio nav coverage."
+          ]
         }
       ],
       "refs": []
@@ -113,6 +198,48 @@
           "content": [
             "AIP ENR 1.1 Para 4.6.2",
             "JEPP ATC — General Flight Procedures 5.6"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "These deviation tolerances tell you when ATC MUST be notified — staying within them doesn't mean you're flying accurately, just that you haven't triggered mandatory reporting.",
+            "RNAV/RNP deviations are straightforward: outside the prescribed RNP value means notify immediately."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming these tolerances are 'acceptable' tracking — they're notification triggers, not performance standards.",
+            "Not recognising half-scale deflection as the VOR/LOC reporting threshold — this is significant deviation.",
+            "Forgetting NDB is ±5° — tighter than you might expect for an old-technology nav aid.",
+            "Visual navigation in controlled airspace has a 1NM tolerance — this is quite tight for visual position fixing."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're tracking a VOR radial in Class C. At what CDI deflection must you notify ATC? A: Half-scale deflection.",
+            "Q: You're using NDB for tracking. How much deviation requires ATC notification? A: ±5° from track.",
+            "Q: You're navigating RNP 1 in controlled airspace. When must you notify ATC? A: When you're outside the prescribed RNP value (in this case, outside ±1NM).",
+            "Q: You're using DME for position. What error requires notification? A: ±2NM.",
+            "Q: You're navigating visually in Class D. How much position error requires notification? A: 1NM."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your aircraft shows momentary RNP deviation during turbulence but immediately corrects. Do you notify ATC? A: Technically yes if you went outside the prescribed RNP value, even momentarily. Practically, brief excursions during correction are common. Use judgment, but if in doubt, advise ATC.",
+            "Q: How do these deviation tolerances relate to your company's tracking standards? A: Company standards should be tighter than notification tolerances. These are 'must report' thresholds, not 'acceptable flying'. Most SOPs specify better performance as normal operating standard."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're tracking the 270 radial outbound from a VOR in Class C airspace. You notice your CDI has drifted to just under half-scale deflection left.",
+            "You start correcting but the wind is stronger than expected and the needle continues to drift.",
+            "Decision point: At what point must you advise ATC?",
+            "Answer: When the CDI reaches half-scale deflection, you must immediately notify ATC. 'Just under' means you're close but not yet required to report. Once you hit half-scale, even while correcting, you've triggered the notification requirement."
           ]
         }
       ],

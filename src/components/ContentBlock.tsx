@@ -2,6 +2,11 @@
 
 import type { ContentBlock as ContentBlockType } from "@/types/section";
 
+// Shared IFR design token classes
+const baseCardClasses = "mb-4 rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)]/80 px-4 py-3 shadow-sm";
+const titleClasses = "mb-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--ifr-text-muted)]";
+const listClasses = "ml-4 list-disc space-y-1 text-sm leading-relaxed text-[var(--ifr-text)]";
+
 interface ContentBlockProps {
   block: ContentBlockType;
 }
@@ -79,15 +84,11 @@ export function ContentBlock({ block }: ContentBlockProps) {
 
     case "law":
       return (
-        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            The Law
-          </p>
-          <ul className="space-y-2">
+        <div className={baseCardClasses}>
+          <p className={titleClasses}>The Law</p>
+          <ul className={listClasses}>
             {block.content.map((item, i) => (
-              <li key={i} className="leading-relaxed text-foreground/90">
-                {item}
-              </li>
+              <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
@@ -96,15 +97,11 @@ export function ContentBlock({ block }: ContentBlockProps) {
     case "numbers":
       if (!block.content.length) return null;
       return (
-        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Key Numbers
-          </p>
-          <ul className="ml-4 list-disc space-y-1">
+        <div className={baseCardClasses}>
+          <p className={titleClasses}>Key Numbers</p>
+          <ul className={listClasses}>
             {block.content.map((item, i) => (
-              <li key={i} className="text-foreground/90">
-                {item}
-              </li>
+              <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
@@ -112,13 +109,11 @@ export function ContentBlock({ block }: ContentBlockProps) {
 
     case "reference":
       return (
-        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Reference
-          </p>
+        <div className={baseCardClasses}>
+          <p className={titleClasses}>Reference</p>
           <ul className="space-y-1">
             {block.content.map((item, i) => (
-              <li key={i} className="font-mono text-sm text-foreground/80">
+              <li key={i} className="font-mono text-sm text-[var(--ifr-text)]/80">
                 {item}
               </li>
             ))}
@@ -128,13 +123,11 @@ export function ContentBlock({ block }: ContentBlockProps) {
 
     case "ops_context":
       return (
-        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Why This Matters
-          </p>
-          <ul className="ml-4 list-disc space-y-1">
+        <div className={baseCardClasses}>
+          <p className={titleClasses}>Why This Matters</p>
+          <ul className={listClasses}>
             {block.content.map((item, i) => (
-              <li key={i} className="text-foreground/90">{item}</li>
+              <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
@@ -142,13 +135,11 @@ export function ContentBlock({ block }: ContentBlockProps) {
 
     case "traps":
       return (
-        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Where Pilots Get Caught
-          </p>
-          <ul className="ml-4 list-disc space-y-1">
+        <div className={baseCardClasses}>
+          <p className={titleClasses}>Where Pilots Get Caught</p>
+          <ul className={listClasses}>
             {block.content.map((item, i) => (
-              <li key={i} className="text-foreground/90">{item}</li>
+              <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
@@ -156,13 +147,11 @@ export function ContentBlock({ block }: ContentBlockProps) {
 
     case "ipc_questions":
       return (
-        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            IPC Oral Questions
-          </p>
-          <ul className="ml-4 list-disc space-y-1">
+        <div className={baseCardClasses}>
+          <p className={titleClasses}>IPC Oral Questions</p>
+          <ul className={listClasses}>
             {block.content.map((item, i) => (
-              <li key={i} className="text-foreground/90">{item}</li>
+              <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
@@ -170,13 +159,11 @@ export function ContentBlock({ block }: ContentBlockProps) {
 
     case "airline_questions":
       return (
-        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Airline Panel Questions
-          </p>
-          <ul className="ml-4 list-disc space-y-1">
+        <div className={baseCardClasses}>
+          <p className={titleClasses}>Airline Panel Questions</p>
+          <ul className={listClasses}>
             {block.content.map((item, i) => (
-              <li key={i} className="text-foreground/90">{item}</li>
+              <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
@@ -184,13 +171,11 @@ export function ContentBlock({ block }: ContentBlockProps) {
 
     case "scenario":
       return (
-        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Scenario
-          </p>
-          <ul className="ml-4 list-disc space-y-1">
+        <div className={baseCardClasses}>
+          <p className={titleClasses}>Scenario</p>
+          <ul className={listClasses}>
             {block.content.map((item, i) => (
-              <li key={i} className="text-foreground/90">{item}</li>
+              <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
