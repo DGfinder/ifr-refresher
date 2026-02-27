@@ -128,7 +128,7 @@ export function ModuleDetail({
             "inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors",
             status === "completed"
               ? "cursor-not-allowed bg-[var(--ifr-success)]/10 text-[var(--ifr-success)]"
-              : "bg-[var(--ifr-accent)] text-white hover:bg-[var(--ifr-accent)]/90"
+              : "bg-[var(--ifr-accent)] text-white hover:bg-[var(--ifr-accent)]/90 dark:bg-indigo-700 dark:hover:bg-indigo-600"
           )}
         >
           {status === "completed" ? (

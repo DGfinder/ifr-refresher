@@ -58,7 +58,7 @@ export function QuizView({ sections, programId }: QuizViewProps) {
           {filteredQuestions.length > 0 && (
             <button
               onClick={start}
-              className="mt-6 rounded-lg bg-[var(--ifr-accent)] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--ifr-accent)]/90"
+              className="mt-6 rounded-lg bg-[var(--ifr-accent)] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--ifr-accent)]/90 dark:bg-indigo-700 dark:hover:bg-indigo-600"
             >
               Start Quiz
             </button>
@@ -97,7 +97,7 @@ export function QuizView({ sections, programId }: QuizViewProps) {
           </p>
           <button
             onClick={restart}
-            className="mt-6 rounded-lg bg-[var(--ifr-accent)] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--ifr-accent)]/90"
+            className="mt-6 rounded-lg bg-[var(--ifr-accent)] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--ifr-accent)]/90 dark:bg-indigo-700 dark:hover:bg-indigo-600"
           >
             Try Again
           </button>

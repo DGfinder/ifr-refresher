@@ -46,7 +46,7 @@ export function SessionConfig({
                 className={cn(
                   "rounded-lg px-4 py-2 text-sm font-medium transition-colors",
                   isSelected
-                    ? "bg-[var(--ifr-accent)] text-white"
+                    ? "bg-[var(--ifr-accent)] text-white dark:bg-indigo-700"
                     : "bg-[var(--ifr-surface)] border border-[var(--ifr-border)] text-[var(--ifr-text)]",
                   !isSelected && !isDisabled && "hover:border-[var(--ifr-accent)]/50",
                   isDisabled && "cursor-not-allowed opacity-50"
@@ -76,7 +76,7 @@ export function SessionConfig({
                   className={cn(
                     "rounded-lg px-4 py-2 text-sm font-medium transition-colors",
                     isSelected
-                      ? "bg-[var(--ifr-accent)] text-white"
+                      ? "bg-[var(--ifr-accent)] text-white dark:bg-indigo-700"
                       : "bg-[var(--ifr-surface)] border border-[var(--ifr-border)] text-[var(--ifr-text)]",
                     !isSelected && "hover:border-[var(--ifr-accent)]/50"
                   )}

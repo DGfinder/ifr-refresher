@@ -26,7 +26,7 @@ export function ProgramTabs({ programId, onProgramChange }: ProgramTabsProps) {
                 "whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-colors",
                 "flex-shrink-0",
                 isSelected
-                  ? "bg-[var(--ifr-accent)] text-white shadow-sm"
+                  ? "bg-[var(--ifr-accent)] text-white shadow-sm dark:bg-indigo-700"
                   : "text-[var(--ifr-text-muted)] hover:bg-[var(--ifr-surface-muted)] hover:text-[var(--ifr-text)]"
               )}
             >

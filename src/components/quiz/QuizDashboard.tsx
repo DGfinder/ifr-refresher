@@ -83,7 +83,7 @@ export function QuizDashboard({
       <button
         onClick={onStart}
         disabled={!canStart}
-        className="w-full rounded-xl bg-[var(--ifr-accent)] py-4 text-lg font-semibold text-white transition-all hover:bg-[var(--ifr-accent)]/90 disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full rounded-xl bg-[var(--ifr-accent)] py-4 text-lg font-semibold text-white transition-all hover:bg-[var(--ifr-accent)]/90 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-indigo-700 dark:hover:bg-indigo-600"
       >
         {canStart ? "Start Quiz" : "No Questions Available"}
       </button>

@@ -88,7 +88,7 @@ export function QuizCard({
           </div>
           <button
             onClick={onNext}
-            className="w-full rounded-lg bg-[var(--ifr-accent)] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--ifr-accent)]/90"
+            className="w-full rounded-lg bg-[var(--ifr-accent)] px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--ifr-accent)]/90 dark:bg-indigo-700 dark:hover:bg-indigo-600"
           >
             Next Question
           </button>

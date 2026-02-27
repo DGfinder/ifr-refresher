@@ -222,7 +222,7 @@ export function QuizResults({
         <button
           onClick={onPlayAgain}
           className={cn(
-            "rounded-xl bg-[var(--ifr-accent)] py-3 font-medium text-white transition-colors hover:bg-[var(--ifr-accent)]/90",
+            "rounded-xl bg-[var(--ifr-accent)] py-3 font-medium text-white transition-colors hover:bg-[var(--ifr-accent)]/90 dark:bg-indigo-700 dark:hover:bg-indigo-600",
             mistakes.length === 0 && "col-span-2"
           )}
         >

@@ -97,7 +97,7 @@ function QuizPageContent() {
                 <div className="space-y-3">
                   <button
                     onClick={handleResume}
-                    className="w-full rounded-lg bg-[var(--ifr-accent)] py-3 font-medium text-white transition-colors hover:bg-[var(--ifr-accent)]/90"
+                    className="w-full rounded-lg bg-[var(--ifr-accent)] py-3 font-medium text-white transition-colors hover:bg-[var(--ifr-accent)]/90 dark:bg-indigo-700 dark:hover:bg-indigo-600"
                   >
                     Resume
                   </button>
