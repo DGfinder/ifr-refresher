@@ -2,7 +2,7 @@
   "version": "1.0",
   "sectionId": "administrative-part61",
   "sectionTitle": "Administrative & Part 61",
-  "sectionDescription": "CASR Part 61 definitions, MOS authority, IPC validity, instrument rating privileges and limitations, recent experience requirements, and IFR aircraft equipment.",
+  "sectionDescription": "CASR Part 61 definitions, MOS authority, IPC validity, instrument rating privileges and limitations, recent experience requirements, IFR aircraft equipment, and the regulatory backbone: CASR, MOS, AIP, minima, RAIM, GNSS, fuel and alternates.",
   "categories": [
     {
       "id": "adm-part61",
@@ -15,6 +15,20 @@
         "ADM-004",
         "ADM-005",
         "ADM-006"
+      ]
+    },
+    {
+      "id": "regulatory-backbone",
+      "title": "IFR Regulatory Backbone",
+      "description": "How CASR, MOS, AIP and company SOPs interact for IFR operations.",
+      "moduleIds": [
+        "IFR-000",
+        "IFR-001",
+        "IFR-002",
+        "IFR-003",
+        "IFR-004",
+        "IFR-005",
+        "IFR-006"
       ]
     }
   ],
@@ -477,6 +491,345 @@
         }
       ],
       "refs": []
+    },
+    {
+      "id": "IFR-000",
+      "title": "Regulatory Hierarchy – Who Actually Tells You What To Do",
+      "categoryId": "regulatory-backbone",
+      "level": "core",
+      "estReadingMinutes": 5,
+      "tags": ["casr", "mos", "aip", "ops-manual", "afm"],
+      "summary": "How the Civil Aviation Act, CASR, Manuals of Standards, AIP, Operations Manuals and AFM fit together and which one wins when there is a conflict.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Civil Aviation Act – enables CASA to make regulations.",
+            "CASR (Civil Aviation Safety Regulations) – legally binding regulations (e.g. Parts 61, 91, 121, 135, 139).",
+            "MOS (Manuals of Standards) – detailed technical rules made under specific CASR Parts (e.g. Part 91 MOS, Part 61 MOS, Part 139 MOS).",
+            "AIP (Aeronautical Information Publication) and associated documents – procedures, aeronautical information and operational detail.",
+            "Operator's Operations Manual and SOPs – company-level procedures; must comply with CASR and MOS.",
+            "Aircraft Flight Manual (AFM) / POH and limitations – legally binding limitations specific to the aircraft type and configuration.",
+            "When two sources appear to disagree, the one higher in the hierarchy wins. Company SOPs or personal habits never override legislation, MOS or AFM limitations."
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "MOS is not 'advisory' – it is given legal force by CASR.",
+            "AIP procedures are not optional unless clearly stated.",
+            "AFM limitations are hard limits – not suggestions.",
+            "Company SOPs implement, but cannot weaken, regulatory minima."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: In one sentence, explain what the Part 61 MOS does. A: The Part 61 MOS sets out the detailed standards and requirements for flight crew licences, ratings, endorsements and competency, giving practical effect to the high-level rules in Part 61 of CASR.",
+            "Q: A company SOP seems to allow a lower take-off visibility than the MOS take-off minima. Which one do you follow? A: You follow the higher standard in law. MOS and CASR requirements override SOPs; a company procedure cannot legally authorise operations below regulatory minima.",
+            "Q: Is an AFM limitation a suggestion or a legal limit? Why? A: It is a legal limit. The aircraft's certification and continued airworthiness assume compliance with AFM limitations, and operating outside them can breach both airworthiness and operational regulations.",
+            "Q: Where do IFR approach minima actually come from? A: Approach minima are derived and published through instrument procedure design criteria and are then given operational effect by regulations and MOS that require pilots and operators to comply with those published minima."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "CASR", "part": "61", "note": "Licensing and ratings."},
+        {"source": "CASR", "part": "91", "note": "General operating and flight rules."},
+        {"source": "Part 61 MOS", "note": "Licensing standards and competency units."},
+        {"source": "Part 91 MOS", "note": "IFR technical detail, minima and equipment requirements."}
+      ]
+    },
+    {
+      "id": "IFR-001",
+      "title": "GNSS, RAIM and Integrity – IFR Use",
+      "categoryId": "regulatory-backbone",
+      "level": "core",
+      "estReadingMinutes": 10,
+      "tags": ["gnss", "raim", "navigation", "ifrlaw", "approach"],
+      "summary": "What makes GNSS a legal IFR nav source, what RAIM actually means, when you must advise ATC, and how to handle GNSS failures in enroute and approach phases.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "The GNSS unit must be an approved installation and appropriately certified for IFR operations in that aircraft type.",
+            "The aircraft documentation (AFM or STC) must explicitly authorise the use of that GNSS installation for IFR navigation and, where applicable, approaches.",
+            "The navigation database must be current and valid for the route and procedures being flown.",
+            "RAIM or an equivalent integrity monitoring function must be available for the phase of flight where GNSS is the primary navigation source.",
+            "In controlled airspace, if RAIM is or is expected to be unavailable for more than about 5 minutes while using GNSS for navigation, you must advise ATC and state your remaining navigation capability."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "5 minutes — threshold for advising ATC of RAIM loss in controlled airspace"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "RAIM is not just 'GPS on or off'; it checks whether enough satellites are available with the right geometry to detect a bad signal.",
+            "If RAIM is lost or in alarm, the system can no longer guarantee the integrity of the position solution, even if it still shows you a position.",
+            "For approach operations, specific RAIM performance and continuity levels are required.",
+            "No RAIM, no trust: if RAIM is not available, you cannot treat GNSS as a reliable primary nav source."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Continuing an RNAV approach after RAIM loss at the FAF — must discontinue unless alternate approved guidance exists.",
+            "Pre-flight RAIM prediction shows outage during approach window — cannot treat GNSS approach as only option.",
+            "Expired database and IFR don't mix — airlines will not accept 'I think it's still close enough'."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You are in controlled airspace, navigating on GNSS. RAIM is lost and persists. What action? A: Confirm indication is genuine, revert to backup nav, advise ATC if persisting beyond a few minutes, state remaining capability, review route and approach options.",
+            "Q: Before departure, RAIM prediction shows RAIM unavailable at destination ETA. Your only planned procedure is RNAV (GNSS). Is that acceptable? A: No. Plan a different approach type, adjust timing, or plan an alternate that meets requirements.",
+            "Q: RAIM is lost just after passing the FAF on a GNSS approach. What do you do? A: Discontinue the approach — navigation integrity for the final segment is no longer assured. Go around unless you have another approved guidance method.",
+            "Q: Why is RAIM loss a big deal if GPS still shows a position? A: Without RAIM you have no way of knowing the position solution is free from undetected errors. IFR procedures assume a certain integrity level that RAIM provides."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "CASR", "part": "91", "note": "IFR flight and navigation equipment requirements."},
+        {"source": "Part 91 MOS", "chapter": "IFR Navigation and GNSS", "note": "Detailed GNSS approval, substitution and integrity requirements."},
+        {"source": "AIP ENR", "section": "GNSS and RNAV procedures", "note": "Operational procedures and restrictions for GNSS approaches."}
+      ]
+    },
+    {
+      "id": "IFR-002",
+      "title": "IFR Minimum Heights, LSALT and MSA",
+      "categoryId": "regulatory-backbone",
+      "level": "core",
+      "estReadingMinutes": 9,
+      "tags": ["lsalt", "msa", "terrain", "enroute", "ifrlaw"],
+      "summary": "How IFR minimum heights are defined, when you can go below them, and why LSALT is a legally serious terrain-protection barrier.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "IFR minimum height for a leg: published LSALT for the route, OR published MSA for the sector, OR your correctly calculated LSALT.",
+            "The regulatory minimum is effectively the highest of the values that genuinely apply to your route and sector.",
+            "Descend below LSALT/MSA only when: taking off or landing per a valid procedure; flying a published instrument approach; complying with ATC clearance that provides terrain protection; in day VMC with clear terrain avoidance."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "1000 ft — typical LSALT clearance above terrain/obstacles",
+            "2000 ft — LSALT clearance in mountainous terrain",
+            "25 NM — typical MSA coverage radius from a point"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Treat LSALT/MSA as a hard floor in IMC, not a flexible guideline.",
+            "Know exactly when you enter and leave segments of an instrument procedure that authorise lower altitudes.",
+            "Be conservative: if in doubt about whether an LSALT applies, assume it does until sure otherwise.",
+            "Never descend simply because 'ATC said' unless you know their clearance provides terrain clearance."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Accepting ATC offer of a lower level without verifying terrain safety.",
+            "Using MSA as if it were LSALT — MSA is for emergency use in the approach environment, not enroute.",
+            "Cherry-picking the lowest convenient altitude figure when a higher one applies to your actual track."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You are at LSALT in IMC. ATC offers a lower level for traffic. Are you automatically safe and legal to accept? A: No. ATC clearances do not override your responsibility for terrain clearance unless they're operating in a context with explicit obstacle clearance responsibility. If unsure the lower level is terrain-safe, decline.",
+            "Q: Your calculated LSALT is 6,000 ft. The published MSA is 4,500 ft but doesn't consider a ridge near your track. Which minimum? A: 6,000 ft — use the figure that properly considers terrain relevant to your actual track.",
+            "Q: Explain LSALT vs MSA in simple terms. A: MSA is a broad-brush minimum for a sector around a point. LSALT is calculated specifically for a route. LSALT is more tailored; MSA is more generic."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "CASR", "part": "91", "note": "Rules on IFR minimum heights and exceptions."},
+        {"source": "Part 91 MOS", "chapter": "IFR Minimum Heights", "note": "Requirements for LSALT, MSA and exceptions."},
+        {"source": "AIP ENR", "section": "Altimetry and LSALT", "note": "Procedures for deriving and applying minimum altitudes."}
+      ]
+    },
+    {
+      "id": "IFR-003",
+      "title": "Approach Ban and IFR Minima",
+      "categoryId": "regulatory-backbone",
+      "level": "core",
+      "estReadingMinutes": 9,
+      "tags": ["approach-ban", "minima", "decision-altitude", "mda", "airline"],
+      "summary": "When you are not allowed to start or continue an approach, how decision altitude and MDA really work, and how airline-style thinking treats minima.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Start decision: Are reported conditions and equipment status good enough to begin the approach?",
+            "Continue decision: If things deteriorate after you start, at what point are you prohibited from continuing (e.g., approaching the FAF)?",
+            "If reported visibility or RVR is below the required value, you may be prohibited from commencing the approach.",
+            "If visibility drops below required after commencing but before a defined gate, you may be prohibited from continuing.",
+            "At DA/MDA you must have required visual references in a stable configuration — a brief glimpse is not enough."
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Required visual reference means positively identifying runway environment elements that allow you to judge position and flight path.",
+            "Airline SOPs add stabilised approach criteria on top of minima: at DA/MDA you must be stable, configured, on profile, with required visual cues, or go around.",
+            "Do not commence if reported conditions are clearly below published minima.",
+            "'I might see it in another second' is not acceptable thinking."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Starting an approach when conditions are below required minima, hoping they'll improve.",
+            "Continuing past the gate when RVR has dropped below required minimums.",
+            "Treating a faint glow through cloud as adequate visual reference."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You are cleared for an ILS. At localiser intercept, RVR is above required. Just before the FAF, RVR drops below required minimum. What action? A: If approach ban rules prohibit continuing once RVR drops below minimum before the gate, discontinue and go around or hold until conditions improve.",
+            "Q: You are at DA on a GNSS approach. You can see a faint glow of runway lights through patchy cloud but no clear stable view. Continue? A: No. You must have enough visual reference to identify runway environment and fly a stable landing path. Go around.",
+            "Q: Explain the approach ban concept in one sentence. A: The approach ban stops you starting or continuing an approach when reported conditions or aircraft status fall below minima designed to keep the operation safe."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "CASR", "part": "91", "note": "Provisions enabling approach ban rules and IFR minima."},
+        {"source": "Part 91 MOS", "chapter": "Take-off and Landing Minima", "note": "Detailed minima and approach ban conditions."}
+      ]
+    },
+    {
+      "id": "IFR-004",
+      "title": "Fuel Requirements and Alternates – IFR Decision Logic",
+      "categoryId": "regulatory-backbone",
+      "level": "core",
+      "estReadingMinutes": 10,
+      "tags": ["fuel", "alternate", "ifrlaw", "planning"],
+      "summary": "How IFR fuel is structured (trip, contingency, alternate, final reserve, holding) and how to think through alternate requirements like an airline pilot.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Taxi fuel: expected fuel used before take-off.",
+            "Trip fuel: from take-off to landing at destination under planned conditions.",
+            "Contingency fuel: to cover small variations such as wind error or minor reroutes.",
+            "Alternate fuel: to go from destination to alternate if one is required.",
+            "Final reserve fuel: typically a set time of holding at a specified altitude (e.g., 30 minutes at 1,500 ft).",
+            "Additional fuel: any extra needed for specific threats (holding, delays, engine-out profiles).",
+            "An alternate is required when: forecast weather at destination is below or marginally near landing minima; unserviceabilities raise minima above forecast; aerodrome doesn't meet requirements for your operation; alternate planning rules are triggered."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "30 or 45 minutes — typical final reserve holding time",
+            "1,500 ft — holding altitude for final reserve calculation"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Treat alternates as planned risk control, not admission of defeat. Plan them calmly on the ground.",
+            "Isolated aerodrome: when no practical alternate exists, enhanced fuel requirements apply (e.g., extended holding capability).",
+            "Monitor fuel against plan continuously — don't discover problems near destination.",
+            "If you predict arrival below planned landing fuel, act early while options are good."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You plan an IFR trip with forecast weather just above minima, with tempo below minima during ETA window. How does this affect planning? A: Tempo below minima usually triggers an alternate requirement. You need trip, contingency, alternate fuel, and final reserve.",
+            "Q: There is no suitable alternate within range. How do you handle this from a fuel-planning perspective? A: Apply isolated aerodrome fuel rules — typically enough fuel to hold for an extended period (e.g., two hours) before landing with final reserve.",
+            "Q: Enroute you realise stronger headwinds will cause arrival with less than planned fuel but still above final reserve. What's your decision-making? A: Recompute predicted fuel. If continuing leaves uncomfortable margin but diverting early gives healthier margin, choose the alternate sooner. Communicate with ATC, update plan, treat final reserve as hard limit."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "Part 91 MOS", "chapter": "Fuel Requirements", "note": "Detailed IFR fuel planning requirements."},
+        {"source": "AIP ENR", "section": "Alternate Aerodrome Requirements", "note": "Rules that trigger alternate requirements."}
+      ]
+    },
+    {
+      "id": "IFR-005",
+      "title": "IFR in Class G vs Controlled Airspace – Responsibilities and Reporting",
+      "categoryId": "regulatory-backbone",
+      "level": "advanced",
+      "estReadingMinutes": 8,
+      "tags": ["class-g", "controlled-airspace", "ifr", "radio", "responsibility"],
+      "summary": "What changes when you are IFR in Class G vs controlled airspace: separation, terrain responsibility, reporting.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "In controlled airspace: ATC provides separation between IFR flights and, where specified, between IFR and VFR. You receive clearances and are expected to follow them unless you cannot safely comply. Terrain clearance may be provided by ATC when radar vectors and specific procedures are in use.",
+            "In Class G airspace: ATC separation services may not be available. You are responsible for traffic avoidance and terrain clearance within IFR constraints. Standard position reports become critical tools."
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "IFR in Class G can feel 'quiet' but assume there are other aircraft and act accordingly.",
+            "In controlled airspace, ATC owns much of the separation problem. In Class G, you carry much more responsibility yourself.",
+            "Your reporting obligations differ by environment — position reports in non-radar Class G are essential."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You are IFR in Class G, non-radar, tracking between two regional aerodromes. What reports and radio discipline are expected? A: Make required position reports at specified points, broadcast intentions clearly, maintain listening watch, use standard phraseology so ATC and other aircraft can build accurate picture.",
+            "Q: Summarise the difference between IFR in Class G and IFR in controlled airspace. A: In controlled airspace, ATC provides separation and clearances within published rules. In Class G, even under IFR, you carry much more responsibility for traffic avoidance and terrain awareness yourself."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "CASR", "part": "91", "note": "IFR operating rules and responsibilities."},
+        {"source": "AIP ENR", "section": "IFR in Class G", "note": "Procedures and reporting requirements for IFR operations in Class G airspace."}
+      ]
+    },
+    {
+      "id": "IFR-006",
+      "title": "IFR Recency and IPC – Staying Legally Sharp",
+      "categoryId": "regulatory-backbone",
+      "level": "core",
+      "estReadingMinutes": 7,
+      "tags": ["recency", "instrument-rating", "ipc", "atpl"],
+      "summary": "How IFR recency, instrument ratings and IPCs fit together under Part 61 and its MOS.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Your instrument rating gives you the right to fly under IFR and in IMC in the aircraft categories, classes and types for which you are rated.",
+            "Those privileges are subject to recency requirements: you must have completed certain instrument flight or simulated instrument tasks in a defined period to remain current.",
+            "If recency lapses, an IPC or other approved means is required to restore full IFR privileges.",
+            "An IPC is a formal check conducted by an approved examiner to confirm you meet instrument competency standards.",
+            "A successful IPC can reset certain recency requirements and restore your ability to exercise IFR privileges."
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "An IPC typically samples enroute IFR, holding, non-precision and precision or GNSS approaches, missed approach procedures, plus abnormal scenarios.",
+            "See the IPC as a structured opportunity to confirm you're at the standard the system expects, not just a hurdle to clear."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: How do you stay IFR current and what happens if recency lapses? A: Track instrument flight and approach experience against recency requirements. If recency lapses, complete necessary recency actions in simulator or aircraft, or undergo IPC with examiner to restore privileges.",
+            "Q: Describe the purpose of the IPC in a mature way. A: The IPC validates both procedural knowledge and ability to handle abnormal scenarios. It's a chance to get professional feedback on scan, workload management and decision-making under IFR."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "CASR", "part": "61", "note": "Instrument rating privileges, recency and IPC provisions."},
+        {"source": "Part 61 MOS", "chapter": "Instrument Rating and IPC Standards", "note": "Detailed standards for instrument rating and IPC content."}
+      ]
     }
   ]
 }

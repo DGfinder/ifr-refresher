@@ -8,7 +8,7 @@
       "id": "departure",
       "title": "Departure",
       "description": "Altimeter accuracy checks and take-off minima for IFR operations.",
-      "moduleIds": ["DEP-001", "DEP-002"]
+      "moduleIds": ["DEP-001", "DEP-002", "DEP-003"]
     }
   ],
   "modules": [
@@ -175,6 +175,87 @@
             "The Baron can maintain terrain clearance on one engine from this runway.",
             "Decision point: What are your take-off minima?",
             "Answer: Standard minima (300FT/2000M), not qualifying multi-engine (800M). Without autofeather, a single-pilot piston multi needs standard minima. Current visibility 900M doesn't meet the 2000M requirement. You cannot depart."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "DEP-003",
+      "title": "Instrument Departures — SIDs, Diverse Departures and Obstacle Clearance",
+      "categoryId": "departure",
+      "level": "core",
+      "estReadingMinutes": 5,
+      "tags": ["SID", "diverse departure", "ODP", "climb gradient", "obstacle clearance", "departure procedure"],
+      "summary": "Understanding SIDs, diverse departures, required climb gradients and what to do when you cannot meet published requirements.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Standard Instrument Departure (SID): A published procedure with specific tracks, altitudes and often speed requirements designed to provide obstacle clearance and traffic management.",
+            "Diverse departure: Where no SID is available or required, a diverse departure allows you to depart in any direction provided you meet the specified climb gradient, typically to a safe altitude.",
+            "Obstacle Departure Procedure (ODP): A procedure designed purely for obstacle clearance, separate from traffic management considerations.",
+            "The standard diverse departure climb gradient is typically 3.3% (approximately 200 ft per nautical mile) unless otherwise published.",
+            "SIDs may require higher gradients, especially in terrain-challenged environments; these are published on the chart.",
+            "You must be able to achieve the required gradient at your actual take-off weight under the prevailing conditions."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "3.3% — standard diverse departure climb gradient",
+            "200 ft/NM — approximate equivalent of 3.3% gradient",
+            "5% — example of higher gradient sometimes required by SIDs in terrain-challenged environments"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP DAP — Departure Procedures",
+            "Part 91 MOS — IFR Departure Minima"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Getting off the ground safely under IFR means understanding how departure procedures protect you from obstacles. Whether you are flying a published SID or a diverse departure, you need to know what climb performance is required.",
+            "Calculate your actual climb gradient capability during flight planning, not just in the cruise performance tables.",
+            "Consider engine-out climb gradients for multi-engine aircraft; some SIDs require all-engine gradients that may not be achievable on one engine.",
+            "In some cases, a visual climb over the aerodrome to a safe altitude may be an option if conditions permit."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Using 'book' climb performance rather than actual performance at your weight and conditions — the same aircraft that achieves 5% at sea level may struggle to achieve 3% at a hot, high-altitude aerodrome.",
+            "If you cannot meet a SID's climb gradient, you cannot use that SID unless you have an alternative means of obstacle clearance.",
+            "Not briefing the departure procedure including altitude constraints, speed requirements and the missed approach point if you need to return immediately.",
+            "Assuming diverse departure is always available — some aerodromes require a specific SID for obstacle clearance."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: A SID requires a 5% climb gradient to 3,000 ft. Your aircraft performance shows 4.5% at your planned weight. Can you use this SID? A: No. You cannot meet the required climb gradient, so you cannot use that SID for obstacle clearance. You need to reduce weight, find an alternative departure procedure, or consider other options such as a visual climb if conditions allow.",
+            "Q: What is the typical diverse departure climb gradient and what does it protect you from? A: The typical diverse departure gradient is 3.3% or about 200 ft per nautical mile. This gradient ensures you climb fast enough to clear obstacles in any direction within the departure area until you reach a safe altitude.",
+            "Q: You are departing an unfamiliar aerodrome at night in IMC. There is no published SID. How do you ensure obstacle clearance? A: Use diverse departure criteria, ensuring you can achieve the required climb gradient (typically 3.3%) until reaching the minimum safe altitude for the area. Check the departure area for any higher gradient requirements.",
+            "Q: Why does climb gradient matter more at high density altitude? A: At high density altitude, the aircraft's climb performance is degraded because the air is less dense. This directly affects whether you can safely use departure procedures that require specific climb gradients."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your FMS has the SID loaded but shows 'UNABLE CLIMB GRADIENT' during preflight. What are your options? A: Reduce weight if possible, select an alternative departure with lower gradient requirements, request a different runway with better terrain clearance, or wait for improved conditions (lower temperature, higher pressure). Do not depart using that SID until the aircraft can meet the gradient.",
+            "Q: How do you verify your aircraft can meet a published departure gradient? A: Check aircraft performance data for current weight, temperature, and pressure altitude. Compare achievable climb gradient against published requirement. Consider single-engine performance if required by SOP. Some operators require gradient verification as part of departure briefing."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're planning an IFR departure from Queenstown in a turboprop. The SID requires 6.5% climb gradient to 8,500 ft. Temperature is +25°C at field elevation 1,172 ft.",
+            "Your aircraft data shows 5.8% gradient achievable at current weight.",
+            "Decision point: Can you depart on this SID?",
+            "Answer: No. You cannot meet the 6.5% gradient requirement. Options: reduce payload/fuel, wait for cooler conditions (early morning), request visual climb procedure if available and weather permits, or consider alternate departure aerodrome."
           ]
         }
       ],

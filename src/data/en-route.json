@@ -69,7 +69,9 @@
             "Q: You're descending from FL200 to 7000FT. When do you change to QNH? A: Just before passing the transition layer (just before passing FL110).",
             "Q: The nearest reporting station is 120NM away. Can you use its QNH? A: No — 100NM is the limit for local QNH. Use Area QNH instead.",
             "Q: What are approved sources for en route QNH? A: Reporting stations (AAIS, ATIS, AWIS, CA/GRS, VOLMET, WATIR), TAF, Area QNH forecast, or ATS.",
-            "Q: You're using Area QNH. Any implications for your approach minima? A: Add 50FT to published minima when using Area QNH."
+            "Q: You're using Area QNH. Any implications for your approach minima? A: Add 50FT to published minima when using Area QNH.",
+            "Q: Why is it dangerous to level off in the transition layer? A: The transition layer is the gap between transition altitude and transition level where aircraft may be on different pressure settings. If you level off there, you could conflict with other aircraft who are correctly climbing or descending through the layer on different altimeter references, breaking the vertical separation that the system relies on.",
+            "Q: You are flying at 8,000 ft and about to cross from one QNH area to another. The new area QNH is lower. What happens if you do not update the altimeter? A: If you do not update to the lower QNH, your altimeter will continue to over-read. You will be flying lower than indicated, reducing your actual terrain clearance. This is the classic 'high to low, look out below' trap."
           ]
         },
         {

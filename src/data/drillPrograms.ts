@@ -5,14 +5,14 @@ export const drillPrograms: DrillProgram[] = [
     id: "ipc",
     label: "IPC / Recency",
     description: "Core regulatory, altimetry, procedures, and numerics for IPC preparation.",
-    sectionIds: ["regulatory-core", "aip-enr1-7-altimetry", "procedures-approaches", "ifr-numeric-abnormal"],
+    sectionIds: ["administrative-part61", "en-route", "approaches", "quick-fire-numbers"],
     defaultMode: "flashcards",
   },
   {
     id: "airline",
     label: "Airline Interview",
     description: "Advanced regulations, airline scenarios, and panel discussion topics.",
-    sectionIds: ["advanced-ifr-regs-airline-ops", "airline-scenarios-panel", "ifr-numeric-abnormal"],
+    sectionIds: ["advanced-ifr-regs-airline-ops", "airline-scenarios-panel", "quick-fire-numbers"],
     defaultMode: "quiz",
   },
   {
