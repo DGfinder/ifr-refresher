@@ -117,7 +117,7 @@ export function useQuizSession({
   // Start a new session
   const startSession = useCallback(() => {
     const limit = config.questionCount === "all" ? undefined : config.questionCount;
-    const quizQuestions = buildQuizQuestions(sections, drillQuestions, { programId, limit });
+    const quizQuestions = buildQuizQuestions(drillQuestions, limit);
 
     if (quizQuestions.length === 0) return;
 
