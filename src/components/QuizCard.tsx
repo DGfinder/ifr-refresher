@@ -20,14 +20,14 @@ export function QuizCard({
   const isCorrect = selectedOptionId === question.correctOptionId;
 
   return (
-    <div className="rounded-lg border border-border bg-card shadow-sm">
+    <div className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] shadow-sm">
       {/* Question prompt */}
       <div className="p-6">
-        <p className="text-[18px] font-medium text-foreground">{question.prompt}</p>
+        <p className="text-[18px] font-medium text-[var(--ifr-text)]">{question.prompt}</p>
       </div>
 
       {/* Options */}
-      <div className="border-t border-border p-4 space-y-3">
+      <div className="border-t border-[var(--ifr-border)] p-4 space-y-3">
         {question.options.map((option) => {
           const isSelected = option.id === selectedOptionId;
           const isCorrectOption = option.id === question.correctOptionId;
@@ -45,7 +45,7 @@ export function QuizCard({
                 isAnswered && "cursor-default",
                 showCorrect && "border-[var(--ifr-success)] bg-[var(--ifr-success)]/10",
                 showIncorrect && "border-[var(--ifr-error)] bg-[var(--ifr-error)]/10",
-                !showCorrect && !showIncorrect && "border-border"
+                !showCorrect && !showIncorrect && "border-[var(--ifr-border)]"
               )}
             >
               <span
@@ -53,7 +53,7 @@ export function QuizCard({
                   "flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 text-sm font-semibold",
                   showCorrect && "border-[var(--ifr-success)] bg-[var(--ifr-success)] text-white",
                   showIncorrect && "border-[var(--ifr-error)] bg-[var(--ifr-error)] text-white",
-                  !showCorrect && !showIncorrect && "border-border text-muted-foreground"
+                  !showCorrect && !showIncorrect && "border-[var(--ifr-border)] text-[var(--ifr-text-muted)]"
                 )}
               >
                 {option.id}
@@ -63,7 +63,7 @@ export function QuizCard({
                   "flex-1 pt-0.5 text-sm",
                   showCorrect && "text-[var(--ifr-success)] font-medium",
                   showIncorrect && "text-[var(--ifr-error)]",
-                  !showCorrect && !showIncorrect && "text-foreground"
+                  !showCorrect && !showIncorrect && "text-[var(--ifr-text)]"
                 )}
               >
                 {option.text}
@@ -75,7 +75,7 @@ export function QuizCard({
 
       {/* Feedback and Next button */}
       {isAnswered && (
-        <div className="border-t border-border p-4">
+        <div className="border-t border-[var(--ifr-border)] p-4">
           <div
             className={cn(
               "mb-4 rounded-md px-4 py-2 text-center text-sm font-medium",

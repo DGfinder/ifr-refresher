@@ -108,6 +108,7 @@ export function ContentBlock({ block }: ContentBlockProps) {
       );
 
     case "reference":
+      if (!block.content.length) return null;
       return (
         <div className={baseCardClasses}>
           <p className={titleClasses}>Reference</p>

@@ -19,15 +19,15 @@ export function DrillCard({ question, onRate }: DrillCardProps) {
   };
 
   return (
-    <div className="rounded-lg border border-border bg-card shadow-sm">
+    <div className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] shadow-sm">
       {/* Header with metadata (breadcrumb) */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-border px-4 py-3 text-[13px] text-muted-foreground">
+      <div className="flex flex-wrap items-center gap-2 border-b border-[var(--ifr-border)] px-4 py-3 text-[13px] text-[var(--ifr-text-muted)]">
         <span>{question.sectionTitle}</span>
-        <span className="text-border">·</span>
+        <span className="text-[var(--ifr-border)]">·</span>
         <span>{question.moduleId}</span>
         {question.level && (
           <>
-            <span className="text-border">·</span>
+            <span className="text-[var(--ifr-border)]">·</span>
             <Badge variant={question.level}>{question.level}</Badge>
           </>
         )}
@@ -35,16 +35,16 @@ export function DrillCard({ question, onRate }: DrillCardProps) {
 
       {/* Question */}
       <div className="p-6">
-        <p className="text-[18px] font-medium text-foreground">{question.question}</p>
+        <p className="text-[18px] font-medium text-[var(--ifr-text)]">{question.question}</p>
       </div>
 
       {/* Answer section */}
-      <div className="border-t border-border">
+      <div className="border-t border-[var(--ifr-border)]">
         {!showAnswer ? (
           <div className="p-4">
             <button
               onClick={() => setShowAnswer(true)}
-              className="w-full rounded-lg bg-secondary px-4 py-3 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80"
+              className="w-full rounded-lg bg-[var(--ifr-surface-muted)] px-4 py-3 text-sm font-medium text-[var(--ifr-text)] transition-colors hover:bg-[var(--ifr-surface-muted)]/80"
             >
               Show Answer
             </button>
@@ -59,8 +59,8 @@ export function DrillCard({ question, onRate }: DrillCardProps) {
             )}
           >
             {/* Answer text */}
-            <div className="bg-muted border-y border-border px-6 py-4">
-              <p className="text-foreground/90 leading-relaxed">{question.answer}</p>
+            <div className="bg-[var(--ifr-surface-muted)] border-y border-[var(--ifr-border)] px-6 py-4">
+              <p className="text-[var(--ifr-text)]/90 leading-relaxed">{question.answer}</p>
             </div>
 
             {/* Rating buttons - outline style */}

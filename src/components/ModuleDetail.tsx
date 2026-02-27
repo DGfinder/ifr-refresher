@@ -27,7 +27,7 @@ export function ModuleDetail({
       <div className="mb-6">
         <button
           onClick={onBack}
-          className="mb-4 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+          className="mb-4 inline-flex items-center gap-1 text-sm text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]"
         >
           <svg
             className="h-4 w-4"
@@ -46,7 +46,7 @@ export function ModuleDetail({
         </button>
 
         <div className="flex flex-wrap items-start gap-3">
-          <h1 className="text-2xl font-bold text-foreground md:text-3xl">
+          <h1 className="text-2xl font-bold text-[var(--ifr-text)] md:text-3xl">
             {module.title}
           </h1>
           <Badge variant={module.level} className="mt-1">
@@ -54,7 +54,7 @@ export function ModuleDetail({
           </Badge>
         </div>
 
-        <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+        <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-[var(--ifr-text-muted)]">
           <span className="flex items-center gap-1">
             <svg
               className="h-4 w-4"
@@ -82,7 +82,7 @@ export function ModuleDetail({
           {module.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-md bg-secondary px-2.5 py-1 text-sm text-secondary-foreground"
+              className="rounded-md bg-[var(--ifr-surface-muted)] px-2.5 py-1 text-sm text-[var(--ifr-text)]"
             >
               {tag}
             </span>
@@ -91,8 +91,8 @@ export function ModuleDetail({
       </div>
 
       {/* Summary */}
-      <div className="mb-6 rounded-lg border border-border bg-muted/30 p-4">
-        <p className="text-foreground/90">{module.summary}</p>
+      <div className="mb-6 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)]/30 p-4">
+        <p className="text-[var(--ifr-text)]/90">{module.summary}</p>
       </div>
 
       {/* Content */}
@@ -120,15 +120,15 @@ export function ModuleDetail({
       <References refs={module.refs} />
 
       {/* Mark as Completed button */}
-      <div className="mt-8 border-t border-border pt-6">
+      <div className="mt-8 border-t border-[var(--ifr-border)] pt-6">
         <button
           onClick={onMarkCompleted}
           disabled={status === "completed"}
           className={cn(
             "inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors",
             status === "completed"
-              ? "cursor-not-allowed bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
-              : "bg-primary text-primary-foreground hover:bg-primary/90"
+              ? "cursor-not-allowed bg-[var(--ifr-success)]/10 text-[var(--ifr-success)]"
+              : "bg-[var(--ifr-accent)] text-white hover:bg-[var(--ifr-accent)]/90"
           )}
         >
           {status === "completed" ? (

@@ -64,6 +64,7 @@ export function SearchBar({
       {localValue && (
         <button
           onClick={handleClear}
+          aria-label="Clear search"
           className="absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground hover:text-foreground"
         >
           <svg
