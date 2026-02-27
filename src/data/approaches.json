@@ -69,6 +69,47 @@
           "content": [
             "Part 61 MOS Volume 2, Schedule 2, Section 5 — Operational Rating and Endorsement Standards"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Knowing the difference between 2D and 3D affects your stabilised approach criteria, missed approach point definition, and what equipment failures matter.",
+            "Your IR flight test can include any approach type you're endorsed for — examiners use this to test your understanding of vertical guidance implications.",
+            "Airlines assess this during recruitment: if you don't understand why LPV has lower minima than LNAV, you'll struggle with operational decisions."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Confusing RNP APCH LNAV (2D, MDA) with RNP LNAV/VNAV (3D, DA) — same lateral path, different vertical guidance and missed approach triggers.",
+            "Forgetting that LLZ is 2D despite using ILS ground equipment — no glideslope means MDA not DA.",
+            "Treating DME/GNSS arrivals as 'lesser' approaches — they have different rules for sector containment and controlled airspace.",
+            "Assuming all RNAV approaches are the same — LP, LNAV, LNAV/VNAV, and LPV have different equipment requirements and minima."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What's the difference between RNP APCH LNAV and RNP LNAV/VNAV? A: LNAV is 2D with MDA and you fly to MAPT; LNAV/VNAV is 3D with DA and you commence missed on reaching DA without visual reference.",
+            "Q: Why does ILS appear in both precision and azimuth guidance lists? A: ILS is a 3D precision approach, but you can fly LOC-only (localiser without glideslope) which is 2D azimuth guidance.",
+            "Q: What endorsement do you need for RNP approaches? A: RNP APCH endorsement under Part 61 MOS. Your IR alone isn't sufficient.",
+            "Q: Can you fly an NDB approach using GPS overlay? A: Yes, if the approach is approved for GNSS overlay and you're GNSS-equipped, but you're still flying an NDB approach with NDB minima."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your LNAV/VNAV approach shows 'BARO VNAV' — what operational considerations apply? A: Baro-VNAV is temperature-compensated in some aircraft but not others. Cold temperatures can put you below the published vertical path. You need to know your aircraft's limitations and when to apply corrections or revert to LNAV minima.",
+            "Q: You're cleared for the RNP approach at an unfamiliar regional airport. How do you verify which RNP variant is approved? A: Check the chart for approach type designation, verify aircraft and crew certification matches, confirm FMS database is current, and review NOTAMs for any RNP availability restrictions."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're flying a King Air into Tamworth at night. The ILS is NOTAM'd unserviceable, leaving you with RNP RWY 12R.",
+            "The chart shows both LNAV and LNAV/VNAV minima. Your aircraft has baro-VNAV but the temperature is -5°C and your operator doesn't have cold temperature compensation procedures approved.",
+            "Decision point: Do you fly LNAV/VNAV minima or revert to LNAV? The examiner expects you to recognise that without approved temperature compensation, you must use LNAV minima in cold conditions."
+          ]
         }
       ],
       "refs": []
@@ -108,6 +149,48 @@
             "AIP ENR 1.5 Para 5.3",
             "JEPP TERMINAL — Instrument Approach/Take-off Procedures 7.3"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Getting QNH wrong can put you 100FT lower than you think on final approach — that's the difference between making minima and controlled flight into terrain.",
+            "At uncontrolled aerodromes with AWIS, this is where many pilots make errors — AWIS gives actual QNH, but if it's unserviceable, you're back to Area QNH and +50FT."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Using METAR QNH as 'actual' — METAR is observation, not an approved source. The 15-minute validity rule applies to real-time sources.",
+            "Forgetting the 100FT reduction is only available when you have actual QNH — if ATIS says 'TAF QNH', you use the shaded (higher) minima.",
+            "Missing the 15-minute validity window — if you received QNH 20 minutes ago and haven't updated, you're technically non-compliant.",
+            "Not recognising the ATIS phrase 'ACTUAL QNH NOT AVAILABLE' — this is your cue that you cannot use the -100FT reduction.",
+            "Area QNH confusion: adding 50FT when you should be using it, or forgetting to add it entirely."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're flying into an uncontrolled aerodrome. AWIS is unserviceable. What QNH do you use and what happens to your minima? A: Use Area QNH from the area forecast and add 50FT to published minima.",
+            "Q: The ATIS says QNH 1015. How do you know if it's actual or TAF? A: Listen for the phrase 'ACTUAL QNH NOT AVAILABLE, AERODROME FORECAST QNH...' If that phrase isn't there and the ATIS just states QNH, it's actual.",
+            "Q: Your QNH is 18 minutes old. What do you do? A: Request updated QNH from ATC or AWIS before passing the IAF. The 15-minute validity has expired.",
+            "Q: What's an approved source for actual QNH? A: ATC, ATIS (when not endorsing TAF QNH), AWIS, and Bureau of Meteorology accredited observers."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your company uses Jeppesen charts. You notice they show two sets of minima. How does this affect your brief compared to a pilot using DAPs? A: Jeppesen shows both TAF and actual QNH minima explicitly. DAPs use shading to indicate TAF-based minima. The practical effect is the same, but Jeppesen makes the decision more explicit during approach brief.",
+            "Q: You're the PF into a regional port. PM reports QNH from AWIS but you're unsure if it's current. What's your SOP? A: Note the time of AWIS report, verify it's within 15 minutes of passing IAF, and if marginal, request fresh observation. If AWIS timestamp is older than 15 minutes, treat as unavailable and use Area QNH +50FT."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're 25 DME from a regional aerodrome, descending for the RNAV approach. ATIS is 40 minutes old, stating QNH 1008.",
+            "You call for updated ATIS and tower responds: 'ACTUAL QNH NOT AVAILABLE, AERODROME FORECAST QNH 1010.'",
+            "Your approach chart shows MDA 1,240FT (shaded). Decision point: What MDA do you use?",
+            "Answer: Use 1,240FT as published. The shaded minima already account for TAF QNH. You cannot apply the -100FT reduction because you don't have actual QNH."
+          ]
         }
       ],
       "refs": []
@@ -137,6 +220,45 @@
           "content": [
             "AIP ENR 1.5 Para 1.18",
             "JEPP TERMINAL — Instrument Approach/Take-off Procedures 2.6"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "AOM is the number you actually use — chart minima are the floor, not the ceiling. Your operator may require higher minima based on aircraft type, crew experience, or equipment.",
+            "This matters for charter and airline ops: a new first officer might have +100FT command limits, or your aircraft might have MEL items requiring minima increases."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming chart minima are your minima — operators can and do set higher AOM, especially for inexperienced crews or specific aircraft configurations.",
+            "Forgetting MEL impacts on minima — inoperative equipment (e.g., autopilot, certain lighting) often requires AOM increases.",
+            "Not briefing AOM vs chart minima — during flight test or line check, using the wrong number shows poor procedural knowledge.",
+            "Ignoring operator-specific restrictions — some operators add margins for unfamiliar aerodromes or night operations."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What's the difference between landing minima and aerodrome operating minima? A: Landing minima are published on the chart. AOM is what you actually use — it's at least the chart minima but may be higher based on operator requirements, MEL items, or crew limitations.",
+            "Q: Who establishes AOM? A: The operator must establish AOM for each aerodrome. For private ops, you're the operator. For charter/airline, it's in your operations manual.",
+            "Q: What factors might increase AOM above published minima? A: Aircraft type/performance, crew experience/competence, MEL items, and how met conditions are determined and reported."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your operations manual shows command limits for different experience levels. How do these interact with AOM? A: Command limits (e.g., +100FT for <100 hours PIC on type) are added to the base AOM. You use whichever is higher: chart minima, operator AOM, or personal command limits.",
+            "Q: You're dispatched with an MEL affecting your HUD. How do you determine your approach minima? A: Check the MEL for any minima impact (often requires CAT II/III restriction or visibility increase). Apply MEL requirements to base AOM. Brief the specific impact during approach preparation."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're a newly endorsed Captain with 50 hours on type. Your operations manual specifies +100FT command limits until 100 hours PIC.",
+            "Tonight's ILS shows DA 450FT. The MEL has the autopilot deferred, requiring an additional 50FT increase per your ops manual.",
+            "Decision point: What's your DA? Answer: 450 + 100 (command limits) + 50 (MEL) = 600FT. The examiner expects you to stack all applicable increases."
           ]
         }
       ],
@@ -169,6 +291,49 @@
           "content": [
             "CASR 91.310",
             "Part 91 MOS 16"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The approach ban only applies at aerodromes with ATC and RVR reporting — most regional ports don't trigger this rule.",
+            "This is a hard gate: if TDZ RVR is continuously below minima and you haven't passed 1,000FT AAL, you must hold or divert. No discretion.",
+            "The 'already below' exception protects you from impossible situations where RVR drops mid-approach."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Confusing TDZ RVR with reported visibility — the ban is specifically about RVR, not ATIS visibility.",
+            "Forgetting the 'continuously' qualifier — a single below-minima report followed by improvement doesn't trigger the ban.",
+            "Not knowing the exception: if you're already below 1,000FT AAL when you receive below-minima RVR, you may continue.",
+            "Applying approach ban logic at non-towered aerodromes — the rule only applies where ATC and RVR are available.",
+            "Confusing approach ban with landing minima — approach ban stops you descending; landing minima govern whether you can land."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What triggers the approach ban? A: TDZ RVR continuously reported below your landing minima at an aerodrome with ATC and RVR available.",
+            "Q: You're at 1,100FT AAL and tower reports TDZ RVR 350M, continuously below your 550M RVR minima. Can you continue? A: No. You must hold or divert. You haven't passed the 1,000FT AAL gate.",
+            "Q: Same scenario but you're at 800FT AAL when you receive the report. Can you continue? A: Yes. You were already below 1,000FT AAL when you received the information.",
+            "Q: Does the approach ban apply at Bankstown? A: No. Bankstown is Class D with tower but doesn't have RVR. The rule requires both ATC and RVR."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You're on the ILS at Sydney, at 1,200FT. Tower reports TDZ RVR is fluctuating between 400M and 600M. Your minima is 550M. What's your decision process? A: Key word is 'continuously.' Fluctuating RVR that occasionally exceeds minima doesn't trigger the ban. However, if it drops and stays below, you must be above 1,000FT to hold/divert. You may elect to hold proactively rather than risk the gate.",
+            "Q: Company SOP requires approach ban consideration at 1,500FT. Why might an operator do this? A: Provides buffer for decision-making. At 1,000FT you're committed to immediate action. At 1,500FT you have more time to assess, coordinate, and configure for hold or divert."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're flying the ILS 16R at Melbourne. At 1,500FT, ATIS reports RVR 600M. Your minima is 550M RVR.",
+            "At 1,050FT, tower calls: 'RVR now 500M and decreasing, now 450M.'",
+            "Decision point: Continue or go around? The RVR is below minima and continuously decreasing. You're still above 1,000FT AAL.",
+            "Answer: Go around. You cannot descend below 1,000FT AAL with RVR continuously below minima. Wait 50FT longer and you'd be committed."
           ]
         }
       ],
@@ -203,6 +368,47 @@
             "AIP GEN 3.3 Para 4",
             "JEPP ATC — Climb and Cruise 3.6.4"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "VIVAT is your legal protection for operating below LSALT. Without one of these exceptions, you're breaking the law.",
+            "Most ops below LSALT occur during instrument approaches — the approach chart provides the lateral and vertical protection.",
+            "The 'ATC clearance' exception is commonly misunderstood: ATC can clear you below LSALT in controlled airspace, but the clearance must be explicit."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming radar vectors authorise descent below LSALT — they don't automatically. You need to be on a published procedure or have explicit clearance.",
+            "Forgetting the 'VMC by day' exception is separate from visual approaches — you can descend below LSALT in VMC by day even without conducting a visual approach.",
+            "Not recognising what constitutes an 'instrument departure' — SIDs provide obstacle clearance and authorise flight below LSALT.",
+            "Confusing grid LSALT with route LSALT — grid LSALT (in the corner of charts) is different from the published route LSALT on airways."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What does VIVAT stand for? A: Visual approach/departure, Instrument approach/departure, VMC by day, ATC clearance, Take-off or landing.",
+            "Q: You're being vectored for an ILS. ATC clears you to 3,000FT but the grid LSALT is 3,500FT. Is this legal? A: Yes, if ATC has explicitly cleared you to that altitude. ATC clearance is a VIVAT exception. However, verify you're receiving a clearance, not just a descent instruction.",
+            "Q: Can you fly below LSALT in Class G airspace at night? A: Yes, if you're on an instrument approach or departure procedure, or taking off/landing. The 'VMC by day' exception doesn't apply at night.",
+            "Q: What protection does the VIVAT exception actually provide? A: Legal protection only. Terrain and obstacle clearance responsibility varies — on instrument procedures, charts provide clearance; on visual procedures, you're responsible."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your FMS shows you below published MSA during vectors. How do you verify you're legal? A: Confirm ATC clearance includes altitude (explicit, not assumed). If in doubt, query: 'Confirm cleared to [altitude]?' MVA charts in CTA show where ATC can clear you. In Class G, ensure you're on a published procedure.",
+            "Q: Company policy requires positive confirmation when cleared below MSA. Why? A: MSA/LSALT bust protection. Radio interference, misheard instructions, or incorrect readback can result in CFIT. Explicit confirmation creates an audit trail and forces conscious acknowledgment."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're in Class G airspace at night, cruising at 5,000FT. Grid LSALT is 4,500FT. You're cleared direct to the IAF at 4,000FT.",
+            "You haven't commenced the instrument approach — you're still 30NM from the IAF.",
+            "Decision point: Can you descend to 4,000FT? Answer: No. You're in Class G (no ATC clearance exception), it's night (no VMC by day exception), and you haven't commenced the instrument approach. You must remain at or above LSALT until commencing the approach."
+          ]
         }
       ],
       "refs": []
@@ -233,6 +439,48 @@
             "AIP ENR 1.5 Para 1.7.2",
             "AIP ENR 1.5 Para 5.1.1",
             "JEPP TERMINAL — Instrument Approach/Take-off Procedures 4.17.2"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "VMC is your pre-descent gate. All three conditions must be met simultaneously — missing any one means you go around.",
+            "The 'C' (continuously in position) is where most busts occur — pilots get visual reference but are too high, too fast, or offline to make the runway safely."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Getting visual reference but being too high to land normally — you must be able to make the touchdown zone at normal descent rate.",
+            "Confusing 'visual reference' with 'runway in sight' — visual reference means identifiable reference to the runway environment, which could be approach lights, threshold markings, or runway edge lights.",
+            "Forgetting the met minima check — you need visual AND met conditions at or above published minima.",
+            "Descending below MDA before MAPT — on 2D approaches, you cannot descend below MDA until the MAPT, even if you have visual reference.",
+            "Duck-under syndrome: descending below DA/MDA to 'get visual' — illegal and has killed pilots."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What does VMC mean in this context? A: Visual reference, Met minima met, Continuously in position to land. It's a mnemonic, not visual meteorological conditions.",
+            "Q: You break out at MDA with the runway in sight but you're 3NM out and 500FT above glidepath. Can you descend? A: Not below MDA. You're not 'continuously in a position' to make a normal descent to the touchdown zone. You'd need to dive at the runway.",
+            "Q: What's the difference between how DA and MDA work? A: At MDA, you level off and continue to MAPT before going around. At DA, you're on a continuous descent — if you reach DA without VMC criteria met, you commence missed approach immediately.",
+            "Q: You get visual reference at DA. Visibility is 3,000M but published minimum is 4,000M. Can you continue? A: No. Met minima not met. All three VMC conditions must be satisfied."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your PM calls 'visual' at DA but you assess you're slightly offline. Do you continue or go around? A: Go around. 'Continuously in a position' means you don't need aggressive manoeuvring. If you're questioning whether you can make the runway, the answer is go around. Never force a landing.",
+            "Q: How do you brief the VMC criteria for a non-precision approach versus a precision approach? A: Non-precision: VMC criteria apply at MDA, continue to MAPT if not met. Precision: VMC criteria are assessed continuously on the glideslope; at DA, you've either met them and continue, or commence missed approach. Different decision points, same criteria."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're flying the VOR approach, MDA is 680FT. You level at MDA at 2.5NM from the runway and break out of cloud.",
+            "You can see the approach lighting and runway threshold. Visibility is reported 5KM. You're slightly high and right of centreline.",
+            "MAPT is at 1.5NM. Decision point: Do you descend, or continue level to MAPT?",
+            "Answer: Continue level to MAPT. You have visual reference and met minima, but you're not 'continuously in a position' for normal descent. As you track inbound, reassess. If by MAPT you can make a normal descent, you may descend. If still too high, go around."
           ]
         }
       ],
@@ -267,6 +515,52 @@
             "AIP ENR 1.5 Para 1.6.6",
             "JEPP TERMINAL — Instrument Approach/Take-off Procedures 4.16.2",
             "JEPP TERMINAL — Instrument Approach/Take-off Procedures 4.16.6"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Circling is high-workload and statistically dangerous — most circling accidents involve loss of visual reference at low altitude in poor conditions.",
+            "Day vs night rules are critical: by day you can visually clear obstacles; by night you must use the continuous descent method from downwind/base/final.",
+            "No-circling sectors exist because obstacle clearance cannot be guaranteed there — ignoring them at night is a CFIT trap."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Descending below circling MDA before being in position for continuous descent — the continuous descent method requires you to be on downwind, base, or final.",
+            "Circling through no-circling sectors at night — prohibited regardless of visibility.",
+            "Losing sight of the runway during the circling manoeuvre — this requires immediate missed approach.",
+            "Flying outside the circling area — obstacle clearance is only guaranteed within the published radii.",
+            "Underestimating circling area dimensions for your aircraft category — Cat C is much larger than Cat A.",
+            "Confusing day rules with night rules — by day you can see and avoid obstacles; by night you rely on the MDA and continuous descent.",
+            "Starting the circle too early and swinging wide — common cause of circling area excursions."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What's the difference between circling by day and by night? A: By day, you can descend below MDA while maintaining visual obstacle clearance. By night, you must use the continuous descent method from a position on downwind, base, or final leg.",
+            "Q: What's a no-circling sector? A: An area where circling is prohibited by day in less than VMC and at night, due to terrain or obstacles that prevent adequate clearance.",
+            "Q: You're circling and lose sight of the runway on base turn. What do you do? A: Execute missed approach immediately. Turn towards the landing runway and climb to the circling MDA initially, then follow missed approach procedure.",
+            "Q: Can you circle through a no-circling sector by day in VMC? A: Yes — the prohibition only applies by day in less than VMC, and at night. In VMC by day, you can see and avoid.",
+            "Q: What conditions allow descent below circling MDA at night? A: You must be within the circling area, on the downwind/base/final leg, with the runway environment in sight, meeting chart visibility, and commence a continuous descent to landing."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your company restricts circling to daylight hours only. What's the operational rationale? A: Night circling has higher CFIT risk due to limited visual reference, workload during manoeuvring, and reliance on continuous descent method. Some operators accept this risk; others eliminate it by policy.",
+            "Q: You're briefing for a circling approach with a no-circling sector. How do you ensure you don't enter it? A: Pre-brief the sector location and plan your circling direction away from it. Monitor distance from runway threshold (related to circling area radii). If conditions deteriorate or you're drifting toward the sector, execute missed approach early."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're flying the ILS RWY 27 at night with a circle to RWY 09. The chart shows a no-circling sector to the north.",
+            "You break out at circling MDA 1,200FT. Visibility is marginal at 5KM. You commence a left circuit to RWY 09.",
+            "Halfway through the base turn, you notice you're close to the no-circling sector boundary.",
+            "Decision point: Continue or go around? Answer: Go around. At night, no-circling sectors are prohibited regardless of visibility. If you've drifted close, don't push the boundary. Execute missed approach while you have runway environment in sight for orientation."
           ]
         }
       ],
@@ -303,6 +597,49 @@
             "AIP ENR 1.5 Para 1.6.6",
             "JEPP TERMINAL — Instrument Approach/Take-off Procedures 4.16.6"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "These radii define where you can legally circle — fly outside them and you lose obstacle clearance protection.",
+            "Cat A/B aircraft have surprisingly small circling areas. In gusty conditions or with a tailwind on downwind, it's easy to blow through the boundary.",
+            "The radius is measured from each runway threshold — visualise it as overlapping circles, not a single circle."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Treating circling area as a single circle centred on the aerodrome — it's actually constructed from arcs centred on each runway threshold.",
+            "Underestimating groundspeed on downwind with a tailwind — you'll cover more ground and may exit the circling area.",
+            "Flying wider patterns than necessary — tighter is safer within the circling area.",
+            "Not knowing your aircraft category — if you're on the boundary (e.g., VAT of 120 kt puts you right at Cat A/B transition), fly the appropriate minima.",
+            "Forgetting that obstacle clearance applies within the circling area — fly outside and you're no longer guaranteed 300-500FT clearance."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What's the circling area radius for a Category B aircraft? A: 2.66NM.",
+            "Q: How is the circling area constructed? A: Arcs of the appropriate radius are drawn from each runway threshold. The circling area is the combined area enclosed by these arcs.",
+            "Q: You're flying a King Air (Cat B) at 130 kt groundspeed on downwind. How far from the runway can you be before exiting the circling area? A: 2.66NM from the closest threshold. At 130 kt GS, you'll cover that distance quickly — you need to monitor position constantly.",
+            "Q: What obstacle clearance do you have within the Cat C circling area? A: 400FT above obstacles surveyed within that area."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your aircraft normally operates as Cat C but you're flying a light approach today at speeds that qualify for Cat B. Can you use Cat B circling minima? A: Depends on company policy. Regulations allow using a lower category if you fly the speeds for that category. Some operators lock category for simplicity; others allow flexibility with specific procedures.",
+            "Q: How do you brief circling area awareness for a complex aerodrome with offset runways? A: Calculate distance from each threshold to your planned circuit. Brief where the circling area edge lies relative to visual references (e.g., 'circling area ends at the hill 2NM east'). Plan the tightest circuit that's comfortable for conditions."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're flying a Cat B aircraft (circling radius 2.66NM) with a 25 kt tailwind on downwind.",
+            "Your normal downwind distance of 1.5NM from the runway feels tight, so you move out to 2.2NM.",
+            "On base turn, you recognise you're at the edge of the circling area with still 180° to turn and 2.3NM to run to the threshold.",
+            "Decision point: Continue or go around? Answer: Go around if you're at or outside the circling area boundary. At 2.2NM from the runway, you have only 0.46NM of margin. With wind drift on base turn, you risk exceeding the protected area. Tighter patterns are safer."
+          ]
         }
       ],
       "refs": []
@@ -332,6 +669,49 @@
           "content": [
             "AIP ENR 1.5 Para 2.8",
             "JEPP TERMINAL — Instrument Approach/Take-off Procedures Para 4.10"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Procedure turns are becoming rare with GNSS approaches, but you'll still encounter them at regional airports with VOR/NDB approaches.",
+            "The NoPT annotation saves time and fuel — but you must verify it applies to your arrival direction.",
+            "Radar vectors negate the procedure turn because ATC establishes you on final — they've done the reversal for you."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Flying the procedure turn when you've been radar vectored — vectors eliminate the PT.",
+            "Missing the NoPT annotation and flying an unnecessary procedure turn — wastes time and may conflict with traffic.",
+            "Flying the procedure turn outside the protected area — especially in windy conditions, you must stay within published limits.",
+            "Not knowing when PT is mandatory — if you're not vectored, not from the hold, and no NoPT, you must fly the turn.",
+            "Confusing procedure turn with holding entry — they're different manoeuvres with different protected areas."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: When is a procedure turn not required? A: When vectored to final, cleared from a holding fix, chart shows NoPT for your arrival direction, or straight-in procedure is available and approved.",
+            "Q: You're cleared for the VOR approach and the chart shows a procedure turn. ATC says 'cleared direct VOR.' Must you fly the PT? A: Yes, unless you're vectored to final or NoPT applies. 'Cleared direct' doesn't eliminate the PT requirement.",
+            "Q: What limits the procedure turn? A: The protected area depicted on the chart, distance limits (e.g., '10 DME'), and any altitude restrictions.",
+            "Q: Can you substitute a holding pattern entry for the procedure turn? A: Only if the hold is depicted on the chart as the reversal manoeuvre, or you're cleared to hold at the fix and then cleared for the approach 'from the hold.'"
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your FMS generates a procedure turn automatically. How do you suppress it when vectored? A: Depends on FMS type. Usually: select VECTORS approach or manually sequence past the PT waypoint. Brief this during approach setup — don't discover it at the IAF.",
+            "Q: Why might you elect to fly the procedure turn even when NoPT is available? A: To lose altitude or reduce speed. NoPT assumes you arrive at the IAF at appropriate altitude and speed. If you're high/fast, the PT gives you manoeuvring room."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're flying the VOR RWY 18 approach. Chart shows procedure turn required, 10 DME limit. Wind is 25 kt quartering tailwind on the outbound leg.",
+            "You commence the procedure turn at 8 DME. The tailwind pushes you outbound faster than expected.",
+            "At 9.8 DME, you're only halfway through the reversal.",
+            "Decision point: Continue or abort the procedure turn? Answer: Abort — turn inbound immediately. Exceeding 10 DME takes you outside protected airspace. Complete the turn within limits even if it's not textbook. You can request another approach if needed."
           ]
         }
       ],
@@ -373,6 +753,48 @@
             "AIP ENR 1.5 Para 1.15",
             "JEPP TERMINAL — Instrument Approach/Take-off Procedures Para 2.3"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Flying faster than your category allows invalidates the obstacle clearance protection — you'll be outside the protected airspace.",
+            "Reversal (procedure turn) speeds are lower than other segment speeds because the protected area is tighter during the manoeuvre.",
+            "Know your aircraft's category and speeds cold — examiners will ask, and getting it wrong in flight creates real risk."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Exceeding category speeds 'because the aircraft handles it' — obstacle clearance is predicated on category speeds. Fly faster and you may turn outside protected airspace.",
+            "Not reducing speed for reversal procedures — Cat A and B have specific lower limits for procedure turns.",
+            "Flying too slow on initial/intermediate approach — minimum speeds exist to ensure adequate manoeuvrability and predictability.",
+            "Not knowing your VAT — many pilots can't calculate or state their aircraft's threshold speed.",
+            "Using max certified landing weight VAT when you're actually much lighter — you might qualify for a lower category if you fly appropriate speeds."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Your aircraft's VAT is 118 kt. What category are you? A: Category B (91–120 kt).",
+            "Q: What's the maximum speed for a Cat B circling approach? A: 135 kt.",
+            "Q: You're flying a procedure turn in a Cat A aircraft. What's the maximum speed? A: 110 kt — lower than the normal initial/intermediate speed range.",
+            "Q: Why do circling speeds matter so much? A: The circling area radius is based on your category. Exceed the speed and your turn radius increases, potentially taking you outside the protected area."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your aircraft is certified Cat C but your operator flies a lower approach speed. Can you use Cat B minima? A: Potentially, if you fly Cat B speeds throughout the approach. Some operators have this approved; others don't. Check your ops manual.",
+            "Q: ATC requests higher speed on intermediate approach. How do you balance this with category limits? A: Accept the speed if it's within your category limit. If it exceeds category, advise 'unable, speed limit [X] kt for approach.' Don't exceed category speeds to accommodate ATC."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're flying a Cat B turboprop (max circling speed 135 kt). Wind is calm. You've just broken out at circling MDA and commenced the circle.",
+            "Your speed is 140 kt IAS. You're comfortably within the circling area.",
+            "Decision point: Is this acceptable? Answer: No. You're 5 kt over the Cat B circling speed limit. The circling area protection assumes 135 kt max. Slow down immediately. Even though you're within the area now, your turn radius at 140 kt may take you outside."
+          ]
         }
       ],
       "refs": []
@@ -400,6 +822,47 @@
           "type": "reference",
           "content": [
             "Part 61 MOS Volume 4, Schedule 8, Section 1, Table 5"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "These tolerances define whether you pass or fail a flight test approach — know them before your checkride.",
+            "Flight test tolerances are stricter than what's 'safe' operationally because they verify you can fly precisely under examination pressure.",
+            "If you're consistently hitting tolerance limits in training, you need more practice before the test."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Not knowing the tolerances before your flight test — this is basic preparation.",
+            "Confusing flight test tolerances with operational tolerances (navigational tolerance for missed approach triggers is different).",
+            "Assuming 'close enough' will pass — examiners measure against published tolerances.",
+            "Practicing to lower standards than the test requires — practice tighter than test standards."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Where are instrument approach tolerances for flight tests published? A: Part 61 MOS Volume 4, Schedule 8, Section 1, Table 5.",
+            "Q: Why are flight test tolerances different from navigational tolerance? A: Flight test tolerances assess pilot precision. Navigational tolerance (for missed approach triggers) is about safe lateral guidance. Different purposes, different numbers.",
+            "Q: What happens if you exceed tolerance once during a flight test approach? A: Depends on the examiner's assessment. A momentary exceedance you correct is different from sustained exceedance. Generally, any uncontrolled exceedance is grounds for failure of that item."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: How do airline check tolerances compare to Part 61 flight test tolerances? A: Usually similar or stricter. Airlines add operational standards (stabilised approach criteria, callout requirements) on top of regulatory tolerances.",
+            "Q: During sim checks, what additional tolerances might apply? A: Company-specific: ground speed targets, configuration points, callout timing. The approach itself still references regulatory tolerances for tracking and descent."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're flying your IPC flight test. On the ILS, you're established on localiser and glideslope but notice you're 180FT above the published glideslope altitude at the FAF.",
+            "The examiner is watching. You start correcting back to glideslope.",
+            "Decision point: Are you within tolerance, or have you already failed this approach?",
+            "Context: Know the specific tolerances from Part 61 MOS Table 5. If ±100FT is the altitude tolerance, 180FT is a fail. If it's tighter, you've failed. If you don't know the tolerance, that's the real problem."
           ]
         }
       ],
@@ -434,6 +897,49 @@
             "AIP ENR 1.5 Para 7.3",
             "JEPP TERMINAL — Instrument Approach/Take-off Procedures Para 2.7.3.1"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Half-scale deflection is your working tolerance — full-scale is the hard stop requiring missed approach.",
+            "The glideslope/altimeter check at the fix catches errors before you're too low to recover. Don't just fly the needles — verify altitude makes sense.",
+            "Full-scale deflection on ILS is a MUST GO AROUND situation. No exceptions, no 'almost getting back on.'"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Ignoring half-scale deflection as 'within tolerance' — it's the outer limit, not the target. Fly the centrelines.",
+            "Not checking glidepath/altimeter at the fix — this is a published requirement, not a suggestion.",
+            "Trying to recover from full-scale deflection instead of going around — after FAP, full-scale means missed approach. Period.",
+            "Confusing LOC deflection with glideslope deflection — full-scale on either one requires missed approach.",
+            "Not recognising what 'half-scale' looks like on your instrument — practice so you know instantly."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What's the maximum tolerated deviation on ILS approach? A: Half-scale deflection on both localiser and glideslope.",
+            "Q: You're at half-scale low on glideslope at 800FT. What do you do? A: Correct back to centreline. Half-scale is the tolerance limit — you're legal but need to fix it.",
+            "Q: At 600FT the localiser shows full-scale deflection. What action is required? A: Immediate missed approach. Full-scale after FAP is mandatory go-around.",
+            "Q: What's the purpose of the glideslope/altimeter check at the fix? A: To verify the glideslope is giving accurate guidance. Discrepancy could indicate false glideslope or altimeter error."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your company SOPs require reporting any approach where full-scale deflection occurred. Why? A: Safety reporting allows analysis of why deflection occurred — equipment fault, procedural issue, or pilot error. Patterns can indicate systemic problems.",
+            "Q: At what deflection does your company require callout from PM? A: This varies by operator. Common: 'localiser one dot' or 'glideslope one dot' as awareness call. Half-scale: 'localiser/glideslope' as warning. Know your SOP."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're flying the ILS, passed the FAP at 3,000FT. At 2,500FT, you glance down at the chart briefly.",
+            "Looking back up, you see the localiser needle has moved to full-scale right deflection.",
+            "You're visual with the runway slightly left of centre.",
+            "Decision point: Continue visually or go around? Answer: Go around. Full-scale deflection after FAP requires missed approach regardless of visual conditions. The requirement is absolute. The examiner expects immediate action, not deliberation."
+          ]
         }
       ],
       "refs": []
@@ -467,6 +973,49 @@
             "AIP ENR 1.5 Para 1.9",
             "AIP ENR 1.5 Para 1.13",
             "JEPP TERMINAL — DME/GNSS Arrival Procedures"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "DME/GNSS arrivals end in circling — they bring you to the circling area, not the runway. Plan accordingly.",
+            "Sector containment is critical: you must stay within the sector boundaries until past the FAF, then no more manoeuvring.",
+            "These are often the only instrument procedure at smaller aerodromes — know them well."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Descending before being established in the sector — descent is prohibited until you're within the appropriate sector or on track.",
+            "Manoeuvring after the FAF — prohibited. Once past FAF, you're committed to the inbound track.",
+            "Forgetting that DME/GNSS arrivals require azimuth guidance — you need bearing information from the aid, not just distance.",
+            "Confusing sector minimum altitudes with circling MDA — they're different. Sector altitudes apply during the arrival; circling MDA applies in the circling area.",
+            "Not planning for circling at the end — DME/GNSS arrivals don't give you a straight-in."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: When can you descend on a DME/GNSS arrival? A: Only after established within the appropriate sector or on the specified inbound track.",
+            "Q: Can you manoeuvre within a sector after the FAF? A: No. Manoeuvring after FAF is prohibited.",
+            "Q: What's the relationship between DME/GNSS arrivals and circling? A: DME/GNSS arrivals terminate at the visual circling area. You then conduct circling to land.",
+            "Q: What's meant by 'azimuth guidance required'? A: You need bearing information from the aid — DME distance alone isn't sufficient. Use the VOR radial or NDB bearing to establish position."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You're cleared for the DME arrival and realise you're still outside the sector at the expected descent point. What do you do? A: Remain at current altitude until established in sector. Advise ATC if this affects your profile. Never descend outside the sector.",
+            "Q: How do you verify sector containment when using GNSS overlay? A: GNSS gives position, but sector boundaries are defined by radials/bearings from the aid. Verify your bearing FROM the aid matches the sector definition. Don't assume GNSS track equals sector containment."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're inbound to a regional port on the DME arrival. The chart shows Sector A (270°–330° from the VOR) with descent to 4,000FT.",
+            "You're tracking 295° TO the VOR, which means you're on the 115° radial FROM the VOR.",
+            "ATC clears you for the DME arrival. You're at 5,500FT.",
+            "Decision point: Can you descend? Answer: First verify 115° radial FROM puts you within 270°–330° sector. 115° is outside that sector (270°–330° FROM). You cannot descend until established within the sector. Continue at 5,500FT and manoeuvre to enter the correct sector."
           ]
         }
       ],
@@ -504,6 +1053,48 @@
             "AIP ENR 1.5 Para 11",
             "JEPP TERMINAL — DME/GNSS Arrival Procedures"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The 'CLEARED DME ARRIVAL' clearance is special — it authorises descent all the way to procedure minima with no altitude restrictions.",
+            "Holding is prohibited on DME/GNSS arrivals in CTA — if you need to hold, you can't be cleared for the arrival.",
+            "The 'NOT BELOW DME STEPS' phraseology indicates ATC is limiting your descent — you won't get full arrival clearance."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Expecting altitude restrictions with a DME arrival clearance — ATC cannot impose them with this clearance.",
+            "Orbiting or holding after receiving DME/GNSS arrival clearance — prohibited in CTA.",
+            "Not recognising 'NOT BELOW DME STEPS' as a restricted clearance — this is different from full arrival clearance.",
+            "Assuming you'll stay in CTA throughout — some procedures descend into Class G. Check the chart.",
+            "Forgetting the circling clearance is included — you don't need separate clearance to manoeuvre for landing."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're cleared for the DME arrival. Can ATC tell you to maintain 4,000FT? A: Not with that clearance. 'Cleared DME Arrival' authorises unrestricted descent to procedure minima.",
+            "Q: You need to hold to lose altitude. Can you do this after being cleared for DME arrival? A: No. Holding is prohibited. If you need to hold, advise ATC before accepting the arrival clearance.",
+            "Q: What does 'DESCEND TO 3,000 NOT BELOW DME STEPS' mean? A: You can descend following DME steps but only to 3,000FT. This is a restricted clearance, not a full arrival clearance.",
+            "Q: The DME arrival will take you into Class G. What are the implications? A: You leave controlled airspace. Separation services cease. You're responsible for terrain clearance (the procedure provides it if you follow the steps)."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: ATC clears you for the DME arrival but you're still at FL180 and need to lose 12,000FT. How do you manage this? A: The clearance authorises descent to procedure minima. However, you need to be within the sector before descending. If you can't make the profile, advise ATC before accepting. Consider requesting vectors or delaying tactics before the arrival clearance.",
+            "Q: Your procedure shows the DME arrival descending to 1,500FT but CTA base is 2,000FT. What's happening? A: The procedure enters Class G. You'll leave controlled airspace on descent. Company SOPs may require advising ATC or may prohibit such procedures. Check before conducting."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're inbound at FL120, cleared direct to the VOR. ATC says 'Cleared DME Arrival Runway 27.'",
+            "You're still 40NM out and high for the profile. You'd normally hold at the VOR to lose altitude.",
+            "Decision point: Can you hold? Answer: No. Holding is prohibited after accepting DME arrival clearance in CTA. You should have requested vectors or holding before accepting the clearance. Now you must fly the arrival as cleared. If unable, advise ATC immediately and request alternative instructions."
+          ]
         }
       ],
       "refs": []
@@ -535,6 +1126,48 @@
           "content": [
             "AIP ENR 1.1 Para 2.11.3.1",
             "JEPP ATC — Departure, Approach and Landing Procedures 1.9.3.1"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "ATC-issued visual approaches are common in good weather — they save time over instrument approaches.",
+            "The 30NM and 5,000M limits protect you from being sent visual when conditions don't support it.",
+            "You must be visual with ground/water and at/above MVA if vectored — ATC doesn't clear you visual if you're in cloud."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Accepting visual approach when you're not actually visual with ground/water — you must be visual before accepting.",
+            "Forgetting MVA requirement when vectored — if you're below MVA on vectors, you can't accept visual approach.",
+            "Assuming visual approach means no terrain responsibility — you're responsible for terrain clearance once visual.",
+            "Not recognising you can decline a visual approach — 'unable' is always an option if you're not comfortable."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What conditions must exist for ATC to issue a visual approach? A: Within 30NM, visual with ground/water, visibility at least 5,000M, at/above MVA if vectored, and ATC provides positioning instructions.",
+            "Q: ATC offers visual approach but you're in and out of cloud. What do you say? A: 'Unable visual approach, request [instrument approach type].' You must have continuous visual reference.",
+            "Q: You're cleared visual approach. Who's responsible for terrain clearance? A: You are. ATC provides traffic separation; you provide terrain clearance.",
+            "Q: Can ATC issue a visual approach at night? A: Yes, same criteria apply day and night."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Company SOP requires one pilot to maintain visual lookout during visual approach. Why? A: Terrain and traffic avoidance. Visual approaches transfer terrain responsibility to the crew. One pilot flying, one scanning, ensures continuous lookout.",
+            "Q: You're flying PF. PM reports they can see the ground but you can't from your side. Can you accept the visual approach? A: Depends on company SOP. The regulation requires visual reference — either pilot seeing the ground may satisfy this, but best practice is for PF to have visual reference. If unsure, decline."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're being vectored for the ILS at 4,000FT. MVA is 3,500FT. Visibility is reported 8KM with scattered cloud.",
+            "ATC: 'Can you accept visual approach runway 27?'",
+            "You're currently in a clear patch but there's a cloud ahead that will put you IMC in about 30 seconds.",
+            "Decision point: Accept or decline? Answer: Decline. Visual approach requires continuous visual reference. If you're about to enter cloud, you won't have it. 'Unable visual, request continue ILS vectors.'"
           ]
         }
       ],
@@ -581,6 +1214,48 @@
             "CASR 91.267",
             "JEPP TERMINAL — Instrument Approach/Take-off Procedures 4.19"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Pilot-initiated visual approach is different from ATC-issued — you're making the call, so you need to meet specific criteria.",
+            "The 500FT CTA buffer prevents you from busting airspace during the visual manoeuvre.",
+            "Night visual approaches have stricter requirements — you need PAPI or glideslope guidance to discontinue the IAP early."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Initiating visual approach at night without PAPI or glideslope — day and night rules are different.",
+            "Forgetting the 500FT CTA buffer — descending through CTA base without clearance is an airspace infringement.",
+            "Manoeuvring before the 5NM point — you must maintain track until within 5NM (or 3NM in specific cases).",
+            "Confusing pilot-initiated with ATC-issued — different criteria, different responsibilities.",
+            "Assuming 'aerodrome in sight' satisfies visibility requirement — you need either 5,000M visibility OR aerodrome in sight, plus all other criteria."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You want to discontinue the IAP and go visual by day. What are the requirements? A: Within 30NM, clear of cloud, visual with ground/water, visibility 5,000M or aerodrome in sight. Plus altitude and track requirements.",
+            "Q: You're in CTA with base at 2,500FT. What's your minimum altitude for visual approach? A: 3,000FT (500FT above CTA base), unless you get clearance to depart and re-enter.",
+            "Q: At night, when can you discontinue the ILS early for visual? A: Within 10NM if you're on the glideslope. Or within 7NM if you're on PAPI (ILS runway) or within 5NM on PAPI (non-ILS runway).",
+            "Q: Why is the 5NM track requirement important? A: It ensures ATC knows where you are for separation. You can't manoeuvre randomly in controlled airspace."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Company SOP prohibits pilot-initiated visual approaches at night. What's the rationale? A: Night visual approaches have CFIT risk, especially without approach lighting. PAPI/glideslope requirements exist for a reason. Some operators eliminate the risk entirely by requiring full IAP at night.",
+            "Q: You're visual and want to cancel IFR at night. What are the implications? A: You lose IFR separation services. At night, VFR has specific requirements (clear of cloud, visibility). If the aerodrome doesn't have PAPI or glideslope, you may not be able to legally discontinue the IAP anyway. Think carefully before cancelling IFR at night."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're on the ILS at night, 9NM from touchdown. You can see the PAPI and runway clearly. Visibility is excellent.",
+            "You consider discontinuing the ILS to fly a tighter visual pattern and save time.",
+            "Decision point: Can you go visual? Answer: Check the distance requirements. At 9NM, you need to be on the glideslope to discontinue (10NM limit). If you're established on the ILS glideslope, yes. If you've intercepted localiser only and haven't captured glideslope, no — you'd need to be within 7NM (PAPI, ILS runway)."
+          ]
         }
       ],
       "refs": []
@@ -621,6 +1296,50 @@
           "content": [
             "Part 91 MOS 15.10"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Landing minima calculation is more complex than just reading the chart — you must apply the highest of multiple considerations.",
+            "Lighting failures have cascading effects: partial failure might increase minima to 800M or 1,200M; total failure goes to 1,500M.",
+            "Know the 420M and 210M thresholds — they define which lighting failure increases minima to which value."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Using chart minima without checking for lighting NOTAMs — approach lighting unserviceable increases your minima.",
+            "Not knowing what equipment you need for published minima — without FD/HUD/AP, you need 1,200M minimum.",
+            "Forgetting the 'highest of' rule — you don't just use chart minima; you use the highest applicable number.",
+            "Confusing 420M and 210M thresholds — approach lighting beyond 420M affects 800M minimum; beyond 210M affects 1,200M.",
+            "Not applying the 1.5× multiplier for doubled runway edge lights — this can significantly increase required visibility.",
+            "Treating NPA visibility increases differently from precision — the calculation method differs (add lighting length vs use fixed values)."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: ILS DA is 200FT, RVR 550M. Approach lighting beyond 420M is unserviceable. What's your minimum visibility? A: 800M. Approach lighting beyond 420M unserviceable triggers 800M floor for precision approaches.",
+            "Q: You're flying a non-precision approach. Approach lighting (300M length) is unserviceable. Published visibility is 2,400M. What visibility do you use? A: 2,700M. For NPA, add the lighting system length to published visibility.",
+            "Q: Your aircraft has no serviceable flight director. What minimum visibility applies for precision approaches? A: 1,200M minimum.",
+            "Q: What does 'doubled spacing of runway edge lights' mean for your minima? A: Multiply published RVR/visibility by 1.5."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: How do you determine applicable minima during approach brief? A: Start with chart minima. Check NOTAMs for lighting status. Apply any company/aircraft increases. State final minima in brief (e.g., 'DA 200, RVR 550, increased to 800 due to approach lighting').",
+            "Q: Your MEL has autopilot deferred. How does this affect minima for ILS Cat I? A: Without FD, HUD, or AP to fly the approach to minima, minimum visibility increases to 1,200M. Check if hand-flying with FD satisfies the requirement in your ops spec."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're planning the ILS. Chart shows DA 200FT, RVR 500M. NOTAM shows approach lighting beyond 300M from threshold is unserviceable.",
+            "Your aircraft has FD and AP serviceable. ATIS reports RVR 700M.",
+            "Decision point: Can you conduct the approach? What are your minima?",
+            "Answer: The lighting failure is beyond 210M but not beyond 420M. This triggers 1,200M minimum visibility. RVR 700M doesn't meet 1,200M. You cannot conduct the approach. The NOTAM detail matters — 300M is between 210M and 420M thresholds."
+          ]
         }
       ],
       "refs": []
@@ -660,6 +1379,48 @@
             "JEPP TERMINAL — Instrument Approach/Take-off Procedures Para 4.12.1",
             "JEPP TERMINAL — Instrument Approach/Take-off Procedures Para 4.14"
           ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The missed approach triggers are mandatory — SNROFL covers all the reasons you must go around.",
+            "RAIM loss on GNSS approaches is a go-around situation after the IAF or below MSA. No RAIM, no navigation integrity.",
+            "Navigational tolerance varies by nav aid type. Full-scale CDI on ILS localiser is different from full-scale on VOR."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Confusing 'not visual' at DA with 'runway not in sight' — you need visual reference to the runway environment, which includes approach lighting.",
+            "Ignoring RAIM warnings — RAIM loss after IAF or below MSA is a mandatory go-around trigger.",
+            "Not knowing navigational tolerance for your approach type — full-scale CDI, ±5° NDB, ±2NM DME — different standards.",
+            "Waiting until you're completely lost during circling to go around — 'lost visual reference' means you've already delayed too long.",
+            "Attempting to circle in conditions below circling minima when straight-in isn't possible — this is a mandatory go-around."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What triggers a mandatory missed approach? A: SNROFL: Straight-in not possible (and circling weather not met), Not visual at DA/MAPT, RAIM loss (after IAF or below MSA), Outside navigational tolerance on final, Failure of nav aid below MSA, Lost visual during circling.",
+            "Q: What's navigational tolerance for an NDB approach? A: ±5° from the specified bearing.",
+            "Q: You get a RAIM warning at 500FT on the RNP approach. What action is required? A: Execute missed approach. RAIM loss below MSA is a mandatory go-around trigger.",
+            "Q: You reach MDA, have visual reference, but can't make a straight-in landing. Can you circle? A: Only if conditions meet circling minima. If circling minima aren't met, you must go around."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Company SOP adds unstabilised approach as a go-around trigger. How does this interact with the regulatory triggers? A: Company SOPs add to, not replace, regulatory requirements. SNROFL triggers are mandatory. Stabilised approach criteria are company requirements. You go around for whichever trigger occurs first.",
+            "Q: During circling you momentarily lose sight of the runway environment due to rain. You regain visual reference 3 seconds later. Go around or continue? A: Go around. 'Lost visual reference during circling' is a go-around trigger. The momentary loss already occurred. Don't push luck — at circling altitude, you have no margin for error."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're flying the VOR approach, final segment. Your CDI shows deflection creeping toward full scale due to wind drift.",
+            "At 3/4 scale deflection, you begin correcting. By the time you're established on correction, the needle touched full scale for approximately 2 seconds before moving back.",
+            "Decision point: Continue or go around? Answer: Go around. Full-scale deflection during the final segment triggers mandatory missed approach. The duration doesn't matter — once you hit full-scale, you're outside navigational tolerance. Execute missed approach."
+          ]
         }
       ],
       "refs": []
@@ -690,6 +1451,48 @@
           "content": [
             "AIP ENR 1.1 Para 2.14",
             "JEPP ATC — Departure, Approach and Landing Procedures Para 1.12"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Visual approach go-around: runway track, remain visual, wait for ATC. Instrument approach go-around: fly the missed approach procedure.",
+            "This distinction matters because visual approach go-around doesn't have a published missed approach — you stay visual and coordinate with ATC.",
+            "Class D parallel runway procedures prevent conflict with opposite-direction circuit traffic. Know your active side."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Flying the published missed approach after a visual approach go-around — the missed approach procedure is for instrument approaches. Visual approach: stay visual, runway track, await ATC.",
+            "Not remaining visual during visual approach go-around — if you enter IMC, you have no procedure. Stay visual.",
+            "At Class D parallel runways, not understanding 'active side' — you must stay on the same side as your landing runway to avoid conflict.",
+            "Forgetting you can turn if obstacle clearance requires it — runway track is default, but safety comes first."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You go around from a visual approach in VMC. What procedure do you fly? A: Climb on runway track, remain visual, await ATC instructions. Don't fly published missed approach — that's for instrument approaches.",
+            "Q: Same situation but from an ILS approach in VMC. What do you fly? A: Published missed approach procedure, unless ATC directs otherwise. Even though you're in VMC, you were flying an instrument approach.",
+            "Q: What's special about go-arounds at Class D aerodromes with parallel runways? A: Climb to circuit altitude, stay on your active side parallel to the duty runway, maintain separation, follow ATC or re-enter from upwind.",
+            "Q: During visual approach go-around, you notice terrain ahead on runway track. Can you turn? A: Yes. If you cannot clear obstacles on runway track, you may turn. Safety takes precedence."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Company SOP requires all go-arounds to be flown as the published missed approach. How do you reconcile this with visual approach procedures? A: Visual approaches don't have published missed approaches. If company requires standard missed approach profile (e.g., runway track to specific altitude), that's an SOP procedure, not a published missed approach. Coordinate with ATC as you're not on a published instrument procedure.",
+            "Q: You're PF, going around from ILS in VMC. ATC says 'fly runway heading, climb 3,000.' Do you fly that or the published missed approach? A: Fly ATC's instructions. The regulation says 'unless ATC directs otherwise.' ATC has given you alternative instructions; comply with them."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're on visual approach to Moorabbin runway 35L. Another aircraft is in the circuit for runway 35R.",
+            "At 200FT, you see a vehicle on the runway and go around.",
+            "You commence climb on runway track. Tower says 'make right turn, join downwind 35L.'",
+            "Decision point: What do you do? Answer: Comply with tower instruction. You're on visual approach go-around — remain visual, follow ATC instructions. Turn right, join downwind. The right turn keeps you on the 35L (west) side, separated from 35R traffic."
           ]
         }
       ],

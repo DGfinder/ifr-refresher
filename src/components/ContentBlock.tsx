@@ -126,6 +126,76 @@ export function ContentBlock({ block }: ContentBlockProps) {
         </div>
       );
 
+    case "ops_context":
+      return (
+        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Why This Matters
+          </p>
+          <ul className="ml-4 list-disc space-y-1">
+            {block.content.map((item, i) => (
+              <li key={i} className="text-foreground/90">{item}</li>
+            ))}
+          </ul>
+        </div>
+      );
+
+    case "traps":
+      return (
+        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Where Pilots Get Caught
+          </p>
+          <ul className="ml-4 list-disc space-y-1">
+            {block.content.map((item, i) => (
+              <li key={i} className="text-foreground/90">{item}</li>
+            ))}
+          </ul>
+        </div>
+      );
+
+    case "ipc_questions":
+      return (
+        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            IPC Oral Questions
+          </p>
+          <ul className="ml-4 list-disc space-y-1">
+            {block.content.map((item, i) => (
+              <li key={i} className="text-foreground/90">{item}</li>
+            ))}
+          </ul>
+        </div>
+      );
+
+    case "airline_questions":
+      return (
+        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Airline Panel Questions
+          </p>
+          <ul className="ml-4 list-disc space-y-1">
+            {block.content.map((item, i) => (
+              <li key={i} className="text-foreground/90">{item}</li>
+            ))}
+          </ul>
+        </div>
+      );
+
+    case "scenario":
+      return (
+        <div className="mb-4 rounded-lg border border-border bg-muted/30 p-4">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Scenario
+          </p>
+          <ul className="ml-4 list-disc space-y-1">
+            {block.content.map((item, i) => (
+              <li key={i} className="text-foreground/90">{item}</li>
+            ))}
+          </ul>
+        </div>
+      );
+
     default:
       return null;
   }

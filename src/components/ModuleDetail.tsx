@@ -99,7 +99,16 @@ export function ModuleDetail({
       <div className="prose-custom">
         {[...module.content]
           .sort((a, b) => {
-            const ORDER: Record<string, number> = { law: 0, numbers: 1, reference: 2 };
+            const ORDER: Record<string, number> = {
+              law: 0,
+              numbers: 1,
+              reference: 2,
+              ops_context: 3,
+              traps: 4,
+              ipc_questions: 5,
+              airline_questions: 6,
+              scenario: 7,
+            };
             return (ORDER[a.type] ?? -1) - (ORDER[b.type] ?? -1);
           })
           .map((block, index) => (

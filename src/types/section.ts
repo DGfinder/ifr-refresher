@@ -43,6 +43,31 @@ export interface ReferenceBlock {
   content: string[];
 }
 
+export interface OpsContextBlock {
+  type: "ops_context";
+  content: string[];
+}
+
+export interface TrapsBlock {
+  type: "traps";
+  content: string[];
+}
+
+export interface IpcQuestionsBlock {
+  type: "ipc_questions";
+  content: string[];
+}
+
+export interface AirlineQuestionsBlock {
+  type: "airline_questions";
+  content: string[];
+}
+
+export interface ScenarioBlock {
+  type: "scenario";
+  content: string[];
+}
+
 export type ContentBlock =
   | TextBlock
   | HeadingBlock
@@ -51,7 +76,12 @@ export type ContentBlock =
   | HierarchyBlock
   | LawBlock
   | NumbersBlock
-  | ReferenceBlock;
+  | ReferenceBlock
+  | OpsContextBlock
+  | TrapsBlock
+  | IpcQuestionsBlock
+  | AirlineQuestionsBlock
+  | ScenarioBlock;
 
 export interface Reference {
   source: string;
