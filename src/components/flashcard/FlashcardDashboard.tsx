@@ -167,7 +167,7 @@ export function FlashcardDashboard({
         ) : (
           <button
             onClick={handleStart}
-            className="w-full rounded-xl bg-[var(--ifr-accent)] py-4 text-base font-semibold text-white shadow-sm transition-all hover:bg-[var(--ifr-accent)]/90 active:scale-[0.98] dark:text-[var(--ifr-bg)]"
+            className="w-full rounded-xl bg-[var(--ifr-accent)] py-4 text-base font-semibold text-white shadow-sm transition-all hover:bg-[var(--ifr-accent)]/90 active:scale-[0.98] dark:bg-indigo-700 dark:hover:bg-indigo-600"
           >
             Study Now — {queueSize} card{queueSize !== 1 ? "s" : ""}
           </button>
