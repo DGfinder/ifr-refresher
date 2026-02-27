@@ -6,21 +6,14 @@ import { ModuleList } from "@/components/ModuleList";
 import { ModuleDetail } from "@/components/ModuleDetail";
 import { SearchBar } from "@/components/SearchBar";
 import { SectionSelector } from "@/components/SectionSelector";
-import { ProgramTabs } from "@/components/ProgramTabs";
 import { sections } from "@/data/sections";
-import { getSectionsForProgram } from "@/data/drillPrograms";
-import { useProgram } from "@/contexts/ProgramContext";
 import { useProgress } from "@/hooks/useProgress";
 
 export default function StudyPage() {
-  const { programId, setProgramId } = useProgram();
   const { getStatus, setStatus, getCompletionStats } = useProgress();
 
-  // Filter sections by program (godmode/custom shows all by default)
-  const programSections = useMemo(() => {
-    const ids = getSectionsForProgram(programId, sections.map((s) => s.sectionId));
-    return sections.filter((s) => ids.includes(s.sectionId));
-  }, [programId]);
+  // All sections available in study mode
+  const programSections = sections;
 
   const [selectedSectionId, setSelectedSectionId] = useState<string>(
     programSections[0]?.sectionId ?? ""
@@ -113,9 +106,6 @@ export default function StudyPage() {
   // Show category/module list view
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-6">
-      {/* Program tabs - always visible at top */}
-      <ProgramTabs programId={programId} onProgramChange={setProgramId} />
-
       {/* Section selector */}
       <SectionSelector
         sections={programSections}
