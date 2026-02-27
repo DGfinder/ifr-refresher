@@ -1,21 +1,21 @@
 "use client";
 
 import type { Section } from "@/types/section";
-import type { DrillProgramId } from "@/types/drill";
+import type { ProgramId } from "@/types/programs";
 import { useDrill } from "@/hooks/useDrill";
 import { useQuiz } from "@/hooks/useQuiz";
 import { QuizCard } from "./QuizCard";
 
 interface QuizViewProps {
   sections: Section[];
-  programId: DrillProgramId;
+  programId: ProgramId;
 }
 
 export function QuizView({ sections, programId }: QuizViewProps) {
-  const { filteredQuestions } = useDrill(sections);
+  const { filteredQuestions } = useDrill(sections, { programId });
 
   // God mode gets more questions
-  const limit = programId === "godmode" ? 20 : 10;
+  const limit = programId === "god_mode" ? 20 : 10;
 
   const {
     mode,

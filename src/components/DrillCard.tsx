@@ -35,7 +35,7 @@ export function DrillCard({ question, onRate }: DrillCardProps) {
 
       {/* Question */}
       <div className="p-6">
-        <p className="text-[18px] font-medium text-[var(--ifr-text)]">{question.question}</p>
+        <p className="text-[18px] font-medium text-[var(--ifr-text)]">{question.prompt}</p>
       </div>
 
       {/* Answer section */}

@@ -23,13 +23,13 @@ export function buildQuizQuestions(
 ): QuizQuestion[] {
   if (drillQuestions.length === 0) return [];
 
-  // Group answers by section for better distractor selection
-  const answersBySection: Record<string, string[]> = {};
+  // Group unique answers by section for better distractor selection
+  const answersBySection: Record<string, Set<string>> = {};
   for (const q of drillQuestions) {
     if (!answersBySection[q.sectionId]) {
-      answersBySection[q.sectionId] = [];
+      answersBySection[q.sectionId] = new Set();
     }
-    answersBySection[q.sectionId].push(q.answer);
+    answersBySection[q.sectionId].add(q.answer);
   }
 
   // Get all unique answers for fallback distractors
@@ -42,16 +42,16 @@ export function buildQuizQuestions(
     const correctAnswer = dq.answer;
 
     // Get potential distractors from same section (excluding correct answer)
-    let distractorPool = (answersBySection[dq.sectionId] || []).filter(
+    let distractorPool = [...(answersBySection[dq.sectionId] || [])].filter(
       (a) => a !== correctAnswer
     );
 
-    // If not enough distractors from same section, use all answers
+    // If not enough distractors from same section, use all unique answers
     if (distractorPool.length < 3) {
       distractorPool = allAnswers.filter((a) => a !== correctAnswer);
     }
 
-    // Shuffle and pick 3 distractors
+    // Shuffle and pick 3 unique distractors
     const shuffledDistractors = shuffle(distractorPool);
     const distractors = shuffledDistractors.slice(0, 3);
 
@@ -77,7 +77,7 @@ export function buildQuizQuestions(
       id: dq.id,
       sectionId: dq.sectionId,
       moduleId: dq.moduleId,
-      prompt: dq.question,
+      prompt: dq.prompt,
       correctOptionId,
       options,
     };

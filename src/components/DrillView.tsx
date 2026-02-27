@@ -3,15 +3,17 @@
 import { useState, useEffect, useMemo } from "react";
 import type { Section } from "@/types/section";
 import type { DrillQuestion, DrillRating } from "@/types/drill";
+import type { ProgramId } from "@/types/programs";
 import { useDrill } from "@/hooks/useDrill";
 import { DrillCard } from "./DrillCard";
 
 interface DrillViewProps {
   sections: Section[];
+  programId?: ProgramId;
   focusWeak?: boolean;
 }
 
-export function DrillView({ sections, focusWeak = false }: DrillViewProps) {
+export function DrillView({ sections, programId, focusWeak = false }: DrillViewProps) {
   const [selectedSectionId, setSelectedSectionId] = useState<string | null>(null);
   const [selectedModuleId, setSelectedModuleId] = useState<string | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState<DrillQuestion | null>(null);
@@ -25,6 +27,7 @@ export function DrillView({ sections, focusWeak = false }: DrillViewProps) {
   } = useDrill(sections, {
     sectionId: selectedSectionId,
     moduleId: selectedModuleId,
+    programId,
   });
 
   // Get modules for selected section

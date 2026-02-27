@@ -1,24 +1,22 @@
 "use client";
 
-import { useState, useMemo, useEffect, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { SessionPresets, type PresetId } from "@/components/SessionPresets";
 import { DrillView } from "@/components/DrillView";
 import { QuizView } from "@/components/QuizView";
-import { ProgramTabs } from "@/components/ProgramTabs";
+import { ProgramSelector } from "@/components/ProgramSelector";
 import { sections } from "@/data/sections";
-import { getSectionsForProgram, drillPrograms } from "@/data/drillPrograms";
-import { useProgram } from "@/contexts/ProgramContext";
+import type { ProgramId } from "@/types/programs";
 import { cn } from "@/lib/utils";
 
 function DrillPageContent() {
   const searchParams = useSearchParams();
-  const { programId, setProgramId } = useProgram();
+  const [programId, setProgramId] = useState<ProgramId>("ipc_oral");
 
-  // Get initial mode from URL or program default
+  // Get initial mode from URL or default
   const urlMode = searchParams.get("mode");
-  const program = drillPrograms.find((p) => p.id === programId);
-  const defaultMode = urlMode === "quiz" ? "quiz" : (program?.defaultMode ?? "flashcards");
+  const defaultMode = urlMode === "quiz" ? "quiz" : "flashcards";
 
   const [drillSubMode, setDrillSubMode] = useState<"flashcards" | "quiz">(defaultMode);
   const [drillWeakFocus, setDrillWeakFocus] = useState(false);
@@ -30,12 +28,6 @@ function DrillPageContent() {
       setDrillSubMode("quiz");
     }
   }, [urlMode]);
-
-  // Filter sections by program (godmode/custom shows all)
-  const programSections = useMemo(() => {
-    const ids = getSectionsForProgram(programId, sections.map((s) => s.sectionId));
-    return sections.filter((s) => ids.includes(s.sectionId));
-  }, [programId]);
 
   // Handle preset selection
   const handlePresetChange = (preset: PresetId) => {
@@ -49,8 +41,8 @@ function DrillPageContent() {
 
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-6">
-      {/* Program tabs - always visible at top */}
-      <ProgramTabs programId={programId} onProgramChange={setProgramId} />
+      {/* Program selector - always visible at top */}
+      <ProgramSelector value={programId} onChange={setProgramId} />
 
       {/* Mode toggle + Session presets row */}
       <div className="mb-6 flex flex-wrap items-center gap-4">
@@ -86,9 +78,9 @@ function DrillPageContent() {
 
       {/* Render DrillView or QuizView based on sub-mode */}
       {drillSubMode === "flashcards" ? (
-        <DrillView sections={programSections} focusWeak={drillWeakFocus} />
+        <DrillView sections={sections} programId={programId} focusWeak={drillWeakFocus} />
       ) : (
-        <QuizView sections={programSections} programId={programId} />
+        <QuizView sections={sections} programId={programId} />
       )}
     </div>
   );

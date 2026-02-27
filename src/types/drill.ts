@@ -1,13 +1,28 @@
+export type QuestionSourceKind =
+  | "ipc"
+  | "airline"
+  | "legacy_qa"
+  | "trap"      // Reserved for future
+  | "numeric"   // Reserved for future
+  | "scenario"; // Reserved for future
+
 export interface DrillQuestion {
-  id: string;                    // "sectionId:moduleId:qa-index"
+  id: string;                    // "${sectionId}:${moduleId}:${kind}-${index}"
   sectionId: string;
   sectionTitle: string;
   moduleId: string;
   moduleTitle: string;
-  question: string;
+  prompt: string;                // The question text
   answer: string;
+  kind: QuestionSourceKind;
   level?: "core" | "advanced" | "airline";
   tags?: string[];
+}
+
+export interface DrillFilter {
+  kinds?: QuestionSourceKind[];
+  tags?: string[];
+  levels?: ("core" | "advanced" | "airline")[];
 }
 
 export type DrillRating = "got-it" | "unsure";
