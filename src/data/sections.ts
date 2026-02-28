@@ -12,8 +12,10 @@ import airlineScenariosPanel from "./airline-scenarios-panel.json";
 import advancedIfrRegsAirlineOps from "./advanced-ifr-regs-airline-ops.json";
 import quickFireNumbers from "./quick-fire-numbers.json";
 import casaTraps from "./casa-traps.json";
+import cheatSheet from "./cheat-sheet.json";
 
 export const sections: Section[] = [
+  cheatSheet as Section,
   administrativePart61 as Section,
   airspaceAtcServices as Section,
   fuelAlternates as Section,

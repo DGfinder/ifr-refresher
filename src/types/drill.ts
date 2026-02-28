@@ -64,7 +64,7 @@ export interface QuizStats {
 export type QuizMode = "idle" | "in-progress" | "finished";
 
 // Drill program types
-export type DrillProgramId = "ipc" | "airline" | "godmode" | "custom";
+export type DrillProgramId = "ipc" | "airline" | "godmode" | "custom" | "cheat_sheet";
 
 export interface DrillProgram {
   id: DrillProgramId;

@@ -41,6 +41,16 @@ export const STUDY_PROGRAMS: StudyProgram[] = [
       levels: ["core", "advanced", "airline"],
     },
   },
+  {
+    id: "cheat_sheet",
+    name: "Cheat Sheet",
+    description: "127 questions from the We Fly Planes IFR Cheat Sheet v7.1.",
+    recommendedUse: "Use in the days before your IPC. Licensing, recency, equipment, fuel, alternates, en route, holding and approaches — strictly from the cheat sheet, nothing else.",
+    filter: {
+      kinds: ["legacy_qa"],
+      levels: ["core", "advanced"],
+    },
+  },
 ];
 
 export function getProgramById(id: ProgramId): StudyProgram | undefined {
