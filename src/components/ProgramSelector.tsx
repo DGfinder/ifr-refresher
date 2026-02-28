@@ -14,6 +14,7 @@ const SHORT_NAMES: Record<ProgramId, string> = {
   airline_panel: "Airline",
   quick_fire_numbers: "Quick Fire",
   god_mode: "God Mode",
+  cheat_sheet: "Cheat Sheet",
 };
 
 export function ProgramSelector({ value, onChange }: ProgramSelectorProps) {
