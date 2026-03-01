@@ -13,7 +13,7 @@ type FlashcardPhase = "dashboard" | "session" | "results";
 
 function FlashcardPageContent() {
   const [phase, setPhase] = useState<FlashcardPhase>("dashboard");
-  const [programId, setProgramId] = useState<ProgramId>("ipc_oral");
+  const [programId, setProgramId] = useState<ProgramId>("cheat_sheet");
   const [studyMode, setStudyMode] = useState<StudyMode>("all");
   const [sessionQueue, setSessionQueue] = useState<DrillQuestion[]>([]);
   const [lastResults, setLastResults] = useState<SessionResults | null>(null);

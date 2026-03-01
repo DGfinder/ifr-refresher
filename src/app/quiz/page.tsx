@@ -11,7 +11,7 @@ import { sections } from "@/data/sections";
 import type { ProgramId } from "@/types/programs";
 
 function QuizPageContent() {
-  const [programId, setProgramId] = useState<ProgramId>("ipc_oral");
+  const [programId, setProgramId] = useState<ProgramId>("cheat_sheet");
 
   // Get available questions count
   const { filteredQuestions } = useDrill(sections, { programId });
