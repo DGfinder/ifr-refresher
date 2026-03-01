@@ -21,6 +21,8 @@ export interface QABlock {
   type: "qa";
   question: string;
   answer: string;
+  /** Optional pre-authored distractors (3 wrong-but-plausible answers). When present, overrides pool-based distractor selection in quiz mode. */
+  distractors?: string[];
 }
 
 export interface HierarchyBlock {

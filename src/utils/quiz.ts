@@ -15,7 +15,13 @@ function shuffle<T>(array: T[]): T[] {
 }
 
 /**
- * Build quiz questions from drill questions with distractors
+ * Build quiz questions from drill questions with distractors.
+ *
+ * Distractor priority (per question):
+ *   1. Pre-authored distractors on the DrillQuestion (exact 3) — highest quality
+ *   2. Module-scoped pool: other answers from the same module
+ *   3. Section-scoped pool: other answers from the same section
+ *   4. Global pool: all unique answers across all questions
  */
 export function buildQuizQuestions(
   drillQuestions: DrillQuestion[],
@@ -23,16 +29,20 @@ export function buildQuizQuestions(
 ): QuizQuestion[] {
   if (drillQuestions.length === 0) return [];
 
-  // Group unique answers by section for better distractor selection
+  // Pre-build answer pools grouped by module and section (unique answers only)
+  const answersByModule: Record<string, Set<string>> = {};
   const answersBySection: Record<string, Set<string>> = {};
+
   for (const q of drillQuestions) {
-    if (!answersBySection[q.sectionId]) {
-      answersBySection[q.sectionId] = new Set();
-    }
+    const moduleKey = `${q.sectionId}::${q.moduleId}`;
+    if (!answersByModule[moduleKey]) answersByModule[moduleKey] = new Set();
+    answersByModule[moduleKey].add(q.answer);
+
+    if (!answersBySection[q.sectionId]) answersBySection[q.sectionId] = new Set();
     answersBySection[q.sectionId].add(q.answer);
   }
 
-  // Get all unique answers for fallback distractors
+  // Global unique answer pool (fallback)
   const allAnswers = [...new Set(drillQuestions.map((q) => q.answer))];
 
   // Shuffle and limit questions
@@ -40,34 +50,43 @@ export function buildQuizQuestions(
 
   return selectedQuestions.map((dq) => {
     const correctAnswer = dq.answer;
+    let distractors: string[];
 
-    // Get potential distractors from same section (excluding correct answer)
-    let distractorPool = [...(answersBySection[dq.sectionId] || [])].filter(
-      (a) => a !== correctAnswer
-    );
+    // Priority 1: pre-authored distractors
+    if (dq.distractors && dq.distractors.length === 3) {
+      distractors = dq.distractors;
+    } else {
+      // Priority 2: module-scoped pool
+      const moduleKey = `${dq.sectionId}::${dq.moduleId}`;
+      let pool = [...(answersByModule[moduleKey] || [])].filter((a) => a !== correctAnswer);
 
-    // If not enough distractors from same section, use all unique answers
-    if (distractorPool.length < 3) {
-      distractorPool = allAnswers.filter((a) => a !== correctAnswer);
+      // Priority 3: section-scoped pool (if module didn't have enough)
+      if (pool.length < 3) {
+        const sectionPool = [...(answersBySection[dq.sectionId] || [])].filter(
+          (a) => a !== correctAnswer && !pool.includes(a)
+        );
+        pool = [...pool, ...sectionPool];
+      }
+
+      // Priority 4: global pool (last resort)
+      if (pool.length < 3) {
+        const globalPool = allAnswers.filter((a) => a !== correctAnswer && !pool.includes(a));
+        pool = [...pool, ...globalPool];
+      }
+
+      distractors = shuffle(pool).slice(0, 3);
+
+      // Absolute fallback: pad if somehow still empty
+      while (distractors.length < 3) {
+        distractors.push(`Option ${distractors.length + 2}`);
+      }
     }
 
-    // Shuffle and pick 3 unique distractors
-    const shuffledDistractors = shuffle(distractorPool);
-    const distractors = shuffledDistractors.slice(0, 3);
-
-    // If still not enough distractors, pad with generic ones
-    while (distractors.length < 3) {
-      distractors.push(`Option ${distractors.length + 2}`);
-    }
-
-    // Combine correct answer with distractors and shuffle
+    // Place correct answer + distractors in random positions
     const allOptions = shuffle([correctAnswer, ...distractors]);
-
-    // Find which position the correct answer ended up in
     const correctIndex = allOptions.indexOf(correctAnswer);
     const correctOptionId = OPTION_IDS[correctIndex];
 
-    // Build options array
     const options: QuizOption[] = allOptions.map((text, index) => ({
       id: OPTION_IDS[index],
       text,

@@ -14,6 +14,8 @@ export interface DrillQuestion {
   moduleTitle: string;
   prompt: string;                // The question text
   answer: string;
+  /** Pre-authored distractors from QABlock. When present (3 items), used directly in quiz mode instead of pool-based selection. */
+  distractors?: string[];
   kind: QuestionSourceKind;
   level?: "core" | "advanced" | "airline";
   tags?: string[];

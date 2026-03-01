@@ -2,7 +2,7 @@
   "version": "1.0",
   "sectionId": "cheat-sheet",
   "sectionTitle": "IFR Cheat Sheet",
-  "sectionDescription": "100+ questions derived strictly from the We Fly Planes IFR Cheat Sheet v7.1 (Ben Montgomery-Schinkel, March 2024). Australian IFR law and theory — ideal for IPC preparation.",
+  "sectionDescription": "127 questions derived strictly from the We Fly Planes IFR Cheat Sheet v7.1 (Ben Montgomery-Schinkel, March 2024). Australian IFR law and theory — ideal for IPC preparation.",
   "categories": [
     {
       "id": "licensing",
@@ -54,32 +54,62 @@
         {
           "type": "qa",
           "question": "How long is an IPC valid from the date the holder passes the flight test?",
-          "answer": "Until the end of the 12th month after the month in which the holder passes the flight test."
+          "answer": "Until the end of the 12th month after the month in which the holder passes the flight test.",
+          "distractors": [
+            "For 12 months from the date on which the holder passes the flight test.",
+            "Until the end of the 6th month after the month in which the holder passes the flight test.",
+            "Until the end of the 24th month after the month in which the holder passes the flight test."
+          ]
         },
         {
           "type": "qa",
           "question": "If you complete an IPC within 3 months before your existing IPC expires, when does the new IPC expire?",
-          "answer": "The end of the 12th month after the validity of the existing check — not after the new check date."
+          "answer": "The end of the 12th month after the validity of the existing check — not after the new check date.",
+          "distractors": [
+            "Until the end of the 12th month after the date the new check was completed.",
+            "Until the end of the 6th month after the validity of the existing check.",
+            "For 12 months from the date of the new check, regardless of when the old one expires."
+          ]
         },
         {
           "type": "qa",
           "question": "Under CASR 61.855, what does an instrument rating authorise a pilot to do?",
-          "answer": "To pilot an aircraft under the IFR, or at night under the VFR."
+          "answer": "To pilot an aircraft under the IFR, or at night under the VFR.",
+          "distractors": [
+            "To pilot an aircraft under the IFR only.",
+            "To pilot an aircraft under the IFR, at night under the VFR, and in IMC under the VFR.",
+            "To pilot an aircraft under the IFR and to conduct instrument approaches in VMC."
+          ]
         },
         {
           "type": "qa",
           "question": "Under what conditions may a holder of an instrument rating conduct a circling approach under the IFR?",
-          "answer": "If their most recent IPC included a circling approach; or they passed the IR flight test within the previous 12 months and that test included a circling approach; or they are successfully participating in an operator's T&C system that includes circling approaches."
+          "answer": "If their most recent IPC included a circling approach; or they passed the IR flight test within the previous 12 months and that test included a circling approach; or they are successfully participating in an operator's T&C system that includes circling approaches.",
+          "distractors": [
+            "Provided they hold a current IPC — no separate circling approach currency is required.",
+            "If their most recent IPC included a circling approach within the previous 6 months.",
+            "If they have conducted at least one circling approach within the previous 90 days."
+          ]
         },
         {
           "type": "qa",
           "question": "What must a pilot do before conducting a single-pilot IFR operation under CASR 61.875?",
-          "answer": "Conduct a flight or simulated flight under the IFR in a single-pilot operation within the previous 6 months, of at least 1 hour duration, including at least one instrument approach or simulated instrument approach."
+          "answer": "Conduct a flight or simulated flight under the IFR in a single-pilot operation within the previous 6 months, of at least 1 hour duration, including at least one instrument approach or simulated instrument approach.",
+          "distractors": [
+            "Conduct a flight or simulated flight under the IFR in a single-pilot operation within the previous 90 days, of at least 30 minutes duration, including at least one instrument approach.",
+            "Conduct a flight or simulated flight under the IFR in a single-pilot operation within the previous 12 months, of at least 1 hour duration, including at least one instrument approach.",
+            "Conduct at least 3 instrument approaches in a single-pilot aircraft within the previous 6 months."
+          ]
         },
         {
           "type": "qa",
           "question": "Can the IPC recent experience requirements be considered met by an operator proficiency check?",
-          "answer": "Yes — if the holder has successfully completed an operator proficiency check covering IFR operations within the previous 3 months, or is successfully participating in an operator's training and checking system for IFR operations."
+          "answer": "Yes — if the holder has successfully completed an operator proficiency check covering IFR operations within the previous 3 months, or is successfully participating in an operator's training and checking system for IFR operations.",
+          "distractors": [
+            "No — only flight time under the IFR counts toward recent experience requirements.",
+            "Yes — if the holder has completed an operator proficiency check within the previous 6 months.",
+            "Yes — if the holder has completed an operator proficiency check within the previous 90 days."
+          ]
         }
       ],
       "refs": [
@@ -101,32 +131,62 @@
         {
           "type": "qa",
           "question": "What recent experience is required to fly under the IFR?",
-          "answer": "At least 3 instrument approach operations within the previous 90 days."
+          "answer": "At least 3 instrument approach operations within the previous 90 days.",
+          "distractors": [
+            "At least 1 instrument approach operation within the previous 90 days.",
+            "At least 2 instrument approach operations within the previous 90 days.",
+            "At least 3 instrument approach operations within the previous 6 months."
+          ]
         },
         {
           "type": "qa",
           "question": "What recent experience is required to pilot an aircraft of a particular category under the IFR?",
-          "answer": "At least one instrument approach in an aircraft of the same category within the previous 90 days."
+          "answer": "At least one instrument approach in an aircraft of the same category within the previous 90 days.",
+          "distractors": [
+            "At least 3 instrument approaches in an aircraft of the same category within the previous 90 days.",
+            "At least one instrument approach in an aircraft of the same category within the previous 6 months.",
+            "At least one instrument approach in any aircraft within the previous 90 days."
+          ]
         },
         {
           "type": "qa",
           "question": "What recent experience is required to conduct a 3D instrument approach?",
-          "answer": "At least one 3D instrument approach within the previous 90 days."
+          "answer": "At least one 3D instrument approach within the previous 90 days.",
+          "distractors": [
+            "At least one 3D instrument approach within the previous 6 months.",
+            "At least two 3D instrument approaches within the previous 90 days.",
+            "At least one 2D instrument approach within the previous 90 days."
+          ]
         },
         {
           "type": "qa",
           "question": "What recent experience is required to conduct a 2D instrument approach?",
-          "answer": "At least one 2D instrument approach within the previous 90 days."
+          "answer": "At least one 2D instrument approach within the previous 90 days.",
+          "distractors": [
+            "At least one 2D instrument approach within the previous 6 months.",
+            "At least two 2D instrument approaches within the previous 90 days.",
+            "At least one 3D instrument approach within the previous 90 days."
+          ]
         },
         {
           "type": "qa",
           "question": "What recent experience is required to conduct an approach using azimuth guidance?",
-          "answer": "At least one 2D instrument approach using azimuth guidance within the previous 90 days."
+          "answer": "At least one 2D instrument approach using azimuth guidance within the previous 90 days.",
+          "distractors": [
+            "At least one instrument approach using azimuth guidance within the previous 6 months.",
+            "At least two 2D instrument approaches using azimuth guidance within the previous 90 days.",
+            "At least one 2D instrument approach within the previous 90 days — azimuth guidance does not require separate currency."
+          ]
         },
         {
           "type": "qa",
           "question": "What recent experience is required to conduct an approach using a CDI?",
-          "answer": "At least one instrument approach using a CDI within the previous 90 days."
+          "answer": "At least one instrument approach using a CDI within the previous 90 days.",
+          "distractors": [
+            "At least one instrument approach using a CDI within the previous 6 months.",
+            "At least two instrument approaches using a CDI within the previous 90 days.",
+            "At least one instrument approach using azimuth guidance within the previous 90 days."
+          ]
         }
       ],
       "refs": [
@@ -161,7 +221,12 @@
         {
           "type": "qa",
           "question": "What are the anti-collision light requirements under Part 91 MOS 26.22?",
-          "answer": "1 red beacon, or 2 white strobes, or a combination of these."
+          "answer": "1 red beacon, or 2 white strobes, or a combination of these.",
+          "distractors": [
+            "2 red beacons, or 2 white strobes, or a combination of these.",
+            "1 red beacon and 2 white strobes.",
+            "1 red beacon, or 1 white strobe, or a combination of these."
+          ]
         },
         {
           "type": "qa",
@@ -192,27 +257,52 @@
         {
           "type": "qa",
           "question": "Define VMCA.",
-          "answer": "Minimum Control Speed in the air — the minimum speed at which directional control can be maintained with the critical engine inoperative, live engine at take-off power, gear retracted, maximum 5° bank toward the live engine, propeller feathered if auto-feather is fitted."
+          "answer": "Minimum Control Speed in the air — the minimum speed at which directional control can be maintained with the critical engine inoperative, live engine at take-off power, gear retracted, maximum 5° bank toward the live engine, propeller feathered if auto-feather is fitted.",
+          "distractors": [
+            "Minimum Control Speed on the ground — the minimum speed whilst on the ground at which directional control can be maintained using only aerodynamic controls, with the critical engine inoperative and live engine at take-off power.",
+            "Single Engine Safety Speed — the speed below which intentional simulated engine failures should not be conducted, providing a margin above the minimum control speed.",
+            "Single Engine Best Rate of Climb Speed (blue radial) — the speed at which the best rate of climb is achieved with the critical engine inoperative, live engine at take-off power, and gear retracted."
+          ]
         },
         {
           "type": "qa",
           "question": "Define VMCG.",
-          "answer": "Minimum Control Speed on the ground — the minimum speed whilst on the ground at which directional control can be maintained using only aerodynamic controls, with the critical engine inoperative and live engine at take-off power."
+          "answer": "Minimum Control Speed on the ground — the minimum speed whilst on the ground at which directional control can be maintained using only aerodynamic controls, with the critical engine inoperative and live engine at take-off power.",
+          "distractors": [
+            "Minimum Control Speed in the air — the minimum speed at which directional control can be maintained with the critical engine inoperative, live engine at take-off power, gear retracted, maximum 5° bank toward the live engine.",
+            "Single Engine Safety Speed — the speed below which intentional simulated engine failures should not be conducted.",
+            "Single Engine Best Rate of Climb Speed (blue radial) — the speed at which the best rate of climb is achieved with the critical engine inoperative, live engine at take-off power, and gear retracted."
+          ]
         },
         {
           "type": "qa",
           "question": "Define VSSE.",
-          "answer": "Single Engine Safety Speed — the speed below which intentional simulated engine failures should not be conducted. It is manufacturer-stated and provides a margin above VMCA."
+          "answer": "Single Engine Safety Speed — the speed below which intentional simulated engine failures should not be conducted. It is manufacturer-stated and provides a margin above VMCA.",
+          "distractors": [
+            "Minimum Control Speed in the air — the minimum speed at which directional control can be maintained with the critical engine inoperative, live engine at take-off power, gear retracted.",
+            "Single Engine Best Rate of Climb Speed (blue radial) — the speed at which the best rate of climb is achieved with the critical engine inoperative.",
+            "Minimum Control Speed on the ground — the minimum speed on the ground at which directional control can be maintained using only aerodynamic controls."
+          ]
         },
         {
           "type": "qa",
           "question": "Define VYSE.",
-          "answer": "Single Engine Best Rate of Climb Speed (blue radial) — the speed at which the best rate of climb is achieved with the critical engine inoperative, live engine at take-off power, and gear retracted."
+          "answer": "Single Engine Best Rate of Climb Speed (blue radial) — the speed at which the best rate of climb is achieved with the critical engine inoperative, live engine at take-off power, and gear retracted.",
+          "distractors": [
+            "Minimum Control Speed in the air — the minimum speed at which directional control can be maintained with the critical engine inoperative, live engine at take-off power, gear retracted.",
+            "Single Engine Safety Speed — the speed below which intentional simulated engine failures should not be conducted, providing a margin above VMCA.",
+            "Minimum Control Speed on the ground — the minimum speed on the ground at which directional control can be maintained using only aerodynamic controls with the critical engine inoperative."
+          ]
         },
         {
           "type": "qa",
           "question": "After a comms failure in controlled airspace, what squawk code should be set?",
-          "answer": "7600."
+          "answer": "7600.",
+          "distractors": [
+            "7700.",
+            "7500.",
+            "2000."
+          ]
         },
         {
           "type": "qa",
@@ -222,17 +312,32 @@
         {
           "type": "qa",
           "question": "After comms failure in IMC with a clearance limit involving an altitude or route restriction received and acknowledged, what must you do first?",
-          "answer": "Maintain last assigned level (or MSA if higher) for 3 minutes and/or hold at the nominated location for 3 minutes, then proceed in accordance with the latest ATC route clearance acknowledged and climb to planned level."
+          "answer": "Maintain last assigned level (or MSA if higher) for 3 minutes and/or hold at the nominated location for 3 minutes, then proceed in accordance with the latest ATC route clearance acknowledged and climb to planned level.",
+          "distractors": [
+            "Immediately proceed in accordance with the latest ATC route clearance acknowledged and climb to planned level.",
+            "Maintain last assigned level (or MSA if higher) for 2 minutes and/or hold for 2 minutes, then proceed in accordance with the latest ATC route clearance.",
+            "Climb to MSA/LSALT immediately, then maintain last assigned vector for 2 minutes before proceeding."
+          ]
         },
         {
           "type": "qa",
           "question": "After comms failure while receiving an ATS surveillance service, what actions are required?",
-          "answer": "Climb to MSA/LSALT; if being vectored, maintain last assigned vector for 2 minutes, then proceed in accordance with latest ATC clearance acknowledged."
+          "answer": "Climb to MSA/LSALT; if being vectored, maintain last assigned vector for 2 minutes, then proceed in accordance with latest ATC clearance acknowledged.",
+          "distractors": [
+            "Maintain last assigned level for 3 minutes, hold at the nominated location for 3 minutes, then proceed in accordance with latest ATC clearance.",
+            "Climb to MSA/LSALT; if being vectored, maintain last assigned vector for 3 minutes, then proceed in accordance with latest ATC clearance.",
+            "Squawk 7600, maintain last assigned heading and altitude for 5 minutes, then proceed to destination."
+          ]
         },
         {
           "type": "qa",
           "question": "After comms failure while holding, what must you do before proceeding?",
-          "answer": "Fly one more complete holding pattern, then proceed in accordance with latest ATC route clearance acknowledged."
+          "answer": "Fly one more complete holding pattern, then proceed in accordance with latest ATC route clearance acknowledged.",
+          "distractors": [
+            "Exit the hold immediately and proceed in accordance with the latest ATC route clearance acknowledged.",
+            "Fly two more complete holding patterns, then proceed in accordance with latest ATC route clearance.",
+            "Hold for 3 minutes, then proceed in accordance with the latest ATC route clearance acknowledged."
+          ]
         },
         {
           "type": "qa",
@@ -287,17 +392,32 @@
         {
           "type": "qa",
           "question": "What transponder code is used for VFR in Class E, G, or OCTA?",
-          "answer": "1200."
+          "answer": "1200.",
+          "distractors": [
+            "2000.",
+            "3000.",
+            "7000."
+          ]
         },
         {
           "type": "qa",
           "question": "What transponder code is used for IFR OCTA?",
-          "answer": "2000."
+          "answer": "2000.",
+          "distractors": [
+            "3000.",
+            "1200.",
+            "7000."
+          ]
         },
         {
           "type": "qa",
           "question": "What transponder code is used for IFR in Class E or civil flights in CTA?",
-          "answer": "3000."
+          "answer": "3000.",
+          "distractors": [
+            "2000.",
+            "1200.",
+            "7000."
+          ]
         },
         {
           "type": "qa",
@@ -307,42 +427,82 @@
         {
           "type": "qa",
           "question": "What does a steady green light signal mean to an aircraft in flight?",
-          "answer": "Authorised to land, if the pilot is satisfied no collision risk exists."
+          "answer": "Authorised to land, if the pilot is satisfied no collision risk exists.",
+          "distractors": [
+            "Return for landing — discontinue approach and reposition.",
+            "Authorised to take-off, if the pilot is satisfied no collision risk exists.",
+            "Continue approach — runway is clear."
+          ]
         },
         {
           "type": "qa",
           "question": "What does a steady red light signal mean to an aircraft in flight?",
-          "answer": "Give way to other aircraft and continue circling."
+          "answer": "Give way to other aircraft and continue circling.",
+          "distractors": [
+            "Airport unsafe — do not land.",
+            "Return for landing.",
+            "Discontinue approach and execute missed approach."
+          ]
         },
         {
           "type": "qa",
           "question": "What does a green flashing light signal mean to an aircraft in flight?",
-          "answer": "Return for landing."
+          "answer": "Return for landing.",
+          "distractors": [
+            "Authorised to land, if the pilot is satisfied no collision risk exists.",
+            "Airport unsafe — do not land.",
+            "Continue approach — runway is clear."
+          ]
         },
         {
           "type": "qa",
           "question": "What does a red flashing light signal mean to an aircraft in flight?",
-          "answer": "Airport unsafe — do not land."
+          "answer": "Airport unsafe — do not land.",
+          "distractors": [
+            "Give way to other aircraft and continue circling.",
+            "Return for landing.",
+            "Discontinue approach immediately and divert."
+          ]
         },
         {
           "type": "qa",
           "question": "What does a steady green light signal mean to an aircraft on the ground?",
-          "answer": "Authorised to take-off, if the pilot is satisfied no collision risk exists."
+          "answer": "Authorised to take-off, if the pilot is satisfied no collision risk exists.",
+          "distractors": [
+            "Authorised to taxi, if the pilot is satisfied no collision risk exists.",
+            "Authorised to land, if the pilot is satisfied no collision risk exists.",
+            "Return to starting point on the airport."
+          ]
         },
         {
           "type": "qa",
           "question": "What does a steady red light signal mean to an aircraft on the ground?",
-          "answer": "Stop."
+          "answer": "Stop.",
+          "distractors": [
+            "Taxi clear of landing area in use.",
+            "Return to starting point on the airport.",
+            "Hold position — do not taxi."
+          ]
         },
         {
           "type": "qa",
           "question": "What does a red flashing light signal mean to an aircraft on the ground?",
-          "answer": "Taxi clear of landing area in use."
+          "answer": "Taxi clear of landing area in use.",
+          "distractors": [
+            "Stop.",
+            "Return to starting point on the airport.",
+            "Hold position — do not taxi onto the runway."
+          ]
         },
         {
           "type": "qa",
           "question": "What does a white flashing light signal mean to an aircraft on the ground?",
-          "answer": "Return to starting point on the airport."
+          "answer": "Return to starting point on the airport.",
+          "distractors": [
+            "Taxi clear of landing area in use.",
+            "Stop.",
+            "Authorised to taxi, if the pilot is satisfied no collision risk exists."
+          ]
         }
       ],
       "refs": [
@@ -363,22 +523,42 @@
         {
           "type": "qa",
           "question": "What is the final reserve fuel requirement for an IFR flight in an aeroplane with MTOW ≤5,700 kg?",
-          "answer": "45 minutes."
+          "answer": "45 minutes.",
+          "distractors": [
+            "30 minutes.",
+            "60 minutes.",
+            "45 minutes plus 5% contingency fuel."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the final reserve fuel requirement for a turbojet or turboprop aeroplane over 5,700 kg on an IFR flight?",
-          "answer": "30 minutes, plus 5% contingency fuel."
+          "answer": "30 minutes, plus 5% contingency fuel.",
+          "distractors": [
+            "45 minutes, plus 5% contingency fuel.",
+            "30 minutes — no contingency fuel is required for turbojet aircraft.",
+            "45 minutes — no contingency fuel is required."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the final reserve fuel requirement for a piston aeroplane over 5,700 kg on an IFR flight?",
-          "answer": "45 minutes, plus 5% contingency fuel."
+          "answer": "45 minutes, plus 5% contingency fuel.",
+          "distractors": [
+            "30 minutes, plus 5% contingency fuel.",
+            "45 minutes — no contingency fuel is required for piston aircraft.",
+            "60 minutes, plus 5% contingency fuel."
+          ]
         },
         {
           "type": "qa",
           "question": "Under CASR 91.455, what is the final reserve fuel for a Day VFR flight in an aeroplane with MTOW ≤5,700 kg?",
-          "answer": "30 minutes."
+          "answer": "30 minutes.",
+          "distractors": [
+            "45 minutes.",
+            "30 minutes plus 5% contingency fuel.",
+            "60 minutes."
+          ]
         },
         {
           "type": "qa",
@@ -388,17 +568,32 @@
         {
           "type": "qa",
           "question": "What additional fuel must be carried if thunderstorms are forecast at the destination with an INTER endorsement?",
-          "answer": "Sufficient additional fuel to proceed to a suitable alternate or to hold for 30 minutes."
+          "answer": "Sufficient additional fuel to proceed to a suitable alternate or to hold for 30 minutes.",
+          "distractors": [
+            "Sufficient additional fuel to proceed to a suitable alternate or to hold for 60 minutes.",
+            "Sufficient additional fuel to proceed to a suitable alternate or to hold for 45 minutes.",
+            "Sufficient additional fuel to proceed to a suitable alternate or to hold for 15 minutes."
+          ]
         },
         {
           "type": "qa",
           "question": "What additional fuel must be carried if thunderstorms are forecast at destination with a TEMPO endorsement?",
-          "answer": "Sufficient additional fuel to proceed to a suitable alternate or to hold for 60 minutes."
+          "answer": "Sufficient additional fuel to proceed to a suitable alternate or to hold for 60 minutes.",
+          "distractors": [
+            "Sufficient additional fuel to proceed to a suitable alternate or to hold for 30 minutes.",
+            "Sufficient additional fuel to proceed to a suitable alternate or to hold for 45 minutes.",
+            "Sufficient additional fuel to proceed to a suitable alternate or to hold for 90 minutes."
+          ]
         },
         {
           "type": "qa",
           "question": "What are the alternate minima for a daytime IFR flight to an aerodrome without an instrument approach procedure?",
-          "answer": "Lowest safe altitude for the final route segment plus 500 ft, and a visibility of 8 km."
+          "answer": "Lowest safe altitude for the final route segment plus 500 ft, and a visibility of 8 km.",
+          "distractors": [
+            "Lowest safe altitude for the final route segment plus 300 ft, and a visibility of 5 km.",
+            "Lowest safe altitude for the final route segment plus 1,000 ft, and a visibility of 8 km.",
+            "Minimum sector altitude plus 500 ft, and a visibility of 5 km."
+          ]
         },
         {
           "type": "qa",
@@ -408,17 +603,32 @@
         {
           "type": "qa",
           "question": "If a GNSS receiver certified only to (E)TSO C-129 is being used for navigation, how must the alternate be planned?",
-          "answer": "Navigation to the destination alternate must be planned using a navigation system other than GNSS."
+          "answer": "Navigation to the destination alternate must be planned using a navigation system other than GNSS.",
+          "distractors": [
+            "A destination alternate is not required when using an approved GNSS receiver.",
+            "Navigation to the alternate may use GNSS provided RAIM is available at the alternate.",
+            "Navigation to the alternate must use a VOR; ADF alone is not sufficient."
+          ]
         },
         {
           "type": "qa",
           "question": "Can an aerodrome served by PAL (Pilot Activated Lighting) be nominated as an alternate?",
-          "answer": "Yes, provided the aircraft is equipped with dual VHF, or single VHF and HF and carries 30 minutes holding fuel to allow alerting of ground staff in the event of VHF failure."
+          "answer": "Yes, provided the aircraft is equipped with dual VHF, or single VHF and HF and carries 30 minutes holding fuel to allow alerting of ground staff in the event of VHF failure.",
+          "distractors": [
+            "No — an aerodrome with PAL cannot be nominated as an alternate unless a responsible person is in attendance.",
+            "Yes — a PAL aerodrome can always be nominated as an alternate with no additional requirements.",
+            "Yes, provided the aircraft carries single VHF and at least 45 minutes holding fuel."
+          ]
         },
         {
           "type": "qa",
           "question": "When aerodrome lighting is required for an IFR arrival, how long before ETA must it be arranged to be operating?",
-          "answer": "From at least 30 minutes before ETA to the time landing and taxiing has been completed."
+          "answer": "From at least 30 minutes before ETA to the time landing and taxiing has been completed.",
+          "distractors": [
+            "From at least 15 minutes before ETA to the time landing and taxiing has been completed.",
+            "From at least 60 minutes before ETA to the time landing and taxiing has been completed.",
+            "From at least 10 minutes before departure to at least 30 minutes after take-off."
+          ]
         },
         {
           "type": "qa",
@@ -446,17 +656,32 @@
         {
           "type": "qa",
           "question": "What dual ILS/VOR approach capability is required for special alternate weather minima to apply?",
-          "answer": "Duplicated LOC, duplicated GP, duplicated VOR, plus either duplicated DME, duplicated GNSS, or single DME and single GNSS."
+          "answer": "Duplicated LOC, duplicated GP, duplicated VOR, plus either duplicated DME, duplicated GNSS, or single DME and single GNSS.",
+          "distractors": [
+            "Duplicated LOC, duplicated GP, and duplicated VOR — DME and GNSS are not required.",
+            "Duplicated LOC and duplicated GP only — VOR and DME are not required.",
+            "Duplicated LOC, duplicated GP, duplicated VOR, and duplicated DME — GNSS alone is not sufficient."
+          ]
         },
         {
           "type": "qa",
           "question": "How are special alternate weather minima identified on an instrument approach chart?",
-          "answer": "By a double asterisk adjacent to the ALTERNATE title and a note detailing the special minima."
+          "answer": "By a double asterisk adjacent to the ALTERNATE title and a note detailing the special minima.",
+          "distractors": [
+            "By a single asterisk adjacent to the ALTERNATE title.",
+            "By a shaded background to the minima title, similar to TAF QNH minima.",
+            "By the notation 'SPECIAL' adjacent to the published alternate minima."
+          ]
         },
         {
           "type": "qa",
           "question": "When are special alternate weather minima NOT available, reverting to standard alternate minima?",
-          "answer": "When local METAR/SPECI or forecasting services are not available, or when an airport control service is not provided."
+          "answer": "When local METAR/SPECI or forecasting services are not available, or when an airport control service is not provided.",
+          "distractors": [
+            "When the aircraft is not equipped with dual ILS approach capability.",
+            "When the TAF QNH is being used instead of actual aerodrome QNH.",
+            "When the aerodrome is served by PAL and no responsible person is in attendance."
+          ]
         }
       ],
       "refs": [
@@ -476,32 +701,62 @@
         {
           "type": "qa",
           "question": "With an accurate QNH set, to within what error must an IFR altimeter read the nominated elevation?",
-          "answer": "To within 60 ft."
+          "answer": "To within 60 ft.",
+          "distractors": [
+            "To within 75 ft.",
+            "To within 50 ft.",
+            "To within 100 ft."
+          ]
         },
         {
           "type": "qa",
           "question": "At what error must an IFR altimeter be considered unserviceable?",
-          "answer": "If the error exceeds ±75 ft."
+          "answer": "If the error exceeds ±75 ft.",
+          "distractors": [
+            "If the error exceeds ±60 ft.",
+            "If the error exceeds ±100 ft.",
+            "If the error exceeds ±50 ft."
+          ]
         },
         {
           "type": "qa",
           "question": "If a single IFR altimeter has an error between 60 ft and 75 ft, can the flight proceed?",
-          "answer": "Yes — flight under the IFR to the first point of landing where the accuracy of the altimeter can be re-checked is approved. If the error exceeds 60 ft on the second check, it must be considered unserviceable."
+          "answer": "Yes — flight under the IFR to the first point of landing where the accuracy of the altimeter can be re-checked is approved. If the error exceeds 60 ft on the second check, it must be considered unserviceable.",
+          "distractors": [
+            "No — an error between 60 ft and 75 ft renders the altimeter immediately unserviceable for IFR flight.",
+            "Yes — flight may continue IFR for the entire flight with no restriction, as the error is within the serviceability limit.",
+            "Yes — flight may continue IFR for up to 2 hours, after which the altimeter must be re-checked."
+          ]
         },
         {
           "type": "qa",
           "question": "When an aircraft has two altimeters but only requires one for the category of operation, what error makes the spare altimeter unserviceable?",
-          "answer": "An error in excess of 75 ft — it must be placarded unserviceable and the maintenance release endorsed."
+          "answer": "An error in excess of 75 ft — it must be placarded unserviceable and the maintenance release endorsed.",
+          "distractors": [
+            "An error in excess of 60 ft — it must be placarded unserviceable and the maintenance release endorsed.",
+            "An error in excess of 100 ft — it must be placarded unserviceable and the maintenance release endorsed.",
+            "Any error — both altimeters must agree within 30 ft for IFR operations."
+          ]
         },
         {
           "type": "qa",
           "question": "What are the approved sources of an accurate QNH for altimeter checking?",
-          "answer": "AAIS, ATC, ATIS, AWIS, CA/GRS, or WATIR. QNH from an authorised weather forecast must NOT be used."
+          "answer": "AAIS, ATC, ATIS, AWIS, CA/GRS, or WATIR. QNH from an authorised weather forecast must NOT be used.",
+          "distractors": [
+            "METAR, ATIS, ATC, AWIS, or AAIS.",
+            "ATC, ATIS, TAF, AAIS, or AWIS.",
+            "Bureau of Meteorology website, ATIS, ATC, or AWIS."
+          ]
         },
         {
           "type": "qa",
           "question": "What error tolerance is acceptable for a VFR altimeter?",
-          "answer": "Should read site elevation to within 100 ft (110 ft at test sites above 3,300 ft)."
+          "answer": "Should read site elevation to within 100 ft (110 ft at test sites above 3,300 ft).",
+          "distractors": [
+            "Should read site elevation to within 60 ft.",
+            "Should read site elevation to within 75 ft.",
+            "Should read site elevation to within 150 ft."
+          ]
         }
       ],
       "refs": [
@@ -520,12 +775,22 @@
         {
           "type": "qa",
           "question": "What are the standard take-off minima for a non-qualifying aeroplane (non-low-visibility)?",
-          "answer": "Cloud ceiling of 300 ft and visibility of 2,000 m."
+          "answer": "Cloud ceiling of 300 ft and visibility of 2,000 m.",
+          "distractors": [
+            "Cloud ceiling of 200 ft and visibility of 1,500 m.",
+            "Cloud ceiling of 500 ft and visibility of 1,000 m.",
+            "Visibility of 800 m — no cloud ceiling requirement for IFR aircraft."
+          ]
         },
         {
           "type": "qa",
           "question": "What are the standard take-off minima for a qualifying multi-engine aeroplane (non-low-visibility)?",
-          "answer": "Visibility of 800 m (reducible to 550 m under certain conditions)."
+          "answer": "Visibility of 800 m (reducible to 550 m under certain conditions).",
+          "distractors": [
+            "Cloud ceiling of 300 ft and visibility of 2,000 m.",
+            "Visibility of 550 m.",
+            "Visibility of 1,000 m."
+          ]
         },
         {
           "type": "qa",
@@ -540,22 +805,42 @@
         {
           "type": "qa",
           "question": "What performance factor should be applied to take-off distance for an aeroplane with MTOW ≤2,000 kg with unfactored charts?",
-          "answer": "1.15."
+          "answer": "1.15.",
+          "distractors": [
+            "1.25.",
+            "1.43.",
+            "1.30."
+          ]
         },
         {
           "type": "qa",
           "question": "What performance factor should be applied to take-off distance for an aeroplane with MTOW ≥3,500 kg with unfactored charts?",
-          "answer": "1.25."
+          "answer": "1.25.",
+          "distractors": [
+            "1.15.",
+            "1.43.",
+            "1.30."
+          ]
         },
         {
           "type": "qa",
           "question": "What performance factor should be applied to landing distance for an aeroplane with MTOW ≤2,000 kg with unfactored charts?",
-          "answer": "1.15."
+          "answer": "1.15.",
+          "distractors": [
+            "1.25.",
+            "1.43.",
+            "1.30."
+          ]
         },
         {
           "type": "qa",
           "question": "What performance factor should be applied to landing distance for an aeroplane with MTOW ≥4,500 kg with unfactored charts?",
-          "answer": "1.43."
+          "answer": "1.43.",
+          "distractors": [
+            "1.25.",
+            "1.15.",
+            "1.30."
+          ]
         }
       ],
       "refs": [
@@ -588,12 +873,22 @@
         {
           "type": "qa",
           "question": "On climb, when must the altimeter setting be changed from QNH to 1013.2 hPa?",
-          "answer": "After passing 10,000 ft and before levelling off."
+          "answer": "After passing 10,000 ft and before levelling off.",
+          "distractors": [
+            "Before passing 10,000 ft and prior to levelling off.",
+            "At the transition altitude, before continuing the climb.",
+            "When passing 10,000 ft exactly — it must be changed at that altitude."
+          ]
         },
         {
           "type": "qa",
           "question": "On descent, when must the altimeter setting be changed from 1013.2 hPa to QNH?",
-          "answer": "Just before passing the transition layer."
+          "answer": "Just before passing the transition layer.",
+          "distractors": [
+            "When passing the transition altitude on descent.",
+            "When passing 10,000 ft on descent.",
+            "After passing the transition layer."
+          ]
         },
         {
           "type": "qa",
@@ -603,32 +898,62 @@
         {
           "type": "qa",
           "question": "What is the maximum time interval between fixes when navigating IFR by radio navigation?",
-          "answer": "2 hours."
+          "answer": "2 hours.",
+          "distractors": [
+            "1 hour.",
+            "3 hours.",
+            "30 minutes."
+          ]
         },
         {
           "type": "qa",
           "question": "What navigation deviation requires immediate ATC notification for NDB operations?",
-          "answer": "±5°."
+          "answer": "±5°.",
+          "distractors": [
+            "±10°.",
+            "Half-scale deflection of the CDI.",
+            "±2 NM."
+          ]
         },
         {
           "type": "qa",
           "question": "What navigation deviation requires immediate ATC notification for LOC or VOR?",
-          "answer": "Half-scale deflection."
+          "answer": "Half-scale deflection.",
+          "distractors": [
+            "±5° from the specified bearing.",
+            "Full-scale deflection of the CDI.",
+            "±2 NM from track."
+          ]
         },
         {
           "type": "qa",
           "question": "What navigation deviation requires immediate ATC notification for DME operations?",
-          "answer": "±2 NM."
+          "answer": "±2 NM.",
+          "distractors": [
+            "±5° from the specified bearing.",
+            "±1 NM from the required arc.",
+            "Half-scale deflection of the CDI."
+          ]
         },
         {
           "type": "qa",
           "question": "What navigation deviation requires immediate ATC notification for visual navigation?",
-          "answer": "1 NM from cleared track."
+          "answer": "1 NM from cleared track.",
+          "distractors": [
+            "±5° from the cleared track.",
+            "2 NM from cleared track.",
+            "Half-scale deflection of the CDI."
+          ]
         },
         {
           "type": "qa",
           "question": "What navigation deviation requires immediate ATC notification for RNP/RNAV operations?",
-          "answer": "Outside the prescribed RNP/RNAV value."
+          "answer": "Outside the prescribed RNP/RNAV value.",
+          "distractors": [
+            "±5° from the cleared track.",
+            "Half-scale deflection of the CDI.",
+            "±2 NM from the cleared track."
+          ]
         }
       ],
       "refs": [
@@ -649,57 +974,112 @@
         {
           "type": "qa",
           "question": "What is the maximum holding speed up to and including FL140?",
-          "answer": "230 KIAS (or 170 KIAS where the approach is limited to Category A and B only)."
+          "answer": "230 KIAS (or 170 KIAS where the approach is limited to Category A and B only).",
+          "distractors": [
+            "240 KIAS (or 200 KIAS where the approach is limited to Category A and B only).",
+            "200 KIAS (or 170 KIAS where the approach is limited to Category A and B only).",
+            "265 KIAS."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the maximum holding speed above FL140 up to FL200?",
-          "answer": "240 KIAS."
+          "answer": "240 KIAS.",
+          "distractors": [
+            "230 KIAS.",
+            "265 KIAS.",
+            "250 KIAS."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the maximum holding speed above FL200?",
-          "answer": "265 KIAS."
+          "answer": "265 KIAS.",
+          "distractors": [
+            "240 KIAS.",
+            "250 KIAS.",
+            "300 KIAS."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the maximum outbound leg time in holding up to and including FL140?",
-          "answer": "1 minute, or the time or distance limit specified on the chart."
+          "answer": "1 minute, or the time or distance limit specified on the chart.",
+          "distractors": [
+            "1.5 minutes, or the time or distance limit specified on the chart.",
+            "2 minutes, or the time or distance limit specified on the chart.",
+            "30 seconds, or the time or distance limit specified on the chart."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the maximum outbound leg time in holding above FL140?",
-          "answer": "1.5 minutes, or the time or distance limit specified on the chart."
+          "answer": "1.5 minutes, or the time or distance limit specified on the chart.",
+          "distractors": [
+            "1 minute, or the time or distance limit specified on the chart.",
+            "2 minutes, or the time or distance limit specified on the chart.",
+            "45 seconds, or the time or distance limit specified on the chart."
+          ]
         },
         {
           "type": "qa",
           "question": "What bank angle or turn rate applies to all turns in holding in nil wind?",
-          "answer": "25° bank angle or rate one, whichever requires the lesser bank."
+          "answer": "25° bank angle or rate one, whichever requires the lesser bank.",
+          "distractors": [
+            "Rate one — bank angle is not specified.",
+            "30° bank angle or rate one, whichever requires the lesser bank.",
+            "25° bank angle — rate one turns are not permitted in holding."
+          ]
         },
         {
           "type": "qa",
           "question": "Describe the Sector 1 (Parallel) entry for a holding pattern.",
-          "answer": "On reaching the holding fix, turn to the outbound heading for the appropriate time (from over or abeam the fix, whichever is later); then turn onto the holding side to intercept the inbound track or return to the fix; then follow the holding pattern from the second arrival."
+          "answer": "On reaching the holding fix, turn to the outbound heading for the appropriate time (from over or abeam the fix, whichever is later); then turn onto the holding side to intercept the inbound track or return to the fix; then follow the holding pattern from the second arrival.",
+          "distractors": [
+            "On reaching the holding fix, turn to make good a track 30° from the reciprocal of the inbound track on the holding side; fly outbound for the appropriate time; turn to intercept the inbound track; follow the holding pattern from second arrival.",
+            "On reaching the holding fix, turn directly to follow the holding pattern. Outbound timing begins abeam the fix or from completion of the outbound turn.",
+            "On reaching the holding fix, fly the outbound track for 1.5 minutes, then turn to intercept the inbound track and follow the holding pattern."
+          ]
         },
         {
           "type": "qa",
           "question": "Describe the Sector 2 (Offset/Teardrop) entry for a holding pattern.",
-          "answer": "On reaching the holding fix, turn to make good a track 30° from the reciprocal of the inbound track on the holding side; fly outbound for the appropriate time (maximum 1 min 30 sec) or to the DME limit; turn in the direction of the holding pattern to intercept the inbound track; follow the holding pattern from second arrival."
+          "answer": "On reaching the holding fix, turn to make good a track 30° from the reciprocal of the inbound track on the holding side; fly outbound for the appropriate time (maximum 1 min 30 sec) or to the DME limit; turn in the direction of the holding pattern to intercept the inbound track; follow the holding pattern from second arrival.",
+          "distractors": [
+            "On reaching the holding fix, turn to the outbound heading for the appropriate time; then turn onto the holding side to intercept the inbound track or return to the fix; then follow the holding pattern.",
+            "On reaching the holding fix, turn directly to follow the holding pattern. Outbound timing begins abeam the fix or from completion of the outbound turn.",
+            "On reaching the holding fix, turn to make good a track 45° from the reciprocal of the inbound track on the holding side; fly outbound for 2 minutes; turn to intercept the inbound track."
+          ]
         },
         {
           "type": "qa",
           "question": "Describe the Sector 3 (Direct) entry for a holding pattern.",
-          "answer": "On reaching the holding fix, turn directly to follow the holding pattern. Outbound timing begins abeam the fix, or from completion of the outbound turn if the abeam position cannot be determined."
+          "answer": "On reaching the holding fix, turn directly to follow the holding pattern. Outbound timing begins abeam the fix, or from completion of the outbound turn if the abeam position cannot be determined.",
+          "distractors": [
+            "On reaching the holding fix, turn to the outbound heading for the appropriate time; then turn onto the holding side to intercept the inbound track or return to the fix; then follow the holding pattern.",
+            "On reaching the holding fix, turn to make good a track 30° from the reciprocal of the inbound track on the holding side; fly outbound for the appropriate time; turn to intercept the inbound track.",
+            "On reaching the holding fix, fly straight ahead for 1 minute, then turn to intercept the inbound track and follow the holding pattern."
+          ]
         },
         {
           "type": "qa",
           "question": "At what speed must jet aircraft in CTA exit an en route holding pattern?",
-          "answer": "250 KT IAS, unless otherwise published or advised by ATC."
+          "answer": "250 KT IAS, unless otherwise published or advised by ATC.",
+          "distractors": [
+            "240 KT IAS, unless otherwise published or advised by ATC.",
+            "230 KT IAS, unless otherwise published or advised by ATC.",
+            "265 KT IAS, unless otherwise published or advised by ATC."
+          ]
         },
         {
           "type": "qa",
           "question": "When does outbound timing begin in a holding pattern?",
-          "answer": "Abeam the fix or on attaining the outbound heading, whichever comes later."
+          "answer": "Abeam the fix or on attaining the outbound heading, whichever comes later.",
+          "distractors": [
+            "When overhead the holding fix.",
+            "From the start of the outbound turn.",
+            "Abeam the fix or on attaining the outbound heading, whichever comes first."
+          ]
         }
       ],
       "refs": [
@@ -734,27 +1114,52 @@
         {
           "type": "qa",
           "question": "What are the approved sources of actual aerodrome QNH for an IAP?",
-          "answer": "ATC and ATIS (except when only TAF QNH is provided), AWIS, and Bureau of Meteorology accredited meteorological observers."
+          "answer": "ATC and ATIS (except when only TAF QNH is provided), AWIS, and Bureau of Meteorology accredited meteorological observers.",
+          "distractors": [
+            "ATC, ATIS, METAR, AWIS, and Bureau of Meteorology accredited observers.",
+            "ATC, ATIS, TAF, AWIS, and Bureau of Meteorology accredited observers.",
+            "ATC, ATIS, AWIS, AAIS, and METAR."
+          ]
         },
         {
           "type": "qa",
           "question": "How long is an actual aerodrome QNH valid after receipt from an approved source?",
-          "answer": "15 minutes."
+          "answer": "15 minutes.",
+          "distractors": [
+            "30 minutes from the time of receipt.",
+            "10 minutes from the time of receipt.",
+            "Until the next QNH broadcast."
+          ]
         },
         {
           "type": "qa",
           "question": "Does METAR QNH meet the requirement for actual aerodrome QNH before an IAP?",
-          "answer": "No — METAR QNH does not meet this requirement."
+          "answer": "No — METAR QNH does not meet this requirement.",
+          "distractors": [
+            "Yes — METAR QNH is an approved source of actual aerodrome QNH.",
+            "Yes — METAR QNH is valid provided it is less than 30 minutes old.",
+            "Only if no ATIS or ATC QNH is available."
+          ]
         },
         {
           "type": "qa",
           "question": "When using forecast area QNH on an instrument approach, how must minima be adjusted?",
-          "answer": "Increase minima by 50 ft."
+          "answer": "Increase minima by 50 ft.",
+          "distractors": [
+            "Increase minima by 100 ft.",
+            "Reduce minima by 50 ft.",
+            "Increase minima by 30 ft."
+          ]
         },
         {
           "type": "qa",
           "question": "On Airservices Australia charts with shaded minima backgrounds, when may minima be reduced by 100 ft?",
-          "answer": "When an actual aerodrome QNH (not forecast) is set."
+          "answer": "When an actual aerodrome QNH (not forecast) is set.",
+          "distractors": [
+            "When the aerodrome forecast (TAF) QNH is set.",
+            "When the forecast area QNH is set and is within 3 hPa of the actual QNH.",
+            "Minima on shaded charts cannot be reduced — the shading indicates fixed minima."
+          ]
         },
         {
           "type": "qa",
@@ -781,17 +1186,32 @@
         {
           "type": "qa",
           "question": "Under the approach ban rule, below what height must a PIC not descend when TDZ RVR is continually below landing minima?",
-          "answer": "1,000 ft AAL."
+          "answer": "1,000 ft AAL.",
+          "distractors": [
+            "500 ft AAL.",
+            "1,500 ft AAL.",
+            "2,000 ft AAL."
+          ]
         },
         {
           "type": "qa",
           "question": "Can a PIC continue below 1,000 ft AAL if the below-minima RVR is received after already passing through that height?",
-          "answer": "Yes — the approach ban does not apply if the aircraft is already below 1,000 ft AAL when the information is received."
+          "answer": "Yes — the approach ban does not apply if the aircraft is already below 1,000 ft AAL when the information is received.",
+          "distractors": [
+            "No — the PIC must immediately execute a missed approach regardless of when the RVR information is received.",
+            "Yes — but only if the RVR is improving and the PIC reasonably expects to be visual at the MDA.",
+            "No — the approach ban applies from the point the information is received, regardless of the aircraft's position."
+          ]
         },
         {
           "type": "qa",
           "question": "The approach ban rule only applies when what two conditions exist at the aerodrome?",
-          "answer": "An ATC service must be in operation, and RVR reports must be available for IAPs to the relevant runway."
+          "answer": "An ATC service must be in operation, and RVR reports must be available for IAPs to the relevant runway.",
+          "distractors": [
+            "The aerodrome must be controlled, and the weather must be below published minima.",
+            "The aerodrome must be served by an ILS, and RVR reports must be available.",
+            "An ATIS service must be in operation, and RVR reports must be available for IAPs to the relevant runway."
+          ]
         },
         {
           "type": "qa",
@@ -811,27 +1231,52 @@
         {
           "type": "qa",
           "question": "What is the circling area radius and obstacle clearance for Category A?",
-          "answer": "1.68 NM radius, 300 ft obstacle clearance."
+          "answer": "1.68 NM radius, 300 ft obstacle clearance.",
+          "distractors": [
+            "2.66 NM radius, 300 ft obstacle clearance.",
+            "1.68 NM radius, 400 ft obstacle clearance.",
+            "1.00 NM radius, 300 ft obstacle clearance."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the circling area radius and obstacle clearance for Category B?",
-          "answer": "2.66 NM radius, 300 ft obstacle clearance."
+          "answer": "2.66 NM radius, 300 ft obstacle clearance.",
+          "distractors": [
+            "1.68 NM radius, 300 ft obstacle clearance.",
+            "4.20 NM radius, 300 ft obstacle clearance.",
+            "2.66 NM radius, 400 ft obstacle clearance."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the circling area radius and obstacle clearance for Category C?",
-          "answer": "4.20 NM radius, 400 ft obstacle clearance."
+          "answer": "4.20 NM radius, 400 ft obstacle clearance.",
+          "distractors": [
+            "2.66 NM radius, 400 ft obstacle clearance.",
+            "5.28 NM radius, 400 ft obstacle clearance.",
+            "4.20 NM radius, 300 ft obstacle clearance."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the circling area radius and obstacle clearance for Category D?",
-          "answer": "5.28 NM radius, 400 ft obstacle clearance."
+          "answer": "5.28 NM radius, 400 ft obstacle clearance.",
+          "distractors": [
+            "4.20 NM radius, 400 ft obstacle clearance.",
+            "6.94 NM radius, 400 ft obstacle clearance.",
+            "5.28 NM radius, 500 ft obstacle clearance."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the circling area radius and obstacle clearance for Category E?",
-          "answer": "6.94 NM radius, 500 ft obstacle clearance."
+          "answer": "6.94 NM radius, 500 ft obstacle clearance.",
+          "distractors": [
+            "5.28 NM radius, 500 ft obstacle clearance.",
+            "6.94 NM radius, 400 ft obstacle clearance.",
+            "8.00 NM radius, 500 ft obstacle clearance."
+          ]
         },
         {
           "type": "qa",
@@ -859,52 +1304,102 @@
         {
           "type": "qa",
           "question": "What is the VAT speed range for a Category A aircraft?",
-          "answer": "Less than 91 kt."
+          "answer": "Less than 91 kt.",
+          "distractors": [
+            "91–120 kt.",
+            "Less than 100 kt.",
+            "Less than 80 kt."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the VAT speed range for a Category B aircraft?",
-          "answer": "91–120 kt."
+          "answer": "91–120 kt.",
+          "distractors": [
+            "Less than 91 kt.",
+            "121–140 kt.",
+            "100–130 kt."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the final approach speed range for a Category A aircraft?",
-          "answer": "70–100 kt."
+          "answer": "70–100 kt.",
+          "distractors": [
+            "85–130 kt.",
+            "60–90 kt.",
+            "90–150 kt."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the maximum circling speed for a Category A aircraft?",
-          "answer": "100 kt."
+          "answer": "100 kt.",
+          "distractors": [
+            "110 kt.",
+            "135 kt.",
+            "90 kt."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the maximum circling speed for a Category B aircraft?",
-          "answer": "135 kt."
+          "answer": "135 kt.",
+          "distractors": [
+            "100 kt.",
+            "150 kt.",
+            "120 kt."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the maximum missed approach speed for a Category A aircraft?",
-          "answer": "110 kt."
+          "answer": "110 kt.",
+          "distractors": [
+            "100 kt.",
+            "150 kt.",
+            "90 kt."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the maximum missed approach speed for a Category B aircraft?",
-          "answer": "150 kt."
+          "answer": "150 kt.",
+          "distractors": [
+            "110 kt.",
+            "135 kt.",
+            "180 kt."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the maximum speed for reversal procedures for Category A aircraft?",
-          "answer": "110 kt."
+          "answer": "110 kt.",
+          "distractors": [
+            "100 kt.",
+            "140 kt.",
+            "150 kt."
+          ]
         },
         {
           "type": "qa",
           "question": "Under ILS tolerances, what is the standard for obstacle clearance during the final approach?",
-          "answer": "Both LOC/GLS final approach course and glideslope should be maintained within half-scale deflection."
+          "answer": "Both LOC/GLS final approach course and glideslope should be maintained within half-scale deflection.",
+          "distractors": [
+            "Both LOC and glideslope should be maintained within full-scale deflection.",
+            "LOC should be maintained within half-scale deflection; glideslope within one dot.",
+            "Both LOC and glideslope should be maintained on-centre — any deflection requires a missed approach."
+          ]
         },
         {
           "type": "qa",
           "question": "Under ILS tolerances, at what deflection must a missed approach be commenced?",
-          "answer": "If at any time after the FAP the LOC/GLS final approach course or glideslope indicates full-scale deflection, a missed approach must be commenced."
+          "answer": "If at any time after the FAP the LOC/GLS final approach course or glideslope indicates full-scale deflection, a missed approach must be commenced.",
+          "distractors": [
+            "If LOC or glideslope indicates half-scale deflection at any time after the FAP.",
+            "If LOC or glideslope indicates full-scale deflection before the FAP.",
+            "If glideslope indicates full-scale deflection — LOC full-scale does not require a missed approach above MDA."
+          ]
         },
         {
           "type": "qa",
@@ -924,22 +1419,42 @@
         {
           "type": "qa",
           "question": "What is the navigational tolerance for NDB-based operations?",
-          "answer": "±5° from the specified bearing."
+          "answer": "±5° from the specified bearing.",
+          "distractors": [
+            "±10° from the specified bearing.",
+            "Half-scale deflection of the CDI.",
+            "±2 NM from track."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the navigational tolerance for VOR or LOC-based operations?",
-          "answer": "Full-scale deflection of the CDI."
+          "answer": "Full-scale deflection of the CDI.",
+          "distractors": [
+            "Half-scale deflection of the CDI.",
+            "±5° from the specified bearing.",
+            "±2 NM from track."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the navigational tolerance for DME-based operations?",
-          "answer": "±2 NM from the required arc."
+          "answer": "±2 NM from the required arc.",
+          "distractors": [
+            "±1 NM from the required arc.",
+            "±5° from the specified bearing.",
+            "Half-scale deflection of the CDI."
+          ]
         },
         {
           "type": "qa",
           "question": "What is the navigational tolerance for visual navigation operations?",
-          "answer": "1 NM from the cleared track."
+          "answer": "1 NM from the cleared track.",
+          "distractors": [
+            "2 NM from the cleared track.",
+            "±5° from the cleared track.",
+            "Half-scale deflection of the CDI."
+          ]
         },
         {
           "type": "qa",
@@ -974,27 +1489,52 @@
         {
           "type": "qa",
           "question": "For a precision approach or RNP-LPV, when must minimum visibility be at least 800 m?",
-          "answer": "If the TDZ RVR report is not available, or the approach lighting normally available beyond 420 m from the threshold is inoperative."
+          "answer": "If the TDZ RVR report is not available, or the approach lighting normally available beyond 420 m from the threshold is inoperative.",
+          "distractors": [
+            "If the approach lighting normally available beyond 210 m from the threshold is inoperative.",
+            "If the approach lighting system normally available for the runway is entirely inoperative.",
+            "If the approach cannot be flown to landing minima using a flight director, HUD or autopilot."
+          ]
         },
         {
           "type": "qa",
           "question": "For a precision approach, when must minimum visibility be at least 1,200 m?",
-          "answer": "If the approach cannot be flown to landing minima using a flight director, HUD or autopilot; or the aircraft lacks an operative failure warning system for primary AHRS; or HIRL is not in operation; or approach lighting normally available beyond 210 m from threshold is inoperative."
+          "answer": "If the approach cannot be flown to landing minima using a flight director, HUD or autopilot; or the aircraft lacks an operative failure warning system for primary AHRS; or HIRL is not in operation; or approach lighting normally available beyond 210 m from threshold is inoperative.",
+          "distractors": [
+            "If the TDZ RVR report is not available, or approach lighting normally available beyond 420 m from the threshold is inoperative.",
+            "If the approach lighting system normally available for the runway is entirely inoperative.",
+            "If the aircraft is not equipped with an ILS or autopilot capable of flying to minima."
+          ]
         },
         {
           "type": "qa",
           "question": "For a precision approach, when must minimum visibility be at least 1,500 m?",
-          "answer": "If the approach lighting system normally available for the runway is entirely inoperative."
+          "answer": "If the approach lighting system normally available for the runway is entirely inoperative.",
+          "distractors": [
+            "If the TDZ RVR report is not available.",
+            "If approach lighting normally available beyond 210 m from the threshold is inoperative.",
+            "If the aircraft does not have a serviceable autopilot or flight director."
+          ]
         },
         {
           "type": "qa",
           "question": "For a precision approach, when must minimum visibility be 1.5 times the charted RVR or visibility?",
-          "answer": "If a lighting failure at a controlled aerodrome results in doubled spacing of runway edge lights (e.g., from 60 m to 120 m spacing)."
+          "answer": "If a lighting failure at a controlled aerodrome results in doubled spacing of runway edge lights (e.g., from 60 m to 120 m spacing).",
+          "distractors": [
+            "If the approach lighting system normally available for the runway is entirely inoperative.",
+            "If the TDZ RVR report is not available.",
+            "If the approach cannot be flown using a flight director or autopilot."
+          ]
         },
         {
           "type": "qa",
           "question": "For an NPA (RNP APCH-LNAV or similar), if the approach lighting system is inoperative, how is minimum visibility adjusted?",
-          "answer": "The charted visibility plus a value equivalent to the published length of the approach lighting system."
+          "answer": "The charted visibility plus a value equivalent to the published length of the approach lighting system.",
+          "distractors": [
+            "The charted visibility plus 500 m.",
+            "Increase to 1,500 m — same as a precision approach.",
+            "The charted visibility plus 1,000 m."
+          ]
         },
         {
           "type": "qa",

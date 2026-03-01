@@ -61,6 +61,7 @@ function processBlock(
         id: `${section.sectionId}:${module.id}:${kind}-${index}`,
         prompt: block.question,
         answer: block.answer,
+        ...(block.distractors && block.distractors.length === 3 ? { distractors: block.distractors } : {}),
         kind,
         tags: [...(module.tags || []), kind],
       });
