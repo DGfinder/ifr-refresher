@@ -15,7 +15,6 @@ import casaTraps from "./casa-traps.json";
 import cheatSheet from "./cheat-sheet.json";
 
 export const sections: Section[] = [
-  cheatSheet as Section,
   administrativePart61 as Section,
   airspaceAtcServices as Section,
   fuelAlternates as Section,
@@ -29,4 +28,5 @@ export const sections: Section[] = [
   advancedIfrRegsAirlineOps as Section,
   quickFireNumbers as Section,
   casaTraps as Section,
+  cheatSheet as Section,
 ];
