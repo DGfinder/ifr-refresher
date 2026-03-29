@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { CategoryList } from "@/components/CategoryList";
 import { ModuleList } from "@/components/ModuleList";
@@ -10,7 +10,7 @@ import { SectionSelector } from "@/components/SectionSelector";
 import { sections } from "@/data/sections";
 import { useProgress } from "@/hooks/useProgress";
 
-export default function StudyPage() {
+function StudyPageContent() {
   const { getStatus, setStatus, getCompletionStats } = useProgress();
   const searchParams = useSearchParams();
 
@@ -191,5 +191,13 @@ export default function StudyPage() {
         </main>
       </div>
     </div>
+  );
+}
+
+export default function StudyPage() {
+  return (
+    <Suspense fallback={null}>
+      <StudyPageContent />
+    </Suspense>
   );
 }
