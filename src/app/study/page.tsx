@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, Suspense } from "react";
+import { useState, useMemo, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { CategoryList } from "@/components/CategoryList";
 import { ModuleList } from "@/components/ModuleList";
@@ -17,16 +17,21 @@ function StudyPageContent() {
   // All sections available in study mode
   const programSections = sections;
 
-  // Honour ?section=sectionId from home page links
-  const initialSectionId = (() => {
-    const param = searchParams.get("section");
-    if (param && programSections.some((s) => s.sectionId === param)) return param;
-    return programSections[0]?.sectionId ?? "";
-  })();
-
-  const [selectedSectionId, setSelectedSectionId] = useState<string>(initialSectionId);
+  const [selectedSectionId, setSelectedSectionId] = useState<string>(
+    programSections[0]?.sectionId ?? ""
+  );
   const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
   const [selectedModuleId, setSelectedModuleId] = useState<string | null>(null);
+
+  // Honour ?section=sectionId from home page links — re-runs on navigation
+  useEffect(() => {
+    const param = searchParams.get("section");
+    if (param && programSections.some((s) => s.sectionId === param)) {
+      setSelectedSectionId(param);
+      setSelectedCategoryId(null);
+      setSelectedModuleId(null);
+    }
+  }, [searchParams, programSections]);
   const [searchQuery, setSearchQuery] = useState("");
 
   // Get current section

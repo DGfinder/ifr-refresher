@@ -17,7 +17,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "IFR Refresher",
-  description: "IFR knowledge refresher app",
+  description: "Study IFR law and theory on the go. Offline-ready flashcards and quizzes for instrument-rated pilots.",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "IFR Refresher",
+  },
 };
 
 export const viewport: Viewport = {
