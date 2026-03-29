@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import { CategoryList } from "@/components/CategoryList";
 import { ModuleList } from "@/components/ModuleList";
 import { ModuleDetail } from "@/components/ModuleDetail";
@@ -11,13 +12,19 @@ import { useProgress } from "@/hooks/useProgress";
 
 export default function StudyPage() {
   const { getStatus, setStatus, getCompletionStats } = useProgress();
+  const searchParams = useSearchParams();
 
   // All sections available in study mode
   const programSections = sections;
 
-  const [selectedSectionId, setSelectedSectionId] = useState<string>(
-    programSections[0]?.sectionId ?? ""
-  );
+  // Honour ?section=sectionId from home page links
+  const initialSectionId = (() => {
+    const param = searchParams.get("section");
+    if (param && programSections.some((s) => s.sectionId === param)) return param;
+    return programSections[0]?.sectionId ?? "";
+  })();
+
+  const [selectedSectionId, setSelectedSectionId] = useState<string>(initialSectionId);
   const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
   const [selectedModuleId, setSelectedModuleId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");

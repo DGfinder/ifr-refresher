@@ -120,7 +120,7 @@ export default function Home() {
             return (
               <Link
                 key={section.sectionId}
-                href="/study"
+                href={`/study?section=${section.sectionId}`}
                 className="flex items-center justify-between rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 transition-colors hover:border-[var(--ifr-accent)]/50"
               >
                 <div className="min-w-0 flex-1">
