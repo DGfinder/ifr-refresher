@@ -1,0 +1,704 @@
+{
+  "version": "1.0",
+  "sectionId": "airspace-atc-services",
+  "sectionTitle": "Airspace & ATC Services",
+  "sectionDescription": "Communications failure procedures, VMC definitions, transponder codes, surveillance coverage, light signals, and ATC phraseology for Class G, D and C airports.",
+  "categories": [
+    {
+      "id": "atc-procedures",
+      "title": "Airspace & ATC Services",
+      "description": "Communications failure, meteorological conditions, and phraseology for operating in Australian airspace.",
+      "moduleIds": ["ATC-001", "ATC-002", "ATC-006", "ATC-007", "ATC-008", "ATC-009", "ATC-003", "ATC-004", "ATC-005"]
+    }
+  ],
+  "modules": [
+    {
+      "id": "ATC-001",
+      "title": "Communications Failure",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 5,
+      "tags": ["communications failure", "squawk 7600", "SARTIME", "comms"],
+      "summary": "Procedures to follow in the event of communications failure, covering in-flight and on-ground indications, and actions in VMC, IMC, controlled and uncontrolled airspace.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Indications by an aircraft in flight — by day: rock wings; by night: flash landing lights twice or, if not equipped, flash navigation lights twice.",
+            "Indications by an aircraft on the ground — by day: waggle ailerons or rudder; by night: flash landing lights twice or, if not equipped, flash navigation lights twice.",
+            "If VFR in Class G airspace: (a) remain in VMC; (b) broadcast intentions prefixed 'TRANSMITTING BLIND'; (c) remain VFR in Class G and land at the nearest suitable aerodrome; (d) report arrival to ATS if on SARTIME or reporting schedules (SAR 1800 815 257).",
+            "If in controlled/restricted airspace or IFR in any airspace: (a) squawk 7600; (b) listen out on ATIS and/or voice modulated NAVAIDs; (c) transmit intentions and make normal position reports prefixed 'TRANSMITTING BLIND'. AND if in VMC and certain of maintaining VMC: stay in VMC and land at the most suitable aerodrome.",
+            "If in IMC or uncertain of maintaining VMC: (b) if no clearance limit received, proceed in accordance with the latest ATC route clearance acknowledged and climb to planned level; (c) if a clearance limit involving an altitude or route restriction has been received and acknowledged: (i) maintain last assigned level or MSA if higher for 3 minutes and/or (ii) hold at nominated location for 3 minutes, then (iii) proceed in accordance with the latest ATC route clearance acknowledged and climb to planned level.",
+            "If receiving an ATS surveillance service: (i) climb to MSA/LSALT; (ii) if being vectored, maintain last assigned vector for 2 minutes; then (iii) proceed in accordance with the latest ATC route clearance acknowledged.",
+            "If holding: (i) fly one more complete holding pattern; then (ii) proceed in accordance with the latest ATC route clearance acknowledged.",
+            "Destination procedures: (a) track to destination in accordance with flight plan; (b) commence descent in accordance with SOPs or flight plan; (c) descend to the initial approach altitude for the most suitable approach aid in accordance with published procedures; (d) carry out the approach to prescribed minima.",
+            "Actions at minima: (a) if visual at an uncontrolled aerodrome, continue to land provided a safe landing can be accomplished; if visual at a controlled aerodrome, continue to land only if clearance received via voice modulated NAVAID and/or light signal from Tower; (b) if not visual at minima, depart for a suitable alternate; (c) if insufficient fuel to divert, may hold or carry out additional approaches until visual; (d) certain Class D aerodromes have specific comms failure procedures shown in the FAC section."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "7600 — transponder code for communications failure",
+            "3 minutes — hold at nominated location before proceeding on last ATC clearance (IMC/uncertain VMC)",
+            "2 minutes — maintain last assigned vector before proceeding (if receiving surveillance service)"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "ERSA EMERG 1.5",
+            "JEPP EMERG — Emergency Procedures 3"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Comms failure in IMC is a high-workload emergency — knowing the procedure cold prevents the spiral into 'what do I do now?' while hand-flying in cloud.",
+            "The 3-minute and 2-minute delays exist to give ATC time to clear traffic. Rushing the procedure creates conflict risk.",
+            "Controlled aerodrome landing after comms failure requires light signal OR voice-modulated NAVAID clearance — this is where it gets real."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Squawking 7600 in VMC Class G when you're simply going to land at a nearby aerodrome — emergency procedures differ by airspace and flight rules.",
+            "Forgetting to hold for 3 minutes at the clearance limit before proceeding — ATC is building separation.",
+            "Maintaining vectors for 2 minutes then turning TOWARD the holding fix rather than continuing on the cleared route.",
+            "At controlled aerodromes in IMC, expecting landing clearance via radio — you need light signal or voice-modulated NAVAID.",
+            "Not checking FAC section for specific comms failure procedures at Class D aerodromes."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're IFR in Class E, IMC, and lose comms. What's your first action? A: Squawk 7600, listen out on ATIS and voice-modulated NAVAIDs, transmit blind.",
+            "Q: You were being vectored when comms failed. How long do you maintain the last vector? A: 2 minutes, then proceed in accordance with the last acknowledged ATC route clearance.",
+            "Q: You're in the hold at the destination when comms fail. What do you do? A: Fly one more complete holding pattern, then proceed with the approach.",
+            "Q: Can you land at a controlled aerodrome in IMC with comms failure? A: Only if you receive clearance via voice-modulated NAVAID or light signal from tower.",
+            "Q: You're visual at minima at an uncontrolled aerodrome. Can you land? A: Yes, provided a safe landing can be accomplished."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your SOP says 'maintain last assigned altitude for 3 minutes' but AIP says 'maintain last assigned level or MSA if higher'. Which applies? A: Regulatory requirements override SOP if SOP is less conservative. You must maintain at least MSA when it's higher than your assigned level.",
+            "Q: You're 50nm from destination when comms fail. Talk through your procedure. A: Squawk 7600, attempt contact, transmit blind. Continue on cleared route to destination. Commence descent per SOPs/flight plan. Fly published approach. At minima: if visual at controlled aerodrome, look for light signal; if uncontrolled and visual, land; if not visual, proceed to alternate."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're inbound to Archerfield (Class D) in IMC. At 15 DME you lose all radios. You squawk 7600 and proceed to the VOR for the approach.",
+            "You fly the approach and break out at 800FT. Tower is displaying a steady red light.",
+            "Decision point: What does steady red mean in flight, and what do you do? Answer: Steady red means 'give way to other aircraft and continue circling'. You cannot land until you see steady green indicating clearance. Continue circling, watching for light signals."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ATC-002",
+      "title": "Visual Meteorological Conditions",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["VMC", "VFR", "visibility", "cloud clearance", "airspace"],
+      "summary": "Minimum meteorological conditions for VFR flight in Class G, E, D and C airspace, including the special low-level Class G provision.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Class G VMC: 5000M (8KM above 10,000 ft); clear of cloud 1500M horizontal / 1000FT vertical. When below 3000FT AMSL or 1000FT AGL (whichever is higher), may remain clear of cloud and in sight of ground or water if radio carried and used on appropriate frequency.",
+            "Class E VMC: 5000M (8KM above 10,000 ft); clear of cloud 1500M horizontal / 1000FT vertical.",
+            "Class D VMC: 5000M visibility; clear of cloud 600M horizontal / 1000FT above / 500FT below.",
+            "Class C VMC: 5000M (8KM above 10,000 ft); clear of cloud 1500M horizontal / 1000FT vertical."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "5000M — visibility minimum (all classes below 10,000 ft)",
+            "8KM — visibility minimum above 10,000 ft (Class G, E, C)",
+            "1500M horizontal / 1000FT vertical — cloud clearance (Class G, E, C standard)",
+            "600M horizontal / 1000FT above / 500FT below — cloud clearance (Class D)",
+            "3000FT AMSL or 1000FT AGL — threshold for special Class G low-level provision"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 91 MOS Section 2.07"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "VMC definitions determine when you can cancel IFR, accept a visual approach, or maintain own separation. Getting this wrong creates legal and safety exposure.",
+            "The Class D asymmetric minima (1000FT above but only 500FT below cloud) catches pilots transitioning between airspace types."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Using Class G 'clear of cloud' provisions in Class E — Class E has no special low-level exception.",
+            "Forgetting the 8KM visibility requirement above 10,000FT applies to Class G, E, and C.",
+            "Assuming Class D has the same cloud clearance as Class C — Class D is 600M horizontal, 1000FT above, 500FT below; Class C is 1500M horizontal, 1000FT vertical.",
+            "Not recognising that the Class G 'clear of cloud, sight of ground' provision requires radio carriage and use."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What's the minimum visibility for VFR flight in Class E at 12,000FT? A: 8KM — above 10,000FT the visibility requirement increases.",
+            "Q: Can you fly 'clear of cloud' in Class E below 3000FT? A: No — the special provision only applies to Class G.",
+            "Q: You're in Class D at 2500FT. What's your required cloud clearance? A: 600M horizontal, 1000FT above, 500FT below.",
+            "Q: What does the Class G low-level provision require for 'clear of cloud' flight? A: Radio carried and used on appropriate frequency, flight by day, below 3000FT AMSL or 1000FT AGL (whichever is higher).",
+            "Q: How does Class C visibility differ from Class D? A: Class C requires 5000M (8KM above 10,000FT); Class D requires 5000M with no change at altitude."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: ATC offers you a visual approach into a Class D aerodrome. What VMC minima apply for you to accept? A: You must have 5000M visibility and maintain 600M horizontal, 1000FT above, 500FT below cloud separation, or be able to remain clear of cloud if the aerodrome has specific procedures.",
+            "Q: You're IFR in Class G and want to cancel to continue VFR. What conditions must exist? A: 5000M visibility, 1500M horizontal and 1000FT vertical cloud clearance — or below 3000FT/1000FT AGL, clear of cloud in sight of ground with radio on appropriate frequency."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're IFR in Class G at 4500FT descending into Bathurst. Conditions are 5000M visibility, SCT cloud at 4000FT.",
+            "You want to cancel IFR and proceed VFR to reduce workload for the visual segment.",
+            "Decision point: Can you cancel and remain VMC? Answer: At 4500FT you need 1500M horizontal and 1000FT vertical cloud clearance from the SCT layer at 4000FT. You cannot maintain 1000FT vertical separation, so you cannot cancel IFR at this level."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ATC-006",
+      "title": "Transponder Codes",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 1,
+      "tags": ["transponder", "squawk", "SSR", "1200", "2000", "3000"],
+      "summary": "Standard transponder codes for VFR and IFR operations in Australian airspace.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "VFR in Class E or G or OCTA: squawk 1200.",
+            "IFR OCTA: squawk 2000.",
+            "IFR in Class E or civil flights in CTA: squawk 3000."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "1200 — VFR in Class E, G or OCTA",
+            "2000 — IFR OCTA",
+            "3000 — IFR in Class E or civil flights in CTA"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.6 Para 7.1.4",
+            "JEPP ATC — ATS Surveillance Services and Procedures 7.1.4"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Correct squawk selection tells ATC what service you're receiving and what rules you're flying. Wrong code = wrong assumptions about your intentions.",
+            "The 2000 vs 3000 distinction (IFR OCTA vs IFR in Class E/CTA) is where most errors occur."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Squawking 3000 when IFR OCTA — 3000 is for Class E or CTA; OCTA IFR is 2000.",
+            "Squawking 2000 when climbing through Class E — even if you departed OCTA, entering Class E means 3000.",
+            "Forgetting to change from 1200 to 3000 when accepting IFR clearance while VFR in Class E.",
+            "Not understanding that 'civil flights in CTA' includes all civil IFR in controlled airspace, not just airways."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're IFR in Class G below the CTA lower limit. What code do you squawk? A: 2000 — IFR OCTA.",
+            "Q: You're IFR and climb from Class G into Class E. What code do you squawk? A: Change from 2000 to 3000 when entering Class E.",
+            "Q: You're VFR in Class G. What code? A: 1200.",
+            "Q: What code for IFR in controlled airspace when ATC hasn't assigned a discrete code? A: 3000.",
+            "Q: You cancel IFR in Class G and continue VFR. What code? A: 1200."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You're departing an uncontrolled aerodrome IFR, initially in Class G, with airways pickup planned in Class C. What's your squawk sequence? A: Depart squawking 2000 (IFR OCTA), change to 3000 entering Class E or CTA, then accept discrete code when assigned by Centre.",
+            "Q: Approach clears you for a visual approach and cancels your IFR. You're in Class C. What code? A: Remain on discrete code if assigned, or revert to 3000 (civil in CTA) until you leave controlled airspace — then 1200 for VFR OCTA."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You depart Bankstown (Class D) IFR, receive airways clearance, and are assigned squawk 4521.",
+            "After landing at Dubbo, you depart again IFR but ATC is busy and says 'contact Centre passing 5000, standard squawk'.",
+            "Decision point: What code do you select? Answer: You're departing into Class G (OCTA), so squawk 2000. When you contact Centre and enter Class E or CTA, they may assign a discrete code or you change to 3000."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ATC-007",
+      "title": "VHF Theoretical Maximum Range",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 1,
+      "tags": ["VHF", "radio", "range", "formula", "line of sight"],
+      "summary": "Formula to calculate the theoretical maximum range of VHF radio transmissions.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Formula: d = 1.23 (√Htx + √Hrx).",
+            "d = distance in NM.",
+            "Htx = elevation in feet of transmitter.",
+            "Hrx = height in feet AGL of receiver."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "1.23 — constant in VHF range formula"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": []
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "VHF range determines when you can expect to contact ATC on climb-out and when you'll lose them on descent. Flight planning relies on this.",
+            "Low-level operations in remote areas hit VHF limitations first — this drives HF requirements and SARWATCH procedures."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Forgetting that both transmitter AND receiver heights matter — a high remote transmitter doesn't help if you're low.",
+            "Using the formula without considering terrain shadowing — the formula gives theoretical line-of-sight maximum, not actual range.",
+            "Assuming constant VHF coverage in controlled airspace — coverage depends on transmitter locations and your altitude."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: A VHF transmitter is at 2000FT elevation. You're at 500FT AGL. What's the theoretical range? A: d = 1.23(√2000 + √500) = 1.23(44.7 + 22.4) = approximately 83NM.",
+            "Q: Why does VHF range increase with altitude? A: VHF is line-of-sight. Higher altitude increases the distance to the radio horizon.",
+            "Q: You're at FL350. The transmitter is at sea level. What's your approximate range? A: d = 1.23(√0 + √35000) = 1.23 × 187 = approximately 230NM.",
+            "Q: What factor does the formula NOT account for? A: Terrain shadowing, atmospheric conditions, and interference."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You're planning a low-level sector in Class G. How do you determine where VHF coverage will be available? A: Use the formula with transmitter elevations from the ERSA and your planned altitude. Factor in terrain that may block line-of-sight. Plan position reports and HF backup accordingly.",
+            "Q: Your aircraft has 10W and 25W VHF options. How does power affect range? A: Transmitter power affects signal strength but not line-of-sight range. The formula gives geometric range — actual usable range may be less with lower power but won't exceed the formula result with higher power."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're flying at 3000FT in western NSW. The nearest ATC transmitter is 150NM away at 500FT elevation.",
+            "You're attempting to contact Centre but getting no response.",
+            "Decision point: Is this expected? Answer: Using the formula: d = 1.23(√500 + √3000) = 1.23(22.4 + 54.8) = 95NM. At 150NM, you're well beyond theoretical range at this altitude. You need to climb or use HF."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ATC-008",
+      "title": "Radar and ADS-B Coverage",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["radar", "ADS-B", "surveillance", "coverage", "SSR"],
+      "summary": "Reference altitudes for radar and ADS-B coverage in Australian airspace.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Existing radar coverage at 10,000 ft and 30,000 ft.",
+            "ADS-B coverage at 10,000 ft, 30,000 ft, and 5,000 ft.",
+            "Coverage maps show extent of surveillance services in Australian airspace."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "10,000 ft — altitude for coverage reference (radar and ADS-B)",
+            "30,000 ft — altitude for coverage reference (radar and ADS-B)",
+            "5,000 ft — altitude for coverage reference (ADS-B)"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASA Chapter 4 — Surveillance and ADS-B",
+            "Airservices Australia ADS-B coverage maps"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Surveillance coverage determines whether ATC can provide radar separation or only procedural separation. This affects your clearance options and traffic management.",
+            "ADS-B extends surveillance to areas without radar — but your aircraft must be ADS-B equipped to benefit."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming radar coverage exists at low altitudes in regional areas — coverage maps show significant gaps below 10,000FT.",
+            "Expecting surveillance services when your ADS-B is inoperative — you revert to procedural separation.",
+            "Not recognising that surveillance coverage varies significantly between 5,000FT, 10,000FT, and 30,000FT reference altitudes.",
+            "Confusing SSR radar coverage with ADS-B coverage — they're complementary but not identical."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're at FL250 over central Australia. Is surveillance coverage guaranteed? A: Check coverage maps — 30,000FT coverage is extensive but not universal. ADS-B provides coverage where radar doesn't.",
+            "Q: Your ADS-B fails en route. What service change should you expect? A: ATC may only provide procedural separation. Expect potential delays and increased separation standards.",
+            "Q: At what altitude is surveillance coverage most limited? A: 5,000FT — coverage maps show significant gaps at lower altitudes, particularly in remote areas.",
+            "Q: What's the difference between radar identification and ADS-B identification? A: Both provide positive identification, but ADS-B requires aircraft equipment while radar can identify any transponder-equipped aircraft."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You're planning a route at FL150 through an area marked as 'ADS-B coverage only' at 10,000FT. What are the implications? A: At FL150 you're likely within ADS-B coverage, but verify using the 30,000FT chart. If outside radar coverage, ADS-B serviceability becomes critical — MEL implications if inoperative.",
+            "Q: How do coverage limitations affect your contingency planning for remote operations? A: Factor in areas of procedural-only service for SARWATCH, comms failure planning, and fuel reserves. Without surveillance, ATC separation is less flexible."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're flying a King Air at FL180 from Alice Springs to Darwin. The route crosses areas shown as 'radar coverage' at 30,000FT but 'ADS-B only' at 10,000FT.",
+            "Your ADS-B displays 'FAIL' after departure.",
+            "Decision point: What service can you expect? Answer: At FL180, you're likely in ADS-B coverage area. With ADS-B failed, you rely on SSR only. If outside SSR coverage at your altitude, inform ATC — you'll receive procedural separation with potentially increased spacing requirements."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ATC-009",
+      "title": "Light Signals to Aircraft",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["light signals", "tower", "communications failure", "visual signals"],
+      "summary": "Standard light signals from ATC to aircraft in flight and on the ground, and pilot acknowledgement procedures.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Steady green — In flight: authorised to land if pilot satisfied no collision risk exists; On airport: authorised to take-off if pilot satisfied no collision risk exists.",
+            "Steady red — In flight: give way to other aircraft and continue circling; On airport: stop.",
+            "Green flashes — In flight: return for landing; On airport: authorised to taxi if pilot satisfied no collision risk exists.",
+            "Red flashes — In flight: airport unsafe, do not land; On airport: taxi clear of landing area in use.",
+            "White flashes — In flight: no significance; On airport: return to starting point on airport.",
+            "Acknowledgements in flight by day: rock wings; by night: flash landing/nav lights twice.",
+            "Acknowledgements on ground by day: move ailerons or rudder; by night: flash landing/nav lights twice."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.5 Para 12",
+            "JEPP ATC — Airports and Ground Aids 4"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Light signals are your backup when radios fail at a controlled aerodrome. Knowing them instinctively is critical.",
+            "The meanings differ between in-flight and on-ground — red flashes mean 'airport unsafe' in flight but 'taxi clear of landing area' on ground."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Confusing in-flight and on-ground meanings — steady green means 'cleared to land' in flight but 'cleared to take-off' on ground.",
+            "Forgetting that 'white flashes' have no significance in flight — pilots sometimes think it means something.",
+            "Not acknowledging light signals correctly — day/night acknowledgement methods differ.",
+            "Assuming steady green in flight is unconditional clearance — it's 'authorised IF pilot satisfied no collision risk exists'."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're in the circuit with comms failure. Tower shows red flashes. What do you do? A: Airport unsafe, do not land. Depart the circuit and proceed to your alternate.",
+            "Q: You're on the ground and tower shows green flashes. What does this mean? A: Authorised to taxi if you're satisfied no collision risk exists.",
+            "Q: How do you acknowledge a light signal in flight by day? A: Rock your wings.",
+            "Q: What does steady red mean when you're on the ground? A: Stop.",
+            "Q: You see white flashes while in the circuit. What action? A: White flashes have no significance in flight — continue normal operations."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You've completed an approach with comms failure. At minima you're visual and see the tower displaying alternating red and green lights. What's happening? A: This isn't a standard signal. Standard signals are steady or flashing single colours. This could indicate equipment malfunction or an attempt to get your attention. Exercise extreme caution and look for standard signals.",
+            "Q: Your company has a procedure to flash landing lights to acknowledge tower signals. Is this correct? A: It works at night (flash landing lights twice) but not by day. Day acknowledgement is rocking wings in flight or moving ailerons/rudder on ground."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're established on final approach to Brisbane with total radio failure. You've been squawking 7600 and transmitting blind.",
+            "At 500FT you see the tower displaying a steady green light.",
+            "Decision point: Can you land? Answer: Steady green means 'authorised to land IF pilot satisfied no collision risk exists'. Visually check the runway is clear, check for other traffic, and if satisfied, continue to land. Rock your wings to acknowledge."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ATC-003",
+      "title": "Class G Airports — Phraseology",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["phraseology", "Class G", "radio", "position report", "SARWATCH"],
+      "summary": "Standard radio phraseology for IFR operations at Class G airports, including taxi, departure reports, inbound calls, and SARWATCH cancellation.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Taxi: '[Centre] [Callsign] POB [number] IFR Taxiing [destination] For [aerodrome] RWY [number]'.",
+            "Departure report (in ADS-B or SSR coverage): '[Centre] [Callsign] [distance and direction of fix] Passing [altitude] Climbing to [level] Estimating [fix] at [time]'.",
+            "Departure report (outside ADS-B or SSR coverage): '[Centre] [Callsign] Departed [aerodrome] [time] Tracking [to intercept] [track] Climbing to [level] Estimating [fix] at [time]'.",
+            "Departure report (where radio contact unable to be established on ground, SARWATCH needed): '[Centre] [Callsign] Airborne [aerodrome] [time] Tracking [to intercept] [track] Climbing to [level] Estimating [fix] at [time]'.",
+            "Inbound (leaving CTA on descent): '[Centre] And all stations [aerodrome] [Callsign] [distance and direction] Leaving [level] Estimating [circuit/fix] [time] Centre and all stations [aerodrome]'.",
+            "Cancel SAR: '[Centre] [Callsign] Landed [aerodrome] Cancel SARWATCH'."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP GEN 3.4 Para 6",
+            "JEPP ATC — Communications 7"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Class G phraseology reflects that you're not receiving a service — you're broadcasting intentions to traffic, not requesting clearance.",
+            "SARWATCH procedures are critical at uncontrolled aerodromes. Missing a cancellation call triggers search and rescue."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Using 'request clearance' phraseology at Class G — you don't get clearance, you broadcast intentions.",
+            "Forgetting to include 'Centre and all stations [aerodrome]' format when leaving CTA on descent.",
+            "Not cancelling SARWATCH after landing — 'Landed [aerodrome] Cancel SARWATCH'.",
+            "Using the ADS-B/SSR departure report format when outside surveillance coverage — the formats differ."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What's the taxi call format at a Class G aerodrome? A: '[Centre] [Callsign] POB [number] IFR Taxiing [destination] For [aerodrome] RWY [number]'.",
+            "Q: You're departing a Class G aerodrome outside surveillance coverage. What's your departure report? A: '[Centre] [Callsign] Departed [aerodrome] [time] Tracking [to intercept] [track] Climbing to [level] Estimating [fix] at [time]'.",
+            "Q: What's different about the 'airborne' departure report? A: It's used when radio contact couldn't be established on the ground and SARWATCH is needed.",
+            "Q: How do you advise leaving CTA inbound to a Class G aerodrome? A: '[Centre] And all stations [aerodrome] [Callsign] [distance and direction] Leaving [level] Estimating [circuit/fix] [time] Centre and all stations [aerodrome]'.",
+            "Q: Why do you say 'Centre and all stations'? A: To alert both Centre and traffic at the destination aerodrome to your intentions."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your first officer makes a taxi call using 'request taxi' at a Class G aerodrome. How do you correct this? A: Explain that Class G has no ATC service — we broadcast intentions, not requests. Correct format is 'IFR Taxiing [destination] For [aerodrome]'.",
+            "Q: What's the significance of including POB in the taxi call? A: POB is recorded for search and rescue purposes. If you don't report landing and cancel SARWATCH, SAR knows how many people to look for."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You've landed at Parkes (Class G) after an IFR flight from Sydney. You taxi to the terminal and shut down.",
+            "Your passenger needs to make a phone call before you continue to Dubbo.",
+            "Decision point: What must you do first? Answer: Cancel SARWATCH. '[Centre] [Callsign] Landed Parkes Cancel SARWATCH'. If you don't cancel within 30 minutes of your SARTIME, search and rescue will be activated."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ATC-004",
+      "title": "Class D Airports — Phraseology",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["phraseology", "Class D", "clearance", "taxi", "departure report"],
+      "summary": "Standard radio phraseology for IFR operations at Class D airports, including clearance delivery, taxi, departure reports, and inbound calls.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Airways clearance (where Delivery frequency specified): '[Aerodrome] Delivery [Callsign] To [destination] Request clearance'.",
+            "Airways clearance (where no Delivery frequency): '[Aerodrome] Ground [Callsign] To [destination] Request clearance'.",
+            "Taxi: '[Aerodrome] Ground [Callsign] POB [number] Information [ATIS] IFR Request taxi'.",
+            "Tower transfer (at holding point, ready): '[Aerodrome] Tower [Callsign] Ready'.",
+            "Departure report (tracking): '[Aerodrome] Tower [Callsign] Tracking [track] from the [aid] Climbing to [level]'.",
+            "Departure report (via SID): '[Aerodrome] Tower [Callsign] Tracking via the [SID name] Climbing to [level]'.",
+            "Inbound: '[Aerodrome] Tower [Callsign] Information [ATIS] [distance] miles on the [radial] radial Descending to [level] [Visual]'."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP GEN 3.4 Para 6",
+            "JEPP ATC — Communications 7"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Class D has a separate Delivery frequency at many aerodromes — check the ERSA for whether clearance goes to Delivery or Ground.",
+            "The transition from Ground to Tower happens at the holding point. 'Ready' is your tower check-in, not 'request take-off'."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Requesting clearance on Ground frequency when a Delivery frequency exists — check ERSA.",
+            "Saying 'ready for departure' to Tower instead of simply 'Ready' — the ready call is for check-in, not a take-off request.",
+            "Forgetting to include ATIS designator in the taxi call.",
+            "Not specifying whether you're tracking via a SID or direct in the departure report."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're at Archerfield. ERSA shows Delivery on 124.2. Where do you request clearance? A: '[Archerfield] Delivery [Callsign] To [destination] Request clearance'.",
+            "Q: What's the correct taxi call format at Class D? A: '[Aerodrome] Ground [Callsign] POB [number] Information [ATIS] IFR Request taxi'.",
+            "Q: You're at the holding point ready to go. What do you say to Tower? A: '[Aerodrome] Tower [Callsign] Ready'.",
+            "Q: What information goes in your departure report if tracking via a SID? A: '[Aerodrome] Tower [Callsign] Tracking via the [SID name] Climbing to [level]'.",
+            "Q: How is inbound phraseology structured at Class D? A: '[Aerodrome] Tower [Callsign] Information [ATIS] [distance] miles on the [radial] radial Descending to [level] [Visual]'."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your company operates into multiple Class D aerodromes. How do you ensure crews use correct clearance delivery procedures? A: Reference ERSA for each aerodrome in the flight brief. Some have dedicated Delivery frequencies, others combine with Ground. SOP should specify checking ERSA during pre-flight.",
+            "Q: A trainee adds 'request take-off' to their Tower ready call. What's the correct procedure? A: The ready call is simply '[Aerodrome] Tower [Callsign] Ready'. Tower will issue take-off clearance when appropriate. We don't request take-off — we report ready and wait for clearance."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're IFR at Albury (Class D) with clearance to Melbourne. Ground frequency is 121.8. You've checked ERSA and there's no dedicated Delivery.",
+            "You're ready to request airways clearance.",
+            "Decision point: What frequency and what call? Answer: '[Albury] Ground [Callsign] To Melbourne Request clearance'. Since no Delivery frequency exists, clearance is requested on Ground."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ATC-005",
+      "title": "Class C Airports — Phraseology",
+      "categoryId": "atc-procedures",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["phraseology", "Class C", "clearance", "airborne report", "SID"],
+      "summary": "Standard radio phraseology for IFR operations at Class C airports, including clearance delivery, taxi, airborne reports, and first contact with approach.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Airways clearance (where Delivery frequency specified): '[Aerodrome] Delivery [Callsign] To [destination] Request clearance'.",
+            "Airways clearance (where no Delivery frequency): '[Aerodrome] Ground [Callsign] To [destination] Request clearance'.",
+            "Taxi: '[Aerodrome] Ground [Callsign] POB [number] Information [ATIS] IFR Request taxi'.",
+            "Tower transfer (at holding point, ready): '[Aerodrome] Tower [Callsign] Ready'.",
+            "Airborne report (SID with assigned heading): '[Aerodrome] Departures [Callsign] Turning [left/right] [heading] Passing [altitude] Climbing to [level]'.",
+            "Airborne report (maintain runway heading): '[Aerodrome] Departures [Callsign] Maintaining runway heading Passing [altitude] Climbing to [level]'.",
+            "Airborne report (procedural SID, no heading assigned): '[Aerodrome] Departures [Callsign] Passing [altitude] Climbing to [level]'.",
+            "Airborne report (assigned heading approximates runway bearing): '[Aerodrome] Departures [Callsign] Heading [heading] Passing [altitude] Climbing to [level]'.",
+            "First contact with approach: '[Aerodrome] Approach [Callsign] Cleared to [level] Information [ATIS] [Visual]'."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP GEN 3.4 Para 6",
+            "JEPP ATC — Communications 7"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Class C has the most structured phraseology — separate Delivery, Ground, Tower, and Departures frequencies with specific handoff points.",
+            "Airborne reports vary by SID type: radar headings require turn direction and heading; procedural SIDs just need passing altitude."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Not specifying turn direction when given an assigned heading departure — 'Turning left heading 270' not just 'Heading 270'.",
+            "Using 'Maintaining runway heading' when actually assigned a heading that approximates runway bearing — they're different calls.",
+            "Forgetting to state ATIS and visual status on first contact with Approach.",
+            "Saying 'Departures' when the frequency is actually labelled 'Approach' at some Class C aerodromes."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're departing Sydney on the MARUB SID with assigned heading 180. What's your airborne report? A: '[Sydney] Departures [Callsign] Turning right heading 180 Passing [altitude] Climbing to [level]'.",
+            "Q: Tower says 'maintain runway heading'. What's your airborne report? A: '[Sydney] Departures [Callsign] Maintaining runway heading Passing [altitude] Climbing to [level]'.",
+            "Q: You're on a procedural SID (no heading assigned). What's your airborne call? A: '[Sydney] Departures [Callsign] Passing [altitude] Climbing to [level]'.",
+            "Q: What goes in first contact with Approach? A: '[Aerodrome] Approach [Callsign] Cleared to [level] Information [ATIS] [Visual]'.",
+            "Q: What's the difference between 'turning' and 'heading'? A: 'Turning left/right heading XXX' is used when given an assigned heading; it specifies your direction of turn."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You're training a first officer on Class C departures. They report 'Heading 090' without specifying turn direction. Why is this a problem? A: Without turn direction, ATC doesn't know if you're turning left or right. At busy airports, this can conflict with other departures. SOP should be 'Turning [left/right] heading [XXX]'.",
+            "Q: Some SIDs have 'Runway heading until...'. How does this differ from an assigned heading for airborne reports? A: 'Runway heading' is a SID instruction — report 'Maintaining runway heading'. An assigned heading approximating runway bearing is reported as 'Heading [XXX]'. The distinction matters for controller expectations."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're departing Melbourne Runway 34 via the DOSEL SID. Tower clears you for take-off with 'when airborne contact Departures 118.9'.",
+            "The SID shows 'Runway heading to 2000FT, then...' and you've been assigned FL180.",
+            "Decision point: What's your exact airborne report? Answer: '[Melbourne] Departures [Callsign] Maintaining runway heading Passing [current altitude] Climbing to FL180'. You're on a procedural SID with runway heading specified, not an assigned turn."
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

@@ -1,0 +1,835 @@
+{
+  "version": "1.0",
+  "sectionId": "administrative-part61",
+  "sectionTitle": "Administrative & Part 61",
+  "sectionDescription": "CASR Part 61 definitions, MOS authority, IPC validity, instrument rating privileges and limitations, recent experience requirements, IFR aircraft equipment, and the regulatory backbone: CASR, MOS, AIP, minima, RAIM, GNSS, fuel and alternates.",
+  "categories": [
+    {
+      "id": "adm-part61",
+      "title": "Administrative & Part 61",
+      "description": "Licensing definitions, rating privileges, recency, and equipment requirements for IFR operations.",
+      "moduleIds": [
+        "ADM-001",
+        "ADM-002",
+        "ADM-003",
+        "ADM-004",
+        "ADM-005",
+        "ADM-006"
+      ]
+    },
+    {
+      "id": "regulatory-backbone",
+      "title": "IFR Regulatory Backbone",
+      "description": "How CASR, MOS, AIP and company SOPs interact for IFR operations.",
+      "moduleIds": [
+        "IFR-000",
+        "IFR-001",
+        "IFR-002",
+        "IFR-003",
+        "IFR-004",
+        "IFR-005",
+        "IFR-006"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "ADM-001",
+      "title": "Part 61 Definitions — Categories and Classes",
+      "categoryId": "adm-part61",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["Part 61", "definitions", "category", "class"],
+      "summary": "Defines the categories and classes of aircraft for the purposes of CASR Part 61.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 61.015 — Each of the following is a category of aircraft: (a) aeroplane; (b) helicopter; (c) powered-lift aircraft; (d) gyroplane; (e) airship.",
+            "CASR 61.020(1) — Each of the following is a class of aircraft: (a) single-engine aeroplane; (b) multi-engine aeroplane; (c) single-engine helicopter; (ca) powered-lift aircraft; (d) single-engine gyroplane; (e) airship.",
+            "CASR 61.020(2) — For this Part, the single-engine aeroplane class includes: (a) multi-engine centre-line thrust aeroplanes; and (b) multi-engine aeroplanes prescribed by legislative instrument under regulation 61.050."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 61.015",
+            "CASR 61.020"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Category determines your licence structure; class determines your endorsements. Getting this wrong affects what you can legally fly.",
+            "Centre-line thrust aeroplanes (e.g., Cessna 337) are treated as single-engine class — this affects recency, training requirements, and IPC scope."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming multi-engine centre-line thrust requires a multi-engine class rating — it doesn't; it's single-engine class.",
+            "Confusing 'category' (aeroplane vs helicopter) with 'class' (single-engine vs multi-engine).",
+            "Forgetting that powered-lift aircraft are both a category and a class under Part 61.",
+            "Not realising that some multi-engine aeroplanes may be prescribed as single-engine class by legislative instrument."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What class is a Cessna 337 Skymaster? A: Single-engine class — multi-engine centre-line thrust aeroplanes are included in the single-engine aeroplane class.",
+            "Q: Name the five categories of aircraft under Part 61. A: Aeroplane, helicopter, powered-lift aircraft, gyroplane, airship.",
+            "Q: Is a multi-engine aeroplane always multi-engine class? A: No — centre-line thrust and prescribed aeroplanes are single-engine class.",
+            "Q: What's the difference between category and class? A: Category is the fundamental type (aeroplane, helicopter); class is a subdivision within category (single-engine, multi-engine)."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You've been flying a King Air (multi-engine class). A colleague suggests your centre-line thrust Cessna 337 time counts toward your multi-engine recency. Is this correct? A: No — the 337 is single-engine class, so it doesn't satisfy multi-engine recency requirements.",
+            "Q: Why does CASA treat centre-line thrust differently from conventional multi-engine? A: Centre-line thrust has no asymmetric thrust issues on engine failure, so the handling characteristics are closer to single-engine operations."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're a CPL holder with single-engine class rating. A charter company offers you a contract flying a Cessna 337 for aerial survey.",
+            "The chief pilot says 'It's multi-engine, so you'll need endorsement training.' You check Part 61.020.",
+            "Decision point: Is the chief pilot correct? Answer: No — the 337 is centre-line thrust and therefore single-engine class. You're legal to fly it under your existing class rating after appropriate type familiarisation."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ADM-002",
+      "title": "Part 61 Manual of Standards",
+      "categoryId": "adm-part61",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["Part 61", "MOS", "Manual of Standards"],
+      "summary": "CASA's authority to issue a Manual of Standards for Part 61, and the matters it may address.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 61.035(1) — CASA may issue a Manual of Standards for Part 61 setting out matters relating to flight crew licences.",
+            "CASR 61.035(2) — The MOS may set out standards for: approvals under reg 61.040; aeronautical and other knowledge required for the grant of a licence, rating or endorsement; flight training; other training and development requirements; flight tests; aviation and general English language proficiency; general operating competencies for aircraft of a particular class or type and activities authorised by operational ratings and endorsements; competency in the use of an airborne collision avoidance system; flight reviews; instrument proficiency checks; night vision imaging system proficiency checks; aerial application proficiency checks; instructor proficiency checks; competencies for glider pilot licences."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": []
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 61.035"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The MOS contains the actual standards you're tested against — the regulation gives CASA authority, but the MOS has the detail.",
+            "When preparing for an IPC or flight review, the MOS Schedule 8 (IPC) and Schedule 7 (flight review) specify exactly what the examiner must assess."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Looking only at the CASRs and missing the MOS — the regulation says 'in accordance with the MOS', so you need both documents.",
+            "Assuming MOS standards are suggestions rather than legal requirements — they have legislative force.",
+            "Not checking for MOS amendments — CASA updates the MOS more frequently than the CASRs."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Where do you find the actual flight test standards for an IPC? A: Part 61 MOS Schedule 8.",
+            "Q: Can CASA change IPC requirements without changing the CASRs? A: Yes — the MOS can be amended by legislative instrument without changing the parent regulation.",
+            "Q: What does the MOS cover for IPCs specifically? A: Flight test standards, competency requirements, and the specific manoeuvres and tolerances for the proficiency check."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your company training manual references Part 61 MOS standards. Why is it important to verify the MOS version is current? A: The MOS is updated by legislative instrument and may change between regulation amendments. Using an outdated version could mean training to superseded standards.",
+            "Q: How does the MOS relate to an operator's training and checking system? A: The MOS sets minimum standards; operators can exceed them but cannot go below. Training syllabi must meet or exceed MOS requirements."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're preparing for your IPC and your instructor hands you a 2019 copy of the Part 61 MOS.",
+            "You check the CASA website and find the MOS was amended in 2023.",
+            "Decision point: Does it matter? Answer: Yes — MOS amendments can change flight test requirements, tolerances, or competency standards. Always use the current version."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ADM-003",
+      "title": "Validity of an Instrument Proficiency Check",
+      "categoryId": "adm-part61",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["IPC", "instrument proficiency check", "validity", "recency"],
+      "summary": "Sets out the validity period of an instrument proficiency check, including the early renewal rule.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "An IPC is valid from the date the holder passes the flight test to the end of the 12th month after the month in which the holder passes the flight test.",
+            "Alternatively, an IPC is valid for the period during which the holder is successfully participating in an operator's training and checking system for an IFR operation in the relevant aircraft.",
+            "If the holder successfully completes an IPC within 3 months before the validity of the existing check expires, the new check is valid to the end of the 12th month after the validity of the existing check (not from the date of the new check)."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "12 months — standard IPC validity period, calculated from the end of the month of the pass",
+            "3 months — early renewal window before expiry; backdated validity applies"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 61.880 para 3"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The 3-month early renewal window is critical for planning — complete your IPC early and you get backdated validity, maximising your next cycle.",
+            "Operators using training and checking systems provide continuous validity, but the moment you leave that system, your IPC clock starts ticking from your last check."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Completing an IPC 4 months early and losing validity time — the 3-month backdating only applies within the window.",
+            "Confusing the 12-month IPC validity with the 12-month circling recency (they're separate requirements).",
+            "Assuming your IPC is valid because you're in a training and checking system — validity only continues while you're 'successfully participating'.",
+            "Not realising IPC validity is calculated to the end of the month, not the exact date of the check."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Your IPC expires 31 March. You complete a new IPC on 15 January. When does your new IPC expire? A: 31 March the following year — because you completed within the 3-month early window, validity backdates.",
+            "Q: Your IPC expires 31 March. You complete a new IPC on 15 December. When does your new IPC expire? A: 31 December the following year — you completed outside the 3-month window, so validity runs from the new check date.",
+            "Q: What does 'successfully participating' in a training and checking system mean? A: Completing all required checks and training within the operator's approved system while employed in IFR operations.",
+            "Q: Does an operator proficiency check replace an IPC? A: It can maintain IFR privileges while you're in the system, but is not itself an IPC for Part 61 purposes."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You resign from an airline on 1 June. Your last operator proficiency check was 1 March. When must you complete an IPC to continue exercising IFR privileges? A: Immediately — leaving the training and checking system means you need a current Part 61 IPC. Your operator check doesn't transfer.",
+            "Q: How would you plan IPC renewals to minimise disruption to your flying? A: Complete within the 3-month early window to maximise validity while maintaining uninterrupted privileges."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're a freelance charter pilot. Your IPC expires 30 November. A busy season means you can only book an IPC for either 20 August or 5 December.",
+            "August is 3+ months before expiry. December is 5 days after expiry.",
+            "Decision point: Which date gives you better validity? Answer: December — you'd be invalid for 5 days, but your new IPC would run to December next year. August would only run to November next year (3 months lost). However, you cannot legally fly IFR during those 5 days."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ADM-004",
+      "title": "Privileges and Limitations of an Instrument Rating",
+      "categoryId": "adm-part61",
+      "level": "core",
+      "estReadingMinutes": 3,
+      "tags": ["instrument rating", "privileges", "limitations", "circling", "single pilot"],
+      "summary": "Defines what the holder of an instrument rating is authorised to do, and the conditions and limitations that apply.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 61.855 — The holder of an instrument rating is authorised to pilot an aircraft: (a) under the IFR; or (b) at night under the VFR.",
+            "CASR 61.860 — Conduct an instrument approach only if the aircraft is equipped for that kind of operation.",
+            "CASR 61.860 — Pilot an aircraft in a single-pilot operation under the IFR only if, at some time in the past, the holder has passed an instrument rating flight test in a single-pilot aircraft or has completed an IPC in a single-pilot aircraft.",
+            "CASR 61.860 — Conduct a circling approach under the IFR only if: (a) the instrument rating flight test within the previous 12 months included a circling approach; or (b) the most recent IPC (or operator's proficiency check covering IFR operations, conducted by a flight examiner holding an IFR flight test endorsement) included a circling approach; or (c) the holder is successfully participating in an operator's training and checking system for an operation that includes circling approaches.",
+            "CASR 61.860 — Conduct an instrument approach only if the holder has completed training in the conduct of that approach and has demonstrated competence to CASA or an examiner."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "12 months — recency of instrument rating flight test for circling approach privilege"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 61.855",
+            "CASR 61.860",
+            "CASR 61.880",
+            "Subpart 61.E"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The circling recency requirement catches many pilots — you need circling in your IPC or flight test within 12 months, not just 'any IPC'.",
+            "Single-pilot IFR has its own gate: you must have passed an IPC in a single-pilot aircraft at some point, or completed your IR flight test in one."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming an IPC automatically covers circling — it doesn't unless specifically included.",
+            "Confusing 12-month circling recency with 12-month IPC validity — circling requires the approach type in the check, not just a current IPC.",
+            "Flying single-pilot IFR without ever having demonstrated single-pilot competency in an IPC or IR flight test.",
+            "Conducting an approach type without training and competency demonstration — RNP approaches require specific endorsement."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Can you conduct a circling approach with a current IPC if circling wasn't included? A: Only if your IR flight test within the previous 12 months included circling, or you're in an operator's system covering circling.",
+            "Q: You've only ever flown multi-crew IFR. Can you fly single-pilot IFR charter? A: Not until you've completed an IPC in a single-pilot aircraft or passed an IR flight test in one.",
+            "Q: What's required before conducting an RNP approach? A: Training in that approach type and demonstrated competence to CASA or an examiner, plus appropriate aircraft and crew certification.",
+            "Q: Your IPC was in a Baron (multi-pilot capable but flown single-pilot). Does this qualify you for single-pilot IFR? A: Yes, if the IPC was conducted as a single-pilot operation."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You're transitioning from airline flying to single-pilot charter. Your airline IPCs were all multi-crew. What must you do before your first single-pilot IFR flight? A: Complete an IPC in a single-pilot aircraft. Your multi-crew experience doesn't satisfy the single-pilot requirement.",
+            "Q: A training captain asks why circling needs to be specifically included in IPCs. How would you explain the regulatory basis? A: CASR 61.860 requires circling recency within 12 months through flight test, IPC, or operator check — it's a separate privilege gate, not automatic with instrument currency."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You completed your IPC three months ago in a simulator. The check included ILS, VOR, and RNAV approaches but not circling.",
+            "Today you're planning a charter to an aerodrome where only a circling approach is available.",
+            "Decision point: Are you legal for the circling approach? Answer: Only if your IR flight test within the previous 12 months included circling, or you're in an operator's system that covers circling. Your recent IPC without circling doesn't qualify."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ADM-005",
+      "title": "Recent Experience Requirements",
+      "categoryId": "adm-part61",
+      "level": "core",
+      "estReadingMinutes": 3,
+      "tags": ["recent experience", "currency", "90 days", "single pilot", "IFR"],
+      "summary": "Sets out the recent experience requirements for exercising IFR privileges, including category-specific, approach-type-specific, and single-pilot requirements.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 61.870 — To fly under the IFR: must have conducted at least 3 instrument approach operations within the previous 90 days (in an aircraft or approved FSTD).",
+            "CASR 61.870 — To pilot an aircraft of a particular category: must have conducted at least 1 instrument approach in an aircraft of the same category within the previous 90 days.",
+            "CASR 61.870 — For a 2D approach: must have conducted at least 1 two-dimensional instrument approach within the previous 90 days.",
+            "CASR 61.870 — For a 3D approach: must have conducted at least 1 three-dimensional instrument approach within the previous 90 days.",
+            "CASR 61.870 — For azimuth guidance: must have conducted at least 1 two-dimensional instrument approach using azimuth guidance within the previous 90 days.",
+            "CASR 61.870 — For CDI use: must have conducted at least 1 instrument approach using a course deviation indicator within the previous 90 days.",
+            "CASR 61.870 — All the above requirements are met if the holder: (a) has successfully completed an operator proficiency check covering IFR operations within the previous 3 months; or (b) is successfully participating in an operator's training and checking system for an IFR operation.",
+            "CASR 61.875 — Single-pilot IFR: authorised to pilot an aircraft under the IFR in a single-pilot operation only if the holder has conducted a flight or simulated flight under the IFR in a single-pilot operation within the previous 6 months, with a duration of at least 1 hour, including at least 1 instrument approach or simulated instrument approach."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "3 approaches — minimum within previous 90 days to exercise IFR privileges",
+            "90 days — general IFR recent experience window",
+            "3 months — operator proficiency check window that satisfies all recent experience requirements",
+            "6 months — single-pilot IFR recent experience window",
+            "1 hour — minimum duration of qualifying single-pilot IFR flight"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 61.870",
+            "CASR 61.875"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The 90-day/3-approach rule is the baseline, but type-specific recency (2D, 3D, azimuth, CDI) catches pilots who've only been flying one approach type.",
+            "Single-pilot IFR has its own 6-month recency — separate from the 90-day general IFR currency. You can be 90-day current but 6-month expired for single-pilot."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Flying an ILS (3D) when your last 90 days only included VOR approaches (2D) — you need at least one 3D approach in currency.",
+            "Assuming FSTD approaches count for category recency — they count for approach type but not for the 'one in actual aircraft of same category' requirement.",
+            "Letting single-pilot IFR recency lapse while maintaining general IFR currency — you can't fly single-pilot after 6 months without a qualifying flight.",
+            "Forgetting that the 1-hour minimum for single-pilot recency must include at least one approach.",
+            "Not recognising that CDI and azimuth guidance are separate recency requirements."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You flew three NDB approaches in the last 90 days. Are you current for an RNP LNAV approach? A: Yes for general IFR and 2D approaches. But check if RNP requires CDI — if so, you need CDI recency from a CDI-based approach.",
+            "Q: Your last single-pilot IFR flight was 7 months ago. Can you fly IFR today in a single-pilot operation? A: No — you need a single-pilot IFR flight within 6 months, at least 1 hour duration with at least one approach.",
+            "Q: You completed an operator proficiency check 2 months ago. Does this satisfy all recency requirements? A: Yes — an operator proficiency check within 3 months satisfies all 61.870 requirements.",
+            "Q: What's the minimum to regain single-pilot IFR currency? A: A flight or simulated flight under IFR in single-pilot operation, at least 1 hour, including at least one instrument approach.",
+            "Q: Can simulator time count toward the 90-day approaches? A: Yes, approaches in an approved FSTD count toward the 3-approach and approach-type requirements."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You're transitioning to a single-pilot charter role after 2 years of multi-crew airline flying. What recency issues should you address? A: Single-pilot IFR recency (6-month rule) — your airline flying doesn't count. You need a qualifying single-pilot IFR flight before your first charter.",
+            "Q: How would you track recency for a pilot flying both multi-crew and single-pilot operations? A: Track separately: 90-day approaches (general), approach types (2D/3D/azimuth/CDI), category-specific, and single-pilot 6-month currency. Operator checks reset most, but single-pilot needs specific tracking."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're a Part 141 instructor who does occasional single-pilot charter. Your last charter was 5 months ago (single-pilot IFR, multiple approaches).",
+            "Your recent flying has been instructional in the right seat (student flying, you monitoring). You've logged plenty of instrument approaches in the last 90 days.",
+            "Decision point: Are you current for a single-pilot IFR charter tomorrow? Answer: Check if your instruction time counts as 'single-pilot operation'. If the student was PIC-under-supervision and you were monitoring, you may not have been operating single-pilot. You may need a qualifying single-pilot flight before the charter."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "ADM-006",
+      "title": "Aircraft Equipment — IFR",
+      "categoryId": "adm-part61",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["equipment", "IFR", "instruments", "altitude alerting", "lighting"],
+      "summary": "Minimum equipment requirements for IFR aeroplane operations under Part 91 MOS, including instruments, altitude alerting, inoperative equipment, lighting, and navigation lights.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 26.08 — IFR aeroplane must be equipped with: Approved GNSS; AI with primary and alternate power supply (unless independent of T+S or a second AI is required); ASI with pitot heat on at least one; ALT with alternate static source or balanced pair of flush static ports; VSI with alternate static source or balanced pair of flush static ports; T+S (slip only if second AI available; primary and alternate power supply unless independent or second AI available); DG with primary and alternate power supply (unless independent of T+S or second AI available); Compass; OAT; Clock (may be worn). All gyroscopic instruments must include equipment to show adequate power supply.",
+            "Part 91 MOS 26.25(1) — Altitude alerting system required for: piston-engine aircraft operating in controlled airspace above FL 150; unpressurised turbine-engine aircraft operating in controlled airspace above FL 150; pressurised turbine-engine aircraft operating in any controlled airspace.",
+            "Part 91 MOS 26.25(2) — Altitude alerting equipment must: include an assigned altitude indicator; alert flight crew if the aircraft approaches a preselected altitude; alert flight crew including by aural warning if the aircraft deviates from a preselected altitude.",
+            "Part 91 MOS 26.25(3) — Any aircraft (other than those in 26.25(1)) operating IFR in controlled airspace must at minimum be fitted with altitude alerting equipment that includes an assigned altitude indicator.",
+            "Part 91 MOS 26.04 — All required equipment must be operative unless: (a) another section of this Chapter provides otherwise (refer Part 91 MOS 28); or (b) the equipment is inoperative due to a defect approved as a permissible unserviceability, and is fitted or carried in accordance with that permissible unserviceability.",
+            "Part 91 MOS 26.21 — Cockpit lighting must: illuminate equipment, checklists and documents; be compatible with each item of equipment; allow reading of placards and instrument markings with eyes shielded from direct and reflected light; be of variable intensity. Cabin lighting required for seatbelt, oxygen, normal and emergency exits. Independent portable light required for each flight crew member.",
+            "Part 91 MOS 26.22 — Anti-collision lights: 1 red beacon, or 2 white strobes, or a combination of these.",
+            "Part 91 MOS 26.23 — When operating by night: at least 1 landing light required.",
+            "Part 91 MOS 26.24 — When operating by night: navigation lights must be fitted."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "FL 150 — altitude above which piston and unpressurised turbine aircraft require altitude alerting in controlled airspace",
+            "1 red beacon OR 2 white strobes — anti-collision light minimum requirement"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 91 MOS 26.04",
+            "Part 91 MOS 26.08",
+            "Part 91 MOS 26.21",
+            "Part 91 MOS 26.22",
+            "Part 91 MOS 26.23",
+            "Part 91 MOS 26.24",
+            "Part 91 MOS 26.25"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Equipment requirements drive MEL decisions — understanding what's actually required versus 'nice to have' determines whether you can legally dispatch.",
+            "Altitude alerting requirements differ by aircraft type and airspace — pressurised turbines need it everywhere in CTA, others only above FL150."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming all IFR aircraft need full altitude alerting — basic assigned altitude indicator is sufficient for most aircraft below FL150.",
+            "Forgetting the second AI can replace slip indicator, DG independence, and alternate power requirements — but only if it's actually fitted.",
+            "Dispatching at night without verifying landing light and navigation light serviceability.",
+            "Not recognising 'operative unless permissible unserviceability' — MEL items must be formally approved, not just 'we'll manage without it'.",
+            "Confusing anti-collision light options: 1 red beacon OR 2 white strobes, not 'one of each'."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Your aircraft has one AI with primary power only. Is this legal for IFR? A: Only if it's independent of T+S, or a second AI is fitted. Otherwise, alternate power supply is required.",
+            "Q: What altitude alerting is required for a piston aircraft at FL100 in Class C? A: Assigned altitude indicator only — full alerting with aural warning is only required for piston above FL150.",
+            "Q: Can you dispatch IFR at night with inoperative navigation lights? A: No — navigation lights are required for night operations under 26.24.",
+            "Q: The slip indicator (ball) is inoperative. Can you fly IFR? A: Only if a second AI is available — slip indicator can be dispensed with when second AI is fitted.",
+            "Q: What's the anti-collision light requirement? A: One red beacon, OR two white strobes, OR a combination."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your MEL shows 'Altitude Alerter INOP — VFR only'. The dispatch planner wants to know why. Explain the regulatory basis. A: Part 91 MOS 26.25 requires altitude alerting with aural warning for pressurised turbines in all CTA, and for all aircraft in CTA above FL150. Without it, IFR dispatch into controlled airspace is not permitted.",
+            "Q: How would you assess an MEL item that says 'One AI may be inoperative'? What conditions must be met? A: Verify the remaining AI has primary and alternate power (or is independent of T+S), and that slip indication remains available. The second AI provision in 26.08 may allow dispatch, but all dependent requirements must still be satisfied."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're conducting pre-flight on a piston single for an IFR charter. The maintenance release shows 'Altitude alerter U/S — MEL reference pending'.",
+            "Your route is in Class G to FL120, then Class E to FL150, landing at a controlled aerodrome (Class D).",
+            "Decision point: Can you legally dispatch? Answer: Check 26.25 — piston aircraft below FL150 only need assigned altitude indicator, not full alerting. If the basic altitude indicator still shows assigned altitude, you may be legal. However, the MEL reference must be resolved before dispatch. You cannot self-MEL."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "IFR-000",
+      "title": "Regulatory Hierarchy – Who Actually Tells You What To Do",
+      "categoryId": "regulatory-backbone",
+      "level": "core",
+      "estReadingMinutes": 5,
+      "tags": ["casr", "mos", "aip", "ops-manual", "afm"],
+      "summary": "How the Civil Aviation Act, CASR, Manuals of Standards, AIP, Operations Manuals and AFM fit together and which one wins when there is a conflict.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Civil Aviation Act – enables CASA to make regulations.",
+            "CASR (Civil Aviation Safety Regulations) – legally binding regulations (e.g. Parts 61, 91, 121, 135, 139).",
+            "MOS (Manuals of Standards) – detailed technical rules made under specific CASR Parts (e.g. Part 91 MOS, Part 61 MOS, Part 139 MOS).",
+            "AIP (Aeronautical Information Publication) and associated documents – procedures, aeronautical information and operational detail.",
+            "Operator's Operations Manual and SOPs – company-level procedures; must comply with CASR and MOS.",
+            "Aircraft Flight Manual (AFM) / POH and limitations – legally binding limitations specific to the aircraft type and configuration.",
+            "When two sources appear to disagree, the one higher in the hierarchy wins. Company SOPs or personal habits never override legislation, MOS or AFM limitations."
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "MOS is not 'advisory' – it is given legal force by CASR.",
+            "AIP procedures are not optional unless clearly stated.",
+            "AFM limitations are hard limits – not suggestions.",
+            "Company SOPs implement, but cannot weaken, regulatory minima."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: In one sentence, explain what the Part 61 MOS does. A: The Part 61 MOS sets out the detailed standards and requirements for flight crew licences, ratings, endorsements and competency, giving practical effect to the high-level rules in Part 61 of CASR.",
+            "Q: A company SOP seems to allow a lower take-off visibility than the MOS take-off minima. Which one do you follow? A: You follow the higher standard in law. MOS and CASR requirements override SOPs; a company procedure cannot legally authorise operations below regulatory minima.",
+            "Q: Is an AFM limitation a suggestion or a legal limit? Why? A: It is a legal limit. The aircraft's certification and continued airworthiness assume compliance with AFM limitations, and operating outside them can breach both airworthiness and operational regulations.",
+            "Q: Where do IFR approach minima actually come from? A: Approach minima are derived and published through instrument procedure design criteria and are then given operational effect by regulations and MOS that require pilots and operators to comply with those published minima."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "CASR", "part": "61", "note": "Licensing and ratings."},
+        {"source": "CASR", "part": "91", "note": "General operating and flight rules."},
+        {"source": "Part 61 MOS", "note": "Licensing standards and competency units."},
+        {"source": "Part 91 MOS", "note": "IFR technical detail, minima and equipment requirements."}
+      ]
+    },
+    {
+      "id": "IFR-001",
+      "title": "GNSS, RAIM and Integrity – IFR Use",
+      "categoryId": "regulatory-backbone",
+      "level": "core",
+      "estReadingMinutes": 10,
+      "tags": ["gnss", "raim", "navigation", "ifrlaw", "approach"],
+      "summary": "What makes GNSS a legal IFR nav source, what RAIM actually means, when you must advise ATC, and how to handle GNSS failures in enroute and approach phases.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "The GNSS unit must be an approved installation and appropriately certified for IFR operations in that aircraft type.",
+            "The aircraft documentation (AFM or STC) must explicitly authorise the use of that GNSS installation for IFR navigation and, where applicable, approaches.",
+            "The navigation database must be current and valid for the route and procedures being flown.",
+            "RAIM or an equivalent integrity monitoring function must be available for the phase of flight where GNSS is the primary navigation source.",
+            "In controlled airspace, if RAIM is or is expected to be unavailable for more than about 5 minutes while using GNSS for navigation, you must advise ATC and state your remaining navigation capability."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "5 minutes — threshold for advising ATC of RAIM loss in controlled airspace"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "RAIM is not just 'GPS on or off'; it checks whether enough satellites are available with the right geometry to detect a bad signal.",
+            "If RAIM is lost or in alarm, the system can no longer guarantee the integrity of the position solution, even if it still shows you a position.",
+            "For approach operations, specific RAIM performance and continuity levels are required.",
+            "No RAIM, no trust: if RAIM is not available, you cannot treat GNSS as a reliable primary nav source."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Continuing an RNAV approach after RAIM loss at the FAF — must discontinue unless alternate approved guidance exists.",
+            "Pre-flight RAIM prediction shows outage during approach window — cannot treat GNSS approach as only option.",
+            "Expired database and IFR don't mix — airlines will not accept 'I think it's still close enough'."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You are in controlled airspace, navigating on GNSS. RAIM is lost and persists. What action? A: Confirm indication is genuine, revert to backup nav, advise ATC if persisting beyond a few minutes, state remaining capability, review route and approach options.",
+            "Q: Before departure, RAIM prediction shows RAIM unavailable at destination ETA. Your only planned procedure is RNAV (GNSS). Is that acceptable? A: No. Plan a different approach type, adjust timing, or plan an alternate that meets requirements.",
+            "Q: RAIM is lost just after passing the FAF on a GNSS approach. What do you do? A: Discontinue the approach — navigation integrity for the final segment is no longer assured. Go around unless you have another approved guidance method.",
+            "Q: Why is RAIM loss a big deal if GPS still shows a position? A: Without RAIM you have no way of knowing the position solution is free from undetected errors. IFR procedures assume a certain integrity level that RAIM provides."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "CASR", "part": "91", "note": "IFR flight and navigation equipment requirements."},
+        {"source": "Part 91 MOS", "chapter": "IFR Navigation and GNSS", "note": "Detailed GNSS approval, substitution and integrity requirements."},
+        {"source": "AIP ENR", "section": "GNSS and RNAV procedures", "note": "Operational procedures and restrictions for GNSS approaches."}
+      ]
+    },
+    {
+      "id": "IFR-002",
+      "title": "IFR Minimum Heights, LSALT and MSA",
+      "categoryId": "regulatory-backbone",
+      "level": "core",
+      "estReadingMinutes": 9,
+      "tags": ["lsalt", "msa", "terrain", "enroute", "ifrlaw"],
+      "summary": "How IFR minimum heights are defined, when you can go below them, and why LSALT is a legally serious terrain-protection barrier.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "IFR minimum height for a leg: published LSALT for the route, OR published MSA for the sector, OR your correctly calculated LSALT.",
+            "The regulatory minimum is effectively the highest of the values that genuinely apply to your route and sector.",
+            "Descend below LSALT/MSA only when: taking off or landing per a valid procedure; flying a published instrument approach; complying with ATC clearance that provides terrain protection; in day VMC with clear terrain avoidance."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "1000 ft — typical LSALT clearance above terrain/obstacles",
+            "2000 ft — LSALT clearance in mountainous terrain",
+            "25 NM — typical MSA coverage radius from a point"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Treat LSALT/MSA as a hard floor in IMC, not a flexible guideline.",
+            "Know exactly when you enter and leave segments of an instrument procedure that authorise lower altitudes.",
+            "Be conservative: if in doubt about whether an LSALT applies, assume it does until sure otherwise.",
+            "Never descend simply because 'ATC said' unless you know their clearance provides terrain clearance."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Accepting ATC offer of a lower level without verifying terrain safety.",
+            "Using MSA as if it were LSALT — MSA is for emergency use in the approach environment, not enroute.",
+            "Cherry-picking the lowest convenient altitude figure when a higher one applies to your actual track."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You are at LSALT in IMC. ATC offers a lower level for traffic. Are you automatically safe and legal to accept? A: No. ATC clearances do not override your responsibility for terrain clearance unless they're operating in a context with explicit obstacle clearance responsibility. If unsure the lower level is terrain-safe, decline.",
+            "Q: Your calculated LSALT is 6,000 ft. The published MSA is 4,500 ft but doesn't consider a ridge near your track. Which minimum? A: 6,000 ft — use the figure that properly considers terrain relevant to your actual track.",
+            "Q: Explain LSALT vs MSA in simple terms. A: MSA is a broad-brush minimum for a sector around a point. LSALT is calculated specifically for a route. LSALT is more tailored; MSA is more generic."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "CASR", "part": "91", "note": "Rules on IFR minimum heights and exceptions."},
+        {"source": "Part 91 MOS", "chapter": "IFR Minimum Heights", "note": "Requirements for LSALT, MSA and exceptions."},
+        {"source": "AIP ENR", "section": "Altimetry and LSALT", "note": "Procedures for deriving and applying minimum altitudes."}
+      ]
+    },
+    {
+      "id": "IFR-003",
+      "title": "Approach Ban and IFR Minima",
+      "categoryId": "regulatory-backbone",
+      "level": "core",
+      "estReadingMinutes": 9,
+      "tags": ["approach-ban", "minima", "decision-altitude", "mda", "airline"],
+      "summary": "When you are not allowed to start or continue an approach, how decision altitude and MDA really work, and how airline-style thinking treats minima.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Start decision: Are reported conditions and equipment status good enough to begin the approach?",
+            "Continue decision: If things deteriorate after you start, at what point are you prohibited from continuing (e.g., approaching the FAF)?",
+            "If reported visibility or RVR is below the required value, you may be prohibited from commencing the approach.",
+            "If visibility drops below required after commencing but before a defined gate, you may be prohibited from continuing.",
+            "At DA/MDA you must have required visual references in a stable configuration — a brief glimpse is not enough."
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Required visual reference means positively identifying runway environment elements that allow you to judge position and flight path.",
+            "Airline SOPs add stabilised approach criteria on top of minima: at DA/MDA you must be stable, configured, on profile, with required visual cues, or go around.",
+            "Do not commence if reported conditions are clearly below published minima.",
+            "'I might see it in another second' is not acceptable thinking."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Starting an approach when conditions are below required minima, hoping they'll improve.",
+            "Continuing past the gate when RVR has dropped below required minimums.",
+            "Treating a faint glow through cloud as adequate visual reference."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You are cleared for an ILS. At localiser intercept, RVR is above required. Just before the FAF, RVR drops below required minimum. What action? A: If approach ban rules prohibit continuing once RVR drops below minimum before the gate, discontinue and go around or hold until conditions improve.",
+            "Q: You are at DA on a GNSS approach. You can see a faint glow of runway lights through patchy cloud but no clear stable view. Continue? A: No. You must have enough visual reference to identify runway environment and fly a stable landing path. Go around.",
+            "Q: Explain the approach ban concept in one sentence. A: The approach ban stops you starting or continuing an approach when reported conditions or aircraft status fall below minima designed to keep the operation safe."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "CASR", "part": "91", "note": "Provisions enabling approach ban rules and IFR minima."},
+        {"source": "Part 91 MOS", "chapter": "Take-off and Landing Minima", "note": "Detailed minima and approach ban conditions."}
+      ]
+    },
+    {
+      "id": "IFR-004",
+      "title": "Fuel Requirements and Alternates – IFR Decision Logic",
+      "categoryId": "regulatory-backbone",
+      "level": "core",
+      "estReadingMinutes": 10,
+      "tags": ["fuel", "alternate", "ifrlaw", "planning"],
+      "summary": "How IFR fuel is structured (trip, contingency, alternate, final reserve, holding) and how to think through alternate requirements like an airline pilot.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Taxi fuel: expected fuel used before take-off.",
+            "Trip fuel: from take-off to landing at destination under planned conditions.",
+            "Contingency fuel: to cover small variations such as wind error or minor reroutes.",
+            "Alternate fuel: to go from destination to alternate if one is required.",
+            "Final reserve fuel: typically a set time of holding at a specified altitude (e.g., 30 minutes at 1,500 ft).",
+            "Additional fuel: any extra needed for specific threats (holding, delays, engine-out profiles).",
+            "An alternate is required when: forecast weather at destination is below or marginally near landing minima; unserviceabilities raise minima above forecast; aerodrome doesn't meet requirements for your operation; alternate planning rules are triggered."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "30 or 45 minutes — typical final reserve holding time",
+            "1,500 ft — holding altitude for final reserve calculation"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Treat alternates as planned risk control, not admission of defeat. Plan them calmly on the ground.",
+            "Isolated aerodrome: when no practical alternate exists, enhanced fuel requirements apply (e.g., extended holding capability).",
+            "Monitor fuel against plan continuously — don't discover problems near destination.",
+            "If you predict arrival below planned landing fuel, act early while options are good."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You plan an IFR trip with forecast weather just above minima, with tempo below minima during ETA window. How does this affect planning? A: Tempo below minima usually triggers an alternate requirement. You need trip, contingency, alternate fuel, and final reserve.",
+            "Q: There is no suitable alternate within range. How do you handle this from a fuel-planning perspective? A: Apply isolated aerodrome fuel rules — typically enough fuel to hold for an extended period (e.g., two hours) before landing with final reserve.",
+            "Q: Enroute you realise stronger headwinds will cause arrival with less than planned fuel but still above final reserve. What's your decision-making? A: Recompute predicted fuel. If continuing leaves uncomfortable margin but diverting early gives healthier margin, choose the alternate sooner. Communicate with ATC, update plan, treat final reserve as hard limit."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "Part 91 MOS", "chapter": "Fuel Requirements", "note": "Detailed IFR fuel planning requirements."},
+        {"source": "AIP ENR", "section": "Alternate Aerodrome Requirements", "note": "Rules that trigger alternate requirements."}
+      ]
+    },
+    {
+      "id": "IFR-005",
+      "title": "IFR in Class G vs Controlled Airspace – Responsibilities and Reporting",
+      "categoryId": "regulatory-backbone",
+      "level": "advanced",
+      "estReadingMinutes": 8,
+      "tags": ["class-g", "controlled-airspace", "ifr", "radio", "responsibility"],
+      "summary": "What changes when you are IFR in Class G vs controlled airspace: separation, terrain responsibility, reporting.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "In controlled airspace: ATC provides separation between IFR flights and, where specified, between IFR and VFR. You receive clearances and are expected to follow them unless you cannot safely comply. Terrain clearance may be provided by ATC when radar vectors and specific procedures are in use.",
+            "In Class G airspace: ATC separation services may not be available. You are responsible for traffic avoidance and terrain clearance within IFR constraints. Standard position reports become critical tools."
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "IFR in Class G can feel 'quiet' but assume there are other aircraft and act accordingly.",
+            "In controlled airspace, ATC owns much of the separation problem. In Class G, you carry much more responsibility yourself.",
+            "Your reporting obligations differ by environment — position reports in non-radar Class G are essential."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You are IFR in Class G, non-radar, tracking between two regional aerodromes. What reports and radio discipline are expected? A: Make required position reports at specified points, broadcast intentions clearly, maintain listening watch, use standard phraseology so ATC and other aircraft can build accurate picture.",
+            "Q: Summarise the difference between IFR in Class G and IFR in controlled airspace. A: In controlled airspace, ATC provides separation and clearances within published rules. In Class G, even under IFR, you carry much more responsibility for traffic avoidance and terrain awareness yourself."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "CASR", "part": "91", "note": "IFR operating rules and responsibilities."},
+        {"source": "AIP ENR", "section": "IFR in Class G", "note": "Procedures and reporting requirements for IFR operations in Class G airspace."}
+      ]
+    },
+    {
+      "id": "IFR-006",
+      "title": "IFR Recency and IPC – Staying Legally Sharp",
+      "categoryId": "regulatory-backbone",
+      "level": "core",
+      "estReadingMinutes": 7,
+      "tags": ["recency", "instrument-rating", "ipc", "atpl"],
+      "summary": "How IFR recency, instrument ratings and IPCs fit together under Part 61 and its MOS.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Your instrument rating gives you the right to fly under IFR and in IMC in the aircraft categories, classes and types for which you are rated.",
+            "Those privileges are subject to recency requirements: you must have completed certain instrument flight or simulated instrument tasks in a defined period to remain current.",
+            "If recency lapses, an IPC or other approved means is required to restore full IFR privileges.",
+            "An IPC is a formal check conducted by an approved examiner to confirm you meet instrument competency standards.",
+            "A successful IPC can reset certain recency requirements and restore your ability to exercise IFR privileges."
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "An IPC typically samples enroute IFR, holding, non-precision and precision or GNSS approaches, missed approach procedures, plus abnormal scenarios.",
+            "See the IPC as a structured opportunity to confirm you're at the standard the system expects, not just a hurdle to clear."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: How do you stay IFR current and what happens if recency lapses? A: Track instrument flight and approach experience against recency requirements. If recency lapses, complete necessary recency actions in simulator or aircraft, or undergo IPC with examiner to restore privileges.",
+            "Q: Describe the purpose of the IPC in a mature way. A: The IPC validates both procedural knowledge and ability to handle abnormal scenarios. It's a chance to get professional feedback on scan, workload management and decision-making under IFR."
+          ]
+        }
+      ],
+      "refs": [
+        {"source": "CASR", "part": "61", "note": "Instrument rating privileges, recency and IPC provisions."},
+        {"source": "Part 61 MOS", "chapter": "Instrument Rating and IPC Standards", "note": "Detailed standards for instrument rating and IPC content."}
+      ]
+    }
+  ]
+}

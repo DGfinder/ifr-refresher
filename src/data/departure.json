@@ -1,0 +1,265 @@
+{
+  "version": "1.0",
+  "sectionId": "departure",
+  "sectionTitle": "Departure",
+  "sectionDescription": "Pre-departure altimeter checks and take-off minima requirements.",
+  "categories": [
+    {
+      "id": "departure",
+      "title": "Departure",
+      "description": "Altimeter accuracy checks and take-off minima for IFR operations.",
+      "moduleIds": ["DEP-001", "DEP-002", "DEP-003"]
+    }
+  ],
+  "modules": [
+    {
+      "id": "DEP-001",
+      "title": "Altimeter Checks",
+      "categoryId": "departure",
+      "level": "core",
+      "estReadingMinutes": 3,
+      "tags": ["altimeter", "QNH", "serviceability", "IFR", "pre-flight"],
+      "summary": "Requirements for pre-flight altimeter accuracy checks, serviceability tolerances for IFR and VFR altimeters, and approved QNH sources.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.7 Para 1.1 — Whenever an accurate QNH is available and the aircraft is at a known elevation, pilots must conduct an accuracy check of the aircraft altimeter(s) at some point prior to take-off. Where the first check indicates an altimeter is unserviceable, a further check may be conducted at another location on the same airfield.",
+            "AIP ENR 1.7 Para 1.2 — IFR altimeters: with accurate QNH set, the altimeter(s) should read the nominated elevation to within 60FT. If an altimeter has an error in excess of ±75FT, it must be considered unserviceable.",
+            "When two altimeters are required and one reads within 60FT and the other between 60FT and 75FT: flight under IFR to the first point of landing (where re-check is possible) is approved. If the error exceeds 60FT on re-check, the altimeter must be considered unserviceable.",
+            "When two altimeters are fitted but only one required: may continue IFR provided one reads within 60FT. If the remaining altimeter has an error exceeding 75FT, it must be placarded unserviceable and the maintenance release endorsed.",
+            "When only one altimeter fitted and it reads between 60FT and 75FT error: flight to first point of landing for re-check is approved. If error exceeds 60FT on re-check, the altimeter is to be considered unserviceable for IFR.",
+            "AIP ENR 1.7 Para 1.3 — VFR altimeters: should read site elevation to within 100FT (110FT at test sites above 3,300FT). If continuing with two altimeters and one has 100FT or more error, the faulty altimeter must be placarded unserviceable and the error noted in the maintenance release.",
+            "AIP ENR 1.7 Para 1.4 — A QNH can be considered accurate only if provided by AAIS, ATC, ATIS, AWIS, CA/GRS, or WATIR. QNH from an authorised weather forecast must not be used for checking altimeter accuracy. Site elevation must be derived from aerodrome survey data authorised by CASA or an NAA, or supplied in writing by the aerodrome operator."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "60FT — IFR altimeter accuracy standard (within 60FT = serviceable)",
+            "75FT — IFR altimeter unserviceability threshold (error exceeding ±75FT = unserviceable)",
+            "100FT — VFR altimeter accuracy standard",
+            "110FT — VFR altimeter accuracy standard at test sites above 3,300FT",
+            "3,300FT — elevation threshold for VFR altimeter tolerance change"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP ENR 1.7 Para 1.1",
+            "AIP ENR 1.7 Para 1.2",
+            "AIP ENR 1.7 Para 1.3",
+            "AIP ENR 1.7 Para 1.4",
+            "JEPP ATC — General Flight Procedures 1.1, 1.1.2, 1.1.3, 1.1.4"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The 60FT vs 75FT distinction matters: 60FT is serviceable, above 75FT is unserviceable. Between 60-75FT creates a conditional dispatch situation.",
+            "METAR QNH is NOT an approved source — this catches pilots who assume any official QNH is valid for the check."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Using METAR QNH for the altimeter check — it's an observation, not an approved source. Use ATIS, AWIS, ATC, or accredited observer.",
+            "Confusing the 60FT standard with the 75FT unserviceability limit — the grey zone between requires specific procedures.",
+            "Not rechecking at another location when the first check fails — you get one recheck at a different point on the field.",
+            "VFR tolerance (100FT) is more relaxed but pilots sometimes apply it to IFR flights.",
+            "Accepting forecast QNH for accuracy check — forecast QNH is for setting altimeters, not checking accuracy."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Your altimeter reads 85FT high with accurate QNH. What's its status? A: Unserviceable — error exceeds ±75FT.",
+            "Q: Your altimeter reads 68FT low. What's its status? A: Serviceable for flight to first point of landing for recheck. If error exceeds 60FT on recheck, it's unserviceable.",
+            "Q: You set ATIS QNH but want to verify accuracy. ATIS shows QNH 1015. Can you use this? A: Yes — ATIS (when providing actual QNH, not TAF QNH) is an approved source.",
+            "Q: The METAR shows QNH 1016. Can you use this for your pre-flight altimeter check? A: No — METAR is observation data, not an approved source for accuracy checking.",
+            "Q: You have two altimeters. One reads 55FT error, the other 70FT. Can you depart IFR? A: Yes — flight to first point of landing is approved. One reads within 60FT (serviceable), the other is in the 60-75FT grey zone."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your SOP says 'cross-check altimeters agree within 75FT'. How does this relate to the individual accuracy requirement? A: Cross-check for agreement is separate from individual accuracy against QNH. Both altimeters could agree with each other but both be 100FT in error. SOP cross-check is additional to, not replacement for, accuracy check.",
+            "Q: Both altimeters show errors between 60-75FT but in opposite directions (one high, one low). What's the procedure? A: Both are in the grey zone. You can fly to first point of landing for recheck. If either exceeds 60FT on recheck, that altimeter is unserviceable. Consider the implications of opposite errors for altitude reference."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're at Essendon for an IFR departure. ATIS shows QNH 1018. You set both altimeters to 1018.",
+            "Left altimeter shows field elevation +52FT. Right altimeter shows field elevation +73FT.",
+            "Decision point: Can you depart IFR?",
+            "Answer: Yes. Left is within 60FT (serviceable). Right is between 60-75FT (grey zone) — approved for flight to first landing for recheck. You can depart, but must recheck at destination. If right exceeds 60FT on recheck, placard unserviceable and note in maintenance release."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "DEP-002",
+      "title": "Take-off Minima",
+      "categoryId": "departure",
+      "level": "core",
+      "estReadingMinutes": 3,
+      "tags": ["take-off minima", "cloud ceiling", "visibility", "qualifying multi-engine", "engine failure"],
+      "summary": "Take-off minima for standard aeroplanes and qualifying multi-engine aeroplanes, and the requirement to consider return-to-land conditions.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 15.06 — Take-off minima for other aeroplanes (not qualifying multi-engine, not low-visibility): (a) cloud ceiling of 300FT; and (b) visibility of 2,000M.",
+            "Part 91 MOS 15.03 — A PIC must not commence take-off if, at the time of take-off: (a) the meteorological conditions are less than the take-off minima; or (b) the meteorological conditions that would exist if it were necessary to return to land due to engine failure are not: (i) at or above the landing minima for any IAP that the PIC is able to conduct at the aerodrome; or (ii) such as to allow a visual approach for the return to land.",
+            "Part 91 MOS 15.05 — Take-off minima for qualifying multi-engine aeroplanes (not low-visibility): visibility of 800M. This minima can be reduced to 550M under certain conditions.",
+            "Part 91 MOS 15.02 — A qualifying multi-engine aeroplane means an IFR multi-engine aeroplane that is: (a) operated by: (i) at least 2 pilots; or (ii) if piston or turboprop with operative autofeather, 1 pilot; or (iii) if turbojet, 1 pilot; and (b) in the event of engine failure, capable of maintaining terrain clearance until reaching the minimum height for IFR flight."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "300FT — minimum cloud ceiling for standard take-off",
+            "2,000M — minimum visibility for standard take-off",
+            "800M — minimum visibility for qualifying multi-engine aeroplane take-off",
+            "550M — minimum visibility for qualifying multi-engine under specific conditions"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 91 MOS 15.02",
+            "Part 91 MOS 15.03",
+            "Part 91 MOS 15.05",
+            "Part 91 MOS 15.06"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Take-off minima aren't just about 'can I see the runway' — the return-to-land consideration means you're also planning for engine failure on departure.",
+            "Qualifying multi-engine gets lower minima because it can maintain terrain clearance on one engine. Single-engine doesn't have that luxury."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming all multi-engine aircraft qualify for 800M minima — they must be 'qualifying multi-engine' with terrain clearance capability on one engine.",
+            "Forgetting the return-to-land provision — if you can't land back due to weather, you can't depart.",
+            "Single-pilot piston multi-engine without autofeather doesn't qualify for 800M minima — needs two pilots, or autofeather, or be a turbojet.",
+            "Not checking landing minima for return — your take-off minima are linked to your landing minima for that aerodrome."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Standard IFR take-off minima are? A: 300FT ceiling and 2000M visibility.",
+            "Q: What makes an aeroplane 'qualifying multi-engine'? A: Must be capable of maintaining terrain clearance to minimum IFR height on one engine, and operated by 2 pilots, or 1 pilot with autofeather (piston/turboprop), or 1 pilot in a turbojet.",
+            "Q: You're in a single-engine IFR aircraft. Ceiling is 200FT, visibility 3000M. Can you depart? A: No — you need 300FT ceiling minimum.",
+            "Q: You're in a qualifying multi-engine. Same weather. Can you depart? A: No — qualifying multi-engine only reduces visibility requirement to 800M. You still need to consider return-to-land conditions.",
+            "Q: Landing minima at your departure aerodrome are 500FT and 1600M. Current weather is ceiling 400FT, visibility 2500M. Can you depart? A: No — MOS 15.03 requires conditions for return-to-land if engine failure. Weather below landing minima means you can't land back."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your company operates turbine singles into regional ports. Weather shows 300FT ceiling, 2000M vis. Can you depart? A: You meet standard minima (300FT/2000M). But verify landing minima for return — if the approach requires better than current conditions, you cannot depart until weather improves or you have an engine-out plan that doesn't require return.",
+            "Q: A captain argues that with 800M visibility they can depart because 'we're multi-engine'. What additional factors must be verified? A: The aircraft must be 'qualifying multi-engine' — can it maintain terrain clearance to minimum IFR height on one engine from this specific aerodrome? Plus return-to-land conditions must exist. Just being multi-engine isn't enough."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're departing Launceston in a Beechcraft Baron (piston twin, single pilot, no autofeather). Weather is ceiling 350FT, visibility 900M.",
+            "The Baron can maintain terrain clearance on one engine from this runway.",
+            "Decision point: What are your take-off minima?",
+            "Answer: Standard minima (300FT/2000M), not qualifying multi-engine (800M). Without autofeather, a single-pilot piston multi needs standard minima. Current visibility 900M doesn't meet the 2000M requirement. You cannot depart."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "DEP-003",
+      "title": "Instrument Departures — SIDs, Diverse Departures and Obstacle Clearance",
+      "categoryId": "departure",
+      "level": "core",
+      "estReadingMinutes": 5,
+      "tags": ["SID", "diverse departure", "ODP", "climb gradient", "obstacle clearance", "departure procedure"],
+      "summary": "Understanding SIDs, diverse departures, required climb gradients and what to do when you cannot meet published requirements.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Standard Instrument Departure (SID): A published procedure with specific tracks, altitudes and often speed requirements designed to provide obstacle clearance and traffic management.",
+            "Diverse departure: Where no SID is available or required, a diverse departure allows you to depart in any direction provided you meet the specified climb gradient, typically to a safe altitude.",
+            "Obstacle Departure Procedure (ODP): A procedure designed purely for obstacle clearance, separate from traffic management considerations.",
+            "The standard diverse departure climb gradient is typically 3.3% (approximately 200 ft per nautical mile) unless otherwise published.",
+            "SIDs may require higher gradients, especially in terrain-challenged environments; these are published on the chart.",
+            "You must be able to achieve the required gradient at your actual take-off weight under the prevailing conditions."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "3.3% — standard diverse departure climb gradient",
+            "200 ft/NM — approximate equivalent of 3.3% gradient",
+            "5% — example of higher gradient sometimes required by SIDs in terrain-challenged environments"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "AIP DAP — Departure Procedures",
+            "Part 91 MOS — IFR Departure Minima"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Getting off the ground safely under IFR means understanding how departure procedures protect you from obstacles. Whether you are flying a published SID or a diverse departure, you need to know what climb performance is required.",
+            "Calculate your actual climb gradient capability during flight planning, not just in the cruise performance tables.",
+            "Consider engine-out climb gradients for multi-engine aircraft; some SIDs require all-engine gradients that may not be achievable on one engine.",
+            "In some cases, a visual climb over the aerodrome to a safe altitude may be an option if conditions permit."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Using 'book' climb performance rather than actual performance at your weight and conditions — the same aircraft that achieves 5% at sea level may struggle to achieve 3% at a hot, high-altitude aerodrome.",
+            "If you cannot meet a SID's climb gradient, you cannot use that SID unless you have an alternative means of obstacle clearance.",
+            "Not briefing the departure procedure including altitude constraints, speed requirements and the missed approach point if you need to return immediately.",
+            "Assuming diverse departure is always available — some aerodromes require a specific SID for obstacle clearance."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: A SID requires a 5% climb gradient to 3,000 ft. Your aircraft performance shows 4.5% at your planned weight. Can you use this SID? A: No. You cannot meet the required climb gradient, so you cannot use that SID for obstacle clearance. You need to reduce weight, find an alternative departure procedure, or consider other options such as a visual climb if conditions allow.",
+            "Q: What is the typical diverse departure climb gradient and what does it protect you from? A: The typical diverse departure gradient is 3.3% or about 200 ft per nautical mile. This gradient ensures you climb fast enough to clear obstacles in any direction within the departure area until you reach a safe altitude.",
+            "Q: You are departing an unfamiliar aerodrome at night in IMC. There is no published SID. How do you ensure obstacle clearance? A: Use diverse departure criteria, ensuring you can achieve the required climb gradient (typically 3.3%) until reaching the minimum safe altitude for the area. Check the departure area for any higher gradient requirements.",
+            "Q: Why does climb gradient matter more at high density altitude? A: At high density altitude, the aircraft's climb performance is degraded because the air is less dense. This directly affects whether you can safely use departure procedures that require specific climb gradients."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your FMS has the SID loaded but shows 'UNABLE CLIMB GRADIENT' during preflight. What are your options? A: Reduce weight if possible, select an alternative departure with lower gradient requirements, request a different runway with better terrain clearance, or wait for improved conditions (lower temperature, higher pressure). Do not depart using that SID until the aircraft can meet the gradient.",
+            "Q: How do you verify your aircraft can meet a published departure gradient? A: Check aircraft performance data for current weight, temperature, and pressure altitude. Compare achievable climb gradient against published requirement. Consider single-engine performance if required by SOP. Some operators require gradient verification as part of departure briefing."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're planning an IFR departure from Queenstown in a turboprop. The SID requires 6.5% climb gradient to 8,500 ft. Temperature is +25°C at field elevation 1,172 ft.",
+            "Your aircraft data shows 5.8% gradient achievable at current weight.",
+            "Decision point: Can you depart on this SID?",
+            "Answer: No. You cannot meet the 6.5% gradient requirement. Options: reduce payload/fuel, wait for cooler conditions (early morning), request visual climb procedure if available and weather permits, or consider alternate departure aerodrome."
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

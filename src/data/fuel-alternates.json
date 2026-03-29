@@ -1,0 +1,349 @@
+{
+  "version": "1.0",
+  "sectionId": "fuel-alternates",
+  "sectionTitle": "Fuel & Alternates",
+  "sectionDescription": "Fuel reserve requirements, alternate aerodrome suitability, weather triggers for nominating an alternate, and special alternate weather minima.",
+  "categories": [
+    {
+      "id": "fuel-alternates",
+      "title": "Fuel & Alternates",
+      "description": "Regulatory requirements for fuel reserves and destination alternate aerodromes.",
+      "moduleIds": ["FAL-001", "FAL-002", "FAL-003", "FAL-004"]
+    }
+  ],
+  "modules": [
+    {
+      "id": "FAL-001",
+      "title": "Fuel Requirements",
+      "categoryId": "fuel-alternates",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["fuel", "reserves", "contingency", "IFR", "VFR"],
+      "summary": "Minimum fuel reserve and contingency fuel requirements by aircraft type, MTOW, and flight rules.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 91.455 / Part 91 MOS 19.02 — Fuel requirements by category: (a) MTOW ≤ 5,700 kg piston — Day VFR: 30 minutes final reserve; Night VFR: 45 minutes final reserve; IFR: 45 minutes final reserve, no contingency fuel requirement; (b) Turbojet or turboprop with MTOW > 5,700 kg — IFR or VFR: 45 minutes final reserve, 5% contingency fuel; (c) Piston with MTOW > 5,700 kg — IFR or VFR: 45 minutes final reserve, 5% contingency fuel."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "30 minutes — final reserve fuel, Day VFR, MTOW ≤ 5,700 kg",
+            "45 minutes — final reserve fuel, Night VFR or IFR, MTOW ≤ 5,700 kg",
+            "45 minutes — final reserve fuel, MTOW > 5,700 kg (all rules)",
+            "5% — contingency fuel, MTOW > 5,700 kg (turbojet, turboprop, and piston)",
+            "5,700 kg — MTOW threshold separating fuel requirement tiers"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "CASR 91.455",
+            "Part 91 MOS 19.02"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The 5,700kg threshold determines whether you need contingency fuel. Most light IFR aircraft are below it — simpler planning but no margin for headwind surprises.",
+            "Final reserve is your 'never touch' fuel. Planning to land with exactly 45 minutes means you've already failed fuel planning."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Confusing final reserve (fixed time) with contingency fuel (percentage) — they serve different purposes.",
+            "Assuming 30 minutes reserve applies to all light aircraft — that's day VFR only; night VFR and IFR are 45 minutes.",
+            "Not carrying contingency fuel in a turboprop below 5,700kg — it's required above 5,700kg MTOW, not current weight.",
+            "Planning fuel to land with minimum reserves without accounting for possible missed approach and diversion."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're flying a Piper Navajo (MTOW 3,175kg) IFR. What's your final reserve requirement? A: 45 minutes — IFR below 5,700kg requires 45 minutes final reserve, no contingency.",
+            "Q: Same aircraft on day VFR. What's the reserve? A: 30 minutes — day VFR below 5,700kg.",
+            "Q: You're flying a King Air 350 (MTOW 6,800kg). What fuel reserves apply? A: 45 minutes final reserve plus 5% contingency — turboprop above 5,700kg.",
+            "Q: What's contingency fuel for? A: Unforeseen factors affecting trip fuel: stronger headwinds, routing changes, altitude restrictions.",
+            "Q: What's final reserve fuel for? A: Emergency margin. It's not planned for use — arriving with less than final reserve is a fuel emergency."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your company OPS manual specifies 10% contingency instead of 5%. Is this legal? A: Yes — operators can exceed regulatory minimums. 10% is more conservative than the 5% minimum required by MOS.",
+            "Q: During flight planning you calculate you'll land with exactly 45 minutes reserve (no contingency, below 5,700kg). Is this acceptable? A: Technically legal, but poor airmanship. Any deviation (holding, weather diversion, headwind increase) puts you into final reserve. Plan more margin."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're planning an IFR flight in a C210 (MTOW 1,814kg) from Wagga to Melbourne. Flight time is 1.5 hours.",
+            "Your fuel calculations show trip fuel 180L, reserve 45 minutes (60L), total required 240L. Usable fuel is 250L.",
+            "Decision point: Are you legal? Answer: Yes for regulatory minimum — you have 45 minutes final reserve. But 10L margin for a 1.5hr flight leaves no contingency for weather, holds, or routing changes. Consider reducing payload for more fuel."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "FAL-002",
+      "title": "Suitability of Alternates",
+      "categoryId": "fuel-alternates",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["alternate", "suitability", "destination alternate", "IFR"],
+      "summary": "Conditions under which an aerodrome may be nominated as a destination alternate, including navigation aid and instrument approach requirements.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 8.07 — The PIC may nominate an aerodrome as a destination alternate only if the aerodrome is: (a) suitable as a planned destination aerodrome for the flight; and (b) not itself an aerodrome for which the aircraft would require a destination alternate; and (c) not a helideck.",
+            "Part 91 MOS 8.05 — A destination alternate must be planned for an IFR flight by night to a destination that is: (a) not served by an instrument approach procedure; or (b) served by one or more instrument approach procedures, none of which the pilot is able to conduct.",
+            "AIP ENR 1.1 Para 10.7.2.10 — Alternate minima: (a) for aerodromes with an IAP that the pilot is able to conduct: the alternate minima published on the chart; (b) by day only, for aerodromes without an IAP or with an IAP the pilot cannot conduct: lowest safe altitude for the final route segment plus 500FT and visibility of 8KM.",
+            "AIP ENR 1.1 Para 10.7.3.3 — If navigation is conducted using a GNSS receiver certified only to (E)TSO C-129, navigation to a destination alternate must be planned using a navigation system other than GNSS (also requires provision for a ground-based IAP if an approach in VMC is not possible).",
+            "Night VFR aircraft must provide for a suitable alternate within one hour flight time of the destination unless: (a) the destination is served by an NDB or VOR and the aircraft is fitted with and the pilot is competent in using the appropriate system; or (b) the aircraft is fitted with an approved GNSS and the pilot is competent in its use."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "500FT — addition to LSALT for day-only alternate minima (no IAP)",
+            "8KM — visibility requirement for day-only alternate (no IAP)",
+            "1 hour — maximum flight time to alternate for Night VFR (unless radio nav exception applies)"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 91 MOS 8.05",
+            "Part 91 MOS 8.07",
+            "AIP ENR 1.1 Para 10.7.1.2",
+            "AIP ENR 1.1 Para 10.7.2.10",
+            "AIP ENR 1.1 Para 10.7.3.3",
+            "JEPP ATC — Airports and Ground Aids 3.1.2"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "An alternate that itself needs an alternate isn't suitable. This creates circular planning failures at night or in marginal weather.",
+            "Day-only alternates without IAP use LSALT+500FT and 8KM visibility — but this only works by day. At night, you need an IAP you can conduct."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Nominating an alternate at night when it doesn't have an IAP you can conduct — not legal.",
+            "Forgetting that your alternate must be 'suitable as a planned destination' — all the same requirements apply.",
+            "Using a helideck as an alternate for an aeroplane — explicitly prohibited.",
+            "Planning GNSS navigation to an alternate with only (E)TSO C-129 GPS — requires ground-based nav backup.",
+            "Not checking if the alternate needs an alternate — recursive suitability test."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You're planning a night IFR flight. Can you nominate an alternate with no IAP? A: No — by night you need an IAP you're able to conduct at your alternate.",
+            "Q: What minima apply to a day alternate without IAP? A: LSALT for the final route segment plus 500FT, and 8KM visibility.",
+            "Q: Your GPS is TSO C-129 only. What restriction applies to alternate planning? A: Navigation to the alternate must be planned using a navigation system other than GNSS, plus provision for ground-based IAP if VMC approach isn't possible.",
+            "Q: The aerodrome you want to nominate as alternate itself requires an alternate due to weather. Can you use it? A: No — an alternate must not itself require a destination alternate.",
+            "Q: What's the night VFR alternate rule? A: Suitable alternate within 1 hour unless: destination has NDB/VOR and you're equipped/competent, or you have approved GNSS and are competent."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: You're planning into a regional port at night. The only practical alternate has an NDB approach but your aircraft has no ADF. What are your options? A: You cannot nominate that alternate unless you can conduct the IAP. Options: find a different alternate with an approach you can fly, or don't dispatch.",
+            "Q: Your dispatch system nominates an alternate but shows 'ALT RQD' for that aerodrome. What does this indicate? A: The nominated alternate itself requires an alternate due to weather or facilities. It's not a valid alternate — find another."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're planning a night IFR charter from Griffith to Dubbo. Weather at Dubbo requires an alternate.",
+            "The nearest suitable airports are Mudgee (NDB approach only) and Orange (RNAV approach).",
+            "Your aircraft has GPS but no ADF. Decision point: Which can you nominate?",
+            "Answer: Orange — you can conduct the RNAV approach. You cannot nominate Mudgee because you have no ADF and cannot conduct the NDB approach at night."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "FAL-003",
+      "title": "Alternates — Weather, Lighting and Navigation Triggers",
+      "categoryId": "fuel-alternates",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["alternate", "weather", "cloud", "visibility", "crosswind", "lighting", "PAL", "PROB", "thunderstorm"],
+      "summary": "Conditions that require a destination alternate to be planned, covering cloud, visibility, wind, probability forecasts, thunderstorms, and aerodrome lighting.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 8.04 / AIP ENR 1.1 Para 10.7.2 — Except when operating VFR by day within 50NM of the point of departure, the PIC must provide for a suitable alternate when arrival will be during the currency of, or up to 30 minutes prior to the forecast commencement of: (a) cloud more than SCT below the alternate minimum; (b) visibility less than the alternate minimum; (c) visibility greater than the alternate minimum but forecast endorsed with at least 30% probability of fog, mist, dust or any phenomenon restricting visibility below the alternate minimum; (d) crosswind or tailwind component more than the maximum for the aircraft. Note: wind gusts must be considered.",
+            "AIP ENR 1.1 Para 10.7.1.3 — When an aerodrome forecast is not available, the PIC must make provision for a suitable alternate that has an available forecast.",
+            "AIP ENR 1.1 Para 10.7.2 — If a TAF has been endorsed with a probability of conditions being below the alternate minima, an alternate must be planned for.",
+            "AIP ENR 1.1 Para 10.7.2.1 — The PIC must provide for a suitable alternate when arrival will be during the currency of, or up to 30 minutes prior to the forecast commencement of: a thunderstorm or associated severe turbulence, or a forecast of at least 30% probability of such an event.",
+            "AIP ENR 1.1 Para 10.7.2.5 — When thunderstorms are forecast at the destination, sufficient additional fuel must be carried to permit the aircraft to proceed to a suitable alternate or to hold for: (a) 30 minutes when the forecast is endorsed INTER; or (b) 60 minutes when the forecast is endorsed TEMPO.",
+            "Part 91 MOS 8.06 / AIP ENR 1.1 Para 10.8.1.1 — When aerodrome lighting is required and PAL is not being used, the PIC must ensure arrangements are made for lighting to be operating: (a) departure: 10 minutes before departure to at least 30 minutes after take-off; (b) arrival: from at least 30 minutes before ETA to the time landing and taxiing has been completed.",
+            "AIP ENR 1.1 Para 10.7.4 — Portable lighting: when planned to land at night at an aerodrome with portable runway lighting, provision must be made for an alternate unless a responsible person is in attendance to ensure lights are available.",
+            "If no standby power available: when planned to land at night at an aerodrome with electric runway lighting but without standby power, provision must be made for an alternate unless portable runway lights are available and a responsible person is in attendance.",
+            "PAL: when planned to land at night at an aerodrome with PAL and standby power, provision must be made for an alternate unless a responsible person is in attendance to manually switch on aerodrome lighting. An aerodrome served by PAL may be nominated as an alternate if the aircraft carries dual VHF, or single VHF and HF and 30 minutes holding fuel."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "50NM — radius within which day VFR flights are exempt from alternate requirement",
+            "30 minutes — look-ahead period before forecast commencement of deteriorating conditions",
+            "30% — probability threshold in TAF that triggers alternate requirement",
+            "30 minutes hold — thunderstorm fuel when forecast endorsed INTER",
+            "60 minutes hold — thunderstorm fuel when forecast endorsed TEMPO",
+            "10 minutes before departure — start of lighting requirement period for departures",
+            "30 minutes after take-off — end of lighting requirement period for departures",
+            "30 minutes before ETA — start of lighting requirement period for arrivals"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 91 MOS 8.04",
+            "Part 91 MOS 8.06",
+            "AIP ENR 1.1 Para 10.7.1.3",
+            "AIP ENR 1.1 Para 10.7.2",
+            "AIP ENR 1.1 Para 10.7.2.1",
+            "AIP ENR 1.1 Para 10.7.2.5",
+            "AIP ENR 1.1 Para 10.7.4",
+            "AIP ENR 1.1 Para 10.8.1.1",
+            "JEPP ATC — Airports and Ground Aids 3.2.1"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The 30-minute look-ahead rule means you check not just ETA but also 30 minutes before. Weather deteriorating 'just before' you arrive triggers alternate.",
+            "TEMPO vs INTER thunderstorm fuel differs: 60 minutes for TEMPO, 30 for INTER. Getting this backwards affects your fuel load."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Confusing TEMPO (60 min holding) with INTER (30 min holding) for thunderstorm fuel — double the fuel difference.",
+            "Missing the 30% probability threshold — anything 30% or higher triggers alternate requirement.",
+            "Not recognising 'BKN020' at your alternate minimum of 1200FT triggers the 'more than SCT' provision.",
+            "Assuming PAL aerodromes don't need alternate planning — PAL without standby power still needs backup plan.",
+            "Forgetting the 30-minute look-ahead — weather at ETA+30 minutes also counts."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: TAF shows TEMPO TS. How much holding fuel do you carry? A: 60 minutes — TEMPO thunderstorm requires 60 minutes holding fuel.",
+            "Q: TAF shows INTER TS. How much holding fuel? A: 30 minutes — INTER thunderstorm requires 30 minutes holding fuel.",
+            "Q: TAF shows PROB30 FG. Do you need an alternate? A: Yes — 30% or higher probability of visibility below alternate minima triggers alternate.",
+            "Q: You're arriving at night. The aerodrome has PAL but no standby power. Do you need an alternate? A: Yes, unless a responsible person is in attendance to manually switch on lighting, or portable lights are available with a responsible person.",
+            "Q: Cloud is forecast SCT015 at destination. Your alternate minima require 1200FT ceiling. Do you need an alternate? A: No — SCT is not 'more than SCT' so it doesn't trigger the cloud provision."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your dispatcher files without an alternate citing 'SCT020'. You check the TAF and see 'PROB40 BKN012'. Who's correct? A: You need the alternate. PROB40 is above the 30% threshold and BKN012 is more than SCT below your alternate minimum. The base TAF being SCT doesn't override the probability group.",
+            "Q: How do you factor the 30-minute look-ahead into flight planning software? A: Set arrival window to ETA ± 30 minutes and check all forecast conditions within that window. If any group (including TEMPO/INTER/PROB) shows conditions below minima, alternate required."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're planning IFR into Coffs Harbour. ETA is 1730Z. TAF reads: '1512/1524 25012KT 9999 SCT025 TEMPO 1518/1522 4000 TSRA BKN015'.",
+            "Your alternate minima require 1200FT ceiling and 5000M visibility.",
+            "Decision point: Do you need an alternate and extra fuel?",
+            "Answer: Yes. TEMPO 1518/1522 covers your arrival window (1730Z). BKN015 is more than SCT below 1200FT minima. TSRA triggers 60 minutes holding fuel. Plus you need the alternate for below-minima conditions."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "FAL-004",
+      "title": "Special Alternate Weather Minima",
+      "categoryId": "fuel-alternates",
+      "level": "core",
+      "estReadingMinutes": 2,
+      "tags": ["special alternate", "minima", "dual ILS", "VOR", "DME", "GNSS"],
+      "summary": "Special reduced alternate weather minima available at specified aerodromes for aircraft with dual ILS/VOR approach capability.",
+      "content": [
+        {
+          "type": "law",
+          "content": [
+            "Special alternate weather minima are available for specified approaches at some airports for use by aircraft with dual ILS/VOR approach capability.",
+            "Dual ILS/VOR approach capability must include: (a) duplicated LOC; and (b) duplicated GP; and (c) duplicated VOR; and (d) either: (i) duplicated DME; or (ii) duplicated GNSS; or (iii) single DME and single GNSS.",
+            "Special alternate weather minima are identified on applicable instrument approach charts by a double asterisk (**) adjacent to the ALTERNATE title and a note detailing the special minima.",
+            "Special alternate minima will not be available (minima revert to standard alternate minima) during periods when: (a) local METAR/SPECI or forecasting services are not available; or (b) an airport control service is not provided."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "** — double asterisk on chart identifies special alternate weather minima"
+          ]
+        },
+        {
+          "type": "reference",
+          "content": [
+            "Part 91 MOS 8.08",
+            "AIP ENR 1.5 Para 6.2",
+            "JEPP TERMINAL — Instrument Approach/Take-off Procedures 8.2"
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "Special alternate minima can unlock airports as alternates that wouldn't qualify under standard minima — but only if your aircraft meets the dual ILS/VOR requirement.",
+            "The double asterisk (**) on charts is your trigger to check if special minima apply to your operation."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming special alternate minima apply without verifying dual ILS/VOR capability — check your aircraft equipment.",
+            "Using special minima when METAR/SPECI services are unavailable — reverts to standard minima.",
+            "Using special minima when tower is closed — airport control service must be provided.",
+            "Missing the 'duplicated' requirement — single LOC plus single VOR doesn't qualify; you need dual of each."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What does ** next to ALTERNATE on an approach chart indicate? A: Special alternate weather minima are available for this approach.",
+            "Q: What equipment is required for special alternate minima? A: Duplicated LOC, duplicated GP, duplicated VOR, plus either duplicated DME, duplicated GNSS, or single DME plus single GNSS.",
+            "Q: Sydney ILS chart shows special alternate minima. Tower closes at 2200L. Can you use special minima for an 0200L arrival? A: No — special minima revert to standard when airport control service is not provided.",
+            "Q: What services must be available for special minima to apply? A: Local METAR/SPECI service AND airport control service.",
+            "Q: Your aircraft has dual VOR but only single ILS. Can you use special alternate minima? A: No — you need dual of LOC, GP, and VOR."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: Your MEL shows 'One ILS receiver INOP'. How does this affect alternate planning for airports with special minima? A: You cannot use special alternate minima — you need duplicated ILS (LOC and GP). Revert to standard alternate minima for planning.",
+            "Q: Flight planning software shows special alternate minima for Sydney. What should dispatchers verify before applying them? A: Aircraft dual ILS/VOR capability, METAR/SPECI service availability during arrival window, and tower operating hours covering arrival time."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "You're planning an IFR night flight with Melbourne as your alternate. Melbourne ILS 34 shows '** ALTERNATE: Vis 1600M, Ceiling 300FT'.",
+            "Standard alternate minima are 2400M visibility and 400FT ceiling. TAF shows VIS 2000M ceiling 350FT.",
+            "Your aircraft has dual VOR, dual ILS, and dual GNSS. Decision point: Can you use Melbourne as alternate?",
+            "Answer: Using standard minima (2400M, 400FT), Melbourne fails on visibility. Using special minima (1600M, 300FT) — verify tower is open and METAR available. If yes, Melbourne qualifies as your alternate."
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}

@@ -1,0 +1,461 @@
+{
+  "version": "1.0",
+  "sectionId": "airline-scenarios-panel",
+  "sectionTitle": "Airline Scenarios & Panel Answers",
+  "sectionDescription": "Scenario-based questions covering fuel and alternate decisions, weather and minima interpretation, terrain and LSALT planning, GNSS/RAIM failures, and CRM/TEM principles. Designed for airline interview panels and screening.",
+  "categories": [
+    {
+      "id": "scenarios",
+      "title": "Airline Interview Scenarios",
+      "description": "Real-world scenario questions covering fuel planning, weather decisions, terrain awareness, navigation failures and crew resource management.",
+      "moduleIds": [
+        "AIR-001",
+        "AIR-002",
+        "AIR-003",
+        "AIR-004",
+        "AIR-005"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "AIR-001",
+      "title": "Fuel and Alternate Decision Scenarios",
+      "categoryId": "scenarios",
+      "level": "core",
+      "estReadingMinutes": 10,
+      "tags": [
+        "fuel",
+        "alternate",
+        "diversion",
+        "decision-making",
+        "airline"
+      ],
+      "summary": "Scenario-based fuel and alternate questions that test your ability to make conservative, defensible decisions under pressure.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "Airline interviewers use fuel and alternate scenarios to see how you think, not just what you know. They want to see structured decision-making, conservative fuel management, and clear communication of your reasoning."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Key principles interviewers look for"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "You treat fuel as a precious, diminishing resource, not a rough estimate.",
+            "You make diversion decisions early, when you have options, not late when you are committed.",
+            "You can articulate your fuel state clearly: how much you have, how much you need, and what your reserves are.",
+            "You understand the difference between final reserve and minimum landing fuel."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Scenario framework"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Identify the problem: What is the fuel threat and what caused it?",
+            "Quantify the situation: What is your current fuel, burn rate, and required fuel to destination vs alternate?",
+            "Generate options: Continue, divert now, request priority handling?",
+            "Make a decision: Choose the safest option with the best margins.",
+            "Communicate: Tell ATC clearly and concisely what you need."
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: You are 45 minutes from destination when you realise headwinds are stronger than forecast. You calculate you will arrive with 20 minutes less fuel than planned, landing with just above final reserve. Your alternate is 30 minutes past destination. What do you do?",
+          "answer": "I would first verify my fuel calculations and confirm the situation. Landing just above final reserve is legal but leaves no margin for delays, holds or a missed approach. I would request direct routing to save fuel and advise ATC of my fuel status. If direct routing does not recover sufficient margin, I would consider diverting to an en-route alternate now while I have options. I would not continue to destination hoping things work out."
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: Approaching destination, ATC advises expect 20 minutes holding due traffic. You have 45 minutes fuel remaining. Your alternate is 25 minutes away. Walk through your decision.",
+          "answer": "With 45 minutes remaining, 20 minutes holding, and 25 minutes to alternate, I would have zero fuel at the alternate if I hold and then divert. That is not acceptable. I would advise ATC I cannot accept 20 minutes holding due fuel and request priority or immediate diversion to my alternate. I would declare minimum fuel or fuel emergency as appropriate to ensure I get the handling I need."
+        },
+        {
+          "type": "qa",
+          "question": "How would you explain the difference between minimum fuel and fuel emergency to an interviewer?",
+          "answer": "Minimum fuel is an advisory that any delay will result in landing with less than planned final reserve. It alerts ATC to my situation but does not guarantee priority handling. A fuel emergency means I require immediate handling to ensure a safe landing; I am declaring an emergency and expecting ATC to provide priority. I would use minimum fuel early to alert ATC, and escalate to emergency if my situation does not improve."
+        },
+        {
+          "type": "qa",
+          "question": "An interviewer asks: What is final reserve fuel and why is it important?",
+          "answer": "Final reserve is the fuel required to fly for a specified time, typically 30 minutes at holding speed at 1500 feet, after landing. It exists to cover contingencies after a diversion and must never be planned to be used. Landing with less than final reserve means I misjudged my fuel situation and had no remaining safety margin."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Part 91 MOS",
+          "chapter": "Fuel Requirements",
+          "note": "Fuel planning and final reserve definitions."
+        },
+        {
+          "source": "AIP ENR",
+          "section": "Fuel Emergencies",
+          "note": "Procedures for minimum fuel and mayday fuel."
+        }
+      ]
+    },
+    {
+      "id": "AIR-002",
+      "title": "Weather and Minima Scenarios",
+      "categoryId": "scenarios",
+      "level": "core",
+      "estReadingMinutes": 10,
+      "tags": [
+        "weather",
+        "minima",
+        "metar",
+        "taf",
+        "decision-making",
+        "airline"
+      ],
+      "summary": "Interpreting weather information and applying minima correctly under pressure, with scenario questions that probe your understanding and judgment.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "Weather interpretation is not about memorising METAR codes; it is about extracting the operationally relevant information and making good decisions. Airline panels test whether you understand what weather means for your operation, not just what it says."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "What interviewers assess"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Can you quickly identify the key information in a METAR or TAF?",
+            "Do you understand how TEMPO and PROB conditions affect your planning?",
+            "Can you apply the correct minima to the forecast conditions?",
+            "Do you have a conservative mindset when conditions are marginal?"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Working through weather scenarios"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Identify the current conditions and trend.",
+            "Identify any TEMPO or significant change periods around your ETA.",
+            "Compare the worst forecast conditions against your required minima.",
+            "Determine whether you need an alternate, additional fuel, or a delay."
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: The TAF for your destination shows visibility 8000m with TEMPO 1500m fog during your ETA window. Your approach requires 2400m visibility. How does this affect your planning?",
+          "answer": "The TEMPO condition drops visibility below my required minima. Under typical alternate rules, a TEMPO below minima requires me to plan an alternate and carry alternate fuel. I cannot rely on the base condition of 8000m when there is a reasonable probability of 1500m fog during my arrival window."
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: You are on approach when ATIS reports the visibility has dropped from 5000m to 2000m. Your minima is 1800m. What are your considerations?",
+          "answer": "The visibility is above minima so I can continue the approach, but the trend is deteriorating rapidly. I need to be mentally prepared for a missed approach if visibility drops further or if I do not have adequate visual reference at decision altitude. I would also confirm my missed approach and diversion options are current because a second attempt may not be viable."
+        },
+        {
+          "type": "qa",
+          "question": "How do you explain the difference between TEMPO and PROB to an airline interviewer?",
+          "answer": "TEMPO indicates conditions expected to temporarily occur for periods usually less than an hour at a time, totalling less than half the forecast period. PROB indicates a probability of occurrence, typically 30% or 40%. TEMPO conditions are planned for as if they will occur; PROB40 may or may not trigger alternate requirements depending on the operation. Both represent uncertainty that requires conservative planning."
+        },
+        {
+          "type": "qa",
+          "question": "An interviewer asks: Visibility is exactly at minima. Do you continue?",
+          "answer": "I would be very cautious. At exactly minima, there is no margin for any error in the reported observation or for any further deterioration. I would continue the approach but be ready for a missed approach if I do not have clear, stable visual reference at decision altitude. I would not push below minima hoping to see the runway."
+        }
+      ],
+      "refs": [
+        {
+          "source": "AIP GEN",
+          "section": "Meteorological Services",
+          "note": "METAR and TAF interpretation."
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "Weather Minima",
+          "note": "Application of minima to forecast conditions."
+        }
+      ]
+    },
+    {
+      "id": "AIR-003",
+      "title": "Terrain and LSALT Scenarios",
+      "categoryId": "scenarios",
+      "level": "core",
+      "estReadingMinutes": 9,
+      "tags": [
+        "terrain",
+        "lsalt",
+        "msa",
+        "cfit",
+        "situational-awareness",
+        "airline"
+      ],
+      "summary": "Scenario questions testing your terrain awareness, LSALT application and ability to maintain safe separation from terrain in challenging situations.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "Controlled flight into terrain remains a major cause of accidents. Airline interviewers use terrain scenarios to test whether you have genuine terrain awareness or whether you blindly follow clearances without thinking about what is below you."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "What interviewers assess"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Do you know where the terrain is relative to your route?",
+            "Can you explain when you are protected by ATC and when terrain is your responsibility?",
+            "Do you treat LSALT as a hard floor, not a suggestion?",
+            "Would you question a clearance that did not seem terrain-safe?"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Terrain awareness principles"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "In controlled airspace with radar vectors, ATC provides terrain clearance, but you should still be aware of surrounding terrain.",
+            "In Class G or non-radar environments, terrain clearance is entirely your responsibility.",
+            "When accepting a clearance, ask yourself: does this make sense from a terrain perspective?",
+            "GPWS/EGPWS alerts demand immediate response, not analysis."
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: You are IFR in Class G at night tracking toward high terrain. ATC offers you a lower level for traffic. What is your response?",
+          "answer": "I would decline if the lower level is below my calculated LSALT for this segment. I would tell ATC I need to maintain my current altitude for terrain clearance. ATC in Class G does not have terrain separation responsibility; that is mine. I would not accept a level that puts me below safe altitude just because ATC offered it."
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: On radar vectors for an approach, you notice you are being turned toward high terrain at your current altitude. ATC has not mentioned terrain. What do you do?",
+          "answer": "I would query ATC immediately, asking to confirm the vector is terrain safe or request a higher altitude. While ATC provides terrain clearance on radar vectors in controlled airspace, errors can happen. If I am uncomfortable, I speak up. If necessary, I would refuse the clearance and explain my concerns."
+        },
+        {
+          "type": "qa",
+          "question": "You receive a GPWS terrain warning during approach. What is your immediate action?",
+          "answer": "Immediate response: apply maximum thrust, pitch up to escape terrain, and follow GPWS escape manoeuvre if equipped. This is not a time for analysis; the warning demands an immediate, trained response. Once clear of terrain, I would advise ATC and sort out what happened."
+        },
+        {
+          "type": "qa",
+          "question": "An interviewer asks: How do you maintain terrain awareness on a long night IFR sector?",
+          "answer": "I brief the terrain along the route before departure, noting the LSALT for each segment and any significant terrain features. In flight, I cross-check my altitude against the required LSALT and use any terrain display available. I do not get complacent just because I am in cruise; I know where the ground is relative to my altitude at all times."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Part 91 MOS",
+          "chapter": "IFR Minimum Heights",
+          "note": "LSALT and terrain clearance requirements."
+        },
+        {
+          "source": "AIP ENR",
+          "section": "Terrain Avoidance",
+          "note": "Procedures for maintaining terrain clearance."
+        }
+      ]
+    },
+    {
+      "id": "AIR-004",
+      "title": "GNSS and RAIM Failure Scenarios",
+      "categoryId": "scenarios",
+      "level": "core",
+      "estReadingMinutes": 9,
+      "tags": [
+        "gnss",
+        "raim",
+        "navigation",
+        "failure",
+        "contingency",
+        "airline"
+      ],
+      "summary": "Handling GNSS and RAIM failures in flight, with scenario questions that test your understanding of the systems and your ability to manage the situation safely.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "Modern IFR flying relies heavily on GNSS, but that reliance creates vulnerability. Airline interviewers want to see that you understand what RAIM loss means, how to respond, and that you have thought through your backup options."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "What interviewers assess"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Do you understand the difference between GNSS position and GNSS integrity?",
+            "Do you know when and how to advise ATC of RAIM loss?",
+            "Can you transition smoothly to backup navigation?",
+            "Do you understand the implications for approach options?"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "RAIM failure framework"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Recognise the indication: Is this a transient glitch or a sustained loss?",
+            "Revert to backup: What other navigation sources do you have?",
+            "Advise ATC: If sustained and you are using GNSS in controlled airspace, report it.",
+            "Plan ahead: What approaches remain available without GNSS?"
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: En route at FL350, your RAIM flag illuminates and stays on for several minutes. You are in controlled airspace on an RNAV route. Walk through your actions.",
+          "answer": "First, I confirm the indication is genuine and sustained. I verify I have backup navigation available, whether from VOR/DME or inertial reference. Since RAIM has been lost for more than a brief moment and I am using GNSS as primary navigation in controlled airspace, I advise ATC that I have lost GNSS integrity and state my remaining navigation capability. I continue on backup navigation and review my approach options at destination."
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: You are cleared for an RNAV approach. Prior to the final approach fix, RAIM is lost. What do you do?",
+          "answer": "I cannot commence the approach without RAIM. I advise ATC I am unable to continue the RNAV approach due to loss of GNSS integrity and request an alternative, whether that is a conventional approach, vectors to an ILS, or holding until RAIM is restored. I would not commence a GNSS approach without the integrity assurance that RAIM provides."
+        },
+        {
+          "type": "qa",
+          "question": "An interviewer asks: Why does RAIM matter if your GPS is still showing a position?",
+          "answer": "RAIM tells me whether I can trust the position. Without RAIM, the GPS might show a position that is subtly wrong due to a faulty satellite or signal issue, and I would have no way of knowing. For IFR operations where I am relying on that position for terrain and obstacle clearance, I need the integrity assurance that RAIM provides, not just a number on the screen."
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: Pre-flight RAIM prediction shows no RAIM availability at destination during your ETA window. What are your options?",
+          "answer": "I cannot plan to use a GNSS approach during a period of predicted RAIM unavailability. My options include planning a conventional approach instead, adjusting my schedule to avoid the outage window, or selecting an alternate with conventional approaches available. I document my decision and ensure I have the capability to execute my planned approach type."
+        }
+      ],
+      "refs": [
+        {
+          "source": "Part 91 MOS",
+          "chapter": "GNSS Operations",
+          "note": "RAIM requirements and failure procedures."
+        },
+        {
+          "source": "AIP ENR",
+          "section": "GNSS Procedures",
+          "note": "RAIM prediction and operational requirements."
+        }
+      ]
+    },
+    {
+      "id": "AIR-005",
+      "title": "CRM and TEM Scenarios",
+      "categoryId": "scenarios",
+      "level": "core",
+      "estReadingMinutes": 10,
+      "tags": [
+        "crm",
+        "tem",
+        "human-factors",
+        "teamwork",
+        "decision-making",
+        "airline"
+      ],
+      "summary": "Crew Resource Management and Threat and Error Management scenarios that test your ability to work effectively as a team member and manage operational threats.",
+      "content": [
+        {
+          "type": "text",
+          "style": "body",
+          "text": "Airlines want pilots who work well with others and manage threats before they become errors. CRM and TEM questions reveal your self-awareness, your ability to communicate under pressure, and whether you would fit into a professional flight deck culture."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "What interviewers assess"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Can you identify threats before they affect the operation?",
+            "Do you speak up when something does not seem right, regardless of seniority?",
+            "Can you accept feedback and correction without becoming defensive?",
+            "Do you have examples of managing workload and communication under pressure?"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "TEM fundamentals"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Threats: External factors that increase risk, such as weather, terrain, fatigue, system failures.",
+            "Errors: Crew actions or inactions that lead to deviations from intended outcomes.",
+            "Management: Anticipating threats, trapping errors before they cause harm, and recovering when things go wrong."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "CRM principles"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Clear, assertive communication without aggression.",
+            "Shared situational awareness: both crew members know the plan, the threats, and the current state.",
+            "Workload distribution: the pilot not flying handles communications, checklists and monitoring.",
+            "Briefings: set expectations, identify threats, establish roles."
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: You are first officer and notice the captain configuring for the wrong runway. How do you handle this?",
+          "answer": "I would speak up clearly and directly, stating what I have observed. For example, I would say that I notice we are configured for runway 27 but ATIS is showing runway 36. I would ask the captain to confirm which runway we should be using. I would not assume the captain knows something I do not; if I see a discrepancy, I raise it immediately. If the captain dismisses my concern without explanation, I would escalate by asking to confirm with ATC."
+        },
+        {
+          "type": "qa",
+          "question": "Scenario: You are captain on a night sector. You realise you made an error in the approach briefing that the first officer did not catch. How do you respond?",
+          "answer": "I correct the error immediately and acknowledge it openly. I might say that I made a mistake in the briefing and ask the first officer to re-brief the correct approach with me. I do not cover up errors or pretend they did not happen; that destroys trust. I also reflect on why the error was not caught and whether our cross-checking needs to improve."
+        },
+        {
+          "type": "qa",
+          "question": "An interviewer asks you to describe a TEM framework for a flight into marginal weather at an unfamiliar aerodrome.",
+          "answer": "The threats include the marginal weather, unfamiliar terrain and procedures, and potentially higher workload. I would manage these by thoroughly briefing the approach, including missed approach, before entering the terminal area. I would establish clear roles and callouts, review terrain and LSALT, and brief a go-around as a normal outcome if we do not have the visual references required. I would monitor the other crew member for signs of high workload and speak up if I see errors or deviations."
+        },
+        {
+          "type": "qa",
+          "question": "How do you handle a situation where you and another crew member disagree about the safest course of action?",
+          "answer": "I would state my concern and reasoning clearly, listen to the other perspective, and aim to reach a shared understanding. If we cannot agree and time permits, I would advocate for the more conservative option. If I believe safety is genuinely at risk and the other crew member is not listening, I would be assertive and use standard phrases to escalate, such as stating we need to stop and talk about this. Ultimately, if I am captain, I make the decision, but I explain my reasoning. If I am first officer, I make my concerns heard and documented."
+        }
+      ],
+      "refs": [
+        {
+          "source": "CASA Human Factors",
+          "section": "CRM Training",
+          "note": "Crew Resource Management principles and training requirements."
+        },
+        {
+          "source": "ICAO Doc 9803",
+          "section": "TEM",
+          "note": "Threat and Error Management framework."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "version": "1.0",
+  "sectionId": "quick-fire-numbers",
+  "sectionTitle": "Quick Fire Numbers",
+  "sectionDescription": "Rapid-fire numeric recall and abnormal scenario questions for IPC and airline interview preparation.",
+  "categories": [
+    {
+      "id": "quick-fire",
+      "title": "Quick Fire Drill",
+      "description": "High-pressure numeric recall and decision-making scenarios.",
+      "moduleIds": ["QF-001", "QF-002", "QF-003", "QF-004"]
+    }
+  ],
+  "modules": [
+    {
+      "id": "QF-001",
+      "title": "Fuel & Alternate Triggers",
+      "categoryId": "quick-fire",
+      "level": "advanced",
+      "estReadingMinutes": 3,
+      "tags": ["fuel", "alternate", "take-off", "numbers", "quick-fire"],
+      "summary": "Key fuel definitions and take-off alternate trigger numbers.",
+      "content": [
+        {
+          "type": "numbers",
+          "content": [
+            "1 hour OEI cruise — typical maximum distance to take-off alternate (twin turbine)",
+            "30 or 45 minutes — final reserve fuel holding time (varies by regulation)",
+            "1,500 ft — holding altitude above aerodrome for final reserve calculation"
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: When is a take-off alternate required under IFR? A: When weather at departure aerodrome is below landing minima, or if return to departure would not be possible due to weather, performance or runway constraints.",
+            "Q: Define trip fuel. A: Fuel required from take-off to landing at the destination aerodrome.",
+            "Q: Define contingency fuel. A: Fuel carried to account for unforeseen factors such as wind errors, ATC delays or minor route changes.",
+            "Q: Define final reserve fuel. A: Fuel required to fly for a specified period (e.g. 30 or 45 minutes) at holding speed at 1,500 ft above aerodrome elevation.",
+            "Q: What is isolated aerodrome fuel logic? A: Additional fuel carried when no suitable alternate is available within range, ensuring safe diversion or extended holding capability."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: If RVR is reported for multiple touchdown zones, which value governs? A: The controlling (lowest required) RVR value applicable to the runway segment used.",
+            "Q: What's the typical maximum distance to a take-off alternate in a twin-engine turbine under Part 121? A: Generally within one hour at one-engine inoperative cruise speed (unless specific approvals exist)."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "QF-002",
+      "title": "Approach Minima & Recency",
+      "categoryId": "quick-fire",
+      "level": "advanced",
+      "estReadingMinutes": 3,
+      "tags": ["minima", "recency", "precision", "MDA", "DA", "quick-fire"],
+      "summary": "Precision vs non-precision minima and recency requirements.",
+      "content": [
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: What defines a precision approach? A: An approach providing both lateral and vertical guidance meeting ICAO precision standards (e.g., ILS).",
+            "Q: What is the key operational difference between MDA and DA? A: At DA a decision must be made immediately; at MDA descent must not continue below the altitude without required visual reference.",
+            "Q: What restores instrument rating recency if lapsed? A: Completion of required instrument approaches and time under supervision or successful completion of an IPC.",
+            "Q: Explain the difference between currency and proficiency. A: Currency is meeting regulatory recency requirements; proficiency is actual competence and skill level. Being current does not automatically mean proficient."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Confusing 'current' with 'competent' — meeting recency requirements doesn't guarantee skill level.",
+            "Treating DA as a 'look-and-see' altitude — it's a decision point, not a level-off altitude."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "QF-003",
+      "title": "Abnormal IFR Scenarios",
+      "categoryId": "quick-fire",
+      "level": "airline",
+      "estReadingMinutes": 4,
+      "tags": ["abnormal", "partial-panel", "GNSS", "RAIM", "quick-fire"],
+      "summary": "Decision-making under abnormal conditions.",
+      "content": [
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: You lose attitude indication in IMC. What is your immediate priority? A: Maintain aircraft control using remaining reliable instruments, cross-check with standby instruments, reduce workload, and stabilise flight before troubleshooting.",
+            "Q: Would you continue an approach partial panel to minima? A: Only if aircraft control is fully stabilised, workload manageable and risk acceptable. Otherwise climb, declare as required and reposition or divert.",
+            "Q: RAIM warning inside IAF on RNAV approach. What do you do? A: Discontinue the approach unless alternate approved navigation exists. Advise ATC if integrity not restored within required time.",
+            "Q: Why is GNSS integrity more important than raw accuracy? A: Because without integrity monitoring, the system cannot guarantee containment within obstacle protection surfaces."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Attempting to troubleshoot before stabilising the aircraft — aviate first.",
+            "Continuing an approach without RAIM integrity — integrity is non-negotiable.",
+            "Assuming 'accuracy' alone is sufficient — integrity ensures the position is within safe limits."
+          ]
+        }
+      ],
+      "refs": []
+    },
+    {
+      "id": "QF-004",
+      "title": "Performance & Engine Failure",
+      "categoryId": "quick-fire",
+      "level": "airline",
+      "estReadingMinutes": 5,
+      "tags": ["performance", "V1", "engine-failure", "balanced-field", "gradient", "quick-fire"],
+      "summary": "ATPL-level performance concepts and engine failure decision-making.",
+      "content": [
+        {
+          "type": "numbers",
+          "content": [
+            "3.3% — standard diverse departure climb gradient",
+            "V1 — decision speed: go or stop decision must be made by this point"
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: Engine failure immediately after V1 in low visibility. What is the first priority? A: Maintain directional control, continue the take-off, achieve safe climb performance, comply with published engine-out procedure and stabilise before any non-essential actions.",
+            "Q: Would you immediately plan to return after V1 engine failure? A: Only after stabilising, completing memory items, assessing performance, weather and runway suitability. A rushed return in marginal visibility can compound risk.",
+            "Q: How would you explain 'balanced field length' in plain language? A: It's where the distance required to continue after engine failure at V1 equals the distance to reject and stop. The runway gives symmetrical options.",
+            "Q: If a departure requires higher-than-standard climb gradient, what are your three levers? A: Reduce weight, wait for better conditions (lower temp/headwind), or choose a different departure with lower gradient requirement."
+          ]
+        },
+        {
+          "type": "airline_questions",
+          "content": [
+            "Q: How does a wet/contaminated runway change your take-off performance thinking? A: It increases accelerate-stop distance and may change accelerate-go assumptions. Contaminated conditions usually call for lower weight, more conservative decision points, or delay.",
+            "Q: How would you explain second segment climb in practical terms? A: It's engine-out climb performance after gear up and flap retraction, up to a specified height. It must clear obstacles while meeting the required climb gradient on one engine."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Treating any long runway as 'performance fine' without checking accelerate-stop/go distances.",
+            "Rushing to return after V1 engine failure — stabilise first.",
+            "Assuming visual departure workaround solves gradient problems if obstacles still exist."
+          ]
+        }
+      ],
+      "refs": []
+    }
+  ]
+}
