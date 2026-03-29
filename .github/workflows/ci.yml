@@ -22,5 +22,8 @@ jobs:
       - name: Type check
         run: ./node_modules/.bin/tsc --noEmit
 
+      - name: Test
+        run: npm test
+
       - name: Lint
         run: npm run lint
