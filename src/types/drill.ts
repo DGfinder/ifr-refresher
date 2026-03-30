@@ -2,8 +2,8 @@ export type QuestionSourceKind =
   | "ipc"
   | "airline"
   | "legacy_qa"
-  | "trap"      // Reserved for future
-  | "numeric"   // Reserved for future
+  | "trap"
+  | "numeric"
   | "scenario"; // Reserved for future
 
 export interface DrillQuestion {

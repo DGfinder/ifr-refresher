@@ -8,37 +8,58 @@
       "id": "licensing",
       "title": "Licensing & Recency",
       "description": "IPC validity, privileges, and recent experience requirements.",
-      "moduleIds": ["CS-001", "CS-002"]
+      "moduleIds": [
+        "CS-001",
+        "CS-002"
+      ]
     },
     {
       "id": "equipment-ops",
       "title": "Equipment & General Ops",
       "description": "Aircraft equipment, speed definitions, comms failure, VMC, transponder codes and light signals.",
-      "moduleIds": ["CS-003", "CS-004", "CS-005"]
+      "moduleIds": [
+        "CS-003",
+        "CS-004",
+        "CS-005"
+      ]
     },
     {
       "id": "preflight",
       "title": "Preflight & Alternates",
       "description": "Fuel requirements, alternate requirements, special minima and lighting.",
-      "moduleIds": ["CS-006", "CS-007"]
+      "moduleIds": [
+        "CS-006",
+        "CS-007"
+      ]
     },
     {
       "id": "departure",
       "title": "Departure",
       "description": "Altimeter checks, take-off minima and performance factors.",
-      "moduleIds": ["CS-008", "CS-009"]
+      "moduleIds": [
+        "CS-008",
+        "CS-009"
+      ]
     },
     {
       "id": "enroute-holding",
       "title": "En Route & Holding",
       "description": "Altimeter settings, navigation requirements, deviations and holding procedures.",
-      "moduleIds": ["CS-010", "CS-011"]
+      "moduleIds": [
+        "CS-010",
+        "CS-011"
+      ]
     },
     {
       "id": "approaches",
       "title": "Approaches",
       "description": "Approach types, QNH, AOM, approach ban, descent below MDA/DA, circling, landing minima and missed approach.",
-      "moduleIds": ["CS-012", "CS-013", "CS-014", "CS-015"]
+      "moduleIds": [
+        "CS-012",
+        "CS-013",
+        "CS-014",
+        "CS-015"
+      ]
     }
   ],
   "modules": [
@@ -48,9 +69,39 @@
       "categoryId": "licensing",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["ipc", "privileges", "currency", "part-61"],
+      "tags": [
+        "ipc",
+        "privileges",
+        "currency",
+        "part-61"
+      ],
       "summary": "Validity periods for Instrument Proficiency Checks and the privileges and limitations of an instrument rating.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 61.880 — IPC is valid until the end of the 12th month after the month in which the holder passes the flight test.",
+            "CASR 61.880 — If an IPC is completed within 3 months before the existing IPC expires, the new IPC runs from the existing expiry, not the new check date.",
+            "CASR 61.855 — An instrument rating authorises a pilot to fly under the IFR, or at night under the VFR.",
+            "CASR 61.875 — Single-pilot IFR currency: must have completed at least 1 hour of IFR flight (including 1 instrument approach) in a single-pilot operation within the previous 6 months."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "12 months — IPC validity period (to end of 12th month after month of passing)",
+            "3 months — early renewal window in which new IPC extends from old expiry, not new check date",
+            "6 months — single-pilot IFR recent experience currency period (1hr IFR incl. 1 approach)"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Counting 12 months from the test date — IPC validity runs to the END of the 12th month after the month of passing, not 12 months from the exact date.",
+            "Renewing early without understanding the extension rule — completing a new IPC within 3 months before expiry means the new IPC runs from the OLD expiry date, not the new check date.",
+            "Assuming a current IPC means single-pilot IFR is current — single-pilot IFR requires a separate 6-month recency check: 1hr IFR including 1 approach in a single-pilot operation."
+          ]
+        },
         {
           "type": "qa",
           "question": "How long is an IPC valid from the date the holder passes the flight test?",
@@ -113,10 +164,22 @@
         }
       ],
       "refs": [
-        { "source": "CASR", "part": "61.855" },
-        { "source": "CASR", "part": "61.860" },
-        { "source": "CASR", "part": "61.875" },
-        { "source": "CASR", "part": "61.880" }
+        {
+          "source": "CASR",
+          "part": "61.855"
+        },
+        {
+          "source": "CASR",
+          "part": "61.860"
+        },
+        {
+          "source": "CASR",
+          "part": "61.875"
+        },
+        {
+          "source": "CASR",
+          "part": "61.880"
+        }
       ]
     },
     {
@@ -125,9 +188,38 @@
       "categoryId": "licensing",
       "level": "core",
       "estReadingMinutes": 3,
-      "tags": ["recency", "currency", "part-61", "instrument-approach"],
+      "tags": [
+        "recency",
+        "currency",
+        "part-61",
+        "instrument-approach"
+      ],
       "summary": "Recent experience requirements for IFR flight, approach categories and single-pilot operations.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 61.870 — To fly under the IFR, a pilot must have conducted at least 3 instrument approach operations within the previous 90 days.",
+            "CASR 61.870 — To fly a particular aircraft category under the IFR, at least 1 approach in an aircraft of the same category within 90 days is required.",
+            "CASR 61.870 — Separate 90-day currency is required for 2D approaches, 3D approaches, azimuth guidance approaches, and CDI approaches."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "3 approaches — minimum instrument approaches required within 90 days to remain IFR current",
+            "90 days — recency window for all IFR instrument approach currency requirements",
+            "1 approach — minimum same-category approach within 90 days for that aircraft category"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Counting total approaches without checking sub-type currency — 3 total approaches are needed, but 2D, 3D, azimuth, and CDI approach types each also require at least 1 within 90 days separately.",
+            "Using a different aircraft category to maintain recency — 1 same-category approach is required; helicopter approaches do not count for aeroplane currency.",
+            "Assuming IPC renewal resets the 90-day approach recency — an IPC does not automatically satisfy the 90-day approach count requirement."
+          ]
+        },
         {
           "type": "qa",
           "question": "What recent experience is required to fly under the IFR?",
@@ -190,8 +282,14 @@
         }
       ],
       "refs": [
-        { "source": "CASR", "part": "61.870" },
-        { "source": "CASR", "part": "61.875" }
+        {
+          "source": "CASR",
+          "part": "61.870"
+        },
+        {
+          "source": "CASR",
+          "part": "61.875"
+        }
       ]
     },
     {
@@ -200,9 +298,38 @@
       "categoryId": "equipment-ops",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["equipment", "aeroplane", "IFR", "Part-91-MOS"],
+      "tags": [
+        "equipment",
+        "aeroplane",
+        "IFR",
+        "Part-91-MOS"
+      ],
       "summary": "Required equipment for IFR flight including instruments, lighting and altitude alerting.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 26.08 — IFR aeroplane equipment: approved GNSS, AI, ASI (pitot heat on at least one), altimeter (alt static source), VSI, turn-and-slip, DG, compass, OAT, and clock.",
+            "Part 91 MOS 26.25 — Altitude alerting: piston and unpressurised turbine must have it above FL150 in CTA; pressurised turbine must have it in any CTA.",
+            "Part 91 MOS 26.04 — Departure with inoperative required equipment is only permitted under an approved permissible unserviceability (PU)."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "FL150 — minimum altitude above which piston/unpressurised turbine must have altitude alerting in controlled airspace",
+            "1 red beacon or 2 white strobes — minimum anti-collision lighting requirement (or combination)",
+            "10 systems — minimum IFR equipment items under Part 91 MOS 26.08 (GNSS, AI, ASI, alt, alt-static, VSI, T+S, DG, compass, OAT, clock)"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Forgetting pitot heat on at least one ASI — it is not enough to have an ASI; Part 91 MOS 26.08 specifically requires pitot heat on at least one.",
+            "Confusing altitude alerting thresholds — pressurised turbine needs altitude alerting in ANY CTA; piston and unpressurised turbine only above FL150.",
+            "Departing with unserviceable equipment without a valid PU — inoperative required equipment must be covered by an approved permissible unserviceability, not just noted in the maintenance release."
+          ]
+        },
         {
           "type": "qa",
           "question": "What instruments and equipment are required for IFR aeroplane flight under Part 91 MOS 26.08?",
@@ -240,9 +367,18 @@
         }
       ],
       "refs": [
-        { "source": "Part 91 MOS", "chapter": "26.04" },
-        { "source": "Part 91 MOS", "chapter": "26.08" },
-        { "source": "Part 91 MOS", "chapter": "26.25" }
+        {
+          "source": "Part 91 MOS",
+          "chapter": "26.04"
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "26.08"
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "26.25"
+        }
       ]
     },
     {
@@ -251,9 +387,41 @@
       "categoryId": "equipment-ops",
       "level": "core",
       "estReadingMinutes": 5,
-      "tags": ["vmca", "vmcg", "vsse", "vyse", "comms-failure", "7600"],
+      "tags": [
+        "vmca",
+        "vmcg",
+        "vsse",
+        "vyse",
+        "comms-failure",
+        "7600"
+      ],
       "summary": "Multi-engine speed definitions and IFR communications failure procedures.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 — On comms failure in controlled airspace: squawk 7600; maintain last assigned level or MSA for 3 minutes at clearance limit; proceed on latest ATC clearance.",
+            "AIP ENR 1.5 — If being radar vectored on comms failure: maintain last assigned vector for 2 minutes, then proceed on latest ATC clearance.",
+            "AIP ENR 1.5 — If in holding on comms failure: complete one more holding pattern before proceeding on latest ATC clearance."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "7600 — squawk code for communications failure",
+            "3 minutes — hold time at clearance limit (altitude or route restriction) after comms failure before proceeding",
+            "2 minutes — duration to maintain last assigned vector when being radar vectored after comms failure",
+            "1 pattern — additional complete holding pattern to fly after comms failure while in the hold"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Immediately proceeding on clearance after comms failure with a route/altitude restriction — must hold for 3 minutes at the clearance limit BEFORE tracking on.",
+            "Applying the 3-minute hold rule when being radar vectored — radar vectoring comms failure requires only 2 minutes on the last vector, not 3 minutes of holding.",
+            "Forgetting to transmit blind in VMC Class G — in VMC Class G after comms failure, must broadcast intentions prefixed 'TRANSMITTING BLIND' before any action."
+          ]
+        },
         {
           "type": "qa",
           "question": "Define VMCA.",
@@ -361,8 +529,14 @@
         }
       ],
       "refs": [
-        { "source": "ERSA", "part": "EMERG 1.5" },
-        { "source": "AIP", "chapter": "ENR 1.5" }
+        {
+          "source": "ERSA",
+          "part": "EMERG 1.5"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5"
+        }
       ]
     },
     {
@@ -371,9 +545,41 @@
       "categoryId": "equipment-ops",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["vmc", "transponder", "squawk", "light-signals", "vhf"],
+      "tags": [
+        "vmc",
+        "transponder",
+        "squawk",
+        "light-signals",
+        "vhf"
+      ],
       "summary": "VMC requirements by airspace class, transponder codes, VHF range formula and light signals to aircraft.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.6 Para 7.1.4 — Class G VMC: 5,000 m visibility below 10,000 ft; 1,500 m horizontal and 1,000 ft vertical cloud clearance.",
+            "AIP ENR 1.6 — Class D VMC: 600 m horizontal and 1,000 ft vertical cloud clearance, 500 ft below cloud.",
+            "AIP ENR 1.5 Para 12 — Transponder codes: VFR OCTA 1200; IFR OCTA 2000; IFR Class E or civil CTA 3000."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "1200 — transponder code for VFR in Class E, G, or OCTA",
+            "2000 — transponder code for IFR OCTA",
+            "3000 — transponder code for IFR in Class E or civil flights in CTA",
+            "5000 m — horizontal visibility for VMC in Class G below 10,000 ft",
+            "1500 m horizontal / 1000 ft vertical — cloud clearance for Class G VMC"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Using squawk 1200 for IFR OCTA — code 2000 is required for IFR OCTA; 1200 is for VFR only.",
+            "Confusing Class D and Class G cloud clearance requirements — Class D requires 600m/1000ft/500ft below; Class G requires 1500m/1000ft (no below-cloud requirement at most altitudes).",
+            "Forgetting the 'clear of cloud and surface in sight' provision in Class G below 3000ft AMSL or 1000ft AGL — VMC below these heights may substitute normal minima if radio is carried and used."
+          ]
+        },
         {
           "type": "qa",
           "question": "What is the horizontal visibility requirement for VMC in Class G airspace below 10,000 ft?",
@@ -506,9 +712,18 @@
         }
       ],
       "refs": [
-        { "source": "Part 91 MOS", "chapter": "Section 2.07" },
-        { "source": "AIP", "chapter": "ENR 1.6 Para 7.1.4" },
-        { "source": "AIP", "chapter": "ENR 1.5 Para 12" }
+        {
+          "source": "Part 91 MOS",
+          "chapter": "Section 2.07"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.6 Para 7.1.4"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5 Para 12"
+        }
       ]
     },
     {
@@ -517,9 +732,41 @@
       "categoryId": "preflight",
       "level": "core",
       "estReadingMinutes": 5,
-      "tags": ["fuel", "final-reserve", "contingency", "alternate", "thunderstorm"],
+      "tags": [
+        "fuel",
+        "final-reserve",
+        "contingency",
+        "alternate",
+        "thunderstorm"
+      ],
       "summary": "Final reserve and contingency fuel requirements, and when a destination alternate must be planned.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 91.455 — IFR final reserve: ≤5700kg piston/turboprop 45 min; turbojet or turboprop >5700kg 30+5%; piston >5700kg 45+5%; VFR ≤5700kg 30 min.",
+            "Part 91 MOS 8.04 — If thunderstorms forecast at destination with INTER endorsement: carry additional fuel to hold 30 min or proceed to alternate.",
+            "Part 91 MOS 8.05 / AIP ENR 1.1 Para 10.7 — PAL aerodrome alternate: aircraft must have dual VHF, or single VHF + HF + 30 min holding fuel."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "45 minutes — IFR final reserve for aeroplanes ≤5700 kg",
+            "30 minutes — IFR final reserve for turbojet/turboprop >5700 kg (plus 5% contingency)",
+            "45 minutes + 5% — IFR final reserve for piston >5700 kg",
+            "30 minutes — additional holding fuel for INTER thunderstorm at destination",
+            "60 minutes — additional holding fuel for TEMPO thunderstorm at destination"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Applying the 30+5% rule to piston aircraft over 5700kg — piston >5700kg needs 45+5%, NOT 30+5% (that rule is for turbojet/turboprop).",
+            "Forgetting the 5% contingency fuel for aircraft >5700kg — the final reserve is 30 or 45 min PLUS 5% contingency, not just the time reserve alone.",
+            "Confusing INTER and TEMPO additional hold fuel — INTER requires 30 min additional hold; TEMPO requires 60 min additional hold."
+          ]
+        },
         {
           "type": "qa",
           "question": "What is the final reserve fuel requirement for an IFR flight in an aeroplane with MTOW ≤5,700 kg?",
@@ -637,11 +884,26 @@
         }
       ],
       "refs": [
-        { "source": "CASR", "part": "91.455" },
-        { "source": "Part 91 MOS", "chapter": "19.02" },
-        { "source": "Part 91 MOS", "chapter": "8.04" },
-        { "source": "Part 91 MOS", "chapter": "8.05" },
-        { "source": "AIP", "chapter": "ENR 1.1 Para 10.7" }
+        {
+          "source": "CASR",
+          "part": "91.455"
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "19.02"
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "8.04"
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "8.05"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.1 Para 10.7"
+        }
       ]
     },
     {
@@ -650,9 +912,37 @@
       "categoryId": "preflight",
       "level": "advanced",
       "estReadingMinutes": 2,
-      "tags": ["alternate", "special-minima", "ILS", "dual-approach"],
+      "tags": [
+        "alternate",
+        "special-minima",
+        "ILS",
+        "dual-approach"
+      ],
       "summary": "Conditions under which special alternate weather minima apply and equipment requirements.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 8.08 — Special alternate weather minima require: duplicated LOC, duplicated GP, duplicated VOR, plus either duplicated DME, duplicated GNSS, or single DME and single GNSS.",
+            "AIP ENR 1.5 Para 6.2 — Special alternate minima are identified by a double asterisk adjacent to the ALTERNATE title on the approach chart.",
+            "Part 91 MOS 8.08 — Special alternate minima are NOT available when: no local METAR/SPECI or forecasting service, or no airport control service is provided."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "2 asterisks — chart notation (double asterisk) that identifies special alternate weather minima",
+            "3 duplicated systems + DME/GNSS — equipment needed: dual LOC, dual GP, dual VOR + dual DME or dual GNSS or single DME+single GNSS"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Assuming special alternate minima are always available at equipped aerodromes — they revert to standard minima when ATC service is absent or met services (METAR/SPECI/TAF) are unavailable.",
+            "Forgetting that VOR duplication is also required — duplicated ILS (LOC + GP) alone is insufficient; duplicated VOR plus DME or GNSS is also required.",
+            "Mistaking a single asterisk for the special minima notation — it requires a DOUBLE asterisk; a single asterisk typically notes a different operating restriction."
+          ]
+        },
         {
           "type": "qa",
           "question": "What dual ILS/VOR approach capability is required for special alternate weather minima to apply?",
@@ -685,8 +975,14 @@
         }
       ],
       "refs": [
-        { "source": "Part 91 MOS", "chapter": "8.08" },
-        { "source": "AIP", "chapter": "ENR 1.5 Para 6.2" }
+        {
+          "source": "Part 91 MOS",
+          "chapter": "8.08"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5 Para 6.2"
+        }
       ]
     },
     {
@@ -695,9 +991,39 @@
       "categoryId": "departure",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["altimeter", "QNH", "IFR", "serviceability"],
+      "tags": [
+        "altimeter",
+        "QNH",
+        "IFR",
+        "serviceability"
+      ],
       "summary": "Pre-flight altimeter check tolerances, serviceability limits and approved QNH sources.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.7 Para 1.1 — IFR altimeter must read aerodrome elevation to within 60 ft with accurate QNH set.",
+            "AIP ENR 1.7 Para 1.2–1.3 — Error >75 ft: altimeter unserviceable. Error 60–75 ft: may fly to first landing for recheck; if error still >60 ft on recheck, unserviceable.",
+            "AIP ENR 1.7 Para 1.4 — Approved QNH sources for altimeter check: AAIS, ATC, ATIS, AWIS, CA/GRS, WATIR. NOT METAR and NOT TAF."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "60 ft — maximum acceptable IFR altimeter error (must read within 60 ft of aerodrome elevation)",
+            "75 ft — error at which an IFR altimeter is deemed unserviceable",
+            "60–75 ft — tolerance band: may fly to first landing for recheck; unserviceable if error persists on recheck"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Using METAR QNH for the pre-flight altimeter check — METAR QNH is an observation product and is NOT an approved source for IFR altimeter checking.",
+            "Using TAF QNH for the pre-flight altimeter check — forecast QNH is not an approved source; use AAIS, ATC, ATIS, AWIS, CA/GRS, or WATIR.",
+            "Thinking 60 ft error means the altimeter is unserviceable — 60 ft is the read-within tolerance; the altimeter becomes unserviceable only at >75 ft error.",
+            "Continuing IFR after a 60–75 ft error registers again on recheck — if the error exceeds 60 ft on the SECOND check, the altimeter must be treated as unserviceable."
+          ]
+        },
         {
           "type": "qa",
           "question": "With an accurate QNH set, to within what error must an IFR altimeter read the nominated elevation?",
@@ -760,7 +1086,10 @@
         }
       ],
       "refs": [
-        { "source": "AIP", "chapter": "ENR 1.7 Para 1.1–1.4" }
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.7 Para 1.1–1.4"
+        }
       ]
     },
     {
@@ -769,9 +1098,41 @@
       "categoryId": "departure",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["take-off-minima", "performance", "qualifying-MEA", "factors"],
+      "tags": [
+        "take-off-minima",
+        "performance",
+        "qualifying-MEA",
+        "factors"
+      ],
       "summary": "Take-off minima for standard and qualifying multi-engine aeroplanes, and performance chart factors.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 15.03 — Standard IFR take-off minima: cloud ceiling 300 ft and visibility 2,000 m for non-qualifying aeroplanes.",
+            "Part 91 MOS 15.03 — Qualifying multi-engine IFR take-off minima: visibility 800 m (reducible to 550 m under specific conditions).",
+            "Part 91 MOS 15.05/15.06 — Performance factors for unfactored charts: ≤2000kg 1.15 (T/O and landing); ≥3500kg T/O 1.25; ≥4500kg landing 1.43."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "300 ft — minimum cloud ceiling for standard IFR take-off (non-qualifying aeroplane)",
+            "2000 m — minimum visibility for standard IFR take-off (non-qualifying aeroplane)",
+            "800 m — minimum visibility for qualifying multi-engine aeroplane take-off",
+            "1.15 — performance factor for ≤2000 kg aircraft (take-off and landing)",
+            "1.25 — performance factor for ≥3500 kg aircraft (take-off distance)",
+            "1.43 — performance factor for ≥4500 kg aircraft (landing distance)"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Applying 800m qualifying minima to a single-engine aircraft — qualifying IFR take-off minima (800m) only apply to multi-engine aeroplanes that can maintain terrain clearance after engine failure.",
+            "Forgetting to apply performance factors to unfactored charts — unfactored performance charts must have the appropriate factor (1.15/1.25/1.43) applied; failing to do so is a common IPC oral failure.",
+            "Using the wrong landing performance factor — landing distance for ≥4500kg requires a factor of 1.43, not 1.25 (which is the take-off factor for ≥3500kg)."
+          ]
+        },
         {
           "type": "qa",
           "question": "What are the standard take-off minima for a non-qualifying aeroplane (non-low-visibility)?",
@@ -844,11 +1205,26 @@
         }
       ],
       "refs": [
-        { "source": "Part 91 MOS", "chapter": "15.03" },
-        { "source": "Part 91 MOS", "chapter": "15.05" },
-        { "source": "Part 91 MOS", "chapter": "15.06" },
-        { "source": "CASR", "part": "91.795" },
-        { "source": "CASR", "part": "91.800" }
+        {
+          "source": "Part 91 MOS",
+          "chapter": "15.03"
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "15.05"
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "15.06"
+        },
+        {
+          "source": "CASR",
+          "part": "91.795"
+        },
+        {
+          "source": "CASR",
+          "part": "91.800"
+        }
       ]
     },
     {
@@ -857,9 +1233,41 @@
       "categoryId": "enroute-holding",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["QNH", "transition-layer", "navigation", "IFR", "fix", "deviation"],
+      "tags": [
+        "QNH",
+        "transition-layer",
+        "navigation",
+        "IFR",
+        "fix",
+        "deviation"
+      ],
       "summary": "Altimeter settings, transition layers, IFR navigation requirements and deviation notification tolerances.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.7 Para 2 — Below transition: use QNH from a station within 100 NM of the route, or area QNH. Change to 1013.2 hPa after passing 10,000 ft on climb.",
+            "AIP ENR 1.1 Para 4.1 — IFR radio navigation: tracking tolerances of ±9° from the last fix must bring the aircraft within rated coverage of a radio aid within 2 hours.",
+            "AIP ENR 1.1 Para 4.6.2 — Deviations requiring immediate ATC notification: NDB ±5°, LOC/VOR half-scale deflection, DME ±2 NM, visual 1 NM."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "100 NM — maximum distance from QNH station for use below the transition altitude",
+            "2 hours — maximum interval between position fixes when navigating by radio aids",
+            "±9° — maximum tracking error tolerance for the 2-hour fix interval rule",
+            "±5° — NDB tracking deviation requiring immediate ATC notification"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Changing to 1013.2 hPa at or before 10,000 ft — the change must occur AFTER passing 10,000 ft, not before levelling off or at exactly 10,000 ft.",
+            "Changing to QNH after (not before) the transition layer on descent — QNH must be set BEFORE passing the transition layer, not after.",
+            "Forgetting area QNH as an alternative — if no QNH station is within 100 NM along the route, forecast area QNH is an approved alternative."
+          ]
+        },
         {
           "type": "qa",
           "question": "At or below the transition altitude, what altimeter setting must be used?",
@@ -957,9 +1365,18 @@
         }
       ],
       "refs": [
-        { "source": "AIP", "chapter": "ENR 1.7 Para 2" },
-        { "source": "AIP", "chapter": "ENR 1.1 Para 4.1" },
-        { "source": "AIP", "chapter": "ENR 1.1 Para 4.6.2" }
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.7 Para 2"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.1 Para 4.1"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.1 Para 4.6.2"
+        }
       ]
     },
     {
@@ -968,9 +1385,44 @@
       "categoryId": "enroute-holding",
       "level": "core",
       "estReadingMinutes": 5,
-      "tags": ["holding", "sector-entry", "speed", "timing", "parallel", "teardrop", "direct"],
+      "tags": [
+        "holding",
+        "sector-entry",
+        "speed",
+        "timing",
+        "parallel",
+        "teardrop",
+        "direct"
+      ],
       "summary": "Holding speed limits, timing limits, sector entries and turn criteria.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 3.3 — Holding speeds: ≤FL140 max 230 KIAS (or 170 KIAS Cat A/B only); FL140–FL200 max 240 KIAS; >FL200 max 265 KIAS.",
+            "AIP ENR 1.5 Para 3.3 — Outbound timing: ≤FL140 maximum 1 minute; >FL140 maximum 1.5 minutes. Timing begins abeam the fix or on attaining the outbound heading, whichever is later.",
+            "AIP ENR 1.5 Para 3.4 — All turns in holding: 25° bank or rate one, whichever requires lesser bank. Sector 1 (parallel), Sector 2 (offset/teardrop), Sector 3 (direct) entries."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "230 KIAS — maximum holding speed at or below FL140",
+            "240 KIAS — maximum holding speed FL140 to FL200",
+            "265 KIAS — maximum holding speed above FL200",
+            "1 minute — maximum outbound leg time at or below FL140",
+            "1.5 minutes — maximum outbound leg time above FL140",
+            "25° — maximum bank angle for holding turns (or rate one if that requires less bank)"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Starting outbound timing from overhead the fix — timing begins ABEAM the fix or on attaining the outbound heading, whichever is LATER; not from directly overhead.",
+            "Using 240 KIAS at or below FL140 — 240 KIAS applies to FL140–FL200 only; the limit at or below FL140 is 230 KIAS.",
+            "Using 1.5-minute outbound timing at or below FL140 — 1.5 minutes applies above FL140 only; at or below FL140 the maximum is 1 minute."
+          ]
+        },
         {
           "type": "qa",
           "question": "What is the maximum holding speed up to and including FL140?",
@@ -1083,8 +1535,14 @@
         }
       ],
       "refs": [
-        { "source": "AIP", "chapter": "ENR 1.5 Para 3.3" },
-        { "source": "AIP", "chapter": "ENR 1.5 Para 3.4" }
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5 Para 3.3"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5 Para 3.4"
+        }
       ]
     },
     {
@@ -1093,9 +1551,41 @@
       "categoryId": "approaches",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["2D", "3D", "ILS", "NDB", "QNH", "IAF", "AOM"],
+      "tags": [
+        "2D",
+        "3D",
+        "ILS",
+        "NDB",
+        "QNH",
+        "IAF",
+        "AOM"
+      ],
       "summary": "Types of instrument approaches, QNH requirements before IAF and aerodrome operating minima.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 5.3 — Actual aerodrome QNH is valid for 15 minutes after receipt from an approved source (ATC/ATIS excl. TAF-only, AWIS, BOM accredited observer).",
+            "AIP ENR 1.5 Para 1.18 — Shaded minima on Airservices charts: TAF QNH applies by default; actual QNH allows a 100 ft reduction; area QNH requires 50 ft addition.",
+            "Part 91 MOS 14.03 — METAR QNH does NOT satisfy the requirement for actual aerodrome QNH prior to commencing an IAP."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "15 minutes — validity of actual aerodrome QNH received from an approved source",
+            "100 ft — reduction in shaded chart minima when actual (not TAF) QNH is set",
+            "50 ft — addition to minima when area QNH is used instead of actual QNH"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Using METAR QNH as the actual aerodrome QNH for an IAP — METAR is an observation product and is NOT an approved source of actual QNH for instrument approaches.",
+            "Forgetting the 15-minute clock on actual QNH — QNH obtained more than 15 minutes before the IAF must be re-obtained from an approved source.",
+            "Adding 100 ft when using actual QNH on shaded charts — actual QNH allows a REDUCTION of 100 ft below the shaded (TAF QNH) minima; the reduction is frequently applied in the wrong direction."
+          ]
+        },
         {
           "type": "qa",
           "question": "Name the 2D instrument approach types.",
@@ -1168,10 +1658,22 @@
         }
       ],
       "refs": [
-        { "source": "Part 61 MOS", "chapter": "Volume 2, Schedule 2, Section 5" },
-        { "source": "Part 91 MOS", "chapter": "14.03" },
-        { "source": "AIP", "chapter": "ENR 1.5 Para 5.3" },
-        { "source": "AIP", "chapter": "ENR 1.5 Para 1.18" }
+        {
+          "source": "Part 61 MOS",
+          "chapter": "Volume 2, Schedule 2, Section 5"
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "14.03"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5 Para 5.3"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5 Para 1.18"
+        }
       ]
     },
     {
@@ -1180,9 +1682,44 @@
       "categoryId": "approaches",
       "level": "core",
       "estReadingMinutes": 5,
-      "tags": ["approach-ban", "MDA", "DA", "circling", "VMC", "VIVAT", "missed-approach"],
+      "tags": [
+        "approach-ban",
+        "MDA",
+        "DA",
+        "circling",
+        "VMC",
+        "VIVAT",
+        "missed-approach"
+      ],
       "summary": "Approach ban rule, conditions to descend below MDA/DA, circling requirements and circling area dimensions.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "CASR 91.310 — Approach ban: do not descend below 1,000 ft AAL when TDZ RVR is continuously below landing minima. Applies only when ATC and RVR reports are both available.",
+            "Part 91 MOS 16 (VMC mnemonic) — Descent below MDA or continuation below DA requires: Visual reference maintained; Minima requirements adhered to; Continuously in a position to land.",
+            "AIP ENR 1.5 Para 1.6.6 — Circling is prohibited at night in 'no-circling' sectors and at all times in less than circling VMC."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "1000 ft AAL — approach ban height; do not descend below this if TDZ RVR is continuously below minima",
+            "1.68 NM — circling area radius Category A (300 ft obstacle clearance)",
+            "2.66 NM — circling area radius Category B (300 ft obstacle clearance)",
+            "4.20 NM — circling area radius Category C (400 ft obstacle clearance)",
+            "5.28 NM — circling area radius Category D (400 ft obstacle clearance)",
+            "6.94 NM — circling area radius Category E (500 ft obstacle clearance)"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Applying the approach ban at an aerodrome without ATC or RVR reports — the approach ban only applies where both an ATC service and RVR reporting are in operation.",
+            "Descending below MDA based on visual reference alone — all three VMC conditions must be met: visual reference AND above minima AND continuously in position to land.",
+            "Conducting a circling approach at night in a no-circling sector — circling at night in a no-circling sector is never permitted regardless of visual conditions."
+          ]
+        },
         {
           "type": "qa",
           "question": "Under the approach ban rule, below what height must a PIC not descend when TDZ RVR is continually below landing minima?",
@@ -1285,11 +1822,26 @@
         }
       ],
       "refs": [
-        { "source": "CASR", "part": "91.310" },
-        { "source": "Part 91 MOS", "chapter": "16" },
-        { "source": "CASR", "part": "91.305" },
-        { "source": "AIP", "chapter": "ENR 1.5 Para 1.7.2" },
-        { "source": "AIP", "chapter": "ENR 1.5 Para 1.6.6" }
+        {
+          "source": "CASR",
+          "part": "91.310"
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "16"
+        },
+        {
+          "source": "CASR",
+          "part": "91.305"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5 Para 1.7.2"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5 Para 1.6.6"
+        }
       ]
     },
     {
@@ -1298,9 +1850,43 @@
       "categoryId": "approaches",
       "level": "core",
       "estReadingMinutes": 5,
-      "tags": ["approach-speeds", "ILS", "tolerances", "visual-approach", "missed-approach", "ROFL"],
+      "tags": [
+        "approach-speeds",
+        "ILS",
+        "tolerances",
+        "visual-approach",
+        "missed-approach",
+        "ROFL"
+      ],
       "summary": "Aircraft category approach speeds, ILS tolerances, visual approach rules and missed approach triggers.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.5 Para 1.15 — Aircraft category speeds: Cat A VAT <91kt, Cat B 91–120kt, Cat C 121–140kt, Cat D 141–165kt, Cat E 166–210kt.",
+            "AIP ENR 1.5 Para 7.3 — ILS tolerances: maintain within half-scale LOC and GS deflection for obstacle clearance; full-scale deflection after FAP requires immediate missed approach.",
+            "AIP ENR 1.5 Para 1.9.1 — ROFL mnemonic for mandatory missed approach: Straight-in cannot be effected without circling; Not visual at DA/MDA; RAIM warning; Outside navigational tolerance on final; Failure/suspect aid below MSA; Lost visual reference during circling."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "91 kt — VAT speed separating Category A (<91) and Category B (91–120)",
+            "100 kt — maximum circling speed Category A",
+            "135 kt — maximum circling speed Category B",
+            "Half-scale — LOC/GS deflection tolerance for obstacle clearance during ILS",
+            "Full-scale — ILS deflection requiring mandatory missed approach after FAP",
+            "30 NM — maximum range for discontinuing an IAP to conduct a visual approach"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Continuing an ILS approach with full-scale deflection — full-scale LOC or GS deflection after the FAP requires an IMMEDIATE missed approach; obstacle clearance is no longer assured.",
+            "Exceeding category circling speed limits — Cat A circling maximum is 100kt, Cat B is 135kt; exceeding these speeds means the aircraft is outside the protected circling area.",
+            "Flying the instrument missed approach from a visual approach go-around — from a visual approach, initially climb on runway track and remain visual; the published instrument missed approach applies only when executing a missed approach from the instrument procedure."
+          ]
+        },
         {
           "type": "qa",
           "question": "What is the VAT speed range for a Category A aircraft?",
@@ -1468,13 +2054,34 @@
         }
       ],
       "refs": [
-        { "source": "AIP", "chapter": "ENR 1.5 Para 1.15" },
-        { "source": "AIP", "chapter": "ENR 1.5 Para 7.3" },
-        { "source": "AIP", "chapter": "ENR 1.1 Para 2.11.3.1" },
-        { "source": "AIP", "chapter": "ENR 1.5 Para 1.14" },
-        { "source": "Part 91 MOS", "chapter": "15.11" },
-        { "source": "AIP", "chapter": "ENR 1.5 Para 1.9.1" },
-        { "source": "AIP", "chapter": "ENR 1.1 Para 2.14" }
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5 Para 1.15"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5 Para 7.3"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.1 Para 2.11.3.1"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5 Para 1.14"
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "15.11"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.5 Para 1.9.1"
+        },
+        {
+          "source": "AIP",
+          "chapter": "ENR 1.1 Para 2.14"
+        }
       ]
     },
     {
@@ -1483,9 +2090,42 @@
       "categoryId": "approaches",
       "level": "advanced",
       "estReadingMinutes": 4,
-      "tags": ["landing-minima", "RVR", "approach-lighting", "precision", "NPA"],
+      "tags": [
+        "landing-minima",
+        "RVR",
+        "approach-lighting",
+        "precision",
+        "NPA"
+      ],
       "summary": "Landing minima adjustments for precision and non-precision approaches based on lighting and equipment.",
       "content": [
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 15.10 — Precision approach minima: 800m when TDZ RVR unavailable or ALS >420m inoperative; 1200m when no FD/HUD/AP, no HIRL, or ALS >210m inoperative; 1500m when entire ALS inoperative.",
+            "Part 91 MOS 15.10 — When a controlled aerodrome lighting failure doubles runway edge light spacing (e.g., 60m to 120m): apply 1.5x the charted RVR or visibility.",
+            "Part 91 MOS 15.10 — NPA with inoperative ALS: use charted visibility plus a value equivalent to the published length of the approach lighting system."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "800 m — minimum visibility when TDZ RVR unavailable or ALS inoperative beyond 420 m",
+            "1200 m — minimum visibility when no FD/HUD/AP, no HIRL, or ALS inoperative beyond 210 m",
+            "1500 m — minimum visibility when the entire approach lighting system is inoperative",
+            "1.5x — multiplier for charted minima when runway edge light spacing is doubled",
+            "420 m — ALS distance threshold triggering 800 m minimum visibility",
+            "210 m — ALS distance threshold triggering 1200 m minimum visibility"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Applying precision approach minima tables to NPA — NPA has its own specific rule: charted visibility plus the published ALS length when the ALS is inoperative.",
+            "Confusing the 210m and 420m ALS thresholds — ALS inoperative beyond 420m triggers 800m; ALS inoperative beyond 210m triggers 1200m; mixing these up is a common IPC failure.",
+            "Forgetting the 1.5x rule for doubled runway edge light spacing — a controlled aerodrome lighting failure that doubles spacing (e.g., 60m→120m) requires 1.5 times the charted minima, not the standard degraded lighting rule."
+          ]
+        },
         {
           "type": "qa",
           "question": "For a precision approach or RNP-LPV, when must minimum visibility be at least 800 m?",
@@ -1543,7 +2183,10 @@
         }
       ],
       "refs": [
-        { "source": "Part 91 MOS", "chapter": "15.10" }
+        {
+          "source": "Part 91 MOS",
+          "chapter": "15.10"
+        }
       ]
     }
   ]

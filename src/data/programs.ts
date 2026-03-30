@@ -17,7 +17,7 @@ export const STUDY_PROGRAMS: StudyProgram[] = [
     description: "CASA-style IFR oral questions for IPC and renewals.",
     recommendedUse: "Run this in the days leading up to your IPC. Focuses on law, minima, alternates, and approaches.",
     filter: {
-      kinds: ["ipc", "legacy_qa"],
+      kinds: ["ipc", "legacy_qa", "trap", "numeric"],
       levels: ["core", "advanced"],
     },
   },
@@ -47,8 +47,17 @@ export const STUDY_PROGRAMS: StudyProgram[] = [
     description: "All sections, all levels, weighted by your weak areas.",
     recommendedUse: "Use when you're already comfortable with the other programs. This is full-spectrum IFR.",
     filter: {
-      kinds: ["ipc", "airline", "legacy_qa"],
+      kinds: ["ipc", "airline", "legacy_qa", "trap", "numeric"],
       levels: ["core", "advanced", "airline"],
+    },
+  },
+  {
+    id: "traps_only",
+    name: "Trap Spotter",
+    description: "Common IPC failure modes and examiner traps from every section.",
+    recommendedUse: "Run this before your IPC to make sure you know every gotcha an examiner can throw at you.",
+    filter: {
+      kinds: ["trap"],
     },
   },
 ];

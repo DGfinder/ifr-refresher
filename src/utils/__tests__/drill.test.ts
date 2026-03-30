@@ -158,4 +158,155 @@ describe("buildDrillQuestions", () => {
     const questions = buildDrillQuestions([section]);
     expect(questions).toHaveLength(1);
   });
+
+  // ─── traps blocks ──────────────────────────────────────────────────────────
+
+  it("extracts traps blocks with kind=trap", () => {
+    const section = makeSection();
+    section.modules[0].content = [
+      {
+        type: "traps",
+        content: [
+          "Using METAR QNH as 'actual' — METAR is observation, not an approved source.",
+          "Descending below MDA without visual reference — MDA is a hard floor, not a descent point.",
+        ],
+      },
+    ];
+    const questions = buildDrillQuestions([section]);
+    expect(questions).toHaveLength(2);
+    expect(questions[0].kind).toBe("trap");
+    expect(questions[1].kind).toBe("trap");
+  });
+
+  it("formats trap prompt as 'What's the trap: [front]?'", () => {
+    const section = makeSection();
+    section.modules[0].content = [
+      {
+        type: "traps",
+        content: ["Using METAR QNH as 'actual' — METAR is observation, not an approved source."],
+      },
+    ];
+    const questions = buildDrillQuestions([section]);
+    expect(questions[0].prompt).toBe("What's the trap: Using METAR QNH as 'actual'?");
+    expect(questions[0].answer).toBe("METAR is observation, not an approved source.");
+  });
+
+  it("skips trap items without em dash separator", () => {
+    const section = makeSection();
+    section.modules[0].content = [
+      {
+        type: "traps",
+        content: [
+          "This item has no dash and should be skipped",
+          "Valid item — with a dash separator.",
+        ],
+      },
+    ];
+    const questions = buildDrillQuestions([section]);
+    expect(questions).toHaveLength(1);
+    expect(questions[0].prompt).toBe("What's the trap: Valid item?");
+  });
+
+  it("assigns stable IDs to trap questions", () => {
+    const section = makeSection();
+    section.modules[0].content = [
+      {
+        type: "traps",
+        content: [
+          "Trap A — explanation A.",
+          "Trap B — explanation B.",
+        ],
+      },
+    ];
+    const questions = buildDrillQuestions([section]);
+    expect(questions[0].id).toBe("test-section:mod-1:trap-0");
+    expect(questions[1].id).toBe("test-section:mod-1:trap-1");
+  });
+
+  // ─── numbers blocks ────────────────────────────────────────────────────────
+
+  it("extracts numbers blocks with kind=numeric", () => {
+    const section = makeSection();
+    section.modules[0].content = [
+      {
+        type: "numbers",
+        content: [
+          "100FT — reduction in minima when actual QNH replaces TAF QNH",
+          "30MIN — VFR fuel reserve after reaching destination",
+        ],
+      },
+    ];
+    const questions = buildDrillQuestions([section]);
+    expect(questions).toHaveLength(2);
+    expect(questions[0].kind).toBe("numeric");
+    expect(questions[1].kind).toBe("numeric");
+  });
+
+  it("uses front as prompt and back as answer for numeric items", () => {
+    const section = makeSection();
+    section.modules[0].content = [
+      {
+        type: "numbers",
+        content: ["100FT — reduction in minima when actual QNH replaces TAF QNH"],
+      },
+    ];
+    const questions = buildDrillQuestions([section]);
+    expect(questions[0].prompt).toBe("100FT");
+    expect(questions[0].answer).toBe("reduction in minima when actual QNH replaces TAF QNH");
+  });
+
+  it("skips numeric items without em dash separator", () => {
+    const section = makeSection();
+    section.modules[0].content = [
+      {
+        type: "numbers",
+        content: [
+          "This item has no separator and should be skipped",
+          "45MIN — IFR fuel reserve after reaching destination",
+        ],
+      },
+    ];
+    const questions = buildDrillQuestions([section]);
+    expect(questions).toHaveLength(1);
+    expect(questions[0].kind).toBe("numeric");
+  });
+
+  it("assigns stable IDs to numeric questions", () => {
+    const section = makeSection();
+    section.modules[0].content = [
+      {
+        type: "numbers",
+        content: [
+          "100FT — first value",
+          "200FT — second value",
+        ],
+      },
+    ];
+    const questions = buildDrillQuestions([section]);
+    expect(questions[0].id).toBe("test-section:mod-1:numeric-0");
+    expect(questions[1].id).toBe("test-section:mod-1:numeric-1");
+  });
+
+  it("correctly counts separate kind indexes for trap and numeric in same module", () => {
+    const section = makeSection();
+    section.modules[0].content = [
+      {
+        type: "traps",
+        content: ["Trap A — explanation A.", "Trap B — explanation B."],
+      },
+      {
+        type: "numbers",
+        content: ["100FT — value 1", "200FT — value 2"],
+      },
+    ];
+    const questions = buildDrillQuestions([section]);
+    const traps = questions.filter((q) => q.kind === "trap");
+    const numerics = questions.filter((q) => q.kind === "numeric");
+    expect(traps).toHaveLength(2);
+    expect(numerics).toHaveLength(2);
+    expect(traps[0].id).toBe("test-section:mod-1:trap-0");
+    expect(traps[1].id).toBe("test-section:mod-1:trap-1");
+    expect(numerics[0].id).toBe("test-section:mod-1:numeric-0");
+    expect(numerics[1].id).toBe("test-section:mod-1:numeric-1");
+  });
 });

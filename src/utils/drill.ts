@@ -12,9 +12,27 @@ function parseQAString(qaString: string): { question: string; answer: string } |
 }
 
 /**
+ * Split an em-dash formatted string "Front — Back" into its two parts.
+ * Returns null if the separator is not found.
+ */
+function splitEmDash(item: string): { front: string; back: string } | null {
+  // Support both " — " (with spaces) and "—" (bare)
+  const separatorRegex = / — |—/;
+  const idx = item.search(separatorRegex);
+  if (idx === -1) return null;
+  const match = item.match(separatorRegex)!;
+  const sep = match[0];
+  const sepIdx = item.indexOf(sep);
+  return {
+    front: item.slice(0, sepIdx).trim(),
+    back: item.slice(sepIdx + sep.length).trim(),
+  };
+}
+
+/**
  * Extract all question blocks from sections and build DrillQuestion array
- * Supports: qa, ipc_questions, airline_questions
- * Reserved (not yet converted): traps, scenario, numbers
+ * Supports: qa, ipc_questions, airline_questions, traps, numbers
+ * Reserved (not yet converted): scenario
  */
 export function buildDrillQuestions(sections: Section[]): DrillQuestion[] {
   const questions: DrillQuestion[] = [];
@@ -26,6 +44,8 @@ export function buildDrillQuestions(sections: Section[]): DrillQuestion[] {
         legacy_qa: 0,
         ipc: 0,
         airline: 0,
+        trap: 0,
+        numeric: 0,
       };
 
       for (const block of module.content) {
@@ -106,11 +126,44 @@ function processBlock(
       break;
     }
 
-    // Reserved for future implementation
-    case "traps":
+    case "traps": {
+      const kind: QuestionSourceKind = "trap";
+      for (const item of block.content) {
+        const parsed = splitEmDash(item);
+        if (!parsed) continue; // skip items without separator
+        const index = kindIndexes[kind]++;
+        questions.push({
+          ...baseInfo,
+          id: `${section.sectionId}:${module.id}:trap-${index}`,
+          prompt: `What's the trap: ${parsed.front}?`,
+          answer: parsed.back,
+          kind,
+          tags: [...(module.tags || []), kind],
+        });
+      }
+      break;
+    }
+
+    case "numbers": {
+      const kind: QuestionSourceKind = "numeric";
+      for (const item of block.content) {
+        const parsed = splitEmDash(item);
+        if (!parsed) continue; // skip items without separator
+        const index = kindIndexes[kind]++;
+        questions.push({
+          ...baseInfo,
+          id: `${section.sectionId}:${module.id}:numeric-${index}`,
+          prompt: parsed.front,
+          answer: parsed.back,
+          kind,
+          tags: [...(module.tags || []), kind],
+        });
+      }
+      break;
+    }
+
     case "scenario":
-    case "numbers":
-      // Hooks in place but not generating questions yet
+      // Reserved for future implementation
       break;
 
     default:
