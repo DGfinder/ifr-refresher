@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
 import type { DrillProgramId } from "@/types/drill";
+import { storage } from "@/lib/storage";
 
 interface ProgramContextValue {
   programId: DrillProgramId;
@@ -10,20 +11,26 @@ interface ProgramContextValue {
 const ProgramContext = createContext<ProgramContextValue | undefined>(undefined);
 const STORAGE_KEY = "ifrProgramId";
 
+const VALID_PROGRAM_IDS: DrillProgramId[] = ["ipc", "airline", "godmode", "custom", "cheat_sheet"];
+
 export function ProgramProvider({ children }: { children: ReactNode }) {
   const [programId, setProgramIdState] = useState<DrillProgramId>("custom");
   const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored && ["ipc", "airline", "godmode", "custom"].includes(stored)) {
-      setProgramIdState(stored as DrillProgramId);
-    }
-    setIsHydrated(true);
+    (async () => {
+      const stored = await storage.get<string>(STORAGE_KEY);
+      if (stored && VALID_PROGRAM_IDS.includes(stored as DrillProgramId)) {
+        setProgramIdState(stored as DrillProgramId);
+      }
+      setIsHydrated(true);
+    })();
   }, []);
 
   useEffect(() => {
-    if (isHydrated) localStorage.setItem(STORAGE_KEY, programId);
+    if (isHydrated) {
+      storage.set(STORAGE_KEY, programId).catch(console.error);
+    }
   }, [programId, isHydrated]);
 
   return (

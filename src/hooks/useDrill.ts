@@ -6,6 +6,8 @@ import type { DrillQuestion, DrillRating, DrillState, DrillStats, DrillFilter } 
 import type { ProgramId } from "@/types/programs";
 import { buildDrillQuestions } from "@/utils/drill";
 import { getProgramById } from "@/data/programs";
+import { storage } from "@/lib/storage";
+import { useFSRS } from "./useFSRS";
 
 const STORAGE_KEY = "ifrDrill";
 
@@ -14,6 +16,7 @@ interface UseDrillOptions {
   moduleId?: string | null;
   filter?: DrillFilter;
   programId?: ProgramId;
+  mode?: 'fsrs' | 'adaptive';
 }
 
 interface UseDrillResult {
@@ -51,38 +54,39 @@ export function useDrill(
   sections: Section[],
   options: UseDrillOptions = {}
 ): UseDrillResult {
-  const { sectionId, moduleId, filter, programId } = options;
+  const { sectionId, moduleId, filter, programId, mode = 'adaptive' } = options;
 
   const [stats, setStats] = useState<DrillState>({});
   const [isHydrated, setIsHydrated] = useState(false);
 
-  // Load stats from localStorage on mount (with migration)
+  const fsrs = useFSRS();
+
+  // Load stats from IndexedDB on mount (with migration)
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        const migrated = migrateStats(parsed);
-        setStats(migrated);
-        // Persist migrated stats if changed
-        if (migrated !== parsed) {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+    (async () => {
+      try {
+        const stored = await storage.get<DrillState>(STORAGE_KEY);
+        if (stored) {
+          const migrated = migrateStats(stored);
+          setStats(migrated);
+          // Persist migrated stats if changed
+          if (migrated !== stored) {
+            await storage.set(STORAGE_KEY, migrated);
+          }
         }
+      } catch {
+        // Ignore storage errors
       }
-    } catch {
-      // Ignore localStorage errors
-    }
-    setIsHydrated(true);
+      setIsHydrated(true);
+    })();
   }, []);
 
-  // Persist stats to localStorage
+  // Persist stats to IndexedDB
   useEffect(() => {
     if (!isHydrated) return;
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
-    } catch {
-      // Ignore localStorage errors
-    }
+    storage.set(STORAGE_KEY, stats).catch(() => {
+      // Ignore storage errors
+    });
   }, [stats, isHydrated]);
 
   // Build all questions from sections
@@ -178,13 +182,35 @@ export function useDrill(
 
       return { ...prev, [questionId]: updated };
     });
-  }, []);
+
+    // Also update FSRS card when in FSRS mode
+    if (mode === 'fsrs') {
+      const fsrsRating = rating === 'got-it' ? 'good' : 'again';
+      fsrs.rateCard(questionId, fsrsRating).catch(console.error);
+    }
+  }, [mode, fsrs]);
 
   // Get next question using the selection algorithm
   const getNextQuestion = useCallback((): DrillQuestion | null => {
     const candidates = filteredQuestions;
     if (candidates.length === 0) return null;
 
+    // FSRS mode: use due cards
+    if (mode === 'fsrs') {
+      const dueCards = fsrs.getDueCards(candidates);
+      if (dueCards.length > 0) {
+        return dueCards[Math.floor(Math.random() * dueCards.length)];
+      }
+      // Fall back to new cards if nothing due
+      const newCards = fsrs.getNewCards(candidates);
+      if (newCards.length > 0) {
+        return newCards[Math.floor(Math.random() * newCards.length)];
+      }
+      // Fall back to any card
+      return candidates[Math.floor(Math.random() * candidates.length)];
+    }
+
+    // Adaptive mode (default)
     // 1. Unseen questions first
     const unseen = candidates.filter(
       (q) => !stats[q.id] || stats[q.id].seenCount === 0
@@ -204,7 +230,7 @@ export function useDrill(
 
     // 3. Random among ties
     return weakest[Math.floor(Math.random() * weakest.length)].question;
-  }, [filteredQuestions, stats]);
+  }, [filteredQuestions, stats, mode, fsrs]);
 
   // Get count of weak questions (unsure > gotIt)
   const getWeakCount = useCallback((): number => {

@@ -1,6 +1,6 @@
 import type { DrillFilter } from "./drill";
 
-export type ProgramId = "ipc_oral" | "airline_panel" | "quick_fire_numbers" | "god_mode" | "cheat_sheet" | "traps_only";
+export type ProgramId = "ipc_oral" | "airline_panel" | "quick_fire_numbers" | "god_mode" | "cheat_sheet" | "traps_only" | "smart_review";
 
 export interface StudyProgram {
   id: ProgramId;

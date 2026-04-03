@@ -171,3 +171,25 @@ function processBlock(
       break;
   }
 }
+
+
+/**
+ * Get the law block content for a specific module.
+ * Returns the law items as an array of strings, or empty array if none.
+ */
+export function getModuleContext(
+  sections: Section[],
+  sectionId: string,
+  moduleId: string
+): string[] {
+  const section = sections.find((s) => s.sectionId === sectionId);
+  if (!section) return [];
+  const module = section.modules.find((m) => m.id === moduleId);
+  if (!module) return [];
+  for (const block of module.content) {
+    if (block.type === "law") {
+      return block.content;
+    }
+  }
+  return [];
+}

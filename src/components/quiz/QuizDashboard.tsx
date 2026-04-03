@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { ModeSelector } from "./ModeSelector";
 import { SessionConfig } from "./SessionConfig";
 import { getQuizStats, getRecentHistory } from "@/utils/quizStorage";
@@ -12,14 +13,34 @@ interface QuizDashboardProps {
   availableQuestions: number;
 }
 
+type StatsType = Awaited<ReturnType<typeof getQuizStats>>;
+type HistoryType = Awaited<ReturnType<typeof getRecentHistory>>;
+
+const DEFAULT_STATS: StatsType = {
+  lastScore: null,
+  bestScore: 0,
+  dailyStreak: 0,
+  totalQuizzes: 0,
+  totalCorrect: 0,
+  totalQuestions: 0,
+  averageScore: 0,
+};
+
 export function QuizDashboard({
   config,
   onChangeConfig,
   onStart,
   availableQuestions,
 }: QuizDashboardProps) {
-  const stats = getQuizStats();
-  const recentHistory = getRecentHistory(3);
+  const [stats, setStats] = useState<StatsType>(DEFAULT_STATS);
+  const [recentHistory, setRecentHistory] = useState<HistoryType>([]);
+
+  useEffect(() => {
+    Promise.all([getQuizStats(), getRecentHistory(3)]).then(([s, h]) => {
+      setStats(s);
+      setRecentHistory(h);
+    });
+  }, []);
 
   const handleModeChange = (mode: QuizGameMode) => {
     onChangeConfig({ mode });

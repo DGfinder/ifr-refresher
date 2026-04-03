@@ -8,6 +8,7 @@ import { FlipCard } from "./ui/FlipCard";
 import { RatingButtons } from "./ui/RatingButtons";
 import { CardProgress } from "./ui/CardProgress";
 import { useDrill } from "@/hooks/useDrill";
+import { getModuleContext } from "@/utils/drill";
 import { sections } from "@/data/sections";
 
 export interface SessionResults {
@@ -26,7 +27,7 @@ const SWIPE_THRESHOLD = 50;
 const TILT_MAX = 12; // degrees
 
 export function FlashcardSession({ queue, programId, onEnd }: FlashcardSessionProps) {
-  const { updateRating } = useDrill(sections, { programId });
+  const { updateRating } = useDrill(sections, { programId, mode: programId === "smart_review" ? "fsrs" : "adaptive" });
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -186,6 +187,7 @@ export function FlashcardSession({ queue, programId, onEnd }: FlashcardSessionPr
             dragX={dragX}
             dragRotate={dragRotate}
             isDragging={isDragging}
+            moduleContext={getModuleContext(sections, currentCard.sectionId, currentCard.moduleId)}
             front={
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex flex-1 items-center justify-center">

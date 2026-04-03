@@ -16,6 +16,7 @@ const SHORT_NAMES: Record<ProgramId, string> = {
   god_mode: "God Mode",
   cheat_sheet: "Cheat Sheet",
   traps_only: "Trap Spotter",
+  smart_review: "Smart Review",
 };
 
 export function ProgramSelector({ value, onChange }: ProgramSelectorProps) {

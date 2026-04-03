@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import type { ModuleStatus, ProgressState } from "@/types/progress";
 import type { Module } from "@/types/section";
+import { storage } from "@/lib/storage";
 
 const STORAGE_KEY = "ifrProgress";
 
@@ -14,27 +15,27 @@ export function useProgress() {
   const [progress, setProgress] = useState<ProgressState>({});
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Load from localStorage on mount
+  // Load from IndexedDB on mount
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        setProgress(JSON.parse(stored));
+    (async () => {
+      try {
+        const stored = await storage.get<ProgressState>(STORAGE_KEY);
+        if (stored) {
+          setProgress(stored);
+        }
+      } catch (e) {
+        console.error("Failed to load progress from IndexedDB:", e);
       }
-    } catch (e) {
-      console.error("Failed to load progress from localStorage:", e);
-    }
-    setIsLoaded(true);
+      setIsLoaded(true);
+    })();
   }, []);
 
-  // Save to localStorage when progress changes
+  // Save to IndexedDB when progress changes
   useEffect(() => {
     if (isLoaded) {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-      } catch (e) {
-        console.error("Failed to save progress to localStorage:", e);
-      }
+      storage.set(STORAGE_KEY, progress).catch((e) => {
+        console.error("Failed to save progress to IndexedDB:", e);
+      });
     }
   }, [progress, isLoaded]);
 

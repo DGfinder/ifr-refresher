@@ -60,6 +60,13 @@ export const STUDY_PROGRAMS: StudyProgram[] = [
       kinds: ["trap"],
     },
   },
+  {
+    id: "smart_review",
+    name: "Smart Review",
+    description: "FSRS spaced repetition — shows cards due for review based on your memory schedule.",
+    recommendedUse: "Use daily. Reviews only the cards your memory is about to forget.",
+    filter: { kinds: ["legacy_qa", "ipc", "trap", "numeric"] },
+  },
 ];
 
 export function getProgramById(id: ProgramId): StudyProgram | undefined {

@@ -237,7 +237,7 @@ export function useQuizSession({
     if (config.mode === "challenge" && lives <= 0) {
       const finalResult = buildResult();
       setResult(finalResult);
-      addQuizResult(finalResult);
+      addQuizResult(finalResult).catch(console.error);
       setPhase("results");
       return;
     }
@@ -247,7 +247,7 @@ export function useQuizSession({
       // Quiz complete
       const finalResult = buildResult();
       setResult(finalResult);
-      addQuizResult(finalResult);
+      addQuizResult(finalResult).catch(console.error);
       setPhase("results");
     } else {
       setCurrentIndex(nextIndex);
@@ -284,7 +284,7 @@ export function useQuizSession({
     if (nextIndex >= questions.length) {
       const finalResult = buildResult();
       setResult(finalResult);
-      addQuizResult(finalResult);
+      addQuizResult(finalResult).catch(console.error);
       setPhase("results");
     } else {
       setCurrentIndex(nextIndex);
@@ -327,7 +327,7 @@ export function useQuizSession({
   const endSession = useCallback(() => {
     const finalResult = buildResult();
     setResult(finalResult);
-    addQuizResult(finalResult);
+    addQuizResult(finalResult).catch(console.error);
     setPhase("results");
   }, [buildResult]);
 

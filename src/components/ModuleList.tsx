@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import Fuse from "fuse.js";
 import type { Module } from "@/types/section";
 import type { ModuleStatus } from "@/types/progress";
 import { Badge } from "./Badge";
@@ -20,17 +21,20 @@ export function ModuleList({
   onSelectModule,
   getModuleStatus,
 }: ModuleListProps) {
+  const fuse = useMemo(
+    () =>
+      new Fuse(modules, {
+        keys: ["title", "summary", "tags"],
+        threshold: 0.4,
+        includeScore: false,
+      }),
+    [modules]
+  );
+
   const filteredModules = useMemo(() => {
     if (!searchQuery.trim()) return modules;
-
-    const query = searchQuery.toLowerCase();
-    return modules.filter(
-      (module) =>
-        module.title.toLowerCase().includes(query) ||
-        module.summary.toLowerCase().includes(query) ||
-        module.tags.some((tag) => tag.toLowerCase().includes(query))
-    );
-  }, [modules, searchQuery]);
+    return fuse.search(searchQuery).map((r) => r.item);
+  }, [modules, searchQuery, fuse]);
 
   if (filteredModules.length === 0) {
     return (

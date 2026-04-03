@@ -1,5 +1,6 @@
 import type { QuizProgress, QuizResult, QuizAnswer } from "@/types/quiz";
 import { createInitialProgress } from "@/types/quiz";
+import { storage } from "@/lib/storage";
 
 const STORAGE_KEY = "ifrQuizProgress";
 const MAX_HISTORY = 50;
@@ -29,28 +30,22 @@ function isToday(dateStr: string): boolean {
 }
 
 /**
- * Load quiz progress from localStorage
+ * Load quiz progress from IndexedDB
  */
-export function loadQuizProgress(): QuizProgress {
-  if (typeof window === "undefined") {
-    return createInitialProgress();
-  }
-
+export async function loadQuizProgress(): Promise<QuizProgress> {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const stored = await storage.get<QuizProgress>(STORAGE_KEY);
     if (!stored) {
       return createInitialProgress();
     }
 
-    const parsed = JSON.parse(stored) as QuizProgress;
-
     // Validate and migrate if needed
     return {
-      history: Array.isArray(parsed.history) ? parsed.history : [],
-      bestScores: parsed.bestScores ?? createInitialProgress().bestScores,
-      totalStats: parsed.totalStats ?? createInitialProgress().totalStats,
-      dailyStreak: parsed.dailyStreak ?? createInitialProgress().dailyStreak,
-      masteredQuestions: Array.isArray(parsed.masteredQuestions) ? parsed.masteredQuestions : [],
+      history: Array.isArray(stored.history) ? stored.history : [],
+      bestScores: stored.bestScores ?? createInitialProgress().bestScores,
+      totalStats: stored.totalStats ?? createInitialProgress().totalStats,
+      dailyStreak: stored.dailyStreak ?? createInitialProgress().dailyStreak,
+      masteredQuestions: Array.isArray(stored.masteredQuestions) ? stored.masteredQuestions : [],
     };
   } catch {
     return createInitialProgress();
@@ -58,13 +53,11 @@ export function loadQuizProgress(): QuizProgress {
 }
 
 /**
- * Save quiz progress to localStorage
+ * Save quiz progress to IndexedDB
  */
-export function saveQuizProgress(progress: QuizProgress): void {
-  if (typeof window === "undefined") return;
-
+export async function saveQuizProgress(progress: QuizProgress): Promise<void> {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    await storage.set(STORAGE_KEY, progress);
   } catch (e) {
     console.error("Failed to save quiz progress:", e);
   }
@@ -73,8 +66,8 @@ export function saveQuizProgress(progress: QuizProgress): void {
 /**
  * Add a completed quiz result and update stats
  */
-export function addQuizResult(result: QuizResult): QuizProgress {
-  const progress = loadQuizProgress();
+export async function addQuizResult(result: QuizResult): Promise<QuizProgress> {
+  const progress = await loadQuizProgress();
   const today = getToday();
 
   // Add to history (keep last 50)
@@ -112,7 +105,7 @@ export function addQuizResult(result: QuizResult): QuizProgress {
   // Update mastered questions (answered correctly 3+ times)
   updateMasteredQuestions(progress, result.answers);
 
-  saveQuizProgress(progress);
+  await saveQuizProgress(progress);
   return progress;
 }
 
@@ -149,15 +142,15 @@ function updateMasteredQuestions(progress: QuizProgress, answers: QuizAnswer[]):
 /**
  * Get the last quiz result
  */
-export function getLastQuizResult(): QuizResult | null {
-  const progress = loadQuizProgress();
+export async function getLastQuizResult(): Promise<QuizResult | null> {
+  const progress = await loadQuizProgress();
   return progress.history[0] ?? null;
 }
 
 /**
  * Get statistics summary for dashboard
  */
-export function getQuizStats(): {
+export async function getQuizStats(): Promise<{
   lastScore: number | null;
   bestScore: number;
   dailyStreak: number;
@@ -165,8 +158,8 @@ export function getQuizStats(): {
   totalCorrect: number;
   totalQuestions: number;
   averageScore: number;
-} {
-  const progress = loadQuizProgress();
+}> {
+  const progress = await loadQuizProgress();
   const lastResult = progress.history[0];
 
   const lastScore = lastResult
@@ -193,13 +186,13 @@ export function getQuizStats(): {
 /**
  * Get recent quiz history for display
  */
-export function getRecentHistory(limit = 5): Array<{
+export async function getRecentHistory(limit = 5): Promise<Array<{
   mode: string;
   correct: number;
   total: number;
   date: string;
-}> {
-  const progress = loadQuizProgress();
+}>> {
+  const progress = await loadQuizProgress();
 
   return progress.history.slice(0, limit).map((result) => ({
     mode: result.mode,
@@ -212,7 +205,6 @@ export function getRecentHistory(limit = 5): Array<{
 /**
  * Clear all quiz progress (for testing/reset)
  */
-export function clearQuizProgress(): void {
-  if (typeof window === "undefined") return;
-  localStorage.removeItem(STORAGE_KEY);
+export async function clearQuizProgress(): Promise<void> {
+  await storage.del(STORAGE_KEY);
 }
