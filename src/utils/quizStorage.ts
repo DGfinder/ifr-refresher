@@ -1,6 +1,7 @@
 import type { QuizProgress, QuizResult, QuizAnswer } from "@/types/quiz";
 import { createInitialProgress } from "@/types/quiz";
 import { storage } from "@/lib/storage";
+import { recordStudyActivity } from "@/utils/studyStreak";
 
 const STORAGE_KEY = "ifrQuizProgress";
 const MAX_HISTORY = 50;
@@ -106,6 +107,10 @@ export async function addQuizResult(result: QuizResult): Promise<QuizProgress> {
   updateMasteredQuestions(progress, result.answers);
 
   await saveQuizProgress(progress);
+
+  // Record unified study streak (fire-and-forget, must not throw)
+  await recordStudyActivity().catch(console.error);
+
   return progress;
 }
 

@@ -8,6 +8,7 @@ import { buildDrillQuestions } from "@/utils/drill";
 import { getProgramById } from "@/data/programs";
 import { storage } from "@/lib/storage";
 import { useFSRS } from "./useFSRS";
+import { recordStudyActivity } from "@/utils/studyStreak";
 
 const STORAGE_KEY = "ifrDrill";
 
@@ -182,6 +183,9 @@ export function useDrill(
 
       return { ...prev, [questionId]: updated };
     });
+
+    // Record study activity for unified streak
+    recordStudyActivity().catch(console.error);
 
     // Also update FSRS card when in FSRS mode
     if (mode === 'fsrs') {

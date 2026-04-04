@@ -74,5 +74,14 @@ export function useFSRS() {
     return allQuestions.filter((q) => !store[q.id]);
   }, []);
 
-  return { getCard, rateCard, getDueCards, getNewCards };
+  /**
+   * Loads the store if needed, then returns the count of due cards.
+   * Safe to call on mount — handles async IDB load.
+   */
+  const getDueCount = useCallback(async (allQuestions: DrillQuestion[]): Promise<number> => {
+    await loadStore();
+    return getDueCards(allQuestions).length;
+  }, [loadStore, getDueCards]);
+
+  return { getCard, rateCard, getDueCards, getNewCards, getDueCount };
 }
