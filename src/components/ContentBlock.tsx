@@ -149,7 +149,7 @@ export function ContentBlock({ block }: ContentBlockProps) {
     case "ipc_questions":
       return (
         <div className={baseCardClasses}>
-          <p className={titleClasses}>IPC Oral Questions</p>
+          <p className={titleClasses}>IPC Prep Questions</p>
           <ul className={listClasses}>
             {block.content.map((item, i) => (
               <li key={i}>{item}</li>
