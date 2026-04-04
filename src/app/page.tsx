@@ -1,33 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState, useEffect } from "react";
+import { useMemo } from "react";
 import { sections } from "@/data/sections";
 import { useProgress } from "@/hooks/useProgress";
 import { useDrill } from "@/hooks/useDrill";
-import { useFSRS } from "@/hooks/useFSRS";
-import { getStreakData } from "@/utils/studyStreak";
 
 export default function Home() {
   const { getCompletionStats } = useProgress();
-  const { getWeakCount, allQuestions } = useDrill(sections);
-  const { getDueCount } = useFSRS();
-
-  const [dueCount, setDueCount] = useState<number>(0);
-  const [streak, setStreak] = useState<{ current: number; longest: number }>({ current: 0, longest: 0 });
-
-  // Load FSRS due count on mount
-  useEffect(() => {
-    if (allQuestions.length === 0) return;
-    getDueCount(allQuestions).then(setDueCount).catch(console.error);
-  }, [allQuestions, getDueCount]);
-
-  // Load streak data on mount
-  useEffect(() => {
-    getStreakData()
-      .then((data) => setStreak({ current: data.currentStreak, longest: data.longestStreak }))
-      .catch(console.error);
-  }, []);
+  const { getWeakCount } = useDrill(sections);
 
   const totalStats = useMemo(() => {
     const totalModules = sections.reduce((acc, s) => acc + s.modules.length, 0);
@@ -42,14 +23,6 @@ export default function Home() {
   const progressPercent = totalStats.total > 0
     ? Math.round((totalStats.completed / totalStats.total) * 100)
     : 0;
-
-  // Streak styling
-  const streakStyle =
-    streak.current >= 7
-      ? "text-orange-400"
-      : streak.current >= 3
-      ? "text-[var(--ifr-warning)]"
-      : "text-foreground";
 
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-6">
@@ -88,7 +61,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 text-sm">
           <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
             <div className="text-2xl font-bold text-foreground">
               {totalStats.completed}/{totalStats.total}
@@ -98,30 +71,6 @@ export default function Home() {
           <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
             <div className="text-2xl font-bold text-[var(--ifr-warning)]">{weakCount}</div>
             <div className="text-xs text-[var(--ifr-text-muted)]">Weak questions</div>
-          </div>
-          <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
-            {dueCount === 0 ? (
-              <>
-                <div className="text-xl font-bold text-green-500">✓</div>
-                <div className="text-xs text-[var(--ifr-text-muted)]">All caught up</div>
-              </>
-            ) : (
-              <>
-                <div className="text-2xl font-bold text-[var(--ifr-warning)]">{dueCount}</div>
-                <div className="text-xs text-[var(--ifr-text-muted)]">Due for review</div>
-              </>
-            )}
-          </div>
-          <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
-            <div className={`text-2xl font-bold ${streakStyle}`}>
-              {streak.current >= 3 ? "🔥" : "📅"} {streak.current}
-            </div>
-            <div className="text-xs text-[var(--ifr-text-muted)]">Day streak</div>
-            {streak.longest > 0 && (
-              <div className="text-xs text-[var(--ifr-text-muted)] mt-0.5">
-                Best: {streak.longest}d
-              </div>
-            )}
           </div>
         </div>
       </section>
@@ -141,7 +90,7 @@ export default function Home() {
             </span>
           </Link>
           <Link
-            href="/drill"
+            href="/flashcard"
             className="flex flex-col items-center rounded-lg border border-[var(--ifr-accent)] bg-[var(--ifr-accent)]/10 p-5 text-center transition-colors hover:bg-[var(--ifr-accent)]/20"
           >
             <span className="mb-2 text-2xl">🎯</span>
@@ -151,7 +100,7 @@ export default function Home() {
             </span>
           </Link>
           <Link
-            href="/drill?mode=quiz"
+            href="/quiz"
             className="flex flex-col items-center rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-5 text-center transition-colors hover:border-[var(--ifr-accent)]/50"
           >
             <span className="mb-2 text-2xl">✅</span>

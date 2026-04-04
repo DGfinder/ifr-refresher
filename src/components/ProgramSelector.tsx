@@ -10,13 +10,9 @@ interface ProgramSelectorProps {
 }
 
 const SHORT_NAMES: Record<ProgramId, string> = {
-  ipc_oral: "IPC Oral",
-  airline_panel: "Airline",
-  quick_fire_numbers: "Quick Fire",
-  god_mode: "God Mode",
   cheat_sheet: "Cheat Sheet",
-  traps_only: "Trap Spotter",
-  smart_review: "Smart Review",
+  ipc_oral: "IPC Oral",
+  god_mode: "God Mode",
 };
 
 export function ProgramSelector({ value, onChange }: ProgramSelectorProps) {

@@ -27,7 +27,7 @@ const SWIPE_THRESHOLD = 50;
 const TILT_MAX = 12; // degrees
 
 export function FlashcardSession({ queue, programId, onEnd }: FlashcardSessionProps) {
-  const { updateRating } = useDrill(sections, { programId, mode: programId === "smart_review" ? "fsrs" : "adaptive" });
+  const { updateRating } = useDrill(sections, { programId, mode: "adaptive" });
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);

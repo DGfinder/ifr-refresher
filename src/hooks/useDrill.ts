@@ -135,11 +135,6 @@ export function useDrill(
       );
     }
 
-    // Quick Fire Numbers: filter to quick-fire-numbers section only
-    if (programId === "quick_fire_numbers") {
-      questions = questions.filter((q) => q.sectionId === "quick-fire-numbers");
-    }
-
     // Cheat Sheet: filter to cheat-sheet section only
     if (programId === "cheat_sheet") {
       questions = questions.filter((q) => q.sectionId === "cheat-sheet");
