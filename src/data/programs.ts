@@ -3,9 +3,9 @@ import type { ProgramId, StudyProgram } from "@/types/programs";
 export const STUDY_PROGRAMS: StudyProgram[] = [
   {
     id: "cheat_sheet",
-    name: "Cheat Sheet",
-    description: "Questions from the We Fly Planes IFR Cheat Sheet v7.1 — the trusted community reference.",
-    recommendedUse: "Best starting point. Covers the full cheat sheet: licensing, recency, equipment, fuel, alternates, en route, holding and approaches.",
+    name: "Quick Study",
+    description: "The We Fly Planes IFR Cheat Sheet v7.1 — a trusted community reference. Fast, focused, verified.",
+    recommendedUse: "Default starting point. 10 minutes before a flight review or whenever you need a quick refresher.",
     filter: {
       kinds: ["legacy_qa"],
       levels: ["core", "advanced"],
@@ -13,9 +13,9 @@ export const STUDY_PROGRAMS: StudyProgram[] = [
   },
   {
     id: "ipc_oral",
-    name: "IPC Oral",
-    description: "Law, procedures and traps across all sections — the full IPC oral mix.",
-    recommendedUse: "Run this in the days leading up to your IPC. Broad coverage across law, minima, alternates and approaches.",
+    name: "IPC Prep",
+    description: "Full IPC oral preparation — cheat sheet content plus law, procedures and traps across all sections.",
+    recommendedUse: "Use in the days leading up to your IPC. Broader coverage across law, minima, alternates and approaches.",
     filter: {
       kinds: ["ipc", "legacy_qa", "trap", "numeric"],
       levels: ["core", "advanced"],
@@ -24,8 +24,8 @@ export const STUDY_PROGRAMS: StudyProgram[] = [
   {
     id: "god_mode",
     name: "God Mode",
-    description: "Everything — all sections, all levels, all question types.",
-    recommendedUse: "Use when you want full-spectrum coverage including airline-level questions.",
+    description: "Everything — all sections, all levels, all question types including airline.",
+    recommendedUse: "Full-spectrum coverage when you want to go deep.",
     filter: {
       kinds: ["ipc", "airline", "legacy_qa", "trap", "numeric"],
       levels: ["core", "advanced", "airline"],

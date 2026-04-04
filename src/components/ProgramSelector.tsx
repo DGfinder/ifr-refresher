@@ -10,8 +10,8 @@ interface ProgramSelectorProps {
 }
 
 const SHORT_NAMES: Record<ProgramId, string> = {
-  cheat_sheet: "Cheat Sheet",
-  ipc_oral: "IPC Oral",
+  cheat_sheet: "Quick Study",
+  ipc_oral: "IPC Prep",
   god_mode: "God Mode",
 };
 
