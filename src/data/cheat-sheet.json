@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "sectionId": "cheat-sheet",
-  "sectionTitle": "IFR Cheat Sheet",
-  "sectionDescription": "127 questions derived strictly from the We Fly Planes IFR Cheat Sheet v7.1 (Ben Montgomery-Schinkel, March 2024). Australian IFR law and theory \u2014 ideal for IPC preparation.",
+  "sectionTitle": "IFR Core",
+  "sectionDescription": "Core Australian IFR law and procedures \u2014 licensing, recency, equipment, preflight, en route, holding and approaches.",
   "categories": [
     {
       "id": "licensing",

@@ -24,8 +24,8 @@ export const drillPrograms: DrillProgram[] = [
   },
   {
     id: "cheat_sheet",
-    label: "Cheat Sheet",
-    description: "127 flashcards from the We Fly Planes IFR Cheat Sheet v7.1. Licensing, recency, equipment, fuel, alternates, en route, holding and approaches.",
+    label: "Quick Study",
+    description: "Core IFR flashcards — licensing, recency, equipment, fuel, alternates, en route, holding and approaches.",
     sectionIds: ["cheat-sheet"],
     defaultMode: "flashcards",
   },

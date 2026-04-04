@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-6">
       <p className="mb-6 text-[var(--ifr-text-muted)]">
-        Study IFR law and procedures. Based on the We Fly Planes Cheat Sheet v7.1.
+        Study IFR law and procedures for your next instrument rating renewal or IPC.
       </p>
 
       {/* Progress Summary */}
@@ -45,7 +45,7 @@ export default function Home() {
         </div>
         <div className="mb-4">
           <div className="mb-2 flex justify-between text-sm">
-            <span className="text-[var(--ifr-text-muted)]">Cheat sheet completion</span>
+            <span className="text-[var(--ifr-text-muted)]">Overall completion</span>
             <span className="font-medium text-foreground">{progressPercent}%</span>
           </div>
           <div className="h-2 w-full rounded-full bg-[var(--ifr-surface-muted)]">

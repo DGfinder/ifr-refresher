@@ -150,7 +150,7 @@ All study content lives in `src/data/*.json`. Each file is a **Section**:
 
 | ID | Name | Question Kinds |
 |---|---|---|
-| `cheat_sheet` | Cheat Sheet | `legacy_qa` |
+| `cheat_sheet` | Quick Study | `legacy_qa` |
 | `ipc_oral` | IPC Oral | `ipc`, `legacy_qa`, `trap`, `numeric` |
 | `airline_panel` | Airline Panel | `airline` |
 | `quick_fire_numbers` | Quick Fire Numbers | `ipc`, `legacy_qa` |

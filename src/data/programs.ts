@@ -4,7 +4,7 @@ export const STUDY_PROGRAMS: StudyProgram[] = [
   {
     id: "cheat_sheet",
     name: "Quick Study",
-    description: "The We Fly Planes IFR Cheat Sheet v7.1 — a trusted community reference. Fast, focused, verified.",
+    description: "Core IFR law and procedures — licensing, recency, equipment, fuel, alternates, en route, holding and approaches.",
     recommendedUse: "Default starting point. 10 minutes before a flight review or whenever you need a quick refresher.",
     filter: {
       kinds: ["legacy_qa"],
@@ -14,7 +14,7 @@ export const STUDY_PROGRAMS: StudyProgram[] = [
   {
     id: "ipc_oral",
     name: "IPC Prep",
-    description: "Full IPC oral preparation — cheat sheet content plus law, procedures and traps across all sections.",
+    description: "Full IPC oral preparation — core content plus law, procedures and traps across all sections.",
     recommendedUse: "Use in the days leading up to your IPC. Broader coverage across law, minima, alternates and approaches.",
     filter: {
       kinds: ["ipc", "legacy_qa", "trap", "numeric"],
