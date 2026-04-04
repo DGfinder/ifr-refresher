@@ -27,6 +27,10 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-6">
       <div className="mb-8">
+        <h1 className="font-[family-name:var(--font-display)] text-4xl font-bold tracking-wide uppercase text-foreground mb-1">
+          IFR Refresher
+        </h1>
+        <div className="h-px w-full bg-[rgba(251,191,36,0.4)] mb-4" />
         <p className="text-[var(--ifr-text-muted)]">
           Refresh your instrument knowledge with structured modules and adaptive drills.
         </p>
