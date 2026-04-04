@@ -23,12 +23,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "IFR Refresher",
+  title: "IFR Quick Study",
   description: "Study IFR law and theory on the go. Offline-ready flashcards and quizzes for instrument-rated pilots.",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "IFR Refresher",
+    title: "IFR Quick Study",
   },
 };
 

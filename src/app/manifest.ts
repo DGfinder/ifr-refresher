@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "IFR Refresher",
-    short_name: "IFR",
+    name: "IFR Quick Study",
+    short_name: "IFR QS",
     description: "Study IFR law and theory on the go. Offline-ready flashcards and quizzes for instrument-rated pilots.",
     start_url: "/",
     display: "standalone",
