@@ -40,10 +40,10 @@ export function AppHeader() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-xl font-semibold text-[var(--ifr-accent)]">
-            IFR Refresher
+            IFR Companion
           </h1>
           <p className="text-xs text-[var(--ifr-text-muted)]">
-            Instrument Knowledge Companion
+            Australian IFR Study Tool
           </p>
         </div>
         <button

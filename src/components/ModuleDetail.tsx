@@ -134,7 +134,7 @@ export function ModuleDetail({
           {status === "completed" ? (
             <>
               <StatusIndicator status="completed" size="sm" />
-              Completed
+              Module Complete
             </>
           ) : (
             <>
@@ -151,7 +151,7 @@ export function ModuleDetail({
                   d="M5 13l4 4L19 7"
                 />
               </svg>
-              Mark as Completed
+              Mark as Read
             </>
           )}
         </button>

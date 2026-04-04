@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, useRef, Suspense } from "react";
 import { FlashcardDashboard, buildSessionQueue, type StudyMode } from "@/components/flashcard/FlashcardDashboard";
 import { FlashcardSession, type SessionResults } from "@/components/flashcard/FlashcardSession";
 import { FlashcardResults } from "@/components/flashcard/FlashcardResults";
+import { ToastContainer } from "@/components/ui/Toast";
+import { useToast } from "@/hooks/useToast";
 import { useDrill } from "@/hooks/useDrill";
 import { sections } from "@/data/sections";
 import type { ProgramId } from "@/types/programs";
@@ -17,6 +19,8 @@ function FlashcardPageContent() {
   const [studyMode, setStudyMode] = useState<StudyMode>("all");
   const [sessionQueue, setSessionQueue] = useState<DrillQuestion[]>([]);
   const [lastResults, setLastResults] = useState<SessionResults | null>(null);
+  const { toasts, show: showToast, dismiss } = useToast();
+  const prevPctRef = useRef<number | null>(null);
 
   const { filteredQuestions, stats, getWeakCount } = useDrill(sections, { programId });
 
@@ -28,6 +32,38 @@ function FlashcardPageContent() {
   const handleSessionEnd = (results: SessionResults) => {
     setLastResults(results);
     setPhase("results");
+
+    // Toast on completion
+    const pct = results.total > 0 ? Math.round((results.gotIt / results.total) * 100) : 0;
+    if (pct >= 90) {
+      showToast({
+        message: `Nailed it — ${pct}% solid! ✈️`,
+        variant: "success",
+        durationMs: 4000,
+      });
+    } else if (pct >= 70) {
+      showToast({
+        message: `Session done — ${pct}% confirmed.`,
+        variant: "success",
+        durationMs: 3500,
+      });
+    } else if (results.total > 0) {
+      showToast({
+        message: "Session complete — focus on those weak cards.",
+        variant: "info",
+        durationMs: 3500,
+      });
+    }
+
+    // Personal best toast
+    if (prevPctRef.current !== null && pct > prevPctRef.current && pct >= 90) {
+      showToast({
+        message: "New personal best! 🏆",
+        variant: "milestone",
+        durationMs: 3000,
+      });
+    }
+    prevPctRef.current = pct;
   };
 
   const handleStudyWeak = () => {
@@ -43,6 +79,9 @@ function FlashcardPageContent() {
 
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-6">
+      {/* Toast layer */}
+      <ToastContainer toasts={toasts} onDismiss={dismiss} />
+
       {phase === "dashboard" && (
         <FlashcardDashboard
           programId={programId}

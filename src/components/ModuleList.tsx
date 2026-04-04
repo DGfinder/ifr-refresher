@@ -6,6 +6,7 @@ import type { Module } from "@/types/section";
 import type { ModuleStatus } from "@/types/progress";
 import { Badge } from "./Badge";
 import { StatusIndicator } from "./StatusIndicator";
+import { NoResultsEmptyState } from "@/components/ui/EmptyState";
 import { cn } from "@/lib/utils";
 
 interface ModuleListProps {
@@ -37,27 +38,11 @@ export function ModuleList({
   }, [modules, searchQuery, fuse]);
 
   if (filteredModules.length === 0) {
-    return (
+    return searchQuery ? (
+      <NoResultsEmptyState query={searchQuery} />
+    ) : (
       <div className="flex flex-col items-center justify-center py-12 text-center">
-        <svg
-          className="mb-4 h-12 w-12 text-[var(--ifr-text-muted)]/50"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-        <p className="text-[var(--ifr-text-muted)]">No modules found</p>
-        {searchQuery && (
-          <p className="mt-1 text-sm text-[var(--ifr-text-muted)]/80">
-            Try adjusting your search terms
-          </p>
-        )}
+        <p className="text-[var(--ifr-text-muted)]">No modules in this category</p>
       </div>
     );
   }

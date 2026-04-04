@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ProgressRing } from "./ui/ProgressRing";
 import { Confetti } from "./ui/Confetti";
 import { getScoreFeedback, formatDuration } from "@/utils/quizScoring";
+import { sections } from "@/data/sections";
 import type { QuizResult } from "@/types/quiz";
 import type { QuizQuestion } from "@/types/drill";
 
@@ -186,7 +187,7 @@ export function QuizResults({
               <div key={section.sectionId}>
                 <div className="mb-1 flex items-center justify-between text-sm">
                   <span className="truncate text-[var(--ifr-text)]">
-                    {section.sectionId.replace(/-/g, " ")}
+                    {sections.find((s) => s.sectionId === section.sectionId)?.sectionTitle ?? section.sectionId.replace(/-/g, " ")}
                   </span>
                   <span className="text-[var(--ifr-text-muted)]">
                     {section.percentage}%
@@ -226,7 +227,7 @@ export function QuizResults({
             mistakes.length === 0 && "col-span-2"
           )}
         >
-          Play Again
+          Quiz Me Again
         </button>
       </div>
 
@@ -234,7 +235,7 @@ export function QuizResults({
         onClick={onBackToMenu}
         className="mt-3 w-full py-2 text-sm text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]"
       >
-        Back to Menu
+        Back to Dashboard
       </button>
     </div>
   );

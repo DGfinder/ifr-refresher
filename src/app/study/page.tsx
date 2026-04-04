@@ -7,6 +7,7 @@ import { ModuleList } from "@/components/ModuleList";
 import { ModuleDetail } from "@/components/ModuleDetail";
 import { SearchBar } from "@/components/SearchBar";
 import { SectionSelector } from "@/components/SectionSelector";
+import { SectionListSkeleton } from "@/components/ui/Skeleton";
 import { sections } from "@/data/sections";
 import { useProgress } from "@/hooks/useProgress";
 
@@ -22,6 +23,7 @@ function StudyPageContent() {
   );
   const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
   const [selectedModuleId, setSelectedModuleId] = useState<string | null>(null);
+  const [contentReady, setContentReady] = useState(false);
 
   // Honour ?section=sectionId from home page links — re-runs on navigation
   useEffect(() => {
@@ -31,6 +33,8 @@ function StudyPageContent() {
       setSelectedCategoryId(null);
       setSelectedModuleId(null);
     }
+    // Mark content as ready after first params resolution
+    setContentReady(true);
   }, [searchParams, programSections]);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -135,7 +139,9 @@ function StudyPageContent() {
           {currentSection?.sectionDescription}
         </p>
         <p className="mt-2 text-sm text-muted-foreground">
-          {currentStats.completed}/{currentStats.total} modules completed
+          {currentStats.completed === currentStats.total && currentStats.total > 0
+            ? `✓ All ${currentStats.total} modules completed`
+            : `${currentStats.completed} of ${currentStats.total} modules completed`}
         </p>
       </header>
 
@@ -144,7 +150,7 @@ function StudyPageContent() {
         <SearchBar
           value={searchQuery}
           onChange={setSearchQuery}
-          placeholder="Search modules by title, tags, or summary..."
+          placeholder="Search — e.g. 'holding entry', 'alternates', 'minima'..."
         />
       </div>
 
@@ -187,12 +193,16 @@ function StudyPageContent() {
               {filteredModules.length !== 1 ? "s" : ""}
             </span>
           </div>
-          <ModuleList
-            modules={filteredModules}
-            searchQuery={searchQuery}
-            onSelectModule={handleSelectModule}
-            getModuleStatus={getModuleStatus}
-          />
+          {!contentReady ? (
+            <SectionListSkeleton />
+          ) : (
+            <ModuleList
+              modules={filteredModules}
+              searchQuery={searchQuery}
+              onSelectModule={handleSelectModule}
+              getModuleStatus={getModuleStatus}
+            />
+          )}
         </main>
       </div>
     </div>

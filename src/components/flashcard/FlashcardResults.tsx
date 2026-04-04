@@ -23,8 +23,12 @@ export function FlashcardResults({
   return (
     <div className="mx-auto max-w-sm space-y-6 py-8">
       <div className="text-center">
-        <h2 className="text-2xl font-bold text-[var(--ifr-text)]">Session Complete</h2>
-        <p className="mt-1 text-sm text-[var(--ifr-text-muted)]">Here&apos;s how you did</p>
+        <h2 className="text-2xl font-bold text-[var(--ifr-text)]">
+          {pct >= 90 ? "Outstanding session! 🌟" : pct >= 70 ? "Good run — keep going. 🎯" : "Session complete — review your weak spots."}
+        </h2>
+        <p className="mt-1 text-sm text-[var(--ifr-text-muted)]">
+          {gotIt} of {total} card{total !== 1 ? "s" : ""} confirmed solid
+        </p>
       </div>
 
       {/* Stats */}
@@ -77,13 +81,13 @@ export function FlashcardResults({
           onClick={onNewSession}
           className="w-full rounded-xl bg-[var(--ifr-accent)] py-4 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[var(--ifr-accent)]/90 active:scale-[0.98] dark:bg-indigo-700 dark:hover:bg-indigo-600"
         >
-          New Session
+          Start Another Session
         </button>
         <button
           onClick={onBackToMenu}
           className="w-full rounded-xl border border-[var(--ifr-border)] py-4 text-sm font-semibold text-[var(--ifr-text)] transition-all hover:bg-[var(--ifr-surface-muted)] active:scale-[0.98]"
         >
-          Back to Menu
+          Back to Dashboard
         </button>
       </div>
     </div>

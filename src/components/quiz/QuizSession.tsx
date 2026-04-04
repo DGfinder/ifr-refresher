@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Timer } from "./ui/Timer";
 import { StreakCounter } from "./ui/StreakCounter";
@@ -56,6 +56,18 @@ export function QuizSession({
   const showTimer = mode === "timed";
   const showLives = mode === "challenge";
   const showScore = mode !== "learn";
+
+  // Flash animation state: "correct" | "incorrect" | null
+  const [flashState, setFlashState] = useState<"correct" | "incorrect" | null>(null);
+
+  // Trigger flash on answer, then clear after 600ms
+  useEffect(() => {
+    if (isAnswered) {
+      setFlashState(isCorrect ? "correct" : "incorrect");
+      const t = setTimeout(() => setFlashState(null), 600);
+      return () => clearTimeout(t);
+    }
+  }, [isAnswered, isCorrect]);
 
   // Timer hook for timed mode
   const timer = useQuizTimer({
@@ -145,8 +157,15 @@ export function QuizSession({
         />
       </div>
 
-      {/* Question card */}
-      <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] shadow-lg">
+      {/* Question card — flash border on answer */}
+      <div
+        className={cn(
+          "rounded-xl border-2 bg-[var(--ifr-surface)] shadow-lg transition-colors duration-300",
+          flashState === "correct" && "border-[var(--ifr-success)]",
+          flashState === "incorrect" && "border-[var(--ifr-danger)]",
+          !flashState && "border-[var(--ifr-border)]"
+        )}
+      >
         {/* Question */}
         <div className="p-6">
           <p className="text-lg font-medium leading-relaxed text-[var(--ifr-text)]">
@@ -168,17 +187,23 @@ export function QuizSession({
                 onClick={() => !isAnswered && onSelectOption(option.id)}
                 disabled={isAnswered}
                 className={cn(
-                  "flex w-full items-start gap-3 rounded-lg border-2 px-4 py-3 text-left transition-all",
-                  !isAnswered && "hover:border-[var(--ifr-accent)]/50 hover:bg-[var(--ifr-surface-muted)]",
+                  "flex w-full items-start gap-3 rounded-lg border-2 px-4 py-3 text-left",
+                  "transition-all duration-200",
+                  // hover + click micro-interaction (not answered)
+                  !isAnswered && [
+                    "hover:border-[var(--ifr-accent)]/50 hover:bg-[var(--ifr-surface-muted)]",
+                    "active:scale-[0.985]",
+                  ],
                   isAnswered && "cursor-default",
-                  showCorrect && "border-[var(--ifr-success)] bg-[var(--ifr-success)]/10",
+                  showCorrect && "border-[var(--ifr-success)] bg-[var(--ifr-success)]/10 scale-[1.005]",
                   showIncorrect && "border-[var(--ifr-danger)] bg-[var(--ifr-danger)]/10",
-                  !showCorrect && !showIncorrect && "border-[var(--ifr-border)]"
+                  !showCorrect && !showIncorrect && isSelected && "border-[var(--ifr-accent)]/60 bg-[var(--ifr-surface-muted)]",
+                  !showCorrect && !showIncorrect && !isSelected && "border-[var(--ifr-border)]"
                 )}
               >
                 <span
                   className={cn(
-                    "flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 text-sm font-semibold transition-colors",
+                    "flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 text-sm font-semibold transition-all duration-200",
                     showCorrect && "border-[var(--ifr-success)] bg-[var(--ifr-success)] text-white",
                     showIncorrect && "border-[var(--ifr-danger)] bg-[var(--ifr-danger)] text-white",
                     !showCorrect && !showIncorrect && "border-[var(--ifr-border)] text-[var(--ifr-text-muted)]"
@@ -212,7 +237,11 @@ export function QuizSession({
                   : "bg-[var(--ifr-danger)]/10 text-[var(--ifr-danger)]"
               )}
             >
-              {isCorrect ? "Correct!" : "Incorrect"}
+              {isCorrect
+                ? streak >= 3
+                  ? `Nailed it! ${streak}-answer streak 🔥`
+                  : "Correct — well done."
+                : "Not quite — check the correct answer above."}
             </div>
             <button
               onClick={onNext}

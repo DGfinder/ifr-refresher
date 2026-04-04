@@ -1,17 +1,27 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useState, useRef, useCallback } from "react";
 import { QuizDashboard } from "@/components/quiz/QuizDashboard";
 import { QuizSession } from "@/components/quiz/QuizSession";
 import { QuizResults } from "@/components/quiz/QuizResults";
 import { ProgramSelector } from "@/components/ProgramSelector";
+import { ToastContainer } from "@/components/ui/Toast";
 import { useQuizSession } from "@/hooks/useQuizSession";
+import { useToast } from "@/hooks/useToast";
 import { useDrill } from "@/hooks/useDrill";
 import { sections } from "@/data/sections";
 import type { ProgramId } from "@/types/programs";
+import type { QuizOptionId } from "@/types/drill";
+
+// Streak milestones to celebrate
+const STREAK_MILESTONES = new Set([3, 5, 10, 15, 20]);
 
 function QuizPageContent() {
   const [programId, setProgramId] = useState<ProgramId>("cheat_sheet");
+  const { toasts, show: showToast, dismiss } = useToast();
+
+  // Track last streak milestone fired so we don't repeat it
+  const lastMilestoneRef = useRef<number>(0);
 
   // Get available questions count
   const { filteredQuestions } = useDrill(sections, { programId });
@@ -43,9 +53,79 @@ function QuizPageContent() {
     session.endSession();
   };
 
+  // Wrapped selectOption with streak milestone toasts
+  const handleSelectOption = useCallback(
+    (optionId: QuizOptionId) => {
+      session.selectOption(optionId);
+
+      // Peek at what the new streak will be
+      const correct = optionId === session.currentQuestion?.correctOptionId;
+      const newStreak = correct ? session.streak + 1 : 0;
+
+      if (
+        correct &&
+        STREAK_MILESTONES.has(newStreak) &&
+        newStreak !== lastMilestoneRef.current
+      ) {
+        lastMilestoneRef.current = newStreak;
+        const msgs: Record<number, { msg: string; icon: string }> = {
+          3:  { msg: "3 in a row! 🔥", icon: "🔥" },
+          5:  { msg: "5 streak — on a roll!", icon: "⚡" },
+          10: { msg: "10 correct! Crushing it!", icon: "🏆" },
+          15: { msg: "15 straight — you're flying!", icon: "✈️" },
+          20: { msg: "20-question streak! Incredible!", icon: "🎯" },
+        };
+        const m = msgs[newStreak];
+        if (m) {
+          showToast({
+            message: m.msg,
+            icon: m.icon,
+            variant: "milestone",
+            durationMs: 2800,
+          });
+        }
+      }
+    },
+    [session, showToast]
+  );
+
+  // Show completion toast when results phase starts
+  const prevPhaseRef = useRef(session.phase);
+  if (session.phase !== prevPhaseRef.current) {
+    if (session.phase === "results" && session.result) {
+      const pct = Math.round(
+        (session.result.correctAnswers / session.result.totalQuestions) * 100
+      );
+      if (pct >= 90) {
+        showToast({
+          message: `Excellent — ${pct}%! IFR ready. ✈️`,
+          variant: "success",
+          durationMs: 4000,
+        });
+      } else if (pct >= 70) {
+        showToast({
+          message: `Quiz complete — ${pct}%. Good work!`,
+          variant: "success",
+          durationMs: 3500,
+        });
+      } else {
+        showToast({
+          message: `Quiz complete — ${pct}%. Review your weak areas.`,
+          detail: "Check the section breakdown below.",
+          variant: "info",
+          durationMs: 4000,
+        });
+      }
+    }
+    prevPhaseRef.current = session.phase;
+  }
+
   // Render based on phase
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-6">
+      {/* Toast layer */}
+      <ToastContainer toasts={toasts} onDismiss={dismiss} />
+
       {/* Program selector - only show on dashboard */}
       {session.phase === "dashboard" && (
         <ProgramSelector value={programId} onChange={setProgramId} />
@@ -76,7 +156,7 @@ function QuizPageContent() {
             timeRemaining={session.timeRemaining}
             isPaused={session.isPaused}
             flaggedQuestions={session.flaggedQuestions}
-            onSelectOption={session.selectOption}
+            onSelectOption={handleSelectOption}
             onNext={session.nextQuestion}
             onSkip={session.skipQuestion}
             onFlag={session.flagQuestion}

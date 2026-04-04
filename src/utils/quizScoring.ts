@@ -69,15 +69,15 @@ export function getScoreFeedback(percentage: number): {
   variant: "excellent" | "great" | "good" | "needsWork";
 } {
   if (percentage >= 90) {
-    return { message: "Excellent!", emoji: "🌟", variant: "excellent" };
+    return { message: "Outstanding — IPC examiner approved.", emoji: "🌟", variant: "excellent" };
   }
   if (percentage >= 80) {
-    return { message: "Great job!", emoji: "🎯", variant: "great" };
+    return { message: "Solid result. You're on track.", emoji: "🎯", variant: "great" };
   }
   if (percentage >= 70) {
-    return { message: "Good work!", emoji: "👍", variant: "good" };
+    return { message: "Above pass standard — keep pushing.", emoji: "👍", variant: "good" };
   }
-  return { message: "Keep practicing!", emoji: "📚", variant: "needsWork" };
+  return { message: "Below pass standard — review your weak topics before the next attempt.", emoji: "📚", variant: "needsWork" };
 }
 
 /**

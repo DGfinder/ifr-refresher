@@ -52,9 +52,9 @@ export function buildSessionQueue(
 }
 
 const MODES: { id: StudyMode; label: string; description: string }[] = [
-  { id: "all", label: "All Cards", description: "New cards first, then review" },
-  { id: "weak", label: "Weak Focus", description: "Only cards marked Unsure" },
-  { id: "new", label: "New Only", description: "Cards you haven't seen yet" },
+  { id: "all", label: "All Cards", description: "Unseen first, then revisit reviewed cards" },
+  { id: "weak", label: "Weak Spots", description: "Only cards you marked Unsure — drill until solid" },
+  { id: "new", label: "Fresh Cards", description: "Cards you've never seen — zero distractions" },
 ];
 
 export function FlashcardDashboard({
@@ -155,12 +155,16 @@ export function FlashcardDashboard({
           <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)] p-5 text-center">
             <p className="text-sm font-medium text-[var(--ifr-text)]">
               {studyMode === "weak"
-                ? "No weak cards — you're doing great!"
+                ? "No weak cards — you've nailed this set. 🎯"
+                : studyMode === "new"
+                ? "No new cards left in this program."
                 : "No cards available for this mode."}
             </p>
             <p className="mt-1 text-xs text-[var(--ifr-text-muted)]">
               {studyMode === "weak"
-                ? 'Switch to "All Cards" to review everything.'
+                ? 'Switch to "All Cards" to keep your edge sharp.'
+                : studyMode === "new"
+                ? 'Switch to "All Cards" to revisit everything.'
                 : "Try a different study mode or program."}
             </p>
           </div>
