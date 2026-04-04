@@ -4,6 +4,7 @@ import "./globals.css";
 import { ProgramProvider } from "@/contexts/ProgramContext";
 import { MainNav } from "@/components/MainNav";
 import { AppHeader } from "@/components/AppHeader";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 const barlowCondensed = Barlow_Condensed({
   variable: "--font-display",
@@ -48,13 +49,15 @@ export default function RootLayout({
       <body
         className={`${barlowCondensed.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[var(--ifr-bg)] text-[var(--ifr-text)]`}
       >
-        <ProgramProvider>
-          <div className="min-h-screen pb-16 md:pb-0">
-            <AppHeader />
-            <MainNav />
-            <main>{children}</main>
-          </div>
-        </ProgramProvider>
+        <ErrorBoundary>
+          <ProgramProvider>
+            <div className="min-h-screen pb-16 md:pb-0">
+              <AppHeader />
+              <MainNav />
+              <main>{children}</main>
+            </div>
+          </ProgramProvider>
+        </ErrorBoundary>
       </body>
     </html>
   );
