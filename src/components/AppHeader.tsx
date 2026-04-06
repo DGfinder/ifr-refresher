@@ -43,7 +43,7 @@ export function AppHeader() {
             IFR Quick Study
           </h1>
           <p className="text-xs text-[var(--ifr-text-muted)]">
-            Australian IFR Study Tool
+            Australian IFR revision — free and offline
           </p>
         </div>
         <button

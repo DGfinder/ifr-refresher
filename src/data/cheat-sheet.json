@@ -2,12 +2,12 @@
   "version": "1.0",
   "sectionId": "cheat-sheet",
   "sectionTitle": "IFR Quick Study",
-  "sectionDescription": "Core Australian IFR law and procedures \u2014 licensing, recency, equipment, preflight, en route, holding and approaches.",
+  "sectionDescription": "The CASR references, key numbers and common traps for Australian IFR \u2014 from licensing through to the missed approach.",
   "categories": [
     {
       "id": "licensing",
       "title": "Licensing & Recency",
-      "description": "IPC validity, privileges, and recent experience requirements.",
+      "description": "IPC dates, single-pilot currency, approach recency",
       "moduleIds": [
         "CS-001",
         "CS-002"
@@ -16,7 +16,7 @@
     {
       "id": "equipment-ops",
       "title": "Equipment & General Ops",
-      "description": "Aircraft equipment, speed definitions, comms failure, VMC, transponder codes and light signals.",
+      "description": "Comms failure, transponder codes, speed limits, light signals",
       "moduleIds": [
         "CS-003",
         "CS-004",
@@ -26,7 +26,7 @@
     {
       "id": "general-ops",
       "title": "General Operational Knowledge",
-      "description": "Performance limitations, radar/ADS-B coverage, VHF range and phraseology by airspace class.",
+      "description": "Radar and ADS-B coverage, VHF range, airspace phraseology",
       "moduleIds": [
         "CS-016",
         "CS-017",
@@ -36,7 +36,7 @@
     {
       "id": "preflight",
       "title": "Preflight & Alternates",
-      "description": "Fuel requirements, alternate requirements, special minima and lighting.",
+      "description": "Fuel planning, when you need an alternate, lighting requirements",
       "moduleIds": [
         "CS-006",
         "CS-007"
@@ -45,7 +45,7 @@
     {
       "id": "departure",
       "title": "Departure",
-      "description": "Altimeter checks, take-off minima and performance factors.",
+      "description": "Altimeter checks, take-off minima, climb gradients",
       "moduleIds": [
         "CS-008",
         "CS-009"
@@ -54,7 +54,7 @@
     {
       "id": "enroute-holding",
       "title": "En Route & Holding",
-      "description": "Altimeter settings, navigation requirements, deviations and holding procedures.",
+      "description": "Area QNH, LSALT, track deviations, holding entries and timing",
       "moduleIds": [
         "CS-010",
         "CS-011"
@@ -63,7 +63,7 @@
     {
       "id": "approaches",
       "title": "Approaches",
-      "description": "Approach types, QNH, AOM, approach ban, descent below MDA/DA, circling, landing minima and missed approach.",
+      "description": "2D vs 3D, approach ban, circling limits, missed approach rules",
       "moduleIds": [
         "CS-012",
         "CS-013",
@@ -85,7 +85,7 @@
         "currency",
         "part-61"
       ],
-      "summary": "Validity periods for Instrument Proficiency Checks and the privileges and limitations of an instrument rating.",
+      "summary": "When does your IPC actually expire? What counts for single-pilot recency? The dates and gotchas that trip people up.",
       "content": [
         {
           "type": "law",
@@ -204,7 +204,7 @@
         "part-61",
         "instrument-approach"
       ],
-      "summary": "Recent experience requirements for IFR flight, approach categories and single-pilot operations.",
+      "summary": "How many approaches do you need in 90 days? Does a 2D approach count toward 3D currency? The recency rules that catch people out.",
       "content": [
         {
           "type": "law",
@@ -314,7 +314,7 @@
         "IFR",
         "Part-91-MOS"
       ],
-      "summary": "Required equipment for IFR flight including instruments, lighting and altitude alerting.",
+      "summary": "What instruments must be fitted for IFR? When is an altitude alerter required? The equipment list examiners quiz you on.",
       "content": [
         {
           "type": "law",
@@ -405,7 +405,7 @@
         "comms-failure",
         "7600"
       ],
-      "summary": "Multi-engine speed definitions and IFR communications failure procedures.",
+      "summary": "What's the difference between Vyse and Vsse? What do you actually do when you lose comms? Speeds and procedures worth knowing cold.",
       "content": [
         {
           "type": "law",
@@ -562,7 +562,7 @@
         "light-signals",
         "vhf"
       ],
-      "summary": "VMC requirements by airspace class, transponder codes, VHF range formula and light signals to aircraft.",
+      "summary": "VMC minima by airspace class, what each transponder code means, and light signals you might actually see.",
       "content": [
         {
           "type": "law",
@@ -749,7 +749,7 @@
         "alternate",
         "thunderstorm"
       ],
-      "summary": "Final reserve and contingency fuel requirements, and when a destination alternate must be planned.",
+      "summary": "How much fixed reserve do you need? When must you plan an alternate? The fuel numbers that come up in every IPC.",
       "content": [
         {
           "type": "law",
@@ -928,7 +928,7 @@
         "ILS",
         "dual-approach"
       ],
-      "summary": "Conditions under which special alternate weather minima apply and equipment requirements.",
+      "summary": "When can you use reduced alternate minima? What equipment qualifies? The special conditions that most pilots forget.",
       "content": [
         {
           "type": "law",
@@ -1007,7 +1007,7 @@
         "IFR",
         "serviceability"
       ],
-      "summary": "Pre-flight altimeter check tolerances, serviceability limits and approved QNH sources.",
+      "summary": "How far off can your altimeter be and still be legal? Where do you get an approved QNH? The pre-departure checks you need to nail.",
       "content": [
         {
           "type": "law",
@@ -1114,7 +1114,7 @@
         "qualifying-MEA",
         "factors"
       ],
-      "summary": "Take-off minima for standard and qualifying multi-engine aeroplanes, and performance chart factors.",
+      "summary": "What are the take-off minima for single vs multi-engine? When can you use lower limits? The departure rules and performance factors.",
       "content": [
         {
           "type": "law",
@@ -1251,7 +1251,7 @@
         "fix",
         "deviation"
       ],
-      "summary": "Altimeter settings, transition layers, IFR navigation requirements and deviation notification tolerances.",
+      "summary": "When do you switch from QNH to standard? What's the LSALT tolerance? Altimeter settings, nav requirements and deviation rules for the cruise.",
       "content": [
         {
           "type": "law",
@@ -1404,7 +1404,7 @@
         "teardrop",
         "direct"
       ],
-      "summary": "Holding speed limits, timing limits, sector entries and turn criteria.",
+      "summary": "Which entry do you use? What are the speed and timing limits? Holding procedures that examiners love to ask about.",
       "content": [
         {
           "type": "law",
@@ -1570,7 +1570,7 @@
         "IAF",
         "AOM"
       ],
-      "summary": "Types of instrument approaches, QNH requirements before IAF and aerodrome operating minima.",
+      "summary": "What makes an approach 2D vs 3D? When must you have a current QNH? Approach types and aerodrome operating minima explained.",
       "content": [
         {
           "type": "law",
@@ -1701,7 +1701,7 @@
         "VIVAT",
         "missed-approach"
       ],
-      "summary": "Approach ban rule, conditions to descend below MDA/DA, circling requirements and circling area dimensions.",
+      "summary": "When does the approach ban apply? What must you see to go below MDA? Circling area dimensions and the rules around going visual.",
       "content": [
         {
           "type": "law",
@@ -1868,7 +1868,7 @@
         "missed-approach",
         "ROFL"
       ],
-      "summary": "Aircraft category approach speeds, ILS tolerances, visual approach rules and missed approach triggers.",
+      "summary": "What category is your aircraft? How far can the ILS deflect before you go around? Approach speeds, tolerances and missed approach triggers.",
       "content": [
         {
           "type": "law",
@@ -2107,7 +2107,7 @@
         "precision",
         "NPA"
       ],
-      "summary": "Landing minima adjustments for precision and non-precision approaches based on lighting and equipment.",
+      "summary": "How do lighting and equipment change your landing minima? The adjustments for precision and non-precision approaches.",
       "content": [
         {
           "type": "law",
@@ -2212,7 +2212,7 @@
         "factors",
         "unfactored"
       ],
-      "summary": "Recommended performance factors for aeroplanes with unfactored AFM charts, and pilot responsibility for runway length.",
+      "summary": "What factors should you apply to unfactored AFM charts? Who's responsible for runway length — you or ATC? Performance planning essentials.",
       "content": [
         {
           "type": "law",
@@ -2318,7 +2318,7 @@
         "ads-b",
         "surveillance"
       ],
-      "summary": "VHF theoretical maximum range formula and Australian radar/ADS-B surveillance coverage context.",
+      "summary": "How do you calculate VHF range? Where does radar actually cover in Australia? The coverage gaps worth knowing about.",
       "content": [
         {
           "type": "law",
@@ -2386,7 +2386,7 @@
         "departure-report",
         "sarwatch"
       ],
-      "summary": "IFR radiotelephony phraseology for Class G, D and C operations including taxi, departure reports, airborne reports and inbound calls.",
+      "summary": "What's the correct call in Class G vs Class D vs Class C? Taxi, departure, airborne and inbound phraseology you should know by heart.",
       "content": [
         {
           "type": "law",

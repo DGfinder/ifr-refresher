@@ -100,11 +100,11 @@ export function ModuleDetail({
         {[...module.content]
           .sort((a, b) => {
             const ORDER: Record<string, number> = {
-              law: 0,
+              ops_context: 0,
               numbers: 1,
-              reference: 2,
-              ops_context: 3,
-              traps: 4,
+              traps: 2,
+              law: 3,
+              reference: 4,
               ipc_questions: 5,
               airline_questions: 6,
               scenario: 7,
