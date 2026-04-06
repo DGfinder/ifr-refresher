@@ -105,11 +105,12 @@ export function ModuleDetail({
               traps: 2,
               law: 3,
               reference: 4,
-              ipc_questions: 5,
-              airline_questions: 6,
-              scenario: 7,
+              qa: 5,
+              ipc_questions: 6,
+              airline_questions: 7,
+              scenario: 8,
             };
-            return (ORDER[a.type] ?? -1) - (ORDER[b.type] ?? -1);
+            return (ORDER[a.type] ?? 99) - (ORDER[b.type] ?? 99);
           })
           .map((block, index) => (
             <ContentBlock key={index} block={block} />
