@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-6">
       <p className="mb-6 text-[var(--ifr-text-muted)]">
-        Study IFR law and procedures for your next instrument rating renewal or IPC.
+        Brush up before your IPC, stay sharp between flights.
       </p>
 
       {/* Progress Summary */}
@@ -65,19 +65,19 @@ export default function Home() {
             </div>
             <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
               <div className="text-2xl font-bold text-[var(--ifr-warning)]">{weakCount}</div>
-              <div className="text-xs text-[var(--ifr-text-muted)]">Weak questions</div>
+              <div className="text-xs text-[var(--ifr-text-muted)]">To review</div>
             </div>
           </div>
         </section>
       ) : (
         <section className="mb-8 rounded-lg border border-[var(--ifr-accent)]/30 bg-[var(--ifr-accent)]/5 p-5">
           <h2 className="mb-2 text-lg font-semibold text-foreground">
-            Ready for your IFR refresher?
+            Everything you need for your next IPC
           </h2>
           <p className="text-sm leading-relaxed text-[var(--ifr-text-muted)]">
-            {cheatSheetStats.total} bite-sized modules covering licensing, equipment, departures,
-            en route, holding and approaches. Start with the study guide or jump straight
-            into flashcards.
+            {cheatSheetStats.total} short modules covering the CASR references, the numbers worth
+            memorising, and the traps examiners look for. Works offline — use it at the airport
+            or in the crew room.
           </p>
         </section>
       )}
@@ -93,7 +93,7 @@ export default function Home() {
             <span className="mb-2 text-2xl">📖</span>
             <span className="font-medium text-foreground">Study</span>
             <span className="mt-1 text-xs text-[var(--ifr-text-muted)]">
-              Read the law and procedures
+              CASR refs with plain-English context
             </span>
           </Link>
           <Link
@@ -103,7 +103,7 @@ export default function Home() {
             <span className="mb-2 text-2xl">🎯</span>
             <span className="font-medium text-[var(--ifr-accent)]">Flashcards</span>
             <span className="mt-1 text-xs text-[var(--ifr-text-muted)]">
-              Drill with adaptive cards
+              Focuses on what you get wrong
             </span>
           </Link>
           <Link
@@ -113,7 +113,7 @@ export default function Home() {
             <span className="mb-2 text-2xl">✅</span>
             <span className="font-medium text-foreground">Quiz</span>
             <span className="mt-1 text-xs text-[var(--ifr-text-muted)]">
-              Test under pressure
+              Timed multiple choice, IPC-style
             </span>
           </Link>
         </div>
@@ -144,8 +144,8 @@ export default function Home() {
                     <div className="font-medium text-foreground truncate">
                       {category.title}
                     </div>
-                    <div className="text-xs text-[var(--ifr-text-muted)]">
-                      {categoryModules.length} module{categoryModules.length !== 1 ? "s" : ""}
+                    <div className="mt-0.5 text-xs leading-snug text-[var(--ifr-text-muted)]">
+                      {category.description}
                     </div>
                   </div>
                   <div className="ml-4 text-sm font-medium text-[var(--ifr-accent)]">

@@ -85,7 +85,7 @@ export function ContentBlock({ block }: ContentBlockProps) {
     case "law":
       return (
         <div className={baseCardClasses}>
-          <p className={titleClasses}>The Law</p>
+          <p className={titleClasses}>Regulation</p>
           <ul className={listClasses}>
             {block.content.map((item, i) => (
               <li key={i}>{item}</li>
@@ -125,7 +125,7 @@ export function ContentBlock({ block }: ContentBlockProps) {
     case "ops_context":
       return (
         <div className={baseCardClasses}>
-          <p className={titleClasses}>Why This Matters</p>
+          <p className={titleClasses}>In Practice</p>
           <ul className={listClasses}>
             {block.content.map((item, i) => (
               <li key={i}>{item}</li>
@@ -137,7 +137,7 @@ export function ContentBlock({ block }: ContentBlockProps) {
     case "traps":
       return (
         <div className={baseCardClasses}>
-          <p className={titleClasses}>Where Pilots Get Caught</p>
+          <p className={titleClasses}>Common Traps</p>
           <ul className={listClasses}>
             {block.content.map((item, i) => (
               <li key={i}>{item}</li>
@@ -149,7 +149,7 @@ export function ContentBlock({ block }: ContentBlockProps) {
     case "ipc_questions":
       return (
         <div className={baseCardClasses}>
-          <p className={titleClasses}>IPC Prep Questions</p>
+          <p className={titleClasses}>Likely IPC Questions</p>
           <ul className={listClasses}>
             {block.content.map((item, i) => (
               <li key={i}>{item}</li>
@@ -161,7 +161,7 @@ export function ContentBlock({ block }: ContentBlockProps) {
     case "airline_questions":
       return (
         <div className={baseCardClasses}>
-          <p className={titleClasses}>Airline Panel Questions</p>
+          <p className={titleClasses}>Airline Interview Questions</p>
           <ul className={listClasses}>
             {block.content.map((item, i) => (
               <li key={i}>{item}</li>
