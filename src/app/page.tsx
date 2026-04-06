@@ -31,43 +31,56 @@ export default function Home() {
       </p>
 
       {/* Progress Summary */}
-      <section className="mb-8 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-5">
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-            Your Progress
-          </h2>
-          <Link
-            href="/insights"
-            className="text-sm text-[var(--ifr-accent)] hover:underline underline-offset-2"
-          >
-            View Insights
-          </Link>
-        </div>
-        <div className="mb-4">
-          <div className="mb-2 flex justify-between text-sm">
-            <span className="text-[var(--ifr-text-muted)]">Overall completion</span>
-            <span className="font-medium text-foreground">{progressPercent}%</span>
+      {cheatSheetStats.completed > 0 ? (
+        <section className="mb-8 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-5">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              Your Progress
+            </h2>
+            <Link
+              href="/insights"
+              className="text-sm text-[var(--ifr-accent)] hover:underline underline-offset-2"
+            >
+              View Insights
+            </Link>
           </div>
-          <div className="h-2 w-full rounded-full bg-[var(--ifr-surface-muted)]">
-            <div
-              className="h-2 rounded-full bg-[var(--ifr-accent)] transition-all"
-              style={{ width: `${progressPercent}%` }}
-            />
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-4 text-sm">
-          <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
-            <div className="text-2xl font-bold text-foreground">
-              {cheatSheetStats.completed}/{cheatSheetStats.total}
+          <div className="mb-4">
+            <div className="mb-2 flex justify-between text-sm">
+              <span className="text-[var(--ifr-text-muted)]">Overall completion</span>
+              <span className="font-medium text-foreground">{progressPercent}%</span>
             </div>
-            <div className="text-xs text-[var(--ifr-text-muted)]">Modules completed</div>
+            <div className="h-2 w-full rounded-full bg-[var(--ifr-surface-muted)]">
+              <div
+                className="h-2 rounded-full bg-[var(--ifr-accent)] transition-all"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
           </div>
-          <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
-            <div className="text-2xl font-bold text-[var(--ifr-warning)]">{weakCount}</div>
-            <div className="text-xs text-[var(--ifr-text-muted)]">Weak questions</div>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
+              <div className="text-2xl font-bold text-foreground">
+                {cheatSheetStats.completed}/{cheatSheetStats.total}
+              </div>
+              <div className="text-xs text-[var(--ifr-text-muted)]">Modules completed</div>
+            </div>
+            <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
+              <div className="text-2xl font-bold text-[var(--ifr-warning)]">{weakCount}</div>
+              <div className="text-xs text-[var(--ifr-text-muted)]">Weak questions</div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <section className="mb-8 rounded-lg border border-[var(--ifr-accent)]/30 bg-[var(--ifr-accent)]/5 p-5">
+          <h2 className="mb-2 text-lg font-semibold text-foreground">
+            Ready for your IFR refresher?
+          </h2>
+          <p className="text-sm leading-relaxed text-[var(--ifr-text-muted)]">
+            {cheatSheetStats.total} bite-sized modules covering licensing, equipment, departures,
+            en route, holding and approaches. Start with the study guide or jump straight
+            into flashcards.
+          </p>
+        </section>
+      )}
 
       {/* Quick Start CTAs */}
       <section className="mb-8">
