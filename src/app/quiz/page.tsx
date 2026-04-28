@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState, useRef, useCallback } from "react";
+import { Suspense, useState, useRef, useCallback, useEffect } from "react";
 import { QuizDashboard } from "@/components/quiz/QuizDashboard";
 import { QuizSession } from "@/components/quiz/QuizSession";
 import { QuizResults } from "@/components/quiz/QuizResults";
@@ -90,35 +90,32 @@ function QuizPageContent() {
   );
 
   // Show completion toast when results phase starts
-  const prevPhaseRef = useRef(session.phase);
-  if (session.phase !== prevPhaseRef.current) {
-    if (session.phase === "results" && session.result) {
-      const pct = Math.round(
-        (session.result.correctAnswers / session.result.totalQuestions) * 100
-      );
-      if (pct >= 90) {
-        showToast({
-          message: `Excellent — ${pct}%! IFR ready. ✈️`,
-          variant: "success",
-          durationMs: 4000,
-        });
-      } else if (pct >= 70) {
-        showToast({
-          message: `Quiz complete — ${pct}%. Good work!`,
-          variant: "success",
-          durationMs: 3500,
-        });
-      } else {
-        showToast({
-          message: `Quiz complete — ${pct}%. Review your weak areas.`,
-          detail: "Check the section breakdown below.",
-          variant: "info",
-          durationMs: 4000,
-        });
-      }
+  useEffect(() => {
+    if (session.phase !== "results" || !session.result) return;
+    const pct = Math.round(
+      (session.result.correctAnswers / session.result.totalQuestions) * 100
+    );
+    if (pct >= 90) {
+      showToast({
+        message: `Excellent — ${pct}%! IFR ready. ✈️`,
+        variant: "success",
+        durationMs: 4000,
+      });
+    } else if (pct >= 70) {
+      showToast({
+        message: `Quiz complete — ${pct}%. Good work!`,
+        variant: "success",
+        durationMs: 3500,
+      });
+    } else {
+      showToast({
+        message: `Quiz complete — ${pct}%. Review your weak areas.`,
+        detail: "Check the section breakdown below.",
+        variant: "info",
+        durationMs: 4000,
+      });
     }
-    prevPhaseRef.current = session.phase;
-  }
+  }, [session.phase, session.result, showToast]);
 
   // Render based on phase
   return (

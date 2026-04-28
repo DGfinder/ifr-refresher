@@ -23,10 +23,10 @@ describe("sections data loading", () => {
 
   it("every module has required fields", () => {
     for (const section of sections) {
-      for (const module of section.modules) {
-        expect(module.id, `module.id missing in section ${section.sectionId}`).toBeTruthy();
-        expect(module.title).toBeTruthy();
-        expect(Array.isArray(module.content)).toBe(true);
+      for (const mod of section.modules) {
+        expect(mod.id, `module.id missing in section ${section.sectionId}`).toBeTruthy();
+        expect(mod.title).toBeTruthy();
+        expect(Array.isArray(mod.content)).toBe(true);
       }
     }
   });

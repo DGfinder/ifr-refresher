@@ -6,12 +6,11 @@ import type { Section } from "@/types/section";
 import type { ProgramId } from "@/types/programs";
 import type {
   QuizPhase,
-  QuizGameMode,
   QuizSessionConfig,
   QuizAnswer,
   QuizResult,
 } from "@/types/quiz";
-import { createInitialSessionState, DEFAULT_SESSION_CONFIG } from "@/types/quiz";
+import { DEFAULT_SESSION_CONFIG } from "@/types/quiz";
 import { buildQuizQuestions } from "@/utils/quiz";
 import { calculatePoints, calculatePercentage } from "@/utils/quizScoring";
 import { addQuizResult } from "@/utils/quizStorage";
@@ -144,7 +143,7 @@ export function useQuizSession({
     questionStartTimeRef.current = Date.now();
     sessionStartTimeRef.current = Date.now();
     setPhase("session");
-  }, [config, sections, drillQuestions, programId]);
+  }, [config, drillQuestions]);
 
   // Select an option (answer the question)
   const selectOption = useCallback(
@@ -260,7 +259,7 @@ export function useQuizSession({
         setTimeRemaining(timePerQuestion);
       }
     }
-  }, [config.mode, isAnswered, currentIndex, questions.length, lives, buildResult]);
+  }, [config.mode, config.timePerQuestion, isAnswered, currentIndex, questions.length, lives, buildResult]);
 
   // Skip question (learn mode or when allowed)
   const skipQuestion = useCallback(() => {
@@ -296,7 +295,7 @@ export function useQuizSession({
         setTimeRemaining(timePerQuestion);
       }
     }
-  }, [currentQuestion, flaggedQuestions, currentIndex, questions.length, buildResult, config.mode]);
+  }, [currentQuestion, flaggedQuestions, currentIndex, questions.length, buildResult, config.mode, config.timePerQuestion]);
 
   // Flag question for review
   const flagQuestion = useCallback(() => {

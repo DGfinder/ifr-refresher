@@ -38,7 +38,7 @@ export function buildDrillQuestions(sections: Section[]): DrillQuestion[] {
   const questions: DrillQuestion[] = [];
 
   for (const section of sections) {
-    for (const module of section.modules) {
+    for (const mod of section.modules) {
       // Track indexes per kind for unique IDs
       const kindIndexes: Record<string, number> = {
         legacy_qa: 0,
@@ -48,8 +48,8 @@ export function buildDrillQuestions(sections: Section[]): DrillQuestion[] {
         numeric: 0,
       };
 
-      for (const block of module.content) {
-        processBlock(block, section, module, kindIndexes, questions);
+      for (const block of mod.content) {
+        processBlock(block, section, mod, kindIndexes, questions);
       }
     }
   }
@@ -60,16 +60,16 @@ export function buildDrillQuestions(sections: Section[]): DrillQuestion[] {
 function processBlock(
   block: ContentBlock,
   section: Section,
-  module: { id: string; title: string; level: "core" | "advanced" | "airline"; tags: string[] },
+  mod: { id: string; title: string; level: "core" | "advanced" | "airline"; tags: string[] },
   kindIndexes: Record<string, number>,
   questions: DrillQuestion[]
 ): void {
   const baseInfo = {
     sectionId: section.sectionId,
     sectionTitle: section.sectionTitle,
-    moduleId: module.id,
-    moduleTitle: module.title,
-    level: module.level,
+    moduleId: mod.id,
+    moduleTitle: mod.title,
+    level: mod.level,
   };
 
   switch (block.type) {
@@ -78,12 +78,12 @@ function processBlock(
       const index = kindIndexes[kind]++;
       questions.push({
         ...baseInfo,
-        id: `${section.sectionId}:${module.id}:${kind}-${index}`,
+        id: `${section.sectionId}:${mod.id}:${kind}-${index}`,
         prompt: block.question,
         answer: block.answer,
         ...(block.distractors && block.distractors.length === 3 ? { distractors: block.distractors } : {}),
         kind,
-        tags: [...(module.tags || []), kind],
+        tags: [...(mod.tags || []), kind],
       });
       break;
     }
@@ -96,11 +96,11 @@ function processBlock(
           const index = kindIndexes[kind]++;
           questions.push({
             ...baseInfo,
-            id: `${section.sectionId}:${module.id}:${kind}-${index}`,
+            id: `${section.sectionId}:${mod.id}:${kind}-${index}`,
             prompt: parsed.question,
             answer: parsed.answer,
             kind,
-            tags: [...(module.tags || []), kind],
+            tags: [...(mod.tags || []), kind],
           });
         }
       }
@@ -115,11 +115,11 @@ function processBlock(
           const index = kindIndexes[kind]++;
           questions.push({
             ...baseInfo,
-            id: `${section.sectionId}:${module.id}:${kind}-${index}`,
+            id: `${section.sectionId}:${mod.id}:${kind}-${index}`,
             prompt: parsed.question,
             answer: parsed.answer,
             kind,
-            tags: [...(module.tags || []), kind],
+            tags: [...(mod.tags || []), kind],
           });
         }
       }
@@ -134,11 +134,11 @@ function processBlock(
         const index = kindIndexes[kind]++;
         questions.push({
           ...baseInfo,
-          id: `${section.sectionId}:${module.id}:trap-${index}`,
+          id: `${section.sectionId}:${mod.id}:trap-${index}`,
           prompt: `What's the trap: ${parsed.front}?`,
           answer: parsed.back,
           kind,
-          tags: [...(module.tags || []), kind],
+          tags: [...(mod.tags || []), kind],
         });
       }
       break;
@@ -152,11 +152,11 @@ function processBlock(
         const index = kindIndexes[kind]++;
         questions.push({
           ...baseInfo,
-          id: `${section.sectionId}:${module.id}:numeric-${index}`,
+          id: `${section.sectionId}:${mod.id}:numeric-${index}`,
           prompt: parsed.front,
           answer: parsed.back,
           kind,
-          tags: [...(module.tags || []), kind],
+          tags: [...(mod.tags || []), kind],
         });
       }
       break;
@@ -184,9 +184,9 @@ export function getModuleContext(
 ): string[] {
   const section = sections.find((s) => s.sectionId === sectionId);
   if (!section) return [];
-  const module = section.modules.find((m) => m.id === moduleId);
-  if (!module) return [];
-  for (const block of module.content) {
+  const mod = section.modules.find((m) => m.id === moduleId);
+  if (!mod) return [];
+  for (const block of mod.content) {
     if (block.type === "law") {
       return block.content;
     }

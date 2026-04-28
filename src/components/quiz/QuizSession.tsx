@@ -57,17 +57,21 @@ export function QuizSession({
   const showLives = mode === "challenge";
   const showScore = mode !== "learn";
 
-  // Flash animation state: "correct" | "incorrect" | null
-  const [flashState, setFlashState] = useState<"correct" | "incorrect" | null>(null);
+  // Flash border for 600ms after answering. Derived from props rather
+  // than a sync setState-in-effect; the timer flips a "cleared" id so
+  // the flash auto-clears without re-rendering on the answer event.
+  const [clearedFlashFor, setClearedFlashFor] = useState<string | null>(null);
+  const showFlash = isAnswered && clearedFlashFor !== currentQuestion.id;
+  const flashState: "correct" | "incorrect" | null = showFlash
+    ? (isCorrect ? "correct" : "incorrect")
+    : null;
 
-  // Trigger flash on answer, then clear after 600ms
   useEffect(() => {
-    if (isAnswered) {
-      setFlashState(isCorrect ? "correct" : "incorrect");
-      const t = setTimeout(() => setFlashState(null), 600);
-      return () => clearTimeout(t);
-    }
-  }, [isAnswered, isCorrect]);
+    if (!isAnswered) return;
+    const id = currentQuestion.id;
+    const t = setTimeout(() => setClearedFlashFor(id), 600);
+    return () => clearTimeout(t);
+  }, [isAnswered, currentQuestion.id]);
 
   // Timer hook for timed mode
   const timer = useQuizTimer({

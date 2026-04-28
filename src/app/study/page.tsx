@@ -18,17 +18,23 @@ function StudyPageContent() {
   // All sections available in study mode
   const programSections = sections;
 
-  const [selectedSectionId, setSelectedSectionId] = useState<string>(
-    programSections[0]?.sectionId ?? ""
-  );
+  // Initial section honours ?section=sectionId from home page links
+  const [selectedSectionId, setSelectedSectionId] = useState<string>(() => {
+    const param = searchParams.get("section");
+    if (param && programSections.some((s) => s.sectionId === param)) return param;
+    return programSections[0]?.sectionId ?? "";
+  });
   const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
   const [selectedModuleId, setSelectedModuleId] = useState<string | null>(null);
   const [contentReady, setContentReady] = useState(false);
 
-  // Honour ?section=sectionId from home page links — re-runs on navigation
+  // Re-sync when the URL changes after mount (e.g. user navigates between
+  // home links). Synchronising local state with an external system (URL)
+  // is the documented use case for setState-in-effect.
   useEffect(() => {
     const param = searchParams.get("section");
     if (param && programSections.some((s) => s.sectionId === param)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- URL→state sync
       setSelectedSectionId(param);
       setSelectedCategoryId(null);
       setSelectedModuleId(null);
