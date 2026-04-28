@@ -48,6 +48,12 @@ describe("buildQuizQuestions", () => {
     expect(result).toHaveLength(3);
   });
 
+  it("returns the entire pool when no limit is provided", () => {
+    const pool = makePool(160);
+    const result = buildQuizQuestions(pool);
+    expect(result).toHaveLength(160);
+  });
+
   it("each question has exactly 4 options", () => {
     const pool = makePool(10);
     const result = buildQuizQuestions(pool, 5);

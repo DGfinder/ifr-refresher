@@ -25,7 +25,7 @@ function shuffle<T>(array: T[]): T[] {
  */
 export function buildQuizQuestions(
   drillQuestions: DrillQuestion[],
-  limit: number = 10
+  limit?: number
 ): QuizQuestion[] {
   if (drillQuestions.length === 0) return [];
 
@@ -45,8 +45,8 @@ export function buildQuizQuestions(
   // Global unique answer pool (fallback)
   const allAnswers = [...new Set(drillQuestions.map((q) => q.answer))];
 
-  // Shuffle and limit questions
-  const selectedQuestions = shuffle(drillQuestions).slice(0, limit);
+  // Shuffle and limit questions (no limit = use entire pool)
+  const selectedQuestions = shuffle(drillQuestions).slice(0, limit ?? drillQuestions.length);
 
   return selectedQuestions.map((dq) => {
     const correctAnswer = dq.answer;
