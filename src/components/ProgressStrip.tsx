@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ProgressBar } from "@/components/ui/ProgressBar";
 
 interface ProgressStripProps {
   completedModules: number;
@@ -30,12 +31,7 @@ export function ProgressStrip({
           Weak questions: {weakCount}
         </Link>
       </div>
-      <div className="mt-1.5 h-1 w-full overflow-hidden rounded-full bg-[var(--ifr-border)]">
-        <div
-          className="h-full rounded-full bg-[var(--ifr-accent)] transition-all duration-300"
-          style={{ width: `${progressPercent}%` }}
-        />
-      </div>
+      <ProgressBar value={progressPercent} className="mt-1.5 h-1 w-full" aria-label="Module completion" />
     </div>
   );
 }

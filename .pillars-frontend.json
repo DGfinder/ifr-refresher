@@ -1,0 +1,8 @@
+{
+  "project": "IFR Refresher",
+  "tier": "T2",
+  "framework": "Next.js App Router",
+  "primitiveEngine": "radix-ui",
+  "tokensFile": "src/app/globals.css",
+  "adoptionMode": "advisory"
+}

@@ -64,8 +64,8 @@ export function useProgress() {
       modules: Module[]
     ): { completed: number; total: number } => {
       let completed = 0;
-      for (const mod of modules) {
-        const key = createModuleKey(sectionId, mod.id);
+      for (const studyModule of modules) {
+        const key = createModuleKey(sectionId, studyModule.id);
         if (progress[key] === "completed") {
           completed++;
         }

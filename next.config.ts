@@ -7,8 +7,10 @@ const withSerwist = withSerwistInit({
   disable: process.env.NODE_ENV !== "production",
 });
 
-// Build/dev are pinned to webpack via package.json scripts because
-// @serwist/next does not support Turbopack (no SW would be emitted).
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+  // Use webpack for builds (Serwist doesn't support Turbopack yet)
+  turbopack: {},
+  allowedDevOrigins: ["127.0.0.1"],
+};
 
 export default withSerwist(nextConfig);

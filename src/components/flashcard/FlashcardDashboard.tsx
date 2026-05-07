@@ -8,6 +8,7 @@ import { ProgramSelector } from "@/components/ProgramSelector";
 import { useDrill } from "@/hooks/useDrill";
 import { sections } from "@/data/sections";
 import { cn } from "@/lib/utils";
+import { ProgressBar } from "@/components/ui/ProgressBar";
 
 export type StudyMode = "all" | "weak" | "new";
 
@@ -118,12 +119,11 @@ export function FlashcardDashboard({
               {seenCount} / {totalCount} seen
             </span>
           </div>
-          <div className="h-1.5 w-full overflow-hidden rounded-full bg-[var(--ifr-border)]">
-            <div
-              className="h-full rounded-full bg-[var(--ifr-accent)] transition-all duration-300"
-              style={{ width: `${(seenCount / totalCount) * 100}%` }}
-            />
-          </div>
+          <ProgressBar
+            value={(seenCount / totalCount) * 100}
+            className="h-1.5 w-full"
+            aria-label="Flashcard seen progress"
+          />
         </div>
       )}
 

@@ -1,47 +1,43 @@
 "use client";
 
-import { useState, useMemo, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, useMemo, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { CategoryList } from "@/components/CategoryList";
 import { ModuleList } from "@/components/ModuleList";
 import { ModuleDetail } from "@/components/ModuleDetail";
 import { SearchBar } from "@/components/SearchBar";
 import { SectionSelector } from "@/components/SectionSelector";
-import { SectionListSkeleton } from "@/components/ui/Skeleton";
 import { sections } from "@/data/sections";
 import { useProgress } from "@/hooks/useProgress";
 
 function StudyPageContent() {
   const { getStatus, setStatus, getCompletionStats } = useProgress();
+  const router = useRouter();
   const searchParams = useSearchParams();
 
   // All sections available in study mode
   const programSections = sections;
+  const requestedSectionId = searchParams.get("section");
+  const requestedCategoryId = searchParams.get("category");
+  const requestedModuleId = searchParams.get("module");
+  const initialSectionId =
+    requestedSectionId && programSections.some((s) => s.sectionId === requestedSectionId)
+      ? requestedSectionId
+      : programSections[0]?.sectionId ?? "";
 
-  // Initial section honours ?section=sectionId from home page links
-  const [selectedSectionId, setSelectedSectionId] = useState<string>(() => {
-    const param = searchParams.get("section");
-    if (param && programSections.some((s) => s.sectionId === param)) return param;
-    return programSections[0]?.sectionId ?? "";
-  });
-  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
-  const [selectedModuleId, setSelectedModuleId] = useState<string | null>(null);
-  const [contentReady, setContentReady] = useState(false);
+  const [selectedSectionId, setSelectedSectionId] = useState<string>(initialSectionId);
+  const initialSection = programSections.find((section) => section.sectionId === initialSectionId);
+  const initialCategoryId =
+    requestedCategoryId && initialSection?.categories.some((category) => category.id === requestedCategoryId)
+      ? requestedCategoryId
+      : null;
+  const initialModuleId =
+    requestedModuleId && initialSection?.modules.some((moduleItem) => moduleItem.id === requestedModuleId)
+      ? requestedModuleId
+      : null;
 
-  // Re-sync when the URL changes after mount (e.g. user navigates between
-  // home links). Synchronising local state with an external system (URL)
-  // is the documented use case for setState-in-effect.
-  useEffect(() => {
-    const param = searchParams.get("section");
-    if (param && programSections.some((s) => s.sectionId === param)) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- URL→state sync
-      setSelectedSectionId(param);
-      setSelectedCategoryId(null);
-      setSelectedModuleId(null);
-    }
-    // Mark content as ready after first params resolution
-    setContentReady(true);
-  }, [searchParams, programSections]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(initialCategoryId);
+  const [selectedModuleId, setSelectedModuleId] = useState<string | null>(initialModuleId);
   const [searchQuery, setSearchQuery] = useState("");
 
   // Get current section
@@ -76,11 +72,17 @@ function StudyPageContent() {
     setSelectedCategoryId(null);
     setSelectedModuleId(null);
     setSearchQuery("");
+    router.replace(`/study?section=${encodeURIComponent(sectionId)}`, { scroll: false });
   };
 
   // Handle module selection
   const handleSelectModule = (moduleId: string) => {
     setSelectedModuleId(moduleId);
+    const categoryParam = selectedCategoryId ? `&category=${encodeURIComponent(selectedCategoryId)}` : "";
+    router.replace(
+      `/study?section=${encodeURIComponent(currentSection.sectionId)}${categoryParam}&module=${encodeURIComponent(moduleId)}`,
+      { scroll: false }
+    );
     const currentStatus = getStatus(currentSection.sectionId, moduleId);
     if (currentStatus === "not-started") {
       setStatus(currentSection.sectionId, moduleId, "in-progress");
@@ -90,12 +92,16 @@ function StudyPageContent() {
   // Handle back from detail view
   const handleBack = () => {
     setSelectedModuleId(null);
+    const categoryParam = selectedCategoryId ? `&category=${encodeURIComponent(selectedCategoryId)}` : "";
+    router.replace(`/study?section=${encodeURIComponent(currentSection.sectionId)}${categoryParam}`, { scroll: false });
   };
 
   // Handle category selection
   const handleSelectCategory = (categoryId: string | null) => {
     setSelectedCategoryId(categoryId);
     setSearchQuery("");
+    const categoryParam = categoryId ? `&category=${encodeURIComponent(categoryId)}` : "";
+    router.replace(`/study?section=${encodeURIComponent(currentSection.sectionId)}${categoryParam}`, { scroll: false });
   };
 
   // Handle mark as completed
@@ -186,7 +192,7 @@ function StudyPageContent() {
         </aside>
 
         {/* Module list */}
-        <main className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-lg font-semibold text-foreground">
               {selectedCategoryId
@@ -199,17 +205,13 @@ function StudyPageContent() {
               {filteredModules.length !== 1 ? "s" : ""}
             </span>
           </div>
-          {!contentReady ? (
-            <SectionListSkeleton />
-          ) : (
-            <ModuleList
-              modules={filteredModules}
-              searchQuery={searchQuery}
-              onSelectModule={handleSelectModule}
-              getModuleStatus={getModuleStatus}
-            />
-          )}
-        </main>
+          <ModuleList
+            modules={filteredModules}
+            searchQuery={searchQuery}
+            onSelectModule={handleSelectModule}
+            getModuleStatus={getModuleStatus}
+          />
+        </div>
       </div>
     </div>
   );

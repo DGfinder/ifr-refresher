@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { IFR_THEME } from "@/lib/theme";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -8,8 +9,8 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/",
     display: "standalone",
     orientation: "portrait",
-    background_color: "#F7F8FA",
-    theme_color: "#1F2933",
+    background_color: IFR_THEME.lightBackground,
+    theme_color: IFR_THEME.lightTheme,
     icons: [
       {
         src: "/icons/icon-192.png",

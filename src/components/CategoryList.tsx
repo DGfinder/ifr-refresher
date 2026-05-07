@@ -47,7 +47,7 @@ export function CategoryList({
 
       {/* Desktop: Vertical sidebar */}
       <div className="hidden md:block">
-        <nav className="space-y-1">
+        <nav className="space-y-1" aria-label="Study categories">
           <button
             onClick={() => onSelectCategory(null)}
             className={cn(

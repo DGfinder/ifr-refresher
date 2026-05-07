@@ -6,7 +6,8 @@ import { ProgressRing } from "./ui/ProgressRing";
 import { Confetti } from "./ui/Confetti";
 import { getScoreFeedback, formatDuration } from "@/utils/quizScoring";
 import { sections } from "@/data/sections";
-import type { QuizResult } from "@/types/quiz";
+import { ProgressBar } from "@/components/ui/ProgressBar";
+import type { QuizAnswer, QuizResult } from "@/types/quiz";
 import type { QuizQuestion } from "@/types/drill";
 
 interface QuizResultsProps {
@@ -36,7 +37,7 @@ export function QuizResults({
         const question = questions.find((q) => q.id === answer.questionId);
         return question ? { answer, question } : null;
       })
-      .filter(Boolean) as Array<{ answer: typeof result.answers[0]; question: QuizQuestion }>;
+      .filter(Boolean) as Array<{ answer: QuizAnswer; question: QuizQuestion }>;
   }, [result.answers, questions]);
 
   // Section breakdown
@@ -193,17 +194,16 @@ export function QuizResults({
                     {section.percentage}%
                   </span>
                 </div>
-                <div className="h-2 overflow-hidden rounded-full bg-[var(--ifr-surface-muted)]">
-                  <div
-                    className={cn(
-                      "h-full rounded-full transition-all",
-                      section.percentage >= 80 && "bg-[var(--ifr-success)]",
-                      section.percentage >= 60 && section.percentage < 80 && "bg-[var(--ifr-warning)]",
-                      section.percentage < 60 && "bg-[var(--ifr-danger)]"
-                    )}
-                    style={{ width: `${section.percentage}%` }}
-                  />
-                </div>
+                <ProgressBar
+                  value={section.percentage}
+                  className="h-2 bg-[var(--ifr-surface-muted)]"
+                  indicatorClassName={cn(
+                    section.percentage >= 80 && "bg-[var(--ifr-success)]",
+                    section.percentage >= 60 && section.percentage < 80 && "bg-[var(--ifr-warning)]",
+                    section.percentage < 60 && "bg-[var(--ifr-danger)]"
+                  )}
+                  aria-label={`${section.sectionId} quiz result`}
+                />
               </div>
             ))}
           </div>

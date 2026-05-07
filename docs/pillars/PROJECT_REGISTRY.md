@@ -1,0 +1,26 @@
+# Project Registry — IFR Refresher
+
+- Project: IFR Refresher / IFR Quick Study
+- Owner: Hayden
+- Tier: Tier 2 now; promote to Tier 3 before public/paying/external pilot use
+- Data classes:
+  - Public/Internal: IFR study content
+  - Personal local-only: progress, flashcard ratings, quiz history, streaks
+- Deployment: Vercel static/offline PWA
+- Backend/auth/database: none
+- Critical user journeys:
+  - Study modules
+  - Flashcards/drill
+  - Quiz session
+  - Insights/progress
+  - Offline revisit after first load
+- Critical paths:
+  - `src/data/**`
+  - `src/utils/drill.ts`
+  - `src/utils/quiz.ts`
+  - `src/hooks/useDrill.ts`
+  - `src/hooks/useQuizSession.ts`
+  - `src/sw.ts`
+  - `src/app/manifest.ts`
+- Rollback owner: Hayden
+- Release bar: typecheck, lint, tests, build, dependency audit, browser smoke, offline/PWA smoke for PWA changes

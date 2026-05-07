@@ -1,6 +1,7 @@
 "use client";
 
 import type { SessionResults } from "./FlashcardSession";
+import { ProgressBar } from "@/components/ui/ProgressBar";
 
 interface FlashcardResultsProps {
   results: SessionResults;
@@ -58,12 +59,12 @@ export function FlashcardResults({
             <span className="font-medium text-[var(--ifr-text)]">Accuracy</span>
             <span className="font-bold text-[var(--ifr-accent)]">{pct}%</span>
           </div>
-          <div className="h-2 overflow-hidden rounded-full bg-[var(--ifr-border)]">
-            <div
-              className="h-full rounded-full bg-[var(--ifr-accent)] transition-all duration-700"
-              style={{ width: `${pct}%` }}
-            />
-          </div>
+          <ProgressBar
+            value={pct}
+            className="h-2"
+            indicatorClassName="duration-700"
+            aria-label="Flashcard accuracy"
+          />
         </div>
       )}
 

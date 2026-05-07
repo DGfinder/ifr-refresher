@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 import { ModeSelector } from "./ModeSelector";
 import { SessionConfig } from "./SessionConfig";
 import { getQuizStats, getRecentHistory } from "@/utils/quizStorage";
@@ -95,14 +96,12 @@ export function QuizDashboard({
           </div>
           <div className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 text-center">
             <div
-              className="text-2xl font-bold"
-              style={{
-                color: stats.dailyStreak >= 7
-                  ? "var(--ifr-warning)"
-                  : stats.dailyStreak >= 3
-                  ? "var(--ifr-success)"
-                  : "var(--ifr-text)",
-              }}
+              className={cn(
+                "text-2xl font-bold",
+                stats.dailyStreak >= 7 && "text-[var(--ifr-warning)]",
+                stats.dailyStreak >= 3 && stats.dailyStreak < 7 && "text-[var(--ifr-success)]",
+                stats.dailyStreak < 3 && "text-[var(--ifr-text)]"
+              )}
             >
               {stats.dailyStreak > 0 ? `${stats.dailyStreak}d` : "—"}
             </div>

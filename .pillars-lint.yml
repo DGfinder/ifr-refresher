@@ -1,0 +1,13 @@
+tier: 2
+sensitive_paths:
+  - "src/data/**"
+  - "src/sw.ts"
+  - "src/app/manifest.ts"
+  - "src/lib/storage.ts"
+  - "src/hooks/use*"
+  - "package.json"
+  - "package-lock.json"
+diff_limits:
+  default: { files: 8, lines: 400 }
+  sensitive: { files: 4, lines: 200 }
+skip_checks: []

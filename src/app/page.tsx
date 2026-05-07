@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { sections } from "@/data/sections";
 import { useProgress } from "@/hooks/useProgress";
 import { useDrill } from "@/hooks/useDrill";
+import { ProgressBar } from "@/components/ui/ProgressBar";
 
 // Cheat sheet is the primary content — show its categories on the homepage
 const cheatSheetSection = sections.find((s) => s.sectionId === "cheat-sheet");
@@ -49,12 +50,7 @@ export default function Home() {
               <span className="text-[var(--ifr-text-muted)]">Overall completion</span>
               <span className="font-medium text-foreground">{progressPercent}%</span>
             </div>
-            <div className="h-2 w-full rounded-full bg-[var(--ifr-surface-muted)]">
-              <div
-                className="h-2 rounded-full bg-[var(--ifr-accent)] transition-all"
-                style={{ width: `${progressPercent}%` }}
-              />
-            </div>
+            <ProgressBar value={progressPercent} className="h-2 w-full bg-[var(--ifr-surface-muted)]" aria-label="Overall completion" />
           </div>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">

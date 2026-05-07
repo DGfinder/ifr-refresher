@@ -5,6 +5,9 @@ import { ProgramProvider } from "@/contexts/ProgramContext";
 import { MainNav } from "@/components/MainNav";
 import { AppHeader } from "@/components/AppHeader";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { ContentDisclaimer } from "@/components/ContentDisclaimer";
+import { StorageStatusBanner } from "@/components/StorageStatusBanner";
+import { IFR_THEME } from "@/lib/theme";
 
 const barlowCondensed = Barlow_Condensed({
   variable: "--font-display",
@@ -33,10 +36,9 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: IFR_THEME.darkTheme,
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -53,8 +55,10 @@ export default function RootLayout({
           <ProgramProvider>
             <div className="min-h-screen pb-16 md:pb-0">
               <AppHeader />
+              <StorageStatusBanner />
               <MainNav />
               <main>{children}</main>
+              <ContentDisclaimer />
             </div>
           </ProgramProvider>
         </ErrorBoundary>

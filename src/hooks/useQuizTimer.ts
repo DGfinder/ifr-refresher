@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 
 interface UseQuizTimerOptions {
   initialTime: number; // seconds
@@ -94,7 +94,7 @@ export function useQuizTimer({
     setTimeRemaining((prev) => Math.max(0, prev + seconds));
   }, []);
 
-  return {
+  return useMemo(() => ({
     timeRemaining,
     isRunning,
     start,
@@ -102,5 +102,5 @@ export function useQuizTimer({
     resume,
     reset,
     addTime,
-  };
+  }), [timeRemaining, isRunning, start, pause, resume, reset, addTime]);
 }

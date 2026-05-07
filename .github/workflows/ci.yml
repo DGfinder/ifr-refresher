@@ -7,26 +7,47 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  quality:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - run: npm ci
 
       - name: Type check
-        run: ./node_modules/.bin/tsc --noEmit
-
-      - name: Test
-        run: npm test
+        run: npm run typecheck
 
       - name: Lint
         run: npm run lint
 
-      - name: Build
+      - name: Test
+        run: npm test
+
+      - name: Content check
+        run: npm run content:check
+
+      - name: Production build
         run: npm run build
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Browser smoke and a11y
+        run: npm run playwright
+
+      - name: PWA offline smoke
+        run: npm run playwright:pwa
+
+      - name: Pillars lint (advisory during adoption)
+        run: npm run pillars:lint:advisory
+
+      - name: Frontend lint (advisory during adoption)
+        run: npm run frontend:lint:advisory
+
+      - name: Runtime dependency audit
+        run: npm audit --omit=dev

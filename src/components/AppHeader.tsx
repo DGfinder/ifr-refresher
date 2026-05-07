@@ -3,24 +3,39 @@
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 
-function readInitialTheme(): boolean {
-  if (typeof window === "undefined") return false;
-  const saved = localStorage.getItem("ifrTheme");
-  if (saved === "dark") return true;
-  if (saved === "light") return false;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches;
-}
-
 export function AppHeader() {
-  const [isDark, setIsDark] = useState(readInitialTheme);
+  const [isDark, setIsDark] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  // Initialize theme from localStorage on mount
+  useEffect(() => {
+    queueMicrotask(() => {
+      const savedTheme = window.localStorage.getItem("ifrTheme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+      setIsDark(shouldBeDark);
+      setIsHydrated(true);
+    });
+  }, []);
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark);
-  }, [isDark]);
+    if (!isHydrated) return;
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDark, isHydrated]);
 
   const toggleTheme = () => {
     const newIsDark = !isDark;
-    localStorage.setItem("ifrTheme", newIsDark ? "dark" : "light");
+    if (newIsDark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("ifrTheme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("ifrTheme", "light");
+    }
     setIsDark(newIsDark);
   };
 
@@ -35,18 +50,19 @@ export function AppHeader() {
             Australian IFR revision — free and offline
           </p>
         </div>
-        {/* suppressHydrationWarning: server has no localStorage/matchMedia,
-            so the rendered icon may differ on first paint. */}
         <button
           onClick={toggleTheme}
           className="rounded-lg p-2 transition-colors hover:bg-[var(--ifr-surface-muted)]"
           aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-          suppressHydrationWarning
         >
-          {isDark ? (
-            <Sun className="h-5 w-5 text-[var(--ifr-text-muted)]" />
+          {isHydrated ? (
+            isDark ? (
+              <Sun className="h-5 w-5 text-[var(--ifr-text-muted)]" />
+            ) : (
+              <Moon className="h-5 w-5 text-[var(--ifr-text-muted)]" />
+            )
           ) : (
-            <Moon className="h-5 w-5 text-[var(--ifr-text-muted)]" />
+            <div className="h-5 w-5" />
           )}
         </button>
       </div>

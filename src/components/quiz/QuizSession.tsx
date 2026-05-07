@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Timer } from "./ui/Timer";
 import { StreakCounter } from "./ui/StreakCounter";
@@ -8,6 +8,7 @@ import { ScoreDisplay } from "./ui/ScoreDisplay";
 import { LivesDisplay } from "./ui/LivesDisplay";
 import { useKeyboardNav } from "@/hooks/useKeyboardNav";
 import { useQuizTimer } from "@/hooks/useQuizTimer";
+import { ProgressBar } from "@/components/ui/ProgressBar";
 import type { QuizQuestion, QuizOptionId } from "@/types/drill";
 import type { QuizGameMode } from "@/types/quiz";
 
@@ -57,21 +58,7 @@ export function QuizSession({
   const showLives = mode === "challenge";
   const showScore = mode !== "learn";
 
-  // Flash border for 600ms after answering. Derived from props rather
-  // than a sync setState-in-effect; the timer flips a "cleared" id so
-  // the flash auto-clears without re-rendering on the answer event.
-  const [clearedFlashFor, setClearedFlashFor] = useState<string | null>(null);
-  const showFlash = isAnswered && clearedFlashFor !== currentQuestion.id;
-  const flashState: "correct" | "incorrect" | null = showFlash
-    ? (isCorrect ? "correct" : "incorrect")
-    : null;
-
-  useEffect(() => {
-    if (!isAnswered) return;
-    const id = currentQuestion.id;
-    const t = setTimeout(() => setClearedFlashFor(id), 600);
-    return () => clearTimeout(t);
-  }, [isAnswered, currentQuestion.id]);
+  const flashState = isAnswered ? (isCorrect ? "correct" : "incorrect") : null;
 
   // Timer hook for timed mode
   const timer = useQuizTimer({
@@ -79,32 +66,33 @@ export function QuizSession({
     onTimeout,
     autoStart: showTimer && !isPaused,
   });
+  const { reset: resetTimer, start: startTimer, pause: pauseTimer, resume: resumeTimer } = timer;
 
   // Sync external time with timer
   useEffect(() => {
     if (showTimer) {
-      timer.reset(timeRemaining);
+      resetTimer(timeRemaining);
       if (!isPaused) {
-        timer.start();
+        startTimer();
       }
     }
-  }, [currentIndex]); // Reset timer on question change
+  }, [currentIndex, isPaused, showTimer, timeRemaining, resetTimer, startTimer]); // Reset timer on question change
 
   // Pause/resume timer
   useEffect(() => {
     if (isPaused) {
-      timer.pause();
+      pauseTimer();
     } else if (showTimer && !isAnswered) {
-      timer.resume();
+      resumeTimer();
     }
-  }, [isPaused]);
+  }, [isPaused, isAnswered, showTimer, pauseTimer, resumeTimer]);
 
   // Stop timer when answered
   useEffect(() => {
     if (isAnswered) {
-      timer.pause();
+      pauseTimer();
     }
-  }, [isAnswered]);
+  }, [isAnswered, pauseTimer]);
 
   // Keyboard navigation
   useKeyboardNav({
@@ -154,12 +142,7 @@ export function QuizSession({
           )}
         </div>
       </div>
-      <div className="mb-6 h-2 overflow-hidden rounded-full bg-[var(--ifr-surface-muted)]">
-        <div
-          className="h-full rounded-full bg-[var(--ifr-accent)] transition-all duration-300"
-          style={{ width: `${progressPercent}%` }}
-        />
-      </div>
+      <ProgressBar value={progressPercent} className="mb-6 h-2 bg-[var(--ifr-surface-muted)]" aria-label="Quiz progress" />
 
       {/* Question card — flash border on answer */}
       <div

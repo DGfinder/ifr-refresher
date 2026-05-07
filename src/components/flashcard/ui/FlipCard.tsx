@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+
 interface FlipCardProps {
   front: React.ReactNode;
   back: React.ReactNode;
@@ -23,33 +25,31 @@ export function FlipCard({
   moduleContext = [],
 }: FlipCardProps) {
   const hasContext = moduleContext.length > 0;
+  const cardRef = useRef<HTMLDivElement>(null);
+  const cardTransform = isFlipped
+    ? `rotateY(180deg) translateX(${-dragX}px) rotate(${-dragRotate}deg)`
+    : `translateX(${dragX}px) rotate(${dragRotate}deg)`;
+  const cardTransition = isDragging
+    ? "none"
+    : "transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)";
+
+  useEffect(() => {
+    cardRef.current?.style.setProperty("--card-transform", cardTransform);
+    cardRef.current?.style.setProperty("--card-transition", cardTransition);
+  }, [cardTransform, cardTransition]);
 
   return (
     <div
-      style={{ perspective: "1200px" }}
-      className="w-full cursor-pointer select-none"
+      className="w-full cursor-pointer select-none [perspective:1200px]"
       onClick={!isFlipped ? onFlip : undefined}
     >
       <div
-        style={{
-          position: "relative",
-          transformStyle: "preserve-3d",
-          transition: isDragging
-            ? "none"
-            : isFlipped
-            ? "transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)"
-            : "transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
-          transform: isFlipped
-            ? `rotateY(180deg) translateX(${-dragX}px) rotate(${-dragRotate}deg)`
-            : `translateX(${dragX}px) rotate(${dragRotate}deg)`,
-          minHeight: "260px",
-        }}
-        className="relative w-full md:min-h-[320px]"
+        ref={cardRef}
+        className="relative min-h-[260px] w-full [transform-style:preserve-3d] [transform:var(--card-transform)] [transition:var(--card-transition)] md:min-h-[320px]"
       >
         {/* Front face */}
         <div
-          style={{ backfaceVisibility: "hidden" }}
-          className="absolute inset-0 flex flex-col rounded-2xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] shadow-lg"
+          className="absolute inset-0 flex flex-col rounded-2xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] shadow-lg [backface-visibility:hidden]"
         >
           {front}
           {hasContext && (
@@ -76,11 +76,7 @@ export function FlipCard({
 
         {/* Back face */}
         <div
-          style={{
-            backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-          }}
-          className="absolute inset-0 flex flex-col rounded-2xl border border-[var(--ifr-accent)]/30 bg-[var(--ifr-surface)] shadow-lg"
+          className="absolute inset-0 flex flex-col rounded-2xl border border-[var(--ifr-accent)]/30 bg-[var(--ifr-surface)] shadow-lg [backface-visibility:hidden] [transform:rotateY(180deg)]"
         >
           {back}
         </div>

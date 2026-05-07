@@ -8,7 +8,18 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "pillars:lint": "bash scripts/pillars-lint.sh --tier 2",
+    "pillars:lint:advisory": "bash scripts/pillars-lint.sh --tier 2 --no-fail",
+    "frontend:lint": "bash scripts/pillars-frontend-lint.sh",
+    "frontend:lint:advisory": "bash scripts/pillars-frontend-lint.sh --no-fail",
+    "quality": "npm run typecheck && npm run lint && npm run content:check && npm run test && npm run build",
+    "playwright": "playwright test",
+    "playwright:ui": "playwright test --ui",
+    "playwright:pwa": "playwright test --config=tests/pwa.playwright.config.ts",
+    "lighthouse": "node scripts/run-lighthouse.mjs",
+    "content:check": "node scripts/check-content.mjs"
   },
   "dependencies": {
     "@serwist/next": "^9.5.6",
@@ -18,7 +29,7 @@
     "fuse.js": "^7.2.0",
     "idb-keyval": "^6.2.2",
     "lucide-react": "^0.575.0",
-    "next": "16.1.6",
+    "next": "^16.2.5",
     "radix-ui": "^1.4.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
@@ -26,6 +37,8 @@
     "ts-fsrs": "^5.3.2"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4",
     "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20",
@@ -33,7 +46,9 @@
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "eslint-config-next": "^16.2.5",
+    "lighthouse": "^13.2.0",
+    "postcss": "8.5.10",
     "serwist": "^9.5.6",
     "shadcn": "^3.8.5",
     "tailwindcss": "^4",
@@ -41,5 +56,8 @@
     "typescript": "5.9.3",
     "vite": "^8.0.3",
     "vitest": "^4.1.2"
+  },
+  "overrides": {
+    "postcss": "8.5.10"
   }
 }

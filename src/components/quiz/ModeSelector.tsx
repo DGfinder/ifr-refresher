@@ -67,9 +67,9 @@ const MODE_OPTIONS: ModeOption[] = [
 export function ModeSelector({ selectedMode, onSelectMode }: ModeSelectorProps) {
   return (
     <div className="space-y-3">
-      <h3 className="text-sm font-medium text-[var(--ifr-text-muted)] uppercase tracking-wide">
+      <p className="text-sm font-medium text-[var(--ifr-text-muted)] uppercase tracking-wide">
         Choose Mode
-      </h3>
+      </p>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {MODE_OPTIONS.map((mode) => (
           <button

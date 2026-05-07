@@ -34,15 +34,19 @@ export function SessionConfig({
         </label>
         <div className="flex flex-wrap gap-2">
           {QUESTION_OPTIONS.map((option) => {
-            const value = option === "all" ? availableQuestions : option;
             const isDisabled = typeof option === "number" && option > availableQuestions;
             const isSelected = questionCount === option;
+            const disabledReason = isDisabled
+              ? `Only ${availableQuestions} question${availableQuestions === 1 ? "" : "s"} available for the current filters.`
+              : undefined;
 
             return (
               <button
                 key={String(option)}
                 onClick={() => !isDisabled && onChangeQuestionCount(option)}
                 disabled={isDisabled}
+                title={disabledReason}
+                aria-label={disabledReason ? `${option} questions unavailable. ${disabledReason}` : `${option} questions`}
                 className={cn(
                   "rounded-lg px-4 py-2 text-sm font-medium transition-colors",
                   isSelected
@@ -53,6 +57,7 @@ export function SessionConfig({
                 )}
               >
                 {option === "all" ? `All (${availableQuestions})` : option}
+                {isDisabled && <span className="sr-only"> — {disabledReason}</span>}
               </button>
             );
           })}

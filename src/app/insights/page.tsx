@@ -5,6 +5,7 @@ import Link from "next/link";
 import { sections } from "@/data/sections";
 import { useProgress } from "@/hooks/useProgress";
 import { useDrill } from "@/hooks/useDrill";
+import { ProgressBar } from "@/components/ui/ProgressBar";
 
 export default function InsightsPage() {
   const { getCompletionStats } = useProgress();
@@ -81,12 +82,7 @@ export default function InsightsPage() {
                     {section.completed}/{section.total}
                   </span>
                 </div>
-                <div className="h-2 w-full overflow-hidden rounded-full bg-[var(--ifr-border)]">
-                  <div
-                    className="h-full rounded-full bg-[var(--ifr-accent)] transition-all duration-300"
-                    style={{ width: `${percent}%` }}
-                  />
-                </div>
+                <ProgressBar value={percent} className="h-2 w-full" aria-label={`${section.sectionTitle} progress`} />
               </div>
             );
           })}
