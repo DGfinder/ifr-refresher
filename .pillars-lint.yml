@@ -1,10 +1,12 @@
 tier: 2
 sensitive_paths:
-  - "src/data/**"
-  - "src/sw.ts"
+  - "src/content/data/**"
+  - "src/platform/pwa/sw.ts"
   - "src/app/manifest.ts"
-  - "src/lib/storage.ts"
-  - "src/hooks/use*"
+  - "src/platform/storage/idbStorage.ts"
+  - "src/features/**/hooks/use*"
+  - "src/features/**/storage/**"
+  - "src/features/**/model/**"
   - "package.json"
   - "package-lock.json"
 diff_limits:

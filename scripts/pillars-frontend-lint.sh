@@ -12,7 +12,12 @@ report() {
   failures=$((failures + 1))
 }
 
-files=$(git ls-files '*.tsx' '*.jsx' '*.ts' '*.js' 2>/dev/null || true)
+files=$(
+  {
+    git ls-files '*.tsx' '*.jsx' '*.ts' '*.js' 2>/dev/null || true
+    find src tests scripts -type f \( -name '*.tsx' -o -name '*.jsx' -o -name '*.ts' -o -name '*.js' \) 2>/dev/null || true
+  } | sort -u
+)
 [[ -z "$files" ]] && exit 0
 
 tmp=$(mktemp)
@@ -22,7 +27,10 @@ trap 'rm -f "$tmp"' EXIT
 # Escape hatches:
 # - pillars-lint-disable-file in the first 5 lines skips the file.
 # - pillars-lint-disable-line skips that source line and the next source line.
+existing_files=""
 for f in $files; do
+  [[ -f "$f" ]] || continue
+  existing_files="$existing_files $f"
   if head -5 "$f" | grep -q 'pillars-lint-disable-file'; then
     continue
   fi
@@ -43,7 +51,7 @@ if grep -nE 'style=\{\{' "$tmp" 2>/dev/null | grep -vE 'style=\{\{[[:space:]]*["
   report "Inline style attributes found. Use className/tokens unless documented CSS-variable escape hatch."
 fi
 
-placeholder_files=$(echo "$files" | grep -vE '\.(stories|story|test|spec)\.(ts|tsx|js|jsx)$' || true)
+placeholder_files=$(echo "$existing_files" | tr ' ' '\n' | grep -vE '^$|\.(stories|story|test|spec)\.(ts|tsx|js|jsx)$' || true)
 filtered_placeholder_files=""
 for f in $placeholder_files; do
   if ! head -5 "$f" | grep -q 'pillars-lint-disable-file'; then
@@ -79,7 +87,7 @@ except Exception:
   print('')
 PY
 )
-  if [[ "$engine" == "base-ui" ]] && grep -nE "from ['\"]@radix-ui/" $files 2>/dev/null; then
+  if [[ "$engine" == "base-ui" ]] && [[ -n "$existing_files" ]] && grep -nE "from ['\"]@radix-ui/" $existing_files 2>/dev/null; then
     report "Radix import found in Base UI project."
   fi
 fi

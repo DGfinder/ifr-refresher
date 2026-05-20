@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { IFR_THEME } from "@/lib/theme";
+import { IFR_THEME } from "@/app-shell/theme/theme";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {

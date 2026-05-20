@@ -15,12 +15,12 @@
   - Insights/progress
   - Offline revisit after first load
 - Critical paths:
-  - `src/data/**`
-  - `src/utils/drill.ts`
-  - `src/utils/quiz.ts`
-  - `src/hooks/useDrill.ts`
-  - `src/hooks/useQuizSession.ts`
-  - `src/sw.ts`
+  - `src/content/data/**`
+  - `src/features/drill/model/buildDrillQuestions.ts`
+  - `src/features/quiz/model/buildQuizQuestions.ts`
+  - `src/features/drill/hooks/useDrill.ts`
+  - `src/features/quiz/hooks/useQuizSession.ts`
+  - `src/platform/pwa/sw.ts`
   - `src/app/manifest.ts`
 - Rollback owner: Hayden
 - Release bar: typecheck, lint, tests, build, dependency audit, browser smoke, offline/PWA smoke for PWA changes

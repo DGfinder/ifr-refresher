@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { DrillScreen } from "@/features/drill/screens/DrillScreen";
 
-export default function DrillPage() {
-  redirect("/flashcard");
+export default function Page() {
+  return <DrillScreen />;
 }

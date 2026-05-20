@@ -4,8 +4,8 @@ This project is a study refresher, not an operational source of truth. IFR/CASA/
 
 ## Current status
 
-- Content lives in `src/data/*.json`.
-- Runtime type shape is defined in `src/types/section.ts`.
+- Content lives in `src/content/data/*.json`.
+- Runtime type shape is defined in `src/content/model/section.ts`.
 - Automated structural check: `npm run content:check`.
 - Human source verification is required for rule/number/reference changes.
 

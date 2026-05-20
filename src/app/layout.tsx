@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ProgramProvider } from "@/contexts/ProgramContext";
-import { MainNav } from "@/components/MainNav";
-import { AppHeader } from "@/components/AppHeader";
-import { ErrorBoundary } from "@/components/ErrorBoundary";
-import { ContentDisclaimer } from "@/components/ContentDisclaimer";
-import { StorageStatusBanner } from "@/components/StorageStatusBanner";
-import { IFR_THEME } from "@/lib/theme";
+import { ProgramProvider } from "@/features/programs/context/ProgramContext";
+import { MainNav } from "@/app-shell/components/MainNav";
+import { AppHeader } from "@/app-shell/components/AppHeader";
+import { ErrorBoundary } from "@/app-shell/error/ErrorBoundary";
+import { ContentDisclaimer } from "@/app-shell/components/ContentDisclaimer";
+import { StorageStatusBanner } from "@/app-shell/components/StorageStatusBanner";
+import { IFR_THEME } from "@/app-shell/theme/theme";
 
 const barlowCondensed = Barlow_Condensed({
   variable: "--font-display",

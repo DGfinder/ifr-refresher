@@ -21,14 +21,14 @@
 
 ## Critical paths requiring extra care
 
-- `src/data/**`
-- `src/types/section.ts`
-- `src/utils/drill.ts`
-- `src/utils/quiz.ts`
-- `src/hooks/useDrill.ts`
-- `src/hooks/useQuizSession.ts`
-- `src/lib/storage.ts`
-- `src/sw.ts`
+- `src/content/data/**`
+- `src/content/model/section.ts`
+- `src/features/drill/model/buildDrillQuestions.ts`
+- `src/features/quiz/model/buildQuizQuestions.ts`
+- `src/features/drill/hooks/useDrill.ts`
+- `src/features/quiz/hooks/useQuizSession.ts`
+- `src/platform/storage/idbStorage.ts`
+- `src/platform/pwa/sw.ts`
 - `src/app/manifest.ts`
 - `package.json`
 - `package-lock.json`

@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const dataDir = path.join(process.cwd(), "src", "data");
+const dataDir = path.join(process.cwd(), "src", "content", "data");
 const files = fs.readdirSync(dataDir).filter((file) => file.endsWith(".json"));
 const allowedBlockTypes = new Set([
   "text",
