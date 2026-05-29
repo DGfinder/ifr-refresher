@@ -43,6 +43,9 @@ jobs:
       - name: PWA offline smoke
         run: npm run playwright:pwa
 
+      - name: Lighthouse budgets
+        run: npm run lighthouse
+
       - name: Pillars lint (advisory during adoption)
         run: npm run pillars:lint:advisory
 

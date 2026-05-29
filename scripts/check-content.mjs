@@ -59,7 +59,14 @@ for (const file of files) {
     if (!categoryIds.has(moduleItem.categoryId)) errors.push(`${label}: categoryId does not match any category`);
     if (!Array.isArray(moduleItem.tags)) errors.push(`${label}: tags must be an array`);
     if (!Array.isArray(moduleItem.content) || moduleItem.content.length === 0) errors.push(`${label}: content must be a non-empty array`);
-    if (!Array.isArray(moduleItem.refs) || moduleItem.refs.length === 0) warnings.push(`${label}: no refs supplied`);
+    if (!Array.isArray(moduleItem.refs) || moduleItem.refs.length === 0) errors.push(`${label}: refs must include at least one source or explicit provenance note`);
+    for (const [refIndex, ref] of (moduleItem.refs ?? []).entries()) {
+      const refLabel = `${label}:refs[${refIndex}]`;
+      if (!isNonEmptyString(ref.source)) errors.push(`${refLabel}: source missing`);
+      if (!isNonEmptyString(ref.part) && !isNonEmptyString(ref.chapter) && !isNonEmptyString(ref.section) && !isNonEmptyString(ref.note) && !isNonEmptyString(ref.url)) {
+        errors.push(`${refLabel}: include part, chapter, section, note, or url so the provenance is checkable`);
+      }
+    }
     for (const [index, block] of (moduleItem.content ?? []).entries()) {
       const blockLabel = `${label}:content[${index}]`;
       if (!allowedBlockTypes.has(block.type)) errors.push(`${blockLabel}: unknown block type ${block.type}`);

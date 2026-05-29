@@ -7,6 +7,7 @@ This project is a study refresher, not an operational source of truth. IFR/CASA/
 - Content lives in `src/content/data/*.json`.
 - Runtime type shape is defined in `src/content/model/section.ts`.
 - Automated structural check: `npm run content:check`.
+- The structural checker now fails any module without at least one source/reference or explicit provenance note.
 - Human source verification is required for rule/number/reference changes.
 
 ## Content change checklist
@@ -26,6 +27,7 @@ For any content edit:
 | Date | Scope | Source | Reviewer | Notes |
 |---|---|---|---|---|
 | 2026-05-07 | Existing data shape/governance only | Existing local content; no rule text changed | Hermes | Added structural checker and disclaimer. Human aviation source verification still required before external/public pilot use. |
+| 2026-05-29 | Provenance coverage hardening | Existing local content; no rule text changed | Hermes | Added explicit unverified-local-study-notes provenance to the 57 modules that previously had empty refs and made empty refs a failing content check. This improves honesty/traceability but does not complete human aviation source verification. |
 
 ## Promotion to Tier 3/public pilot
 

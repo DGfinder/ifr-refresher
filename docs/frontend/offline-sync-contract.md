@@ -30,6 +30,6 @@ Surface: web PWA
 - Reconnect/replay trigger: N/A until sync exists.
 
 ## Required tests
-- [ ] First load online -> reload offline -> `/study` renders.
-- [ ] Complete local progress -> reload -> progress persists.
-- [ ] Storage failure -> readable content with progress warning.
+- [x] First load online -> reload offline -> `/study` renders.
+- [x] Complete local progress -> reload -> progress persists.
+- [x] Storage failure -> readable content with progress warning.
