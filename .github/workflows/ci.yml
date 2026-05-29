@@ -9,8 +9,6 @@ on:
 jobs:
   quality:
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.59.1-noble
     steps:
       - uses: actions/checkout@v4
 
@@ -36,14 +34,24 @@ jobs:
       - name: Production build
         run: npm run build
 
+      - name: Set up Chrome
+        id: setup-chrome
+        uses: browser-actions/setup-chrome@v1
+
       - name: Browser smoke and a11y
         run: npm run playwright
+        env:
+          PLAYWRIGHT_CHROME_CHANNEL: chrome
 
       - name: PWA offline smoke
         run: npm run playwright:pwa
+        env:
+          PLAYWRIGHT_CHROME_CHANNEL: chrome
 
       - name: Lighthouse budgets
         run: npm run lighthouse
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
 
       - name: Pillars lint (advisory during adoption)
         run: npm run pillars:lint:advisory

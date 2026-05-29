@@ -14,7 +14,13 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   projects: [
-    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+    {
+      name: "chromium",
+      use: {
+        ...devices["Desktop Chrome"],
+        channel: process.env.PLAYWRIGHT_CHROME_CHANNEL,
+      },
+    },
   ],
   webServer: {
     command: "npm run dev -- --port 3100",
