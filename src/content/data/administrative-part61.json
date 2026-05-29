@@ -102,7 +102,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ADM-002",
@@ -169,7 +174,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ADM-003",
@@ -242,7 +252,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ADM-004",
@@ -319,7 +334,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ADM-005",
@@ -403,7 +423,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ADM-006",
@@ -490,7 +515,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "IFR-000",

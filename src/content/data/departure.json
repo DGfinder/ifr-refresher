@@ -97,7 +97,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "DEP-002",
@@ -178,7 +183,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "DEP-003",
@@ -259,7 +269,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     }
   ]
 }

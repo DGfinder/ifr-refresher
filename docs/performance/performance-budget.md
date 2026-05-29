@@ -30,6 +30,7 @@ Minimum category scores:
 
 ```bash
 npm run build
-npm run start -- --port 3101
-LIGHTHOUSE_BASE_URL=http://127.0.0.1:3101 npm run lighthouse
+npm run lighthouse
 ```
+
+`npm run lighthouse` starts `npm run start -- --port 3101` automatically when nothing is already serving `LIGHTHOUSE_BASE_URL`.

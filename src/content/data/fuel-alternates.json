@@ -86,7 +86,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "FAL-002",
@@ -170,7 +175,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "FAL-003",
@@ -266,7 +276,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "FAL-004",
@@ -343,7 +358,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     }
   ]
 }

@@ -94,7 +94,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ATC-002",
@@ -172,7 +177,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ATC-006",
@@ -248,7 +258,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ATC-007",
@@ -318,7 +333,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ATC-008",
@@ -393,7 +413,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ATC-009",
@@ -469,7 +494,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ATC-003",
@@ -544,7 +574,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ATC-004",
@@ -620,7 +655,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     },
     {
       "id": "ATC-005",
@@ -698,7 +738,12 @@
           ]
         }
       ],
-      "refs": []
+      "refs": [
+        {
+          "source": "Unverified local study notes",
+          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+        }
+      ]
     }
   ]
 }

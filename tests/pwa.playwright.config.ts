@@ -9,6 +9,7 @@ export default defineConfig({
   use: {
     baseURL: "http://127.0.0.1:3103",
     ...devices["Desktop Chrome"],
+    channel: process.env.PLAYWRIGHT_CHROME_CHANNEL,
   },
   webServer: {
     command: "npm run start -- --port 3103",

@@ -11,6 +11,58 @@ const budgets = {
   seo: 0.85,
 };
 const chromePath = process.env.CHROME_PATH ?? chromium.executablePath();
+const serverUrl = new URL(baseUrl);
+const serverPort = serverUrl.port || (serverUrl.protocol === "https:" ? "443" : "80");
+
+async function canReachServer() {
+  try {
+    const response = await fetch(baseUrl, { method: "GET" });
+    if (!(response.ok || response.status < 500)) return false;
+    await response.arrayBuffer();
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function waitForServer(child) {
+  const deadline = Date.now() + 60_000;
+  while (Date.now() < deadline) {
+    if (child.exitCode !== null) {
+      throw new Error(`Lighthouse server exited early with code ${child.exitCode}`);
+    }
+    if (await canReachServer()) return;
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  }
+  throw new Error(`Timed out waiting for Lighthouse server at ${baseUrl}`);
+}
+
+async function ensureServer() {
+  if (await canReachServer()) return null;
+
+  const child = spawn("npm", ["run", "start", "--", "--port", serverPort], {
+    stdio: ["ignore", "pipe", "pipe"],
+    env: { ...process.env, PORT: serverPort },
+  });
+
+  child.stdout.on("data", (chunk) => process.stderr.write(chunk));
+  child.stderr.on("data", (chunk) => process.stderr.write(chunk));
+  await waitForServer(child);
+  return child;
+}
+
+function stopServer(child) {
+  if (!child || child.killed || child.exitCode !== null) return;
+  child.kill("SIGTERM");
+}
+
+async function warmRoute(route) {
+  const response = await fetch(`${baseUrl}${route}`, { method: "GET" });
+  if (!(response.ok || response.status < 500)) {
+    throw new Error(`Warm-up failed for ${route}: ${response.status}`);
+  }
+  await response.arrayBuffer();
+}
 
 function run(route) {
   const url = `${baseUrl}${route}`;
@@ -21,7 +73,9 @@ function run(route) {
         "lighthouse",
         url,
         "--quiet",
-        "--chrome-flags=--headless=new --no-sandbox",
+        "--chrome-flags=--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu --disable-software-rasterizer --disable-setuid-sandbox --no-zygote",
+        "--max-wait-for-load=30000",
+        "--preset=desktop",
         "--output=json",
         "--output-path=stdout",
         "--only-categories=performance,accessibility,best-practices,seo",
@@ -43,24 +97,46 @@ function run(route) {
   });
 }
 
-const failures = [];
-for (const route of routes) {
-  const result = await run(route);
-  const scores = {
-    performance: result.categories.performance.score,
-    accessibility: result.categories.accessibility.score,
-    bestPractices: result.categories["best-practices"].score,
-    seo: result.categories.seo.score,
-  };
-  console.log(`${route} ${JSON.stringify(scores)}`);
-  for (const [category, minScore] of Object.entries(budgets)) {
-    if (scores[category] < minScore) {
-      failures.push(`${route} ${category} ${scores[category]} < ${minScore}`);
+async function runWithRetry(route) {
+  let lastError;
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    try {
+      await warmRoute(route);
+      return await run(route);
+    } catch (error) {
+      lastError = error;
+      if (attempt < 2) {
+        console.warn(`Retrying Lighthouse for ${route} after: ${error.message}`);
+        await new Promise((resolve) => setTimeout(resolve, 1_000));
+      }
     }
   }
+  throw lastError;
 }
 
-if (failures.length > 0) {
-  console.error(failures.join("\n"));
-  process.exit(1);
+const server = await ensureServer();
+try {
+  const failures = [];
+  for (const route of routes) {
+    const result = await runWithRetry(route);
+    const scores = {
+      performance: result.categories.performance.score,
+      accessibility: result.categories.accessibility.score,
+      bestPractices: result.categories["best-practices"].score,
+      seo: result.categories.seo.score,
+    };
+    console.log(`${route} ${JSON.stringify(scores)}`);
+    for (const [category, minScore] of Object.entries(budgets)) {
+      if (scores[category] < minScore) {
+        failures.push(`${route} ${category} ${scores[category]} < ${minScore}`);
+      }
+    }
+  }
+
+  if (failures.length > 0) {
+    console.error(failures.join("\n"));
+    process.exitCode = 1;
+  }
+} finally {
+  stopServer(server);
 }
