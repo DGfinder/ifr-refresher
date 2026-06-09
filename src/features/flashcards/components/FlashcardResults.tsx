@@ -91,6 +91,12 @@ export function FlashcardResults({
           Back to Dashboard
         </button>
       </div>
+
+      <p className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)] px-3 py-2 text-xs leading-relaxed text-[var(--ifr-text-muted)]">
+        <span className="font-semibold uppercase tracking-wider">Reminder · </span>
+        Study aid only. Verify against current CASA, AIP, ERSA, aircraft manuals, and operator
+        procedures before flight.
+      </p>
     </div>
   );
 }

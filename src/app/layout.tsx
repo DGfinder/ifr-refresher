@@ -30,8 +30,13 @@ export const metadata: Metadata = {
   description: "Study IFR law and theory on the go. Offline-ready flashcards and quizzes for instrument-rated pilots.",
   appleWebApp: {
     capable: true,
-    statusBarStyle: "default",
+    statusBarStyle: "black-translucent",
     title: "IFR Quick Study",
+  },
+  icons: {
+    apple: [
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
   },
 };
 
@@ -39,6 +44,7 @@ export const viewport: Viewport = {
   themeColor: IFR_THEME.darkTheme,
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

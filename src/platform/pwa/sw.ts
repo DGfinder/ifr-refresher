@@ -9,7 +9,11 @@ declare const self: ServiceWorkerGlobalScope & {
 const serwist = new Serwist({
   precacheEntries: self.__SW_MANIFEST,
   skipWaiting: true,
-  clientsClaim: true,
+  // clientsClaim is intentionally false: skipWaiting still activates the new
+  // worker immediately, but existing tabs keep their previous SW until they
+  // navigate. This avoids hot-swapping assets out from under an in-progress
+  // quiz/drill/radio session.
+  clientsClaim: false,
   navigationPreload: true,
   runtimeCaching: defaultCache,
 });

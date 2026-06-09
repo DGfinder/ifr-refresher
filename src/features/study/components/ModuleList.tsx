@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo } from "react";
-import Fuse from "fuse.js";
+import { useMemo, useState, useEffect } from "react";
+import type Fuse from "fuse.js";
 import type { Module } from "@/content/model/section";
 import type { ModuleStatus } from "@/features/progress";
 import { Badge } from "@/shared/ui/Badge";
@@ -22,19 +22,41 @@ export function ModuleList({
   onSelectModule,
   getModuleStatus,
 }: ModuleListProps) {
-  const fuse = useMemo(
-    () =>
-      new Fuse(modules, {
-        keys: ["title", "summary", "tags"],
-        threshold: 0.4,
-        includeScore: false,
-      }),
-    [modules]
-  );
+  // Lazy-load fuse.js so the ~7KB gzip only ships when search actually mounts.
+  // While the module is in flight we fall back to a case-insensitive substring
+  // match so search works on first paint.
+  const [fuse, setFuse] = useState<Fuse<Module> | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const FuseCtor = (await import("fuse.js")).default;
+      if (cancelled) return;
+      setFuse(
+        new FuseCtor(modules, {
+          keys: ["title", "summary", "tags"],
+          threshold: 0.4,
+          includeScore: false,
+        }),
+      );
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [modules]);
 
   const filteredModules = useMemo(() => {
-    if (!searchQuery.trim()) return modules;
-    return fuse.search(searchQuery).map((r) => r.item);
+    const q = searchQuery.trim();
+    if (!q) return modules;
+    if (!fuse) {
+      const lower = q.toLowerCase();
+      return modules.filter(
+        (m) =>
+          m.title.toLowerCase().includes(lower) ||
+          m.summary.toLowerCase().includes(lower) ||
+          m.tags.some((t) => t.toLowerCase().includes(lower)),
+      );
+    }
+    return fuse.search(q).map((r) => r.item);
   }, [modules, searchQuery, fuse]);
 
   if (filteredModules.length === 0) {
