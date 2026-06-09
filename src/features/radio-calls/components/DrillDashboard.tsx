@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Check, ChevronRight } from "lucide-react";
+import { Check, ChevronRight, X } from "lucide-react";
 import { cn } from "@/shared/lib/cn";
 import type {
   AirspaceClass,
@@ -9,10 +9,15 @@ import type {
   RadioPhase,
 } from "@/content/model/radio";
 import { RADIO_PHASES } from "@/content/registry/radioDrillCards";
+import {
+  getDrillStats,
+  getPassedDrillIds,
+  type RadioDrillAttempt,
+} from "@/features/radio-calls/storage/radioDrillStore";
 
 interface DrillDashboardProps {
   cards: RadioDrillCard[];
-  completedIds: ReadonlySet<string>;
+  attempts: readonly RadioDrillAttempt[];
   onOpenCard: (drillId: string) => void;
 }
 
@@ -27,7 +32,7 @@ const CLASS_FILTERS: { id: ClassFilter; label: string; description: string }[] =
   { id: "CTAF", label: "CTAF", description: "Non-towered broadcasts" },
 ];
 
-export function DrillDashboard({ cards, completedIds, onOpenCard }: DrillDashboardProps) {
+export function DrillDashboard({ cards, attempts, onOpenCard }: DrillDashboardProps) {
   const [phaseFilter, setPhaseFilter] = useState<PhaseFilter>("all");
   const [classFilter, setClassFilter] = useState<ClassFilter>("all");
 
@@ -39,7 +44,8 @@ export function DrillDashboard({ cards, completedIds, onOpenCard }: DrillDashboa
     });
   }, [cards, phaseFilter, classFilter]);
 
-  const completedCount = cards.filter((c) => completedIds.has(c.drillId)).length;
+  const passedIds = useMemo(() => getPassedDrillIds(attempts), [attempts]);
+  const passedCount = cards.filter((c) => passedIds.has(c.drillId)).length;
 
   return (
     <div className="space-y-4">
@@ -53,7 +59,7 @@ export function DrillDashboard({ cards, completedIds, onOpenCard }: DrillDashboa
           input both work.
         </p>
         <p className="mt-2 text-xs text-[var(--ifr-text-muted)]">
-          {completedCount} of {cards.length} attempted
+          {passedCount} of {cards.length} passed
         </p>
       </div>
 
@@ -120,7 +126,15 @@ export function DrillDashboard({ cards, completedIds, onOpenCard }: DrillDashboa
       {/* Card list */}
       <ul className="space-y-3" aria-label="Drill cards">
         {filtered.map((card) => {
-          const completed = completedIds.has(card.drillId);
+          const stats = getDrillStats(attempts, card.drillId);
+          const passed = passedIds.has(card.drillId);
+          const tried = stats.totalAttempts > 0;
+          // Status: passed (any correct attempt) > attempted-failed-last >
+          // attempted (mixed) > untried.
+          let status: "passed" | "failed-last" | "untried" = "untried";
+          if (passed) status = "passed";
+          else if (tried && stats.lastIsCorrect === false) status = "failed-last";
+
           return (
             <li key={card.drillId}>
               <button
@@ -129,21 +143,29 @@ export function DrillDashboard({ cards, completedIds, onOpenCard }: DrillDashboa
                 className={cn(
                   "group flex w-full items-center gap-3 rounded-xl border bg-[var(--ifr-surface)] p-4 text-left transition-all",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
-                  completed
-                    ? "border-[var(--ifr-success)]/30 hover:border-[var(--ifr-success)]/60"
-                    : "border-[var(--ifr-border)] hover:border-[var(--ifr-accent)]/50",
+                  status === "passed" &&
+                    "border-[var(--ifr-success)]/30 hover:border-[var(--ifr-success)]/60",
+                  status === "failed-last" &&
+                    "border-[var(--ifr-danger)]/30 hover:border-[var(--ifr-danger)]/60",
+                  status === "untried" &&
+                    "border-[var(--ifr-border)] hover:border-[var(--ifr-accent)]/50",
                 )}
               >
                 <div
                   className={cn(
                     "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold",
-                    completed
-                      ? "bg-[var(--ifr-success)]/15 text-[var(--ifr-success)]"
-                      : "bg-[var(--ifr-surface-muted)] text-[var(--ifr-text-muted)]",
+                    status === "passed" &&
+                      "bg-[var(--ifr-success)]/15 text-[var(--ifr-success)]",
+                    status === "failed-last" &&
+                      "bg-[var(--ifr-danger)]/15 text-[var(--ifr-danger)]",
+                    status === "untried" &&
+                      "bg-[var(--ifr-surface-muted)] text-[var(--ifr-text-muted)]",
                   )}
                   aria-hidden="true"
                 >
-                  {completed ? <Check size={14} /> : "·"}
+                  {status === "passed" && <Check size={14} />}
+                  {status === "failed-last" && <X size={14} />}
+                  {status === "untried" && "·"}
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-baseline justify-between gap-2">
@@ -162,6 +184,12 @@ export function DrillDashboard({ cards, completedIds, onOpenCard }: DrillDashboa
                   <p className="mt-0.5 line-clamp-1 text-xs text-[var(--ifr-text-muted)]">
                     {card.briefing.summary}
                   </p>
+                  {tried && (
+                    <p className="mt-1 text-[10px] uppercase tracking-wider text-[var(--ifr-text-muted)]">
+                      {stats.correctAttempts}/{stats.totalAttempts} correct
+                      {stats.bestStreak > 1 && ` · best streak ${stats.bestStreak}`}
+                    </p>
+                  )}
                 </div>
                 <ChevronRight
                   size={16}

@@ -12,6 +12,7 @@ import { SpokenCallChallenge } from "@/features/radio-calls/components/SpokenCal
 import { RadioResults } from "@/features/radio-calls/components/RadioResults";
 import { DrillDashboard } from "@/features/radio-calls/components/DrillDashboard";
 import { DrillCardView } from "@/features/radio-calls/components/DrillCardView";
+import { useRadioDrillHistory } from "@/features/radio-calls/hooks/useRadioDrillHistory";
 import { cn } from "@/shared/lib/cn";
 
 type Tab = "scenarios" | "drill";
@@ -236,9 +237,7 @@ function ScenariosTab() {
 
 function DrillTab() {
   const [selectedDrillId, setSelectedDrillId] = useState<string | null>(null);
-  // In-session completion tracking. Persisting drill history to IndexedDB is
-  // a future enhancement (see features/radio-calls/README.md).
-  const [completedIds, setCompletedIds] = useState<ReadonlySet<string>>(new Set());
+  const { attempts, recordAttempt } = useRadioDrillHistory();
 
   const currentCard = useMemo(
     () => (selectedDrillId ? getRadioDrillCardById(selectedDrillId) ?? null : null),
@@ -253,12 +252,10 @@ function DrillTab() {
         key={currentCard.drillId}
         card={currentCard}
         onBack={() => setSelectedDrillId(null)}
-        onComplete={() => {
-          setCompletedIds((prev) => {
-            const next = new Set(prev);
-            next.add(currentCard.drillId);
-            return next;
-          });
+        onComplete={(record) => {
+          // Fire-and-forget — the UI navigates back regardless of the
+          // persist round-trip. Failures are logged in the store.
+          void recordAttempt(currentCard.drillId, record.isCorrect);
           setSelectedDrillId(null);
         }}
       />
@@ -269,7 +266,7 @@ function DrillTab() {
     <div className="mx-auto max-w-2xl px-6 pb-6">
       <DrillDashboard
         cards={radioDrillCards}
-        completedIds={completedIds}
+        attempts={attempts}
         onOpenCard={setSelectedDrillId}
       />
     </div>
