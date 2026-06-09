@@ -6,6 +6,7 @@ import { sections } from "@/content/registry/sections";
 import { useProgress } from "@/features/progress/hooks/useProgress";
 import { useDrill } from "@/features/drill";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
+import { RadioProgressSection } from "@/features/progress/components/RadioProgressSection";
 
 export function InsightsScreen() {
   const { getCompletionStats } = useProgress();
@@ -88,6 +89,9 @@ export function InsightsScreen() {
           })}
         </div>
       </section>
+
+      {/* Radio progress (drill + scenarios) */}
+      <RadioProgressSection />
 
       {/* CTA for weak focus */}
       {weakCount > 0 && (

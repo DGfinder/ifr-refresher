@@ -17,6 +17,18 @@ export {
   realiseRadioTemplate,
   generateRadioDrillCards,
 } from "./model/realiseTemplate";
+export { useRadioDrillHistory } from "./hooks/useRadioDrillHistory";
+export {
+  loadRadioDrillHistory,
+  recordRadioDrillAttempt,
+  clearRadioDrillHistory,
+  getDrillStats,
+  getAttemptedDrillIds,
+  getPassedDrillIds,
+  getRecentDrillIds,
+  type RadioDrillAttempt,
+  type RadioDrillStats,
+} from "./storage/radioDrillStore";
 export {
   loadRadioHistory,
   addRadioResult,
