@@ -1,0 +1,37 @@
+{
+  "version": "1.0",
+  "drillId": "drill-sid-readback",
+  "phase": "departure",
+  "title": "Read back SID departure",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "departure": "YSSY",
+    "flightRules": "IFR",
+    "summary": "On stand at Sydney. Delivery has just issued your IFR clearance with a SID.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "delivery",
+      "text": "Mike X-ray Golf, cleared to Coffs Harbour via the RIVET TWO departure, climb via SID to flight level one eight zero, squawk five six four three."
+    }
+  },
+  "tags": ["departure", "sid", "readback", "mandatory-readback"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-sid-readback",
+    "prompt": "Read back the SID clearance.",
+    "expectedText": "Cleared to Coffs Harbour via RIVET TWO departure, climb via SID to flight level one eight zero, squawk five six four three, Mike X-ray Golf.",
+    "elements": [
+      { "label": "Clearance limit", "accept": ["cleared to Coffs Harbour", "to Coffs Harbour", "Coffs Harbour"], "required": true },
+      { "label": "SID identifier", "accept": ["RIVET TWO", "RIVET2", "RIVET 2", "via RIVET"], "required": true, "hint": "Name the specific SID — 'departure' alone isn't enough." },
+      { "label": "Climb constraint", "accept": ["climb via SID", "via SID", "climb to flight level one eight zero", "FL one eight zero", "FL180"], "required": true },
+      { "label": "Squawk", "accept": ["squawk five six four three", "5643", "squawk 5643"], "required": true },
+      { "label": "Callsign at end", "accept": ["Mike X-ray Golf", "MXG"], "required": true }
+    ],
+    "explanation": "MATS Part 4: SID readback is a full clearance readback — limit, route (named SID), level/climb constraint, squawk, callsign."
+  },
+  "refs": [
+    { "source": "MATS Part 4", "chapter": "Pilots' radio standards", "note": "Source/access date 2026-06-09. Clearance readback including SID." },
+    { "source": "AIP Australia GEN 3.4", "section": "Communications — General radiotelephony procedures", "note": "Source/access date 2026-06-09. SID phraseology." }
+  ]
+}

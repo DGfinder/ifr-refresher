@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "drillId": "drill-distress-cancellation",
+  "phase": "non-normal",
+  "title": "Cancel a PAN-PAN / MAYDAY",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "Previously declared a PAN-PAN for an oil pressure indication. After secondary checks, the issue is resolved (faulty gauge confirmed). Need to cancel the urgency call."
+  },
+  "tags": ["non-normal", "cancellation"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-distress-cancellation",
+    "prompt": "Cancel the previously-declared urgency with Brisbane Centre.",
+    "expectedText": "Brisbane Centre, Mike X-ray Golf, cancel PAN PAN, situation resolved.",
+    "elements": [
+      { "label": "Addressed station", "accept": ["Brisbane Centre", "Brisbane"], "required": true },
+      { "label": "Callsign", "accept": ["Mike X-ray Golf", "MXG"], "required": true },
+      { "label": "Cancel phrase", "accept": ["cancel PAN PAN", "cancel pan-pan", "cancel pan"], "required": true, "hint": "Use the explicit cancel phrase so Centre clears the urgency status on the frequency." },
+      { "label": "Reason", "accept": ["situation resolved", "issue resolved", "no longer required", "false indication"], "required": false, "hint": "Recommended but not strict — helps Centre brief SAR and other traffic." }
+    ],
+    "explanation": "AIP GEN 3.6: distress and urgency cancellations follow a specific format so the frequency returns to normal. Use 'cancel PAN PAN' or 'cancel MAYDAY' as appropriate."
+  },
+  "refs": [
+    { "source": "AIP Australia GEN 3.6", "section": "Distress and urgency communications", "note": "Source/access date 2026-06-09. Cancellation procedures for distress and urgency calls." }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "drillId": "drill-direct-routing",
+  "phase": "enroute",
+  "title": "Request direct routing",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "Cruising FL220 with Brisbane Centre. Wanting to request direct to waypoint COFF for a shorter routing."
+  },
+  "tags": ["enroute", "routing-request"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-direct-routing",
+    "prompt": "Request direct routing to COFF.",
+    "expectedText": "Brisbane Centre, Mike X-ray Golf, request direct COFF.",
+    "elements": [
+      { "label": "Addressed station", "accept": ["Brisbane Centre", "Brisbane"], "required": true },
+      { "label": "Callsign", "accept": ["Mike X-ray Golf", "MXG"], "required": true },
+      { "label": "Request", "accept": ["request direct COFF", "direct COFF", "request direct to COFF"], "required": true, "hint": "Standard form is 'request direct [waypoint]' — keep it tight." }
+    ],
+    "explanation": "AIP ENR 1.7: routing requests are short — station, callsign, request type with the named waypoint. Centre will reply with 'cleared direct' or 'unable'."
+  },
+  "refs": [
+    { "source": "AIP Australia ENR 1.7", "section": "Altimeter setting procedures and route requests", "note": "Source/access date 2026-06-09. Direct routing request format." }
+  ]
+}

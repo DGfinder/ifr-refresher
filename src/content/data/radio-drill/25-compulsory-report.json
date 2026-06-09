@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "drillId": "drill-compulsory-report",
+  "phase": "enroute",
+  "title": "Report compulsory waypoint",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "Non-radar segment. Just passed compulsory reporting waypoint MARLE at time 0345Z, cruising FL220."
+  },
+  "tags": ["enroute", "compulsory-report", "non-radar"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-compulsory-report",
+    "prompt": "Make the compulsory waypoint report — abbreviated form (no ETA for next waypoint required).",
+    "expectedText": "Mike X-ray Golf, MARLE at four five, flight level two two zero.",
+    "elements": [
+      { "label": "Callsign first", "accept": ["Mike X-ray Golf", "MXG"], "required": true },
+      { "label": "Position waypoint", "accept": ["MARLE"], "required": true },
+      { "label": "Time at position", "accept": ["at four five", "at 45", "four five"], "required": true, "hint": "Minutes only — 'four five' for 0345Z." },
+      { "label": "Current level", "accept": ["flight level two two zero", "FL two two zero", "FL220"], "required": true }
+    ],
+    "explanation": "AIP ENR 1.5: abbreviated position report when ATC has waived the next-waypoint ETA — callsign, position, time, level. Use the full form (with next waypoint + ETA) on initial check-in or when first entering a non-radar area."
+  },
+  "refs": [
+    { "source": "AIP Australia ENR 1.5", "section": "Holding, approach and departure procedures — position reporting", "note": "Source/access date 2026-06-09. Compulsory waypoint reporting formats." }
+  ]
+}

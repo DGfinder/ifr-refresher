@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "drillId": "drill-speed-readback",
+  "phase": "enroute",
+  "title": "Read back speed instruction",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "Cruising FL220. Centre wants to sequence you behind preceding traffic.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "centre",
+      "text": "Mike X-ray Golf, reduce speed to two two zero knots."
+    }
+  },
+  "tags": ["enroute", "speed", "readback", "mandatory-readback"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-speed-readback",
+    "prompt": "Read back the speed instruction.",
+    "expectedText": "Reduce speed to two two zero knots, Mike X-ray Golf.",
+    "elements": [
+      { "label": "Speed instruction", "accept": ["reduce speed to two two zero", "speed two two zero", "two two zero knots", "reducing to two two zero"], "required": true },
+      { "label": "Callsign at end", "accept": ["Mike X-ray Golf", "MXG"], "required": true }
+    ],
+    "explanation": "MATS Part 4: speed instructions are a mandatory readback item. Read back the assigned speed + callsign."
+  },
+  "refs": [
+    { "source": "MATS Part 4", "chapter": "Pilots' radio standards", "note": "Source/access date 2026-06-09. Mandatory readback items — speed." }
+  ]
+}

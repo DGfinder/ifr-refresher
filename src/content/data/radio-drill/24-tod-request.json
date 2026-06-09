@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "drillId": "drill-tod-request",
+  "phase": "enroute",
+  "title": "Request descent from cruise",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "Approaching top of descent (TOD) for the arrival. Need to request descent."
+  },
+  "tags": ["enroute", "descent-request"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-tod-request",
+    "prompt": "Request descent from Brisbane Centre.",
+    "expectedText": "Brisbane Centre, Mike X-ray Golf, request descent.",
+    "elements": [
+      { "label": "Addressed station", "accept": ["Brisbane Centre", "Brisbane"], "required": true },
+      { "label": "Callsign", "accept": ["Mike X-ray Golf", "MXG"], "required": true },
+      { "label": "Request", "accept": ["request descent", "ready for descent", "request lower"], "required": true, "hint": "Just 'request descent' — Centre will respond with the cleared level." }
+    ],
+    "explanation": "AIP GEN 3.4: descent requests are minimal — station, callsign, request type. Centre needs the request, not the reasoning."
+  },
+  "refs": [
+    { "source": "AIP Australia GEN 3.4", "section": "Communications — General radiotelephony procedures", "note": "Source/access date 2026-06-09. Descent request format." }
+  ]
+}

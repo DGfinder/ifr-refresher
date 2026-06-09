@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "drillId": "drill-atis-request",
+  "phase": "pre-departure",
+  "title": "Request ATIS readout (non-broadcast aerodrome)",
+  "briefing": {
+    "callsign": "Lima Echo Foxtrot",
+    "aircraftType": "PA-31 Chieftain",
+    "departure": "YSBK",
+    "flightRules": "IFR",
+    "summary": "Pre-flight at a regional aerodrome where ATIS isn't broadcast. Need to request it from Information."
+  },
+  "tags": ["pre-departure", "atis"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-atis-request",
+    "prompt": "Request the current aerodrome information from Bankstown Information.",
+    "expectedText": "Bankstown Information, Lima Echo Foxtrot, request aerodrome information.",
+    "elements": [
+      { "label": "Addressed station", "accept": ["Bankstown Information", "Information"], "required": true },
+      { "label": "Callsign", "accept": ["Lima Echo Foxtrot", "LEF"], "required": true },
+      { "label": "Request", "accept": ["request aerodrome information", "request information", "request ATIS"], "required": true, "hint": "Use the phrase 'aerodrome information' — 'ATIS' is the broadcast service name; the controller readout is the underlying information." }
+    ],
+    "explanation": "AIP GEN 3.4: at aerodromes without an ATIS broadcast, request the aerodrome information from the appropriate Information unit (ground or tower) before taxi."
+  },
+  "refs": [
+    { "source": "AIP Australia GEN 3.4", "section": "Communications — General radiotelephony procedures", "note": "Source/access date 2026-06-09. Aerodrome information request format." }
+  ]
+}

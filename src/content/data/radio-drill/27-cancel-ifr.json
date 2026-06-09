@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "drillId": "drill-cancel-ifr",
+  "phase": "enroute",
+  "title": "Cancel IFR (continue VFR)",
+  "briefing": {
+    "callsign": "Lima Echo Foxtrot",
+    "aircraftType": "PA-31 Chieftain",
+    "flightRules": "IFR",
+    "summary": "VMC throughout, destination weather visual. Pilot decides to cancel IFR and continue VFR to save flight time."
+  },
+  "tags": ["enroute", "cancel-ifr", "vfr"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-cancel-ifr",
+    "prompt": "Cancel IFR with Brisbane Centre.",
+    "expectedText": "Brisbane Centre, Lima Echo Foxtrot, cancelling IFR, continuing VFR.",
+    "elements": [
+      { "label": "Addressed station", "accept": ["Brisbane Centre", "Brisbane"], "required": true },
+      { "label": "Callsign", "accept": ["Lima Echo Foxtrot", "LEF"], "required": true },
+      { "label": "Cancel IFR phrase", "accept": ["cancelling IFR", "cancel IFR"], "required": true, "hint": "Use the explicit phrase — 'cancel IFR'. Centre needs this to terminate IFR service and SAR." },
+      { "label": "VFR continuation", "accept": ["continuing VFR", "VFR", "VFR to destination"], "required": true, "hint": "State your intent so Centre knows you're maintaining VMC and self-navigating." }
+    ],
+    "explanation": "AIP ENR 1.1 + GEN 3.4: cancelling IFR terminates IFR service. State station, callsign, 'cancelling IFR', and that you're continuing VFR. SAR responsibility transfers to you."
+  },
+  "refs": [
+    { "source": "AIP Australia ENR 1.1", "section": "General rules and procedures — IFR/VFR transition", "note": "Source/access date 2026-06-09. IFR cancellation phraseology and effect on SAR." },
+    { "source": "AIP Australia GEN 3.4", "section": "Communications — General radiotelephony procedures", "note": "Source/access date 2026-06-09." }
+  ]
+}

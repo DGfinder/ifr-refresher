@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "drillId": "drill-lost-comms",
+  "phase": "non-normal",
+  "title": "Transmit blind on lost comms",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "Comms failure: nothing heard on the assigned frequency or guard for the last five minutes. You've squawked 7600. As required by AIP ENR 1.6, transmit blind on the last assigned frequency so other traffic and ATC (if receiving) know your status and intentions."
+  },
+  "tags": ["non-normal", "nordo", "lost-comms", "squawk-7600"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-lost-comms",
+    "prompt": "Make a 'transmitting blind' call stating your intentions.",
+    "expectedText": "Mike X-ray Golf, transmitting blind due to comms failure, squawking seven six zero zero, continuing flight planned route, descending to ten thousand, estimating COFF at four five.",
+    "elements": [
+      { "label": "Callsign first", "accept": ["Mike X-ray Golf", "MXG"], "required": true },
+      { "label": "Transmitting blind phrase", "accept": ["transmitting blind", "transmit blind", "blind transmission"], "required": true, "hint": "Open with 'transmitting blind' — tells anyone receiving that you can't hear them." },
+      { "label": "Reason", "accept": ["comms failure", "communications failure", "radio failure", "lost comms"], "required": true },
+      { "label": "Squawk", "accept": ["squawking seven six zero zero", "squawk seven six zero zero", "7600"], "required": true },
+      { "label": "Intentions", "accept": ["continuing flight planned route", "flight planned route", "continuing route", "descending to ten thousand", "estimating COFF"], "required": true, "hint": "State route, level, and an ETA so ATC can sequence other traffic around you." }
+    ],
+    "explanation": "AIP ENR 1.6: on lost comms, squawk 7600, transmit blind on the last assigned frequency (and emergency guard) stating callsign, blind-transmission status, intentions (route + level + ETA). The transmission continues per lost-comms procedures regardless of whether anyone copies."
+  },
+  "refs": [
+    { "source": "AIP Australia ENR 1.6", "section": "ATS surveillance services — radio communication failure procedures", "note": "Source/access date 2026-06-09. NORDO blind transmission and squawk 7600 procedures." }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "drillId": "drill-approach-checkin",
+  "phase": "arrival",
+  "title": "Initial check-in with Approach",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "destination": "YSCB",
+    "flightRules": "IFR",
+    "summary": "Just been handed off to Canberra Approach. Descending FL150 for assigned 9000. ATIS Charlie received.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "centre",
+      "text": "Mike X-ray Golf, contact Canberra Approach one two six decimal one."
+    }
+  },
+  "tags": ["arrival", "initial-call", "handoff"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-approach-checkin",
+    "prompt": "Make the initial call to Canberra Approach.",
+    "expectedText": "Canberra Approach, Mike X-ray Golf, descending flight level one five zero for nine thousand, information Charlie.",
+    "elements": [
+      { "label": "Addressed station", "accept": ["Canberra Approach", "Approach"], "required": true },
+      { "label": "Callsign", "accept": ["Mike X-ray Golf", "MXG"], "required": true },
+      { "label": "Current level + state", "accept": ["descending flight level one five zero", "descending FL one five zero", "descending one five zero", "descending FL150"], "required": true },
+      { "label": "Cleared level", "accept": ["for nine thousand", "to nine thousand", "for 9000"], "required": true },
+      { "label": "ATIS code", "accept": ["information Charlie", "Charlie", "with Charlie"], "required": true, "hint": "Confirm ATIS on initial Approach contact so they don't ask." }
+    ],
+    "explanation": "AIP GEN 3.4 initial-contact format after a handoff: station, callsign, current state (descending/climbing + level), assigned level, ATIS confirmation."
+  },
+  "refs": [
+    { "source": "AIP Australia GEN 3.4", "section": "Communications — General radiotelephony procedures", "note": "Source/access date 2026-06-09. Initial Approach contact format." }
+  ]
+}

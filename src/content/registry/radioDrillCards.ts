@@ -19,28 +19,53 @@ import missedApproachReadback from "../data/radio-drill/17-missed-approach-readb
 import vacateRunway from "../data/radio-drill/18-vacate-runway.json";
 import maydayDeclaration from "../data/radio-drill/19-mayday-declaration.json";
 import frequencyChangeAck from "../data/radio-drill/20-frequency-change-ack.json";
+import sidReadback from "../data/radio-drill/21-sid-readback.json";
+import approachCheckin from "../data/radio-drill/22-approach-checkin.json";
+import directRouting from "../data/radio-drill/23-direct-routing.json";
+import todRequest from "../data/radio-drill/24-tod-request.json";
+import compulsoryReport from "../data/radio-drill/25-compulsory-report.json";
+import atisRequest from "../data/radio-drill/26-atis-request.json";
+import cancelIfr from "../data/radio-drill/27-cancel-ifr.json";
+import distressCancellation from "../data/radio-drill/28-distress-cancellation.json";
+import speedReadback from "../data/radio-drill/29-speed-readback.json";
+import lostComms from "../data/radio-drill/30-lost-comms.json";
 
 export const radioDrillCards: RadioDrillCard[] = [
+  // Pre-departure
+  atisRequest as RadioDrillCard,
   clearanceRequest as RadioDrillCard,
   clearanceReadback as RadioDrillCard,
+  sidReadback as RadioDrillCard,
   taxiRequest as RadioDrillCard,
   lineupRequest as RadioDrillCard,
   takeoffReadback as RadioDrillCard,
+  // En-route
   centreCheckin as RadioDrillCard,
   climbReadback as RadioDrillCard,
   frequencyChangeAck as RadioDrillCard,
+  speedReadback as RadioDrillCard,
   positionReport as RadioDrillCard,
+  compulsoryReport as RadioDrillCard,
+  directRouting as RadioDrillCard,
+  todRequest as RadioDrillCard,
+  cancelIfr as RadioDrillCard,
+  // Arrival
+  approachCheckin as RadioDrillCard,
   descentReadback as RadioDrillCard,
   approachClearanceReadback as RadioDrillCard,
   holdReadback as RadioDrillCard,
   vectoringAcknowledgement as RadioDrillCard,
   establishedIls as RadioDrillCard,
+  // Final / landing
   landingReadback as RadioDrillCard,
   goingAround as RadioDrillCard,
   missedApproachReadback as RadioDrillCard,
   vacateRunway as RadioDrillCard,
+  // Non-normal
   panPanDeclaration as RadioDrillCard,
   maydayDeclaration as RadioDrillCard,
+  distressCancellation as RadioDrillCard,
+  lostComms as RadioDrillCard,
 ];
 
 export const RADIO_PHASES: { id: RadioPhase; label: string }[] = [
