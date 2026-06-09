@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo, useRef } from "react";
+import { useState, useCallback, useEffect, useMemo, useRef } from "react";
 import type { QuizQuestion, QuizOptionId } from "@/features/drill";
 import type { Section } from "@/content/model/section";
 import type { ProgramId } from "@/features/programs";
@@ -20,7 +20,10 @@ import {
   isSessionOver,
   timerForNextQuestion,
 } from "@/features/quiz/model/sessionLogic";
-import { addQuizResult } from "@/features/quiz/storage/quizHistoryStore";
+import {
+  addQuizResult,
+  migrateQuizHistoryAgainst,
+} from "@/features/quiz/storage/quizHistoryStore";
 import { useDrill } from "@/features/drill";
 
 interface UseQuizSessionOptions {
@@ -73,7 +76,15 @@ export function useQuizSession({
   sections,
   programId,
 }: UseQuizSessionOptions): UseQuizSessionReturn {
-  const { filteredQuestions: drillQuestions } = useDrill(sections, { programId });
+  const { filteredQuestions: drillQuestions, allQuestions } = useDrill(sections, { programId });
+
+  // Migrate any old-format question ids in persisted quiz history against the
+  // current question list. Idempotent — re-runs are no-ops.
+  useEffect(() => {
+    migrateQuizHistoryAgainst(allQuestions).catch(() => {
+      // Ignore: history remains readable, just unmigrated.
+    });
+  }, [allQuestions]);
 
   // Core state
   const [phase, setPhase] = useState<QuizPhase>("dashboard");

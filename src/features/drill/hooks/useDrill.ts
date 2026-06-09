@@ -6,6 +6,7 @@ import type { DrillQuestion, DrillRating, DrillState, DrillStats, DrillFilter } 
 import type { ProgramId } from "@/features/programs";
 import { getProgramById } from "@/features/programs";
 import { buildDrillQuestions } from "@/features/drill/model/buildDrillQuestions";
+import { migrateQuestionIdMap } from "@/features/drill/model/questionIds";
 import { storage } from "@/platform/storage/idbStorage";
 import { useFSRS } from "./useFSRS";
 import { recordStudyActivity } from "@/features/progress";
@@ -62,25 +63,44 @@ export function useDrill(
 
   const fsrs = useFSRS();
 
-  // Load stats from IndexedDB on mount (with migration)
+  // Build all questions from sections (memoised: stable as long as sections
+  // is stable, which it is for the bundled registry).
+  const allQuestions = useMemo(() => {
+    return buildDrillQuestions(sections);
+  }, [sections]);
+
+  // Load stats from IndexedDB on mount, run both legacy migrations (kind
+  // rename, then content-derived id remap), then ask the FSRS store to
+  // remap its own keys against the same questions.
   useEffect(() => {
     (async () => {
       try {
         const stored = await storage.get<DrillState>(STORAGE_KEY);
-        if (stored) {
-          const migrated = migrateStats(stored);
-          setStats(migrated);
-          // Persist migrated stats if changed
-          if (migrated !== stored) {
+        let migrated: DrillState = stored ? migrateStats(stored) : {};
+        if (Object.keys(migrated).length > 0) {
+          const { record, changed } = migrateQuestionIdMap(migrated, allQuestions);
+          migrated = record as DrillState;
+          // Restore the questionId field on each entry to match the new key.
+          for (const [key, value] of Object.entries(migrated)) {
+            if (value.questionId !== key) migrated[key] = { ...value, questionId: key };
+          }
+          if (changed || migrated !== stored) {
             await storage.set(STORAGE_KEY, migrated);
           }
         }
+        setStats(migrated);
       } catch {
         // Ignore storage errors
       }
       setIsHydrated(true);
+      // FSRS keys live in a separate store; migrate them against the same
+      // question list once on mount. Fire-and-forget — the next FSRS access
+      // will see the migrated store.
+      fsrs.migrateAgainst(allQuestions).catch(() => {
+        // Ignore — original store still readable.
+      });
     })();
-  }, []);
+  }, [allQuestions, fsrs]);
 
   // Persist stats to IndexedDB
   useEffect(() => {
@@ -89,11 +109,6 @@ export function useDrill(
       // Ignore storage errors
     });
   }, [stats, isHydrated]);
-
-  // Build all questions from sections
-  const allQuestions = useMemo(() => {
-    return buildDrillQuestions(sections);
-  }, [sections]);
 
   // Filter questions by section, module, program, and DrillFilter
   const filteredQuestions = useMemo(() => {

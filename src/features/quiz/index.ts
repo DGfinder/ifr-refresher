@@ -20,5 +20,7 @@ export {
   getRecentHistory,
   getLastQuizResult,
   clearQuizProgress,
+  migrateQuizProgressIds,
+  migrateQuizHistoryAgainst,
 } from "./storage/quizHistoryStore";
 export type * from "./model/types";

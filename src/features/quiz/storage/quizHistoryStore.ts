@@ -2,6 +2,12 @@ import type { QuizProgress, QuizResult, QuizAnswer } from "@/features/quiz/model
 import { createInitialProgress } from "@/features/quiz/model/types";
 import { storage } from "@/platform/storage/idbStorage";
 import { recordStudyActivity } from "@/features/progress";
+import type { DrillQuestion } from "@/features/drill";
+import {
+  isOldQuestionId,
+  migrateOldQuestionId,
+  migrateQuestionIdList,
+} from "@/features/drill";
 
 const STORAGE_KEY = "ifrQuizProgress";
 const MAX_HISTORY = 50;
@@ -212,4 +218,77 @@ export async function getRecentHistory(limit = 5): Promise<Array<{
  */
 export async function clearQuizProgress(): Promise<void> {
   await storage.del(STORAGE_KEY);
+}
+
+/**
+ * One-time migration of persisted question ids inside quiz history.
+ *
+ * Touches:
+ *   - `progress.history[].answers[].questionId`
+ *   - `progress.masteredQuestions`
+ *
+ * Old-format ids (`${sectionId}:${moduleId}:${kind}-${index}`) are remapped
+ * to their current content-derived form. Unresolvable answers (the question
+ * no longer exists) are dropped. Idempotent — running it again after a
+ * successful migration is a no-op.
+ */
+export function migrateQuizProgressIds(
+  progress: QuizProgress,
+  questions: DrillQuestion[],
+): { progress: QuizProgress; changed: boolean } {
+  let changed = false;
+
+  const newHistory = progress.history.map((result) => {
+    let resultChanged = false;
+    const newAnswers: QuizAnswer[] = [];
+    for (const answer of result.answers) {
+      if (!isOldQuestionId(answer.questionId)) {
+        newAnswers.push(answer);
+        continue;
+      }
+      const newId = migrateOldQuestionId(answer.questionId, questions);
+      if (!newId) {
+        // Drop unresolvable answers so the totals still add up if we wrote
+        // back; but for history audit fidelity we keep the count rather
+        // than rewriting totals — just leave the id as-is.
+        newAnswers.push(answer);
+        continue;
+      }
+      if (newId === answer.questionId) {
+        newAnswers.push(answer);
+      } else {
+        newAnswers.push({ ...answer, questionId: newId });
+        resultChanged = true;
+      }
+    }
+    if (resultChanged) {
+      changed = true;
+      return { ...result, answers: newAnswers };
+    }
+    return result;
+  });
+
+  const { ids: newMastered, changed: masteredChanged } = migrateQuestionIdList(
+    progress.masteredQuestions,
+    questions,
+  );
+  if (masteredChanged) changed = true;
+
+  if (!changed) return { progress, changed: false };
+  return {
+    progress: { ...progress, history: newHistory, masteredQuestions: newMastered },
+    changed: true,
+  };
+}
+
+/**
+ * Apply `migrateQuizProgressIds` against IndexedDB. Loads, migrates, saves
+ * if changed. Safe to call repeatedly.
+ */
+export async function migrateQuizHistoryAgainst(questions: DrillQuestion[]): Promise<void> {
+  const progress = await loadQuizProgress();
+  const { progress: migrated, changed } = migrateQuizProgressIds(progress, questions);
+  if (changed) {
+    await saveQuizProgress(migrated);
+  }
 }

@@ -43,10 +43,29 @@ describe("buildDrillQuestions", () => {
     expect(questions[1]!.kind).toBe("legacy_qa");
   });
 
-  it("builds unique IDs using sectionId:moduleId:kind-index", () => {
+  it("builds content-derived IDs (sectionId:moduleId:kind:hash)", () => {
     const questions = buildDrillQuestions([makeSection()]);
-    expect(questions[0]!.id).toBe("test-section:mod-1:legacy_qa-0");
-    expect(questions[1]!.id).toBe("test-section:mod-1:legacy_qa-1");
+    expect(questions[0]!.id).toMatch(/^test-section:mod-1:legacy_qa:[0-9a-f]{8}$/);
+    expect(questions[1]!.id).toMatch(/^test-section:mod-1:legacy_qa:[0-9a-f]{8}$/);
+    // Different prompts ⇒ different ids
+    expect(questions[0]!.id).not.toBe(questions[1]!.id);
+  });
+
+  it("returns the same id for the same prompt across runs (reorder-stable)", () => {
+    const a = buildDrillQuestions([makeSection()]);
+    const b = buildDrillQuestions([makeSection()]);
+    expect(a[0]!.id).toBe(b[0]!.id);
+    expect(a[1]!.id).toBe(b[1]!.id);
+  });
+
+  it("keeps the same id after reordering blocks within a module", () => {
+    const original = buildDrillQuestions([makeSection()]);
+    const reordered = makeSection();
+    reordered.modules[0]!.content = [...reordered.modules[0]!.content].reverse();
+    const after = buildDrillQuestions([reordered]);
+    // Sort by id to compare ignoring order.
+    const ids = (qs: typeof original) => qs.map((q) => q.id).sort();
+    expect(ids(after)).toEqual(ids(original));
   });
 
   it("populates prompt and answer from qa block", () => {
@@ -207,7 +226,7 @@ describe("buildDrillQuestions", () => {
     expect(questions[0]!.prompt).toBe("What's the trap: Valid item?");
   });
 
-  it("assigns stable IDs to trap questions", () => {
+  it("assigns content-derived IDs to trap questions", () => {
     const section = makeSection();
     section.modules[0]!.content = [
       {
@@ -219,8 +238,9 @@ describe("buildDrillQuestions", () => {
       },
     ];
     const questions = buildDrillQuestions([section]);
-    expect(questions[0]!.id).toBe("test-section:mod-1:trap-0");
-    expect(questions[1]!.id).toBe("test-section:mod-1:trap-1");
+    expect(questions[0]!.id).toMatch(/^test-section:mod-1:trap:[0-9a-f]{8}$/);
+    expect(questions[1]!.id).toMatch(/^test-section:mod-1:trap:[0-9a-f]{8}$/);
+    expect(questions[0]!.id).not.toBe(questions[1]!.id);
   });
 
   // ─── numbers blocks ────────────────────────────────────────────────────────
@@ -271,7 +291,7 @@ describe("buildDrillQuestions", () => {
     expect(questions[0]!.kind).toBe("numeric");
   });
 
-  it("assigns stable IDs to numeric questions", () => {
+  it("assigns content-derived IDs to numeric questions", () => {
     const section = makeSection();
     section.modules[0]!.content = [
       {
@@ -283,11 +303,12 @@ describe("buildDrillQuestions", () => {
       },
     ];
     const questions = buildDrillQuestions([section]);
-    expect(questions[0]!.id).toBe("test-section:mod-1:numeric-0");
-    expect(questions[1]!.id).toBe("test-section:mod-1:numeric-1");
+    expect(questions[0]!.id).toMatch(/^test-section:mod-1:numeric:[0-9a-f]{8}$/);
+    expect(questions[1]!.id).toMatch(/^test-section:mod-1:numeric:[0-9a-f]{8}$/);
+    expect(questions[0]!.id).not.toBe(questions[1]!.id);
   });
 
-  it("correctly counts separate kind indexes for trap and numeric in same module", () => {
+  it("keeps trap and numeric IDs distinct when both kinds appear in one module", () => {
     const section = makeSection();
     section.modules[0]!.content = [
       {
@@ -304,9 +325,9 @@ describe("buildDrillQuestions", () => {
     const numerics = questions.filter((q) => q.kind === "numeric");
     expect(traps).toHaveLength(2);
     expect(numerics).toHaveLength(2);
-    expect(traps[0]!.id).toBe("test-section:mod-1:trap-0");
-    expect(traps[1]!.id).toBe("test-section:mod-1:trap-1");
-    expect(numerics[0]!.id).toBe("test-section:mod-1:numeric-0");
-    expect(numerics[1]!.id).toBe("test-section:mod-1:numeric-1");
+    for (const q of traps) expect(q.id).toMatch(/^test-section:mod-1:trap:[0-9a-f]{8}$/);
+    for (const q of numerics) expect(q.id).toMatch(/^test-section:mod-1:numeric:[0-9a-f]{8}$/);
+    const all = new Set(questions.map((q) => q.id));
+    expect(all.size).toBe(4);
   });
 });

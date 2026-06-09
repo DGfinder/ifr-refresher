@@ -9,6 +9,7 @@ import {
   wrapCard,
   type FSRSStore,
 } from "@/features/drill/model/fsrsStorage";
+import { migrateQuestionIdMap } from "@/features/drill/model/questionIds";
 
 const STORAGE_KEY = "ifrFSRS";
 
@@ -125,5 +126,19 @@ export function useFSRS() {
     return getDueCards(allQuestions).length;
   }, [getDueCards]);
 
-  return { getCard, rateCard, getDueCards, getNewCards, getDueCount };
+  /**
+   * Remap old `${sectionId}:${moduleId}:${kind}-${index}` keys to the new
+   * content-derived ids in `questionIds.ts`. Called once on mount with the
+   * complete question list so the drill schedule follows each question to
+   * its new id. Unresolvable old keys are dropped.
+   */
+  const migrateAgainst = useCallback(async (questions: DrillQuestion[]): Promise<void> => {
+    const store = await loadStore();
+    const { record, changed } = migrateQuestionIdMap(store, questions);
+    if (changed) {
+      await saveStore(record);
+    }
+  }, []);
+
+  return { getCard, rateCard, getDueCards, getNewCards, getDueCount, migrateAgainst };
 }

@@ -1,5 +1,29 @@
 import type { Section, ContentBlock } from "@/content/model/section";
-import type { DrillQuestion } from "@/features/drill/model/types";
+import type { DrillQuestion, QuestionSourceKind } from "@/features/drill/model/types";
+import { questionIdFor } from "@/features/drill/model/questionIds";
+
+/**
+ * Pick the next unused content-derived id for (section, module, kind,
+ * prompt). On the rare collision (two identical prompts in the same scope),
+ * `questionIdFor` is called with an incrementing dupIndex until the id is
+ * fresh. Deterministic for stable JSON ordering, so the migration helpers
+ * map the old `kind-${index}` form to whichever occurrence it referred to.
+ */
+function mintId(
+  seen: Set<string>,
+  sectionId: string,
+  moduleId: string,
+  kind: QuestionSourceKind,
+  prompt: string,
+): string {
+  for (let dup = 0; ; dup++) {
+    const id = questionIdFor(sectionId, moduleId, kind, prompt, dup);
+    if (!seen.has(id)) {
+      seen.add(id);
+      return id;
+    }
+  }
+}
 
 /**
  * Parse a "Q: ... A: ..." formatted string into question/answer parts
@@ -30,41 +54,33 @@ function splitEmDash(item: string): { front: string; back: string } | null {
 }
 
 /**
- * Extract all question blocks from sections and build DrillQuestion array
- * Supports: qa, ipc_questions, airline_questions, traps, numbers
- * Reserved (not yet converted): scenario
+ * Extract all question blocks from sections and build DrillQuestion array.
+ *
+ * Supports: qa, ipc_questions, airline_questions, traps, numbers.
+ * Reserved (not yet converted): scenario.
+ *
+ * Question IDs are content-derived via `questionIdFor` so reordering blocks
+ * inside a module does not invalidate the user's FSRS / drill state.
  */
 export function buildDrillQuestions(sections: Section[]): DrillQuestion[] {
   const questions: DrillQuestion[] = [];
-
+  const seenIds = new Set<string>();
   for (const section of sections) {
     for (const studyModule of section.modules) {
-      // Track indexes per kind for unique IDs
-      const kindIndexes: KindIndexes = {
-        legacy_qa: 0,
-        ipc: 0,
-        airline: 0,
-        trap: 0,
-        numeric: 0,
-      };
-
       for (const block of studyModule.content) {
-        processBlock(block, section, studyModule, kindIndexes, questions);
+        processBlock(block, section, studyModule, questions, seenIds);
       }
     }
   }
-
   return questions;
 }
-
-type KindIndexes = Record<"legacy_qa" | "ipc" | "airline" | "trap" | "numeric", number>;
 
 function processBlock(
   block: ContentBlock,
   section: Section,
   module: { id: string; title: string; level: "core" | "advanced" | "airline"; tags: string[] },
-  kindIndexes: KindIndexes,
-  questions: DrillQuestion[]
+  questions: DrillQuestion[],
+  seenIds: Set<string>,
 ): void {
   const baseInfo = {
     sectionId: section.sectionId,
@@ -77,10 +93,9 @@ function processBlock(
   switch (block.type) {
     case "qa": {
       const kind = "legacy_qa" as const;
-      const index = kindIndexes[kind]++;
       questions.push({
         ...baseInfo,
-        id: `${section.sectionId}:${module.id}:${kind}-${index}`,
+        id: mintId(seenIds, section.sectionId, module.id, kind, block.question),
         prompt: block.question,
         answer: block.answer,
         ...(block.distractors && block.distractors.length === 3 ? { distractors: block.distractors } : {}),
@@ -95,10 +110,9 @@ function processBlock(
       for (const qaString of block.content) {
         const parsed = parseQAString(qaString);
         if (parsed) {
-          const index = kindIndexes[kind]++;
           questions.push({
             ...baseInfo,
-            id: `${section.sectionId}:${module.id}:${kind}-${index}`,
+            id: mintId(seenIds, section.sectionId, module.id, kind, parsed.question),
             prompt: parsed.question,
             answer: parsed.answer,
             kind,
@@ -114,10 +128,9 @@ function processBlock(
       for (const qaString of block.content) {
         const parsed = parseQAString(qaString);
         if (parsed) {
-          const index = kindIndexes[kind]++;
           questions.push({
             ...baseInfo,
-            id: `${section.sectionId}:${module.id}:${kind}-${index}`,
+            id: mintId(seenIds, section.sectionId, module.id, kind, parsed.question),
             prompt: parsed.question,
             answer: parsed.answer,
             kind,
@@ -133,11 +146,11 @@ function processBlock(
       for (const item of block.content) {
         const parsed = splitEmDash(item);
         if (!parsed) continue; // skip items without separator
-        const index = kindIndexes[kind]++;
+        const prompt = `What's the trap: ${parsed.front}?`;
         questions.push({
           ...baseInfo,
-          id: `${section.sectionId}:${module.id}:trap-${index}`,
-          prompt: `What's the trap: ${parsed.front}?`,
+          id: mintId(seenIds, section.sectionId, module.id, kind, prompt),
+          prompt,
           answer: parsed.back,
           kind,
           tags: [...(module.tags || []), kind],
@@ -151,10 +164,9 @@ function processBlock(
       for (const item of block.content) {
         const parsed = splitEmDash(item);
         if (!parsed) continue; // skip items without separator
-        const index = kindIndexes[kind]++;
         questions.push({
           ...baseInfo,
-          id: `${section.sectionId}:${module.id}:numeric-${index}`,
+          id: mintId(seenIds, section.sectionId, module.id, kind, parsed.front),
           prompt: parsed.front,
           answer: parsed.back,
           kind,

@@ -22,7 +22,12 @@ Feature-specific storage belongs beside the feature that owns the data, not in g
 ## Rules
 
 1. Do not rename storage keys without a migration.
-2. Do not change section/module/question/program IDs casually.
+2. Do not change section/module/program IDs casually. **Question IDs** are
+   content-derived (`features/drill/model/questionIds.ts`) and stable across
+   block reordering — but renaming a prompt changes its id, so prompt edits
+   are an implicit content migration. The old `${sectionId}:${moduleId}:${kind}-${index}`
+   form is auto-migrated on read by `useDrill`, `useFSRS`, and
+   `useQuizSession` against the current question list.
 3. Do not move feature persistence into `shared` or generic `utils`.
 4. New persisted data gets an owner module and a short contract note here.
 5. Storage failure should degrade gracefully: content should remain readable even if progress is missing.
