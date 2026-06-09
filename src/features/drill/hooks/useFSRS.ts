@@ -1,87 +1,106 @@
 "use client";
 
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect } from "react";
 import { createEmptyCard, fsrs as createFSRS, Rating, type Card, type Grade } from "ts-fsrs";
 import type { DrillQuestion } from "@/features/drill/model/types";
 import { storage } from "@/platform/storage/idbStorage";
+import {
+  migrateFSRSStore,
+  wrapCard,
+  type FSRSStore,
+} from "@/features/drill/model/fsrsStorage";
 
 const STORAGE_KEY = "ifrFSRS";
 
-type FSRSRating = 'again' | 'hard' | 'good' | 'easy';
-
-type FSRSStore = Record<string, Card>;
+type FSRSRating = "again" | "hard" | "good" | "easy";
 
 const scheduler = createFSRS();
 
 function ratingToFSRS(rating: FSRSRating): Grade {
   switch (rating) {
-    case 'again': return Rating.Again;
-    case 'hard':  return Rating.Hard;
-    case 'good':  return Rating.Good;
-    case 'easy':  return Rating.Easy;
+    case "again": return Rating.Again;
+    case "hard":  return Rating.Hard;
+    case "good":  return Rating.Good;
+    case "easy":  return Rating.Easy;
   }
 }
 
+// Module-scoped cache shared across every useFSRS() instance in this tab.
+// Invalidated on visibilitychange so re-focusing a tab picks up writes that
+// happened in another tab while this one was hidden.
+let moduleCache: FSRSStore | null = null;
+let pendingLoad: Promise<FSRSStore> | null = null;
+
+async function loadStore(): Promise<FSRSStore> {
+  if (moduleCache) return moduleCache;
+  if (pendingLoad) return pendingLoad;
+  pendingLoad = (async () => {
+    try {
+      const raw = await storage.get<unknown>(STORAGE_KEY);
+      const store = migrateFSRSStore(raw);
+      moduleCache = store;
+      return store;
+    } finally {
+      pendingLoad = null;
+    }
+  })();
+  return pendingLoad;
+}
+
+async function saveStore(store: FSRSStore): Promise<void> {
+  moduleCache = store;
+  await storage.set(STORAGE_KEY, store);
+}
+
 export function useFSRS() {
-  // In-memory cache to avoid repeated IDB reads within a session
-  const cacheRef = useRef<FSRSStore | null>(null);
-
-  const loadStore = useCallback(async (): Promise<FSRSStore> => {
-    if (cacheRef.current) return cacheRef.current;
-    const stored = await storage.get<FSRSStore>(STORAGE_KEY);
-    const store = stored ?? {};
-    cacheRef.current = store;
-    return store;
-  }, []);
-
-  const saveStore = useCallback(async (store: FSRSStore): Promise<void> => {
-    cacheRef.current = store;
-    await storage.set(STORAGE_KEY, store);
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const handler = () => {
+      if (document.visibilityState === "visible") {
+        moduleCache = null;
+      }
+    };
+    document.addEventListener("visibilitychange", handler);
+    return () => document.removeEventListener("visibilitychange", handler);
   }, []);
 
   const getCard = useCallback(async (questionId: string): Promise<Card> => {
     const store = await loadStore();
-    return store[questionId] ?? createEmptyCard();
-  }, [loadStore]);
+    return store[questionId]?.card ?? createEmptyCard();
+  }, []);
 
   const rateCard = useCallback(async (questionId: string, rating: FSRSRating): Promise<void> => {
     const store = await loadStore();
-    const card = store[questionId] ?? createEmptyCard();
+    const card = store[questionId]?.card ?? createEmptyCard();
     const result = scheduler.next(card, new Date(), ratingToFSRS(rating));
-    const updated = { ...store, [questionId]: result.card };
+    const updated: FSRSStore = { ...store, [questionId]: wrapCard(result.card) };
     await saveStore(updated);
-  }, [loadStore, saveStore]);
+  }, []);
 
   /**
-   * Returns questions where the FSRS card is due now (or past due).
-   * Uses in-memory cache so it's synchronous after first load.
+   * Sync read against the in-memory cache. Returns [] until loadStore() has
+   * resolved at least once; callers either await getDueCount() first or
+   * accept the empty result during initial hydration.
    */
   const getDueCards = useCallback((allQuestions: DrillQuestion[]): DrillQuestion[] => {
-    const store = cacheRef.current ?? {};
+    const store = moduleCache ?? {};
     const now = new Date();
     return allQuestions.filter((q) => {
-      const card = store[q.id];
-      if (!card) return false; // new card, not due yet
-      return new Date(card.due) <= now;
+      const entry = store[q.id];
+      if (!entry) return false;
+      return new Date(entry.card.due) <= now;
     });
   }, []);
 
-  /**
-   * Returns questions with no FSRS card yet (never seen in FSRS mode).
-   */
   const getNewCards = useCallback((allQuestions: DrillQuestion[]): DrillQuestion[] => {
-    const store = cacheRef.current ?? {};
+    const store = moduleCache ?? {};
     return allQuestions.filter((q) => !store[q.id]);
   }, []);
 
-  /**
-   * Loads the store if needed, then returns the count of due cards.
-   * Safe to call on mount — handles async IDB load.
-   */
   const getDueCount = useCallback(async (allQuestions: DrillQuestion[]): Promise<number> => {
     await loadStore();
     return getDueCards(allQuestions).length;
-  }, [loadStore, getDueCards]);
+  }, [getDueCards]);
 
   return { getCard, rateCard, getDueCards, getNewCards, getDueCount };
 }
