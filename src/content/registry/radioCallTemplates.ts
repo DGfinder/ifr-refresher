@@ -904,6 +904,446 @@ export const radioCallTemplates: RadioCallTemplate[] = [
     ],
   },
   {
+    templateId: "ctaf-crossing-runway",
+    phase: "pre-departure",
+    applicableClasses: ["CTAF"],
+    title: "Crossing runway broadcast — {city}",
+    prompt:
+      "Make the CTAF broadcast as you taxi across an active runway, warning other traffic.",
+    summaryTemplate:
+      "Taxiing at {city} CTAF and need to cross runway {runwayNumeric} to reach the other side of the field.",
+    expectedTextTemplate: "{ctaf}, {callsign}, crossing runway {runway}, {city}.",
+    elements: [
+      {
+        label: "CTAF prefix",
+        acceptTemplates: ["{ctaf}", "{city} traffic"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "Crossing + runway",
+        acceptTemplates: [
+          "crossing runway {runway}",
+          "crossing {runway}",
+          "crossing runway {runwayNumeric}",
+        ],
+        required: true,
+        hint: "Always name the runway you're crossing — other traffic may be lined up to depart or on short final.",
+      },
+      {
+        label: "Aerodrome at end",
+        acceptTemplates: ["{city}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "AIP ENR 1.4: a runway crossing at a CTAF requires a broadcast — there's no controller sequencing taxi against approach traffic, so the broadcast is the only thing keeping a separation conflict from becoming a runway incursion.",
+    refs: [
+      {
+        source: "AIP Australia ENR 1.4",
+        section: "ATS airspace classification — Class G procedures",
+        note: "Source/access date 2026-06-09. CTAF runway-crossing broadcast requirement.",
+      },
+    ],
+  },
+  {
+    templateId: "ctaf-joining-overhead",
+    phase: "arrival",
+    applicableClasses: ["CTAF"],
+    title: "Joining circuit overhead — {city}",
+    prompt:
+      "Make the CTAF broadcast as you arrive overhead the field for an overhead-join descent into the circuit.",
+    summaryTemplate:
+      "Arrived overhead {city} at 2500 ft AAL. About to descend dead side, then join crosswind for runway {runwayNumeric}.",
+    expectedTextTemplate:
+      "{ctaf}, {callsign}, overhead the field two thousand five hundred, descending dead side for runway {runway}, {city}.",
+    elements: [
+      {
+        label: "CTAF prefix",
+        acceptTemplates: ["{ctaf}", "{city} traffic"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "Overhead position",
+        acceptTemplates: ["overhead the field", "overhead", "above the field"],
+        required: true,
+      },
+      {
+        label: "Altitude",
+        acceptTemplates: [
+          "two thousand five hundred",
+          "2500",
+          "two thousand five",
+        ],
+        required: true,
+      },
+      {
+        label: "Intentions",
+        acceptTemplates: [
+          "descending dead side for runway {runway}",
+          "joining circuit runway {runway}",
+          "dead side for {runway}",
+          "for runway {runway}",
+        ],
+        required: true,
+        hint: "Tell circuit traffic which side you're descending and the runway you'll join for.",
+      },
+      {
+        label: "Aerodrome at end",
+        acceptTemplates: ["{city}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "AIP ENR 1.4: an overhead join arriving at a CTAF aerodrome requires a broadcast naming altitude and the dead-side descent so circuit traffic can sequence and stay clear.",
+    refs: [
+      {
+        source: "AIP Australia ENR 1.4",
+        section: "ATS airspace classification — Class G procedures",
+        note: "Source/access date 2026-06-09. CTAF overhead-join broadcast.",
+      },
+    ],
+  },
+  {
+    templateId: "ctaf-joining-straight-in",
+    phase: "arrival",
+    applicableClasses: ["CTAF"],
+    title: "Straight-in approach broadcast — {city}",
+    prompt:
+      "Make the CTAF broadcast as you turn final for a straight-in approach (not the usual circuit join).",
+    summaryTemplate:
+      "Inbound to {city}, established on final approach 5 NM out for runway {runwayNumeric} — a straight-in instead of a circuit join.",
+    expectedTextTemplate:
+      "{ctaf}, {callsign}, five miles final runway {runway}, straight-in approach, {city}.",
+    elements: [
+      {
+        label: "CTAF prefix",
+        acceptTemplates: ["{ctaf}", "{city} traffic"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "Distance + position",
+        acceptTemplates: [
+          "five miles final",
+          "5 miles final",
+          "five mile final",
+          "five miles out",
+        ],
+        required: true,
+        hint: "Give circuit traffic distance to run — they can judge spacing without seeing you.",
+      },
+      {
+        label: "Runway",
+        acceptTemplates: ["runway {runway}", "{runway}", "runway {runwayNumeric}"],
+        required: true,
+      },
+      {
+        label: "Straight-in phrase",
+        acceptTemplates: ["straight-in approach", "straight in approach", "straight in"],
+        required: true,
+        hint: "Distinguish from a normal circuit join — circuit traffic needs to know you're not joining downwind.",
+      },
+      {
+        label: "Aerodrome at end",
+        acceptTemplates: ["{city}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "AIP ENR 1.4: straight-in approach broadcasts at CTAF must declare both the distance and the 'straight-in' intent so circuit traffic can give way per CASR 91.385 (right-of-way at non-towered aerodromes).",
+    refs: [
+      {
+        source: "AIP Australia ENR 1.4",
+        section: "ATS airspace classification — Class G procedures",
+        note: "Source/access date 2026-06-09. CTAF straight-in approach broadcast.",
+      },
+      {
+        source: "CASR Part 91",
+        chapter: "General operating and flight rules — right of way",
+        note: "Source/access date 2026-06-09. Right-of-way at non-towered aerodromes.",
+      },
+    ],
+  },
+  {
+    templateId: "ctaf-base",
+    phase: "final",
+    applicableClasses: ["CTAF"],
+    title: "Base broadcast — {city}",
+    prompt: "Make the CTAF base broadcast as you turn base.",
+    summaryTemplate:
+      "In the circuit at {city}, just turned base for runway {runwayNumeric}.",
+    expectedTextTemplate: "{ctaf}, {callsign}, base runway {runway}, {city}.",
+    elements: [
+      {
+        label: "CTAF prefix",
+        acceptTemplates: ["{ctaf}", "{city} traffic"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "Position",
+        acceptTemplates: ["base"],
+        required: true,
+      },
+      {
+        label: "Runway",
+        acceptTemplates: ["runway {runway}", "{runway}", "runway {runwayNumeric}"],
+        required: true,
+      },
+      {
+        label: "Aerodrome at end",
+        acceptTemplates: ["{city}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "AIP ENR 1.4: base broadcast warns following circuit traffic of your spacing — particularly important when straight-in arrivals are using the same runway.",
+    refs: [
+      {
+        source: "AIP Australia ENR 1.4",
+        section: "ATS airspace classification — Class G procedures",
+        note: "Source/access date 2026-06-09. CTAF circuit position broadcasts.",
+      },
+    ],
+  },
+  {
+    templateId: "ctaf-final",
+    phase: "final",
+    applicableClasses: ["CTAF"],
+    title: "Final broadcast — {city}",
+    prompt: "Make the CTAF final broadcast as you establish on final.",
+    summaryTemplate:
+      "In the circuit at {city}, established on final for runway {runwayNumeric}.",
+    expectedTextTemplate:
+      "{ctaf}, {callsign}, final runway {runway}, full stop, {city}.",
+    elements: [
+      {
+        label: "CTAF prefix",
+        acceptTemplates: ["{ctaf}", "{city} traffic"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "Position",
+        acceptTemplates: ["final"],
+        required: true,
+      },
+      {
+        label: "Runway",
+        acceptTemplates: ["runway {runway}", "{runway}", "runway {runwayNumeric}"],
+        required: true,
+      },
+      {
+        label: "Intentions",
+        acceptTemplates: ["full stop", "touch and go", "to land", "low approach"],
+        required: false,
+        hint: "Recommended: tell circuit traffic if you're vacating or staying in the pattern.",
+      },
+      {
+        label: "Aerodrome at end",
+        acceptTemplates: ["{city}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "AIP ENR 1.4: final broadcast is the last chance for any traffic considering entering the runway to see you. Always end with the aerodrome name, not the callsign.",
+    refs: [
+      {
+        source: "AIP Australia ENR 1.4",
+        section: "ATS airspace classification — Class G procedures",
+        note: "Source/access date 2026-06-09. CTAF final broadcast.",
+      },
+    ],
+  },
+  {
+    templateId: "ctaf-clear-of-runway",
+    phase: "final",
+    applicableClasses: ["CTAF"],
+    title: "Clear of runway broadcast — {city}",
+    prompt:
+      "Make the CTAF broadcast announcing that you have vacated the runway after landing.",
+    summaryTemplate:
+      "Just landed at {city} on runway {runwayNumeric}, now vacated onto the taxiway.",
+    expectedTextTemplate: "{ctaf}, {callsign}, clear of runway {runway}, {city}.",
+    elements: [
+      {
+        label: "CTAF prefix",
+        acceptTemplates: ["{ctaf}", "{city} traffic"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "Clear of runway",
+        acceptTemplates: [
+          "clear of runway {runway}",
+          "clear of {runway}",
+          "vacated runway {runway}",
+          "runway clear",
+        ],
+        required: true,
+        hint: "Tells any traffic on short final or holding-point that the runway is now available.",
+      },
+      {
+        label: "Aerodrome at end",
+        acceptTemplates: ["{city}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "AIP ENR 1.4: at controlled aerodromes Tower sees you clear the runway. At CTAF nobody does — the broadcast is your only way to release the runway to following traffic.",
+    refs: [
+      {
+        source: "AIP Australia ENR 1.4",
+        section: "ATS airspace classification — Class G procedures",
+        note: "Source/access date 2026-06-09. CTAF clear-of-runway broadcast.",
+      },
+    ],
+  },
+  {
+    templateId: "ctaf-going-around",
+    phase: "final",
+    applicableClasses: ["CTAF"],
+    title: "Going around broadcast (CTAF) — {city}",
+    prompt:
+      "Make the CTAF broadcast announcing that you are going around — warning circuit traffic and anyone considering using the runway.",
+    summaryTemplate:
+      "On final at {city} for runway {runwayNumeric}. An unexpected runway incursion ahead — you commit to a go-around.",
+    expectedTextTemplate:
+      "{ctaf}, {callsign}, going around runway {runway}, climbing upwind, {city}.",
+    elements: [
+      {
+        label: "CTAF prefix",
+        acceptTemplates: ["{ctaf}", "{city} traffic"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "Going around + runway",
+        acceptTemplates: [
+          "going around runway {runway}",
+          "going around {runway}",
+          "going around runway {runwayNumeric}",
+        ],
+        required: true,
+        hint: "At controlled fields you just say 'going around'. At CTAF you name the runway so other traffic knows which one you're not landing on.",
+      },
+      {
+        label: "Intentions",
+        acceptTemplates: [
+          "climbing upwind",
+          "upwind",
+          "rejoining downwind",
+          "rejoining circuit",
+        ],
+        required: false,
+        hint: "Recommended: tell traffic where you're going next so they can sequence around you.",
+      },
+      {
+        label: "Aerodrome at end",
+        acceptTemplates: ["{city}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "AIP ENR 1.4: CTAF go-around is broadcast format (vs the controlled 'Going around, [callsign]' to Tower). Includes the runway and ideally a position so following circuit traffic adjusts.",
+    refs: [
+      {
+        source: "AIP Australia ENR 1.4",
+        section: "ATS airspace classification — Class G procedures",
+        note: "Source/access date 2026-06-09. CTAF missed-approach / go-around broadcast.",
+      },
+    ],
+  },
+  {
+    templateId: "ctaf-overflying",
+    phase: "enroute",
+    applicableClasses: ["CTAF"],
+    title: "Overflying broadcast — {city}",
+    prompt:
+      "Make the CTAF overflying broadcast as you transit through the CTAF zone at altitude (within 10 NM, above 3000 AGL).",
+    summaryTemplate:
+      "Transiting overhead {city} at FL085, en-route. Within 10 NM of the CTAF aerodrome — required broadcast.",
+    expectedTextTemplate:
+      "{ctaf}, {callsign}, overhead the field, flight level zero eight five, transiting, {city}.",
+    elements: [
+      {
+        label: "CTAF prefix",
+        acceptTemplates: ["{ctaf}", "{city} traffic"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "Position",
+        acceptTemplates: ["overhead the field", "overhead", "above the field"],
+        required: true,
+      },
+      {
+        label: "Altitude",
+        acceptTemplates: [
+          "flight level zero eight five",
+          "FL085",
+          "FL zero eight five",
+          "eight thousand five hundred",
+        ],
+        required: true,
+      },
+      {
+        label: "Transit intent",
+        acceptTemplates: ["transiting", "transit", "not landing", "en-route"],
+        required: true,
+        hint: "Make explicit that you're not joining the circuit — circuit traffic doesn't need to give way.",
+      },
+      {
+        label: "Aerodrome at end",
+        acceptTemplates: ["{city}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "AIP ENR 1.4: aircraft transiting within 10 NM of a CTAF aerodrome and below 5000 ft AGL should broadcast on the CTAF. Stating 'transiting' or 'not landing' avoids ambiguity with circuit-joining traffic.",
+    refs: [
+      {
+        source: "AIP Australia ENR 1.4",
+        section: "ATS airspace classification — Class G procedures",
+        note: "Source/access date 2026-06-09. CTAF overflying/transit broadcast requirements.",
+      },
+    ],
+  },
+  {
     templateId: "ctaf-downwind-broadcast",
     phase: "final",
     applicableClasses: ["CTAF"],
