@@ -129,3 +129,38 @@ export interface RadioScenario {
   refs: Reference[];
   tags?: string[];
 }
+
+/**
+ * Flight phase for the Drill tab. The dashboard filters by phase so a
+ * learner can target the calls that are weakest for them.
+ */
+export type RadioPhase =
+  | "pre-departure"
+  | "departure"
+  | "enroute"
+  | "arrival"
+  | "final"
+  | "non-normal";
+
+/**
+ * Drill card — a single standalone radio call, suitable for repeated
+ * practice without the lead-up of a multi-leg scenario. Drill cards
+ * carry their own briefing (situation, last ATC transmission heard) so
+ * the learner has enough context to produce the call cold.
+ */
+export interface RadioDrillCard {
+  version: string;
+  /** Stable id, unique across all drill cards. Persists in history. */
+  drillId: string;
+  phase: RadioPhase;
+  title: string;
+  briefing: RadioBriefing & {
+    /** What ATC just said, if any. Drill cards that respond to an ATC
+     * instruction include the transmission verbatim; cards that initiate
+     * a transmission (e.g. "request taxi") omit this. */
+    lastTransmission?: RadioTransmission;
+  };
+  challenge: RadioChallenge;
+  refs: Reference[];
+  tags?: string[];
+}

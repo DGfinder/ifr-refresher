@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "drillId": "drill-approach-clearance-readback",
+  "phase": "arrival",
+  "title": "Read back approach clearance",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "destination": "YSCB",
+    "flightRules": "IFR",
+    "summary": "Descending into Canberra, in radar contact with Approach. They've just cleared you for the ILS.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "approach",
+      "text": "Mike X-ray Golf, cleared ILS runway three five approach, report established."
+    }
+  },
+  "tags": ["arrival", "approach-clearance", "readback", "mandatory-readback"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-approach-clearance-readback",
+    "prompt": "Read back the approach clearance.",
+    "expectedText": "Cleared ILS runway three five approach, report established, Mike X-ray Golf.",
+    "elements": [
+      {
+        "label": "Approach type",
+        "accept": ["cleared ILS", "ILS approach", "cleared ILS approach"],
+        "required": true
+      },
+      {
+        "label": "Runway",
+        "accept": ["runway three five", "runway 35", "three five"],
+        "required": true
+      },
+      {
+        "label": "Reporting instruction",
+        "accept": ["report established", "report when established"],
+        "required": true,
+        "hint": "Any reporting instruction must be read back per MATS Part 4."
+      },
+      {
+        "label": "Callsign at end",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      }
+    ],
+    "explanation": "MATS Part 4: approach clearance readback includes approach type, runway, any reporting instructions, and callsign. ATIS/QNH only when newly issued in the clearance."
+  },
+  "refs": [
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items for approach clearances."
+    }
+  ]
+}

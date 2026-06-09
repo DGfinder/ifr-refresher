@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "drillId": "drill-takeoff-readback",
+  "phase": "pre-departure",
+  "title": "Read back takeoff clearance",
+  "briefing": {
+    "callsign": "Lima Echo Foxtrot",
+    "aircraftType": "PA-31 Chieftain",
+    "departure": "YSBK",
+    "flightRules": "IFR",
+    "summary": "Holding short of runway 29R, ready for departure. Tower has just issued your takeoff clearance.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "tower",
+      "text": "Lima Echo Foxtrot, runway two nine right, cleared for take-off, wind two eight zero at ten."
+    }
+  },
+  "tags": ["takeoff", "readback", "mandatory-readback"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-takeoff-readback",
+    "prompt": "Read back the takeoff clearance.",
+    "expectedText": "Cleared for take-off runway two nine right, Lima Echo Foxtrot.",
+    "elements": [
+      {
+        "label": "Clearance",
+        "accept": ["cleared for take-off", "cleared for takeoff", "cleared takeoff"],
+        "required": true
+      },
+      {
+        "label": "Runway",
+        "accept": [
+          "runway two nine right",
+          "runway 29 right",
+          "two nine right",
+          "29 right"
+        ],
+        "required": true,
+        "hint": "Runway number + side designator. 'Two nine right' — spell out digits."
+      },
+      {
+        "label": "Callsign at end",
+        "accept": ["Lima Echo Foxtrot", "LEF"],
+        "required": true
+      }
+    ],
+    "explanation": "MATS Part 4: takeoff clearance readback is the takeoff clearance + runway in use + callsign. Wind is not part of the mandatory readback."
+  },
+  "refs": [
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items — takeoff clearance and runway."
+    }
+  ]
+}

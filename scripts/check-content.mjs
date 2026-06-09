@@ -304,11 +304,117 @@ if (fs.existsSync(radioDir)) {
   }
 }
 
+// ─── Radio drill cards ────────────────────────────────────────────────────
+const drillDir = path.join(dataDir, "radio-drill");
+const allowedPhases = new Set([
+  "pre-departure",
+  "departure",
+  "enroute",
+  "arrival",
+  "final",
+  "non-normal",
+]);
+const drillIds = new Set();
+let drillCount = 0;
+
+function validateChallenge(challenge, qLabel) {
+  if (challenge.kind !== "mcq" && challenge.kind !== "readback" && challenge.kind !== "spoken") {
+    errors.push(`${qLabel}: kind must be "mcq", "readback", or "spoken"`);
+    return;
+  }
+  if (!isNonEmptyString(challenge.id)) errors.push(`${qLabel}: missing id`);
+  if (!isNonEmptyString(challenge.prompt)) errors.push(`${qLabel}: prompt missing`);
+
+  if (challenge.kind === "spoken") {
+    if (!isNonEmptyString(challenge.expectedText)) {
+      errors.push(`${qLabel}: spoken call must have expectedText`);
+    }
+    if (!Array.isArray(challenge.elements) || challenge.elements.length === 0) {
+      errors.push(`${qLabel}: spoken call must have a non-empty elements array`);
+    } else {
+      const seenLabels = new Set();
+      let hasRequired = false;
+      for (const [ei, element] of challenge.elements.entries()) {
+        const eLabel = `${qLabel}:elements[${ei}]`;
+        if (!isNonEmptyString(element.label)) errors.push(`${eLabel}: label missing`);
+        else if (seenLabels.has(element.label)) errors.push(`${eLabel}: duplicate label "${element.label}"`);
+        else seenLabels.add(element.label);
+        if (!Array.isArray(element.accept) || element.accept.length === 0) {
+          errors.push(`${eLabel}: accept must be a non-empty array`);
+        }
+        if (typeof element.required !== "boolean") {
+          errors.push(`${eLabel}: required must be a boolean`);
+        } else if (element.required) {
+          hasRequired = true;
+        }
+      }
+      if (!hasRequired) {
+        errors.push(`${qLabel}: spoken call must declare at least one required element`);
+      }
+    }
+  }
+}
+
+if (fs.existsSync(drillDir)) {
+  const drillFiles = fs.readdirSync(drillDir).filter((file) => file.endsWith(".json"));
+  for (const file of drillFiles) {
+    const fullPath = path.join(drillDir, file);
+    let card;
+    try {
+      card = JSON.parse(fs.readFileSync(fullPath, "utf8"));
+    } catch (error) {
+      errors.push(`radio-drill/${file}: invalid JSON (${error.message})`);
+      continue;
+    }
+    drillCount += 1;
+    const dLabel = `radio-drill/${file}`;
+    if (!isNonEmptyString(card.version)) errors.push(`${dLabel}: missing version`);
+    if (!isNonEmptyString(card.drillId)) errors.push(`${dLabel}: missing drillId`);
+    else if (drillIds.has(card.drillId)) errors.push(`${dLabel}: duplicate drillId ${card.drillId}`);
+    else drillIds.add(card.drillId);
+    if (!allowedPhases.has(card.phase)) errors.push(`${dLabel}: phase must be one of pre-departure / departure / enroute / arrival / final / non-normal`);
+    if (!isNonEmptyString(card.title)) errors.push(`${dLabel}: missing title`);
+    if (!card.briefing || typeof card.briefing !== "object") {
+      errors.push(`${dLabel}: briefing must be an object`);
+    } else {
+      if (!isNonEmptyString(card.briefing.callsign)) errors.push(`${dLabel}: briefing.callsign missing`);
+      if (!isNonEmptyString(card.briefing.summary)) errors.push(`${dLabel}: briefing.summary missing`);
+      if (!allowedFlightRules.has(card.briefing.flightRules)) {
+        errors.push(`${dLabel}: briefing.flightRules must be IFR or VFR`);
+      }
+    }
+    if (!card.challenge || typeof card.challenge !== "object") {
+      errors.push(`${dLabel}: challenge must be an object`);
+    } else {
+      validateChallenge(card.challenge, `${dLabel}:challenge`);
+    }
+    if (!Array.isArray(card.refs) || card.refs.length === 0) {
+      errors.push(`${dLabel}: refs must be a non-empty array`);
+    } else {
+      let hasRealSource = false;
+      for (const [ri, ref] of card.refs.entries()) {
+        const rLabel = `${dLabel}:refs[${ri}]`;
+        if (!isNonEmptyString(ref.source)) {
+          errors.push(`${rLabel}: source missing`);
+          continue;
+        }
+        if (/unverified/i.test(ref.source)) {
+          errors.push(`${rLabel}: placeholder source "${ref.source}" not allowed for drill cards`);
+        }
+        if (realSourcePattern.test(ref.source)) hasRealSource = true;
+      }
+      if (!hasRealSource) {
+        errors.push(`${dLabel}: at least one ref must cite AIP / MATS / ERSA / CASR / Part 61 / CAO / CAAP`);
+      }
+    }
+  }
+}
+
 for (const warning of warnings) console.warn(`WARN ${warning}`);
 if (errors.length > 0) {
   console.error(errors.map((error) => `ERROR ${error}`).join("\n"));
   process.exit(1);
 }
 console.log(
-  `Content check passed: ${files.length} files, ${moduleIds.size} modules, ${scenarioCount} radio scenario${scenarioCount === 1 ? "" : "s"}`,
+  `Content check passed: ${files.length} files, ${moduleIds.size} modules, ${scenarioCount} radio scenario${scenarioCount === 1 ? "" : "s"}, ${drillCount} drill card${drillCount === 1 ? "" : "s"}`,
 );

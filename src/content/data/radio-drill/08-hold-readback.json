@@ -1,0 +1,77 @@
+{
+  "version": "1.0",
+  "drillId": "drill-hold-readback",
+  "phase": "arrival",
+  "title": "Read back holding instructions",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "destination": "YSCB",
+    "flightRules": "IFR",
+    "summary": "Approach has asked you to hold short of Canberra due to a runway inspection. Instructions just issued.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "approach",
+      "text": "Mike X-ray Golf, hold at SMOKO on the inbound track three five zero, right turns, maintain flight level one one zero, expect further clearance at zero five."
+    }
+  },
+  "tags": ["arrival", "holding", "readback", "mandatory-readback"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-hold-readback",
+    "prompt": "Read back the holding instructions.",
+    "expectedText": "Hold at SMOKO inbound three five zero, right turns, maintain flight level one one zero, expect further clearance at zero five, Mike X-ray Golf.",
+    "elements": [
+      {
+        "label": "Holding fix",
+        "accept": ["hold at SMOKO", "SMOKO"],
+        "required": true
+      },
+      {
+        "label": "Inbound track",
+        "accept": ["inbound three five zero", "inbound 350", "three five zero inbound"],
+        "required": true
+      },
+      {
+        "label": "Turn direction",
+        "accept": ["right turns", "right hand", "right"],
+        "required": true,
+        "hint": "Non-standard turn direction MUST be read back."
+      },
+      {
+        "label": "Level",
+        "accept": [
+          "maintain flight level one one zero",
+          "FL one one zero",
+          "one one zero",
+          "FL110"
+        ],
+        "required": true
+      },
+      {
+        "label": "Expect further clearance time",
+        "accept": ["expect further clearance at zero five", "EFC zero five", "at zero five"],
+        "required": true,
+        "hint": "EFC time is mandatory — it's your lost-comms timer."
+      },
+      {
+        "label": "Callsign at end",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      }
+    ],
+    "explanation": "AIP ENR 1.5: full holding instruction readback is fix, inbound track, turn direction (non-standard), level, and EFC time. EFC is critical for lost-comms procedures."
+  },
+  "refs": [
+    {
+      "source": "AIP Australia ENR 1.5",
+      "section": "Holding, approach and departure procedures",
+      "note": "Source/access date 2026-06-09. Holding instruction format and readback requirements."
+    },
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items including holding instructions."
+    }
+  ]
+}

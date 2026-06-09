@@ -1,0 +1,67 @@
+{
+  "version": "1.0",
+  "drillId": "drill-centre-checkin",
+  "phase": "enroute",
+  "title": "Initial check-in with Centre",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "Climbing through FL180 for cruise FL220. Tower has handed you off to Brisbane Centre on 124.45. Switched frequency.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "tower",
+      "text": "Mike X-ray Golf, contact Brisbane Centre one two four decimal four five."
+    }
+  },
+  "tags": ["enroute", "initial-call", "handoff"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-centre-checkin",
+    "prompt": "Make the initial call to Brisbane Centre on the new frequency.",
+    "expectedText": "Brisbane Centre, Mike X-ray Golf, climbing flight level one eight zero for flight level two two zero.",
+    "elements": [
+      {
+        "label": "Addressed station",
+        "accept": ["Brisbane Centre", "Brisbane"],
+        "required": true
+      },
+      {
+        "label": "Callsign",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      },
+      {
+        "label": "Current level / state",
+        "accept": [
+          "climbing flight level one eight zero",
+          "climbing FL one eight zero",
+          "climbing one eight zero",
+          "passing flight level one eight zero",
+          "climbing FL180"
+        ],
+        "required": true,
+        "hint": "Centre needs your current level + climb state to sequence you."
+      },
+      {
+        "label": "Cleared level",
+        "accept": [
+          "for flight level two two zero",
+          "for FL two two zero",
+          "for two two zero",
+          "for FL220"
+        ],
+        "required": true,
+        "hint": "Tell Centre the level you're climbing TO so they can verify clearance."
+      }
+    ],
+    "explanation": "AIP GEN 3.4 initial-contact format: addressed station, callsign, current state (passing/climbing/descending + level), assigned level."
+  },
+  "refs": [
+    {
+      "source": "AIP Australia GEN 3.4",
+      "section": "Communications — General radiotelephony procedures",
+      "note": "Source/access date 2026-06-09. Initial-contact format after a handoff."
+    }
+  ]
+}

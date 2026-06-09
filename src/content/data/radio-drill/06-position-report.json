@@ -1,0 +1,60 @@
+{
+  "version": "1.0",
+  "drillId": "drill-position-report",
+  "phase": "enroute",
+  "title": "Position report (full format)",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "Cruising FL220 in a non-radar area. You've just passed compulsory waypoint MARLE at time 0345Z. Next waypoint is WALSH, ETA 0408Z."
+  },
+  "tags": ["enroute", "position-report", "non-radar"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-position-report",
+    "prompt": "Make a full position report — you've just passed MARLE.",
+    "expectedText": "Mike X-ray Golf, MARLE at four five, flight level two two zero, WALSH at zero eight.",
+    "elements": [
+      {
+        "label": "Callsign first",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      },
+      {
+        "label": "Position waypoint",
+        "accept": ["MARLE"],
+        "required": true
+      },
+      {
+        "label": "Time at position",
+        "accept": ["at four five", "at 45", "at four-five"],
+        "required": true,
+        "hint": "Time is the minutes only — 'four five' for 0345Z."
+      },
+      {
+        "label": "Current level",
+        "accept": ["flight level two two zero", "FL220", "FL two two zero"],
+        "required": true
+      },
+      {
+        "label": "Next waypoint + ETA",
+        "accept": [
+          "WALSH at zero eight",
+          "WALSH at 08",
+          "WALSH zero eight",
+          "next WALSH at zero eight"
+        ],
+        "required": true
+      }
+    ],
+    "explanation": "AIP ENR 1.5 position report format: callsign, position, time, level, next waypoint and ETA."
+  },
+  "refs": [
+    {
+      "source": "AIP Australia ENR 1.5",
+      "section": "Holding, approach and departure procedures — position reporting",
+      "note": "Source/access date 2026-06-09. Full position report format for non-radar IFR ops."
+    }
+  ]
+}

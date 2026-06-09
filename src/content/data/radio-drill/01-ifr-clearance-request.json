@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "drillId": "drill-ifr-clearance-request",
+  "phase": "pre-departure",
+  "title": "Request IFR clearance",
+  "briefing": {
+    "callsign": "Lima Echo Foxtrot",
+    "aircraftType": "PA-31 Chieftain",
+    "departure": "YSBK",
+    "destination": "YSCH",
+    "flightRules": "IFR",
+    "summary": "Pre-flight complete at Bankstown. ATIS information Mike received. Ready to copy IFR clearance to Coffs Harbour."
+  },
+  "tags": ["clearance", "initial-call"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-ifr-clearance-request",
+    "prompt": "Make the initial call to Bankstown Tower to request your IFR clearance.",
+    "expectedText": "Bankstown Tower, Lima Echo Foxtrot, IFR clearance to Coffs Harbour, information Mike.",
+    "elements": [
+      {
+        "label": "Addressed station",
+        "accept": ["Bankstown Tower", "Bankstown"],
+        "required": true,
+        "hint": "Addressed station goes first per AIP GEN 3.4 initial-call format."
+      },
+      {
+        "label": "Callsign",
+        "accept": ["Lima Echo Foxtrot", "LEF"],
+        "required": true
+      },
+      {
+        "label": "Request type",
+        "accept": ["IFR clearance", "instrument clearance"],
+        "required": true,
+        "hint": "Say 'IFR clearance' — distinguishes from a VFR request."
+      },
+      {
+        "label": "Destination",
+        "accept": ["Coffs Harbour", "Coffs"],
+        "required": true
+      },
+      {
+        "label": "ATIS code confirmation",
+        "accept": ["information Mike", "Mike", "with Mike"],
+        "required": true,
+        "hint": "Confirm the ATIS so Tower doesn't have to ask."
+      }
+    ],
+    "explanation": "AIP GEN 3.4: addressed station, callsign, request type with destination, ATIS code."
+  },
+  "refs": [
+    {
+      "source": "AIP Australia GEN 3.4",
+      "section": "Communications — General radiotelephony procedures",
+      "note": "Source/access date 2026-06-09. Initial-call format for an IFR clearance request."
+    }
+  ]
+}

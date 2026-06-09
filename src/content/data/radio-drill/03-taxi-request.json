@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "drillId": "drill-taxi-request",
+  "phase": "pre-departure",
+  "title": "Request taxi",
+  "briefing": {
+    "callsign": "Lima Echo Foxtrot",
+    "aircraftType": "PA-31 Chieftain",
+    "departure": "YSBK",
+    "flightRules": "IFR",
+    "summary": "Clearance copied and readback confirmed. Switched to Ground 121.7. Ready to taxi. ATIS Mike still current."
+  },
+  "tags": ["taxi", "initial-call"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-taxi-request",
+    "prompt": "Make the initial call to Bankstown Ground to request taxi.",
+    "expectedText": "Bankstown Ground, Lima Echo Foxtrot, ready for taxi, information Mike.",
+    "elements": [
+      {
+        "label": "Addressed station",
+        "accept": ["Bankstown Ground", "Ground"],
+        "required": true
+      },
+      {
+        "label": "Callsign",
+        "accept": ["Lima Echo Foxtrot", "LEF"],
+        "required": true
+      },
+      {
+        "label": "Request",
+        "accept": ["ready for taxi", "request taxi", "ready to taxi"],
+        "required": true
+      },
+      {
+        "label": "ATIS code",
+        "accept": ["information Mike", "Mike", "with Mike"],
+        "required": false,
+        "hint": "Recommended: confirming ATIS saves a back-and-forth."
+      }
+    ],
+    "explanation": "AIP GEN 3.4: addressed station, callsign, request, ATIS confirmation."
+  },
+  "refs": [
+    {
+      "source": "AIP Australia GEN 3.4",
+      "section": "Communications — General radiotelephony procedures",
+      "note": "Source/access date 2026-06-09. Taxi request format."
+    }
+  ]
+}

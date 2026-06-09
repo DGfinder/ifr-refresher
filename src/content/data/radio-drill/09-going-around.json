@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "drillId": "drill-going-around",
+  "phase": "final",
+  "title": "Announce going around",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "destination": "YSCB",
+    "flightRules": "IFR",
+    "summary": "On ILS RWY 35 at Canberra. At the minimum altitude you can't acquire the runway environment. Commit to the missed approach now."
+  },
+  "tags": ["final", "missed-approach", "go-around"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-going-around",
+    "prompt": "Make the call to Tower announcing the missed approach.",
+    "expectedText": "Going around, Mike X-ray Golf.",
+    "elements": [
+      {
+        "label": "Going-around phrase",
+        "accept": ["going around"],
+        "required": true,
+        "hint": "Standard AIP ENR 1.5 phrase. Not 'missed approach' on its own — 'going around' is the immediate announcement."
+      },
+      {
+        "label": "Callsign",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      }
+    ],
+    "explanation": "AIP ENR 1.5 + MATS Part 4: keep the missed-approach announcement minimal — 'going around' plus callsign. Tower is already expecting it as a possibility and needs to issue follow-up instructions immediately."
+  },
+  "refs": [
+    {
+      "source": "AIP Australia ENR 1.5",
+      "section": "Holding, approach and departure procedures — missed approach",
+      "note": "Source/access date 2026-06-09. Missed-approach announcement phraseology."
+    }
+  ]
+}

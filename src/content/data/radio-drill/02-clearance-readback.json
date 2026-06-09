@@ -1,0 +1,72 @@
+{
+  "version": "1.0",
+  "drillId": "drill-clearance-readback",
+  "phase": "pre-departure",
+  "title": "Read back IFR clearance",
+  "briefing": {
+    "callsign": "Lima Echo Foxtrot",
+    "aircraftType": "PA-31 Chieftain",
+    "departure": "YSBK",
+    "destination": "YSCH",
+    "flightRules": "IFR",
+    "summary": "You've just been issued your IFR clearance. Read it back.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "tower",
+      "text": "Lima Echo Foxtrot, cleared to Coffs Harbour via flight planned route, climb to seven thousand, squawk four one two three."
+    }
+  },
+  "tags": ["clearance", "readback", "mandatory-readback"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-clearance-readback",
+    "prompt": "Read back the clearance Bankstown just issued.",
+    "expectedText": "Cleared to Coffs Harbour via flight planned route, climb to seven thousand, squawk four one two three, Lima Echo Foxtrot.",
+    "elements": [
+      {
+        "label": "Clearance limit",
+        "accept": ["cleared to Coffs Harbour", "to Coffs Harbour", "Coffs Harbour"],
+        "required": true
+      },
+      {
+        "label": "Route",
+        "accept": ["via flight planned route", "flight planned route", "flight plan route"],
+        "required": true
+      },
+      {
+        "label": "Altitude assignment",
+        "accept": [
+          "climb to seven thousand",
+          "climb seven thousand",
+          "climbing seven thousand",
+          "seven thousand"
+        ],
+        "required": true
+      },
+      {
+        "label": "Squawk code",
+        "accept": ["squawk four one two three", "squawk 4123", "four one two three"],
+        "required": true
+      },
+      {
+        "label": "Callsign at end",
+        "accept": ["Lima Echo Foxtrot", "LEF"],
+        "required": true,
+        "hint": "Australian convention: callsign at the END of a readback, not the start."
+      }
+    ],
+    "explanation": "AIP GEN 3.4 + MATS Part 4: mandatory readback of clearance limit, route, altitude/level assignment, and squawk. Callsign closes the transmission."
+  },
+  "refs": [
+    {
+      "source": "AIP Australia GEN 3.4",
+      "section": "Communications — General radiotelephony procedures",
+      "note": "Source/access date 2026-06-09. Clearance readback format."
+    },
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items."
+    }
+  ]
+}

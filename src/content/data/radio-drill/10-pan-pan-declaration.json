@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "drillId": "drill-pan-pan-declaration",
+  "phase": "non-normal",
+  "title": "Declare PAN-PAN (urgency)",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "Cruising FL210 with Brisbane Centre. Left engine oil pressure has dropped to zero. Decision to declare an urgency and divert to Coffs Harbour. Four POB, two hours fuel remaining."
+  },
+  "tags": ["non-normal", "urgency", "pan-pan", "emergency"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-pan-pan-declaration",
+    "prompt": "Declare a PAN-PAN to Brisbane Centre and state your intentions.",
+    "expectedText": "PAN PAN, PAN PAN, PAN PAN, Brisbane Centre, Mike X-ray Golf, oil pressure failure left engine, requesting descent and diversion to Coffs Harbour, four souls on board, two hours fuel.",
+    "elements": [
+      {
+        "label": "PAN PAN said three times",
+        "accept": ["pan pan pan pan pan pan"],
+        "required": true,
+        "hint": "PAN PAN is spoken three times to establish urgency under AIP GEN 3.6. Not 'pan pan' once."
+      },
+      {
+        "label": "Addressed station",
+        "accept": ["Brisbane Centre", "Brisbane"],
+        "required": true
+      },
+      {
+        "label": "Callsign",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      },
+      {
+        "label": "Nature of urgency",
+        "accept": [
+          "oil pressure failure",
+          "oil pressure",
+          "engine failure",
+          "engine problem"
+        ],
+        "required": true
+      },
+      {
+        "label": "Intentions",
+        "accept": [
+          "diversion to Coffs Harbour",
+          "diverting to Coffs",
+          "request descent",
+          "Coffs Harbour"
+        ],
+        "required": true,
+        "hint": "Tell Centre what you intend to do so they can clear the airspace."
+      },
+      {
+        "label": "Souls on board",
+        "accept": ["four souls", "four POB", "four on board"],
+        "required": false,
+        "hint": "Recommended in AIP GEN 3.6 — used for SAR coordination."
+      },
+      {
+        "label": "Fuel remaining",
+        "accept": ["two hours fuel", "two hours", "two hours of fuel"],
+        "required": false,
+        "hint": "Recommended — Centre uses this for diversion-distance sanity check."
+      }
+    ],
+    "explanation": "AIP GEN 3.6: PAN PAN is the URGENCY call (vs MAYDAY for distress). Format: 'PAN PAN' × 3, station, callsign, nature, intentions, then operational info (POB, fuel). The 3× repetition is what makes it a recognised urgency on the frequency."
+  },
+  "refs": [
+    {
+      "source": "AIP Australia GEN 3.6",
+      "section": "Distress and urgency communications",
+      "note": "Source/access date 2026-06-09. PAN PAN urgency call format and required elements."
+    }
+  ]
+}

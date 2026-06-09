@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { radioScenarios } from "@/content/registry/radioScenarios";
+import { radioDrillCards, getRadioDrillCardById } from "@/content/registry/radioDrillCards";
 import { useRadioSession } from "@/features/radio-calls/hooks/useRadioSession";
 import { RadioDashboard } from "@/features/radio-calls/components/RadioDashboard";
 import { TransmissionFeed } from "@/features/radio-calls/components/TransmissionFeed";
@@ -9,8 +10,87 @@ import { NextCallChoice } from "@/features/radio-calls/components/NextCallChoice
 import { ReadbackBuilder } from "@/features/radio-calls/components/ReadbackBuilder";
 import { SpokenCallChallenge } from "@/features/radio-calls/components/SpokenCallChallenge";
 import { RadioResults } from "@/features/radio-calls/components/RadioResults";
+import { DrillDashboard } from "@/features/radio-calls/components/DrillDashboard";
+import { DrillCardView } from "@/features/radio-calls/components/DrillCardView";
+import { cn } from "@/shared/lib/cn";
+
+type Tab = "scenarios" | "drill";
 
 export function RadioScreen() {
+  const [tab, setTab] = useState<Tab>("scenarios");
+
+  return (
+    <div>
+      <RadioHeader tab={tab} onTabChange={setTab} />
+      {tab === "scenarios" ? <ScenariosTab /> : <DrillTab />}
+    </div>
+  );
+}
+
+interface RadioHeaderProps {
+  tab: Tab;
+  onTabChange: (tab: Tab) => void;
+}
+
+function RadioHeader({ tab, onTabChange }: RadioHeaderProps) {
+  return (
+    <div className="mx-auto max-w-2xl px-6 pt-6">
+      <h1 className="mb-2 text-2xl font-bold text-[var(--ifr-text)] md:text-3xl">
+        Radio Calls
+      </h1>
+      <p className="mb-4 text-sm text-[var(--ifr-text-muted)]">
+        AIP phraseology practice. Speak the call, type it, or pick it — drawn
+        from AIP GEN 3.4 / 3.6, AIP ENR 1.5, and MATS Part 4.
+      </p>
+      <div className="mb-4 flex gap-1 rounded-xl bg-[var(--ifr-surface-muted)] p-1" role="tablist">
+        <TabButton
+          label="Scenarios"
+          sublabel="Walk a flight"
+          active={tab === "scenarios"}
+          onClick={() => onTabChange("scenarios")}
+        />
+        <TabButton
+          label="Drill"
+          sublabel="One call at a time"
+          active={tab === "drill"}
+          onClick={() => onTabChange("drill")}
+        />
+      </div>
+    </div>
+  );
+}
+
+interface TabButtonProps {
+  label: string;
+  sublabel: string;
+  active: boolean;
+  onClick: () => void;
+}
+
+function TabButton({ label, sublabel, active, onClick }: TabButtonProps) {
+  return (
+    <button
+      type="button"
+      role="tab"
+      aria-selected={active}
+      onClick={onClick}
+      className={cn(
+        "flex flex-1 flex-col items-start rounded-lg px-3 py-2 text-left transition-colors",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+        active
+          ? "bg-[var(--ifr-surface)] text-[var(--ifr-text)] shadow-sm"
+          : "text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]",
+      )}
+    >
+      <span className="text-sm font-semibold">{label}</span>
+      <span className="text-[10px] uppercase tracking-wider opacity-70">{sublabel}</span>
+    </button>
+  );
+}
+
+// ─── Scenarios tab ────────────────────────────────────────────────────────
+
+function ScenariosTab() {
   const session = useRadioSession({ scenarios: radioScenarios });
 
   const currentLeg = useMemo(() => {
@@ -18,16 +98,9 @@ export function RadioScreen() {
     return session.currentScenario.legs[session.currentLegIndex] ?? null;
   }, [session.currentScenario, session.currentLegIndex]);
 
-  // Dashboard
   if (session.phase === "dashboard") {
     return (
-      <div className="mx-auto max-w-2xl px-6 py-6">
-        <h1 className="mb-2 text-2xl font-bold text-[var(--ifr-text)] md:text-3xl">
-          Radio Calls
-        </h1>
-        <p className="mb-6 text-sm text-[var(--ifr-text-muted)]">
-          Scenario-driven phraseology practice. Drawn from AIP GEN 3.4 and MATS Part 4.
-        </p>
+      <div className="mx-auto max-w-2xl px-6 pb-6">
         <RadioDashboard
           scenarios={session.scenarios}
           history={session.history}
@@ -37,7 +110,6 @@ export function RadioScreen() {
     );
   }
 
-  // Session
   if (session.phase === "session" && session.currentScenario && currentLeg) {
     const progressPct =
       session.totalLegs > 0
@@ -45,8 +117,7 @@ export function RadioScreen() {
         : 0;
 
     return (
-      <div className="mx-auto max-w-2xl px-6 py-6">
-        {/* Top bar */}
+      <div className="mx-auto max-w-2xl px-6 pb-6">
         <div className="mb-4 flex items-center justify-between">
           <button
             type="button"
@@ -60,7 +131,6 @@ export function RadioScreen() {
           </span>
         </div>
 
-        {/* Briefing */}
         <div className="mb-4 rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 text-sm">
           <p className="font-semibold text-[var(--ifr-text)]">
             {session.currentScenario.title}
@@ -76,7 +146,6 @@ export function RadioScreen() {
           </p>
         </div>
 
-        {/* Progress bar */}
         <div
           className="mb-4 h-1.5 w-full overflow-hidden rounded-full bg-[var(--ifr-surface-muted)]"
           role="progressbar"
@@ -91,16 +160,12 @@ export function RadioScreen() {
           />
         </div>
 
-        {/* Transcript so far. For the active leg, show its question (not yet the
-            transmission) when the learner still has to pick. After the answer,
-            include the transmission in the feed. */}
         <TransmissionFeed
           legs={session.currentScenario.legs}
           visibleUpToIndex={currentLeg.question && !session.isAnswered ? session.currentLegIndex - 1 : session.currentLegIndex}
           className="mb-4"
         />
 
-        {/* Current challenge — branch on kind */}
         {currentLeg.question ? (
           <>
             {currentLeg.question.kind === "mcq" && (
@@ -151,10 +216,9 @@ export function RadioScreen() {
     );
   }
 
-  // Results
   if (session.phase === "results" && session.currentScenario && session.result) {
     return (
-      <div className="mx-auto max-w-2xl px-6 py-6">
+      <div className="mx-auto max-w-2xl px-6 pb-6">
         <RadioResults
           scenario={session.currentScenario}
           result={session.result}
@@ -166,4 +230,48 @@ export function RadioScreen() {
   }
 
   return null;
+}
+
+// ─── Drill tab ────────────────────────────────────────────────────────────
+
+function DrillTab() {
+  const [selectedDrillId, setSelectedDrillId] = useState<string | null>(null);
+  // In-session completion tracking. Persisting drill history to IndexedDB is
+  // a future enhancement (see features/radio-calls/README.md).
+  const [completedIds, setCompletedIds] = useState<ReadonlySet<string>>(new Set());
+
+  const currentCard = useMemo(
+    () => (selectedDrillId ? getRadioDrillCardById(selectedDrillId) ?? null : null),
+    [selectedDrillId],
+  );
+
+  if (currentCard) {
+    return (
+      <DrillCardView
+        // Remount on card change so per-card state stays fresh without an
+        // explicit reset effect.
+        key={currentCard.drillId}
+        card={currentCard}
+        onBack={() => setSelectedDrillId(null)}
+        onComplete={() => {
+          setCompletedIds((prev) => {
+            const next = new Set(prev);
+            next.add(currentCard.drillId);
+            return next;
+          });
+          setSelectedDrillId(null);
+        }}
+      />
+    );
+  }
+
+  return (
+    <div className="mx-auto max-w-2xl px-6 pb-6">
+      <DrillDashboard
+        cards={radioDrillCards}
+        completedIds={completedIds}
+        onOpenCard={setSelectedDrillId}
+      />
+    </div>
+  );
 }
