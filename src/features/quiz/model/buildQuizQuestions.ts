@@ -1,4 +1,4 @@
-import type { DrillQuestion, QuizQuestion, QuizOption, QuizOptionId } from "@/features/drill/model/types";
+import type { DrillQuestion, QuizQuestion, QuizOption, QuizOptionId } from "@/features/drill";
 
 const OPTION_IDS: QuizOptionId[] = ["A", "B", "C", "D"];
 

@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import type { QuizProgress, QuizResult } from "@/features/quiz/model/types";
+import type { QuizProgress, QuizResult } from "@/features/quiz";
 import {
   loadQuizProgress,
   addQuizResult,
   getQuizStats,
   getRecentHistory,
-} from "@/features/quiz/storage/quizHistoryStore";
-import { createInitialProgress } from "@/features/quiz/model/types";
+  createInitialProgress,
+} from "@/features/quiz";
 
 interface UseQuizProgressReturn {
   progress: QuizProgress;

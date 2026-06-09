@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
-import type { DrillProgramId } from "@/features/drill/model/types";
+import type { DrillProgramId } from "@/features/drill";
 import { storage } from "@/platform/storage/idbStorage";
 
 interface ProgramContextValue {

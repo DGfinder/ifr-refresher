@@ -1,6 +1,6 @@
 "use client";
 
-import type { DrillRating } from "@/features/drill/model/types";
+import type { DrillRating } from "@/features/drill";
 
 interface RatingButtonsProps {
   onRate: (rating: DrillRating) => void;

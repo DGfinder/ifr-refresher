@@ -6,10 +6,10 @@ import { FlashcardSession, type SessionResults } from "@/features/flashcards/com
 import { FlashcardResults } from "@/features/flashcards/components/FlashcardResults";
 import { ToastContainer } from "@/shared/ui/Toast";
 import { useToast } from "@/shared/ui/toast/useToast";
-import { useDrill } from "@/features/drill/hooks/useDrill";
+import { useDrill } from "@/features/drill";
 import { sections } from "@/content/registry/sections";
-import type { ProgramId } from "@/features/programs/model/types";
-import type { DrillQuestion } from "@/features/drill/model/types";
+import type { ProgramId } from "@/features/programs";
+import type { DrillQuestion } from "@/features/drill";
 
 type FlashcardPhase = "dashboard" | "session" | "results";
 

@@ -9,7 +9,7 @@ import { LivesDisplay } from "./ui/LivesDisplay";
 import { useKeyboardNav } from "@/features/quiz/hooks/useKeyboardNav";
 import { useQuizTimer } from "@/features/quiz/hooks/useQuizTimer";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
-import type { QuizQuestion, QuizOptionId } from "@/features/drill/model/types";
+import type { QuizQuestion, QuizOptionId } from "@/features/drill";
 import type { QuizGameMode } from "@/features/quiz/model/types";
 
 interface QuizSessionProps {

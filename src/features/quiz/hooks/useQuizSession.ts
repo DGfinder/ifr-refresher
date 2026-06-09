@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useCallback, useMemo, useRef } from "react";
-import type { QuizQuestion, QuizOptionId } from "@/features/drill/model/types";
+import type { QuizQuestion, QuizOptionId } from "@/features/drill";
 import type { Section } from "@/content/model/section";
-import type { ProgramId } from "@/features/programs/model/types";
+import type { ProgramId } from "@/features/programs";
 import type {
   QuizPhase,
   QuizSessionConfig,
@@ -14,7 +14,7 @@ import { DEFAULT_SESSION_CONFIG } from "@/features/quiz/model/types";
 import { buildQuizQuestions } from "@/features/quiz/model/buildQuizQuestions";
 import { calculatePoints, calculatePercentage } from "@/features/quiz/model/scoring";
 import { addQuizResult } from "@/features/quiz/storage/quizHistoryStore";
-import { useDrill } from "@/features/drill/hooks/useDrill";
+import { useDrill } from "@/features/drill";
 
 interface UseQuizSessionOptions {
   sections: Section[];

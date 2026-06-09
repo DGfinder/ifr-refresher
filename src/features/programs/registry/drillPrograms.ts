@@ -1,4 +1,4 @@
-import type { DrillProgram, DrillProgramId } from "@/features/drill/model/types";
+import type { DrillProgram, DrillProgramId } from "@/features/drill";
 
 export const drillPrograms: DrillProgram[] = [
   {

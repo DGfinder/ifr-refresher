@@ -1,11 +1,10 @@
 "use client";
 
 import { useMemo } from "react";
-import type { DrillQuestion } from "@/features/drill/model/types";
-import type { ProgramId } from "@/features/programs/model/types";
-import type { DrillState } from "@/features/drill/model/types";
-import { ProgramSelector } from "@/features/programs/components/ProgramSelector";
-import { useDrill } from "@/features/drill/hooks/useDrill";
+import type { DrillQuestion, DrillState } from "@/features/drill";
+import type { ProgramId } from "@/features/programs";
+import { ProgramSelector } from "@/features/programs";
+import { useDrill } from "@/features/drill";
 import { sections } from "@/content/registry/sections";
 import { cn } from "@/shared/lib/cn";
 import { ProgressBar } from "@/shared/ui/ProgressBar";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useCallback } from "react";
-import type { QuizOptionId } from "@/features/drill/model/types";
+import type { QuizOptionId } from "@/features/drill";
 
 interface UseKeyboardNavOptions {
   onSelectOption: (optionId: QuizOptionId) => void;

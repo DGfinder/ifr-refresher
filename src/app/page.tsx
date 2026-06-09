@@ -1,4 +1,4 @@
-import { HomeScreen } from "@/app-shell/screens/HomeScreen";
+import { HomeScreen } from "@/features/home";
 
 export default function Page() {
   return <HomeScreen />;

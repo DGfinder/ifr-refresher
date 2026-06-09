@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useMemo } from "react";
 import { sections } from "@/content/registry/sections";
-import { useProgress } from "@/features/progress/hooks/useProgress";
-import { useDrill } from "@/features/drill/hooks/useDrill";
-import { ProgressBar } from "@/shared/ui/ProgressBar";
+import { useProgress } from "@/features/progress";
+import { useDrill } from "@/features/drill";
+import { ProgressBar } from "@/shared/ui";
 
 // Cheat sheet is the primary content — show its categories on the homepage
 const cheatSheetSection = sections.find((s) => s.sectionId === "cheat-sheet");

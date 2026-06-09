@@ -1,7 +1,7 @@
 import type { QuizProgress, QuizResult, QuizAnswer } from "@/features/quiz/model/types";
 import { createInitialProgress } from "@/features/quiz/model/types";
 import { storage } from "@/platform/storage/idbStorage";
-import { recordStudyActivity } from "@/features/progress/model/studyStreak";
+import { recordStudyActivity } from "@/features/progress";
 
 const STORAGE_KEY = "ifrQuizProgress";
 const MAX_HISTORY = 50;

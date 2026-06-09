@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ProgramProvider } from "@/features/programs/context/ProgramContext";
+import { ProgramProvider } from "@/features/programs";
 import { MainNav } from "@/app-shell/components/MainNav";
 import { AppHeader } from "@/app-shell/components/AppHeader";
 import { ErrorBoundary } from "@/app-shell/error/ErrorBoundary";

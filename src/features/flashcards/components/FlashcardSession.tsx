@@ -2,13 +2,12 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { X } from "lucide-react";
-import type { DrillQuestion, DrillRating } from "@/features/drill/model/types";
-import type { ProgramId } from "@/features/programs/model/types";
+import type { DrillQuestion, DrillRating } from "@/features/drill";
+import type { ProgramId } from "@/features/programs";
 import { FlipCard } from "./ui/FlipCard";
 import { RatingButtons } from "./ui/RatingButtons";
 import { CardProgress } from "./ui/CardProgress";
-import { useDrill } from "@/features/drill/hooks/useDrill";
-import { getModuleContext } from "@/features/drill/model/buildDrillQuestions";
+import { useDrill, getModuleContext } from "@/features/drill";
 import { sections } from "@/content/registry/sections";
 
 export interface SessionResults {

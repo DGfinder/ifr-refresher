@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { buildQuizQuestions } from "@/features/quiz/model/buildQuizQuestions";
-import type { DrillQuestion } from "@/features/drill/model/types";
+import type { DrillQuestion } from "@/features/drill";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 

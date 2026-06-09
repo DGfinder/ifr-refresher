@@ -1,4 +1,4 @@
-import type { QuizQuestion, QuizOptionId } from "@/features/drill/model/types";
+import type { QuizQuestion, QuizOptionId } from "@/features/drill";
 
 // Quiz game modes
 export type QuizGameMode = "classic" | "timed" | "learn" | "challenge";

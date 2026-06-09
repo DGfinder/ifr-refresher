@@ -3,9 +3,9 @@
 import { useMemo } from "react";
 import Fuse from "fuse.js";
 import type { Module } from "@/content/model/section";
-import type { ModuleStatus } from "@/features/progress/model/types";
+import type { ModuleStatus } from "@/features/progress";
 import { Badge } from "@/shared/ui/Badge";
-import { StatusIndicator } from "@/features/progress/components/StatusIndicator";
+import { StatusIndicator } from "@/features/progress";
 import { NoResultsEmptyState } from "@/shared/ui/EmptyState";
 import { cn } from "@/shared/lib/cn";
 

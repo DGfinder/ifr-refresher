@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import Link from "next/link";
 import { sections } from "@/content/registry/sections";
 import { useProgress } from "@/features/progress/hooks/useProgress";
-import { useDrill } from "@/features/drill/hooks/useDrill";
+import { useDrill } from "@/features/drill";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
 
 export function InsightsScreen() {

@@ -4,14 +4,14 @@ import { Suspense, useState, useRef, useCallback, useEffect } from "react";
 import { QuizDashboard } from "@/features/quiz/components/QuizDashboard";
 import { QuizSession } from "@/features/quiz/components/QuizSession";
 import { QuizResults } from "@/features/quiz/components/QuizResults";
-import { ProgramSelector } from "@/features/programs/components/ProgramSelector";
+import { ProgramSelector } from "@/features/programs";
 import { ToastContainer } from "@/shared/ui/Toast";
 import { useQuizSession } from "@/features/quiz/hooks/useQuizSession";
 import { useToast } from "@/shared/ui/toast/useToast";
-import { useDrill } from "@/features/drill/hooks/useDrill";
+import { useDrill } from "@/features/drill";
 import { sections } from "@/content/registry/sections";
-import type { ProgramId } from "@/features/programs/model/types";
-import type { QuizOptionId } from "@/features/drill/model/types";
+import type { ProgramId } from "@/features/programs";
+import type { QuizOptionId } from "@/features/drill";
 
 // Streak milestones to celebrate
 const STREAK_MILESTONES = new Set([3, 5, 10, 15, 20]);

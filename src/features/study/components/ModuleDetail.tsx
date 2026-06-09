@@ -1,11 +1,11 @@
 "use client";
 
 import type { Module } from "@/content/model/section";
-import type { ModuleStatus } from "@/features/progress/model/types";
+import type { ModuleStatus } from "@/features/progress";
 import { Badge } from "@/shared/ui/Badge";
 import { ContentBlock } from "@/content/components/ContentBlock";
 import { References } from "@/content/components/References";
-import { StatusIndicator } from "@/features/progress/components/StatusIndicator";
+import { StatusIndicator } from "@/features/progress";
 import { cn } from "@/shared/lib/cn";
 
 interface ModuleDetailProps {

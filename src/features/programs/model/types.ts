@@ -1,4 +1,4 @@
-import type { DrillFilter } from "@/features/drill/model/types";
+import type { DrillFilter } from "@/features/drill";
 
 export type ProgramId = "cheat_sheet" | "ipc_oral" | "god_mode";
 

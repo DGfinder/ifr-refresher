@@ -8,7 +8,7 @@ import { getScoreFeedback, formatDuration } from "@/features/quiz/model/scoring"
 import { sections } from "@/content/registry/sections";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
 import type { QuizAnswer, QuizResult } from "@/features/quiz/model/types";
-import type { QuizQuestion } from "@/features/drill/model/types";
+import type { QuizQuestion } from "@/features/drill";
 
 interface QuizResultsProps {
   result: QuizResult;

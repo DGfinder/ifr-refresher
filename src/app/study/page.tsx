@@ -1,4 +1,4 @@
-import { StudyScreen } from "@/features/study/screens/StudyScreen";
+import { StudyScreen } from "@/features/study";
 
 export default function Page() {
   return <StudyScreen />;

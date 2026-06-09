@@ -8,7 +8,7 @@ import { ModuleDetail } from "@/features/study/components/ModuleDetail";
 import { SearchBar } from "@/features/study/components/SearchBar";
 import { SectionSelector } from "@/features/study/components/SectionSelector";
 import { sections } from "@/content/registry/sections";
-import { useProgress } from "@/features/progress/hooks/useProgress";
+import { useProgress } from "@/features/progress";
 
 function StudyPageContent() {
   const { getStatus, setStatus, getCompletionStats } = useProgress();

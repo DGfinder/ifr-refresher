@@ -47,6 +47,7 @@ src/
 ├── features/
 │   ├── drill/           # drill extraction, adaptive/FSRS hooks, drill tests
 │   ├── flashcards/      # flashcard session screens/components
+│   ├── home/            # home/landing dashboard at /
 │   ├── programs/        # study/drill program definitions and active program context
 │   ├── progress/        # progress, streaks, insights
 │   ├── quiz/            # quiz generation, session lifecycle, scoring, history

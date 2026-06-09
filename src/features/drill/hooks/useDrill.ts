@@ -3,12 +3,12 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import type { Section } from "@/content/model/section";
 import type { DrillQuestion, DrillRating, DrillState, DrillStats, DrillFilter } from "@/features/drill/model/types";
-import type { ProgramId } from "@/features/programs/model/types";
+import type { ProgramId } from "@/features/programs";
+import { getProgramById } from "@/features/programs";
 import { buildDrillQuestions } from "@/features/drill/model/buildDrillQuestions";
-import { getProgramById } from "@/features/programs/registry/programs";
 import { storage } from "@/platform/storage/idbStorage";
 import { useFSRS } from "./useFSRS";
-import { recordStudyActivity } from "@/features/progress/model/studyStreak";
+import { recordStudyActivity } from "@/features/progress";
 
 const STORAGE_KEY = "ifrDrill";
 

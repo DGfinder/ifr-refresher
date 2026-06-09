@@ -16,7 +16,7 @@ src/
 ├── app/                 # Next.js route files only; keep pages thin
 ├── app-shell/           # global chrome, nav, shell state, app error boundary, theme constants
 ├── content/             # aviation study content, section schema, registry, content rendering
-├── features/            # domain features: study, programs, drill, flashcards, quiz, progress
+├── features/            # domain features: home, study, programs, drill, flashcards, quiz, progress
 ├── platform/            # browser/PWA infrastructure: storage and service worker
 └── shared/              # generic UI/hooks/lib with no domain knowledge
 ```
@@ -26,8 +26,9 @@ src/
 | Area | Owns | Must not own |
 |---|---|---|
 | `app/` | Next route entry points and Next special files | domain logic, storage writes, complex UI orchestration |
-| `app-shell/` | layout chrome, nav, app-wide banners, app theme metadata | quiz/drill/study business rules |
+| `app-shell/` | layout chrome, nav, app-wide banners, app theme metadata | quiz/drill/study business rules, home dashboard logic |
 | `content/` | JSON study content, section schema, content rendering, content registry | progress persistence or quiz session state |
+| `features/home/` | home/landing dashboard aggregating cheat-sheet progress + weak-question CTA | content authoring or quiz/drill internals |
 | `features/study/` | module browsing, search, section/category/module selection | quiz/drill scoring or persistence |
 | `features/programs/` | study program definitions and active program context | question generation internals |
 | `features/drill/` | drill question extraction, drill progress, FSRS/adaptive selection | flashcard presentation-specific UI |
@@ -61,7 +62,7 @@ Rules:
 
 ## Public module surfaces
 
-Each major module has an `index.ts` public surface. Prefer importing from public surfaces when crossing module boundaries unless a route or colocated implementation needs a specific file.
+Each major module has an `index.ts` public surface. **Crossing a feature boundary must go through that barrel** — `eslint.config.mjs` enforces this via `no-restricted-imports` (see `docs/architecture/module-boundaries.md` for the enforcement contract). Same-feature internals may still be imported via their deep path.
 
 Examples:
 

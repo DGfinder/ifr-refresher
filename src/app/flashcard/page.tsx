@@ -1,4 +1,4 @@
-import { FlashcardScreen } from "@/features/flashcards/screens/FlashcardScreen";
+import { FlashcardScreen } from "@/features/flashcards";
 
 export default function Page() {
   return <FlashcardScreen />;
