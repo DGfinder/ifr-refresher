@@ -6,10 +6,10 @@ import type { QuizOptionId } from "@/features/drill";
 interface UseKeyboardNavOptions {
   onSelectOption: (optionId: QuizOptionId) => void;
   onNext: () => void;
-  onPause?: () => void;
-  onSkip?: () => void;
+  onPause?: (() => void) | undefined;
+  onSkip?: (() => void) | undefined;
   isAnswered: boolean;
-  isEnabled?: boolean;
+  isEnabled?: boolean | undefined;
 }
 
 const OPTION_KEYS: Record<string, QuizOptionId> = {

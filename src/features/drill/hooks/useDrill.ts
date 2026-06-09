@@ -13,11 +13,11 @@ import { recordStudyActivity } from "@/features/progress";
 const STORAGE_KEY = "ifrDrill";
 
 interface UseDrillOptions {
-  sectionId?: string | null;
-  moduleId?: string | null;
-  filter?: DrillFilter;
-  programId?: ProgramId;
-  mode?: 'fsrs' | 'adaptive';
+  sectionId?: string | null | undefined;
+  moduleId?: string | null | undefined;
+  filter?: DrillFilter | undefined;
+  programId?: ProgramId | undefined;
+  mode?: 'fsrs' | 'adaptive' | undefined;
 }
 
 interface UseDrillResult {
