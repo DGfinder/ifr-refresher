@@ -1,20 +1,19 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useReducer, useState } from "react";
 import type { RadioOptionId, RadioScenario } from "@/content/model/radio";
-import {
-  buildRadioAnswer,
-  buildRadioReadbackAnswer,
-  buildRadioResult,
-  buildRadioSession,
-  buildRadioSpokenAnswer,
-  isRadioSessionOver,
-} from "@/features/radio-calls/model/buildRadioSession";
 import type {
   RadioAnswerMap,
   RadioPhase,
   RadioResult,
 } from "@/features/radio-calls/model/types";
+import {
+  computeIsAnswered,
+  computeIsCorrect,
+  EMPTY_CHIPS,
+  initialRadioSessionState,
+  radioSessionReducer,
+} from "@/features/radio-calls/model/radioSession";
 import {
   addRadioResult,
   loadRadioHistory,
@@ -32,15 +31,15 @@ interface UseRadioSessionReturn {
   currentLegIndex: number;
   totalLegs: number;
   totalQuestions: number;
-  /** MCQ-only — the option the learner picked on the current leg. */
+  /** MCQ-only — null when the current input isn't an MCQ. */
   selectedOptionId: RadioOptionId | null;
-  /** Readback-only — the set of chip ids the learner has toggled on. */
+  /** Readback-only — empty set when the current input isn't a readback. */
   selectedChipIds: ReadonlySet<string>;
-  /** Readback-only — whether the learner has submitted their chip selection. */
+  /** Readback-only — false when the current input isn't a readback. */
   isReadbackSubmitted: boolean;
-  /** Spoken-only — the transcript captured for the current leg. */
+  /** Spoken-only — empty when the current input isn't a spoken call. */
   spokenTranscript: string;
-  /** Spoken-only — whether the learner has submitted their spoken call. */
+  /** Spoken-only — false when the current input isn't a spoken call. */
   isSpokenSubmitted: boolean;
   /** True when the current leg's challenge has been answered (any kind). */
   isAnswered: boolean;
@@ -50,7 +49,6 @@ interface UseRadioSessionReturn {
   result: RadioResult | null;
   history: RadioHistoryEntry[];
 
-  // actions
   startScenario: (scenarioId: string) => void;
   selectOption: (optionId: RadioOptionId) => void;
   toggleChip: (chipId: string) => void;
@@ -61,21 +59,16 @@ interface UseRadioSessionReturn {
   resetToDashboard: () => void;
 }
 
-const EMPTY_CHIPS: ReadonlySet<string> = new Set();
-
+/**
+ * Thin wrapper around the pure `radioSessionReducer`. The hook owns only
+ * async I/O — history load on mount + result persistence on transition into
+ * the results phase. All state transitions live in the reducer, fully
+ * testable without React.
+ */
 export function useRadioSession({
   scenarios,
 }: UseRadioSessionOptions): UseRadioSessionReturn {
-  const [phase, setPhase] = useState<RadioPhase>("dashboard");
-  const [currentScenario, setCurrentScenario] = useState<RadioScenario | null>(null);
-  const [currentLegIndex, setCurrentLegIndex] = useState(0);
-  const [selectedOptionId, setSelectedOptionId] = useState<RadioOptionId | null>(null);
-  const [selectedChipIds, setSelectedChipIds] = useState<ReadonlySet<string>>(EMPTY_CHIPS);
-  const [isReadbackSubmitted, setIsReadbackSubmitted] = useState(false);
-  const [spokenTranscript, setSpokenTranscript] = useState("");
-  const [isSpokenSubmitted, setIsSpokenSubmitted] = useState(false);
-  const [answers, setAnswers] = useState<RadioAnswerMap>({});
-  const [result, setResult] = useState<RadioResult | null>(null);
+  const [state, dispatch] = useReducer(radioSessionReducer, initialRadioSessionState);
   const [history, setHistory] = useState<RadioHistoryEntry[]>([]);
 
   useEffect(() => {
@@ -89,134 +82,49 @@ export function useRadioSession({
     };
   }, []);
 
-  const sessionShape = useMemo(() => {
-    if (!currentScenario) return null;
-    return buildRadioSession(currentScenario);
-  }, [currentScenario]);
+  // Persist the result when the session transitions into the results phase.
+  useEffect(() => {
+    if (state.phase !== "results" || !state.result) return;
+    const result = state.result;
+    let cancelled = false;
+    addRadioResult(result)
+      .then((next) => {
+        if (!cancelled) setHistory(next);
+      })
+      .catch((err) => console.error("Failed to persist radio result:", err));
+    return () => {
+      cancelled = true;
+    };
+    // We intentionally key on the result id, not the result object — the
+    // session might re-enter results for the same outcome (e.g. tab refocus
+    // restoring state) and we don't want to double-persist.
+  }, [state.phase, state.result]);
 
-  const totalLegs = sessionShape?.totalLegs ?? 0;
-  const totalQuestions = sessionShape?.totalQuestions ?? 0;
-
-  const currentLeg = currentScenario?.legs[currentLegIndex] ?? null;
-  const currentChallenge = currentLeg?.question;
-
-  const isAnswered = useMemo(() => {
-    if (!currentChallenge) return false;
-    switch (currentChallenge.kind) {
-      case "mcq":
-        return selectedOptionId !== null;
-      case "readback":
-        return isReadbackSubmitted;
-      case "spoken":
-        return isSpokenSubmitted;
-    }
-  }, [currentChallenge, selectedOptionId, isReadbackSubmitted, isSpokenSubmitted]);
-
-  const isCorrect = useMemo(() => {
-    if (!isAnswered || !currentChallenge) return null;
-    const answer = answers[currentChallenge.id];
-    return answer ? answer.isCorrect : null;
-  }, [isAnswered, currentChallenge, answers]);
-
-  const resetLegInput = useCallback(() => {
-    setSelectedOptionId(null);
-    setSelectedChipIds(EMPTY_CHIPS);
-    setIsReadbackSubmitted(false);
-    setSpokenTranscript("");
-    setIsSpokenSubmitted(false);
-  }, []);
-
-  const startScenario = useCallback(
-    (scenarioId: string) => {
-      const scenario = scenarios.find((s) => s.scenarioId === scenarioId);
-      if (!scenario) return;
-      setCurrentScenario(scenario);
-      setCurrentLegIndex(0);
-      resetLegInput();
-      setAnswers({});
-      setResult(null);
-      setPhase("session");
-    },
-    [scenarios, resetLegInput],
+  const totalLegs = state.currentScenario?.legs.length ?? 0;
+  const totalQuestions = useMemo(
+    () => state.currentScenario?.legs.filter((l) => l.question).length ?? 0,
+    [state.currentScenario],
   );
 
-  const selectOption = useCallback(
-    (optionId: RadioOptionId) => {
-      if (!currentChallenge || currentChallenge.kind !== "mcq" || isAnswered) return;
-      const record = buildRadioAnswer(currentChallenge, optionId);
-      setAnswers((prev) => ({ ...prev, [record.questionId]: record }));
-      setSelectedOptionId(optionId);
-    },
-    [currentChallenge, isAnswered],
-  );
+  const isAnswered = computeIsAnswered(state);
+  const isCorrect = computeIsCorrect(state);
 
-  const toggleChip = useCallback(
-    (chipId: string) => {
-      if (!currentChallenge || currentChallenge.kind !== "readback" || isReadbackSubmitted) return;
-      setSelectedChipIds((prev) => {
-        const next = new Set(prev);
-        if (next.has(chipId)) next.delete(chipId);
-        else next.add(chipId);
-        return next;
-      });
-    },
-    [currentChallenge, isReadbackSubmitted],
-  );
-
-  const submitReadback = useCallback(() => {
-    if (!currentChallenge || currentChallenge.kind !== "readback" || isReadbackSubmitted) return;
-    const record = buildRadioReadbackAnswer(currentChallenge, [...selectedChipIds]);
-    setAnswers((prev) => ({ ...prev, [record.questionId]: record }));
-    setIsReadbackSubmitted(true);
-  }, [currentChallenge, isReadbackSubmitted, selectedChipIds]);
-
-  const submitSpokenCall = useCallback(() => {
-    if (!currentChallenge || currentChallenge.kind !== "spoken" || isSpokenSubmitted) return;
-    const record = buildRadioSpokenAnswer(currentChallenge, spokenTranscript);
-    setAnswers((prev) => ({ ...prev, [record.questionId]: record }));
-    setIsSpokenSubmitted(true);
-  }, [currentChallenge, isSpokenSubmitted, spokenTranscript]);
-
-  const advance = useCallback(() => {
-    if (!currentScenario) return;
-    if (currentChallenge && !isAnswered) return;
-
-    if (isRadioSessionOver(currentLegIndex, totalLegs)) {
-      const finalResult = buildRadioResult(currentScenario, answers);
-      setResult(finalResult);
-      setPhase("results");
-      addRadioResult(finalResult)
-        .then((next) => setHistory(next))
-        .catch((err) => console.error("Failed to persist radio result:", err));
-      return;
-    }
-
-    setCurrentLegIndex((i) => i + 1);
-    resetLegInput();
-  }, [
-    currentScenario,
-    currentChallenge,
-    isAnswered,
-    currentLegIndex,
-    totalLegs,
-    answers,
-    resetLegInput,
-  ]);
-
-  const resetToDashboard = useCallback(() => {
-    setPhase("dashboard");
-    setCurrentScenario(null);
-    setCurrentLegIndex(0);
-    resetLegInput();
-    setAnswers({});
-    setResult(null);
-  }, [resetLegInput]);
+  // Decompose the tagged input back into the per-kind slices the UI consumes.
+  const selectedOptionId =
+    state.input.kind === "mcq" ? state.input.selectedOptionId : null;
+  const selectedChipIds =
+    state.input.kind === "readback" ? state.input.selectedChipIds : EMPTY_CHIPS;
+  const isReadbackSubmitted =
+    state.input.kind === "readback" ? state.input.isSubmitted : false;
+  const spokenTranscript = state.input.kind === "spoken" ? state.input.transcript : "";
+  const isSpokenSubmitted =
+    state.input.kind === "spoken" ? state.input.isSubmitted : false;
 
   return {
-    phase,
+    phase: state.phase,
     scenarios,
-    currentScenario,
-    currentLegIndex,
+    currentScenario: state.currentScenario,
+    currentLegIndex: state.currentLegIndex,
     totalLegs,
     totalQuestions,
     selectedOptionId,
@@ -226,16 +134,20 @@ export function useRadioSession({
     isSpokenSubmitted,
     isAnswered,
     isCorrect,
-    answers,
-    result,
+    answers: state.answers,
+    result: state.result,
     history,
-    startScenario,
-    selectOption,
-    toggleChip,
-    submitReadback,
-    setSpokenTranscript,
-    submitSpokenCall,
-    advance,
-    resetToDashboard,
+    startScenario: (scenarioId) => {
+      const scenario = scenarios.find((s) => s.scenarioId === scenarioId);
+      if (scenario) dispatch({ type: "start-scenario", scenario });
+    },
+    selectOption: (optionId) => dispatch({ type: "select-option", optionId }),
+    toggleChip: (chipId) => dispatch({ type: "toggle-chip", chipId }),
+    submitReadback: () => dispatch({ type: "submit-readback" }),
+    setSpokenTranscript: (transcript) =>
+      dispatch({ type: "set-spoken-transcript", transcript }),
+    submitSpokenCall: () => dispatch({ type: "submit-spoken-call" }),
+    advance: () => dispatch({ type: "advance" }),
+    resetToDashboard: () => dispatch({ type: "reset-to-dashboard" }),
   };
 }
