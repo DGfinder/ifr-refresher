@@ -62,7 +62,7 @@ export function FlashcardFreshStartState({ onStart }: { onStart: () => void }) {
       action={
         <button
           onClick={onStart}
-          className="rounded-xl bg-[var(--ifr-accent)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[var(--ifr-accent)]/90 active:scale-[0.97] dark:bg-indigo-700 dark:hover:bg-indigo-600"
+          className="rounded-xl bg-[var(--ifr-cta-bg)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[var(--ifr-cta-bg-hover)] active:scale-[0.97]"
         >
           Start Studying
         </button>

@@ -30,8 +30,10 @@ export function Timer({ timeRemaining, isRunning, onTimeout, className }: TimerP
 
   return (
     <div
+      role="timer"
+      aria-label={`${timeRemaining} seconds remaining`}
       className={cn(
-        "flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors",
+        "flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors motion-reduce:animate-none motion-reduce:transition-none",
         isCritical && "animate-pulse bg-[var(--ifr-danger)]/10 text-[var(--ifr-danger)]",
         isLow && !isCritical && "bg-[var(--ifr-warning)]/10 text-[var(--ifr-warning)]",
         !isLow && "bg-[var(--ifr-surface-muted)] text-[var(--ifr-text-muted)]",

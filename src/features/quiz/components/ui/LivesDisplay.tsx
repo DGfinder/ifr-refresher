@@ -12,12 +12,19 @@ export function LivesDisplay({ lives, maxLives = 3, className }: LivesDisplayPro
   const hearts = Array.from({ length: maxLives }, (_, i) => i < lives);
 
   return (
-    <div className={cn("flex items-center gap-1", className)}>
+    <div
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      aria-label={`${lives} of ${maxLives} lives remaining`}
+      className={cn("flex items-center gap-1", className)}
+    >
       {hearts.map((isAlive, index) => (
         <span
           key={index}
+          aria-hidden="true"
           className={cn(
-            "text-lg transition-all duration-300",
+            "text-lg transition-all duration-300 motion-reduce:transition-none",
             isAlive ? "scale-100 opacity-100" : "scale-75 opacity-30 grayscale"
           )}
         >

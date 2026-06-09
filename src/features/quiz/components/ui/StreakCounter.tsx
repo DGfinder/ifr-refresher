@@ -17,8 +17,12 @@ export function StreakCounter({ streak, className }: StreakCounterProps) {
 
   return (
     <div
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      aria-label={`Answer streak: ${streak}${isMilestone && streak >= 5 ? " — milestone" : ""}`}
       className={cn(
-        "flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-semibold transition-all",
+        "flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-semibold transition-all motion-reduce:animate-none motion-reduce:transition-none",
         isOnFire && "bg-gradient-to-r from-orange-500 to-red-500 text-white",
         isHot && !isOnFire && "bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400",
         !isHot && "bg-[var(--ifr-surface-muted)] text-[var(--ifr-text-muted)]",

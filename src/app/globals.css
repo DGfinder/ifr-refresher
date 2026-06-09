@@ -62,6 +62,11 @@
   --ifr-warning: #B45309;
   --ifr-danger: #B91C1C;
   --ifr-focus-ring: #4F46E5;
+  /* Primary call-to-action — separated from --ifr-accent so dark mode can
+     use a saturated colour without overriding accent uses elsewhere. */
+  --ifr-cta-bg: #1F2933;
+  --ifr-cta-bg-hover: #34404D;
+  --ifr-cta-fg: #FFFFFF;
 
   --radius: 0.625rem;
   /* Map to IFR tokens */
@@ -112,6 +117,11 @@
   --ifr-warning: #FBBF24;
   --ifr-danger: #F97373;
   --ifr-focus-ring: #4F46E5;
+  /* In dark mode the slate accent is too light for a button background, so
+     CTAs use saturated indigo. Hover bumps to indigo-600. */
+  --ifr-cta-bg: #4338CA;
+  --ifr-cta-bg-hover: #4F46E5;
+  --ifr-cta-fg: #FFFFFF;
 
   /* Map to IFR tokens */
   --background: var(--ifr-bg);

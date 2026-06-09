@@ -232,7 +232,7 @@ export function QuizSession({
             </div>
             <button
               onClick={onNext}
-              className="w-full rounded-lg bg-[var(--ifr-accent)] py-3 font-medium text-white transition-colors hover:bg-[var(--ifr-accent)]/90 dark:bg-indigo-700 dark:hover:bg-indigo-600"
+              className="w-full rounded-lg bg-[var(--ifr-cta-bg)] py-3 font-medium text-white transition-colors hover:bg-[var(--ifr-cta-bg-hover)]"
             >
               {currentIndex + 1 >= totalQuestions ? "See Results" : "Next Question"}
             </button>

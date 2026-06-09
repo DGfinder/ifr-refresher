@@ -69,9 +69,16 @@ export function Confetti({ trigger, intensity = "medium" }: ConfettiProps) {
   }, [intensity]);
 
   useEffect(() => {
-    if (trigger) {
-      fireConfetti();
+    if (!trigger) return;
+    // Respect users who have asked for less motion (vestibular sensitivities,
+    // photosensitive epilepsy). Skip the celebration entirely.
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
     }
+    fireConfetti();
   }, [trigger, fireConfetti]);
 
   // This component doesn't render anything - it just triggers confetti

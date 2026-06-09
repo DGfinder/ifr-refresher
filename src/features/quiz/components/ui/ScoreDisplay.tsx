@@ -14,7 +14,13 @@ export function ScoreDisplay({ score, streak, className }: ScoreDisplayProps) {
   const showMultiplier = multiplier > 1;
 
   return (
-    <div className={cn("flex items-center gap-2", className)}>
+    <div
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      aria-label={`Score ${score.toLocaleString()}${showMultiplier ? `, ${multiplier}x multiplier` : ""}`}
+      className={cn("flex items-center gap-2", className)}
+    >
       <span className="text-sm font-medium text-[var(--ifr-text-muted)]">Score:</span>
       <span className="text-lg font-bold tabular-nums text-[var(--ifr-text)]">
         {score.toLocaleString()}
