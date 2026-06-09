@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { RadioOptionId, RadioScenario } from "@/content/model/radio";
 import {
   buildRadioAnswer,
@@ -13,6 +13,11 @@ import type {
   RadioPhase,
   RadioResult,
 } from "@/features/radio-calls/model/types";
+import {
+  addRadioResult,
+  loadRadioHistory,
+  type RadioHistoryEntry,
+} from "@/features/radio-calls/storage/radioHistoryStore";
 
 interface UseRadioSessionOptions {
   scenarios: RadioScenario[];
@@ -30,6 +35,7 @@ interface UseRadioSessionReturn {
   isCorrect: boolean | null;
   answers: RadioAnswerMap;
   result: RadioResult | null;
+  history: RadioHistoryEntry[];
 
   // actions
   startScenario: (scenarioId: string) => void;
@@ -47,6 +53,20 @@ export function useRadioSession({
   const [selectedOptionId, setSelectedOptionId] = useState<RadioOptionId | null>(null);
   const [answers, setAnswers] = useState<RadioAnswerMap>({});
   const [result, setResult] = useState<RadioResult | null>(null);
+  const [history, setHistory] = useState<RadioHistoryEntry[]>([]);
+
+  // Hydrate history from IndexedDB on mount so the dashboard can show
+  // best/last attempts.
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const loaded = await loadRadioHistory();
+      if (!cancelled) setHistory(loaded);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const sessionShape = useMemo(() => {
     if (!currentScenario) return null;
@@ -97,6 +117,10 @@ export function useRadioSession({
       const finalResult = buildRadioResult(currentScenario, finalAnswers);
       setResult(finalResult);
       setPhase("results");
+      // Fire-and-forget persistence so the dashboard reflects this attempt.
+      addRadioResult(finalResult)
+        .then((next) => setHistory(next))
+        .catch((err) => console.error("Failed to persist radio result:", err));
       return;
     }
 
@@ -125,6 +149,7 @@ export function useRadioSession({
     isCorrect,
     answers,
     result,
+    history,
     startScenario,
     selectOption,
     advance,

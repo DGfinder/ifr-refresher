@@ -16,6 +16,7 @@ Feature-specific storage belongs beside the feature that owns the data, not in g
 | Active program | `features/programs/context/ProgramContext.tsx` | Program IDs are stable contracts. |
 | Drill stats / FSRS state | `features/drill/hooks/useDrill.ts`, `features/drill/hooks/useFSRS.ts` | Question IDs are stable contracts. FSRS cards are persisted in a `{ v, schemaTag, card }` envelope (`features/drill/model/fsrsStorage.ts`); entries with a mismatched `schemaTag` are dropped on load and the question reverts to "new" rather than crashing. |
 | Quiz history | `features/quiz/storage/quizHistoryStore.ts` | Quiz result shape is user-visible history. |
+| Radio scenario history | `features/radio-calls/storage/radioHistoryStore.ts` | Persisted in a `{ v, schemaTag, entries }` envelope; entries with a non-matching `schemaTag` are dropped on load. |
 | Study streak | `features/progress/model/studyStreak.ts` | Date logic is local browser time/ISO-date based. |
 
 ## Rules

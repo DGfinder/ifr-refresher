@@ -2,13 +2,18 @@
 
 import { Radio } from "lucide-react";
 import type { RadioScenario } from "@/content/model/radio";
+import {
+  getBestForScenario,
+  type RadioHistoryEntry,
+} from "@/features/radio-calls/storage/radioHistoryStore";
 
 interface RadioDashboardProps {
   scenarios: RadioScenario[];
+  history: RadioHistoryEntry[];
   onStart: (scenarioId: string) => void;
 }
 
-export function RadioDashboard({ scenarios, onStart }: RadioDashboardProps) {
+export function RadioDashboard({ scenarios, history, onStart }: RadioDashboardProps) {
   if (scenarios.length === 0) {
     return (
       <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-8 text-center">
@@ -38,6 +43,7 @@ export function RadioDashboard({ scenarios, onStart }: RadioDashboardProps) {
       <ul className="space-y-3" aria-label="Available radio scenarios">
         {scenarios.map((scenario) => {
           const questionCount = scenario.legs.filter((l) => l.question !== undefined).length;
+          const best = getBestForScenario(history, scenario.scenarioId);
           return (
             <li key={scenario.scenarioId}>
               <button
@@ -49,8 +55,18 @@ export function RadioDashboard({ scenarios, onStart }: RadioDashboardProps) {
                   <h3 className="font-semibold text-[var(--ifr-text)] group-hover:text-[var(--ifr-accent)]">
                     {scenario.title}
                   </h3>
-                  <span className="text-xs font-medium text-[var(--ifr-text-muted)]">
-                    {scenario.briefing.flightRules} · {questionCount} call{questionCount === 1 ? "" : "s"}
+                  <span className="flex items-center gap-2 text-xs font-medium text-[var(--ifr-text-muted)]">
+                    {best && (
+                      <span
+                        className="rounded-full bg-[var(--ifr-success)]/10 px-2 py-0.5 font-semibold text-[var(--ifr-success)]"
+                        aria-label={`Best score ${best.percentage} percent`}
+                      >
+                        Best {best.percentage}%
+                      </span>
+                    )}
+                    <span>
+                      {scenario.briefing.flightRules} · {questionCount} call{questionCount === 1 ? "" : "s"}
+                    </span>
                   </span>
                 </div>
                 <p className="text-sm leading-relaxed text-[var(--ifr-text-muted)]">

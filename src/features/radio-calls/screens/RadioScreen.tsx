@@ -26,7 +26,11 @@ export function RadioScreen() {
         <p className="mb-6 text-sm text-[var(--ifr-text-muted)]">
           Scenario-driven phraseology practice. Drawn from AIP GEN 3.4 and MATS Part 4.
         </p>
-        <RadioDashboard scenarios={session.scenarios} onStart={session.startScenario} />
+        <RadioDashboard
+          scenarios={session.scenarios}
+          history={session.history}
+          onStart={session.startScenario}
+        />
       </div>
     );
   }

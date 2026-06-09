@@ -1,0 +1,102 @@
+{
+  "version": "1.0",
+  "scenarioId": "radio-ifr-enroute-handoff",
+  "title": "En-route Frequency Handoff — Brisbane to Sydney Centre",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "You are cruising at FL220 on Brisbane Centre, approaching the Brisbane–Sydney FIR boundary. Brisbane Centre is about to hand you off to Sydney Centre."
+  },
+  "tags": ["enroute", "handoff", "frequency-change"],
+  "legs": [
+    {
+      "id": "leg-1-handoff-instruction",
+      "transmission": {
+        "speaker": "atc",
+        "station": "centre",
+        "text": "Mike X-ray Golf, Brisbane Centre, contact Sydney Centre one three four decimal eight five."
+      }
+    },
+    {
+      "id": "leg-2-acknowledge-handoff",
+      "transmission": {
+        "speaker": "pilot",
+        "station": "centre",
+        "text": "Sydney Centre one three four decimal eight five, Mike X-ray Golf."
+      },
+      "question": {
+        "id": "q-acknowledge-handoff",
+        "prompt": "Brisbane Centre has just told you to contact Sydney Centre on 134.85. What is the correct acknowledgement?",
+        "options": [
+          { "id": "A", "text": "Roger Sydney one three four eight five, Mike X-ray Golf." },
+          { "id": "B", "text": "Sydney Centre one three four decimal eight five, Mike X-ray Golf." },
+          { "id": "C", "text": "Mike X-ray Golf, switching to Sydney." },
+          { "id": "D", "text": "Going over to Sydney Centre, Mike X-ray Golf." }
+        ],
+        "correctOptionId": "B",
+        "explanation": "AIP GEN 3.4 frequency-change readback: read back the receiving station and the full frequency (including 'decimal'), then your callsign. \"Roger\" alone is not a frequency readback."
+      }
+    },
+    {
+      "id": "leg-3-initial-call-sydney",
+      "transmission": {
+        "speaker": "pilot",
+        "station": "centre",
+        "text": "Sydney Centre, Mike X-ray Golf, flight level two two zero."
+      },
+      "question": {
+        "id": "q-initial-call-sydney",
+        "prompt": "You've switched to 134.85. What is the correct initial call to Sydney Centre?",
+        "options": [
+          { "id": "A", "text": "Sydney Centre, Mike X-ray Golf with you, level two two zero." },
+          { "id": "B", "text": "Sydney, Mike X-ray Golf, cruising FL two two zero." },
+          { "id": "C", "text": "Sydney Centre, Mike X-ray Golf, flight level two two zero." },
+          { "id": "D", "text": "Sydney Centre, this is Mike X-ray Golf checking in at FL two two zero." }
+        ],
+        "correctOptionId": "C",
+        "explanation": "AIP GEN 3.4 initial call: addressed station, your callsign, current level (\"flight level two two zero\"). Avoid filler like \"with you\" or \"checking in\" — they aren't standard phraseology."
+      }
+    },
+    {
+      "id": "leg-4-sydney-identifies",
+      "transmission": {
+        "speaker": "atc",
+        "station": "centre",
+        "text": "Mike X-ray Golf, Sydney Centre, identified, maintain flight level two two zero."
+      }
+    },
+    {
+      "id": "leg-5-maintain-level-readback",
+      "transmission": {
+        "speaker": "pilot",
+        "station": "centre",
+        "text": "Maintain flight level two two zero, Mike X-ray Golf."
+      },
+      "question": {
+        "id": "q-maintain-level-readback",
+        "prompt": "Sydney Centre has identified you and instructed \"maintain flight level two two zero\". What's the required readback?",
+        "options": [
+          { "id": "A", "text": "Roger Sydney, maintaining." },
+          { "id": "B", "text": "Maintain flight level two two zero, Mike X-ray Golf." },
+          { "id": "C", "text": "Mike X-ray Golf, identified." },
+          { "id": "D", "text": "Copy two two zero." }
+        ],
+        "correctOptionId": "B",
+        "explanation": "MATS Part 4 mandatory readback items include any level instruction. Read back the instruction verbatim and end with your callsign."
+      }
+    }
+  ],
+  "refs": [
+    {
+      "source": "AIP Australia GEN 3.4",
+      "section": "Communications — General radiotelephony procedures",
+      "note": "Source/access date 2026-06-09. Frequency change readback and initial-contact format."
+    },
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items: levels, headings, speeds, runway, QNH, squawk."
+    }
+  ]
+}
