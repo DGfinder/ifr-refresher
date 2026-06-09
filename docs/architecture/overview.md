@@ -33,6 +33,7 @@ There are no API routes or external runtime data dependencies.
 - **Drill** — extracting drill questions and tracking adaptive/FSRS drill progress.
 - **Flashcards** — flashcard session presentation over drill questions.
 - **Quiz** — MCQ generation, quiz state machine, scoring, and quiz history.
+- **Radio calls** — scenario-driven radio phraseology practice over scripted ATC↔pilot exchanges (AIP / MATS sourced).
 - **Progress** — progress summaries, streaks, and insights.
 - **Platform/storage** — IndexedDB wrapper.
 - **Platform/PWA** — service worker source and PWA support.

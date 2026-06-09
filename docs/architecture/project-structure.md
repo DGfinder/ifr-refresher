@@ -34,6 +34,7 @@ src/
 | `features/drill/` | drill question extraction, drill progress, FSRS/adaptive selection | flashcard presentation-specific UI |
 | `features/flashcards/` | flashcard session screens/components over drill questions | raw content registry ownership |
 | `features/quiz/` | quiz generation, session lifecycle, scoring, quiz history | global app navigation or content source truth |
+| `features/radio-calls/` | scenario-based radio phraseology practice (MCQ over a scripted ATC↔pilot exchange) | content authoring or drill/FSRS internals |
 | `features/progress/` | progress/streak/insights domain | quiz session UI |
 | `platform/storage/` | IndexedDB wrapper and storage platform policy | feature-specific domain decisions |
 | `platform/pwa/` | service worker/PWA support | ordinary UI or content data |

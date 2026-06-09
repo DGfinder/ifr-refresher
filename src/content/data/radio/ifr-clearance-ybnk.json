@@ -1,0 +1,137 @@
+{
+  "version": "1.0",
+  "scenarioId": "radio-ifr-clearance-ybnk",
+  "title": "IFR Clearance & Departure — Bankstown to Coffs Harbour",
+  "briefing": {
+    "callsign": "Lima Echo Foxtrot",
+    "aircraftType": "PA-31 Chieftain",
+    "departure": "YSBK",
+    "destination": "YSCH",
+    "flightRules": "IFR",
+    "summary": "You are at Bankstown ready to copy your IFR clearance for a flight to Coffs Harbour. ATIS information Mike has been received. Request clearance from Bankstown Tower."
+  },
+  "tags": ["clearance", "departure", "readback", "ybnk"],
+  "legs": [
+    {
+      "id": "leg-1-request-clearance",
+      "transmission": {
+        "speaker": "pilot",
+        "station": "tower",
+        "text": "Bankstown Tower, Lima Echo Foxtrot, IFR clearance to Coffs Harbour, information Mike."
+      },
+      "question": {
+        "id": "q-request-clearance",
+        "prompt": "You are ready to copy your IFR clearance. ATIS Mike is current. What is the correct initial call to Bankstown Tower?",
+        "options": [
+          { "id": "A", "text": "Bankstown Tower, Lima Echo Foxtrot, request IFR clearance." },
+          { "id": "B", "text": "Bankstown Tower, Lima Echo Foxtrot, IFR clearance to Coffs Harbour, information Mike." },
+          { "id": "C", "text": "Bankstown, Lima Echo Foxtrot, ready to copy clearance for Coffs Harbour." },
+          { "id": "D", "text": "Lima Echo Foxtrot, Bankstown, IFR to Coffs, with Mike." }
+        ],
+        "correctOptionId": "B",
+        "explanation": "AIP GEN 3.4 standard initial call: addressed station, callsign, request type with destination, ATIS code. Order matters — addressed station first, your callsign next."
+      }
+    },
+    {
+      "id": "leg-2-clearance-issued",
+      "transmission": {
+        "speaker": "atc",
+        "station": "tower",
+        "text": "Lima Echo Foxtrot, cleared to Coffs Harbour via flight planned route, climb to seven thousand, squawk four one two three."
+      }
+    },
+    {
+      "id": "leg-3-readback",
+      "transmission": {
+        "speaker": "pilot",
+        "station": "tower",
+        "text": "Cleared to Coffs Harbour via flight planned route, climb to seven thousand, squawk four one two three, Lima Echo Foxtrot."
+      },
+      "question": {
+        "id": "q-readback",
+        "prompt": "Bankstown has just issued your clearance. What is the correct readback?",
+        "options": [
+          { "id": "A", "text": "Roger, cleared Coffs, climb seven thousand, squawk four one two three." },
+          { "id": "B", "text": "Cleared to Coffs Harbour via flight planned route, climb to seven thousand, squawk four one two three, Lima Echo Foxtrot." },
+          { "id": "C", "text": "Lima Echo Foxtrot copies the clearance, ready to taxi." },
+          { "id": "D", "text": "Cleared Coffs Harbour, climbing seven thousand, squawking four one two three." }
+        ],
+        "correctOptionId": "B",
+        "explanation": "AIP GEN 3.4 requires verbatim readback of: clearance limit, route, climb/altitude assignment, and squawk code, ending with your callsign. \"Roger\" is not an acknowledgement of a clearance."
+      }
+    },
+    {
+      "id": "leg-4-readback-correct",
+      "transmission": {
+        "speaker": "atc",
+        "station": "tower",
+        "text": "Lima Echo Foxtrot, readback correct, contact Ground one two one decimal seven for taxi."
+      }
+    },
+    {
+      "id": "leg-5-taxi-request",
+      "transmission": {
+        "speaker": "pilot",
+        "station": "ground",
+        "text": "Bankstown Ground, Lima Echo Foxtrot, ready for taxi, information Mike."
+      },
+      "question": {
+        "id": "q-taxi-request",
+        "prompt": "You've switched to Ground 121.7. What is the correct call to request taxi?",
+        "options": [
+          { "id": "A", "text": "Ground, Lima Echo Foxtrot, taxi please." },
+          { "id": "B", "text": "Bankstown Ground, Lima Echo Foxtrot, ready to taxi to the holding point." },
+          { "id": "C", "text": "Bankstown Ground, Lima Echo Foxtrot, ready for taxi, information Mike." },
+          { "id": "D", "text": "Lima Echo Foxtrot, Bankstown Ground, with Mike, taxi." }
+        ],
+        "correctOptionId": "C",
+        "explanation": "AIP GEN 3.4: addressed station, callsign, request (\"ready for taxi\"), ATIS code if not already passed. Confirming ATIS to Ground avoids the controller asking."
+      }
+    },
+    {
+      "id": "leg-6-taxi-clearance",
+      "transmission": {
+        "speaker": "atc",
+        "station": "ground",
+        "text": "Lima Echo Foxtrot, taxi to holding point Alpha runway two nine right via Alpha, QNH one zero one eight."
+      }
+    },
+    {
+      "id": "leg-7-taxi-readback",
+      "transmission": {
+        "speaker": "pilot",
+        "station": "ground",
+        "text": "Taxi to holding point Alpha runway two nine right via Alpha, QNH one zero one eight, Lima Echo Foxtrot."
+      },
+      "question": {
+        "id": "q-taxi-readback",
+        "prompt": "Which items must be read back from Ground's taxi clearance?",
+        "options": [
+          { "id": "A", "text": "Taxi to runway two nine right, Lima Echo Foxtrot." },
+          { "id": "B", "text": "Taxi to holding point Alpha runway two nine right via Alpha, QNH one zero one eight, Lima Echo Foxtrot." },
+          { "id": "C", "text": "Holding point Alpha, runway two nine right, Lima Echo Foxtrot." },
+          { "id": "D", "text": "Roger, taxiing Alpha, Lima Echo Foxtrot." }
+        ],
+        "correctOptionId": "B",
+        "explanation": "Required readback elements: runway in use, holding instructions / holding point, route via taxiways, QNH. Ending with callsign per AIP GEN 3.4."
+      }
+    }
+  ],
+  "refs": [
+    {
+      "source": "AIP Australia GEN 3.4",
+      "section": "Communications — General radiotelephony procedures",
+      "note": "Source/access date 2026-06-09. Standard phraseology including readback requirements for clearances, climb/descent, squawk, runway, and QNH."
+    },
+    {
+      "source": "AIP Australia ENR 1.1",
+      "section": "General rules and procedures — IFR communications",
+      "note": "Source/access date 2026-06-09. IFR clearance request format and ATIS confirmation requirement."
+    },
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items list."
+    }
+  ]
+}

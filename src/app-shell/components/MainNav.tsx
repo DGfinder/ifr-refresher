@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, BookOpen, Layers, Brain, BarChart2 } from "lucide-react";
+import { Home, BookOpen, Layers, Brain, Radio, BarChart2 } from "lucide-react";
 import { cn } from "@/shared/lib/cn";
 
 const navItems = [
@@ -10,6 +10,7 @@ const navItems = [
   { href: "/study", label: "Study", Icon: BookOpen },
   { href: "/flashcard", label: "Cards", Icon: Layers },
   { href: "/quiz", label: "Quiz", Icon: Brain },
+  { href: "/radio", label: "Radio", Icon: Radio },
   { href: "/insights", label: "Insights", Icon: BarChart2 },
 ];
 

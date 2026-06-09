@@ -9,6 +9,7 @@ const FEATURES = [
   "programs",
   "progress",
   "quiz",
+  "radio-calls",
   "study",
 ];
 

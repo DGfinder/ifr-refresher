@@ -11,6 +11,7 @@ Offline-first flashcard & quiz app, built for CASA IFR, IPC oral prep, and airli
 - **Study mode** — browse modules by category, read content, search across all material.
 - **Drill mode** — FSRS/adaptive flashcard drilling.
 - **Quiz mode** — 4-choice MCQ with Classic, Timed, Learn, and Challenge sub-modes.
+- **Radio mode** — scenario-driven ATC phraseology practice, sourced from AIP GEN 3.4 and MATS.
 - **Insights** — streak tracking, weakest sections, progress over time.
 - **Offline-first** — Serwist service worker pre-caches the app shell/content.
 - **Installable PWA** — add to home screen on iOS/Android.
@@ -51,6 +52,7 @@ src/
 │   ├── programs/        # study/drill program definitions and active program context
 │   ├── progress/        # progress, streaks, insights
 │   ├── quiz/            # quiz generation, session lifecycle, scoring, history
+│   ├── radio-calls/     # scenario-based radio phraseology practice
 │   └── study/           # browsing/searching/reading modules
 ├── platform/
 │   ├── pwa/             # Serwist service worker source
