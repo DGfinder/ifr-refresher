@@ -1,0 +1,137 @@
+{
+  "version": "1.0",
+  "scenarioId": "radio-ifr-missed-approach-yscb",
+  "title": "Missed Approach — ILS RWY 35 at Canberra",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "departure": "YSSY",
+    "destination": "YSCB",
+    "flightRules": "IFR",
+    "summary": "You are inbound to Canberra, established on the ILS for runway 35. Cloud is broken at 800 ft, drizzle. At the minimum altitude you cannot acquire the runway environment. Time to commit to the missed approach."
+  },
+  "tags": ["missed-approach", "ils", "yscb", "go-around"],
+  "legs": [
+    {
+      "id": "leg-1-cleared-approach",
+      "transmission": {
+        "speaker": "atc",
+        "station": "tower",
+        "text": "Mike X-ray Golf, Canberra Tower, cleared ILS runway three five approach, report established."
+      }
+    },
+    {
+      "id": "leg-2-approach-readback",
+      "transmission": {
+        "speaker": "pilot",
+        "station": "tower",
+        "text": "Cleared ILS runway three five approach, report established, Mike X-ray Golf."
+      },
+      "question": {
+        "kind": "readback",
+        "id": "q-approach-readback",
+        "prompt": "Tick every element you must read back from the approach clearance.",
+        "chips": [
+          { "id": "approach-type", "text": "Approach type (ILS)" },
+          { "id": "runway", "text": "Runway (35)" },
+          { "id": "report-instruction", "text": "Reporting instruction (report established)" },
+          { "id": "callsign", "text": "Your callsign at the end" },
+          { "id": "atis", "text": "Current ATIS code" },
+          { "id": "qnh", "text": "QNH (only if newly issued)" }
+        ],
+        "requiredIds": ["approach-type", "runway", "report-instruction", "callsign"],
+        "explanation": "AIP GEN 3.4 / MATS Part 4: read back approach clearance items — type, runway, any reporting instructions, and your callsign. ATIS and QNH only when newly issued in the clearance (not in this transmission)."
+      }
+    },
+    {
+      "id": "leg-3-going-around",
+      "transmission": {
+        "speaker": "pilot",
+        "station": "tower",
+        "text": "Going around, Mike X-ray Golf."
+      },
+      "question": {
+        "kind": "mcq",
+        "id": "q-going-around",
+        "prompt": "You're at the minimum altitude with no visual reference. What's the correct phraseology to declare the missed approach to Tower?",
+        "options": [
+          { "id": "A", "text": "Tower, Mike X-ray Golf, missed approach, going to alternate." },
+          { "id": "B", "text": "Going around, Mike X-ray Golf." },
+          { "id": "C", "text": "Mike X-ray Golf is unable, request vectors." },
+          { "id": "D", "text": "Tower, Mike X-ray Golf, we can't see the runway, we're climbing." }
+        ],
+        "correctOptionId": "B",
+        "explanation": "AIP ENR 1.5 / MATS Part 4: the standard missed-approach announcement is \"going around\" followed by callsign. ATC is already expecting it as a possibility — keep it short so the controller can immediately issue the next instruction."
+      }
+    },
+    {
+      "id": "leg-4-ma-instruction",
+      "transmission": {
+        "speaker": "atc",
+        "station": "tower",
+        "text": "Mike X-ray Golf, runway heading, climb to four thousand, contact Canberra Approach one two five decimal one."
+      }
+    },
+    {
+      "id": "leg-5-ma-readback",
+      "transmission": {
+        "speaker": "pilot",
+        "station": "tower",
+        "text": "Runway heading, climb to four thousand, Canberra Approach one two five decimal one, Mike X-ray Golf."
+      },
+      "question": {
+        "kind": "readback",
+        "id": "q-ma-readback",
+        "prompt": "Tick every element you must read back from Tower's missed-approach instruction.",
+        "chips": [
+          { "id": "heading", "text": "Heading (runway heading)" },
+          { "id": "altitude", "text": "Climb / altitude (4000)" },
+          { "id": "frequency", "text": "New frequency (Approach 125.1)" },
+          { "id": "callsign", "text": "Your callsign at the end" },
+          { "id": "weather", "text": "Current weather" },
+          { "id": "fuel", "text": "Fuel remaining" }
+        ],
+        "requiredIds": ["heading", "altitude", "frequency", "callsign"],
+        "explanation": "MATS Part 4 mandatory readback items: heading, level, frequency change, and callsign. Weather/fuel are not part of an instruction readback (they belong to a PAN-PAN or operational request)."
+      }
+    },
+    {
+      "id": "leg-6-approach-checkin",
+      "transmission": {
+        "speaker": "pilot",
+        "station": "approach",
+        "text": "Canberra Approach, Mike X-ray Golf, missed approach runway three five, runway heading, climbing four thousand."
+      },
+      "question": {
+        "kind": "mcq",
+        "id": "q-approach-checkin",
+        "prompt": "You've switched to Approach 125.1 after going around. What is the correct initial call?",
+        "options": [
+          { "id": "A", "text": "Canberra Approach, Mike X-ray Golf, on the missed approach." },
+          { "id": "B", "text": "Approach, Mike X-ray Golf, with you climbing four thousand." },
+          { "id": "C", "text": "Canberra Approach, Mike X-ray Golf, missed approach runway three five, runway heading, climbing four thousand." },
+          { "id": "D", "text": "Mike X-ray Golf is checking in with Approach after a go-around." }
+        ],
+        "correctOptionId": "C",
+        "explanation": "AIP GEN 3.4 initial contact after a handoff: addressed station, callsign, current situation (missed approach + runway), present heading, climbing altitude. Approach needs all of that to sequence you back into the pattern or vector you to the alternate."
+      }
+    }
+  ],
+  "refs": [
+    {
+      "source": "AIP Australia ENR 1.5",
+      "section": "Holding, approach and departure procedures",
+      "note": "Source/access date 2026-06-09. Missed approach procedure and standard announcement."
+    },
+    {
+      "source": "AIP Australia GEN 3.4",
+      "section": "Communications — General radiotelephony procedures",
+      "note": "Source/access date 2026-06-09. Initial-contact format and mandatory readback items."
+    },
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Approach clearance readback elements; missed-approach phraseology."
+    }
+  ]
+}
