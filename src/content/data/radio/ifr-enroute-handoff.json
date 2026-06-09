@@ -26,6 +26,7 @@
         "text": "Sydney Centre one three four decimal eight five, Mike X-ray Golf."
       },
       "question": {
+        "kind": "mcq",
         "id": "q-acknowledge-handoff",
         "prompt": "Brisbane Centre has just told you to contact Sydney Centre on 134.85. What is the correct acknowledgement?",
         "options": [
@@ -46,6 +47,7 @@
         "text": "Sydney Centre, Mike X-ray Golf, flight level two two zero."
       },
       "question": {
+        "kind": "mcq",
         "id": "q-initial-call-sydney",
         "prompt": "You've switched to 134.85. What is the correct initial call to Sydney Centre?",
         "options": [
@@ -74,6 +76,7 @@
         "text": "Maintain flight level two two zero, Mike X-ray Golf."
       },
       "question": {
+        "kind": "mcq",
         "id": "q-maintain-level-readback",
         "prompt": "Sydney Centre has identified you and instructed \"maintain flight level two two zero\". What's the required readback?",
         "options": [

@@ -54,14 +54,16 @@ export function RadioResults({
                   : "border-[var(--ifr-danger)]/30 bg-[var(--ifr-danger)]/5",
               )}
             >
-              <span className="text-[var(--ifr-text)]">Call {idx + 1}</span>
+              <span className="text-[var(--ifr-text)]">
+                {entry.kind === "readback" ? "Readback" : "Call"} {idx + 1}
+              </span>
               <span
                 className={cn(
                   "text-xs font-semibold",
                   entry.isCorrect ? "text-[var(--ifr-success)]" : "text-[var(--ifr-danger)]",
                 )}
               >
-                {entry.isCorrect ? "Correct" : `Picked ${entry.selectedOptionId}, correct ${entry.correctOptionId}`}
+                {entry.isCorrect ? "Correct" : "Incorrect"}
               </span>
             </li>
           ))}

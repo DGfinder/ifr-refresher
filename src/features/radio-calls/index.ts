@@ -4,7 +4,9 @@ export { useRadioAudio } from "./hooks/useRadioAudio";
 export {
   buildRadioSession,
   evaluateRadioMcq,
+  evaluateRadioReadback,
   buildRadioAnswer,
+  buildRadioReadbackAnswer,
   buildRadioResult,
   isRadioSessionOver,
 } from "./model/buildRadioSession";

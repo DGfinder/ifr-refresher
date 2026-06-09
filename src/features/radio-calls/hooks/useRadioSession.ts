@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { RadioOptionId, RadioScenario } from "@/content/model/radio";
 import {
   buildRadioAnswer,
+  buildRadioReadbackAnswer,
   buildRadioResult,
   buildRadioSession,
   isRadioSessionOver,
@@ -30,8 +31,15 @@ interface UseRadioSessionReturn {
   currentLegIndex: number;
   totalLegs: number;
   totalQuestions: number;
+  /** MCQ-only — the option the learner picked on the current leg. */
   selectedOptionId: RadioOptionId | null;
+  /** Readback-only — the set of chip ids the learner has toggled on. */
+  selectedChipIds: ReadonlySet<string>;
+  /** Readback-only — whether the learner has submitted their chip selection. */
+  isReadbackSubmitted: boolean;
+  /** True when the current leg's challenge has been answered (either kind). */
   isAnswered: boolean;
+  /** True/false after answering, null before. */
   isCorrect: boolean | null;
   answers: RadioAnswerMap;
   result: RadioResult | null;
@@ -40,9 +48,13 @@ interface UseRadioSessionReturn {
   // actions
   startScenario: (scenarioId: string) => void;
   selectOption: (optionId: RadioOptionId) => void;
+  toggleChip: (chipId: string) => void;
+  submitReadback: () => void;
   advance: () => void;
   resetToDashboard: () => void;
 }
+
+const EMPTY_CHIPS: ReadonlySet<string> = new Set();
 
 export function useRadioSession({
   scenarios,
@@ -51,12 +63,12 @@ export function useRadioSession({
   const [currentScenario, setCurrentScenario] = useState<RadioScenario | null>(null);
   const [currentLegIndex, setCurrentLegIndex] = useState(0);
   const [selectedOptionId, setSelectedOptionId] = useState<RadioOptionId | null>(null);
+  const [selectedChipIds, setSelectedChipIds] = useState<ReadonlySet<string>>(EMPTY_CHIPS);
+  const [isReadbackSubmitted, setIsReadbackSubmitted] = useState(false);
   const [answers, setAnswers] = useState<RadioAnswerMap>({});
   const [result, setResult] = useState<RadioResult | null>(null);
   const [history, setHistory] = useState<RadioHistoryEntry[]>([]);
 
-  // Hydrate history from IndexedDB on mount so the dashboard can show
-  // best/last attempts.
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -77,11 +89,26 @@ export function useRadioSession({
   const totalQuestions = sessionShape?.totalQuestions ?? 0;
 
   const currentLeg = currentScenario?.legs[currentLegIndex] ?? null;
-  const isAnswered = selectedOptionId !== null;
+  const currentChallenge = currentLeg?.question;
+
+  const isAnswered = useMemo(() => {
+    if (!currentChallenge) return false;
+    return currentChallenge.kind === "mcq"
+      ? selectedOptionId !== null
+      : isReadbackSubmitted;
+  }, [currentChallenge, selectedOptionId, isReadbackSubmitted]);
+
   const isCorrect = useMemo(() => {
-    if (!isAnswered || !currentLeg?.question) return null;
-    return selectedOptionId === currentLeg.question.correctOptionId;
-  }, [isAnswered, currentLeg, selectedOptionId]);
+    if (!isAnswered || !currentChallenge) return null;
+    const answer = answers[currentChallenge.id];
+    return answer ? answer.isCorrect : null;
+  }, [isAnswered, currentChallenge, answers]);
+
+  const resetLegInput = useCallback(() => {
+    setSelectedOptionId(null);
+    setSelectedChipIds(EMPTY_CHIPS);
+    setIsReadbackSubmitted(false);
+  }, []);
 
   const startScenario = useCallback(
     (scenarioId: string) => {
@@ -89,35 +116,52 @@ export function useRadioSession({
       if (!scenario) return;
       setCurrentScenario(scenario);
       setCurrentLegIndex(0);
-      setSelectedOptionId(null);
+      resetLegInput();
       setAnswers({});
       setResult(null);
       setPhase("session");
     },
-    [scenarios],
+    [scenarios, resetLegInput],
   );
 
   const selectOption = useCallback(
     (optionId: RadioOptionId) => {
-      if (!currentLeg?.question || isAnswered) return;
-      const record = buildRadioAnswer(currentLeg.question, optionId);
+      if (!currentChallenge || currentChallenge.kind !== "mcq" || isAnswered) return;
+      const record = buildRadioAnswer(currentChallenge, optionId);
       setAnswers((prev) => ({ ...prev, [record.questionId]: record }));
       setSelectedOptionId(optionId);
     },
-    [currentLeg, isAnswered],
+    [currentChallenge, isAnswered],
   );
+
+  const toggleChip = useCallback(
+    (chipId: string) => {
+      if (!currentChallenge || currentChallenge.kind !== "readback" || isReadbackSubmitted) return;
+      setSelectedChipIds((prev) => {
+        const next = new Set(prev);
+        if (next.has(chipId)) next.delete(chipId);
+        else next.add(chipId);
+        return next;
+      });
+    },
+    [currentChallenge, isReadbackSubmitted],
+  );
+
+  const submitReadback = useCallback(() => {
+    if (!currentChallenge || currentChallenge.kind !== "readback" || isReadbackSubmitted) return;
+    const record = buildRadioReadbackAnswer(currentChallenge, [...selectedChipIds]);
+    setAnswers((prev) => ({ ...prev, [record.questionId]: record }));
+    setIsReadbackSubmitted(true);
+  }, [currentChallenge, isReadbackSubmitted, selectedChipIds]);
 
   const advance = useCallback(() => {
     if (!currentScenario) return;
-    // For question legs, require an answer before advancing.
-    if (currentLeg?.question && !isAnswered) return;
+    if (currentChallenge && !isAnswered) return;
 
     if (isRadioSessionOver(currentLegIndex, totalLegs)) {
-      const finalAnswers = answers;
-      const finalResult = buildRadioResult(currentScenario, finalAnswers);
+      const finalResult = buildRadioResult(currentScenario, answers);
       setResult(finalResult);
       setPhase("results");
-      // Fire-and-forget persistence so the dashboard reflects this attempt.
       addRadioResult(finalResult)
         .then((next) => setHistory(next))
         .catch((err) => console.error("Failed to persist radio result:", err));
@@ -125,17 +169,25 @@ export function useRadioSession({
     }
 
     setCurrentLegIndex((i) => i + 1);
-    setSelectedOptionId(null);
-  }, [currentScenario, currentLeg, isAnswered, currentLegIndex, totalLegs, answers]);
+    resetLegInput();
+  }, [
+    currentScenario,
+    currentChallenge,
+    isAnswered,
+    currentLegIndex,
+    totalLegs,
+    answers,
+    resetLegInput,
+  ]);
 
   const resetToDashboard = useCallback(() => {
     setPhase("dashboard");
     setCurrentScenario(null);
     setCurrentLegIndex(0);
-    setSelectedOptionId(null);
+    resetLegInput();
     setAnswers({});
     setResult(null);
-  }, []);
+  }, [resetLegInput]);
 
   return {
     phase,
@@ -145,6 +197,8 @@ export function useRadioSession({
     totalLegs,
     totalQuestions,
     selectedOptionId,
+    selectedChipIds,
+    isReadbackSubmitted,
     isAnswered,
     isCorrect,
     answers,
@@ -152,6 +206,8 @@ export function useRadioSession({
     history,
     startScenario,
     selectOption,
+    toggleChip,
+    submitReadback,
     advance,
     resetToDashboard,
   };

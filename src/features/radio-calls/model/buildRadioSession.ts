@@ -1,5 +1,16 @@
-import type { RadioMCQ, RadioOptionId, RadioScenario } from "@/content/model/radio";
-import type { RadioAnswerMap, RadioAnswerRecord, RadioResult, RadioSessionShape } from "./types";
+import type {
+  RadioChallenge,
+  RadioMCQ,
+  RadioOptionId,
+  RadioReadback,
+  RadioScenario,
+} from "@/content/model/radio";
+import type {
+  RadioAnswerMap,
+  RadioAnswerRecord,
+  RadioResult,
+  RadioSessionShape,
+} from "./types";
 
 /**
  * Shape a scenario for a fresh session run. Currently a deterministic walk
@@ -15,7 +26,7 @@ export function buildRadioSession(scenario: RadioScenario): RadioSessionShape {
   };
 }
 
-export interface RadioAnswerOutcome {
+export interface RadioMcqOutcome {
   isCorrect: boolean;
   correctOptionId: RadioOptionId;
 }
@@ -23,10 +34,37 @@ export interface RadioAnswerOutcome {
 export function evaluateRadioMcq(
   question: RadioMCQ,
   optionId: RadioOptionId,
-): RadioAnswerOutcome {
+): RadioMcqOutcome {
   return {
     isCorrect: optionId === question.correctOptionId,
     correctOptionId: question.correctOptionId,
+  };
+}
+
+export interface RadioReadbackOutcome {
+  isCorrect: boolean;
+  /** Chip ids the learner missed. */
+  missingIds: string[];
+  /** Chip ids the learner selected that weren't required. */
+  extraIds: string[];
+}
+
+/**
+ * A readback is correct when the selected chips equal the required chips
+ * exactly — no missing, no extras. Order is not significant.
+ */
+export function evaluateRadioReadback(
+  readback: RadioReadback,
+  selectedChipIds: readonly string[],
+): RadioReadbackOutcome {
+  const selected = new Set(selectedChipIds);
+  const required = new Set(readback.requiredIds);
+  const missingIds = readback.requiredIds.filter((id) => !selected.has(id));
+  const extraIds = [...selected].filter((id) => !required.has(id));
+  return {
+    isCorrect: missingIds.length === 0 && extraIds.length === 0,
+    missingIds,
+    extraIds,
   };
 }
 
@@ -35,10 +73,25 @@ export function buildRadioAnswer(
   optionId: RadioOptionId,
 ): RadioAnswerRecord {
   return {
+    kind: "mcq",
     questionId: question.id,
     selectedOptionId: optionId,
     correctOptionId: question.correctOptionId,
     isCorrect: optionId === question.correctOptionId,
+  };
+}
+
+export function buildRadioReadbackAnswer(
+  readback: RadioReadback,
+  selectedChipIds: readonly string[],
+): RadioAnswerRecord {
+  const outcome = evaluateRadioReadback(readback, selectedChipIds);
+  return {
+    kind: "readback",
+    questionId: readback.id,
+    selectedChipIds: [...selectedChipIds],
+    requiredChipIds: [...readback.requiredIds],
+    isCorrect: outcome.isCorrect,
   };
 }
 
@@ -48,7 +101,7 @@ export function isRadioSessionOver(currentLegIndex: number, totalLegs: number): 
 
 /**
  * Build the final per-leg breakdown once the learner reaches the end.
- * Legs without a question are skipped in the breakdown (informational only).
+ * Legs without a question (or without an answer recorded for it) are skipped.
  */
 export function buildRadioResult(
   scenario: RadioScenario,
@@ -58,16 +111,16 @@ export function buildRadioResult(
   let correct = 0;
 
   for (const leg of scenario.legs) {
-    if (!leg.question) continue;
-    const answer = answers[leg.question.id];
+    const challenge: RadioChallenge | undefined = leg.question;
+    if (!challenge) continue;
+    const answer = answers[challenge.id];
     if (!answer) continue;
     if (answer.isCorrect) correct += 1;
     perLeg.push({
       legId: leg.id,
-      questionId: leg.question.id,
+      questionId: challenge.id,
       isCorrect: answer.isCorrect,
-      selectedOptionId: answer.selectedOptionId,
-      correctOptionId: answer.correctOptionId,
+      kind: challenge.kind,
     });
   }
 

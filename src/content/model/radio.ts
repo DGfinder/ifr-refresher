@@ -27,9 +27,12 @@ export interface RadioOption {
   text: string;
 }
 
+/**
+ * Multiple-choice question: "pick the right call as a single sentence".
+ */
 export interface RadioMCQ {
-  /** Stable id, unique within its scenario. Used as part of the persisted
-   * answer key — do not rename without a migration. */
+  kind: "mcq";
+  /** Stable id, unique within its scenario. */
   id: string;
   prompt: string;
   options: RadioOption[];
@@ -37,13 +40,40 @@ export interface RadioMCQ {
   explanation?: string;
 }
 
+/**
+ * Readback chip-pick: the learner toggles each chip on/off and must end up
+ * with exactly the required set selected. Tests "do you know WHICH elements
+ * must be read back" rather than full-sentence phrasing.
+ */
+export interface ReadbackChip {
+  /** Free-form id, unique within the readback. Persists in user history
+   * once we wire it into storage. */
+  id: string;
+  text: string;
+}
+
+export interface RadioReadback {
+  kind: "readback";
+  /** Stable id, unique within its scenario. */
+  id: string;
+  prompt: string;
+  chips: ReadbackChip[];
+  /** Chip ids that MUST be selected. A correct answer is exactly this set
+   * (no missing, no extras). */
+  requiredIds: string[];
+  explanation?: string;
+}
+
+export type RadioChallenge = RadioMCQ | RadioReadback;
+
 export interface RadioLeg {
   /** Stable id, unique within its scenario. */
   id: string;
   transmission: RadioTransmission;
   /** Present on pilot legs the learner must answer. ATC legs and scripted
-   * pilot follow-ups omit this. */
-  question?: RadioMCQ;
+   * pilot follow-ups omit this. Tagged via `kind` so MCQ and chip-pick
+   * readback are mutually exclusive per leg. */
+  question?: RadioChallenge;
 }
 
 export interface RadioBriefing {

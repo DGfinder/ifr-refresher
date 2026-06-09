@@ -20,6 +20,7 @@
         "text": "Bankstown Tower, Lima Echo Foxtrot, IFR clearance to Coffs Harbour, information Mike."
       },
       "question": {
+        "kind": "mcq",
         "id": "q-request-clearance",
         "prompt": "You are ready to copy your IFR clearance. ATIS Mike is current. What is the correct initial call to Bankstown Tower?",
         "options": [
@@ -41,23 +42,27 @@
       }
     },
     {
-      "id": "leg-3-readback",
+      "id": "leg-3-readback-elements",
       "transmission": {
         "speaker": "pilot",
         "station": "tower",
         "text": "Cleared to Coffs Harbour via flight planned route, climb to seven thousand, squawk four one two three, Lima Echo Foxtrot."
       },
       "question": {
-        "id": "q-readback",
-        "prompt": "Bankstown has just issued your clearance. What is the correct readback?",
-        "options": [
-          { "id": "A", "text": "Roger, cleared Coffs, climb seven thousand, squawk four one two three." },
-          { "id": "B", "text": "Cleared to Coffs Harbour via flight planned route, climb to seven thousand, squawk four one two three, Lima Echo Foxtrot." },
-          { "id": "C", "text": "Lima Echo Foxtrot copies the clearance, ready to taxi." },
-          { "id": "D", "text": "Cleared Coffs Harbour, climbing seven thousand, squawking four one two three." }
+        "kind": "readback",
+        "id": "q-readback-elements",
+        "prompt": "Tick every element you must read back from Bankstown's clearance.",
+        "chips": [
+          { "id": "clearance-limit", "text": "Clearance limit (Coffs Harbour)" },
+          { "id": "route", "text": "Route (via flight planned route)" },
+          { "id": "altitude", "text": "Altitude assignment (seven thousand)" },
+          { "id": "squawk", "text": "Squawk code (4123)" },
+          { "id": "callsign", "text": "Your callsign at the end" },
+          { "id": "wx", "text": "Current weather" },
+          { "id": "fuel", "text": "Fuel remaining" }
         ],
-        "correctOptionId": "B",
-        "explanation": "AIP GEN 3.4 requires verbatim readback of: clearance limit, route, climb/altitude assignment, and squawk code, ending with your callsign. \"Roger\" is not an acknowledgement of a clearance."
+        "requiredIds": ["clearance-limit", "route", "altitude", "squawk", "callsign"],
+        "explanation": "AIP GEN 3.4 / MATS Part 4 mandatory readback for an IFR clearance: clearance limit, route, level assignment, squawk, and your callsign. Weather and fuel are not part of a clearance readback."
       }
     },
     {
@@ -76,6 +81,7 @@
         "text": "Bankstown Ground, Lima Echo Foxtrot, ready for taxi, information Mike."
       },
       "question": {
+        "kind": "mcq",
         "id": "q-taxi-request",
         "prompt": "You've switched to Ground 121.7. What is the correct call to request taxi?",
         "options": [
@@ -104,6 +110,7 @@
         "text": "Taxi to holding point Alpha runway two nine right via Alpha, QNH one zero one eight, Lima Echo Foxtrot."
       },
       "question": {
+        "kind": "mcq",
         "id": "q-taxi-readback",
         "prompt": "Which items must be read back from Ground's taxi clearance?",
         "options": [

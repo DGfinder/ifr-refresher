@@ -176,28 +176,62 @@ if (fs.existsSync(radioDir)) {
         if (leg.question !== undefined) {
           hasQuestion = true;
           const qLabel = `${legLabel}:question`;
-          if (!isNonEmptyString(leg.question.id)) errors.push(`${qLabel}: missing id`);
-          else if (questionIds.has(leg.question.id)) errors.push(`${qLabel}: duplicate question id ${leg.question.id}`);
-          else questionIds.add(leg.question.id);
-
-          if (!isNonEmptyString(leg.question.prompt)) errors.push(`${qLabel}: prompt missing`);
-          if (!Array.isArray(leg.question.options) || leg.question.options.length !== 4) {
-            errors.push(`${qLabel}: options must be exactly 4`);
-          } else {
-            const seenOptionIds = new Set();
-            for (const [oi, option] of leg.question.options.entries()) {
-              const oLabel = `${qLabel}:options[${oi}]`;
-              if (!allowedOptionIds.has(option.id)) errors.push(`${oLabel}: id must be A, B, C, or D`);
-              else if (seenOptionIds.has(option.id)) errors.push(`${oLabel}: duplicate option id ${option.id}`);
-              else seenOptionIds.add(option.id);
-              if (!isNonEmptyString(option.text)) errors.push(`${oLabel}: text missing`);
-            }
+          const challenge = leg.question;
+          if (challenge.kind !== "mcq" && challenge.kind !== "readback") {
+            errors.push(`${qLabel}: kind must be "mcq" or "readback"`);
+            continue;
           }
-          if (!allowedOptionIds.has(leg.question.correctOptionId)) {
-            errors.push(`${qLabel}: correctOptionId must be A, B, C, or D`);
-          } else if (Array.isArray(leg.question.options)) {
-            const matches = leg.question.options.some((o) => o.id === leg.question.correctOptionId);
-            if (!matches) errors.push(`${qLabel}: correctOptionId does not match any option`);
+          if (!isNonEmptyString(challenge.id)) errors.push(`${qLabel}: missing id`);
+          else if (questionIds.has(challenge.id)) errors.push(`${qLabel}: duplicate question id ${challenge.id}`);
+          else questionIds.add(challenge.id);
+          if (!isNonEmptyString(challenge.prompt)) errors.push(`${qLabel}: prompt missing`);
+
+          if (challenge.kind === "mcq") {
+            if (!Array.isArray(challenge.options) || challenge.options.length !== 4) {
+              errors.push(`${qLabel}: options must be exactly 4`);
+            } else {
+              const seenOptionIds = new Set();
+              for (const [oi, option] of challenge.options.entries()) {
+                const oLabel = `${qLabel}:options[${oi}]`;
+                if (!allowedOptionIds.has(option.id)) errors.push(`${oLabel}: id must be A, B, C, or D`);
+                else if (seenOptionIds.has(option.id)) errors.push(`${oLabel}: duplicate option id ${option.id}`);
+                else seenOptionIds.add(option.id);
+                if (!isNonEmptyString(option.text)) errors.push(`${oLabel}: text missing`);
+              }
+            }
+            if (!allowedOptionIds.has(challenge.correctOptionId)) {
+              errors.push(`${qLabel}: correctOptionId must be A, B, C, or D`);
+            } else if (Array.isArray(challenge.options)) {
+              const matches = challenge.options.some((o) => o.id === challenge.correctOptionId);
+              if (!matches) errors.push(`${qLabel}: correctOptionId does not match any option`);
+            }
+          } else {
+            // readback
+            if (!Array.isArray(challenge.chips) || challenge.chips.length < 2) {
+              errors.push(`${qLabel}: readback chips must be a non-trivial array (at least 2)`);
+            } else {
+              const seenChipIds = new Set();
+              for (const [ci, chip] of challenge.chips.entries()) {
+                const cLabel = `${qLabel}:chips[${ci}]`;
+                if (!isNonEmptyString(chip.id)) errors.push(`${cLabel}: id missing`);
+                else if (seenChipIds.has(chip.id)) errors.push(`${cLabel}: duplicate chip id ${chip.id}`);
+                else seenChipIds.add(chip.id);
+                if (!isNonEmptyString(chip.text)) errors.push(`${cLabel}: text missing`);
+              }
+              if (!Array.isArray(challenge.requiredIds) || challenge.requiredIds.length === 0) {
+                errors.push(`${qLabel}: requiredIds must be a non-empty array`);
+              } else {
+                const chipIdSet = new Set(challenge.chips.map((c) => c.id));
+                for (const reqId of challenge.requiredIds) {
+                  if (!chipIdSet.has(reqId)) {
+                    errors.push(`${qLabel}: required id "${reqId}" does not match any chip`);
+                  }
+                }
+                if (challenge.requiredIds.length >= challenge.chips.length) {
+                  errors.push(`${qLabel}: readback must include at least one non-required (distractor) chip`);
+                }
+              }
+            }
           }
         }
       }

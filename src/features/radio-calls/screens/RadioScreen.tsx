@@ -6,6 +6,7 @@ import { useRadioSession } from "@/features/radio-calls/hooks/useRadioSession";
 import { RadioDashboard } from "@/features/radio-calls/components/RadioDashboard";
 import { TransmissionFeed } from "@/features/radio-calls/components/TransmissionFeed";
 import { NextCallChoice } from "@/features/radio-calls/components/NextCallChoice";
+import { ReadbackBuilder } from "@/features/radio-calls/components/ReadbackBuilder";
 import { RadioResults } from "@/features/radio-calls/components/RadioResults";
 
 export function RadioScreen() {
@@ -98,14 +99,24 @@ export function RadioScreen() {
           className="mb-4"
         />
 
-        {/* Current question (if any) or continue button */}
+        {/* Current challenge (mcq or readback) or continue button */}
         {currentLeg.question ? (
           <>
-            <NextCallChoice
-              question={currentLeg.question}
-              selectedOptionId={session.selectedOptionId}
-              onSelect={session.selectOption}
-            />
+            {currentLeg.question.kind === "mcq" ? (
+              <NextCallChoice
+                question={currentLeg.question}
+                selectedOptionId={session.selectedOptionId}
+                onSelect={session.selectOption}
+              />
+            ) : (
+              <ReadbackBuilder
+                readback={currentLeg.question}
+                selectedChipIds={session.selectedChipIds}
+                isSubmitted={session.isReadbackSubmitted}
+                onToggleChip={session.toggleChip}
+                onSubmit={session.submitReadback}
+              />
+            )}
             {session.isAnswered && (
               <button
                 type="button"
