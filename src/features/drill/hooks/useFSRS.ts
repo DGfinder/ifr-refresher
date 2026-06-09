@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect } from "react";
-import { createEmptyCard, fsrs as createFSRS, Rating, type Card, type Grade } from "ts-fsrs";
+import type { Card } from "ts-fsrs";
 import type { DrillQuestion } from "@/features/drill/model/types";
 import { storage } from "@/platform/storage/idbStorage";
 import {
@@ -14,14 +14,31 @@ const STORAGE_KEY = "ifrFSRS";
 
 type FSRSRating = "again" | "hard" | "good" | "easy";
 
-const scheduler = createFSRS();
+// Lazy-load ts-fsrs so the ~10KB gzip lives outside the initial drill route
+// bundle. Only `rateCard` (and `getCard`'s empty-card fallback) actually need
+// the library; the sync helpers (getDueCards / getNewCards) work off the
+// already-persisted Card shape and don't need the runtime at all.
+type TsFsrsModule = typeof import("ts-fsrs");
+type Scheduler = ReturnType<TsFsrsModule["fsrs"]>;
 
-function ratingToFSRS(rating: FSRSRating): Grade {
+let tsFsrsPromise: Promise<{ mod: TsFsrsModule; scheduler: Scheduler }> | null = null;
+
+function loadTsFsrs() {
+  if (!tsFsrsPromise) {
+    tsFsrsPromise = import("ts-fsrs").then((mod) => ({
+      mod,
+      scheduler: mod.fsrs(),
+    }));
+  }
+  return tsFsrsPromise;
+}
+
+function ratingToFSRS(mod: TsFsrsModule, rating: FSRSRating): import("ts-fsrs").Grade {
   switch (rating) {
-    case "again": return Rating.Again;
-    case "hard":  return Rating.Hard;
-    case "good":  return Rating.Good;
-    case "easy":  return Rating.Easy;
+    case "again": return mod.Rating.Again;
+    case "hard":  return mod.Rating.Hard;
+    case "good":  return mod.Rating.Good;
+    case "easy":  return mod.Rating.Easy;
   }
 }
 
@@ -66,14 +83,18 @@ export function useFSRS() {
 
   const getCard = useCallback(async (questionId: string): Promise<Card> => {
     const store = await loadStore();
-    return store[questionId]?.card ?? createEmptyCard();
+    const existing = store[questionId];
+    if (existing) return existing.card;
+    const { mod } = await loadTsFsrs();
+    return mod.createEmptyCard();
   }, []);
 
   const rateCard = useCallback(async (questionId: string, rating: FSRSRating): Promise<void> => {
     const store = await loadStore();
+    const { mod, scheduler } = await loadTsFsrs();
     const existing = store[questionId];
-    const card: Card = existing ? existing.card : createEmptyCard();
-    const result = scheduler.next(card, new Date(), ratingToFSRS(rating));
+    const card: Card = existing ? existing.card : mod.createEmptyCard();
+    const result = scheduler.next(card, new Date(), ratingToFSRS(mod, rating));
     const updated: FSRSStore = { ...store, [questionId]: wrapCard(result.card) };
     await saveStore(updated);
   }, []);
@@ -81,7 +102,8 @@ export function useFSRS() {
   /**
    * Sync read against the in-memory cache. Returns [] until loadStore() has
    * resolved at least once; callers either await getDueCount() first or
-   * accept the empty result during initial hydration.
+   * accept the empty result during initial hydration. Does not need ts-fsrs
+   * at runtime — only reads the already-persisted Card shape.
    */
   const getDueCards = useCallback((allQuestions: DrillQuestion[]): DrillQuestion[] => {
     const store = moduleCache ?? {};
