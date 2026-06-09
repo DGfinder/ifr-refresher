@@ -1,5 +1,6 @@
 export { RadioScreen } from "./screens/RadioScreen";
 export { useRadioSession } from "./hooks/useRadioSession";
+export { useRadioAudio } from "./hooks/useRadioAudio";
 export {
   buildRadioSession,
   evaluateRadioMcq,

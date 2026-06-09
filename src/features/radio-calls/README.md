@@ -32,6 +32,6 @@ Every scenario must:
 
 ## Out of scope (today)
 
-- Audio playback / TTS — Phase 3.
-- Speech recognition for verbal readback — Phase 3, online-only.
-- Persisting radio session history to IndexedDB — Phase 2.
+- Speech recognition for verbal readback — Phase 3 follow-up, online-only.
+- Persisting per-leg / per-question FSRS state (each MCQ as a drillable atom)
+  — Phase 4.
