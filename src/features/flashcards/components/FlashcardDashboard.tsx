@@ -23,7 +23,9 @@ function shuffle<T>(arr: T[]): T[] {
   const copy = [...arr];
   for (let i = copy.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
+    const temp = copy[i]!;
+    copy[i] = copy[j]!;
+    copy[j] = temp;
   }
   return copy;
 }
@@ -34,7 +36,10 @@ export function buildSessionQueue(
   mode: StudyMode
 ): DrillQuestion[] {
   if (mode === "new") {
-    return shuffle(questions.filter((q) => !stats[q.id] || stats[q.id].seenCount === 0));
+    return shuffle(questions.filter((q) => {
+      const s = stats[q.id];
+      return !s || s.seenCount === 0;
+    }));
   }
   if (mode === "weak") {
     return shuffle(
@@ -46,8 +51,14 @@ export function buildSessionQueue(
     );
   }
   // "all": unseen first, then seen
-  const unseen = questions.filter((q) => !stats[q.id] || stats[q.id].seenCount === 0);
-  const seen = questions.filter((q) => stats[q.id] && stats[q.id].seenCount > 0);
+  const unseen = questions.filter((q) => {
+    const s = stats[q.id];
+    return !s || s.seenCount === 0;
+  });
+  const seen = questions.filter((q) => {
+    const s = stats[q.id];
+    return s !== undefined && s.seenCount > 0;
+  });
   return [...shuffle(unseen), ...shuffle(seen)];
 }
 
@@ -68,9 +79,10 @@ export function FlashcardDashboard({
     programId,
   });
 
-  const newCount = filteredQuestions.filter(
-    (q) => !stats[q.id] || stats[q.id].seenCount === 0
-  ).length;
+  const newCount = filteredQuestions.filter((q) => {
+    const s = stats[q.id];
+    return !s || s.seenCount === 0;
+  }).length;
   const weakCount = getWeakCount();
   const totalCount = filteredQuestions.length;
   const seenCount = getSeenCount();

@@ -50,9 +50,10 @@ export function useKeyboardNav({
       const key = event.key;
 
       // Option selection (1-4 or A-D)
-      if (!isAnswered && key in OPTION_KEYS) {
+      const mappedOption = OPTION_KEYS[key];
+      if (!isAnswered && mappedOption) {
         event.preventDefault();
-        onSelectOption(OPTION_KEYS[key]);
+        onSelectOption(mappedOption);
         return;
       }
 

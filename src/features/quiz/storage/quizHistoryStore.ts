@@ -10,7 +10,7 @@ const MAX_HISTORY = 50;
  * Get current date in YYYY-MM-DD format
  */
 function getToday(): string {
-  return new Date().toISOString().split("T")[0];
+  return new Date().toISOString().split("T")[0]!;
 }
 
 /**

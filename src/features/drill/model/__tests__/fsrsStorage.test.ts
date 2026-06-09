@@ -36,8 +36,8 @@ describe("migrateFSRSStore", () => {
     };
     const out = migrateFSRSStore(stored);
     expect(out["sec:mod:legacy_qa-0"]).toBeDefined();
-    expect(out["sec:mod:legacy_qa-0"].schemaTag).toBe(FSRS_SCHEMA_TAG);
-    expect(out["sec:mod:legacy_qa-0"].card).toEqual(card);
+    expect(out["sec:mod:legacy_qa-0"]!.schemaTag).toBe(FSRS_SCHEMA_TAG);
+    expect(out["sec:mod:legacy_qa-0"]!.card).toEqual(card);
   });
 
   it("drops entries with a mismatched schemaTag (e.g. future ts-fsrs)", () => {
@@ -63,9 +63,9 @@ describe("migrateFSRSStore", () => {
     const out = migrateFSRSStore(legacyStore);
     const entry = out["sec:mod:legacy_qa-0"];
     expect(entry).toBeDefined();
-    expect(entry.v).toBe(1);
-    expect(entry.schemaTag).toBe(FSRS_SCHEMA_TAG);
-    expect(entry.card).toBe(card);
+    expect(entry!.v).toBe(1);
+    expect(entry!.schemaTag).toBe(FSRS_SCHEMA_TAG);
+    expect(entry!.card).toBe(card);
   });
 
   it("handles a mix of legacy and envelope entries in one store", () => {
@@ -76,8 +76,8 @@ describe("migrateFSRSStore", () => {
       enveloped: wrapCard(envelopedCard),
     };
     const out = migrateFSRSStore(mixed);
-    expect(out.legacy.card).toBe(legacyCard);
-    expect(out.enveloped.card).toBe(envelopedCard);
+    expect(out.legacy!.card).toBe(legacyCard);
+    expect(out.enveloped!.card).toBe(envelopedCard);
   });
 
   it("drops corrupt entries silently and keeps the rest", () => {

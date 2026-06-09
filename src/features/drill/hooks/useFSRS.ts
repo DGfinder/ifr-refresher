@@ -71,7 +71,8 @@ export function useFSRS() {
 
   const rateCard = useCallback(async (questionId: string, rating: FSRSRating): Promise<void> => {
     const store = await loadStore();
-    const card = store[questionId]?.card ?? createEmptyCard();
+    const existing = store[questionId];
+    const card: Card = existing ? existing.card : createEmptyCard();
     const result = scheduler.next(card, new Date(), ratingToFSRS(rating));
     const updated: FSRSStore = { ...store, [questionId]: wrapCard(result.card) };
     await saveStore(updated);

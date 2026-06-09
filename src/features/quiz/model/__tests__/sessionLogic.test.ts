@@ -193,9 +193,9 @@ describe("buildSectionBreakdown", () => {
       makeQuiz({ id: "b:m:legacy_qa-0", sectionId: "b" }),
     ];
     const answers = [
-      buildAnswer(qs[0], "A", { timeSpentMs: 0, skipped: false, flagged: false }), // correct
-      buildAnswer(qs[1], "B", { timeSpentMs: 0, skipped: false, flagged: false }), // wrong
-      buildAnswer(qs[2], "A", { timeSpentMs: 0, skipped: false, flagged: false }), // correct
+      buildAnswer(qs[0]!, "A", { timeSpentMs: 0, skipped: false, flagged: false }), // correct
+      buildAnswer(qs[1]!, "B", { timeSpentMs: 0, skipped: false, flagged: false }), // wrong
+      buildAnswer(qs[2]!, "A", { timeSpentMs: 0, skipped: false, flagged: false }), // correct
     ];
     const breakdown = buildSectionBreakdown(qs, answers);
     expect(breakdown).toEqual({
@@ -220,8 +220,8 @@ describe("buildSessionResult", () => {
 
   it("computes correct/incorrect/skipped counts and duration", () => {
     const answers = [
-      buildAnswer(qs[0], "A", { timeSpentMs: 0, skipped: false, flagged: false }), // correct
-      buildAnswer(qs[1], null, { timeSpentMs: 0, skipped: true, flagged: false }), // skipped
+      buildAnswer(qs[0]!, "A", { timeSpentMs: 0, skipped: false, flagged: false }), // correct
+      buildAnswer(qs[1]!, null, { timeSpentMs: 0, skipped: true, flagged: false }), // skipped
     ];
     const result = buildSessionResult({
       config: baseConfig,

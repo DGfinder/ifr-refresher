@@ -65,7 +65,7 @@ describe("buildQuizQuestions", () => {
   it("option IDs are A, B, C, D", () => {
     const pool = makePool(10);
     const result = buildQuizQuestions(pool, 1);
-    const ids = result[0].options.map((o) => o.id);
+    const ids = result[0]!.options.map((o) => o.id);
     expect(ids).toEqual(["A", "B", "C", "D"]);
   });
 
@@ -110,7 +110,7 @@ describe("buildQuizQuestions", () => {
         }),
       ];
       const result = buildQuizQuestions(authored, 1);
-      const texts = result[0].options.map((o) => o.text);
+      const texts = result[0]!.options.map((o) => o.text);
       expect(texts).toContain("Correct answer");
       expect(texts).toContain("Wrong A");
       expect(texts).toContain("Wrong B");
@@ -121,12 +121,12 @@ describe("buildQuizQuestions", () => {
       // Pool with many answers — none should appear if authored distractors are used
       const pool = makePool(10);
       pool[0] = {
-        ...pool[0],
+        ...pool[0]!,
         answer: "The real answer",
         distractors: ["Distractor X", "Distractor Y", "Distractor Z"],
       };
-      const result = buildQuizQuestions([pool[0]], 1);
-      const texts = result[0].options.map((o) => o.text);
+      const result = buildQuizQuestions([pool[0]!], 1);
+      const texts = result[0]!.options.map((o) => o.text);
       expect(texts).toContain("Distractor X");
       expect(texts).toContain("Distractor Y");
       expect(texts).toContain("Distractor Z");
@@ -138,9 +138,9 @@ describe("buildQuizQuestions", () => {
       // 4 questions in same module — distractors should come from within
       const sameModule = makePool(4, "section-a", "mod-same");
       const result = buildQuizQuestions(sameModule, 1);
-      const correct = sameModule.find((q) => q.id === result[0].id)!;
+      const correct = sameModule.find((q) => q.id === result[0]!.id)!;
       const moduleAnswers = sameModule.map((q) => q.answer);
-      const optionTexts = result[0].options.map((o) => o.text);
+      const optionTexts = result[0]!.options.map((o) => o.text);
       // All 4 options should come from within the module pool
       for (const text of optionTexts) {
         expect(moduleAnswers).toContain(text);
@@ -156,8 +156,8 @@ describe("buildQuizQuestions", () => {
       const moduleQ = makePool(2, "sec-x", "mod-a");
       const sectionExtra = makePool(5, "sec-x", "mod-b");
       const allQ = [...moduleQ, ...sectionExtra];
-      const result = buildQuizQuestions([allQ[0]], 1);
-      expect(result[0].options).toHaveLength(4);
+      const result = buildQuizQuestions([allQ[0]!], 1);
+      expect(result[0]!.options).toHaveLength(4);
     });
 
     it("falls back to global pool when section pool is insufficient", () => {
@@ -166,7 +166,7 @@ describe("buildQuizQuestions", () => {
       const globalPool = makePool(10, "sec-other", "mod-other");
       const result = buildQuizQuestions([...lonely, ...globalPool], 1);
       // Result should have 4 options (no crash, no padding)
-      const lonelyResult = result.find((q) => q.id === lonely[0].id);
+      const lonelyResult = result.find((q) => q.id === lonely[0]!.id);
       if (lonelyResult) {
         expect(lonelyResult.options).toHaveLength(4);
         const padded = lonelyResult.options.filter((o) => o.text.startsWith("Option "));

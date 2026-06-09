@@ -198,29 +198,30 @@ export function useDrill(
     if (mode === 'fsrs') {
       const dueCards = fsrs.getDueCards(candidates);
       if (dueCards.length > 0) {
-        return dueCards[Math.floor(Math.random() * dueCards.length)];
+        return dueCards[Math.floor(Math.random() * dueCards.length)] ?? null;
       }
       // Fall back to new cards if nothing due
       const newCards = fsrs.getNewCards(candidates);
       if (newCards.length > 0) {
-        return newCards[Math.floor(Math.random() * newCards.length)];
+        return newCards[Math.floor(Math.random() * newCards.length)] ?? null;
       }
       // Fall back to any card
-      return candidates[Math.floor(Math.random() * candidates.length)];
+      return candidates[Math.floor(Math.random() * candidates.length)] ?? null;
     }
 
     // Adaptive mode (default)
     // 1. Unseen questions first
-    const unseen = candidates.filter(
-      (q) => !stats[q.id] || stats[q.id].seenCount === 0
-    );
+    const unseen = candidates.filter((q) => {
+      const s = stats[q.id];
+      return !s || s.seenCount === 0;
+    });
     if (unseen.length > 0) {
-      return unseen[Math.floor(Math.random() * unseen.length)];
+      return unseen[Math.floor(Math.random() * unseen.length)] ?? null;
     }
 
     // 2. Weak questions (unsure > gotIt)
     const withScores = candidates.map((q) => {
-      const s = stats[q.id] || { gotItCount: 0, unsureCount: 0 };
+      const s = stats[q.id] ?? { gotItCount: 0, unsureCount: 0 };
       return { question: q, weakness: s.unsureCount - s.gotItCount };
     });
 
@@ -228,7 +229,7 @@ export function useDrill(
     const weakest = withScores.filter((x) => x.weakness === maxWeakness);
 
     // 3. Random among ties
-    return weakest[Math.floor(Math.random() * weakest.length)].question;
+    return weakest[Math.floor(Math.random() * weakest.length)]?.question ?? null;
   }, [filteredQuestions, stats, mode, fsrs]);
 
   // Get count of weak questions (unsure > gotIt)

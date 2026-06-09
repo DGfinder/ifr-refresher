@@ -1,5 +1,5 @@
 import type { Section, ContentBlock } from "@/content/model/section";
-import type { DrillQuestion, QuestionSourceKind } from "@/features/drill/model/types";
+import type { DrillQuestion } from "@/features/drill/model/types";
 
 /**
  * Parse a "Q: ... A: ..." formatted string into question/answer parts
@@ -8,7 +8,7 @@ function parseQAString(qaString: string): { question: string; answer: string } |
   // Match "Q: ... A: ..." format ([\s\S] matches any char including newlines)
   const match = qaString.match(/^Q:\s*([\s\S]+?)\s*A:\s*([\s\S]+)$/);
   if (!match) return null;
-  return { question: match[1].trim(), answer: match[2].trim() };
+  return { question: match[1]!.trim(), answer: match[2]!.trim() };
 }
 
 /**
@@ -40,7 +40,7 @@ export function buildDrillQuestions(sections: Section[]): DrillQuestion[] {
   for (const section of sections) {
     for (const studyModule of section.modules) {
       // Track indexes per kind for unique IDs
-      const kindIndexes: Record<string, number> = {
+      const kindIndexes: KindIndexes = {
         legacy_qa: 0,
         ipc: 0,
         airline: 0,
@@ -57,11 +57,13 @@ export function buildDrillQuestions(sections: Section[]): DrillQuestion[] {
   return questions;
 }
 
+type KindIndexes = Record<"legacy_qa" | "ipc" | "airline" | "trap" | "numeric", number>;
+
 function processBlock(
   block: ContentBlock,
   section: Section,
   module: { id: string; title: string; level: "core" | "advanced" | "airline"; tags: string[] },
-  kindIndexes: Record<string, number>,
+  kindIndexes: KindIndexes,
   questions: DrillQuestion[]
 ): void {
   const baseInfo = {
@@ -74,7 +76,7 @@ function processBlock(
 
   switch (block.type) {
     case "qa": {
-      const kind: QuestionSourceKind = "legacy_qa";
+      const kind = "legacy_qa" as const;
       const index = kindIndexes[kind]++;
       questions.push({
         ...baseInfo,
@@ -89,7 +91,7 @@ function processBlock(
     }
 
     case "ipc_questions": {
-      const kind: QuestionSourceKind = "ipc";
+      const kind = "ipc" as const;
       for (const qaString of block.content) {
         const parsed = parseQAString(qaString);
         if (parsed) {
@@ -108,7 +110,7 @@ function processBlock(
     }
 
     case "airline_questions": {
-      const kind: QuestionSourceKind = "airline";
+      const kind = "airline" as const;
       for (const qaString of block.content) {
         const parsed = parseQAString(qaString);
         if (parsed) {
@@ -127,7 +129,7 @@ function processBlock(
     }
 
     case "traps": {
-      const kind: QuestionSourceKind = "trap";
+      const kind = "trap" as const;
       for (const item of block.content) {
         const parsed = splitEmDash(item);
         if (!parsed) continue; // skip items without separator
@@ -145,7 +147,7 @@ function processBlock(
     }
 
     case "numbers": {
-      const kind: QuestionSourceKind = "numeric";
+      const kind = "numeric" as const;
       for (const item of block.content) {
         const parsed = splitEmDash(item);
         if (!parsed) continue; // skip items without separator

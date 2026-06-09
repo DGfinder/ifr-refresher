@@ -9,7 +9,9 @@ function shuffle<T>(array: T[]): T[] {
   const result = [...array];
   for (let i = result.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
+    const temp = result[i]!;
+    result[i] = result[j]!;
+    result[j] = temp;
   }
   return result;
 }
@@ -35,11 +37,13 @@ export function buildQuizQuestions(
 
   for (const q of drillQuestions) {
     const moduleKey = `${q.sectionId}::${q.moduleId}`;
-    if (!answersByModule[moduleKey]) answersByModule[moduleKey] = new Set();
-    answersByModule[moduleKey].add(q.answer);
+    const moduleSet = answersByModule[moduleKey] ?? new Set<string>();
+    moduleSet.add(q.answer);
+    answersByModule[moduleKey] = moduleSet;
 
-    if (!answersBySection[q.sectionId]) answersBySection[q.sectionId] = new Set();
-    answersBySection[q.sectionId].add(q.answer);
+    const sectionSet = answersBySection[q.sectionId] ?? new Set<string>();
+    sectionSet.add(q.answer);
+    answersBySection[q.sectionId] = sectionSet;
   }
 
   // Global unique answer pool (fallback)
@@ -85,10 +89,10 @@ export function buildQuizQuestions(
     // Place correct answer + distractors in random positions
     const allOptions = shuffle([correctAnswer, ...distractors]);
     const correctIndex = allOptions.indexOf(correctAnswer);
-    const correctOptionId = OPTION_IDS[correctIndex];
+    const correctOptionId = OPTION_IDS[correctIndex]!;
 
     const options: QuizOption[] = allOptions.map((text, index) => ({
-      id: OPTION_IDS[index],
+      id: OPTION_IDS[index]!,
       text,
     }));
 

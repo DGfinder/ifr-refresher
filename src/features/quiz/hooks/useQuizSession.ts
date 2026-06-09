@@ -98,7 +98,7 @@ export function useQuizSession({
   // Derived values
   const currentQuestion = useMemo(() => {
     if (phase !== "session" || currentIndex >= questions.length) return null;
-    return questions[currentIndex];
+    return questions[currentIndex] ?? null;
   }, [phase, currentIndex, questions]);
 
   const totalQuestions = questions.length;

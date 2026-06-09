@@ -66,6 +66,11 @@ function StudyPageContent() {
     return getCompletionStats(currentSection.sectionId, currentSection.modules);
   }, [currentSection, getCompletionStats]);
 
+  // Guard for the (in practice unreachable) empty-sections case so the rest of
+  // the component can treat currentSection as defined. Sections come from the
+  // content registry which is validated non-empty by `check-content.mjs`.
+  if (!currentSection) return null;
+
   // Handle section selection
   const handleSelectSection = (sectionId: string) => {
     setSelectedSectionId(sectionId);
