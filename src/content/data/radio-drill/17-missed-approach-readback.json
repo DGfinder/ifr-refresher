@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "drillId": "drill-missed-approach-readback",
+  "phase": "final",
+  "title": "Read back missed approach instructions",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "destination": "YSCB",
+    "flightRules": "IFR",
+    "summary": "Just announced 'going around'. Tower has issued follow-up missed-approach instructions.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "tower",
+      "text": "Mike X-ray Golf, runway heading, climb to four thousand, contact Canberra Approach one two five decimal one."
+    }
+  },
+  "tags": ["final", "missed-approach", "readback", "mandatory-readback"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-missed-approach-readback",
+    "prompt": "Read back the missed-approach instructions.",
+    "expectedText": "Runway heading, climb to four thousand, Canberra Approach one two five decimal one, Mike X-ray Golf.",
+    "elements": [
+      {
+        "label": "Heading",
+        "accept": ["runway heading", "heading runway heading"],
+        "required": true
+      },
+      {
+        "label": "Climb",
+        "accept": [
+          "climb to four thousand",
+          "climb four thousand",
+          "climbing four thousand",
+          "four thousand"
+        ],
+        "required": true
+      },
+      {
+        "label": "Frequency",
+        "accept": [
+          "Canberra Approach one two five decimal one",
+          "one two five decimal one",
+          "Approach one two five decimal one",
+          "125.1"
+        ],
+        "required": true,
+        "hint": "Frequency change is a mandatory readback — include the full station and frequency."
+      },
+      {
+        "label": "Callsign at end",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      }
+    ],
+    "explanation": "MATS Part 4: heading + level + frequency change are all mandatory readback items. Stack them in the order ATC issued them."
+  },
+  "refs": [
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items."
+    },
+    {
+      "source": "AIP Australia ENR 1.5",
+      "section": "Holding, approach and departure procedures — missed approach",
+      "note": "Source/access date 2026-06-09. Missed-approach handling and follow-up instructions."
+    }
+  ]
+}

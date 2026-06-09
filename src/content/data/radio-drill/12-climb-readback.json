@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "drillId": "drill-climb-readback",
+  "phase": "enroute",
+  "title": "Read back climb instruction",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "Cruising FL180. Centre has just cleared you to climb.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "centre",
+      "text": "Mike X-ray Golf, climb to flight level two two zero."
+    }
+  },
+  "tags": ["enroute", "climb", "readback", "mandatory-readback"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-climb-readback",
+    "prompt": "Read back the climb clearance.",
+    "expectedText": "Climb to flight level two two zero, Mike X-ray Golf.",
+    "elements": [
+      {
+        "label": "Climb instruction",
+        "accept": [
+          "climb to flight level two two zero",
+          "climb flight level two two zero",
+          "climbing flight level two two zero",
+          "climbing FL two two zero",
+          "FL220"
+        ],
+        "required": true
+      },
+      {
+        "label": "Callsign at end",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      }
+    ],
+    "explanation": "MATS Part 4: level changes are a mandatory readback item. Climb + assigned level + callsign — keep it tight."
+  },
+  "refs": [
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items — level instructions."
+    }
+  ]
+}

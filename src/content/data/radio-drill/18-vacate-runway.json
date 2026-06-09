@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "drillId": "drill-vacate-runway",
+  "phase": "final",
+  "title": "Acknowledge vacating the runway",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "destination": "YSCB",
+    "flightRules": "IFR",
+    "summary": "Just touched down on runway 35 at Canberra. Tower has instructed you to vacate via the next taxiway.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "tower",
+      "text": "Mike X-ray Golf, vacate next right via Bravo, contact Ground one two one decimal nine."
+    }
+  },
+  "tags": ["final", "vacate", "ground-switch"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-vacate-readback",
+    "prompt": "Read back the vacate instruction.",
+    "expectedText": "Vacate next right via Bravo, Ground one two one decimal nine, Mike X-ray Golf.",
+    "elements": [
+      {
+        "label": "Vacate instruction",
+        "accept": [
+          "vacate next right via Bravo",
+          "vacate via Bravo",
+          "next right Bravo",
+          "vacating Bravo"
+        ],
+        "required": true,
+        "hint": "Include the taxiway you'll vacate onto so Tower knows your routing."
+      },
+      {
+        "label": "Frequency",
+        "accept": [
+          "Ground one two one decimal nine",
+          "one two one decimal nine",
+          "121.9"
+        ],
+        "required": true
+      },
+      {
+        "label": "Callsign at end",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      }
+    ],
+    "explanation": "MATS Part 4: vacate instructions don't have to be read back verbatim, but the frequency change does. In practice, reading back both confirms the routing for Tower."
+  },
+  "refs": [
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items — frequency change."
+    },
+    {
+      "source": "AIP Australia GEN 3.4",
+      "section": "Communications — General radiotelephony procedures",
+      "note": "Source/access date 2026-06-09. Post-landing taxi instructions."
+    }
+  ]
+}

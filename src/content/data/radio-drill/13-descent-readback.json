@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "drillId": "drill-descent-readback",
+  "phase": "arrival",
+  "title": "Read back descent clearance",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "destination": "YSCB",
+    "flightRules": "IFR",
+    "summary": "Approaching top of descent. Approach has cleared you down.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "approach",
+      "text": "Mike X-ray Golf, descend to seven thousand."
+    }
+  },
+  "tags": ["arrival", "descent", "readback", "mandatory-readback"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-descent-readback",
+    "prompt": "Read back the descent clearance.",
+    "expectedText": "Descend to seven thousand, Mike X-ray Golf.",
+    "elements": [
+      {
+        "label": "Descent instruction",
+        "accept": [
+          "descend to seven thousand",
+          "descend seven thousand",
+          "descending seven thousand",
+          "descending to seven thousand",
+          "seven thousand"
+        ],
+        "required": true
+      },
+      {
+        "label": "Callsign at end",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      }
+    ],
+    "explanation": "MATS Part 4: any level change must be read back verbatim with callsign."
+  },
+  "refs": [
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items — descent."
+    }
+  ]
+}

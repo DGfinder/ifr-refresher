@@ -1,0 +1,62 @@
+{
+  "version": "1.0",
+  "drillId": "drill-vectoring-acknowledgement",
+  "phase": "arrival",
+  "title": "Acknowledge a radar vector",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "destination": "YSCB",
+    "flightRules": "IFR",
+    "summary": "Being vectored to intercept the localiser. Approach has just issued a turn.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "approach",
+      "text": "Mike X-ray Golf, turn left heading two seven zero, descend to five thousand."
+    }
+  },
+  "tags": ["arrival", "vectoring", "readback", "mandatory-readback"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-vectoring-readback",
+    "prompt": "Read back the vector and descent.",
+    "expectedText": "Left heading two seven zero, descend to five thousand, Mike X-ray Golf.",
+    "elements": [
+      {
+        "label": "Turn + heading",
+        "accept": [
+          "left heading two seven zero",
+          "left two seven zero",
+          "heading two seven zero",
+          "turning left two seven zero",
+          "left 270"
+        ],
+        "required": true,
+        "hint": "Include the turn direction and the heading — both are mandatory."
+      },
+      {
+        "label": "Descent",
+        "accept": [
+          "descend to five thousand",
+          "descend five thousand",
+          "descending five thousand",
+          "five thousand"
+        ],
+        "required": true
+      },
+      {
+        "label": "Callsign at end",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      }
+    ],
+    "explanation": "MATS Part 4: heading instructions and level changes are mandatory readback items. Always include turn direction with the heading so ATC knows which way you'll roll."
+  },
+  "refs": [
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items — headings and levels."
+    }
+  ]
+}

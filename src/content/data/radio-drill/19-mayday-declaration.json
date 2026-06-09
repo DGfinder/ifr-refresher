@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "drillId": "drill-mayday-declaration",
+  "phase": "non-normal",
+  "title": "Declare MAYDAY (distress)",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "Cruising FL210 with Brisbane Centre. Engine fire warning on the left engine, unable to extinguish, descending. Need immediate priority handling. Four POB, one hour fuel."
+  },
+  "tags": ["non-normal", "distress", "mayday", "emergency"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-mayday-declaration",
+    "prompt": "Declare MAYDAY to Brisbane Centre and state your situation.",
+    "expectedText": "MAYDAY, MAYDAY, MAYDAY, Brisbane Centre, Mike X-ray Golf, engine fire left engine, descending, request immediate diversion nearest suitable airport, four souls on board, one hour fuel.",
+    "elements": [
+      {
+        "label": "MAYDAY said three times",
+        "accept": ["mayday mayday mayday"],
+        "required": true,
+        "hint": "MAYDAY is spoken three times to establish distress under AIP GEN 3.6. Not 'MAYDAY' once."
+      },
+      {
+        "label": "Addressed station",
+        "accept": ["Brisbane Centre", "Brisbane"],
+        "required": true
+      },
+      {
+        "label": "Callsign",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      },
+      {
+        "label": "Nature of distress",
+        "accept": [
+          "engine fire",
+          "fire left engine",
+          "engine on fire"
+        ],
+        "required": true
+      },
+      {
+        "label": "Intentions",
+        "accept": [
+          "request immediate diversion",
+          "diverting",
+          "nearest suitable airport",
+          "descending"
+        ],
+        "required": true,
+        "hint": "Tell Centre what you're doing — they'll clear the airspace and alert SAR."
+      },
+      {
+        "label": "Souls on board",
+        "accept": ["four souls", "four POB", "four on board"],
+        "required": false
+      },
+      {
+        "label": "Fuel remaining",
+        "accept": ["one hour fuel", "one hour", "one hour of fuel"],
+        "required": false
+      }
+    ],
+    "explanation": "AIP GEN 3.6: MAYDAY is the DISTRESS call (vs PAN PAN for urgency). Format: 'MAYDAY' × 3, station, callsign, nature, intentions, operational info. The 3× repetition is mandatory — it's what gives MAYDAY absolute priority on the frequency."
+  },
+  "refs": [
+    {
+      "source": "AIP Australia GEN 3.6",
+      "section": "Distress and urgency communications",
+      "note": "Source/access date 2026-06-09. MAYDAY distress call format and elements."
+    }
+  ]
+}

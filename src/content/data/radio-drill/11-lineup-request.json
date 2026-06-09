@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "drillId": "drill-lineup-request",
+  "phase": "pre-departure",
+  "title": "Request line-up",
+  "briefing": {
+    "callsign": "Lima Echo Foxtrot",
+    "aircraftType": "PA-31 Chieftain",
+    "departure": "YSBK",
+    "flightRules": "IFR",
+    "summary": "At the holding point for runway 29R. Checks complete, ready for departure. Awaiting line-up instruction."
+  },
+  "tags": ["pre-departure", "lineup"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-lineup-request",
+    "prompt": "Make the call to Bankstown Tower advising you're ready for departure.",
+    "expectedText": "Bankstown Tower, Lima Echo Foxtrot, holding point runway two nine right, ready.",
+    "elements": [
+      {
+        "label": "Addressed station",
+        "accept": ["Bankstown Tower", "Bankstown"],
+        "required": true
+      },
+      {
+        "label": "Callsign",
+        "accept": ["Lima Echo Foxtrot", "LEF"],
+        "required": true
+      },
+      {
+        "label": "Position",
+        "accept": [
+          "holding point runway two nine right",
+          "holding point 29 right",
+          "holding point runway 29 right",
+          "at the holding point"
+        ],
+        "required": true,
+        "hint": "State your position at the holding point with runway designation."
+      },
+      {
+        "label": "Status",
+        "accept": ["ready", "ready for departure"],
+        "required": true
+      }
+    ],
+    "explanation": "AIP GEN 3.4: tell Tower where you are and that you're ready. Don't say 'request take-off' — Tower decides when, you announce readiness."
+  },
+  "refs": [
+    {
+      "source": "AIP Australia GEN 3.4",
+      "section": "Communications — General radiotelephony procedures",
+      "note": "Source/access date 2026-06-09. Pre-departure ready call format."
+    }
+  ]
+}

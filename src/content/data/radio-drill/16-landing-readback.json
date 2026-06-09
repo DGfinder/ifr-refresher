@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "drillId": "drill-landing-readback",
+  "phase": "final",
+  "title": "Read back landing clearance",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "destination": "YSCB",
+    "flightRules": "IFR",
+    "summary": "Established on final approach, runway 35 in sight. Tower has just cleared you to land.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "tower",
+      "text": "Mike X-ray Golf, runway three five, cleared to land, wind three two zero at eight."
+    }
+  },
+  "tags": ["final", "landing", "readback", "mandatory-readback"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-landing-readback",
+    "prompt": "Read back the landing clearance.",
+    "expectedText": "Cleared to land runway three five, Mike X-ray Golf.",
+    "elements": [
+      {
+        "label": "Clearance",
+        "accept": ["cleared to land"],
+        "required": true,
+        "hint": "Use the words 'cleared to land' — not 'landing' or 'on final'."
+      },
+      {
+        "label": "Runway",
+        "accept": ["runway three five", "runway 35", "three five", "35"],
+        "required": true
+      },
+      {
+        "label": "Callsign at end",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      }
+    ],
+    "explanation": "MATS Part 4: landing clearance is a mandatory readback item. Include 'cleared to land' verbatim and the runway. Wind isn't part of the readback."
+  },
+  "refs": [
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items — landing clearance."
+    }
+  ]
+}

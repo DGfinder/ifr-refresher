@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "drillId": "drill-frequency-change-ack",
+  "phase": "enroute",
+  "title": "Acknowledge frequency change",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "flightRules": "IFR",
+    "summary": "Brisbane Centre is handing you off to Sydney Centre.",
+    "lastTransmission": {
+      "speaker": "atc",
+      "station": "centre",
+      "text": "Mike X-ray Golf, contact Sydney Centre one three four decimal eight five."
+    }
+  },
+  "tags": ["enroute", "handoff", "frequency-change", "mandatory-readback"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-frequency-change-ack",
+    "prompt": "Acknowledge the frequency change.",
+    "expectedText": "Sydney Centre one three four decimal eight five, Mike X-ray Golf.",
+    "elements": [
+      {
+        "label": "Receiving station",
+        "accept": ["Sydney Centre", "Sydney"],
+        "required": true
+      },
+      {
+        "label": "Frequency",
+        "accept": [
+          "one three four decimal eight five",
+          "134.85"
+        ],
+        "required": true,
+        "hint": "Read back the full frequency including 'decimal' — not 'point' and not just the digits."
+      },
+      {
+        "label": "Callsign at end",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      }
+    ],
+    "explanation": "MATS Part 4: frequency changes are a mandatory readback item. Read back the station + full frequency + callsign. 'Roger' alone is not a frequency readback."
+  },
+  "refs": [
+    {
+      "source": "MATS Part 4",
+      "chapter": "Pilots' radio standards",
+      "note": "Source/access date 2026-06-09. Mandatory readback items — frequency changes."
+    }
+  ]
+}

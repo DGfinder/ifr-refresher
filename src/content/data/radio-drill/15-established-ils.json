@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "drillId": "drill-established-ils",
+  "phase": "arrival",
+  "title": "Report established on the ILS",
+  "briefing": {
+    "callsign": "Mike X-ray Golf",
+    "aircraftType": "King Air 350",
+    "destination": "YSCB",
+    "flightRules": "IFR",
+    "summary": "Cleared for the ILS runway 35 at Canberra with 'report established'. You have just captured the localiser inbound."
+  },
+  "tags": ["arrival", "ils", "report"],
+  "challenge": {
+    "kind": "spoken",
+    "id": "q-established-ils",
+    "prompt": "Make the report you were asked to make.",
+    "expectedText": "Mike X-ray Golf, established ILS runway three five.",
+    "elements": [
+      {
+        "label": "Callsign first",
+        "accept": ["Mike X-ray Golf", "MXG"],
+        "required": true
+      },
+      {
+        "label": "Established",
+        "accept": ["established"],
+        "required": true,
+        "hint": "Use the word 'established' — it's the specific term ATC asked you to report."
+      },
+      {
+        "label": "Approach + runway",
+        "accept": [
+          "ILS runway three five",
+          "ILS runway 35",
+          "ILS three five",
+          "ILS 35"
+        ],
+        "required": true
+      }
+    ],
+    "explanation": "AIP GEN 3.4: 'report established' calls are short — callsign, the word 'established', and the approach/runway. No need to repeat anything else from the clearance."
+  },
+  "refs": [
+    {
+      "source": "AIP Australia GEN 3.4",
+      "section": "Communications — General radiotelephony procedures",
+      "note": "Source/access date 2026-06-09. Position/established reports."
+    }
+  ]
+}
