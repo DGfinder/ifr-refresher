@@ -253,6 +253,418 @@ export const radioCallTemplates: RadioCallTemplate[] = [
       },
     ],
   },
+  // ── Standard phrases (Wilco / Unable / Say again) ──────────────────────
+  {
+    templateId: "ctl-wilco-comply",
+    phase: "enroute",
+    applicableClasses: ["C", "D", "E"],
+    title: "Wilco — short compliance — {city}",
+    prompt:
+      "ATC has given an instruction that doesn't require a readback. Acknowledge that you'll comply.",
+    summaryTemplate:
+      "En-route from {city}, working {centre}. ATC has asked you to resume own navigation.",
+    lastTransmissionTemplate: {
+      speaker: "atc",
+      station: "centre",
+      textTemplate: "{callsign}, resume own navigation.",
+    },
+    expectedTextTemplate: "Wilco, {callsign}.",
+    elements: [
+      {
+        label: "Wilco",
+        acceptTemplates: ["Wilco", "will comply"],
+        required: true,
+        hint: "'Wilco' (will comply) signals you'll do what was asked. It's only used when readback isn't required (e.g. resume own nav, expedite, report passing).",
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "AIP GEN 3.4: 'Wilco' = 'will comply'. Use it only when the instruction does NOT require a readback. Mandatory-readback items (levels, headings, speeds, frequencies, runway, QNH, squawk) always get a verbatim readback instead.",
+    refs: [
+      {
+        source: "AIP Australia GEN 3.4",
+        section: "Communications — General radiotelephony procedures",
+        note: "Source/access date 2026-06-09. Standard phrases — Wilco usage.",
+      },
+    ],
+  },
+  {
+    templateId: "ctl-unable-decline",
+    phase: "enroute",
+    applicableClasses: ["C", "D", "E"],
+    title: "Unable — decline an instruction — {city}",
+    prompt:
+      "ATC has issued an instruction you can't comply with (performance / weight / terrain). Decline and offer an alternative.",
+    summaryTemplate:
+      "Cruising near {city}, working {centre}. ATC wants you to climb higher than your aircraft can manage today.",
+    lastTransmissionTemplate: {
+      speaker: "atc",
+      station: "centre",
+      textTemplate: "{callsign}, climb to flight level two eight zero.",
+    },
+    expectedTextTemplate:
+      "Unable flight level two eight zero, request flight level two two zero, {callsign}.",
+    elements: [
+      {
+        label: "Unable",
+        acceptTemplates: ["Unable"],
+        required: true,
+        hint: "Open with 'Unable' so ATC immediately knows the instruction was not accepted. Don't readback then refuse — that wastes airtime.",
+      },
+      {
+        label: "Alternative request",
+        acceptTemplates: [
+          "request flight level two two zero",
+          "request FL two two zero",
+          "request lower",
+          "request FL220",
+        ],
+        required: true,
+        hint: "Always offer ATC a workable alternative — they can re-plan around you immediately.",
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "AIP GEN 3.4: 'Unable' is the standard phrase to refuse an instruction. Follow with a brief reason or — preferably — a workable counter-request so ATC can re-plan in one exchange.",
+    refs: [
+      {
+        source: "AIP Australia GEN 3.4",
+        section: "Communications — General radiotelephony procedures",
+        note: "Source/access date 2026-06-09. Standard phrases — Unable.",
+      },
+    ],
+  },
+  {
+    templateId: "ctl-say-again",
+    phase: "enroute",
+    applicableClasses: ["C", "D", "E"],
+    title: "Say again — request repeat — {city}",
+    prompt:
+      "ATC's last transmission was partially blocked / garbled. Ask them to repeat.",
+    summaryTemplate:
+      "Working {centre} near {city}. Their last transmission was unreadable.",
+    lastTransmissionTemplate: {
+      speaker: "atc",
+      station: "centre",
+      textTemplate: "{callsign}, *garbled* climb *garbled* level *garbled*.",
+    },
+    expectedTextTemplate: "Say again your last, {callsign}.",
+    elements: [
+      {
+        label: "Say again",
+        acceptTemplates: ["say again"],
+        required: true,
+        hint: "Standard phrase. Don't say 'repeat' (that has a military meaning) or 'come again'.",
+      },
+      {
+        label: "Scope (recommended)",
+        acceptTemplates: ["your last", "last instruction", "last transmission", "all after"],
+        required: false,
+        hint: "Tell ATC what to repeat — 'your last' is the common scope.",
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "AIP GEN 3.4: 'Say again' is the standard phrase to request a repeat. Add the scope ('your last', 'all after [word]', 'all before [word]') so ATC knows what part to repeat.",
+    refs: [
+      {
+        source: "AIP Australia GEN 3.4",
+        section: "Communications — General radiotelephony procedures",
+        note: "Source/access date 2026-06-09. Standard phrases — Say again.",
+      },
+    ],
+  },
+  // ── QNH / transition altitude ───────────────────────────────────────────
+  {
+    templateId: "ctl-qnh-readback",
+    phase: "arrival",
+    applicableClasses: ["C", "D"],
+    title: "Read back QNH setting — {city}",
+    prompt: "Read back the QNH ATC just passed you.",
+    summaryTemplate:
+      "Descending into {city}. Approach has just passed you the current QNH.",
+    lastTransmissionTemplate: {
+      speaker: "atc",
+      station: "approach",
+      textTemplate: "{callsign}, QNH one zero zero eight.",
+    },
+    expectedTextTemplate: "QNH one zero zero eight, {callsign}.",
+    elements: [
+      {
+        label: "QNH value",
+        acceptTemplates: [
+          "QNH one zero zero eight",
+          "one zero zero eight",
+          "1008",
+          "QNH 1008",
+        ],
+        required: true,
+        hint: "QNH is a MATS Part 4 mandatory readback item — read it back digit-by-digit, exactly as passed.",
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "MATS Part 4: QNH is a mandatory readback item. Read it back digit-by-digit (not '1008' said as 'one thousand eight'). Setting an incorrect QNH on descent is one of the most common contributors to altitude busts.",
+    refs: [
+      {
+        source: "MATS Part 4",
+        chapter: "Pilots' radio standards",
+        note: "Source/access date 2026-06-09. Mandatory readback items — QNH.",
+      },
+      {
+        source: "AIP Australia ENR 1.7",
+        section: "Altimeter setting procedures",
+        note: "Source/access date 2026-06-09. QNH passing and the 10,000 ft transition altitude.",
+      },
+    ],
+  },
+  // ── Standalone squawk change ────────────────────────────────────────────
+  {
+    templateId: "ctl-squawk-change",
+    phase: "enroute",
+    applicableClasses: ["C", "D", "E"],
+    title: "Read back standalone squawk change — {city}",
+    prompt: "Read back the new transponder code ATC just assigned.",
+    summaryTemplate:
+      "En-route near {city}, working {centre}. ATC has just issued a new squawk code.",
+    lastTransmissionTemplate: {
+      speaker: "atc",
+      station: "centre",
+      textTemplate: "{callsign}, squawk five six four three.",
+    },
+    expectedTextTemplate: "Squawk five six four three, {callsign}.",
+    elements: [
+      {
+        label: "Squawk code",
+        acceptTemplates: [
+          "squawk five six four three",
+          "5643",
+          "squawk 5643",
+          "five six four three",
+        ],
+        required: true,
+        hint: "Read back digit-by-digit — 'five six four three', not 'fifty-six forty-three'.",
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "MATS Part 4: transponder codes are mandatory readback. Digit-by-digit so ATC knows you have the right code before you set it.",
+    refs: [
+      {
+        source: "MATS Part 4",
+        chapter: "Pilots' radio standards",
+        note: "Source/access date 2026-06-09. Mandatory readback — transponder code.",
+      },
+    ],
+  },
+  // ── TCAS Resolution Advisory ────────────────────────────────────────────
+  {
+    templateId: "ctl-tcas-ra",
+    phase: "enroute",
+    applicableClasses: ["C", "D", "E"],
+    title: "TCAS Resolution Advisory — {city}",
+    prompt:
+      "Your TCAS just commanded a Resolution Advisory. Announce it to ATC so they know you're deviating from clearance.",
+    summaryTemplate:
+      "Cruising near {city}, working {centre}. TCAS has just commanded a 'CLIMB' RA in response to a converging aircraft.",
+    expectedTextTemplate: "TCAS RA, {callsign}.",
+    elements: [
+      {
+        label: "TCAS RA call",
+        acceptTemplates: ["TCAS RA"],
+        required: true,
+        hint: "Standard ICAO + AIP GEN 3.6 phrase. NOT 'TCAS climb' or 'avoiding traffic'. Three words — 'TCAS RA' — that's it. ATC knows what to do.",
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "AIP GEN 3.6 + ICAO Doc 4444: 'TCAS RA' is the mandatory standard phrase when you're following a Resolution Advisory and deviating from clearance. Don't try to describe the manoeuvre — just 'TCAS RA, callsign'. Follow up with 'Clear of conflict, returning to [assigned level], callsign' once the RA clears.",
+    refs: [
+      {
+        source: "AIP Australia GEN 3.6",
+        section: "Distress and urgency communications",
+        note: "Source/access date 2026-06-09. TCAS RA phraseology.",
+      },
+      {
+        source: "ICAO Doc 4444",
+        chapter: "PANS-ATM — pilot phraseology",
+        note: "Source/access date 2026-06-09. Standard TCAS RA call.",
+      },
+    ],
+  },
+  // ── Visual approach request ─────────────────────────────────────────────
+  {
+    templateId: "ctl-visual-approach-request",
+    phase: "arrival",
+    applicableClasses: ["C", "D"],
+    title: "Request visual approach — {city}",
+    prompt:
+      "You have the airfield in sight and want to request a visual approach rather than the published instrument approach.",
+    summaryTemplate:
+      "Inbound to {city}, being vectored by Approach for the published instrument approach. Conditions are CAVOK, airfield in sight at 12 miles.",
+    lastTransmissionTemplate: {
+      speaker: "atc",
+      station: "approach",
+      textTemplate: "{callsign}, descend to four thousand.",
+    },
+    expectedTextTemplate:
+      "{approach}, {callsign}, airfield in sight, request visual approach runway {runway}.",
+    elements: [
+      {
+        label: "Addressed station",
+        acceptTemplates: ["{approach}", "{shortName} Approach", "Approach"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "Field in sight",
+        acceptTemplates: [
+          "airfield in sight",
+          "field in sight",
+          "airport in sight",
+          "visual with the field",
+        ],
+        required: true,
+        hint: "ATC needs to know you can see the field — that's the prerequisite for a visual approach.",
+      },
+      {
+        label: "Request visual",
+        acceptTemplates: [
+          "request visual approach runway {runway}",
+          "request visual runway {runway}",
+          "request visual approach",
+          "visual approach runway {runway}",
+        ],
+        required: true,
+        hint: "Name the runway so ATC can confirm the right one and sequence other traffic.",
+      },
+    ],
+    explanation:
+      "AIP ENR 1.5: a visual approach can be requested when you have the field in sight and conditions permit. Tell ATC the runway you intend so they sequence correctly. Visual ≠ VFR — you're still on an IFR plan, just not flying the published procedure.",
+    refs: [
+      {
+        source: "AIP Australia ENR 1.5",
+        section: "Holding, approach and departure procedures — visual approaches",
+        note: "Source/access date 2026-06-09. Visual approach request format.",
+      },
+    ],
+  },
+  // ── SARTIME submit / cancel ─────────────────────────────────────────────
+  {
+    templateId: "ctl-sartime-submit",
+    phase: "enroute",
+    applicableClasses: ["C", "D", "E"],
+    title: "Submit SARTIME — {city}",
+    prompt:
+      "Working Centre. You need to submit a SARTIME so SAR is initiated if you don't arrive.",
+    summaryTemplate:
+      "Cruising en-route from {city}. ETA destination is 0400Z. Submitting SARTIME for 0430Z so SAR triggers at 30 minutes overdue.",
+    expectedTextTemplate: "{centre}, {callsign}, submit SARTIME zero four three zero.",
+    elements: [
+      {
+        label: "Addressed station",
+        acceptTemplates: ["{centre}", "Centre"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "Submit SARTIME phrase",
+        acceptTemplates: ["submit SARTIME", "submitting SARTIME"],
+        required: true,
+        hint: "Use the explicit phrase 'submit SARTIME' — Centre needs to log this against your callsign so SAR triggers automatically if you go overdue.",
+      },
+      {
+        label: "Time (UTC)",
+        acceptTemplates: [
+          "zero four three zero",
+          "0430",
+          "zero four three zero Zulu",
+          "0430Z",
+        ],
+        required: true,
+        hint: "Time in UTC, digit-by-digit. The SARTIME is when SAR will be triggered if you haven't cancelled.",
+      },
+    ],
+    explanation:
+      "AIP ENR 1.1: SARTIME is the time at which SAR action will be initiated if you haven't cancelled. Submit it to Centre before reaching the area where you'd otherwise be uncontactable. Cancel it once you've landed safely.",
+    refs: [
+      {
+        source: "AIP Australia ENR 1.1",
+        section: "General rules and procedures — flight notification and SAR",
+        note: "Source/access date 2026-06-09. SARTIME submission format and effect.",
+      },
+    ],
+  },
+  {
+    templateId: "ctl-sartime-cancel",
+    phase: "non-normal",
+    applicableClasses: ["C", "D", "E"],
+    title: "Cancel SARTIME — {city}",
+    prompt:
+      "You've landed safely. Cancel the SARTIME with Centre before SAR triggers.",
+    summaryTemplate:
+      "On the ground at destination after a flight from {city}. SARTIME 0430Z still active and needs cancelling.",
+    expectedTextTemplate: "{centre}, {callsign}, cancel SARTIME.",
+    elements: [
+      {
+        label: "Addressed station",
+        acceptTemplates: ["{centre}", "Centre"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "Cancel SARTIME phrase",
+        acceptTemplates: ["cancel SARTIME", "cancelling SARTIME"],
+        required: true,
+        hint: "Explicit cancel phrase. Forget this and SAR mobilises at the SARTIME — costly false alarm.",
+      },
+    ],
+    explanation:
+      "AIP ENR 1.1: cancel SARTIME promptly on arrival. Failing to cancel triggers an unnecessary SAR response — controllers send aircraft, units stand-up. Make the call before you start shutting down.",
+    refs: [
+      {
+        source: "AIP Australia ENR 1.1",
+        section: "General rules and procedures — flight notification and SAR",
+        note: "Source/access date 2026-06-09. SARTIME cancellation requirement and procedure.",
+      },
+    ],
+  },
   {
     templateId: "ctl-centre-checkin",
     phase: "enroute",
