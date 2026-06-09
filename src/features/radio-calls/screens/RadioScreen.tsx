@@ -223,6 +223,7 @@ function ScenariosTab() {
         <RadioResults
           scenario={session.currentScenario}
           result={session.result}
+          answers={session.answers}
           onPlayAgain={() => session.startScenario(session.currentScenario!.scenarioId)}
           onBackToDashboard={session.resetToDashboard}
         />
