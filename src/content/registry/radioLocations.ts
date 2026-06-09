@@ -202,6 +202,18 @@ export const radioLocations: RadioLocation[] = [
     runwayNumeric: "28L",
     shortName: "Archerfield",
   },
+  {
+    icao: "YPJT",
+    city: "Jandakot",
+    airspaceClass: "D",
+    tower: "Jandakot Tower",
+    ground: "Jandakot Ground",
+    approach: "Perth Approach",
+    centre: "Melbourne Centre",
+    runway: "two four right",
+    runwayNumeric: "24R",
+    shortName: "Jandakot",
+  },
   // ── Class E (en-route controlled IFR, no surface tower) ─────────────────
   {
     icao: "ENR-E-TAS",
@@ -311,5 +323,23 @@ export const radioLocations: RadioLocation[] = [
     runway: "one four",
     runwayNumeric: "14",
     shortName: "Geraldton",
+  },
+  {
+    icao: "YBUN",
+    city: "Bunbury",
+    airspaceClass: "CTAF",
+    ctaf: "Bunbury traffic",
+    runway: "zero eight",
+    runwayNumeric: "08",
+    shortName: "Bunbury",
+  },
+  {
+    icao: "YMEK",
+    city: "Meekatharra",
+    airspaceClass: "CTAF",
+    ctaf: "Meekatharra traffic",
+    runway: "one four",
+    runwayNumeric: "14",
+    shortName: "Meekatharra",
   },
 ];
