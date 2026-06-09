@@ -1,4 +1,8 @@
 import type { RadioDrillCard, RadioPhase } from "@/content/model/radio";
+import { radioLocations } from "@/content/registry/radioLocations";
+import { radioCallsigns } from "@/content/registry/radioCallsigns";
+import { radioCallTemplates } from "@/content/registry/radioCallTemplates";
+import { generateRadioDrillCards } from "@/features/radio-calls";
 import clearanceRequest from "../data/radio-drill/01-ifr-clearance-request.json";
 import clearanceReadback from "../data/radio-drill/02-clearance-readback.json";
 import taxiRequest from "../data/radio-drill/03-taxi-request.json";
@@ -30,7 +34,21 @@ import distressCancellation from "../data/radio-drill/28-distress-cancellation.j
 import speedReadback from "../data/radio-drill/29-speed-readback.json";
 import lostComms from "../data/radio-drill/30-lost-comms.json";
 
-export const radioDrillCards: RadioDrillCard[] = [
+/**
+ * The 30 hand-authored cards cover nuanced, context-rich scenarios that
+ * don't fit a template (e.g. PAN-PAN with situational reasoning). The
+ * generator expands the template library against locations × callsigns to
+ * produce hundreds more drill cards across all Australian airspace classes.
+ * The full library is the concatenation.
+ */
+const generated = generateRadioDrillCards({
+  templates: radioCallTemplates,
+  locations: radioLocations,
+  callsigns: radioCallsigns,
+  callsignsPerCombination: 2,
+});
+
+const authored: RadioDrillCard[] = [
   // Pre-departure
   atisRequest as RadioDrillCard,
   clearanceRequest as RadioDrillCard,
@@ -67,6 +85,8 @@ export const radioDrillCards: RadioDrillCard[] = [
   distressCancellation as RadioDrillCard,
   lostComms as RadioDrillCard,
 ];
+
+export const radioDrillCards: RadioDrillCard[] = [...authored, ...generated];
 
 export const RADIO_PHASES: { id: RadioPhase; label: string }[] = [
   { id: "pre-departure", label: "Pre-departure" },

@@ -143,6 +143,13 @@ export type RadioPhase =
   | "non-normal";
 
 /**
+ * Australian airspace class. Drill cards are tagged so the dashboard can
+ * filter by class — Class C/D/E phraseology is structured ATC interaction;
+ * CTAF (Class G non-towered) is broadcasts to other pilots.
+ */
+export type AirspaceClass = "C" | "D" | "E" | "CTAF";
+
+/**
  * Drill card — a single standalone radio call, suitable for repeated
  * practice without the lead-up of a multi-leg scenario. Drill cards
  * carry their own briefing (situation, last ATC transmission heard) so
@@ -153,6 +160,9 @@ export interface RadioDrillCard {
   /** Stable id, unique across all drill cards. Persists in history. */
   drillId: string;
   phase: RadioPhase;
+  /** Optional — generated cards always set this; hand-authored cards may
+   * omit it when the airspace is implicit in the briefing text. */
+  airspaceClass?: AirspaceClass;
   title: string;
   briefing: RadioBriefing & {
     /** What ATC just said, if any. Drill cards that respond to an ATC

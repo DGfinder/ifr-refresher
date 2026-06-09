@@ -3,7 +3,11 @@
 import { useMemo, useState } from "react";
 import { Check, ChevronRight } from "lucide-react";
 import { cn } from "@/shared/lib/cn";
-import type { RadioDrillCard, RadioPhase } from "@/content/model/radio";
+import type {
+  AirspaceClass,
+  RadioDrillCard,
+  RadioPhase,
+} from "@/content/model/radio";
 import { RADIO_PHASES } from "@/content/registry/radioDrillCards";
 
 interface DrillDashboardProps {
@@ -13,14 +17,27 @@ interface DrillDashboardProps {
 }
 
 type PhaseFilter = "all" | RadioPhase;
+type ClassFilter = "all" | AirspaceClass;
+
+const CLASS_FILTERS: { id: ClassFilter; label: string; description: string }[] = [
+  { id: "all", label: "All", description: "Every airspace" },
+  { id: "C", label: "Class C", description: "Capital city major airports" },
+  { id: "D", label: "Class D", description: "Regional towered" },
+  { id: "E", label: "Class E", description: "En-route controlled" },
+  { id: "CTAF", label: "CTAF", description: "Non-towered broadcasts" },
+];
 
 export function DrillDashboard({ cards, completedIds, onOpenCard }: DrillDashboardProps) {
-  const [filter, setFilter] = useState<PhaseFilter>("all");
+  const [phaseFilter, setPhaseFilter] = useState<PhaseFilter>("all");
+  const [classFilter, setClassFilter] = useState<ClassFilter>("all");
 
   const filtered = useMemo(() => {
-    if (filter === "all") return cards;
-    return cards.filter((c) => c.phase === filter);
-  }, [cards, filter]);
+    return cards.filter((c) => {
+      if (phaseFilter !== "all" && c.phase !== phaseFilter) return false;
+      if (classFilter !== "all" && c.airspaceClass !== classFilter) return false;
+      return true;
+    });
+  }, [cards, phaseFilter, classFilter]);
 
   const completedCount = cards.filter((c) => completedIds.has(c.drillId)).length;
 
@@ -40,31 +57,64 @@ export function DrillDashboard({ cards, completedIds, onOpenCard }: DrillDashboa
         </p>
       </div>
 
+      {/* Airspace class filter chips */}
+      <div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--ifr-text-muted)]">
+          Airspace
+        </p>
+        <div
+          className="flex flex-wrap gap-2"
+          role="tablist"
+          aria-label="Filter drills by airspace class"
+        >
+          {CLASS_FILTERS.map((c) => {
+            const classCards =
+              c.id === "all" ? cards : cards.filter((card) => card.airspaceClass === c.id);
+            if (c.id !== "all" && classCards.length === 0) return null;
+            return (
+              <FilterChip
+                key={c.id}
+                label={c.label}
+                title={c.description}
+                active={classFilter === c.id}
+                count={classCards.length}
+                onClick={() => setClassFilter(c.id)}
+              />
+            );
+          })}
+        </div>
+      </div>
+
       {/* Phase filter tabs */}
-      <div
-        className="flex flex-wrap gap-2 overflow-x-auto"
-        role="tablist"
-        aria-label="Filter drills by flight phase"
-      >
-        <PhaseTab
-          label="All"
-          active={filter === "all"}
-          count={cards.length}
-          onClick={() => setFilter("all")}
-        />
-        {RADIO_PHASES.map((phase) => {
-          const phaseCards = cards.filter((c) => c.phase === phase.id);
-          if (phaseCards.length === 0) return null;
-          return (
-            <PhaseTab
-              key={phase.id}
-              label={phase.label}
-              active={filter === phase.id}
-              count={phaseCards.length}
-              onClick={() => setFilter(phase.id)}
-            />
-          );
-        })}
+      <div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--ifr-text-muted)]">
+          Flight phase
+        </p>
+        <div
+          className="flex flex-wrap gap-2 overflow-x-auto"
+          role="tablist"
+          aria-label="Filter drills by flight phase"
+        >
+          <FilterChip
+            label="All"
+            active={phaseFilter === "all"}
+            count={cards.length}
+            onClick={() => setPhaseFilter("all")}
+          />
+          {RADIO_PHASES.map((phase) => {
+            const phaseCards = cards.filter((c) => c.phase === phase.id);
+            if (phaseCards.length === 0) return null;
+            return (
+              <FilterChip
+                key={phase.id}
+                label={phase.label}
+                active={phaseFilter === phase.id}
+                count={phaseCards.length}
+                onClick={() => setPhaseFilter(phase.id)}
+              />
+            );
+          })}
+        </div>
       </div>
 
       {/* Card list */}
@@ -100,9 +150,14 @@ export function DrillDashboard({ cards, completedIds, onOpenCard }: DrillDashboa
                     <h3 className="truncate font-semibold text-[var(--ifr-text)] group-hover:text-[var(--ifr-accent)]">
                       {card.title}
                     </h3>
-                    <span className="shrink-0 text-[10px] uppercase tracking-wider text-[var(--ifr-text-muted)]">
-                      {card.phase.replace("-", " ")}
-                    </span>
+                    <div className="flex shrink-0 items-center gap-2 text-[10px] uppercase tracking-wider text-[var(--ifr-text-muted)]">
+                      {card.airspaceClass && (
+                        <span className="rounded bg-[var(--ifr-surface-muted)] px-1.5 py-0.5">
+                          {card.airspaceClass === "CTAF" ? "CTAF" : `Class ${card.airspaceClass}`}
+                        </span>
+                      )}
+                      <span>{card.phase.replace("-", " ")}</span>
+                    </div>
                   </div>
                   <p className="mt-0.5 line-clamp-1 text-xs text-[var(--ifr-text-muted)]">
                     {card.briefing.summary}
@@ -128,20 +183,22 @@ export function DrillDashboard({ cards, completedIds, onOpenCard }: DrillDashboa
   );
 }
 
-interface PhaseTabProps {
+interface FilterChipProps {
   label: string;
+  title?: string;
   active: boolean;
   count: number;
   onClick: () => void;
 }
 
-function PhaseTab({ label, active, count, onClick }: PhaseTabProps) {
+function FilterChip({ label, title, active, count, onClick }: FilterChipProps) {
   return (
     <button
       type="button"
       role="tab"
       aria-selected={active}
       onClick={onClick}
+      title={title}
       className={cn(
         "flex items-center gap-1.5 whitespace-nowrap rounded-full border px-3 py-1.5 text-sm font-medium transition-colors",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",

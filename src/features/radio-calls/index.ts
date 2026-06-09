@@ -14,6 +14,10 @@ export {
 } from "./model/buildRadioSession";
 export { evaluateSpokenCall, normalisePhrase } from "./model/spokenMatch";
 export {
+  realiseRadioTemplate,
+  generateRadioDrillCards,
+} from "./model/realiseTemplate";
+export {
   loadRadioHistory,
   addRadioResult,
   clearRadioHistory,
