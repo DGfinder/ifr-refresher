@@ -11,8 +11,15 @@ import type {
   QuizResult,
 } from "@/features/quiz/model/types";
 import { DEFAULT_SESSION_CONFIG } from "@/features/quiz/model/types";
-import { buildQuizQuestions } from "@/features/quiz/model/buildQuizQuestions";
-import { calculatePoints, calculatePercentage } from "@/features/quiz/model/scoring";
+import { calculatePercentage } from "@/features/quiz/model/scoring";
+import {
+  buildAnswer,
+  buildSessionResult,
+  buildSessionStart,
+  evaluateAnswer,
+  isSessionOver,
+  timerForNextQuestion,
+} from "@/features/quiz/model/sessionLogic";
 import { addQuizResult } from "@/features/quiz/storage/quizHistoryStore";
 import { useDrill } from "@/features/drill";
 
@@ -66,7 +73,6 @@ export function useQuizSession({
   sections,
   programId,
 }: UseQuizSessionOptions): UseQuizSessionReturn {
-  // Get filtered drill questions for building quiz
   const { filteredQuestions: drillQuestions } = useDrill(sections, { programId });
 
   // Core state
@@ -85,11 +91,11 @@ export function useQuizSession({
   const [flaggedQuestions, setFlaggedQuestions] = useState<Set<string>>(new Set());
   const [result, setResult] = useState<QuizResult | null>(null);
 
-  // Track question start time for time-based scoring
+  // Refs for time tracking
   const questionStartTimeRef = useRef<number>(0);
   const sessionStartTimeRef = useRef<number>(0);
 
-  // Current question
+  // Derived values
   const currentQuestion = useMemo(() => {
     if (phase !== "session" || currentIndex >= questions.length) return null;
     return questions[currentIndex];
@@ -102,235 +108,142 @@ export function useQuizSession({
     return selectedOptionId === currentQuestion.correctOptionId;
   }, [isAnswered, currentQuestion, selectedOptionId]);
 
-  // Calculate percentage
   const percentage = useMemo(() => {
     const correct = answers.filter((a) => a.isCorrect).length;
     return calculatePercentage(correct, answers.length);
   }, [answers]);
 
-  // Update config
   const setConfig = useCallback((updates: Partial<QuizSessionConfig>) => {
     setConfigState((prev) => ({ ...prev, ...updates }));
   }, []);
 
-  // Start a new session
+  // Internal: finalise the session, persist the result, and move to results phase.
+  const finaliseSession = useCallback(
+    (finalAnswers: QuizAnswer[], finalScore: number, finalMaxStreak: number) => {
+      const finalResult = buildSessionResult({
+        config,
+        questions,
+        answers: finalAnswers,
+        score: finalScore,
+        maxStreak: finalMaxStreak,
+        sessionStartedAtMs: sessionStartTimeRef.current,
+      });
+      setResult(finalResult);
+      addQuizResult(finalResult).catch(console.error);
+      setPhase("results");
+    },
+    [config, questions],
+  );
+
   const startSession = useCallback(() => {
-    const limit = config.questionCount === "all" ? undefined : config.questionCount;
-    const quizQuestions = buildQuizQuestions(drillQuestions, limit);
+    const start = buildSessionStart(drillQuestions, config);
+    if (!start) return;
 
-    if (quizQuestions.length === 0) return;
-
-    setQuestions(quizQuestions);
+    setQuestions(start.questions);
     setCurrentIndex(0);
     setSelectedOptionId(null);
     setAnswers([]);
     setScore(0);
     setStreak(0);
     setMaxStreak(0);
-    setLives(config.mode === "challenge" ? 3 : 999);
+    setLives(start.startingLives);
+    setTimeRemaining(start.startingTimer);
     setIsPaused(false);
     setFlaggedQuestions(new Set());
     setResult(null);
 
-    // Set timer for timed mode
-    if (config.mode === "timed") {
-      const timePerQuestion = config.timePerQuestion ?? 30;
-      setTimeRemaining(timePerQuestion);
-    } else {
-      setTimeRemaining(0);
-    }
-
-    questionStartTimeRef.current = Date.now();
-    sessionStartTimeRef.current = Date.now();
+    const now = Date.now();
+    questionStartTimeRef.current = now;
+    sessionStartTimeRef.current = now;
     setPhase("session");
   }, [config, drillQuestions]);
 
-  // Select an option (answer the question)
   const selectOption = useCallback(
     (optionId: QuizOptionId) => {
       if (isAnswered || !currentQuestion) return;
 
-      const timeSpent = Date.now() - questionStartTimeRef.current;
-      const correct = optionId === currentQuestion.correctOptionId;
-
-      // Update streak
-      const newStreak = correct ? streak + 1 : 0;
-      setStreak(newStreak);
-      if (newStreak > maxStreak) {
-        setMaxStreak(newStreak);
-      }
-
-      // Calculate points
-      const points = calculatePoints({
-        isCorrect: correct,
-        streak: newStreak,
-        timeSpentMs: timeSpent,
+      const timeSpentMs = Date.now() - questionStartTimeRef.current;
+      const outcome = evaluateAnswer(currentQuestion, optionId, {
+        streak,
         mode: config.mode,
+        timeSpentMs,
       });
-      setScore((prev) => prev + points);
 
-      // Handle lives in challenge mode
-      if (config.mode === "challenge" && !correct) {
-        setLives((prev) => prev - 1);
-      }
+      setStreak(outcome.newStreak);
+      if (outcome.newStreak > maxStreak) setMaxStreak(outcome.newStreak);
+      setScore((prev) => prev + outcome.pointsEarned);
+      if (outcome.livesDelta !== 0) setLives((prev) => prev + outcome.livesDelta);
 
-      // Record answer
-      const answer: QuizAnswer = {
-        questionId: currentQuestion.id,
-        selectedOptionId: optionId,
-        correctOptionId: currentQuestion.correctOptionId,
-        isCorrect: correct,
-        timeSpent,
+      const answer = buildAnswer(currentQuestion, optionId, {
+        timeSpentMs,
         skipped: false,
         flagged: flaggedQuestions.has(currentQuestion.id),
-      };
+      });
       setAnswers((prev) => [...prev, answer]);
       setSelectedOptionId(optionId);
     },
-    [isAnswered, currentQuestion, streak, maxStreak, config.mode, flaggedQuestions]
+    [isAnswered, currentQuestion, streak, maxStreak, config.mode, flaggedQuestions],
   );
 
-  // Build result object
-  const buildResult = useCallback((): QuizResult => {
-    const totalTimeSpent = Date.now() - sessionStartTimeRef.current;
-    const correctCount = answers.filter((a) => a.isCorrect).length;
-    const incorrectCount = answers.filter((a) => !a.isCorrect && !a.skipped).length;
-    const skippedCount = answers.filter((a) => a.skipped).length;
-
-    // Calculate by section
-    const bySection: Record<string, { correct: number; total: number }> = {};
-    for (const q of questions) {
-      if (!bySection[q.sectionId]) {
-        bySection[q.sectionId] = { correct: 0, total: 0 };
+  const advance = useCallback(
+    (nextAnswers: QuizAnswer[]) => {
+      const sessionOver = isSessionOver({
+        mode: config.mode,
+        currentIndex,
+        totalQuestions: questions.length,
+        lives,
+      });
+      if (sessionOver) {
+        finaliseSession(nextAnswers, score, maxStreak);
+        return;
       }
-      bySection[q.sectionId].total += 1;
-
-      const answer = answers.find((a) => a.questionId === q.id);
-      if (answer?.isCorrect) {
-        bySection[q.sectionId].correct += 1;
-      }
-    }
-
-    return {
-      id: `quiz-${Date.now()}`,
-      mode: config.mode,
-      completedAt: new Date().toISOString(),
-      totalQuestions: questions.length,
-      correctAnswers: correctCount,
-      incorrectAnswers: incorrectCount,
-      skippedAnswers: skippedCount,
-      score,
-      maxStreak,
-      timeSpent: totalTimeSpent,
-      answers,
-      bySection,
-    };
-  }, [answers, questions, config.mode, score, maxStreak]);
-
-  // Move to next question
-  const nextQuestion = useCallback(() => {
-    // In learn mode, we don't require an answer
-    if (config.mode !== "learn" && !isAnswered) return;
-
-    // Check if game over in challenge mode
-    if (config.mode === "challenge" && lives <= 0) {
-      const finalResult = buildResult();
-      setResult(finalResult);
-      addQuizResult(finalResult).catch(console.error);
-      setPhase("results");
-      return;
-    }
-
-    const nextIndex = currentIndex + 1;
-    if (nextIndex >= questions.length) {
-      // Quiz complete
-      const finalResult = buildResult();
-      setResult(finalResult);
-      addQuizResult(finalResult).catch(console.error);
-      setPhase("results");
-    } else {
-      setCurrentIndex(nextIndex);
+      setCurrentIndex((i) => i + 1);
       setSelectedOptionId(null);
       questionStartTimeRef.current = Date.now();
+      setTimeRemaining(timerForNextQuestion(config));
+    },
+    [config, currentIndex, questions.length, lives, score, maxStreak, finaliseSession],
+  );
 
-      // Reset timer for timed mode
-      if (config.mode === "timed") {
-        const timePerQuestion = config.timePerQuestion ?? 30;
-        setTimeRemaining(timePerQuestion);
-      }
-    }
-  }, [config.mode, config.timePerQuestion, isAnswered, currentIndex, questions.length, lives, buildResult]);
+  const nextQuestion = useCallback(() => {
+    if (config.mode !== "learn" && !isAnswered) return;
+    advance(answers);
+  }, [config.mode, isAnswered, advance, answers]);
 
-  // Skip question (learn mode or when allowed)
   const skipQuestion = useCallback(() => {
     if (!currentQuestion) return;
-
-    const timeSpent = Date.now() - questionStartTimeRef.current;
-    const answer: QuizAnswer = {
-      questionId: currentQuestion.id,
-      selectedOptionId: null,
-      correctOptionId: currentQuestion.correctOptionId,
-      isCorrect: false,
-      timeSpent,
+    const timeSpentMs = Date.now() - questionStartTimeRef.current;
+    const answer = buildAnswer(currentQuestion, null, {
+      timeSpentMs,
       skipped: true,
       flagged: flaggedQuestions.has(currentQuestion.id),
-    };
-    setAnswers((prev) => [...prev, answer]);
+    });
+    const nextAnswers = [...answers, answer];
+    setAnswers(nextAnswers);
     setStreak(0);
+    advance(nextAnswers);
+  }, [currentQuestion, flaggedQuestions, answers, advance]);
 
-    // Move to next
-    const nextIndex = currentIndex + 1;
-    if (nextIndex >= questions.length) {
-      const finalResult = buildResult();
-      setResult(finalResult);
-      addQuizResult(finalResult).catch(console.error);
-      setPhase("results");
-    } else {
-      setCurrentIndex(nextIndex);
-      setSelectedOptionId(null);
-      questionStartTimeRef.current = Date.now();
-
-      if (config.mode === "timed") {
-        const timePerQuestion = config.timePerQuestion ?? 30;
-        setTimeRemaining(timePerQuestion);
-      }
-    }
-  }, [currentQuestion, flaggedQuestions, currentIndex, questions.length, buildResult, config.mode, config.timePerQuestion]);
-
-  // Flag question for review
   const flagQuestion = useCallback(() => {
     if (!currentQuestion) return;
     setFlaggedQuestions((prev) => {
       const next = new Set(prev);
-      if (next.has(currentQuestion.id)) {
-        next.delete(currentQuestion.id);
-      } else {
-        next.add(currentQuestion.id);
-      }
+      if (next.has(currentQuestion.id)) next.delete(currentQuestion.id);
+      else next.add(currentQuestion.id);
       return next;
     });
   }, [currentQuestion]);
 
-  // Pause session
-  const pause = useCallback(() => {
-    setIsPaused(true);
-  }, []);
-
-  // Resume session
+  const pause = useCallback(() => setIsPaused(true), []);
   const resume = useCallback(() => {
     setIsPaused(false);
     questionStartTimeRef.current = Date.now();
   }, []);
 
-  // End session early
   const endSession = useCallback(() => {
-    const finalResult = buildResult();
-    setResult(finalResult);
-    addQuizResult(finalResult).catch(console.error);
-    setPhase("results");
-  }, [buildResult]);
+    finaliseSession(answers, score, maxStreak);
+  }, [answers, score, maxStreak, finaliseSession]);
 
-  // Reset to dashboard
   const resetToDashboard = useCallback(() => {
     setPhase("dashboard");
     setQuestions([]);
@@ -347,14 +260,11 @@ export function useQuizSession({
     setResult(null);
   }, []);
 
-  // Timer timeout handler
   const onTimeout = useCallback(() => {
-    // Auto-skip when time runs out
     skipQuestion();
   }, [skipQuestion]);
 
   return {
-    // State
     phase,
     config,
     questions,
@@ -372,12 +282,8 @@ export function useQuizSession({
     isPaused,
     answers,
     flaggedQuestions,
-
-    // Computed
     percentage,
     result,
-
-    // Actions
     setConfig,
     startSession,
     selectOption,
@@ -388,8 +294,6 @@ export function useQuizSession({
     resume,
     endSession,
     resetToDashboard,
-
-    // Timer control
     setTimeRemaining,
     onTimeout,
   };
