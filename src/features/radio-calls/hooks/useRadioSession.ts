@@ -7,6 +7,7 @@ import {
   buildRadioReadbackAnswer,
   buildRadioResult,
   buildRadioSession,
+  buildRadioSpokenAnswer,
   isRadioSessionOver,
 } from "@/features/radio-calls/model/buildRadioSession";
 import type {
@@ -37,7 +38,11 @@ interface UseRadioSessionReturn {
   selectedChipIds: ReadonlySet<string>;
   /** Readback-only — whether the learner has submitted their chip selection. */
   isReadbackSubmitted: boolean;
-  /** True when the current leg's challenge has been answered (either kind). */
+  /** Spoken-only — the transcript captured for the current leg. */
+  spokenTranscript: string;
+  /** Spoken-only — whether the learner has submitted their spoken call. */
+  isSpokenSubmitted: boolean;
+  /** True when the current leg's challenge has been answered (any kind). */
   isAnswered: boolean;
   /** True/false after answering, null before. */
   isCorrect: boolean | null;
@@ -50,6 +55,8 @@ interface UseRadioSessionReturn {
   selectOption: (optionId: RadioOptionId) => void;
   toggleChip: (chipId: string) => void;
   submitReadback: () => void;
+  setSpokenTranscript: (transcript: string) => void;
+  submitSpokenCall: () => void;
   advance: () => void;
   resetToDashboard: () => void;
 }
@@ -65,6 +72,8 @@ export function useRadioSession({
   const [selectedOptionId, setSelectedOptionId] = useState<RadioOptionId | null>(null);
   const [selectedChipIds, setSelectedChipIds] = useState<ReadonlySet<string>>(EMPTY_CHIPS);
   const [isReadbackSubmitted, setIsReadbackSubmitted] = useState(false);
+  const [spokenTranscript, setSpokenTranscript] = useState("");
+  const [isSpokenSubmitted, setIsSpokenSubmitted] = useState(false);
   const [answers, setAnswers] = useState<RadioAnswerMap>({});
   const [result, setResult] = useState<RadioResult | null>(null);
   const [history, setHistory] = useState<RadioHistoryEntry[]>([]);
@@ -93,10 +102,15 @@ export function useRadioSession({
 
   const isAnswered = useMemo(() => {
     if (!currentChallenge) return false;
-    return currentChallenge.kind === "mcq"
-      ? selectedOptionId !== null
-      : isReadbackSubmitted;
-  }, [currentChallenge, selectedOptionId, isReadbackSubmitted]);
+    switch (currentChallenge.kind) {
+      case "mcq":
+        return selectedOptionId !== null;
+      case "readback":
+        return isReadbackSubmitted;
+      case "spoken":
+        return isSpokenSubmitted;
+    }
+  }, [currentChallenge, selectedOptionId, isReadbackSubmitted, isSpokenSubmitted]);
 
   const isCorrect = useMemo(() => {
     if (!isAnswered || !currentChallenge) return null;
@@ -108,6 +122,8 @@ export function useRadioSession({
     setSelectedOptionId(null);
     setSelectedChipIds(EMPTY_CHIPS);
     setIsReadbackSubmitted(false);
+    setSpokenTranscript("");
+    setIsSpokenSubmitted(false);
   }, []);
 
   const startScenario = useCallback(
@@ -154,6 +170,13 @@ export function useRadioSession({
     setIsReadbackSubmitted(true);
   }, [currentChallenge, isReadbackSubmitted, selectedChipIds]);
 
+  const submitSpokenCall = useCallback(() => {
+    if (!currentChallenge || currentChallenge.kind !== "spoken" || isSpokenSubmitted) return;
+    const record = buildRadioSpokenAnswer(currentChallenge, spokenTranscript);
+    setAnswers((prev) => ({ ...prev, [record.questionId]: record }));
+    setIsSpokenSubmitted(true);
+  }, [currentChallenge, isSpokenSubmitted, spokenTranscript]);
+
   const advance = useCallback(() => {
     if (!currentScenario) return;
     if (currentChallenge && !isAnswered) return;
@@ -199,6 +222,8 @@ export function useRadioSession({
     selectedOptionId,
     selectedChipIds,
     isReadbackSubmitted,
+    spokenTranscript,
+    isSpokenSubmitted,
     isAnswered,
     isCorrect,
     answers,
@@ -208,6 +233,8 @@ export function useRadioSession({
     selectOption,
     toggleChip,
     submitReadback,
+    setSpokenTranscript,
+    submitSpokenCall,
     advance,
     resetToDashboard,
   };

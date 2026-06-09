@@ -64,7 +64,41 @@ export interface RadioReadback {
   explanation?: string;
 }
 
-export type RadioChallenge = RadioMCQ | RadioReadback;
+/**
+ * Spoken radio call: the learner actually says the call (via Web Speech) or
+ * types it. The transcript is matched element-by-element against the
+ * AIP-standard phrasing.
+ *
+ * Each element accepts a list of legal phrasings (e.g. "climb to seven
+ * thousand" / "climbing seven thousand" / "seven thousand") so the matcher
+ * is forgiving on phrasing variation but strict on which elements were
+ * present. Required elements fail the call when missing; recommended
+ * elements are flagged on the reveal but don't fail.
+ */
+export interface SpokenCallElement {
+  /** Label shown on the reveal card, e.g. "Addressed station". */
+  label: string;
+  /** Any one of these phrasings (after normalisation) counts as a hit. */
+  accept: string[];
+  /** Required for a correct call. Recommended elements still show on the
+   * reveal but don't fail the call when missing. */
+  required: boolean;
+  /** Hint shown on the reveal when this element is missed. */
+  hint?: string;
+}
+
+export interface RadioSpokenCall {
+  kind: "spoken";
+  /** Stable id, unique within its scenario. */
+  id: string;
+  prompt: string;
+  /** Exemplar AIP-standard call, shown verbatim on the reveal. */
+  expectedText: string;
+  elements: SpokenCallElement[];
+  explanation?: string;
+}
+
+export type RadioChallenge = RadioMCQ | RadioReadback | RadioSpokenCall;
 
 export interface RadioLeg {
   /** Stable id, unique within its scenario. */

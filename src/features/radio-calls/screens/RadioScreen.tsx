@@ -7,6 +7,7 @@ import { RadioDashboard } from "@/features/radio-calls/components/RadioDashboard
 import { TransmissionFeed } from "@/features/radio-calls/components/TransmissionFeed";
 import { NextCallChoice } from "@/features/radio-calls/components/NextCallChoice";
 import { ReadbackBuilder } from "@/features/radio-calls/components/ReadbackBuilder";
+import { SpokenCallChallenge } from "@/features/radio-calls/components/SpokenCallChallenge";
 import { RadioResults } from "@/features/radio-calls/components/RadioResults";
 
 export function RadioScreen() {
@@ -99,22 +100,32 @@ export function RadioScreen() {
           className="mb-4"
         />
 
-        {/* Current challenge (mcq or readback) or continue button */}
+        {/* Current challenge — branch on kind */}
         {currentLeg.question ? (
           <>
-            {currentLeg.question.kind === "mcq" ? (
+            {currentLeg.question.kind === "mcq" && (
               <NextCallChoice
                 question={currentLeg.question}
                 selectedOptionId={session.selectedOptionId}
                 onSelect={session.selectOption}
               />
-            ) : (
+            )}
+            {currentLeg.question.kind === "readback" && (
               <ReadbackBuilder
                 readback={currentLeg.question}
                 selectedChipIds={session.selectedChipIds}
                 isSubmitted={session.isReadbackSubmitted}
                 onToggleChip={session.toggleChip}
                 onSubmit={session.submitReadback}
+              />
+            )}
+            {currentLeg.question.kind === "spoken" && (
+              <SpokenCallChallenge
+                call={currentLeg.question}
+                isSubmitted={session.isSpokenSubmitted}
+                transcript={session.spokenTranscript}
+                onTranscriptChange={session.setSpokenTranscript}
+                onSubmit={session.submitSpokenCall}
               />
             )}
             {session.isAnswered && (

@@ -177,8 +177,8 @@ if (fs.existsSync(radioDir)) {
           hasQuestion = true;
           const qLabel = `${legLabel}:question`;
           const challenge = leg.question;
-          if (challenge.kind !== "mcq" && challenge.kind !== "readback") {
-            errors.push(`${qLabel}: kind must be "mcq" or "readback"`);
+          if (challenge.kind !== "mcq" && challenge.kind !== "readback" && challenge.kind !== "spoken") {
+            errors.push(`${qLabel}: kind must be "mcq", "readback", or "spoken"`);
             continue;
           }
           if (!isNonEmptyString(challenge.id)) errors.push(`${qLabel}: missing id`);
@@ -205,8 +205,7 @@ if (fs.existsSync(radioDir)) {
               const matches = challenge.options.some((o) => o.id === challenge.correctOptionId);
               if (!matches) errors.push(`${qLabel}: correctOptionId does not match any option`);
             }
-          } else {
-            // readback
+          } else if (challenge.kind === "readback") {
             if (!Array.isArray(challenge.chips) || challenge.chips.length < 2) {
               errors.push(`${qLabel}: readback chips must be a non-trivial array (at least 2)`);
             } else {
@@ -230,6 +229,40 @@ if (fs.existsSync(radioDir)) {
                 if (challenge.requiredIds.length >= challenge.chips.length) {
                   errors.push(`${qLabel}: readback must include at least one non-required (distractor) chip`);
                 }
+              }
+            }
+          } else {
+            // spoken
+            if (!isNonEmptyString(challenge.expectedText)) {
+              errors.push(`${qLabel}: spoken call must have expectedText (the AIP-standard call)`);
+            }
+            if (!Array.isArray(challenge.elements) || challenge.elements.length === 0) {
+              errors.push(`${qLabel}: spoken call must have a non-empty elements array`);
+            } else {
+              const seenLabels = new Set();
+              let hasRequired = false;
+              for (const [ei, element] of challenge.elements.entries()) {
+                const eLabel = `${qLabel}:elements[${ei}]`;
+                if (!isNonEmptyString(element.label)) errors.push(`${eLabel}: label missing`);
+                else if (seenLabels.has(element.label)) errors.push(`${eLabel}: duplicate label "${element.label}"`);
+                else seenLabels.add(element.label);
+                if (!Array.isArray(element.accept) || element.accept.length === 0) {
+                  errors.push(`${eLabel}: accept must be a non-empty array of legal phrasings`);
+                } else {
+                  for (const [pi, phrase] of element.accept.entries()) {
+                    if (!isNonEmptyString(phrase)) {
+                      errors.push(`${eLabel}:accept[${pi}]: phrase must be a non-empty string`);
+                    }
+                  }
+                }
+                if (typeof element.required !== "boolean") {
+                  errors.push(`${eLabel}: required must be a boolean`);
+                } else if (element.required) {
+                  hasRequired = true;
+                }
+              }
+              if (!hasRequired) {
+                errors.push(`${qLabel}: spoken call must declare at least one required element`);
               }
             }
           }

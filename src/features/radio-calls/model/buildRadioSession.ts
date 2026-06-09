@@ -4,7 +4,9 @@ import type {
   RadioOptionId,
   RadioReadback,
   RadioScenario,
+  RadioSpokenCall,
 } from "@/content/model/radio";
+import { evaluateSpokenCall } from "./spokenMatch";
 import type {
   RadioAnswerMap,
   RadioAnswerRecord,
@@ -91,6 +93,22 @@ export function buildRadioReadbackAnswer(
     questionId: readback.id,
     selectedChipIds: [...selectedChipIds],
     requiredChipIds: [...readback.requiredIds],
+    isCorrect: outcome.isCorrect,
+  };
+}
+
+export function buildRadioSpokenAnswer(
+  call: RadioSpokenCall,
+  transcript: string,
+): RadioAnswerRecord {
+  const outcome = evaluateSpokenCall(call, transcript);
+  return {
+    kind: "spoken",
+    questionId: call.id,
+    transcript,
+    hitElementLabels: outcome.hits.map((e) => e.label),
+    missedRequiredLabels: outcome.missedRequired.map((e) => e.label),
+    missedOptionalLabels: outcome.missedOptional.map((e) => e.label),
     isCorrect: outcome.isCorrect,
   };
 }

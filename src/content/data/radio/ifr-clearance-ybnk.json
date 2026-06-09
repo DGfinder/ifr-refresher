@@ -20,17 +20,41 @@
         "text": "Bankstown Tower, Lima Echo Foxtrot, IFR clearance to Coffs Harbour, information Mike."
       },
       "question": {
-        "kind": "mcq",
+        "kind": "spoken",
         "id": "q-request-clearance",
-        "prompt": "You are ready to copy your IFR clearance. ATIS Mike is current. What is the correct initial call to Bankstown Tower?",
-        "options": [
-          { "id": "A", "text": "Bankstown Tower, Lima Echo Foxtrot, request IFR clearance." },
-          { "id": "B", "text": "Bankstown Tower, Lima Echo Foxtrot, IFR clearance to Coffs Harbour, information Mike." },
-          { "id": "C", "text": "Bankstown, Lima Echo Foxtrot, ready to copy clearance for Coffs Harbour." },
-          { "id": "D", "text": "Lima Echo Foxtrot, Bankstown, IFR to Coffs, with Mike." }
+        "prompt": "Make the initial call to Bankstown Tower to request your IFR clearance. ATIS Mike is current.",
+        "expectedText": "Bankstown Tower, Lima Echo Foxtrot, IFR clearance to Coffs Harbour, information Mike.",
+        "elements": [
+          {
+            "label": "Addressed station",
+            "accept": ["Bankstown Tower", "Bankstown"],
+            "required": true,
+            "hint": "Addressed station goes first per AIP GEN 3.4 initial-call format."
+          },
+          {
+            "label": "Callsign",
+            "accept": ["Lima Echo Foxtrot", "LEF"],
+            "required": true
+          },
+          {
+            "label": "Request type",
+            "accept": ["IFR clearance", "instrument clearance"],
+            "required": true,
+            "hint": "Say 'IFR clearance' — distinguishes from a VFR request."
+          },
+          {
+            "label": "Destination",
+            "accept": ["Coffs Harbour", "Coffs"],
+            "required": true
+          },
+          {
+            "label": "ATIS code confirmation",
+            "accept": ["information Mike", "Mike", "with Mike"],
+            "required": true,
+            "hint": "Confirm the ATIS so Tower doesn't have to ask."
+          }
         ],
-        "correctOptionId": "B",
-        "explanation": "AIP GEN 3.4 standard initial call: addressed station, callsign, request type with destination, ATIS code. Order matters — addressed station first, your callsign next."
+        "explanation": "AIP GEN 3.4 initial-call format: addressed station, callsign, request type with destination, ATIS code."
       }
     },
     {

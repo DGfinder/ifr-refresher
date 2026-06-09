@@ -3,8 +3,8 @@ import type { RadioOptionId, RadioScenario } from "@/content/model/radio";
 export type RadioPhase = "dashboard" | "session" | "results";
 
 /**
- * One persisted answer entry. Tagged with `kind` so MCQ and readback
- * answers can live in the same map keyed by the challenge id.
+ * One persisted answer entry. Tagged with `kind` so all three challenge
+ * types live in the same map keyed by the challenge id.
  */
 export type RadioAnswerRecord =
   | {
@@ -21,6 +21,19 @@ export type RadioAnswerRecord =
       selectedChipIds: string[];
       requiredChipIds: string[];
       isCorrect: boolean;
+    }
+  | {
+      kind: "spoken";
+      questionId: string;
+      /** What the learner said / typed, exactly as captured. */
+      transcript: string;
+      /** Labels of elements present in the transcript. */
+      hitElementLabels: string[];
+      /** Labels of required elements missed. */
+      missedRequiredLabels: string[];
+      /** Labels of optional elements missed. */
+      missedOptionalLabels: string[];
+      isCorrect: boolean;
     };
 
 export type RadioAnswerMap = Record<string, RadioAnswerRecord>;
@@ -34,8 +47,8 @@ export interface RadioResult {
     legId: string;
     questionId: string;
     isCorrect: boolean;
-    /** "mcq" or "readback" — for the results screen to show the right label. */
-    kind: "mcq" | "readback";
+    /** Which challenge kind this leg used — for the results screen label. */
+    kind: "mcq" | "readback" | "spoken";
   }>;
 }
 
