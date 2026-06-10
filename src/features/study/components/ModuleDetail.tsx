@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { Radio } from "lucide-react";
 import type { Module } from "@/content/model/section";
 import type { ModuleStatus } from "@/features/progress";
 import { Badge } from "@/shared/ui/Badge";
@@ -8,11 +10,19 @@ import { References } from "@/content/components/References";
 import { StatusIndicator } from "@/features/progress";
 import { cn } from "@/shared/lib/cn";
 
+interface PracticeLink {
+  href: string;
+  label: string;
+}
+
 interface ModuleDetailProps {
   module: Module;
   status: ModuleStatus;
   onBack: () => void;
   onMarkCompleted: () => void;
+  /** Optional CTA shown below references — used by radio-calls modules to
+   * deep-link into the matching Drill tab filter. */
+  practiceLink?: PracticeLink;
 }
 
 export function ModuleDetail({
@@ -20,6 +30,7 @@ export function ModuleDetail({
   status,
   onBack,
   onMarkCompleted,
+  practiceLink,
 }: ModuleDetailProps) {
   return (
     <div className="mx-auto max-w-3xl">
@@ -119,6 +130,24 @@ export function ModuleDetail({
 
       {/* References */}
       <References refs={module.refs} />
+
+      {/* Optional practice CTA (radio-calls modules deep-link into Drill tab) */}
+      {practiceLink && (
+        <Link
+          href={practiceLink.href}
+          className={cn(
+            "mt-6 flex items-center justify-between gap-3 rounded-xl border border-[var(--ifr-accent)]/40 bg-[var(--ifr-accent)]/5 p-4 text-sm font-medium text-[var(--ifr-accent)] transition-colors",
+            "hover:border-[var(--ifr-accent)]/70 hover:bg-[var(--ifr-accent)]/10",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+          )}
+        >
+          <span className="flex items-center gap-2">
+            <Radio size={16} aria-hidden="true" />
+            {practiceLink.label}
+          </span>
+          <span aria-hidden="true">→</span>
+        </Link>
+      )}
 
       {/* Mark as Completed button */}
       <div className="mt-8 border-t border-[var(--ifr-border)] pt-6">

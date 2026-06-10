@@ -19,6 +19,11 @@ interface DrillDashboardProps {
   cards: RadioDrillCard[];
   attempts: readonly RadioDrillAttempt[];
   onOpenCard: (drillId: string) => void;
+  /** Seed the phase filter on mount — used by the /study guide module
+   * deep-links into the Drill tab. Null = "all". */
+  initialPhase?: RadioPhase | null;
+  /** Seed the airspace class filter on mount. Null = "all". */
+  initialClass?: AirspaceClass | null;
 }
 
 type PhaseFilter = "all" | RadioPhase;
@@ -32,9 +37,15 @@ const CLASS_FILTERS: { id: ClassFilter; label: string; description: string }[] =
   { id: "CTAF", label: "CTAF", description: "Non-towered broadcasts" },
 ];
 
-export function DrillDashboard({ cards, attempts, onOpenCard }: DrillDashboardProps) {
-  const [phaseFilter, setPhaseFilter] = useState<PhaseFilter>("all");
-  const [classFilter, setClassFilter] = useState<ClassFilter>("all");
+export function DrillDashboard({
+  cards,
+  attempts,
+  onOpenCard,
+  initialPhase,
+  initialClass,
+}: DrillDashboardProps) {
+  const [phaseFilter, setPhaseFilter] = useState<PhaseFilter>(initialPhase ?? "all");
+  const [classFilter, setClassFilter] = useState<ClassFilter>(initialClass ?? "all");
 
   const filtered = useMemo(() => {
     return cards.filter((c) => {

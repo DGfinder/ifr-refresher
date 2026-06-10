@@ -5,6 +5,10 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { CategoryList } from "@/features/study/components/CategoryList";
 import { ModuleList } from "@/features/study/components/ModuleList";
 import { ModuleDetail } from "@/features/study/components/ModuleDetail";
+import {
+  RADIO_GUIDE_SECTION_ID,
+  getDrillLinkForModule,
+} from "@/features/radio-calls";
 import { SearchBar } from "@/features/study/components/SearchBar";
 import { SectionSelector } from "@/features/study/components/SectionSelector";
 import { sections } from "@/content/registry/sections";
@@ -124,6 +128,10 @@ function StudyPageContent() {
   // Show module detail view
   if (selectedModule) {
     const moduleStatus = getStatus(currentSection.sectionId, selectedModule.id);
+    const practiceLink =
+      currentSection.sectionId === RADIO_GUIDE_SECTION_ID
+        ? getDrillLinkForModule(selectedModule.id)
+        : null;
     return (
       <div className="mx-auto max-w-[1100px] px-6 py-6">
         <ModuleDetail
@@ -131,6 +139,7 @@ function StudyPageContent() {
           status={moduleStatus}
           onBack={handleBack}
           onMarkCompleted={handleMarkCompleted}
+          {...(practiceLink ? { practiceLink } : {})}
         />
       </div>
     );

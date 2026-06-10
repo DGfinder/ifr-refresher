@@ -1,8 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { radioScenarios } from "@/content/registry/radioScenarios";
 import { radioDrillCards, getRadioDrillCardById } from "@/content/registry/radioDrillCards";
+import type { AirspaceClass, RadioPhase } from "@/content/model/radio";
 import { useRadioSession } from "@/features/radio-calls/hooks/useRadioSession";
 import { RadioDashboard } from "@/features/radio-calls/components/RadioDashboard";
 import { TransmissionFeed } from "@/features/radio-calls/components/TransmissionFeed";
@@ -17,13 +19,42 @@ import { cn } from "@/shared/lib/cn";
 
 type Tab = "scenarios" | "drill";
 
+const VALID_PHASES: ReadonlySet<RadioPhase> = new Set([
+  "pre-departure",
+  "departure",
+  "enroute",
+  "arrival",
+  "final",
+  "non-normal",
+]);
+const VALID_CLASSES: ReadonlySet<AirspaceClass> = new Set(["C", "D", "E", "CTAF"]);
+
 export function RadioScreen() {
-  const [tab, setTab] = useState<Tab>("scenarios");
+  const searchParams = useSearchParams();
+  // Initial-only: URL params seed initial state but don't keep state in sync
+  // afterwards. Tab/filter changes are local UX, not navigable history.
+  const initialTab: Tab = searchParams?.get("tab") === "drill" ? "drill" : "scenarios";
+  const phaseParam = searchParams?.get("phase");
+  const classParam = searchParams?.get("class");
+  const initialPhase: RadioPhase | null =
+    phaseParam && VALID_PHASES.has(phaseParam as RadioPhase)
+      ? (phaseParam as RadioPhase)
+      : null;
+  const initialClass: AirspaceClass | null =
+    classParam && VALID_CLASSES.has(classParam as AirspaceClass)
+      ? (classParam as AirspaceClass)
+      : null;
+
+  const [tab, setTab] = useState<Tab>(initialTab);
 
   return (
     <div>
       <RadioHeader tab={tab} onTabChange={setTab} />
-      {tab === "scenarios" ? <ScenariosTab /> : <DrillTab />}
+      {tab === "scenarios" ? (
+        <ScenariosTab />
+      ) : (
+        <DrillTab initialPhase={initialPhase} initialClass={initialClass} />
+      )}
     </div>
   );
 }
@@ -236,7 +267,12 @@ function ScenariosTab() {
 
 // ─── Drill tab ────────────────────────────────────────────────────────────
 
-function DrillTab() {
+interface DrillTabProps {
+  initialPhase: RadioPhase | null;
+  initialClass: AirspaceClass | null;
+}
+
+function DrillTab({ initialPhase, initialClass }: DrillTabProps) {
   const [selectedDrillId, setSelectedDrillId] = useState<string | null>(null);
   const { attempts, recordAttempt } = useRadioDrillHistory();
 
@@ -269,6 +305,8 @@ function DrillTab() {
         cards={radioDrillCards}
         attempts={attempts}
         onOpenCard={setSelectedDrillId}
+        initialPhase={initialPhase}
+        initialClass={initialClass}
       />
     </div>
   );

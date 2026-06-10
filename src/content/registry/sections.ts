@@ -13,6 +13,7 @@ import advancedIfrRegsAirlineOps from "../data/advanced-ifr-regs-airline-ops.jso
 import quickFireNumbers from "../data/quick-fire-numbers.json";
 import casaTraps from "../data/casa-traps.json";
 import cheatSheet from "../data/cheat-sheet.json";
+import radioCalls from "../data/radio-calls.json";
 
 export const sections: Section[] = [
   cheatSheet as Section,
@@ -29,4 +30,5 @@ export const sections: Section[] = [
   advancedIfrRegsAirlineOps as Section,
   quickFireNumbers as Section,
   casaTraps as Section,
+  radioCalls as Section,
 ];

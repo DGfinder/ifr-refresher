@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { Radio } from "lucide-react";
+import Link from "next/link";
+import { BookOpen, Radio } from "lucide-react";
 import { cn } from "@/shared/lib/cn";
 import type { RadioDrillCard, RadioOptionId } from "@/content/model/radio";
 import {
@@ -9,6 +10,7 @@ import {
   buildRadioReadbackAnswer,
   buildRadioSpokenAnswer,
 } from "@/features/radio-calls/model/buildRadioSession";
+import { getGuideUrlForDrill } from "@/features/radio-calls/model/guideMapping";
 import { NextCallChoice } from "@/features/radio-calls/components/NextCallChoice";
 import { ReadbackBuilder } from "@/features/radio-calls/components/ReadbackBuilder";
 import { SpokenCallChallenge } from "@/features/radio-calls/components/SpokenCallChallenge";
@@ -104,6 +106,22 @@ export function DrillCardView({ card, onBack, onComplete }: DrillCardViewProps) 
           {card.phase.replace("-", " ")}
         </span>
       </div>
+
+      {/* Read AIP background — deep-link to the matching study module */}
+      <Link
+        href={getGuideUrlForDrill(card)}
+        className={cn(
+          "mb-4 flex items-center justify-between gap-2 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)] px-3 py-2 text-xs text-[var(--ifr-text-muted)] transition-colors",
+          "hover:border-[var(--ifr-accent)]/40 hover:text-[var(--ifr-text)]",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+        )}
+      >
+        <span className="flex items-center gap-2">
+          <BookOpen size={12} aria-hidden="true" />
+          Read the AIP background
+        </span>
+        <span aria-hidden="true">→</span>
+      </Link>
 
       {/* Briefing card */}
       <div className="mb-4 rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">

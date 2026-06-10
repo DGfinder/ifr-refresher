@@ -14,6 +14,13 @@ export {
 } from "./model/buildRadioSession";
 export { evaluateSpokenCall, normalisePhrase } from "./model/spokenMatch";
 export {
+  RADIO_GUIDE_SECTION_ID,
+  getGuideModuleForDrill,
+  getGuideUrlForDrill,
+  getDrillLinkForModule,
+  type PracticeLink,
+} from "./model/guideMapping";
+export {
   realiseRadioTemplate,
   generateRadioDrillCards,
 } from "./model/realiseTemplate";
