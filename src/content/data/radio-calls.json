@@ -23,10 +23,16 @@
       "moduleIds": ["RADIO-007"]
     },
     {
+      "id": "specialised",
+      "title": "Specialised Operations",
+      "description": "ATIS / RVSM / datalink / helicopter / RPAS / parachute — phraseology you won't use every flight but must know cold when you do.",
+      "moduleIds": ["RADIO-009", "RADIO-010", "RADIO-011", "RADIO-013"]
+    },
+    {
       "id": "non-normal",
       "title": "Non-normal Operations",
-      "description": "Distress, urgency, TCAS, and lost comms — the calls you rarely make but must get right cold.",
-      "moduleIds": ["RADIO-008"]
+      "description": "Distress, urgency, TCAS, lost comms, and TIBA — the calls you rarely make but must get right cold.",
+      "moduleIds": ["RADIO-008", "RADIO-012"]
     }
   ],
   "modules": [
@@ -1057,6 +1063,395 @@
           "source": "AIP Australia ENR 1.6",
           "section": "ATS surveillance services — radio communication failure procedures",
           "note": "Source/access date 2026-06-10. NORDO blind transmission, squawk 7600."
+        }
+      ]
+    },
+    {
+      "id": "RADIO-009",
+      "title": "ATIS & departure information",
+      "categoryId": "specialised",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["atis", "aais", "departure-information", "casa-ac"],
+      "summary": "ATIS broadcast structure, the code-letter acknowledgement rule, what to do when ATIS isn't broadcast, and AAIS at non-controlled aerodromes.",
+      "content": [
+        {
+          "type": "text",
+          "text": "At controlled aerodromes, operational information required for take-off or landing is broadcast via Automatic Terminal Information Service (ATIS) on a dedicated frequency or on the voice channel of a radio navaid (CASA AC §5.1.1). Knowing the format makes copying ATIS faster and copying it accurately the first time."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Standard ATIS broadcast structure (CASA Figure 54)"
+        },
+        {
+          "type": "list",
+          "style": "numbered",
+          "items": [
+            "Aerodrome identifier + TERMINAL INFORMATION + code letter (Alpha, Bravo, etc.).",
+            "TIME [UTC].",
+            "EXPECT [approach type].",
+            "RUNWAYS [in use].",
+            "WIND [direction] DEGREES [speed] KNOTS.",
+            "VISIBILITY [m / km].",
+            "CLOUD [layer descriptions].",
+            "TEMPERATURE [°C].",
+            "QNH [4-digit hPa, digit-by-digit].",
+            "ON FIRST CONTACT WITH GROUND OR APPROACH NOTIFY RECEIPT OF [code letter]."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The code-letter acknowledgement rule"
+        },
+        {
+          "type": "text",
+          "text": "CASA AC §5.1.3: pilots are expected, on first contact with the unit providing surface movement or approach control services, to acknowledge receipt of the current ATIS by quoting the code letter. Embed it in the initial call so the controller doesn't have to ask: 'Sydney Ground, MXG, ready for taxi, information Bravo.'"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "When ATIS isn't available — departure information request"
+        },
+        {
+          "type": "law",
+          "content": [
+            "CASA AC §5.2 / Figure 55 — request departure information before clearance: '[Tower], [callsign], request departure information.'",
+            "Example: 'Thornhill Tower, KING AIR PQR, request departure information.' Reply gives runway, wind, QNH, temperature.",
+            "Read back QNH (mandatory readback per RADIO-002): 'QNH one zero two two, PQR.' Acknowledge the rest with callsign."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Non-controlled aerodromes — AAIS"
+        },
+        {
+          "type": "text",
+          "text": "CASA AC §5.1.4: at non-controlled aerodromes with an Aerodrome Flight Information Service (AFIS) or Certified Air/Ground Radio Service (CA/GRS), essential aerodrome information may be provided by an Automatic Aerodrome Information Service (AAIS) broadcast on a dedicated frequency — similar in format to ATIS."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "After-hours ATIS"
+        },
+        {
+          "type": "text",
+          "text": "CASA AC §5.1.2: outside tower activation hours, operational information of an unchanging nature may continue to broadcast over ATIS. Confirm it's current — outdated ATIS gives a stale QNH."
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Forgetting to embed the ATIS code on initial contact. Per §5.1.3 you're EXPECTED to — controller will otherwise ask, costing both of you frequency time.",
+            "Reading back the whole ATIS on first contact. Only the code letter is acknowledged — the controller doesn't need to hear runway, wind, etc. back.",
+            "Taking after-hours ATIS at face value. Check the broadcast time — operational info may be hours stale.",
+            "Confusing AAIS with AFIS. AAIS is the automatic broadcast (a tape loop); AFIS is the human flight-information service."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §5.1 ATIS + §5.2 Departure information",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. ATIS format (Figure 54), code-letter rule (§5.1.3), after-hours (§5.1.2), AAIS at non-controlled aerodromes (§5.1.4), departure info request format (§5.2, Figure 55)."
+        },
+        {
+          "source": "AIP Australia GEN 3.3",
+          "section": "Air traffic services — Aerodrome information services",
+          "note": "Source/access date 2026-06-10. ATIS provision and availability."
+        }
+      ]
+    },
+    {
+      "id": "RADIO-010",
+      "title": "RVSM phraseology",
+      "categoryId": "specialised",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": ["rvsm", "high-level", "flight-level", "turbulence", "casa-ac"],
+      "summary": "Reduced Vertical Separation Minimum phraseology for ops between FL290 and FL410. Confirm RVSM, unable RVSM due [reason], and what ATC does when traffic is affected vs not.",
+      "content": [
+        {
+          "type": "text",
+          "text": "CASA AC §8.5.1: RVSM is applied in airspace between FL290 and FL410 inclusive. Within RVSM airspace, vertical separation is reduced to 1000 ft instead of the standard 2000 ft above FL290. The phraseology below from CASA Figure 137 governs controller-pilot exchanges around RVSM status."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Confirming RVSM status"
+        },
+        {
+          "type": "law",
+          "content": [
+            "ATC: '[Callsign], CONFIRM RVSM APPROVED.'",
+            "Reply if approved: 'AFFIRM RVSM, [callsign].'",
+            "Reply if not approved: 'NEGATIVE RVSM, [callsign].'"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Unable RVSM due turbulence"
+        },
+        {
+          "type": "law",
+          "content": [
+            "Format: '[Centre], [callsign], [level], UNABLE RVSM DUE TURBULENCE.'",
+            "If no traffic is affected by your change of status, ATC will reply: '[Callsign], MAINTAIN [level].'",
+            "If traffic IS affected: '[Callsign], DESCEND IMMEDIATELY TO [new level], REPORT MAINTAINING.' Read back the descent verbatim then report 'MAINTAINING [level]' when established."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Unable RVSM due equipment failure"
+        },
+        {
+          "type": "law",
+          "content": [
+            "Format on initial contact: '[Centre], [callsign], PASSING [level], CLIMBING TO [target level], UNABLE RVSM DUE EQUIPMENT FAILURE.'",
+            "ATC will issue a recleared level outside RVSM airspace: '[Callsign], ROGER, RECLEARED FLIGHT LEVEL 290.' Read back: 'FLIGHT LEVEL 290, [callsign].'"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Confusing equipment failure with turbulence — different ATC responses. Equipment failure means you'll be re-cleared OUT of RVSM (typically below FL290); turbulence may just get you a hold-at-current-level if no traffic affected.",
+            "Forgetting to state your current level. ATC needs it to assess affected traffic — 'UNABLE RVSM' alone won't help them sequence.",
+            "Not reading back the recleared level. That's a mandatory readback (RADIO-002) — say the new FL verbatim."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "Cruise FL370 with Capricorn Centre. Encounter severe turbulence, can't hold ±300 ft. 'Capricorn Centre, FASTAIR 345, flight level three seven zero, UNABLE RVSM DUE TURBULENCE.' If quiet airspace: 'MAINTAIN FLIGHT LEVEL 370'. If busy: 'DESCEND IMMEDIATELY TO FLIGHT LEVEL 360, REPORT MAINTAINING.' Read back: 'DESCENDING TO FLIGHT LEVEL 360, FASTAIR 345' → at level: 'MAINTAINING FLIGHT LEVEL 360, FASTAIR 345.'"
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §8.5 Reduced Vertical Separation Minimum (RVSM) Phraseology",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. Full RVSM phraseology with affected vs unaffected traffic branches (Figure 137)."
+        }
+      ]
+    },
+    {
+      "id": "RADIO-011",
+      "title": "ADS-C & CPDLC voice phraseology",
+      "categoryId": "specialised",
+      "level": "advanced",
+      "estReadingMinutes": 3,
+      "tags": ["ads-c", "cpdlc", "datalink", "voice-backup", "casa-ac"],
+      "summary": "Voice phraseology that accompanies the two main datalink services — what ATC says when ADS-C is degraded, and the CPDLC failure / disregard / disconnect-and-logon sequences.",
+      "content": [
+        {
+          "type": "text",
+          "text": "Automatic Dependent Surveillance - Contract (ADS-C) and Controller-Pilot Datalink Communications (CPDLC) are datalink services. When the datalink degrades, voice fallback phraseology kicks in. CASA AC §4.12 covers the voice messages."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "ADS-C degraded (CASA Figure 52)"
+        },
+        {
+          "type": "law",
+          "content": [
+            "ATC: '[Callsign], ADS-C OUT OF SERVICE' or '[Callsign], ADS-CONTRACT OUT OF SERVICE.'",
+            "Reply: '[Callsign].' — callsign-only acknowledgement is sufficient."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "CPDLC failure broadcast (CASA Figure 53)"
+        },
+        {
+          "type": "law",
+          "content": [
+            "ATC broadcasts to everyone using CPDLC: 'ALL STATIONS, CPDLC FAILURE. ALL COMMUNICATIONS ON HF, BRISBANE RADIO 8867.'",
+            "Resume broadcast when fixed: 'ALL STATIONS, RESUME NORMAL CPDLC OPERATIONS.'"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Disregard a CPDLC message in flight"
+        },
+        {
+          "type": "law",
+          "content": [
+            "Format: '[Callsign], DISREGARD CPDLC [message type] MESSAGE. BREAK. [voice instruction].'",
+            "Example: '[Callsign], DISREGARD CPDLC CLIMB MESSAGE. BREAK. CLIMB TO FLIGHT LEVEL 350.' The voice instruction supersedes the CPDLC. BREAK separates the disregard from the new instruction."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Disconnect and re-logon"
+        },
+        {
+          "type": "law",
+          "content": [
+            "Format: '[Callsign], DISCONNECT CPDLC THEN LOGON TO [4-letter logon address spoken phonetically].'",
+            "Example: 'FASTAIR 345, DISCONNECT CPDLC THEN LOGON TO YANKEE BRAVO BRAVO BRAVO.' The logon address is read back verbatim (mandatory per RADIO-002)."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Acting on a CPDLC message after a DISREGARD instruction. Voice supersedes CPDLC — disregard means do not action the CPDLC at all.",
+            "Forgetting to read back the new voice instruction after BREAK. The voice instruction (climb, descend, etc.) is still a mandatory readback.",
+            "Reading back a CPDLC logon address as 'noted'. CASA AC §4.1.2(e) lists data link logon addresses as MANDATORY READBACK — spell it phonetically."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §4.12 ADS-C and CPDLC + §4.1.2(e) Mandatory readback",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. ADS-C degraded (§4.12.1, Figure 52), CPDLC failure / disregard / logon (§4.12.2, Figure 53)."
+        }
+      ]
+    },
+    {
+      "id": "RADIO-012",
+      "title": "TIBA — Traffic Information Broadcasts by Aircraft",
+      "categoryId": "non-normal",
+      "level": "advanced",
+      "estReadingMinutes": 3,
+      "tags": ["tiba", "all-stations", "ats-disruption", "non-radar", "casa-ac"],
+      "summary": "Traffic Information Broadcasts by Aircraft — pilot-initiated transmissions used when ATS or aeronautical telecoms are significantly disrupted. Prefix 'ALL STATIONS', state your position / level / intentions.",
+      "content": [
+        {
+          "type": "text",
+          "text": "CASA AC §8.9.1: TIBA are reports and information transmitted by pilots for the information of pilots of other aircraft in the vicinity following a significant disruption to air traffic or aeronautical telecommunications services. When ATS goes down, pilots themselves provide separation by sharing position and intentions on the relevant frequency."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "TIBA format"
+        },
+        {
+          "type": "law",
+          "content": [
+            "Prefix every transmission with 'ALL STATIONS' followed by your callsign.",
+            "State direction of flight, current routing, level / level change, ETA at next significant point.",
+            "Example: 'ALL STATIONS, FASTAIR 345, WESTBOUND SMALLTOWN TO SUNNYTOWN, LEAVING FLIGHT LEVEL 150 DESCENDING TO 8,000, ESTIMATING SUNNYTOWN ON THE HOUR.'",
+            "Position report variant: 'ALL STATIONS, PQR, GASTOWN 14, FLIGHT LEVEL 120, SUNNYTOWN 43.' (Position, level, next point and ETA — abbreviated.)"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "When to use TIBA"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "ATS centre or sector outage — controllers off-frequency or unable to provide service.",
+            "Aeronautical telecommunications outage affecting the frequency you're on.",
+            "Any other significant disruption where pilot-to-pilot separation is what's keeping the airspace safe."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Confusing TIBA with CTAF. TIBA prefix is 'ALL STATIONS' (you don't know who's listening); CTAF prefix is '[Location] TRAFFIC' (you do know — it's pilots at that aerodrome).",
+            "Forgetting to keep transmitting at regular intervals. TIBA isn't a one-shot — repeat at significant points so traffic that joins later picks you up.",
+            "Treating TIBA as a substitute for declaring an emergency. TIBA is for ATS disruption; if YOU have an aircraft problem, use MAYDAY/PAN PAN per RADIO-008."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §8.9 Traffic Information Broadcasts by Aircraft (TIBA)",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. TIBA purpose, format, and examples (Figure 141)."
+        }
+      ]
+    },
+    {
+      "id": "RADIO-013",
+      "title": "Special operations — helicopter, RPAS, parachute",
+      "categoryId": "specialised",
+      "level": "advanced",
+      "estReadingMinutes": 4,
+      "tags": ["helicopter", "rpas", "parachute", "air-taxi", "casa-ac"],
+      "summary": "Unique phraseology for helicopter ops (AIR TAXI, pads), RPAS at controlled aerodromes (currently telephone-mostly), and parachute drops (broadcast before exit, 4-minute warning at non-controlled aerodromes).",
+      "content": [
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Helicopter operations (CASA AC §5.12)"
+        },
+        {
+          "type": "text",
+          "text": "Helicopters take off and land from surfaces other than runways — pads, fuel points, hangars. Unique phraseology exists for that ground-mobility flexibility."
+        },
+        {
+          "type": "law",
+          "content": [
+            "Identification: prefix HELICOPTER + callsign on first contact — 'Suburbs Tower, HELICOPTER RST.'",
+            "Air taxi request: 'Suburbs Tower, HELICOPTER RST, REQUEST AIR TAXI FROM THE APRON TO THE FUELLING POINT.' AIR TAXI is the helicopter-specific phrase for low-level ground manoeuvring.",
+            "Readback: 'AIR TAXI FROM THE APRON TO THE FUELLING POINT, RST.'",
+            "Pad-based departure: 'PAD ALFA, READY, RST.' Tower clears for take-off from the pad: 'PAD ALFA, CLEARED FOR TAKE-OFF, RST.' Readback: 'PAD ALFA, CLEARED FOR TAKE-OFF, RST.'",
+            "Traffic info / sighting: ATC may say 'TRAFFIC CESSNA 150 ON TAXIWAY CHARLIE'. Acknowledge with 'TRAFFIC IN SIGHT, RST.'"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "RPAS at controlled aerodromes (CASA AC §5.23)"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Currently, only TELEPHONE communications are used for approved RPAS operations at or in close proximity to controlled aerodromes.",
+            "If an RPAS pilot is authorised to use radio, crewed-aircraft phraseology applies — no special RPAS-specific phrases.",
+            "For RPAS in non-controlled airspace, see CASA AC §3.8."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Parachute operations (CASA AC §3.7)"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Broadcast intention to drop parachutists BEFORE the parachutists exit the aircraft (§3.7.1).",
+            "Broadcast on all relevant frequencies for airspace through which the parachutists may descend.",
+            "At a non-controlled aerodrome — additional broadcast not less than 4 MINUTES before parachutists leave the aircraft (§3.7.2).",
+            "If in controlled airspace, ATC may require a report when the aircraft AND parachutists are clear of controlled airspace (§3.7.3)."
+          ]
+        },
+        {
+          "type": "law",
+          "content": [
+            "Format on ATS frequency: 'ALL STATIONS, [drop area name], MARCH AREA, [callsign], [position], [aircraft level], DROPPING PARACHUTISTS [time], [drop area name].'",
+            "Format on CTAF: '[Aerodrome] traffic, [callsign], DROPPING PARACHUTISTS [position] IN [N] MINUTES, [Aerodrome].'"
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Calling helicopter ground movement 'taxi' instead of 'AIR TAXI'. AIR TAXI is the prescribed term for helicopter low-level surface manoeuvring.",
+            "Skipping the HELICOPTER prefix on first contact. It tells the controller you may be using non-runway surfaces and need pad-based clearances.",
+            "Treating an RPAS like normal RT traffic at a controlled aerodrome. Per §5.23.1 the default is telephone — radio only if specifically authorised.",
+            "Forgetting the 4-minute pre-drop broadcast at non-controlled aerodromes. Skydivers descending into an active circuit without warning is one of the worst CTAF surprises."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §5.12 Helicopter ops + §5.23 RPAS + §3.7 Parachute ops",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. Helicopter AIR TAXI phraseology (§5.12, Figure 76), RPAS at controlled aerodromes (§5.23), parachute broadcasts (§3.7, including 4-minute warning at §3.7.2)."
         }
       ]
     }
