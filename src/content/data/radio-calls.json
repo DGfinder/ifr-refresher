@@ -392,14 +392,19 @@
       ],
       "refs": [
         {
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §5 Operations at a controlled aerodrome",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. ATIS (§5.1), departure information (§5.2), airways clearances (§5.3), taxi instructions (§5.5), pre-departure manoeuvring (§5.6), take-off procedures (§5.7), frequency management (§5.8)."
+        },
+        {
           "source": "AIP Australia GEN 3.4",
           "section": "Communications — General radiotelephony procedures",
-          "note": "Source/access date 2026-06-09. Initial-call format and clearance phraseology."
+          "note": "Source/access date 2026-06-10. Initial-call format and clearance phraseology."
         },
         {
           "source": "MATS Part 4",
           "chapter": "Pilots' radio standards",
-          "note": "Source/access date 2026-06-09. Mandatory readback — takeoff clearance and runway."
+          "note": "Source/access date 2026-06-10. Mandatory readback — takeoff clearance and runway."
         }
       ]
     },
@@ -517,29 +522,29 @@
       ],
       "refs": [
         {
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §4 General principles in controlled airspace + §8 Area control",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. Level instructions (§4.3, Figures 40-43 incl. step descent and expedite), speed control (§4.6), position reports (§4.10), area control general (§8.1), block levels (§8.3), RVSM (§8.5), VFR-on-top / IFR pickup (§8.8)."
+        },
+        {
           "source": "AIP Australia GEN 3.4",
           "section": "Communications — General radiotelephony procedures",
-          "note": "Source/access date 2026-06-09. Initial-contact and routine en-route phraseology."
+          "note": "Source/access date 2026-06-10. Initial-contact and routine en-route phraseology."
         },
         {
           "source": "AIP Australia ENR 1.5",
           "section": "Holding, approach and departure procedures — position reporting",
-          "note": "Source/access date 2026-06-09. Full and abbreviated position report formats."
+          "note": "Source/access date 2026-06-10. Full and abbreviated position report formats."
         },
         {
           "source": "AIP Australia ENR 1.7",
           "section": "Altimeter setting procedures",
-          "note": "Source/access date 2026-06-09. QNH and the 10,000 ft transition altitude."
+          "note": "Source/access date 2026-06-10. QNH and the 10,000 ft transition altitude."
         },
         {
           "source": "AIP Australia ENR 1.1",
           "section": "General rules — flight notification and SAR",
-          "note": "Source/access date 2026-06-09. SARTIME submission and cancellation."
-        },
-        {
-          "source": "MATS Part 4",
-          "chapter": "Pilots' radio standards",
-          "note": "Source/access date 2026-06-09. Mandatory readback items."
+          "note": "Source/access date 2026-06-10. SARTIME submission and cancellation."
         }
       ]
     },
@@ -638,14 +643,19 @@
       ],
       "refs": [
         {
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §6 Approach/Departures + §7 ATS surveillance",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. IFR Arrivals (§6.5), visual approach (§6.6), STAR procedures (§6.7), ops below LSA (§6.8), surveillance identification (§7.1), surveillance vectoring (§7.2), vectors to final (§7.4)."
+        },
+        {
           "source": "AIP Australia ENR 1.5",
           "section": "Holding, approach and departure procedures",
-          "note": "Source/access date 2026-06-09. Approach and hold phraseology + EFC requirements."
+          "note": "Source/access date 2026-06-10. Approach and hold phraseology + EFC requirements."
         },
         {
           "source": "MATS Part 4",
           "chapter": "Pilots' radio standards",
-          "note": "Source/access date 2026-06-09. Headings, levels, reporting instructions — mandatory readback."
+          "note": "Source/access date 2026-06-10. Headings, levels, reporting instructions — mandatory readback."
         }
       ]
     },
@@ -725,14 +735,19 @@
       ],
       "refs": [
         {
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §5 Operations at a controlled aerodrome (final + post-landing)",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. Aerodrome traffic circuit (§5.15), final approach and landing (§5.16), after landing (§5.17), go around or missed approach (§5.18), wake turbulence (§5.20)."
+        },
+        {
           "source": "AIP Australia ENR 1.5",
           "section": "Holding, approach and departure procedures — missed approach",
-          "note": "Source/access date 2026-06-09. Missed-approach announcement and follow-up."
+          "note": "Source/access date 2026-06-10. Missed-approach announcement and follow-up."
         },
         {
           "source": "MATS Part 4",
           "chapter": "Pilots' radio standards",
-          "note": "Source/access date 2026-06-09. Mandatory readback — landing clearance, frequency change."
+          "note": "Source/access date 2026-06-10. Mandatory readback — landing clearance, frequency change."
         }
       ]
     },
@@ -741,98 +756,150 @@
       "title": "CTAF broadcasts (non-towered)",
       "categoryId": "non-towered",
       "level": "core",
-      "estReadingMinutes": 6,
-      "tags": ["ctaf", "broadcast", "circuit", "inbound", "joining", "crossing", "overflying"],
-      "summary": "Class G non-towered aerodromes — broadcasts to other pilots, no ATC. Different format, different rules of the air. Knows the calls cold and you fly safer at CTAFs.",
+      "estReadingMinutes": 8,
+      "tags": ["ctaf", "broadcast", "circuit", "inbound", "joining", "afru", "casa-ac"],
+      "summary": "Class G non-towered aerodromes — broadcasts to OTHER PILOTS, no ATC. CASA AC §3 prescribes the exact format, when to broadcast, the AFRU response system, and aircraft-to-aircraft coordination.",
       "content": [
         {
           "type": "text",
-          "text": "At a CTAF you are talking to OTHER PILOTS, not a controller. There is no sequencing service; the broadcasts are the only thing keeping a runway conflict from becoming a collision. Mandatory broadcast situations at a CTAF are listed below — make them all even if you don't hear anyone reply."
+          "text": "CASA AC §3.2.1 frames the fundamental principle: at a CTAF, make only the broadcasts necessary to aid the situation awareness of other pilots in the immediate vicinity. There is no sequencing service. The broadcasts are the only thing keeping a runway conflict from becoming a collision."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Broadcast format"
+          "text": "What 'in the vicinity' means"
         },
         {
-          "type": "law",
-          "content": [
-            "Open with: '[Aerodrome] traffic' — addresses everyone on the frequency.",
-            "Close with: '[Aerodrome]' — confirms which CTAF you were transmitting on (CTAFs share frequencies regionally).",
-            "Full structure: '[Aerodrome] traffic, [callsign], [aircraft type if first call], [position / action / intentions], [Aerodrome].'"
+          "type": "text",
+          "text": "CASA AC §3.2.2: 'In the vicinity' is within 10 NM and at a height above the aerodrome that could result in conflict with operations at the aerodrome. This is the legal trigger for monitoring + broadcasting."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Which frequency"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Aerodrome published on aeronautical charts — listen and broadcast on the CTAF (126.7 MHz if not nominated or discrete) per AC §3.2.3(a).",
+            "Aerodrome within a Mandatory Broadcast Area — use the MBA frequency per §3.2.3(b).",
+            "All other cases — CASA recommends Area Frequency per §3.2.3(c)."
           ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Mandatory broadcasts"
+          "text": "AFRU — Aerodrome Frequency Response Unit"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Many CTAF aerodromes have an AFRU that auto-confirms broadcasts (AC §3.2.4).",
+            "Confirmation is either the aerodrome name + 'CTAF' OR a low-volume 300 ms tone if any aircraft transmissions were received within the last 5 minutes.",
+            "Helps confirm you're on the right frequency AND that other traffic is in the area.",
+            "Be careful NOT to momentarily break transmission — AFRU will auto-over-transmit any subsequent broadcast."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Standard broadcast format (CASA §3.2.5)"
         },
         {
           "type": "list",
           "style": "numbered",
           "items": [
-            "Taxiing — '[Aerodrome] traffic, [callsign], [type], taxiing for runway [X], [IFR/VFR/circuits], [Aerodrome].'",
-            "Departing (rolling) — '[Aerodrome] traffic, [callsign], departing runway [X], [direction], [Aerodrome].'",
-            "Inbound at 10 NM (or earlier if airspace) — '[Aerodrome] traffic, [callsign], [type], [distance + bearing], [altitude], inbound for landing runway [X], [Aerodrome].'",
-            "Joining circuit — overhead, straight-in, or base join. Each has its own call (see below).",
-            "Downwind, base, final — for following traffic spacing.",
-            "Clear of runway — releases the runway to following traffic since nobody is watching.",
-            "Going around at CTAF — broadcast form (different from controlled).",
-            "Crossing a runway while taxiing — warns traffic lined up or on final.",
-            "Overflying within 10 NM and below 5000 ft AGL — say 'transiting' so circuit traffic doesn't try to sequence you."
+            "(Location) Traffic.",
+            "Aircraft Type.",
+            "Call sign.",
+            "Flight rules if IFR.",
+            "Position / Level / Intentions.",
+            "(Location)."
           ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Joining the circuit"
+          "text": "Broadcasts to ALWAYS make (CASA Table 32)"
         },
         {
           "type": "law",
           "content": [
-            "Overhead join: '[Aerodrome] traffic, [callsign], overhead the field two thousand five hundred, descending dead side for runway [X], [Aerodrome].'",
-            "Straight-in: '[Aerodrome] traffic, [callsign], five miles final runway [X], straight-in approach, [Aerodrome].' CASR Part 91 right-of-way: circuit traffic gives way to straight-in.",
-            "Base join: '[Aerodrome] traffic, [callsign], joining base runway [X], [Aerodrome].'"
+            "Before take-off or during taxiing — '[Location] TRAFFIC, [type] [callsign], TAXIING RUNWAY [X] FOR [purpose], [Location].'",
+            "Inbound at least 10 NM out — '[Location] TRAFFIC, [type] [callsign], [N] MILES [direction] INBOUND ON DESCENT THROUGH [alt], ESTIMATING CIRCUIT AT [time], [Location].' (Earlier for high-performance aircraft or busy aerodromes.)",
+            "Overflying within 10 NM not landing — '[Location] TRAFFIC, [type] [callsign], [N] MILES [direction] [alt] OVERFLYING, ESTIMATE OVERHEAD AT [time], [Location].'"
           ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Going around at CTAF"
+          "text": "Broadcasts to make when other traffic is present (CASA Table 33)"
         },
         {
           "type": "law",
           "content": [
-            "Format: '[Aerodrome] traffic, [callsign], going around runway [X], climbing upwind, [Aerodrome].'",
-            "At controlled fields it's just 'going around'. At CTAF you include the runway so other traffic knows which one you're NOT landing on."
+            "Entering a runway — '[Location] TRAFFIC, [callsign], ENTERING RUNWAY [X], [Location].'",
+            "Joining the circuit (dead side descent) — '[Location] TRAFFIC, [callsign], DESCENDING ON THE DEAD SIDE RUNWAY [X], [Location].'",
+            "Straight-in approach not less than 3 NM from threshold — '[Location] TRAFFIC, [callsign], JOINING 3 NM FINAL FOR STRAIGHT IN APPROACH RUNWAY [X], [Location].'",
+            "Joining on base — '[Location] TRAFFIC, [callsign], JOINING BASE RUNWAY [X], [Location].'",
+            "Established at FAF / commencing missed approach — '[Location] TRAFFIC, [callsign], CONDUCTING A MISSED APPROACH RUNWAY [X], TRACKING TO THE [direction], CLIMBING TO [alt], [Location].'",
+            "After vacating the runway — '[Location] TRAFFIC, [callsign], RUNWAY [X] VACATED, [Location].'"
           ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Aircraft-to-aircraft coordination"
+        },
+        {
+          "type": "text",
+          "text": "CASA AC §3.2.8 explicitly contemplates pilots talking directly to each other when arriving at a CTAF. Figure 19 example: an Airbus joining downwind tells the Jabiru in the circuit 'WILL JOIN DOWNWIND AT 2,000 UNTIL I HAVE YOU IN SIGHT'; the Jabiru replies 'EARLY DOWNWIND'. This is normal CTAF practice — talk to each other to coordinate spacing."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "IFR aircraft arriving — frequency switch"
+        },
+        {
+          "type": "text",
+          "text": "Per CASA AC §3.2.9, the pilot of an IFR aircraft arriving at a non-controlled aerodrome should TELL ATS if switching from the area frequency so that communications are entirely to the CTAF."
         },
         {
           "type": "traps",
           "content": [
-            "Ending with the callsign instead of the aerodrome name. CTAF format ends with the aerodrome. This catches everyone who is used to controlled airspace.",
+            "Ending with the callsign instead of the aerodrome name. CTAF format ends with the LOCATION. This catches everyone used to controlled airspace.",
             "Not making the broadcast because 'no one will hear'. Multiple aerodromes share CTAF frequencies regionally — your traffic might be 30 NM away on the same freq.",
             "Reading back instructions to nobody. At CTAF there is no ATC — broadcasts are statements, not readbacks.",
-            "Forgetting the aerodrome name on EVERY broadcast (not just the first). It's the only way other pilots know which CTAF you mean."
+            "Forgetting the aerodrome name on EVERY broadcast (not just the first). It's the only way other pilots know which CTAF you mean.",
+            "Pausing mid-transmission so the AFRU 'helps' — it will over-transmit the rest of your call. Speak continuously.",
+            "Not telling ATS when you're switching off Area Freq to CTAF on arrival — §3.2.9 explicitly requires it."
           ]
         },
         {
           "type": "scenario",
           "content": [
-            "Inbound to Mudgee from the south, IFR cancelled at 20 DME. At 10 DME, broadcast: 'Mudgee traffic, Lima Echo Foxtrot, PA-31, ten miles south, four thousand five hundred, inbound for landing runway two two, Mudgee.' Continue with joining circuit call (overhead or base depending on procedure), then downwind, base, final, and clear-of-runway after touchdown."
+            "Inbound to Mudgee from the south, IFR cancelled at 20 DME. At 10 DME, broadcast: 'MUDGEE TRAFFIC, PA-31 LIMA ECHO FOXTROT, IFR, TEN MILES SOUTH INBOUND ON DESCENT THROUGH 4,500, ESTIMATING CIRCUIT AT THREE FIVE, MUDGEE.' Continue with joining call (overhead or base), then downwind / base / final / vacated as required, each ending with 'MUDGEE'.",
+            "Pilot-to-pilot coordination at Minetown: Airbus 20 NM NW joining downwind. Jabiru already in the circuit upwind. Airbus: 'JABIRU 1346, FASTAIR 345, WILL JOIN DOWNWIND AT 2,000 UNTIL I HAVE YOU IN SIGHT, FASTAIR 345.' Jabiru: 'FASTAIR 345, JABIRU 1346, DOWNWIND FOR TOUCH AND GO.' Airbus: 'JABIRU 1346, I HAVE YOU IN SIGHT, WILL EXTEND DOWNWIND UNTIL YOU ARE CLEAR, FASTAIR 345.' (CASA AC Figure 19 verbatim.)"
           ]
         }
       ],
       "refs": [
         {
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §3 Communications in non-controlled airspace",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. Vicinity definition (§3.2.2), frequency selection (§3.2.3), AFRU (§3.2.4), standard format (§3.2.5), broadcast situations (Tables 32 and 33), aircraft-to-aircraft coordination (§3.2.8-3.2.9, Figure 19)."
+        },
+        {
           "source": "AIP Australia ENR 1.4",
           "section": "ATS airspace classification — Class G procedures",
-          "note": "Source/access date 2026-06-09. CTAF broadcast format and mandatory broadcast situations."
+          "note": "Source/access date 2026-06-10. Original AIP CTAF reference — CASA AC is the more detailed authoritative supplement."
         },
         {
           "source": "CASR Part 91",
           "chapter": "General operating and flight rules — right-of-way at non-towered aerodromes",
-          "note": "Source/access date 2026-06-09. Right-of-way rules at CTAF including straight-in arrivals."
+          "note": "Source/access date 2026-06-10. Right-of-way rules at CTAF including straight-in arrivals."
         }
       ]
     },
@@ -841,13 +908,33 @@
       "title": "Distress, urgency, & lost comms",
       "categoryId": "non-normal",
       "level": "core",
-      "estReadingMinutes": 5,
-      "tags": ["mayday", "pan-pan", "tcas", "nordo", "lost-comms", "squawk-7600", "emergency"],
-      "summary": "MAYDAY format, PAN-PAN format, cancellation, TCAS RA call, and the NORDO / squawk 7600 / blind transmission procedure. Calls you rarely make but must get right cold.",
+      "estReadingMinutes": 8,
+      "tags": ["mayday", "pan-pan", "tcas", "nordo", "lost-comms", "squawk-7600", "fuel", "minimum-fuel", "casa-ac"],
+      "summary": "MAYDAY format, PAN PAN format, the 9-element emergency message structure, TCAS RA, MINIMUM FUEL vs MAYDAY FUEL, NORDO procedures including receiver-failure phraseology. Calls you rarely make but must get right cold.",
       "content": [
         {
           "type": "text",
-          "text": "Distress and urgency calls under AIP GEN 3.6 are formula-driven. Memorise the format and the three-time repetition — under stress, falling back on a memorised pattern is what gets these calls right."
+          "text": "CASA AC §9 prescribes the structure for every non-normal radio call. Memorise the formats — under stress, falling back on a memorised pattern is what gets these calls right. Distress (MAYDAY) and urgency (PAN PAN) use the same 9-element structure."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "The 9-element emergency message (CASA AC §9.3.1)"
+        },
+        {
+          "type": "list",
+          "style": "numbered",
+          "items": [
+            "'MAYDAY, MAYDAY, MAYDAY' (or 'PAN PAN, PAN PAN, PAN PAN').",
+            "Name of the station addressed (when appropriate and time/circumstance permitting).",
+            "Call sign.",
+            "Type of aircraft.",
+            "Nature of the emergency.",
+            "Intention of the pilot-in-command.",
+            "Present or last known position, flight level/altitude, and heading.",
+            "Pilot qualifications — student pilot / no instrument qualification / private IFR rating / instrument rating (not required, but helps ATS plan a course of action).",
+            "Any other useful information — endurance remaining, POB, aircraft colour or markings, survival aids."
+          ]
         },
         {
           "type": "heading",
@@ -857,24 +944,38 @@
         {
           "type": "law",
           "content": [
-            "Use when: there's a threat to the aircraft or souls on board requiring immediate assistance (engine fire, structural failure, medical, fuel emergency).",
-            "Format: 'MAYDAY, MAYDAY, MAYDAY, [station], [callsign], [nature of distress], [intentions], [souls on board], [fuel remaining].'",
-            "Example: 'MAYDAY, MAYDAY, MAYDAY, Brisbane Centre, Mike X-ray Golf, engine fire left engine, descending, request immediate diversion nearest suitable airport, four souls on board, one hour fuel.'",
-            "MAYDAY × 3 is mandatory — it's what gives the call absolute priority on the frequency."
+            "Use when: serious / imminent danger requiring IMMEDIATE assistance (engine fire, structural failure, medical, fuel emergency).",
+            "CASA AC §9.4 example (Figure 142): 'MAYDAY, MAYDAY, MAYDAY, JRG, rough running engine, unable to maintain height, making forced landing, position two miles south of Stonytown, passing 3,000, heading 360, POB 1, JRG.'",
+            "The three-time repetition is what gives the call absolute priority on the frequency.",
+            "The station in distress may impose silence on the frequency: 'ALL STATIONS, STOP TRANSMITTING, MAYDAY' (CASA AC §9.4.2)."
           ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "PAN-PAN — urgency"
+          "text": "PAN PAN — urgency"
         },
         {
           "type": "law",
           "content": [
-            "Use when: there's a concern requiring priority handling but NOT immediate threat to life (oil pressure indication, partial loss of one engine still controllable, ill passenger).",
-            "Format: 'PAN PAN, PAN PAN, PAN PAN, [station], [callsign], [nature], [intentions], [souls], [fuel].'",
-            "Example: 'PAN PAN, PAN PAN, PAN PAN, Brisbane Centre, Mike X-ray Golf, oil pressure failure left engine, requesting descent and diversion to Coffs Harbour, four souls on board, two hours fuel.'",
-            "PAN-PAN × 3 — same priority rule as MAYDAY but one rung lower."
+            "Use when: concern about the safety of the flight requiring priority handling but NOT imminent danger (oil pressure indication, ill passenger, navigation degraded).",
+            "Same 9-element format as MAYDAY, prefixed 'PAN PAN, PAN PAN, PAN PAN'.",
+            "Same priority rule but one rung lower than MAYDAY."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "MINIMUM FUEL vs MAYDAY FUEL"
+        },
+        {
+          "type": "law",
+          "content": [
+            "MINIMUM FUEL (CASA AC §9.9.1) — informs ATC that, having committed to land at a specific aerodrome, any change to the existing clearance may result in landing with less than fixed fuel reserve. This is an ADVISORY, NOT a priority request.",
+            "Per §9.9.3, pilots should NOT expect priority handling from a MINIMUM FUEL declaration.",
+            "Format example: 'Capricorn Approach, FASTAIR 345, MINIMUM FUEL.'",
+            "MAYDAY FUEL (CASA AC §9.9.4) — declare when calculated usable fuel at the nearest landable aerodrome is predicted to be less than the final reserve. This IS a distress call.",
+            "Format: 'MAYDAY, MAYDAY, MAYDAY, [callsign], FUEL.' If no emergency services required and normal approach expected, tell ATS as early as possible."
           ]
         },
         {
@@ -886,67 +987,76 @@
           "type": "law",
           "content": [
             "Format: '[Station], [callsign], cancel [PAN PAN / MAYDAY], situation resolved.'",
-            "Use explicit cancel phrase so the frequency returns to normal and SAR doesn't mobilise unnecessarily."
+            "Use the explicit cancel phrase so the frequency returns to normal and SAR doesn't mobilise unnecessarily."
           ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "TCAS Resolution Advisory"
+          "text": "TCAS Resolution Advisory (CASA AC §9.7)"
         },
         {
           "type": "law",
           "content": [
-            "Format: 'TCAS RA, [callsign].'",
-            "Three words. Don't describe the manoeuvre — ATC's job is to clear traffic, not co-pilot the RA.",
-            "Follow-up after clear: 'Clear of conflict, returning to [assigned level], [callsign].'"
+            "Initial call when RA commands a manoeuvre: '[Callsign], TCAS RA.' ATC will reply 'ROGER'.",
+            "When the RA clears: '[Callsign], CLEAR OF CONFLICT, RETURNING TO [assigned level].'",
+            "When you've resumed the assigned level: '[Callsign], CLEAR OF CONFLICT, [level] RESUMED.'",
+            "If the RA contradicts an ATC instruction: FOLLOW THE RA. Tell ATC directly: '[Callsign], UNABLE, TCAS RA' (CASA AC Figure 147)."
           ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Lost comms (NORDO) — squawk 7600"
+          "text": "Lost comms (NORDO) — full CASA AC §9.10 procedure"
         },
         {
           "type": "law",
           "content": [
-            "Squawk 7600 immediately. Listen out on the last assigned frequency and on emergency guard (121.5).",
-            "Transmit blind on the last assigned frequency: '[Callsign], transmitting blind due to comms failure, squawking seven six zero zero, continuing flight planned route, descending to [level], estimating [waypoint] at [time].'",
-            "Keep transmitting blind at regular intervals stating intentions — receiver may be unreceived but ATC will sequence other traffic around your stated track and ETA."
+            "Step 1 — attempt to (re-)establish contact on another frequency appropriate to the route (§9.10.1).",
+            "Step 2 — if that fails, attempt contact with other flights or aeronautical stations on appropriate frequencies (§9.10.1).",
+            "Step 3 — if all attempts fail, transmit the message TWICE on the designated frequency, prefixed 'TRANSMITTING BLIND', including the addressee(s) (§9.10.2).",
+            "Step 4 — if a receiver failure is suspected, transmit reports at scheduled times/positions prefixed 'TRANSMITTING BLIND DUE TO RECEIVER FAILURE'. Transmit the intended message + complete repetition. Advise the time of next intended transmission (§9.10.3).",
+            "Step 5 — in controlled airspace, additionally transmit intentions with respect to continuation of the flight (§9.10.4).",
+            "Squawk 7600 (radio comms failure) and set the ADS-B transmitter to indicate loss of air-ground communications (§9.10.5)."
           ]
         },
         {
           "type": "traps",
           "content": [
-            "Saying 'MAYDAY' only once. The three-time repetition is what makes it a recognised distress call — saying it once may be missed in frequency noise.",
-            "Confusing PAN-PAN with MAYDAY. PAN-PAN = urgency (priority handling); MAYDAY = distress (immediate threat). When in doubt and time is short, escalate to MAYDAY.",
+            "Saying 'MAYDAY' only once. The three-time repetition is what makes it a recognised distress call — once may be missed in frequency noise.",
+            "Confusing PAN PAN with MAYDAY. PAN PAN = urgency (priority handling); MAYDAY = distress (immediate danger). When in doubt and time is short, escalate to MAYDAY.",
+            "Confusing MINIMUM FUEL with MAYDAY FUEL. MINIMUM FUEL is advisory and gives NO priority; MAYDAY FUEL is a distress call. Don't downplay — if you're below final reserve at the nearest landable, it's MAYDAY.",
             "Describing the TCAS manoeuvre. 'TCAS RA' is the entire call. ATC knows what to do.",
             "Not squawking 7600 on lost comms. The squawk is what tells ATC you're NORDO before any blind transmission gets through.",
-            "Not stating souls on board / fuel on MAYDAY/PAN-PAN. They are recommended (not strictly required), but SAR and ATC use them for diversion planning."
+            "Saying 'TRANSMITTING BLIND' when actually receiver-failed. CASA AC §9.10.3 distinguishes — 'TRANSMITTING BLIND DUE TO RECEIVER FAILURE' tells ATC you genuinely can't hear them, not just that you can't reach them.",
+            "Skipping pilot qualifications field. Not required but per §9.3.1(h) helps ATS plan a workable course of action.",
+            "Cancelling a MAYDAY casually. 'Cancel MAYDAY, situation resolved' — explicit phrase ends the priority status."
           ]
         },
         {
           "type": "scenario",
           "content": [
-            "Cruise FL210 with Brisbane Centre. Left engine oil pressure drops to zero, no fire. Assessable, divertible — this is urgency, not distress. 'PAN PAN, PAN PAN, PAN PAN, Brisbane Centre, Mike X-ray Golf, oil pressure failure left engine, requesting descent and diversion to Coffs Harbour, four souls on board, two hours fuel.' Centre clears the airspace, you divert. Once on the ground at Coffs, cancel: 'Brisbane Centre, Mike X-ray Golf, cancel PAN PAN, situation resolved.'"
+            "Cruise FL210 with Brisbane Centre. Left engine oil pressure drops to zero, no fire. Assessable, divertible — urgency, not distress. 'PAN PAN, PAN PAN, PAN PAN, Brisbane Centre, MIKE X-RAY GOLF, KING AIR 350, OIL PRESSURE FAILURE LEFT ENGINE, REQUESTING DESCENT AND DIVERSION TO COFFS HARBOUR, PASSING FL200, HEADING 090, INSTRUMENT RATING, FOUR POB, TWO HOURS FUEL.' Centre clears the airspace, you divert. Once on the ground, cancel.",
+            "On the ILS at Capricorn. Holding has burnt 10 minutes more than planned. You now calculate that if Approach delays you further, you'll land below final reserve. 'Capricorn Approach, FASTAIR 345, MINIMUM FUEL.' Advisory only — Approach replies with anticipated delays. If delays would push you below final reserve at the nearest landable: 'MAYDAY, MAYDAY, MAYDAY, FASTAIR 345, FUEL.' That's the distress call.",
+            "TCAS RA at FL350 in cruise. 'FASTAIR 345, TCAS RA.' ATC: 'FASTAIR 345, ROGER.' RA clears. 'FASTAIR 345, CLEAR OF CONFLICT, RETURNING TO FLIGHT LEVEL 350.' Back at assigned: 'FASTAIR 345, CLEAR OF CONFLICT, FLIGHT LEVEL 350 RESUMED.' (CASA AC Figure 147 verbatim.)"
           ]
         }
       ],
       "refs": [
         {
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §9 Distress and urgency phraseology",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. Emergency message structure (§9.3.1), distress (§9.4, Figure 142), urgency (§9.5), TCAS (§9.7, Figure 147), MINIMUM FUEL and MAYDAY FUEL (§9.9), comms failure procedures (§9.10), speechless communications (§9.12)."
+        },
+        {
           "source": "AIP Australia GEN 3.6",
           "section": "Distress and urgency communications",
-          "note": "Source/access date 2026-06-09. MAYDAY / PAN PAN format, cancellation, and TCAS RA phraseology."
+          "note": "Source/access date 2026-06-10. Original AIP reference — superseded in detail by the CASA AC."
         },
         {
           "source": "AIP Australia ENR 1.6",
           "section": "ATS surveillance services — radio communication failure procedures",
-          "note": "Source/access date 2026-06-09. NORDO blind transmission, squawk 7600."
-        },
-        {
-          "source": "ICAO Doc 4444",
-          "chapter": "PANS-ATM — pilot phraseology",
-          "note": "Source/access date 2026-06-09. Standard TCAS RA call."
+          "note": "Source/access date 2026-06-10. NORDO blind transmission, squawk 7600."
         }
       ]
     }
