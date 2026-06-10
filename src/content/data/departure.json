@@ -13,6 +13,15 @@
         "DEP-002",
         "DEP-003"
       ]
+    },
+    {
+      "id": "departure-briefings",
+      "title": "Sample Briefings",
+      "description": "Templated departure and take-off safety briefings — IPC study aids drawn from the IFR Cheat Sheet.",
+      "moduleIds": [
+        "DEP-004",
+        "DEP-005"
+      ]
     }
   ],
   "modules": [
@@ -333,6 +342,254 @@
         {
           "source": "Airservices Australia DAP — Designated Airspace and Procedures",
           "note": "Source/access date 2026-06-10. Published SID chart specifications."
+        }
+      ]
+    },
+    {
+      "id": "DEP-004",
+      "title": "Sample Departure Briefing",
+      "categoryId": "departure-briefings",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": [
+        "briefing",
+        "departure",
+        "ipc",
+        "study-aid",
+        "chart",
+        "terrain"
+      ],
+      "summary": "Templated departure briefing covering chart confirmation, flying the departure, terrain (MSAs), weather, and considerations. Walk through this template aloud before every IFR departure — IPC examiners look for this discipline.",
+      "content": [
+        {
+          "type": "text",
+          "text": "A structured pre-departure briefing ensures nothing is missed in the rush of pre-flight. Use this template aloud, top to bottom, before every IFR departure. The placeholders [in brackets] are what you fill in from the chart, ATIS, and operational context."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Chart"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "'Today we are using the [aerodrome] [departure title] [index number] effective ______.'",
+            "'The [aid] is tuned, identified and tested to [frequency].' OR 'The [approach title] SID has been loaded. The tracks, distances and heights have been verified and RAIM is available.'"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Flying the Departure"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Read initial climb instructions from chart.",
+            "Discuss assigned altitude."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Terrain"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Discuss MSAs."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Weather"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Discuss weather conditions from AWIS, ATIS, or TAF.",
+            "Consider effect of wind on tracks.",
+            "Discuss QNH and confirm reasonableness.",
+            "Discuss weather conditions at destination and confirm they remain suitable."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Considerations and Questions"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Discuss relevant chart notes for aerodrome and departure.",
+            "Discuss relevant NOTAMs for aerodrome and departure.",
+            "Discuss plan to achieve MSA in the event of engine failure and options to return or divert.",
+            "Discuss meteorological conditions and confirm QNH reasonableness.",
+            "Discuss special considerations: recent changes to chart, traffic.",
+            "Ask the other crewmember (if applicable) if they have any further items to discuss or questions."
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The sequence (Chart → Flying → Terrain → Weather → Considerations) is deliberate — it builds from what's planned to what could go wrong.",
+            "On a single-pilot IFR flight, brief aloud anyway. The cognitive discipline catches errors the silent skim misses.",
+            "Tie the engine-failure plan to specific terrain features and altitudes — not 'return to land' but 'left turn over the river to 4,500'."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Skipping the NOTAM check because 'I read them earlier'. NOTAMs change throughout the day — re-read at the briefing.",
+            "Reading 'maintain MSA' without checking the actual MSA against engine-failure climb gradient. Some MSAs aren't achievable on one engine.",
+            "Treating the briefing as a checklist to tick off. It's a mental simulation — visualise each phase as you brief it."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "IFR Cheat Sheet (Ben Montgomery-Schinkel)",
+          "section": "Sample Departure Briefing — page 34, V7.1 March 2024",
+          "note": "Source/access date 2026-06-10. Templated briefing structure for IFR departures, used as practical IPC-prep study material. Adapted to bullet form for the structured study schema."
+        },
+        {
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 2 — Departure procedures",
+          "note": "Source/access date 2026-06-10. Underlying departure procedure requirements (SIDs, diverse departure surfaces, obstacle clearance) referenced in the briefing."
+        }
+      ]
+    },
+    {
+      "id": "DEP-005",
+      "title": "Sample Take-off Safety Briefing",
+      "categoryId": "departure-briefings",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": [
+        "briefing",
+        "take-off",
+        "safety",
+        "engine-failure",
+        "vmca",
+        "vyse",
+        "ipc"
+      ],
+      "summary": "Templated take-off safety briefing covering V-speeds (VMCA, VR, VYSE) and the abnormality plan at each speed band. The cognitive backbone for handling engine failure on take-off — brief it before every departure.",
+      "content": [
+        {
+          "type": "text",
+          "text": "The take-off safety briefing is what gets you through an engine failure on take-off without freezing. State the speeds, state the plan at each speed band, state the contingency for if the aircraft can't climb. The act of speaking it primes the response."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Speeds"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "'My speeds are: VMCA ______, VR ______, VYSE ______.'"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Before VR — Reject"
+        },
+        {
+          "type": "text",
+          "text": "'When I have any abnormality before VR I will maintain aircraft control and reject the take-off.'"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "At or after VR, before VYSE — Critical malfunction"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "'At or after VR and before VYSE for a critical malfunction, I will maintain aircraft control and:'",
+            "'Land because runway permits; OR'",
+            "'Accelerate to VYSE, selecting flap up above 300 feet.'",
+            "Make an informed and concise plan at each particular take-off considering strip length, obstacles, wind for increased climb gradient, terrain and direction of turns, aircraft performance limitations, and type of malfunction."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Above VYSE — Identify and feather"
+        },
+        {
+          "type": "text",
+          "text": "'Above VYSE I will maintain aircraft control, prevent yaw, mixture up, pitch up, power up, gear up, flaps up, then dead leg – dead engine, confirm and feather.'"
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Continued flight plan"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "'Based on the meteorological conditions, terrain and facilities here, I will:'",
+            "'Circle to land, turning towards the live engine [if appropriate]; OR'",
+            "'Continue to ______.'"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Performance contingency"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "'In the event that performance is not achieved to climb or maintain level flight, I will ______.' (Discuss options — best-glide forced landing, terrain consideration, etc.)",
+            "Discuss simulated or actual emergencies and who has control of the aircraft in an actual emergency."
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "VMCA: minimum control speed air (red radial) — critical engine inop, live engine at take-off power, gear up, max 5° bank towards live, prop feathered.",
+            "VR: rotation speed — published in AFM per weight and conditions.",
+            "VYSE: single-engine best rate of climb (blue radial) — critical engine inop, live engine at take-off power, gear up.",
+            "The 'dead leg — dead engine, confirm and feather' sequence is the canonical asymmetric thrust identification mantra. Practise it on every take-off briefing — under stress, the wrong engine gets feathered if you don't."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Briefing 'I will continue' without confirming actual single-engine performance for the conditions. Density altitude, weight, terrain — single-engine climb gradient must achieve MSA.",
+            "Skipping the 'land because runway permits' alternative when there IS enough runway. Sometimes landing back down is the right call.",
+            "Failing to specify the turn direction in 'circle to land'. Turn towards the LIVE engine — turning into the dead engine loses asymmetric authority."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "IFR Cheat Sheet (Ben Montgomery-Schinkel)",
+          "section": "Sample Take-off Safety Briefing — page 35, V7.1 March 2024",
+          "note": "Source/access date 2026-06-10. Templated take-off safety briefing for multi-engine IFR operations, used as practical IPC-prep study material. Adapted to bullet form for the structured study schema."
+        },
+        {
+          "source": "Aircraft Flight Manual (AFM) per type",
+          "note": "Source/access date 2026-06-10. Aircraft-specific V-speeds (VMCA, VR, VYSE) come from the AFM and must be entered before each take-off."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 14 — Performance requirements",
+          "note": "Source/access date 2026-06-10. Underlying performance requirements for take-off and continued flight."
         }
       ]
     }

@@ -64,6 +64,14 @@
         "APR-018",
         "APR-019"
       ]
+    },
+    {
+      "id": "approaches-briefings",
+      "title": "Sample Briefings",
+      "description": "Templated approach briefing — IPC study aid drawn from the IFR Cheat Sheet.",
+      "moduleIds": [
+        "APR-020"
+      ]
     }
   ],
   "modules": [
@@ -1813,6 +1821,144 @@
           "source": "AIP Australia ENR 1.5",
           "section": "Para 1.10 — Go Around and Missed Approach Procedure in VMC",
           "note": "Source/access date 2026-06-10. Go-around vs missed-approach distinction; visual conduct of the missed approach when VMC permits."
+        }
+      ]
+    },
+    {
+      "id": "APR-020",
+      "title": "Sample Approach Briefing",
+      "categoryId": "approaches-briefings",
+      "level": "core",
+      "estReadingMinutes": 5,
+      "tags": [
+        "briefing",
+        "approach",
+        "ipc",
+        "study-aid",
+        "missed-approach",
+        "weather"
+      ],
+      "summary": "Templated approach briefing covering chart confirmation, Jeppesen Briefing Strip, flying the approach including the missed approach plan, weather, and considerations. Brief this aloud at top of descent (or earlier) — IPC examiners look for it.",
+      "content": [
+        {
+          "type": "text",
+          "text": "A structured approach briefing covers what could go wrong in the approach BEFORE it does. Walk through the template aloud at top of descent (or earlier if workload permits). The placeholders [in brackets] come from the chart, ATIS, and your operational situation."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Chart"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "'Today we are using the [aerodrome] [approach title] [index number] effective ______.'",
+            "'The [aid] is tuned, identified and tested to [frequency].' OR 'The [approach title] approach has been loaded. The tracks, distances and heights have been verified and RAIM is available.'"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Briefing Strip and Terrain"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Read first two lines of Jeppesen Briefing Strip left to right, including MSAs.",
+            "Cover: approach name, runway, frequencies, minima, missed approach point, missed approach heading + altitude."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Flying the Approach"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Discuss inbound track and any applicable sector entries or holds.",
+            "Discuss how the approach is flown with tracks, turns, and 'not below' descent steps.",
+            "'When we become visual the runway is [discuss position] and we will [manoeuvre to land on / land straight-in on] runway ______.'",
+            "'The missed approach point is ______. When we go missed approach, we will [turn left / right / continue on track] to track ___° and climb to ______ feet.'",
+            "Discuss aircraft reconfiguration for the missed approach if applicable."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Weather"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Discuss expectations of weather conditions from AWIS, ATIS, or TAF, including any difficulties expected in becoming visual.",
+            "Discuss QNH and confirm reasonableness.",
+            "Discuss alternate options and fuel available to hold or divert."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Considerations and Questions"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Relevant NOTAMs for the approach and aerodrome.",
+            "Relevant chart notes for the approach and aerodrome.",
+            "Recent changes to chart.",
+            "Missed-approach gradients versus aircraft performance.",
+            "No-circling areas.",
+            "Runway condition.",
+            "Actions after landing.",
+            "Ask the other crewmember (if applicable) if they have any further items to discuss or questions."
+          ]
+        },
+        {
+          "type": "ops_context",
+          "content": [
+            "The discipline of saying 'when we go missed approach' (not 'if') primes the right response. Most missed approaches happen because the briefing rehearsed the plan.",
+            "On a single-pilot IFR flight, brief aloud anyway. The cognitive discipline catches errors the silent skim misses.",
+            "Tie the missed-approach heading to the chart minima — confirm aircraft performance achieves the required climb gradient. Some missed approaches require 4%+ which is challenging for piston aircraft at gross weight."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Skipping the missed-approach gradient check. A briefed missed approach that the aircraft can't actually fly is worse than no briefing.",
+            "Briefing 'land straight in' without confirming the approach allows it. Some approaches require circling to align with the landing runway.",
+            "Forgetting to discuss alternate fuel state. By approach time you should know your hold/divert capability — don't compute it for the first time when the missed approach occurs.",
+            "Treating the briefing as a checklist tick. The point is mental simulation — visualise each phase as you brief it."
+          ]
+        },
+        {
+          "type": "ipc_questions",
+          "content": [
+            "Q: When should the approach briefing be conducted? A: At or before top of descent, when workload permits. On a structured arrival, brief during the cruise descent if possible.",
+            "Q: What's the difference between 'circle to land' and 'land straight-in' on the briefing? A: Straight-in means the approach is aligned within ±30° of the landing runway and the standard descent profile from MDA/DA reaches the runway. Circling is required when the approach is to a different runway or when the descent isn't aligned.",
+            "Q: Why brief 'when we go missed approach' instead of 'if'? A: Cognitive priming. Saying 'when' rehearses the response; saying 'if' implies a low probability and reduces readiness."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "IFR Cheat Sheet (Ben Montgomery-Schinkel)",
+          "section": "Sample Approach Briefing — page 58, V7.1 March 2024",
+          "note": "Source/access date 2026-06-10. Templated approach briefing structure used as practical IPC-prep study material. Adapted to bullet form for the structured study schema."
+        },
+        {
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 1.9 — Missed Approach Procedures + Para 1.6 — Visual Circling",
+          "note": "Source/access date 2026-06-10. Underlying procedures referenced in the missed-approach and circling parts of the briefing."
+        },
+        {
+          "source": "Jeppesen Airway Manual — Briefing Strip layout",
+          "note": "Source/access date 2026-06-10. Standard chart layout for the approach briefing strip referenced in the briefing."
         }
       ]
     }

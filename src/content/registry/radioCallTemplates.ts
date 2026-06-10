@@ -721,6 +721,186 @@ export const radioCallTemplates: RadioCallTemplate[] = [
       },
     ],
   },
+  // ── Specialised controlled-airspace templates (CASA AC §4, §8, §9) ──────
+  {
+    templateId: "ctl-atis-qnh-readback",
+    phase: "arrival",
+    applicableClasses: ["C", "D"],
+    title: "Read back QNH from ATIS — {city}",
+    prompt: "Read back the QNH on initial contact with the approach controller. ATIS code already embedded.",
+    summaryTemplate:
+      "Inbound to {city} on initial contact with {approach}. Passed the QNH on first contact alongside the ATIS code.",
+    lastTransmissionTemplate: {
+      speaker: "atc",
+      station: "approach",
+      textTemplate: "{callsign}, QNH one zero zero eight, information {atisCode} current.",
+    },
+    expectedTextTemplate: "QNH one zero zero eight, {callsign}.",
+    elements: [
+      {
+        label: "QNH value",
+        acceptTemplates: [
+          "QNH one zero zero eight",
+          "QNH 1008",
+          "one zero zero eight",
+          "1008",
+        ],
+        required: true,
+        hint: "QNH is mandatory readback (CASR Part 91 MOS §11.12 / CASA AC §4.1.2(e)). Read digit-by-digit — not 'one thousand eight'.",
+      },
+      {
+        label: "Callsign at end",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+    ],
+    explanation:
+      "MATS Part 4 + CASA AC §4.1.2(e): altimeter settings are a mandatory readback item. Read back digit-by-digit. ATIS code itself doesn't need readback — it was confirmed on initial contact per CASA AC §5.1.3.",
+    refs: [
+      {
+        source: "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+        chapter: "Radiotelephony manual for flight operations — §4.1 Read back requirements + §5.1 ATIS",
+        note: "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL.",
+      },
+      {
+        source: "Part 91 Manual of Standards",
+        section: "Section 11.12 — Read back requirements",
+        note: "Source/access date 2026-06-10. Altimeter settings as mandatory readback.",
+      },
+    ],
+  },
+  {
+    templateId: "ctl-rvsm-unable-turbulence",
+    phase: "enroute",
+    applicableClasses: ["C", "D", "E"],
+    title: "Unable RVSM due turbulence — {city}",
+    prompt:
+      "You're cruising in RVSM airspace and turbulence is making it impossible to hold level. Declare unable RVSM to Centre.",
+    summaryTemplate:
+      "Cruising at FL370 with {centre}, en-route from {city}. Severe turbulence — can't hold ±300 ft.",
+    expectedTextTemplate:
+      "{centre}, {callsign}, flight level three seven zero, UNABLE RVSM DUE TURBULENCE.",
+    elements: [
+      {
+        label: "Addressed station",
+        acceptTemplates: ["{centre}", "Centre"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "Current level",
+        acceptTemplates: [
+          "flight level three seven zero",
+          "FL three seven zero",
+          "three seven zero",
+          "FL370",
+        ],
+        required: true,
+        hint: "Always include your current level — Centre needs it to assess which traffic is affected.",
+      },
+      {
+        label: "Unable RVSM phrase",
+        acceptTemplates: ["UNABLE RVSM DUE TURBULENCE", "unable RVSM turbulence", "unable RVSM"],
+        required: true,
+        hint: "Standard CASA phraseology — use 'UNABLE RVSM DUE TURBULENCE' explicitly. ATC's response branches on whether traffic is affected by your change of status.",
+      },
+    ],
+    explanation:
+      "CASA AC §8.5 + Figure 137. RVSM airspace is FL290 to FL410. If you can't hold level due turbulence, declare it immediately. ATC will either let you maintain (no traffic affected) or descend you with REPORT MAINTAINING (traffic affected).",
+    refs: [
+      {
+        source: "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+        chapter: "Radiotelephony manual for flight operations — §8.5 Reduced Vertical Separation Minimum (RVSM) Phraseology",
+        note: "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. Figure 137 verbatim phraseology.",
+      },
+    ],
+  },
+  {
+    templateId: "ctl-minimum-fuel",
+    phase: "non-normal",
+    applicableClasses: ["C", "D"],
+    title: "Declare MINIMUM FUEL — {city}",
+    prompt:
+      "On approach into {city}. You've committed to land here and calculate that any further delay would put you below final reserve. Declare MINIMUM FUEL — advisory only, not priority.",
+    summaryTemplate:
+      "On approach into {city} with {approach}. Holding has cost more than planned — any further delay puts you below final reserve. Declare MINIMUM FUEL.",
+    expectedTextTemplate: "{approach}, {callsign}, MINIMUM FUEL.",
+    elements: [
+      {
+        label: "Addressed station",
+        acceptTemplates: ["{approach}", "{shortName} Approach", "Approach"],
+        required: true,
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "MINIMUM FUEL phrase",
+        acceptTemplates: ["MINIMUM FUEL", "minimum fuel"],
+        required: true,
+        hint: "Standard CASA phraseology — explicitly 'MINIMUM FUEL'. This is an ADVISORY — per CASA AC §9.9.3 pilots should NOT expect priority handling. If you actually need priority because of fuel, escalate to MAYDAY FUEL.",
+      },
+    ],
+    explanation:
+      "CASA AC §9.9.1: MINIMUM FUEL informs ATC that any change to the existing clearance may put you below fixed fuel reserve. Per §9.9.3 it gives NO priority handling — it's purely advisory. ATC will reply with anticipated delays. If delays would push you below final reserve, escalate to MAYDAY FUEL.",
+    refs: [
+      {
+        source: "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+        chapter: "Radiotelephony manual for flight operations — §9.9 Fuel shortage",
+        note: "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. MINIMUM FUEL declaration (§9.9.1), no priority handling (§9.9.3), Figure 149.",
+      },
+    ],
+  },
+  {
+    templateId: "ctl-mayday-fuel",
+    phase: "non-normal",
+    applicableClasses: ["C", "D"],
+    title: "Declare MAYDAY FUEL — {city}",
+    prompt:
+      "MINIMUM FUEL won't cut it — your calculated landing fuel at the nearest landable aerodrome is below final reserve. This is a distress call. Declare MAYDAY FUEL.",
+    summaryTemplate:
+      "On approach into {city} with {approach}. Calculated landing fuel at the nearest landable is below final reserve — escalate from MINIMUM FUEL to MAYDAY FUEL.",
+    expectedTextTemplate: "MAYDAY, MAYDAY, MAYDAY, {callsign}, FUEL.",
+    elements: [
+      {
+        label: "MAYDAY said three times",
+        acceptTemplates: ["MAYDAY MAYDAY MAYDAY", "mayday mayday mayday"],
+        required: true,
+        hint: "MAYDAY × 3 — the three-time repetition is what makes it a recognised distress call per CASA AC §9.4. Not once.",
+      },
+      {
+        label: "Callsign",
+        acceptTemplates: ["{callsign}", "{callsignShort}"],
+        required: true,
+      },
+      {
+        label: "FUEL keyword",
+        acceptTemplates: ["FUEL", "fuel"],
+        required: true,
+        hint: "After the callsign, say 'FUEL'. That's what identifies this as a fuel-emergency MAYDAY (CASA AC §9.9.4).",
+      },
+    ],
+    explanation:
+      "CASA AC §9.9.4: MAYDAY FUEL is the distress call when calculated usable fuel at the nearest landable aerodrome is less than final reserve. This DOES give absolute priority on the frequency. If you don't actually need emergency services and a normal landing is expected, tell ATS as early as possible — per §9.9.4 ('EMERGENCY SERVICES NOT REQUIRED'). Don't downplay — if you're below final reserve at the nearest landable, this is MAYDAY, not MINIMUM FUEL.",
+    refs: [
+      {
+        source: "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+        chapter: "Radiotelephony manual for flight operations — §9.4 Distress message + §9.9.4 MAYDAY FUEL",
+        note: "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. MAYDAY × 3 (§9.3.1), MAYDAY FUEL phraseology (§9.9.4), Figure 149.",
+      },
+      {
+        source: "AIP Australia GEN 3.6",
+        section: "Distress and urgency communications",
+        note: "Source/access date 2026-06-10. MAYDAY format.",
+      },
+    ],
+  },
   // ── CTAF templates — broadcasts to other pilots, no ATC ─────────────────
   {
     templateId: "ctaf-taxi-broadcast",
