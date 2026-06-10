@@ -33,7 +33,10 @@ export function RadioScreen() {
   const searchParams = useSearchParams();
   // Initial-only: URL params seed initial state but don't keep state in sync
   // afterwards. Tab/filter changes are local UX, not navigable history.
-  const initialTab: Tab = searchParams?.get("tab") === "drill" ? "drill" : "scenarios";
+  // Default to Drill — most learners reach for one call at a time before
+  // committing to a full multi-leg flight. Scenarios still accessible by
+  // tab click or `?tab=scenarios`.
+  const initialTab: Tab = searchParams?.get("tab") === "scenarios" ? "scenarios" : "drill";
   const phaseParam = searchParams?.get("phase");
   const classParam = searchParams?.get("class");
   const initialPhase: RadioPhase | null =
@@ -76,16 +79,16 @@ function RadioHeader({ tab, onTabChange }: RadioHeaderProps) {
       </p>
       <div className="mb-4 flex gap-1 rounded-xl bg-[var(--ifr-surface-muted)] p-1" role="tablist">
         <TabButton
-          label="Scenarios"
-          sublabel="Walk a flight"
-          active={tab === "scenarios"}
-          onClick={() => onTabChange("scenarios")}
-        />
-        <TabButton
           label="Drill"
           sublabel="One call at a time"
           active={tab === "drill"}
           onClick={() => onTabChange("drill")}
+        />
+        <TabButton
+          label="Scenarios"
+          sublabel="Multi-leg flight"
+          active={tab === "scenarios"}
+          onClick={() => onTabChange("scenarios")}
         />
       </div>
     </div>
