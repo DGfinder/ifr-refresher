@@ -35,74 +35,151 @@
       "title": "Standard phrases & conventions",
       "categoryId": "foundations",
       "level": "core",
-      "estReadingMinutes": 4,
-      "tags": ["phrases", "phonetic", "numbers", "time", "wilco", "unable", "say again"],
-      "summary": "The phonetic alphabet, digit conventions, time, and the standard phrases — Wilco, Roger, Unable, Standby, Say again — that don't belong to any one phase of flight.",
+      "estReadingMinutes": 7,
+      "tags": ["phrases", "phonetic", "numbers", "time", "wilco", "unable", "say again", "casa-ac"],
+      "summary": "Phonetic alphabet with exact CASA pronunciations, number transmission rules, and the full standard phrases table (CASA Table 21). The foundations every transmission relies on.",
       "content": [
         {
           "type": "text",
-          "text": "The standard phrases below carry specific meanings under AIP GEN 3.4. Using them precisely is faster, less error-prone, and what an IPC examiner expects to hear."
+          "text": "CASA's Radiotelephony Manual (Multi-Part AC 64.B-02 / AC 91-35 / AC 172-05, Dec 2025) is the authoritative source for the phrases below. The exact pronunciations matter under formal IPC standards — 'FIFE' for five and 'NIN-er' for nine are CASA-prescribed, not stylistic."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Phonetic alphabet & numbers"
+          "text": "Phonetic alphabet (CASA Table 7)"
         },
         {
           "type": "list",
           "style": "bullet",
           "items": [
-            "Letters: Alpha, Bravo, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, India, Juliet, Kilo, Lima, Mike, November, Oscar, Papa, Quebec, Romeo, Sierra, Tango, Uniform, Victor, Whiskey, X-ray, Yankee, Zulu.",
-            "Digits: ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE. Spoken individually for callsigns, headings, runways, squawks, frequencies (e.g. 4123 = 'four one two three', not 'forty-one twenty-three').",
-            "Altitudes BELOW transition altitude (10,000 ft): said as thousands and hundreds — 'seven thousand', 'four thousand five hundred'.",
-            "Levels ABOVE transition altitude: said as a flight level digit-by-digit — FL220 = 'flight level two two zero'.",
-            "Decimals in frequencies: 'decimal', not 'point'. 121.7 = 'one two one decimal seven'.",
-            "Time: UTC (Zulu), minutes only when the hour is unambiguous — 0345Z reported as 'at four five' in a position report."
+            "A ALFA (AL-fah) · B BRAVO (BRAH-voh) · C CHARLIE (CHAR-lee or SHAR-lee) · D DELTA (DELL-tah) · E ECHO (ECK-oh)",
+            "F FOXTROT (FOKS-trot) · G GOLF (GOLF) · H HOTEL (ho-TELL) · I INDIA (IN-dee-ah) · J JULIETT (JEW-lee-ETT)",
+            "K KILO (KEY-loh) · L LIMA (LEE-mah) · M MIKE (MIKE) · N NOVEMBER (no-VEM-ber) · O OSCAR (OSS-cah)",
+            "P PAPA (pah-PAH) · Q QUEBEC (keh-BECK) · R ROMEO (ROW-me-oh) · S SIERRA (see-AIR-rah) · T TANGO (TANG-go)",
+            "U UNIFORM (YOU-nee-form or OO-nee-form) · V VICTOR (VIK-tah) · W WHISKEY (WISS-key)",
+            "X X-RAY (ECKS-ray) · Y YANKEE (YANG-key) · Z ZULU (ZOO-loo)"
           ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Standard phrases — meanings, not synonyms"
+          "text": "Number pronunciation (CASA Table 8)"
         },
         {
           "type": "list",
           "style": "bullet",
           "items": [
-            "Wilco — 'will comply'. Use ONLY when the instruction does not require a readback (resume own navigation, expedite, report passing).",
-            "Roger — 'I have received your last transmission'. Acknowledges receipt only; does NOT mean 'yes' or 'I will comply'.",
-            "Affirm — 'yes'. Not 'affirmative' (the latter has been deprecated in ICAO/AIP usage to avoid confusion with 'negative').",
-            "Negative — 'no' / 'permission not granted' / 'that is not correct'.",
-            "Unable — 'I cannot comply'. Always follow with a reason or workable alternative so ATC can re-plan immediately.",
-            "Standby — 'wait, I will call you back'. Used BY ATC at busy moments; rarely said by pilots.",
-            "Say again — 'repeat your last'. Scope with 'your last', 'all after [word]', 'all before [word]'. Never say 'repeat' (military meaning) or 'come again'.",
-            "Correction — 'an error has been made, the correct version is …'. Used mid-transmission to retract and replace.",
-            "Verify — 'check and confirm with the originator'. Used when you suspect an error in a clearance.",
-            "Disregard — 'ignore my last transmission'."
+            "0 ZE-RO · 1 WUN · 2 TOO · 3 TREE · 4 FOW-er · 5 FIFE · 6 SIX · 7 SEV-en · 8 AIT · 9 NIN-er",
+            "Decimal: DAY-SEE-MAL — used in 'one two one DAY-SEE-MAL seven' for 121.7.",
+            "Hundred: HUN-dred · Thousand: TOU-SAND."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "When to use digits vs whole numbers"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Default — pronounce each digit separately. Callsigns, headings, runways, frequencies, squawks, RVR, visibility all use digits.",
+            "Flight levels with WHOLE HUNDREDS may be said as 'two hundred' for FL200; otherwise digit-by-digit ('one eight zero' for FL180).",
+            "Altitudes with whole hundreds and thousands use 'HUNDRED' / 'THOUSAND'. 4,500 ft = 'four thousand five hundred'.",
+            "Word 'feet' is normally omitted; include it to prevent confusion.",
+            "Headings: degrees magnetic, three digits, 'DEGREE' may be omitted. '080' = 'heading zero eight zero'.",
+            "Runway designators: 'runway WUN NIN-er' for 19, 'runway ZE RO SIX' for 06, plus L/R/C suffix when applicable.",
+            "Time: each digit separately. 0345Z = 'zero three four five'. In position reports, often shortened to minutes only ('at four five')."
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Standard phrases (CASA Table 21)"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "ACKNOWLEDGE — 'let me know that you have received and understood this message.'",
+            "AFFIRM — 'yes.' (Not 'affirmative' — CASA prescribes AFFIRM.)",
+            "APPROVED — 'permission for proposed action granted.'",
+            "BREAK — separation between portions of one message.",
+            "BREAK BREAK — separation between messages to different aircraft in a busy environment.",
+            "CANCEL — 'annul the previously transmitted clearance.'",
+            "CHECK — 'examine a system or procedure.' No answer expected.",
+            "CLEARED — 'authorised to proceed under the conditions specified.'",
+            "CONFIRM — 'I request verification of: (clearance, instruction, action, information).'",
+            "CONTACT — 'establish communications with …'",
+            "CORRECT — 'true or accurate.'",
+            "CORRECTION — 'an error has been made in this transmission, the correct version is …'",
+            "DISREGARD — 'ignore.'",
+            "HOW DO YOU READ? — 'what is the readability of my transmission?' (See §2.17 in the AC for full radio-check phraseology.)",
+            "I SAY AGAIN — 'I repeat for clarity or emphasis.'",
+            "MAINTAIN — 'continue in accordance with the condition(s) specified' (or literal — 'maintain VFR').",
+            "MONITOR — 'listen out on (frequency).'",
+            "NEGATIVE — 'no / permission not granted / that is not correct / not capable.'",
+            "OUT — 'my transmission is ended and I expect no response.' Not normally used on VHF.",
+            "OVER — 'my transmission is ended and I expect a response.' Not normally used on VHF or satellite.",
+            "READ BACK — 'repeat all, or the specified part, of this message back to me exactly as received.'",
+            "RECLEARED — 'a change has been made to your last clearance and this new clearance supersedes your previous clearance.'",
+            "REPORT — 'pass me the following information.'",
+            "REQUEST — 'I should like to know / I wish to obtain.'",
+            "ROGER — 'I have received all of your last transmission.' Never used in reply to a question requiring a read back or a yes/no answer.",
+            "SAY AGAIN — 'repeat all, or the following part, of your last transmission.'",
+            "SPEAK SLOWER — 'reduce your rate of speech.'",
+            "STANDBY — 'wait and I will call you.'",
+            "UNABLE — 'I cannot comply with your request, instruction or clearance' (normally followed by a reason).",
+            "VERIFY — 'check and confirm with originator.'",
+            "WILCO — 'I understand your message and will comply with it.'",
+            "WORDS TWICE — as request: 'communication is difficult, please send every word or group twice.' As info: 'since communication is difficult every word or group will be sent twice.'"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Transmitting technique"
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Listen out before transmitting — make sure the frequency is clear.",
+            "Plan the message before keying — say what's needed, no more.",
+            "Speak clearly, evenly, at moderate pace. Higher pitch is more readable than lower.",
+            "Avoid courtesies ('please', 'thank you'). CASA AC §2.8.3 explicitly says don't use them — they cost airtime.",
+            "'IMMEDIATELY' is reserved for actions required for SAFETY (CASA AC §2.8.4). Don't say it casually."
           ]
         },
         {
           "type": "traps",
           "content": [
-            "Wilco is NOT a substitute for a mandatory readback. Saying 'Wilco' to a level change is incorrect — that needs a verbatim readback.",
-            "'Roger' alone is not a frequency-change readback. MATS Part 4 requires the station + full frequency + callsign.",
-            "Never use 'over' and 'out' together — they're mutually exclusive ('over' = expecting reply; 'out' = no reply expected). On busy frequencies, omit both.",
-            "Read digit-by-digit. 'Twelve thousand' is acceptable for altitude; 'twelve hundred' for squawk code 1200 is NOT — it's 'one two zero zero'."
+            "Wilco is NOT a substitute for a mandatory readback. Saying 'Wilco' to a level change is incorrect — that needs a verbatim readback (see RADIO-002).",
+            "'Roger' alone is not a frequency-change readback. CASA AC §4.1.2(f) lists frequency instructions as mandatory readback.",
+            "Never use 'over' and 'out' together — they're mutually exclusive. On VHF both are normally omitted.",
+            "Read digit-by-digit. 'Twelve thousand' is acceptable for altitude; 'twelve hundred' for squawk 1200 is NOT — it's 'one two zero zero'.",
+            "'Affirmative' is not CASA standard — say AFFIRM. Old habit dies hard from older RT training."
           ]
         },
         {
           "type": "scenario",
           "content": [
             "ATC: 'Mike X-ray Golf, resume own navigation.' — You can comply: 'Wilco, Mike X-ray Golf.' Resume own nav is not a mandatory readback item, so Wilco is correct.",
-            "ATC: 'Mike X-ray Golf, climb to flight level two two zero.' — Mandatory readback. NOT Wilco. Correct: 'Climb to flight level two two zero, Mike X-ray Golf.'"
+            "ATC: 'Mike X-ray Golf, climb to flight level two two zero.' — Mandatory readback per CASA AC §4.1.2(e). NOT Wilco. Correct: 'Climb to flight level two two zero, Mike X-ray Golf.'",
+            "ATC: 'Mike X-ray Golf, *static* descend *static* zero.' — Garbled. 'Say again your last, Mike X-ray Golf.' (Don't say 'repeat' — that's military.)"
           ]
         }
       ],
       "refs": [
         {
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §2 Introduction and fundamentals",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. Tables 7 (phonetic alphabet), 8 (number pronunciation), 21 (standard phrases); transmitting technique §2.3; courtesies and IMMEDIATELY §2.8.3-2.8.4."
+        },
+        {
           "source": "AIP Australia GEN 3.4",
           "section": "Communications — General radiotelephony procedures",
-          "note": "Source/access date 2026-06-09. Standard phrases, phonetic alphabet, number and time conventions."
+          "note": "Source/access date 2026-06-10. Original AIP radiotelephony reference — the CASA AC is the more detailed authoritative supplement."
         }
       ]
     },
@@ -111,47 +188,44 @@
       "title": "Mandatory readback items",
       "categoryId": "foundations",
       "level": "core",
-      "estReadingMinutes": 3,
-      "tags": ["readback", "mandatory", "mats", "clearance"],
-      "summary": "The MATS Part 4 list of clearances and instructions you MUST read back verbatim. Memorise this — every readback drill comes from this list.",
+      "estReadingMinutes": 4,
+      "tags": ["readback", "mandatory", "casr", "casa-ac", "clearance"],
+      "summary": "The CASR Part 91 MOS §11.12 list of clearances and instructions you MUST read back verbatim — recited verbatim in CASA AC §4.1.2. Every readback drill in the library comes from this list.",
       "content": [
         {
           "type": "text",
-          "text": "MATS Part 4 prescribes which transmissions require a verbatim readback. Read back too little and ATC has no confirmation you copied; read back too much (e.g. wind) and you waste frequency time. The list is short — memorise it cold."
+          "text": "CASR Part 91 Manual of Standards §11.12 requires pilots to read back the safety-related parts of any ATC clearance or instruction. CASA's Radiotelephony Manual (Multi-Part AC 91-35) §4.1.2 spells out the six categories below. Read back too little and ATC has no confirmation you copied; read back too much (e.g. wind, traffic info) and you waste frequency time. Memorise the six."
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Always read back"
+          "text": "The six mandatory categories (CASA AC §4.1.2)"
         },
         {
           "type": "list",
           "style": "numbered",
           "items": [
-            "Level instructions — climb to, descend to, maintain. Include the assigned level + callsign.",
-            "Heading instructions — turn left / right + heading. Include the turn direction.",
-            "Speed instructions — reduce speed, increase speed, maintain.",
-            "Frequency changes — addressed station + full frequency (digit-by-digit, 'decimal' not 'point').",
-            "Runway in use — for takeoff or landing clearances (e.g. 'cleared to land runway two nine right').",
-            "QNH — digit-by-digit ('QNH one zero zero eight', not 'QNH one thousand eight').",
-            "Transponder (squawk) codes — digit-by-digit.",
-            "Clearances — IFR clearance, approach clearance, holding clearance, taxi clearance. Read back the limit, route, level, and squawk.",
-            "Conditional clearances — including the condition ('behind the 737, line up runway two nine right behind').",
-            "Any instruction containing 'report' — read back the reporting requirement."
+            "ATC route clearances, including any amendments. (Route clearances include departure, en-route, arrival, and approach clearances.)",
+            "En-route holding instructions.",
+            "Route and runway-holding positions specified in a taxi clearance.",
+            "Clearances, conditional clearances, and instructions to taxi on, enter, line up on, wait on, land on, take off from, hold short of, cross, or backtrack on any runway.",
+            "Assigned runway or HLS (helicopter landing site), altimeter settings, Mode A transponder codes, data link logon addresses, altitude instructions, heading instructions, and speed instructions.",
+            "Radio frequency instructions."
           ]
         },
         {
           "type": "heading",
           "level": 3,
-          "text": "Don't read back"
+          "text": "Don't read back (acknowledge with callsign only)"
         },
         {
           "type": "list",
           "style": "bullet",
           "items": [
-            "Wind, weather, traffic information — acknowledge with callsign only ('Mike X-ray Golf').",
+            "Wind, weather, traffic information — callsign only.",
             "ATIS code (already confirmed on initial contact).",
-            "Vectoring radar identification ('identified', 'radar contact')."
+            "Radar identification ('identified', 'radar contact').",
+            "Per CASA AC §4.1.3-4.1.4: instructions that don't require specific read back may be acknowledged with WILCO or ROGER — provided it's clear the instruction is understood and accepted."
           ]
         },
         {
@@ -161,27 +235,53 @@
         },
         {
           "type": "text",
-          "text": "Australian readbacks finish with the callsign, not start with it. 'Climb to seven thousand, Lima Echo Foxtrot' — not 'Lima Echo Foxtrot, climbing seven thousand'. Initial calls and broadcasts put the addressed station first, then callsign; readbacks reverse this."
+          "text": "Australian readbacks finish with the callsign, not start with it. 'Climb to seven thousand, Lima Echo Foxtrot' — not 'Lima Echo Foxtrot, climbing seven thousand'. Initial calls and broadcasts put the addressed station first, then callsign; readbacks reverse this. The CASA AC examples (e.g. Figure 35) show this pattern consistently."
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "text": "Correcting an incorrect readback"
+        },
+        {
+          "type": "text",
+          "text": "If your readback is wrong, ATC will say 'NEGATIVE' followed by the correct version (CASA AC §4.1.8). On hearing NEGATIVE, re-read the corrected version verbatim — don't argue, don't ask why."
         },
         {
           "type": "traps",
           "content": [
-            "Forgetting the callsign on a readback. ATC needs to know it was YOU that copied. No callsign = no readback.",
+            "Forgetting the callsign on a readback. ATC needs to know it was YOU that copied. No callsign = no readback under CASA AC §4.1.6.",
             "Reading back 'QNH 1008' as 'QNH one thousand eight'. Digit-by-digit: 'one zero zero eight'.",
-            "Skipping the turn direction on a heading. 'Heading two seven zero' is incomplete — include 'left' or 'right' so ATC knows which way you'll roll."
+            "Skipping the turn direction on a heading. 'Heading two seven zero' is incomplete — include 'left' or 'right' so ATC knows which way you'll roll.",
+            "Missing the runway operations in category 4 — 'cross runway', 'backtrack runway' are full readback items, not casual acknowledgements.",
+            "Reading back data link logon addresses as 'noted'. CASA AC §4.1.2(e) lists them as mandatory readback — say the full address.",
+            "Saying just 'roger' to a frequency change. Frequency is mandatory readback per §4.1.2(f)."
+          ]
+        },
+        {
+          "type": "scenario",
+          "content": [
+            "ATC: 'JRG, QNH 1003.' Pilot: 'QNH one zero zero three, JRG.' (Altimeter setting — §4.1.2(e).)",
+            "ATC: 'PQR, contact Ground 121.9.' Pilot: 'Ground one two one decimal nine, PQR.' (Frequency — §4.1.2(f).)",
+            "ATC: 'JABIRU 1346, report passing one thousand five hundred.' Pilot: 'Wilco, JABIRU 1346.' (Reporting instruction doesn't require verbatim readback — WILCO suffices per §4.1.4.)",
+            "ATC: 'JRG, cleared to GASTOWN via BAVEM, flight planned route, four thousand five hundred, squawk four three three zero.' Pilot: 'GASTOWN via BAVEM, flight planned route, four thousand five hundred, squawk four three three zero, JRG.' (Full route clearance — §4.1.2(a).)"
           ]
         }
       ],
       "refs": [
         {
-          "source": "MATS Part 4",
-          "chapter": "Pilots' radio standards — mandatory readback items",
-          "note": "Source/access date 2026-06-09. The authoritative list of which transmissions require verbatim readback."
+          "source": "CASR Part 91 Manual of Standards",
+          "section": "§11.12 — Read back requirements",
+          "note": "Source/access date 2026-06-10. The legal source — requires pilots to read back the safety-related parts of any ATC clearance or instruction."
         },
         {
-          "source": "AIP Australia GEN 3.4",
-          "section": "Communications — General radiotelephony procedures",
-          "note": "Source/access date 2026-06-09. Readback format conventions."
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §4.1 Read back requirements",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. Six explicit categories of mandatory readback (§4.1.2), acknowledgement of non-readback instructions (§4.1.3-4.1.4), correction procedure (§4.1.8)."
+        },
+        {
+          "source": "MATS Part 4",
+          "chapter": "Pilots' radio standards",
+          "note": "Source/access date 2026-06-10. Original MATS readback reference — superseded by CASR Part 91 MOS §11.12 + CASA AC §4.1 for the authoritative list."
         }
       ]
     },
