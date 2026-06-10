@@ -8,7 +8,11 @@
       "id": "departure",
       "title": "Departure",
       "description": "Altimeter accuracy checks and take-off minima for IFR operations.",
-      "moduleIds": ["DEP-001", "DEP-002", "DEP-003"]
+      "moduleIds": [
+        "DEP-001",
+        "DEP-002",
+        "DEP-003"
+      ]
     }
   ],
   "modules": [
@@ -18,7 +22,13 @@
       "categoryId": "departure",
       "level": "core",
       "estReadingMinutes": 3,
-      "tags": ["altimeter", "QNH", "serviceability", "IFR", "pre-flight"],
+      "tags": [
+        "altimeter",
+        "QNH",
+        "serviceability",
+        "IFR",
+        "pre-flight"
+      ],
       "summary": "Requirements for pre-flight altimeter accuracy checks, serviceability tolerances for IFR and VFR altimeters, and approved QNH sources.",
       "content": [
         {
@@ -99,8 +109,19 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.7",
+          "section": "Para 1.1 — Pre-flight Altimeter Check",
+          "note": "Source/access date 2026-06-10. Pre-take-off altimeter accuracy check requirement when accurate QNH is available at a known-elevation site."
+        },
+        {
+          "source": "AIP Australia ENR 1.7",
+          "section": "Para 1.2 — IFR Altimeters",
+          "note": "Source/access date 2026-06-10. IFR altimeter accuracy band — within 60 ft, between 60-75 ft permits flight to first landing for re-check, >75 ft unserviceable; two-altimeter rules."
+        },
+        {
+          "source": "AIP Australia ENR 1.7",
+          "section": "Para 1.4 — Accurate QNH and Site Elevation",
+          "note": "Source/access date 2026-06-10. Approved accurate QNH sources (AAIS, ATC, ATIS, AWIS, CA/GRS, WATIR); forecast QNH cannot be used for altimeter check; site elevation must be from CASA/NAA-authorised survey."
         }
       ]
     },
@@ -110,7 +131,13 @@
       "categoryId": "departure",
       "level": "core",
       "estReadingMinutes": 3,
-      "tags": ["take-off minima", "cloud ceiling", "visibility", "qualifying multi-engine", "engine failure"],
+      "tags": [
+        "take-off minima",
+        "cloud ceiling",
+        "visibility",
+        "qualifying multi-engine",
+        "engine failure"
+      ],
       "summary": "Take-off minima for standard aeroplanes and qualifying multi-engine aeroplanes, and the requirement to consider return-to-land conditions.",
       "content": [
         {
@@ -185,8 +212,24 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 15.06 — Take-off minima for other aeroplanes",
+          "note": "Source/access date 2026-06-10. Standard take-off minima — 300 ft ceiling and 2000 m visibility."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 15.05 — Take-off minima for qualifying multi-engine aeroplanes",
+          "note": "Source/access date 2026-06-10. Reduced take-off minima for qualifying multi-engine aircraft — 800 m vis, reducible to 550 m under specific conditions."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 15.03 — Take-off minima requirements",
+          "note": "Source/access date 2026-06-10. The legal rule — must not take off below minima; must consider return-to-land conditions."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 15.02 — Definitions",
+          "note": "Source/access date 2026-06-10. 'Qualifying multi-engine aeroplane' definition."
         }
       ]
     },
@@ -196,7 +239,14 @@
       "categoryId": "departure",
       "level": "core",
       "estReadingMinutes": 5,
-      "tags": ["SID", "diverse departure", "ODP", "climb gradient", "obstacle clearance", "departure procedure"],
+      "tags": [
+        "SID",
+        "diverse departure",
+        "ODP",
+        "climb gradient",
+        "obstacle clearance",
+        "departure procedure"
+      ],
       "summary": "Understanding SIDs, diverse departures, required climb gradients and what to do when you cannot meet published requirements.",
       "content": [
         {
@@ -271,8 +321,18 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 2 — Departure procedures",
+          "note": "Source/access date 2026-06-10. SID design, diverse departure surfaces, and obstacle-clearance gradients."
+        },
+        {
+          "source": "AIP Australia GEN 3.3",
+          "section": "Para 4 — Calculation of Lowest Safe Altitude",
+          "note": "Source/access date 2026-06-10. LSALT considerations for departure routing."
+        },
+        {
+          "source": "Airservices Australia DAP — Designated Airspace and Procedures",
+          "note": "Source/access date 2026-06-10. Published SID chart specifications."
         }
       ]
     }

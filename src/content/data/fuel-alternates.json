@@ -8,7 +8,12 @@
       "id": "fuel-alternates",
       "title": "Fuel & Alternates",
       "description": "Regulatory requirements for fuel reserves and destination alternate aerodromes.",
-      "moduleIds": ["FAL-001", "FAL-002", "FAL-003", "FAL-004"]
+      "moduleIds": [
+        "FAL-001",
+        "FAL-002",
+        "FAL-003",
+        "FAL-004"
+      ]
     }
   ],
   "modules": [
@@ -18,7 +23,13 @@
       "categoryId": "fuel-alternates",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["fuel", "reserves", "contingency", "IFR", "VFR"],
+      "tags": [
+        "fuel",
+        "reserves",
+        "contingency",
+        "IFR",
+        "VFR"
+      ],
       "summary": "Minimum fuel reserve and contingency fuel requirements by aircraft type, MTOW, and flight rules.",
       "content": [
         {
@@ -88,8 +99,13 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASR 91.455",
+          "note": "Source/access date 2026-06-10. Fuel requirements for flight."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 19.02 — Fuel requirements",
+          "note": "Source/access date 2026-06-10. Final reserve fuel and contingency by aircraft type and flight rules: MTOW ≤ 5700 kg (Day VFR 30 min, Night VFR/IFR 45 min, no contingency); turbojet or > 5700 kg turboprop (30 min FRF, 5% contingency); piston > 5700 kg (45 min FRF, 5% contingency)."
         }
       ]
     },
@@ -99,7 +115,12 @@
       "categoryId": "fuel-alternates",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["alternate", "suitability", "destination alternate", "IFR"],
+      "tags": [
+        "alternate",
+        "suitability",
+        "destination alternate",
+        "IFR"
+      ],
       "summary": "Conditions under which an aerodrome may be nominated as a destination alternate, including navigation aid and instrument approach requirements.",
       "content": [
         {
@@ -177,8 +198,14 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 8.07 — Destination Alternate Aerodromes — restrictions",
+          "note": "Source/access date 2026-06-10. Alternate suitability — must be suitable as a planned destination, not itself require an alternate, not a helideck."
+        },
+        {
+          "source": "AIP Australia ENR 1.1",
+          "section": "Para 10.7.1.2 — Alternate Aerodromes — General",
+          "note": "Source/access date 2026-06-10. Suitability criteria."
         }
       ]
     },
@@ -188,7 +215,17 @@
       "categoryId": "fuel-alternates",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["alternate", "weather", "cloud", "visibility", "crosswind", "lighting", "PAL", "PROB", "thunderstorm"],
+      "tags": [
+        "alternate",
+        "weather",
+        "cloud",
+        "visibility",
+        "crosswind",
+        "lighting",
+        "PAL",
+        "PROB",
+        "thunderstorm"
+      ],
       "summary": "Conditions that require a destination alternate to be planned, covering cloud, visibility, wind, probability forecasts, thunderstorms, and aerodrome lighting.",
       "content": [
         {
@@ -278,8 +315,24 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 8.04 — Destination Alternate Aerodromes — weather",
+          "note": "Source/access date 2026-06-10. Weather triggers requiring alternate planning — cloud more than SCT below alternate minimum, vis below alternate minimum, 30% PROB endorsement, crosswind/tailwind beyond max."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 8.05 — Destination Alternate Aerodromes — navigation",
+          "note": "Source/access date 2026-06-10. Night IFR alternate when no IAP or no usable IAP at destination."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 8.06 — Destination Alternate Aerodromes — aerodrome lighting",
+          "note": "Source/access date 2026-06-10. Lighting requirements — PAL, standby power, portable lights, responsible-person attendance."
+        },
+        {
+          "source": "AIP Australia ENR 1.1",
+          "section": "Para 10.7.2-10.7.4 — Weather, Navigation, Lighting triggers",
+          "note": "Source/access date 2026-06-10. Operational detail on the alternate-triggers covered by Part 91 MOS."
         }
       ]
     },
@@ -289,7 +342,14 @@
       "categoryId": "fuel-alternates",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["special alternate", "minima", "dual ILS", "VOR", "DME", "GNSS"],
+      "tags": [
+        "special alternate",
+        "minima",
+        "dual ILS",
+        "VOR",
+        "DME",
+        "GNSS"
+      ],
       "summary": "Special reduced alternate weather minima available at specified aerodromes for aircraft with dual ILS/VOR approach capability.",
       "content": [
         {
@@ -360,8 +420,14 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 8.08 — Alternate Minima — Australian aerodromes",
+          "note": "Source/access date 2026-06-10. Special alternate weather minima for dual ILS/VOR-capable aircraft."
+        },
+        {
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 6.2 — Special Alternate Weather Minima",
+          "note": "Source/access date 2026-06-10. Double-asterisk chart annotation; dual LOC/GP/VOR/DME/GNSS capability requirements; reversion to standard alternate minima when local METAR/SPECI/forecasting/tower unavailable."
         }
       ]
     }

@@ -8,7 +8,12 @@
       "id": "quick-fire",
       "title": "Quick Fire Drill",
       "description": "High-pressure numeric recall and decision-making scenarios.",
-      "moduleIds": ["QF-001", "QF-002", "QF-003", "QF-004"]
+      "moduleIds": [
+        "QF-001",
+        "QF-002",
+        "QF-003",
+        "QF-004"
+      ]
     }
   ],
   "modules": [
@@ -18,7 +23,13 @@
       "categoryId": "quick-fire",
       "level": "advanced",
       "estReadingMinutes": 3,
-      "tags": ["fuel", "alternate", "take-off", "numbers", "quick-fire"],
+      "tags": [
+        "fuel",
+        "alternate",
+        "take-off",
+        "numbers",
+        "quick-fire"
+      ],
       "summary": "Key fuel definitions and take-off alternate trigger numbers.",
       "content": [
         {
@@ -49,8 +60,13 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASR 91.455",
+          "note": "Source/access date 2026-06-10. Fuel requirements for flight."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 19.02 — Fuel requirements + Chapter 8 — Destination Alternate Aerodromes",
+          "note": "Source/access date 2026-06-10. Final reserve fuel + alternate triggers (weather, navigation, lighting). Summary reference for the underlying detailed modules."
         }
       ]
     },
@@ -60,7 +76,14 @@
       "categoryId": "quick-fire",
       "level": "advanced",
       "estReadingMinutes": 3,
-      "tags": ["minima", "recency", "precision", "MDA", "DA", "quick-fire"],
+      "tags": [
+        "minima",
+        "recency",
+        "precision",
+        "MDA",
+        "DA",
+        "quick-fire"
+      ],
       "summary": "Precision vs non-precision minima and recency requirements.",
       "content": [
         {
@@ -82,8 +105,13 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 15.10 — Landing Minima + Chapter 15.06 Take-off minima",
+          "note": "Source/access date 2026-06-10. Highest-of rules for DA/MDA and visibility; take-off minima."
+        },
+        {
+          "source": "CASR 61.875 + Part 61 Manual of Standards Volume 2, Schedule 2, Section 5",
+          "note": "Source/access date 2026-06-10. IFR currency — 90-day approach requirements and 6-month single-pilot rule."
         }
       ]
     },
@@ -93,7 +121,13 @@
       "categoryId": "quick-fire",
       "level": "airline",
       "estReadingMinutes": 4,
-      "tags": ["abnormal", "partial-panel", "GNSS", "RAIM", "quick-fire"],
+      "tags": [
+        "abnormal",
+        "partial-panel",
+        "GNSS",
+        "RAIM",
+        "quick-fire"
+      ],
       "summary": "Decision-making under abnormal conditions.",
       "content": [
         {
@@ -116,8 +150,19 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "ERSA EMERG 1.5",
+          "section": "Communication Failure",
+          "note": "Source/access date 2026-06-10. NORDO procedures across VFR/IFR and Class G/CTA contexts."
+        },
+        {
+          "source": "AIP Australia GEN 3.6",
+          "section": "Distress and urgency communications",
+          "note": "Source/access date 2026-06-10. MAYDAY and PAN PAN procedures."
+        },
+        {
+          "source": "AIP Australia ENR 1.6",
+          "section": "Para 7 — Radio Communication Failure Procedures",
+          "note": "Source/access date 2026-06-10. Squawk 7600, transmitting blind."
         }
       ]
     },
@@ -127,7 +172,14 @@
       "categoryId": "quick-fire",
       "level": "airline",
       "estReadingMinutes": 5,
-      "tags": ["performance", "V1", "engine-failure", "balanced-field", "gradient", "quick-fire"],
+      "tags": [
+        "performance",
+        "V1",
+        "engine-failure",
+        "balanced-field",
+        "gradient",
+        "quick-fire"
+      ],
       "summary": "ATPL-level performance concepts and engine failure decision-making.",
       "content": [
         {
@@ -164,8 +216,14 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASR 91.795",
+          "section": "Take-off performance",
+          "note": "Source/access date 2026-06-10. Performance requirements."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 14 — Performance requirements + Chapter 26 — Equipment",
+          "note": "Source/access date 2026-06-10. Take-off and landing performance + IFR equipment requirements."
         }
       ]
     }

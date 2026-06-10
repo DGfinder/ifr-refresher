@@ -39,7 +39,12 @@
       "categoryId": "adm-part61",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["Part 61", "definitions", "category", "class"],
+      "tags": [
+        "Part 61",
+        "definitions",
+        "category",
+        "class"
+      ],
       "summary": "Defines the categories and classes of aircraft for the purposes of CASR Part 61.",
       "content": [
         {
@@ -104,8 +109,12 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASR 61.015",
+          "note": "Source/access date 2026-06-10. Category of aircraft for Part 61 (aeroplane, helicopter, powered-lift, gyroplane, airship)."
+        },
+        {
+          "source": "CASR 61.020",
+          "note": "Source/access date 2026-06-10. Class of aircraft for Part 61 (single-engine aeroplane, multi-engine aeroplane, etc.); single-engine class includes multi-engine centre-line thrust."
         }
       ]
     },
@@ -115,7 +124,11 @@
       "categoryId": "adm-part61",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["Part 61", "MOS", "Manual of Standards"],
+      "tags": [
+        "Part 61",
+        "MOS",
+        "Manual of Standards"
+      ],
       "summary": "CASA's authority to issue a Manual of Standards for Part 61, and the matters it may address.",
       "content": [
         {
@@ -176,8 +189,12 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASR 61.035",
+          "note": "Source/access date 2026-06-10. Issue of Manual of Standards for Part 61 — flight crew licence standards."
+        },
+        {
+          "source": "Part 61 Manual of Standards",
+          "note": "Source/access date 2026-06-10. The standards instrument referenced by CASR 61.035 — knowledge, training, flight tests, English language proficiency, IPCs etc."
         }
       ]
     },
@@ -187,7 +204,12 @@
       "categoryId": "adm-part61",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["IPC", "instrument proficiency check", "validity", "recency"],
+      "tags": [
+        "IPC",
+        "instrument proficiency check",
+        "validity",
+        "recency"
+      ],
       "summary": "Sets out the validity period of an instrument proficiency check, including the early renewal rule.",
       "content": [
         {
@@ -254,8 +276,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASR 61.880",
+          "section": "Limitations on exercise of privileges of instrument ratings — IPC, Paragraph 3",
+          "note": "Source/access date 2026-06-10. IPC validity rules — 12 months from flight test, operator's checking system, 3-month early renewal window."
         }
       ]
     },
@@ -265,7 +288,13 @@
       "categoryId": "adm-part61",
       "level": "core",
       "estReadingMinutes": 3,
-      "tags": ["instrument rating", "privileges", "limitations", "circling", "single pilot"],
+      "tags": [
+        "instrument rating",
+        "privileges",
+        "limitations",
+        "circling",
+        "single pilot"
+      ],
       "summary": "Defines what the holder of an instrument rating is authorised to do, and the conditions and limitations that apply.",
       "content": [
         {
@@ -336,8 +365,14 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASR 61.855",
+          "section": "Privileges of instrument ratings",
+          "note": "Source/access date 2026-06-10. Authority to pilot under IFR or at night under VFR."
+        },
+        {
+          "source": "CASR 61.860",
+          "section": "Limitations on exercise of privileges of instrument ratings — general",
+          "note": "Source/access date 2026-06-10. Instrument approach equipment requirement and other general limitations."
         }
       ]
     },
@@ -347,7 +382,13 @@
       "categoryId": "adm-part61",
       "level": "core",
       "estReadingMinutes": 3,
-      "tags": ["recent experience", "currency", "90 days", "single pilot", "IFR"],
+      "tags": [
+        "recent experience",
+        "currency",
+        "90 days",
+        "single pilot",
+        "IFR"
+      ],
       "summary": "Sets out the recent experience requirements for exercising IFR privileges, including category-specific, approach-type-specific, and single-pilot requirements.",
       "content": [
         {
@@ -425,8 +466,14 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 61 Manual of Standards",
+          "section": "Volume 2, Schedule 2, Section 5 — Recent experience for instrument ratings",
+          "note": "Source/access date 2026-06-10. 90-day requirements — 3 IAPs, category, 2D, 3D, azimuth guidance, CDI; operator-check / TAC substitution."
+        },
+        {
+          "source": "CASR 61.875",
+          "section": "Limitations — single-pilot recent experience",
+          "note": "Source/access date 2026-06-10. 6-month single-pilot IFR currency requirement: at least one flight under IFR single-pilot, 1 hour duration, including one instrument approach."
         }
       ]
     },
@@ -436,7 +483,13 @@
       "categoryId": "adm-part61",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["equipment", "IFR", "instruments", "altitude alerting", "lighting"],
+      "tags": [
+        "equipment",
+        "IFR",
+        "instruments",
+        "altitude alerting",
+        "lighting"
+      ],
       "summary": "Minimum equipment requirements for IFR aeroplane operations under Part 91 MOS, including instruments, altitude alerting, inoperative equipment, lighting, and navigation lights.",
       "content": [
         {
@@ -517,8 +570,19 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 26.08 — Equipment — Aeroplane IFR flight",
+          "note": "Source/access date 2026-06-10. IFR aeroplane equipment list: GNSS, AI, ASI, ALT, VSI, T+S, DG, compass, OAT, clock and supporting power/heating requirements."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 26.25 — Altitude alerting system and assigned altitude indicator — IFR flights",
+          "note": "Source/access date 2026-06-10. Altitude alerting equipment requirements by aircraft type and FL150 threshold."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 26.04 — Flight with inoperative equipment",
+          "note": "Source/access date 2026-06-10. Inoperative-equipment rule for required IFR equipment."
         }
       ]
     },
@@ -528,7 +592,13 @@
       "categoryId": "regulatory-backbone",
       "level": "core",
       "estReadingMinutes": 5,
-      "tags": ["casr", "mos", "aip", "ops-manual", "afm"],
+      "tags": [
+        "casr",
+        "mos",
+        "aip",
+        "ops-manual",
+        "afm"
+      ],
       "summary": "How the Civil Aviation Act, CASR, Manuals of Standards, AIP, Operations Manuals and AFM fit together and which one wins when there is a conflict.",
       "content": [
         {
@@ -563,10 +633,24 @@
         }
       ],
       "refs": [
-        {"source": "CASR", "part": "61", "note": "Licensing and ratings."},
-        {"source": "CASR", "part": "91", "note": "General operating and flight rules."},
-        {"source": "Part 61 MOS", "note": "Licensing standards and competency units."},
-        {"source": "Part 91 MOS", "note": "IFR technical detail, minima and equipment requirements."}
+        {
+          "source": "CASR",
+          "part": "61",
+          "note": "Licensing and ratings."
+        },
+        {
+          "source": "CASR",
+          "part": "91",
+          "note": "General operating and flight rules."
+        },
+        {
+          "source": "Part 61 MOS",
+          "note": "Licensing standards and competency units."
+        },
+        {
+          "source": "Part 91 MOS",
+          "note": "IFR technical detail, minima and equipment requirements."
+        }
       ]
     },
     {
@@ -575,7 +659,13 @@
       "categoryId": "regulatory-backbone",
       "level": "core",
       "estReadingMinutes": 10,
-      "tags": ["gnss", "raim", "navigation", "ifrlaw", "approach"],
+      "tags": [
+        "gnss",
+        "raim",
+        "navigation",
+        "ifrlaw",
+        "approach"
+      ],
       "summary": "What makes GNSS a legal IFR nav source, what RAIM actually means, when you must advise ATC, and how to handle GNSS failures in enroute and approach phases.",
       "content": [
         {
@@ -622,9 +712,21 @@
         }
       ],
       "refs": [
-        {"source": "CASR", "part": "91", "note": "IFR flight and navigation equipment requirements."},
-        {"source": "Part 91 MOS", "chapter": "IFR Navigation and GNSS", "note": "Detailed GNSS approval, substitution and integrity requirements."},
-        {"source": "AIP ENR", "section": "GNSS and RNAV procedures", "note": "Operational procedures and restrictions for GNSS approaches."}
+        {
+          "source": "CASR",
+          "part": "91",
+          "note": "IFR flight and navigation equipment requirements."
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "IFR Navigation and GNSS",
+          "note": "Detailed GNSS approval, substitution and integrity requirements."
+        },
+        {
+          "source": "AIP ENR",
+          "section": "GNSS and RNAV procedures",
+          "note": "Operational procedures and restrictions for GNSS approaches."
+        }
       ]
     },
     {
@@ -633,7 +735,13 @@
       "categoryId": "regulatory-backbone",
       "level": "core",
       "estReadingMinutes": 9,
-      "tags": ["lsalt", "msa", "terrain", "enroute", "ifrlaw"],
+      "tags": [
+        "lsalt",
+        "msa",
+        "terrain",
+        "enroute",
+        "ifrlaw"
+      ],
       "summary": "How IFR minimum heights are defined, when you can go below them, and why LSALT is a legally serious terrain-protection barrier.",
       "content": [
         {
@@ -679,9 +787,21 @@
         }
       ],
       "refs": [
-        {"source": "CASR", "part": "91", "note": "Rules on IFR minimum heights and exceptions."},
-        {"source": "Part 91 MOS", "chapter": "IFR Minimum Heights", "note": "Requirements for LSALT, MSA and exceptions."},
-        {"source": "AIP ENR", "section": "Altimetry and LSALT", "note": "Procedures for deriving and applying minimum altitudes."}
+        {
+          "source": "CASR",
+          "part": "91",
+          "note": "Rules on IFR minimum heights and exceptions."
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "IFR Minimum Heights",
+          "note": "Requirements for LSALT, MSA and exceptions."
+        },
+        {
+          "source": "AIP ENR",
+          "section": "Altimetry and LSALT",
+          "note": "Procedures for deriving and applying minimum altitudes."
+        }
       ]
     },
     {
@@ -690,7 +810,13 @@
       "categoryId": "regulatory-backbone",
       "level": "core",
       "estReadingMinutes": 9,
-      "tags": ["approach-ban", "minima", "decision-altitude", "mda", "airline"],
+      "tags": [
+        "approach-ban",
+        "minima",
+        "decision-altitude",
+        "mda",
+        "airline"
+      ],
       "summary": "When you are not allowed to start or continue an approach, how decision altitude and MDA really work, and how airline-style thinking treats minima.",
       "content": [
         {
@@ -730,8 +856,16 @@
         }
       ],
       "refs": [
-        {"source": "CASR", "part": "91", "note": "Provisions enabling approach ban rules and IFR minima."},
-        {"source": "Part 91 MOS", "chapter": "Take-off and Landing Minima", "note": "Detailed minima and approach ban conditions."}
+        {
+          "source": "CASR",
+          "part": "91",
+          "note": "Provisions enabling approach ban rules and IFR minima."
+        },
+        {
+          "source": "Part 91 MOS",
+          "chapter": "Take-off and Landing Minima",
+          "note": "Detailed minima and approach ban conditions."
+        }
       ]
     },
     {
@@ -740,7 +874,12 @@
       "categoryId": "regulatory-backbone",
       "level": "core",
       "estReadingMinutes": 10,
-      "tags": ["fuel", "alternate", "ifrlaw", "planning"],
+      "tags": [
+        "fuel",
+        "alternate",
+        "ifrlaw",
+        "planning"
+      ],
       "summary": "How IFR fuel is structured (trip, contingency, alternate, final reserve, holding) and how to think through alternate requirements like an airline pilot.",
       "content": [
         {
@@ -781,8 +920,16 @@
         }
       ],
       "refs": [
-        {"source": "Part 91 MOS", "chapter": "Fuel Requirements", "note": "Detailed IFR fuel planning requirements."},
-        {"source": "AIP ENR", "section": "Alternate Aerodrome Requirements", "note": "Rules that trigger alternate requirements."}
+        {
+          "source": "Part 91 MOS",
+          "chapter": "Fuel Requirements",
+          "note": "Detailed IFR fuel planning requirements."
+        },
+        {
+          "source": "AIP ENR",
+          "section": "Alternate Aerodrome Requirements",
+          "note": "Rules that trigger alternate requirements."
+        }
       ]
     },
     {
@@ -791,7 +938,13 @@
       "categoryId": "regulatory-backbone",
       "level": "advanced",
       "estReadingMinutes": 8,
-      "tags": ["class-g", "controlled-airspace", "ifr", "radio", "responsibility"],
+      "tags": [
+        "class-g",
+        "controlled-airspace",
+        "ifr",
+        "radio",
+        "responsibility"
+      ],
       "summary": "What changes when you are IFR in Class G vs controlled airspace: separation, terrain responsibility, reporting.",
       "content": [
         {
@@ -818,8 +971,16 @@
         }
       ],
       "refs": [
-        {"source": "CASR", "part": "91", "note": "IFR operating rules and responsibilities."},
-        {"source": "AIP ENR", "section": "IFR in Class G", "note": "Procedures and reporting requirements for IFR operations in Class G airspace."}
+        {
+          "source": "CASR",
+          "part": "91",
+          "note": "IFR operating rules and responsibilities."
+        },
+        {
+          "source": "AIP ENR",
+          "section": "IFR in Class G",
+          "note": "Procedures and reporting requirements for IFR operations in Class G airspace."
+        }
       ]
     },
     {
@@ -828,7 +989,12 @@
       "categoryId": "regulatory-backbone",
       "level": "core",
       "estReadingMinutes": 7,
-      "tags": ["recency", "instrument-rating", "ipc", "atpl"],
+      "tags": [
+        "recency",
+        "instrument-rating",
+        "ipc",
+        "atpl"
+      ],
       "summary": "How IFR recency, instrument ratings and IPCs fit together under Part 61 and its MOS.",
       "content": [
         {
@@ -857,8 +1023,16 @@
         }
       ],
       "refs": [
-        {"source": "CASR", "part": "61", "note": "Instrument rating privileges, recency and IPC provisions."},
-        {"source": "Part 61 MOS", "chapter": "Instrument Rating and IPC Standards", "note": "Detailed standards for instrument rating and IPC content."}
+        {
+          "source": "CASR",
+          "part": "61",
+          "note": "Instrument rating privileges, recency and IPC provisions."
+        },
+        {
+          "source": "Part 61 MOS",
+          "chapter": "Instrument Rating and IPC Standards",
+          "note": "Detailed standards for instrument rating and IPC content."
+        }
       ]
     }
   ]

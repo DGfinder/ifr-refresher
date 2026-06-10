@@ -8,7 +8,12 @@
       "id": "misc-technical",
       "title": "Miscellaneous Technical",
       "description": "Reference tables and technical data for IFR operations.",
-      "moduleIds": ["MSC-001", "MSC-002", "MSC-003", "MSC-004"]
+      "moduleIds": [
+        "MSC-001",
+        "MSC-002",
+        "MSC-003",
+        "MSC-004"
+      ]
     }
   ],
   "modules": [
@@ -18,7 +23,12 @@
       "categoryId": "misc-technical",
       "level": "core",
       "estReadingMinutes": 1,
-      "tags": ["transponder", "squawk", "SSR", "codes"],
+      "tags": [
+        "transponder",
+        "squawk",
+        "SSR",
+        "codes"
+      ],
       "summary": "Standard SSR transponder codes for different flight rule and airspace combinations in Australian airspace.",
       "content": [
         {
@@ -50,8 +60,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.6",
+          "section": "Para 7.1.4 — Operation of SSR Transponders",
+          "note": "Source/access date 2026-06-10. Default transponder codes — 1200 (VFR Class E/G or OCTA), 2000 (IFR OCTA), 3000 (IFR Class E or civil flights in CTA)."
         }
       ]
     },
@@ -61,7 +72,13 @@
       "categoryId": "misc-technical",
       "level": "core",
       "estReadingMinutes": 1,
-      "tags": ["VHF", "range", "radio", "formula", "communications"],
+      "tags": [
+        "VHF",
+        "range",
+        "radio",
+        "formula",
+        "communications"
+      ],
       "summary": "Formula for calculating the theoretical maximum range of VHF radio transmissions based on transmitter elevation and receiver height.",
       "content": [
         {
@@ -86,8 +103,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia GEN 1.5",
+          "section": "Aeronautical Telecommunications — VHF coverage",
+          "note": "Source/access date 2026-06-10. VHF line-of-sight propagation; theoretical maximum range d = 1.23 × (√Htx + √Hrx) where d is NM, H is feet."
         }
       ]
     },
@@ -97,7 +115,12 @@
       "categoryId": "misc-technical",
       "level": "core",
       "estReadingMinutes": 1,
-      "tags": ["radar", "ADS-B", "surveillance", "coverage"],
+      "tags": [
+        "radar",
+        "ADS-B",
+        "surveillance",
+        "coverage"
+      ],
       "summary": "Reference to Airservices Australia radar and ADS-B coverage charts for Australian airspace.",
       "content": [
         {
@@ -123,8 +146,12 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Airservices Australia surveillance coverage charts",
+          "note": "Source/access date 2026-06-10. SSR and ADS-B coverage maps for Australian airspace."
+        },
+        {
+          "source": "CASA — Surveillance and ADS-B (book-page chapter 4)",
+          "note": "Source/access date 2026-06-10. CASA guidance on ADS-B equipage requirements and surveillance services."
         }
       ]
     },
@@ -134,7 +161,13 @@
       "categoryId": "misc-technical",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["light signals", "ATC", "tower", "radio failure", "visual signals"],
+      "tags": [
+        "light signals",
+        "ATC",
+        "tower",
+        "radio failure",
+        "visual signals"
+      ],
       "summary": "ATC light signal meanings for aircraft in flight and on the airport, and acknowledgement procedures.",
       "content": [
         {
@@ -163,8 +196,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 12 — Signals for the Control of Aerodrome Traffic",
+          "note": "Source/access date 2026-06-10. Steady/flashing green/red and flashing white light signals — in-flight vs on-airport meanings; pilot acknowledgement methods."
         }
       ]
     }

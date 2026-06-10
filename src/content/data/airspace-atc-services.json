@@ -8,7 +8,17 @@
       "id": "atc-procedures",
       "title": "Airspace & ATC Services",
       "description": "Communications failure, meteorological conditions, and phraseology for operating in Australian airspace.",
-      "moduleIds": ["ATC-001", "ATC-002", "ATC-006", "ATC-007", "ATC-008", "ATC-009", "ATC-003", "ATC-004", "ATC-005"]
+      "moduleIds": [
+        "ATC-001",
+        "ATC-002",
+        "ATC-006",
+        "ATC-007",
+        "ATC-008",
+        "ATC-009",
+        "ATC-003",
+        "ATC-004",
+        "ATC-005"
+      ]
     }
   ],
   "modules": [
@@ -18,7 +28,12 @@
       "categoryId": "atc-procedures",
       "level": "core",
       "estReadingMinutes": 5,
-      "tags": ["communications failure", "squawk 7600", "SARTIME", "comms"],
+      "tags": [
+        "communications failure",
+        "squawk 7600",
+        "SARTIME",
+        "comms"
+      ],
       "summary": "Procedures to follow in the event of communications failure, covering in-flight and on-ground indications, and actions in VMC, IMC, controlled and uncontrolled airspace.",
       "content": [
         {
@@ -96,8 +111,14 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "ERSA EMERG 1.5",
+          "section": "Communication Failure",
+          "note": "Source/access date 2026-06-10. Authoritative pilot procedures for comms failure — VFR Class G vs IFR/controlled, in-flight vs ground signals, destination procedures, actions at minima."
+        },
+        {
+          "source": "AIP Australia ENR 1.6",
+          "section": "Para 7 — Radio Communication Failure Procedures",
+          "note": "Source/access date 2026-06-10. NORDO procedures with squawk 7600, TRANSMITTING BLIND phraseology, and listen-out requirements."
         }
       ]
     },
@@ -107,7 +128,13 @@
       "categoryId": "atc-procedures",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["VMC", "VFR", "visibility", "cloud clearance", "airspace"],
+      "tags": [
+        "VMC",
+        "VFR",
+        "visibility",
+        "cloud clearance",
+        "airspace"
+      ],
       "summary": "Minimum meteorological conditions for VFR flight in Class G, E, D and C airspace, including the special low-level Class G provision.",
       "content": [
         {
@@ -179,8 +206,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 91 Manual of Standards",
+          "section": "Section 2.07 — Visual Meteorological Conditions",
+          "note": "Source/access date 2026-06-10. Class G/D/C/E visibility and cloud separation minima by altitude band, including the below-3000-AGL clear-of-cloud allowance with radio requirement."
         }
       ]
     },
@@ -190,7 +218,14 @@
       "categoryId": "atc-procedures",
       "level": "core",
       "estReadingMinutes": 1,
-      "tags": ["transponder", "squawk", "SSR", "1200", "2000", "3000"],
+      "tags": [
+        "transponder",
+        "squawk",
+        "SSR",
+        "1200",
+        "2000",
+        "3000"
+      ],
       "summary": "Standard transponder codes for VFR and IFR operations in Australian airspace.",
       "content": [
         {
@@ -260,8 +295,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.6",
+          "section": "Para 7.1.4 — Operation of SSR Transponders",
+          "note": "Source/access date 2026-06-10. Default codes: 1200 (VFR Class E/G or OCTA), 2000 (IFR OCTA), 3000 (IFR Class E or civil flights in CTA)."
         }
       ]
     },
@@ -271,7 +307,13 @@
       "categoryId": "atc-procedures",
       "level": "core",
       "estReadingMinutes": 1,
-      "tags": ["VHF", "radio", "range", "formula", "line of sight"],
+      "tags": [
+        "VHF",
+        "radio",
+        "range",
+        "formula",
+        "line of sight"
+      ],
       "summary": "Formula to calculate the theoretical maximum range of VHF radio transmissions.",
       "content": [
         {
@@ -335,8 +377,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia GEN 1.5",
+          "section": "Aeronautical Telecommunications — VHF coverage",
+          "note": "Source/access date 2026-06-10. VHF line-of-sight propagation; theoretical range formula d = 1.23 × (√Htx + √Hrx) where d is in NM, H in feet."
         }
       ]
     },
@@ -346,7 +389,13 @@
       "categoryId": "atc-procedures",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["radar", "ADS-B", "surveillance", "coverage", "SSR"],
+      "tags": [
+        "radar",
+        "ADS-B",
+        "surveillance",
+        "coverage",
+        "SSR"
+      ],
       "summary": "Reference altitudes for radar and ADS-B coverage in Australian airspace.",
       "content": [
         {
@@ -415,8 +464,17 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Airservices Australia surveillance coverage charts",
+          "note": "Source/access date 2026-06-10. SSR and ADS-B coverage maps for Australian airspace."
+        },
+        {
+          "source": "CASA — Surveillance and ADS-B (book-page chapter 4)",
+          "note": "Source/access date 2026-06-10. CASA guidance on ADS-B equipage requirements and surveillance services."
+        },
+        {
+          "source": "AIP Australia ENR 1.6",
+          "section": "ATS surveillance services",
+          "note": "Source/access date 2026-06-10. Surveillance service availability and operational use."
         }
       ]
     },
@@ -426,7 +484,12 @@
       "categoryId": "atc-procedures",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["light signals", "tower", "communications failure", "visual signals"],
+      "tags": [
+        "light signals",
+        "tower",
+        "communications failure",
+        "visual signals"
+      ],
       "summary": "Standard light signals from ATC to aircraft in flight and on the ground, and pilot acknowledgement procedures.",
       "content": [
         {
@@ -496,8 +559,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 12 — Signals for the Control of Aerodrome Traffic",
+          "note": "Source/access date 2026-06-10. Steady/flashing green/red and flashing white light signals — in-flight vs on-airport meanings; pilot acknowledgement methods (rocking wings, ailerons/rudder, flashing lights)."
         }
       ]
     },
@@ -507,7 +571,13 @@
       "categoryId": "atc-procedures",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["phraseology", "Class G", "radio", "position report", "SARWATCH"],
+      "tags": [
+        "phraseology",
+        "Class G",
+        "radio",
+        "position report",
+        "SARWATCH"
+      ],
       "summary": "Standard radio phraseology for IFR operations at Class G airports, including taxi, departure reports, inbound calls, and SARWATCH cancellation.",
       "content": [
         {
@@ -576,8 +646,19 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §3 Communications in non-controlled airspace",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. CTAF format, broadcast situations, AFRU."
+        },
+        {
+          "source": "AIP Australia GEN 3.4",
+          "section": "Para 6 — Phraseologies",
+          "note": "Source/access date 2026-06-10. Class G CTAF phraseology baseline."
+        },
+        {
+          "source": "AIP Australia ENR 1.4",
+          "section": "ATS airspace classification — Class G procedures",
+          "note": "Source/access date 2026-06-10."
         }
       ]
     },
@@ -587,7 +668,13 @@
       "categoryId": "atc-procedures",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["phraseology", "Class D", "clearance", "taxi", "departure report"],
+      "tags": [
+        "phraseology",
+        "Class D",
+        "clearance",
+        "taxi",
+        "departure report"
+      ],
       "summary": "Standard radio phraseology for IFR operations at Class D airports, including clearance delivery, taxi, departure reports, and inbound calls.",
       "content": [
         {
@@ -657,8 +744,14 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §5 Operations at a controlled aerodrome",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. Class D operations §5.9-5.13, including Special VFR, helicopter, VFR arrival."
+        },
+        {
+          "source": "AIP Australia GEN 3.4",
+          "section": "Para 6 — Phraseologies",
+          "note": "Source/access date 2026-06-10. Class D phraseology and clearance-by-establishment-of-two-way-comms."
         }
       ]
     },
@@ -668,7 +761,13 @@
       "categoryId": "atc-procedures",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["phraseology", "Class C", "clearance", "airborne report", "SID"],
+      "tags": [
+        "phraseology",
+        "Class C",
+        "clearance",
+        "airborne report",
+        "SID"
+      ],
       "summary": "Standard radio phraseology for IFR operations at Class C airports, including clearance delivery, taxi, airborne reports, and first contact with approach.",
       "content": [
         {
@@ -740,8 +839,14 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASA Multi-Part AC 64.B-02, AC 91-35 and AC 172-05",
+          "chapter": "Radiotelephony manual for flight operations — §5 Operations at a controlled aerodrome + §6 Approach/Departures",
+          "note": "Source/access date 2026-06-10, v1.0 December 2025. CASA-OFFICIAL. Class C operations at major airports (§5.21), departure/approach control (§6)."
+        },
+        {
+          "source": "AIP Australia GEN 3.4",
+          "section": "Para 6 — Phraseologies",
+          "note": "Source/access date 2026-06-10. Class C clearance, taxi, departure, and arrival phraseology."
         }
       ]
     }

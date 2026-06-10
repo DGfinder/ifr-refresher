@@ -8,7 +8,11 @@
       "id": "en-route",
       "title": "En Route",
       "description": "IFR en route procedures including altimeter setting, navigation requirements, and ATC deviation notification.",
-      "moduleIds": ["ENR-001", "ENR-002", "ENR-003"]
+      "moduleIds": [
+        "ENR-001",
+        "ENR-002",
+        "ENR-003"
+      ]
     }
   ],
   "modules": [
@@ -18,7 +22,14 @@
       "categoryId": "en-route",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["QNH", "area QNH", "transition layer", "altimeter", "1013", "transition altitude"],
+      "tags": [
+        "QNH",
+        "area QNH",
+        "transition layer",
+        "altimeter",
+        "1013",
+        "transition altitude"
+      ],
       "summary": "Rules for altimeter settings below and above the transition altitude, and the timing of transitions between QNH and 1013.2 hPa.",
       "content": [
         {
@@ -93,8 +104,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.7",
+          "section": "Para 2 — Basic Altimeter Setting Rules",
+          "note": "Source/access date 2026-06-10. Below transition altitude: local QNH (within 100 NM of route) or forecast Area QNH. Above transition altitude: 1013.2 hPa. Transition altitude is 10,000 ft AMSL; standard pressure set after passing 10,000 ft on climb, switched back to QNH just before passing transition layer on descent."
         }
       ]
     },
@@ -104,7 +116,14 @@
       "categoryId": "en-route",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["navigation", "IFR", "RNAV", "radio fix", "GNSS", "two hours"],
+      "tags": [
+        "navigation",
+        "IFR",
+        "RNAV",
+        "radio fix",
+        "GNSS",
+        "two hours"
+      ],
       "summary": "Methods by which an aircraft operating under the IFR must be navigated, including area navigation, radio navigation, and visual reference.",
       "content": [
         {
@@ -175,8 +194,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.1",
+          "section": "Para 4.1 — Flight Under the IFR",
+          "note": "Source/access date 2026-06-10. IFR navigation methods — approved area navigation system, radio nav with ±9° tracking allowance and 2-hour max interval between fixes, or visual reference by day with VMC and visual position-fix requirements."
         }
       ]
     },
@@ -186,7 +206,16 @@
       "categoryId": "en-route",
       "level": "core",
       "estReadingMinutes": 1,
-      "tags": ["deviation", "ATC", "navigation tolerance", "NDB", "VOR", "RNP", "RNAV", "DME"],
+      "tags": [
+        "deviation",
+        "ATC",
+        "navigation tolerance",
+        "NDB",
+        "VOR",
+        "RNP",
+        "RNAV",
+        "DME"
+      ],
       "summary": "Navigation deviation tolerances requiring immediate notification to ATC when exceeded in controlled airspace.",
       "content": [
         {
@@ -257,8 +286,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.1",
+          "section": "Para 4.6.2 — Aircraft Deviations in Controlled Airspace — Advice to ATC",
+          "note": "Source/access date 2026-06-10. Mandatory ATC notification thresholds — NDB ±5°, LOC/VOR half-scale, RNP/RNAV outside prescribed value, DME ±2 NM, visual 1 NM."
         }
       ]
     }

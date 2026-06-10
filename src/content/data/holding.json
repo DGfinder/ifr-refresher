@@ -8,7 +8,10 @@
       "id": "holding",
       "title": "Holding",
       "description": "Holding pattern procedures, sector entry methods, and speed and timing limitations.",
-      "moduleIds": ["HLD-001", "HLD-002"]
+      "moduleIds": [
+        "HLD-001",
+        "HLD-002"
+      ]
     }
   ],
   "modules": [
@@ -18,7 +21,15 @@
       "categoryId": "holding",
       "level": "core",
       "estReadingMinutes": 3,
-      "tags": ["holding", "sector entry", "parallel entry", "teardrop", "offset", "direct entry", "DME arc"],
+      "tags": [
+        "holding",
+        "sector entry",
+        "parallel entry",
+        "teardrop",
+        "offset",
+        "direct entry",
+        "DME arc"
+      ],
       "summary": "Procedures for Sector 1 (parallel), Sector 2 (offset/teardrop), Sector 3 (direct), and DME arc entries into the holding pattern.",
       "content": [
         {
@@ -90,8 +101,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 3.4 — Entry Into the Holding Pattern",
+          "note": "Source/access date 2026-06-10. Sector entries — Sector 1 (Parallel), Sector 2 (Offset/Teardrop), Sector 3 (Direct), DME Arc entry; standard vs non-standard turns."
         }
       ]
     },
@@ -101,7 +113,14 @@
       "categoryId": "holding",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["holding", "speed limit", "outbound timing", "bank angle", "wind allowance", "exit speed"],
+      "tags": [
+        "holding",
+        "speed limit",
+        "outbound timing",
+        "bank angle",
+        "wind allowance",
+        "exit speed"
+      ],
       "summary": "Speed, timing, turns, wind allowance, and exit requirements for holding patterns.",
       "content": [
         {
@@ -181,8 +200,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 3.3 — Limitations",
+          "note": "Source/access date 2026-06-10. Max IAS by altitude — up to FL140: 230 (170 Cat A/B only), above FL140: 240, above FL200: 265; outbound timing rules."
         }
       ]
     }

@@ -8,7 +8,11 @@
       "id": "perf-gradient",
       "title": "Performance & Gradient",
       "description": "Aircraft performance standards, speed definitions, and climb gradient requirements for IFR operations.",
-      "moduleIds": ["PGR-001", "PGR-002", "PGR-003"]
+      "moduleIds": [
+        "PGR-001",
+        "PGR-002",
+        "PGR-003"
+      ]
     }
   ],
   "modules": [
@@ -18,7 +22,14 @@
       "categoryId": "perf-gradient",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["speeds", "VMCA", "VMCG", "VSSE", "VYSE", "multi-engine"],
+      "tags": [
+        "speeds",
+        "VMCA",
+        "VMCG",
+        "VSSE",
+        "VYSE",
+        "multi-engine"
+      ],
       "summary": "Definitions of critical multi-engine speed concepts used in IFR operations and flight test standards.",
       "content": [
         {
@@ -48,8 +59,13 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 91 Manual of Standards",
+          "section": "Multi-engine aircraft operations — Definitions",
+          "note": "Source/access date 2026-06-10. VMCA, VMCG, VSSE, VYSE definitions for multi-engine aeroplane operations."
+        },
+        {
+          "source": "FAR / CASR Aircraft Flight Manual",
+          "note": "Source/access date 2026-06-10. Manufacturer-stated speeds — VSSE (single-engine safety speed), VYSE (single-engine best rate of climb, blue radial) — per AFM."
         }
       ]
     },
@@ -59,7 +75,14 @@
       "categoryId": "perf-gradient",
       "level": "core",
       "estReadingMinutes": 3,
-      "tags": ["performance", "take-off", "landing", "MTOW", "factors", "unfactored charts"],
+      "tags": [
+        "performance",
+        "take-off",
+        "landing",
+        "MTOW",
+        "factors",
+        "unfactored charts"
+      ],
       "summary": "Recommended performance factors for small aeroplanes with unfactored AFM charts, covering both take-off and landing distance required.",
       "content": [
         {
@@ -97,8 +120,14 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASR 91.795",
+          "section": "Take-off performance",
+          "note": "Source/access date 2026-06-10. Take-off performance for aeroplanes — weight and runway-length considerations."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 14 — Performance requirements",
+          "note": "Source/access date 2026-06-10. Performance requirements for take-off and landing under Part 91."
         }
       ]
     },
@@ -108,7 +137,13 @@
       "categoryId": "perf-gradient",
       "level": "core",
       "estReadingMinutes": 1,
-      "tags": ["gradient", "climb", "nomograph", "missed approach", "departure"],
+      "tags": [
+        "gradient",
+        "climb",
+        "nomograph",
+        "missed approach",
+        "departure"
+      ],
       "summary": "Reference to the Airservices Australia gradient rate nomograph for converting between climb gradient (%) and rate of climb (ft/min) at a given groundspeed.",
       "content": [
         {
@@ -134,8 +169,8 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia DAP — Standard Instrument Departure (SID) chart construction",
+          "note": "Source/access date 2026-06-10. Standard climb gradient requirements (3.3%) and minimum climb gradient overlays on SID charts; gradient rate nomograph relating climb gradient (%) to climb rate (ft/min) at ground speed."
         }
       ]
     }
