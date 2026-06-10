@@ -8,37 +8,62 @@
       "id": "approaches-setup",
       "title": "Approach Setup & Authorisation",
       "description": "Pre-approach requirements, QNH, aerodrome operating minima, and approach ban.",
-      "moduleIds": ["APR-001", "APR-002", "APR-003", "APR-004", "APR-005"]
+      "moduleIds": [
+        "APR-001",
+        "APR-002",
+        "APR-003",
+        "APR-004",
+        "APR-005"
+      ]
     },
     {
       "id": "approaches-descent",
       "title": "Descent & Circling",
       "description": "Descent below MDA/DA, circling approaches, circling areas, and procedure turns.",
-      "moduleIds": ["APR-006", "APR-007", "APR-008", "APR-009"]
+      "moduleIds": [
+        "APR-006",
+        "APR-007",
+        "APR-008",
+        "APR-009"
+      ]
     },
     {
       "id": "approaches-speeds-tolerances",
       "title": "Speeds & Tolerances",
       "description": "Approach speeds by aircraft category and instrument approach tolerances.",
-      "moduleIds": ["APR-010", "APR-011", "APR-012"]
+      "moduleIds": [
+        "APR-010",
+        "APR-011",
+        "APR-012"
+      ]
     },
     {
       "id": "approaches-dme-gnss",
       "title": "DME / GNSS Arrivals",
       "description": "DME and GNSS arrival procedures, general rules and controlled airspace operations.",
-      "moduleIds": ["APR-013", "APR-014"]
+      "moduleIds": [
+        "APR-013",
+        "APR-014"
+      ]
     },
     {
       "id": "approaches-visual",
       "title": "Visual Approaches",
       "description": "Visual approach authorisation by ATC and pilot-initiated visual approach requirements.",
-      "moduleIds": ["APR-015", "APR-016"]
+      "moduleIds": [
+        "APR-015",
+        "APR-016"
+      ]
     },
     {
       "id": "approaches-minima-missed",
       "title": "Minima & Missed Approach",
       "description": "Landing minima, missed approach triggers, navigational tolerance, and go-around in VMC.",
-      "moduleIds": ["APR-017", "APR-018", "APR-019"]
+      "moduleIds": [
+        "APR-017",
+        "APR-018",
+        "APR-019"
+      ]
     }
   ],
   "modules": [
@@ -48,7 +73,17 @@
       "categoryId": "approaches-setup",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["instrument approach", "2D", "3D", "NDB", "VOR", "ILS", "RNAV", "GNSS", "RNP"],
+      "tags": [
+        "instrument approach",
+        "2D",
+        "3D",
+        "NDB",
+        "VOR",
+        "ILS",
+        "RNAV",
+        "GNSS",
+        "RNP"
+      ],
       "summary": "Classification of instrument approaches into 2D and 3D types, and the specific approach types within each category.",
       "content": [
         {
@@ -114,8 +149,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 1.1 — Types of Instrument Approaches",
+          "note": "Source/access date 2026-06-10. Listing of approach types — IAL, DME or GNSS Arrival Procedure (incl. ADF variant)."
         }
       ]
     },
@@ -125,7 +161,15 @@
       "categoryId": "approaches-setup",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["QNH", "IAF", "approach", "TAF QNH", "area QNH", "minima", "100FT"],
+      "tags": [
+        "QNH",
+        "IAF",
+        "approach",
+        "TAF QNH",
+        "area QNH",
+        "minima",
+        "100FT"
+      ],
       "summary": "QNH requirements prior to passing the IAF, approved sources, validity, and effect on published minima.",
       "content": [
         {
@@ -200,8 +244,14 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 14.03 — QNH for instrument approach",
+          "note": "Source/access date 2026-06-10. Required QNH sources before passing the IAF."
+        },
+        {
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 5.3 — QNH Sources",
+          "note": "Source/access date 2026-06-10. Approved actual-QNH sources, validity 15 min, AFCAST and area QNH adjustments to minima (100 ft / 50 ft)."
         }
       ]
     },
@@ -211,7 +261,14 @@
       "categoryId": "approaches-setup",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["AOM", "operating minima", "MDA", "DA", "landing minima", "operator"],
+      "tags": [
+        "AOM",
+        "operating minima",
+        "MDA",
+        "DA",
+        "landing minima",
+        "operator"
+      ],
       "summary": "How aerodrome operating minima are determined and the factors that may require them to be set higher than published landing minima.",
       "content": [
         {
@@ -274,8 +331,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 1.18 — Aerodrome Operating Minima",
+          "note": "Source/access date 2026-06-10. AOM established by operator; factors (aircraft type, crew, met source); 50 ft PEC no longer mandated."
         }
       ]
     },
@@ -285,7 +343,14 @@
       "categoryId": "approaches-setup",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["approach ban", "RVR", "1000FT", "TDZ", "low visibility", "CASR 91.310"],
+      "tags": [
+        "approach ban",
+        "RVR",
+        "1000FT",
+        "TDZ",
+        "low visibility",
+        "CASR 91.310"
+      ],
       "summary": "The approach ban rule preventing descent below 1,000 ft AAL when RVR is continuously reported below landing minima.",
       "content": [
         {
@@ -354,8 +419,13 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASR 91.310",
+          "note": "Source/access date 2026-06-10. Approach ban for IFR flights."
+        },
+        {
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 16 — Approach ban for IFR flights",
+          "note": "Source/access date 2026-06-10. Detail on 1000 ft AAL threshold against TDZ RVR or controlling zone RVR."
         }
       ]
     },
@@ -365,7 +435,13 @@
       "categoryId": "approaches-setup",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["LSALT", "lowest safe altitude", "IFR", "exceptions", "VIVAT"],
+      "tags": [
+        "LSALT",
+        "lowest safe altitude",
+        "IFR",
+        "exceptions",
+        "VIVAT"
+      ],
       "summary": "The general prohibition on flight below published LSALT under IFR and the permitted exceptions (VIVAT mnemonic).",
       "content": [
         {
@@ -433,8 +509,14 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "CASR 91.305",
+          "section": "Minimum heights — IFR flights",
+          "note": "Source/access date 2026-06-10. Prohibition on flight below LSALT and exceptions including 91.265 / 91.267."
+        },
+        {
+          "source": "AIP Australia GEN 3.3",
+          "section": "Para 4 — Calculation of Lowest Safe Altitude",
+          "note": "Source/access date 2026-06-10. VIVAT mnemonic exceptions (visual / instrument approach or departure, VMC by day, ATC clearance, take-off or landing)."
         }
       ]
     },
@@ -444,7 +526,14 @@
       "categoryId": "approaches-descent",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["MDA", "DA", "descent", "visual reference", "VMC mnemonic", "APV"],
+      "tags": [
+        "MDA",
+        "DA",
+        "descent",
+        "visual reference",
+        "VMC mnemonic",
+        "APV"
+      ],
       "summary": "Conditions that must be met before descending below the straight-in MDA or continuing below the DA during an APV.",
       "content": [
         {
@@ -511,8 +600,14 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 1.7.2 — Descent Below the Straight-in MDA",
+          "note": "Source/access date 2026-06-10. VMC mnemonic — Visual reference maintained, Minima requirements adhered to, Continuously in a position where a landing can be made with normal rates and manoeuvres."
+        },
+        {
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 5.1.1 — Aircraft Performance Categories (meteorological minima)",
+          "note": "Source/access date 2026-06-10. Performance-category minima referenced from the descent-below-MDA rule."
         }
       ]
     },
@@ -522,7 +617,13 @@
       "categoryId": "approaches-descent",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["circling", "MDA", "visual circling", "no-circling sector", "obstacle clearance"],
+      "tags": [
+        "circling",
+        "MDA",
+        "visual circling",
+        "no-circling sector",
+        "obstacle clearance"
+      ],
       "summary": "Conditions for descent below circling MDA during visual circling, restrictions on circling, and day/night differences.",
       "content": [
         {
@@ -596,8 +697,19 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 1.6.6 — Circling Approaches and Visual Circling",
+          "note": "Source/access date 2026-06-10. 'VMC, Day Obstacle, Night MDA' mnemonic; day/night descent conditions; obstacle protection model."
+        },
+        {
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 1.6.2 — Restrictions on Visual Circling",
+          "note": "Source/access date 2026-06-10. No-circling sectors by day in less than VMC and at night; runway environment kept in sight; spot-height caveats."
+        },
+        {
+          "source": "ICAO Doc 8168",
+          "chapter": "PANS-OPS — Aircraft Operations Vol I",
+          "note": "Source/access date 2026-06-10. Underlying ICAO procedures referenced by ENR 1.5 Para 1.6.2."
         }
       ]
     },
@@ -607,7 +719,12 @@
       "categoryId": "approaches-descent",
       "level": "core",
       "estReadingMinutes": 1,
-      "tags": ["circling area", "aircraft category", "obstacle clearance", "radius"],
+      "tags": [
+        "circling area",
+        "aircraft category",
+        "obstacle clearance",
+        "radius"
+      ],
       "summary": "Circling area radii and minimum obstacle clearance heights by aircraft performance category.",
       "content": [
         {
@@ -679,8 +796,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 1.6.6 — Circling Approaches (Circling Area Table)",
+          "note": "Source/access date 2026-06-10. Per-category circling area (NM) and obstacle clearance (ft): A/1.68/300, B/2.66/300, C/4.20/400, D/5.28/400, E/6.94/500."
         }
       ]
     },
@@ -690,7 +808,12 @@
       "categoryId": "approaches-descent",
       "level": "core",
       "estReadingMinutes": 1,
-      "tags": ["procedure turn", "reversal procedure", "holding", "base turn"],
+      "tags": [
+        "procedure turn",
+        "reversal procedure",
+        "holding",
+        "base turn"
+      ],
       "summary": "Reference to AIP reversal procedures for procedure turns used during instrument approaches.",
       "content": [
         {
@@ -757,8 +880,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 2.8 — Reversal Procedures",
+          "note": "Source/access date 2026-06-10. Procedure turn / reversal entry rules."
         }
       ]
     },
@@ -768,7 +892,13 @@
       "categoryId": "approaches-speeds-tolerances",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["approach speeds", "VAT", "aircraft category", "circling speed", "missed approach speed"],
+      "tags": [
+        "approach speeds",
+        "VAT",
+        "aircraft category",
+        "circling speed",
+        "missed approach speed"
+      ],
       "summary": "Aircraft performance category VAT thresholds and associated initial, intermediate, final, circling, and missed approach speed limits.",
       "content": [
         {
@@ -844,8 +974,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 1.15 — Handling Speeds",
+          "note": "Source/access date 2026-06-10. IAS bands per ACFT category A-E + H (initial/intermediate, final, max circling, max missed approach speeds) including reversal-procedure max speeds."
         }
       ]
     },
@@ -855,7 +986,12 @@
       "categoryId": "approaches-speeds-tolerances",
       "level": "core",
       "estReadingMinutes": 1,
-      "tags": ["tolerances", "flight test", "instrument approach", "Part 61 MOS"],
+      "tags": [
+        "tolerances",
+        "flight test",
+        "instrument approach",
+        "Part 61 MOS"
+      ],
       "summary": "Instrument approach tolerances as specified in Part 61 MOS for flight test assessment purposes.",
       "content": [
         {
@@ -918,8 +1054,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 61 Manual of Standards",
+          "section": "Volume 4, Schedule 8, Section 1, Table 5 — Instrument Approach Tolerances",
+          "note": "Source/access date 2026-06-10. Flight-test tolerances per approach type for IPC / instrument rating renewal."
         }
       ]
     },
@@ -929,7 +1066,15 @@
       "categoryId": "approaches-speeds-tolerances",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["ILS", "tolerances", "localiser", "glideslope", "half-scale", "full-scale", "missed approach"],
+      "tags": [
+        "ILS",
+        "tolerances",
+        "localiser",
+        "glideslope",
+        "half-scale",
+        "full-scale",
+        "missed approach"
+      ],
       "summary": "Flight tolerances for ILS and GLS approaches, including the requirement to verify glidepath/altimeter at the fix and mandatory missed approach on full-scale deflection.",
       "content": [
         {
@@ -999,8 +1144,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 7.3 — Altimeter Checks and Flight Tolerances",
+          "note": "Source/access date 2026-06-10. ILS/GLS final approach tolerances — within half-scale deflection; full-scale at any point after the FAP triggers missed approach."
         }
       ]
     },
@@ -1010,7 +1156,14 @@
       "categoryId": "approaches-dme-gnss",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["DME arrival", "GNSS arrival", "sector", "FAF", "azimuth", "circling"],
+      "tags": [
+        "DME arrival",
+        "GNSS arrival",
+        "sector",
+        "FAF",
+        "azimuth",
+        "circling"
+      ],
       "summary": "General rules for DME or GNSS arrival procedures, including descent authorisation, sector containment, and applicable subsections.",
       "content": [
         {
@@ -1081,8 +1234,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 11 — DME or GNSS Arrival Procedures",
+          "note": "Source/access date 2026-06-10. General DME / GNSS arrival procedure rules; descent only when established on inbound track or within sector; cross-references to §1.6, §1.9, §1.13."
         }
       ]
     },
@@ -1092,7 +1246,14 @@
       "categoryId": "approaches-dme-gnss",
       "level": "core",
       "estReadingMinutes": 3,
-      "tags": ["DME arrival", "GNSS arrival", "CTA", "clearance", "altitude restriction", "holding prohibited"],
+      "tags": [
+        "DME arrival",
+        "GNSS arrival",
+        "CTA",
+        "clearance",
+        "altitude restriction",
+        "holding prohibited"
+      ],
       "summary": "ATC clearance requirements, altitude restriction rules, and holding prohibitions for DME and GNSS arrivals in controlled airspace.",
       "content": [
         {
@@ -1164,8 +1325,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 11 — DME or GNSS Arrivals in Controlled Airspace",
+          "note": "Source/access date 2026-06-10. 'CLEARED DME (or GNSS) ARRIVAL' as a final approach clearance; ATC cannot impose altitude restrictions; 'DESCEND TO (level) NOT BELOW DME (or GNSS) STEPS' phraseology; CTA containment caveats."
         }
       ]
     },
@@ -1175,7 +1337,14 @@
       "categoryId": "approaches-visual",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["visual approach", "ATC", "MVA", "30NM", "visibility", "vectoring"],
+      "tags": [
+        "visual approach",
+        "ATC",
+        "MVA",
+        "30NM",
+        "visibility",
+        "vectoring"
+      ],
       "summary": "Conditions under which ATC may issue a visual approach clearance, by day and night.",
       "content": [
         {
@@ -1243,8 +1412,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.1",
+          "section": "Para 2.11.3.1 — Visual Approaches issued by ATC",
+          "note": "Source/access date 2026-06-10. ATC-issued visual approach criteria — within 30 NM, continuous visual reference to ground/water, visibility 5000 m; night extras (assigned MVA + heading/track to intercept final or position within circling area)."
         }
       ]
     },
@@ -1254,7 +1424,16 @@
       "categoryId": "approaches-visual",
       "level": "core",
       "estReadingMinutes": 3,
-      "tags": ["visual approach", "IFR", "pilot-initiated", "30NM", "5NM", "CTA", "PAPI", "glideslope"],
+      "tags": [
+        "visual approach",
+        "IFR",
+        "pilot-initiated",
+        "30NM",
+        "5NM",
+        "CTA",
+        "PAPI",
+        "glideslope"
+      ],
       "summary": "Conditions under which an IFR pilot may discontinue or not commence an IAP and conduct a visual approach, with altitude and track requirements.",
       "content": [
         {
@@ -1335,8 +1514,17 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 1.14 — Visual Approach Requirements for IFR Flights",
+          "note": "Source/access date 2026-06-10. Pilot-initiated visual approach criteria — within 30 NM by day; clear of cloud; in sight of ground/water; vis 5000 m or aerodrome in sight; altitude limits in CTA / LSALT or MSA / DGA step / last assigned."
+        },
+        {
+          "source": "CASR 91.265",
+          "note": "Source/access date 2026-06-10. IFR minimum heights — referenced by the visual-approach altitude floor rule."
+        },
+        {
+          "source": "CASR 91.267",
+          "note": "Source/access date 2026-06-10. IFR minimum heights — referenced alongside 91.265."
         }
       ]
     },
@@ -1346,7 +1534,15 @@
       "categoryId": "approaches-minima-missed",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["landing minima", "DA", "MDA", "RVR", "visibility", "approach lighting", "circling"],
+      "tags": [
+        "landing minima",
+        "DA",
+        "MDA",
+        "RVR",
+        "visibility",
+        "approach lighting",
+        "circling"
+      ],
       "summary": "Minimum altitude and visibility requirements for precision/APV and non-precision approaches, including lighting system failure adjustments and circling.",
       "content": [
         {
@@ -1424,8 +1620,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 15.10 — Landing Minima",
+          "note": "Source/access date 2026-06-10. Highest-of rule for DA/MDA across IAP chart, AFM and operator exposition; visibility floor 800 m / 1200 m / 1500 m conditions based on approach lighting and runway lighting availability; circling-manoeuvre overrides."
         }
       ]
     },
@@ -1435,7 +1632,14 @@
       "categoryId": "approaches-minima-missed",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["missed approach", "ROFL mnemonic", "RAIM", "navigational tolerance", "circling", "MAPT"],
+      "tags": [
+        "missed approach",
+        "ROFL mnemonic",
+        "RAIM",
+        "navigational tolerance",
+        "circling",
+        "MAPT"
+      ],
       "summary": "Triggers requiring a missed approach to be executed, and the definition of navigational tolerance.",
       "content": [
         {
@@ -1510,8 +1714,19 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "Part 91 Manual of Standards",
+          "section": "Chapter 15.11 — Missed approach",
+          "note": "Source/access date 2026-06-10. Legal requirement to fly the published missed approach when minima not met."
+        },
+        {
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 1.9.1 — Missed Approach Standard Procedures",
+          "note": "Source/access date 2026-06-10. SNV-ROFL conditions (straight-in landing cannot be effected unless circling can be conducted)."
+        },
+        {
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 1.11 — Missed Approach Requirements — GNSS",
+          "note": "Source/access date 2026-06-10. GNSS-specific missed-approach handling."
         }
       ]
     },
@@ -1521,7 +1736,14 @@
       "categoryId": "approaches-minima-missed",
       "level": "core",
       "estReadingMinutes": 2,
-      "tags": ["go around", "missed approach", "VMC", "visual approach", "runway track", "Class D parallel"],
+      "tags": [
+        "go around",
+        "missed approach",
+        "VMC",
+        "visual approach",
+        "runway track",
+        "Class D parallel"
+      ],
       "summary": "Procedures for go-arounds from visual approaches in VMC and for instrument approaches in VMC, including special Class D parallel runway procedures.",
       "content": [
         {
@@ -1588,8 +1810,9 @@
       ],
       "refs": [
         {
-          "source": "Unverified local study notes",
-          "note": "Existing imported study content. Human aviation source verification required before external/public/paying pilot use. See docs/content/content-verification.md."
+          "source": "AIP Australia ENR 1.5",
+          "section": "Para 1.10 — Go Around and Missed Approach Procedure in VMC",
+          "note": "Source/access date 2026-06-10. Go-around vs missed-approach distinction; visual conduct of the missed approach when VMC permits."
         }
       ]
     }
