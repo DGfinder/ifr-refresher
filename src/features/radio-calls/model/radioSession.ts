@@ -49,7 +49,7 @@ export type RadioSessionAction =
   | { type: "toggle-chip"; chipId: string }
   | { type: "submit-readback" }
   | { type: "set-spoken-transcript"; transcript: string }
-  | { type: "submit-spoken-call" }
+  | { type: "submit-spoken-call"; transcript?: string }
   | { type: "advance" }
   | { type: "reset-to-dashboard" };
 
@@ -123,10 +123,11 @@ export function radioSessionReducer(
       const challenge = currentChallenge(state);
       if (!challenge || challenge.kind !== "spoken") return state;
       if (state.input.kind !== "spoken" || state.input.isSubmitted) return state;
-      const record = buildRadioSpokenAnswer(challenge, state.input.transcript);
+      const transcript = action.transcript ?? state.input.transcript;
+      const record = buildRadioSpokenAnswer(challenge, transcript);
       return {
         ...state,
-        input: { ...state.input, isSubmitted: true },
+        input: { ...state.input, transcript, isSubmitted: true },
         answers: { ...state.answers, [record.questionId]: record },
       };
     }

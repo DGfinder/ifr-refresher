@@ -56,8 +56,10 @@ function detectSupportServer(): boolean {
 
 interface UseSpeechRecognitionOptions {
   lang?: string;
-  /** Auto-stop after this many ms of silence. Default 1500ms. */
+  /** Auto-stop after this many ms of silence once speech has been detected. */
   silenceTimeoutMs?: number;
+  /** Failsafe if the recogniser opens but never hears/transcribes anything. */
+  initialListenTimeoutMs?: number;
 }
 
 export type SpeechRecognitionError =
@@ -95,7 +97,8 @@ interface UseSpeechRecognitionReturn {
  */
 export function useSpeechRecognition({
   lang = "en-AU",
-  silenceTimeoutMs = 1500,
+  silenceTimeoutMs = 3500,
+  initialListenTimeoutMs = 10000,
 }: UseSpeechRecognitionOptions = {}): UseSpeechRecognitionReturn {
   const isSupported = useSyncExternalStore(
     noopSubscribe,
@@ -110,7 +113,9 @@ export function useSpeechRecognition({
 
   const recognitionRef = useRef<MinimalSpeechRecognition | null>(null);
   const silenceTimerRef = useRef<number | null>(null);
+  const initialListenTimerRef = useRef<number | null>(null);
   const finalAccumulatorRef = useRef<string>("");
+  const latestTranscriptRef = useRef<string>("");
 
   const clearSilenceTimer = useCallback(() => {
     if (silenceTimerRef.current !== null) {
@@ -119,8 +124,16 @@ export function useSpeechRecognition({
     }
   }, []);
 
+  const clearInitialListenTimer = useCallback(() => {
+    if (initialListenTimerRef.current !== null) {
+      window.clearTimeout(initialListenTimerRef.current);
+      initialListenTimerRef.current = null;
+    }
+  }, []);
+
   const stop = useCallback(() => {
     clearSilenceTimer();
+    clearInitialListenTimer();
     const rec = recognitionRef.current;
     if (!rec) return;
     try {
@@ -128,7 +141,7 @@ export function useSpeechRecognition({
     } catch {
       // Already stopped or never started — ignore.
     }
-  }, [clearSilenceTimer]);
+  }, [clearInitialListenTimer, clearSilenceTimer]);
 
   const armSilenceTimer = useCallback(() => {
     clearSilenceTimer();
@@ -136,6 +149,13 @@ export function useSpeechRecognition({
       stop();
     }, silenceTimeoutMs);
   }, [clearSilenceTimer, silenceTimeoutMs, stop]);
+
+  const armInitialListenTimer = useCallback(() => {
+    clearInitialListenTimer();
+    initialListenTimerRef.current = window.setTimeout(() => {
+      stop();
+    }, initialListenTimeoutMs);
+  }, [clearInitialListenTimer, initialListenTimeoutMs, stop]);
 
   const start = useCallback(() => {
     if (!isSupported || isListening) return;
@@ -149,11 +169,13 @@ export function useSpeechRecognition({
     rec.maxAlternatives = 1;
 
     finalAccumulatorRef.current = "";
+    latestTranscriptRef.current = "";
     setFinalTranscript("");
     setInterimTranscript("");
     setError(null);
 
     rec.onresult = (event) => {
+      clearInitialListenTimer();
       let interim = "";
       for (let i = event.resultIndex; i < event.results.length; i++) {
         const result = event.results[i]!;
@@ -169,6 +191,11 @@ export function useSpeechRecognition({
           interim += transcript;
         }
       }
+      latestTranscriptRef.current = (
+        finalAccumulatorRef.current +
+        " " +
+        interim
+      ).trim();
       setInterimTranscript(interim);
       armSilenceTimer();
     };
@@ -189,22 +216,41 @@ export function useSpeechRecognition({
 
     rec.onend = () => {
       clearSilenceTimer();
+      clearInitialListenTimer();
       setIsListening(false);
+      // Some browser/Web Speech implementations end a short utterance with
+      // only interim text. Preserve that as the committed transcript so the
+      // drill can still assess what was heard instead of silently submitting
+      // an empty call.
+      if (!finalAccumulatorRef.current && latestTranscriptRef.current) {
+        finalAccumulatorRef.current = latestTranscriptRef.current;
+        setFinalTranscript(latestTranscriptRef.current);
+      }
       setInterimTranscript("");
+      recognitionRef.current = null;
     };
 
     recognitionRef.current = rec;
     try {
       rec.start();
       setIsListening(true);
-      armSilenceTimer();
+      armInitialListenTimer();
     } catch {
       setError("unknown");
     }
-  }, [isSupported, isListening, lang, armSilenceTimer, clearSilenceTimer]);
+  }, [
+    isSupported,
+    isListening,
+    lang,
+    armInitialListenTimer,
+    armSilenceTimer,
+    clearInitialListenTimer,
+    clearSilenceTimer,
+  ]);
 
   const reset = useCallback(() => {
     finalAccumulatorRef.current = "";
+    latestTranscriptRef.current = "";
     setFinalTranscript("");
     setInterimTranscript("");
     setError(null);
@@ -215,6 +261,7 @@ export function useSpeechRecognition({
   useEffect(() => {
     return () => {
       clearSilenceTimer();
+      clearInitialListenTimer();
       const rec = recognitionRef.current;
       if (rec) {
         try {
@@ -224,7 +271,7 @@ export function useSpeechRecognition({
         }
       }
     };
-  }, [clearSilenceTimer]);
+  }, [clearInitialListenTimer, clearSilenceTimer]);
 
   return {
     isSupported,

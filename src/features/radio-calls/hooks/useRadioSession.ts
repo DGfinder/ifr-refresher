@@ -54,7 +54,7 @@ interface UseRadioSessionReturn {
   toggleChip: (chipId: string) => void;
   submitReadback: () => void;
   setSpokenTranscript: (transcript: string) => void;
-  submitSpokenCall: () => void;
+  submitSpokenCall: (transcript?: string) => void;
   advance: () => void;
   resetToDashboard: () => void;
 }
@@ -146,7 +146,12 @@ export function useRadioSession({
     submitReadback: () => dispatch({ type: "submit-readback" }),
     setSpokenTranscript: (transcript) =>
       dispatch({ type: "set-spoken-transcript", transcript }),
-    submitSpokenCall: () => dispatch({ type: "submit-spoken-call" }),
+    submitSpokenCall: (transcript) =>
+      dispatch(
+        transcript === undefined
+          ? { type: "submit-spoken-call" }
+          : { type: "submit-spoken-call", transcript },
+      ),
     advance: () => dispatch({ type: "advance" }),
     resetToDashboard: () => dispatch({ type: "reset-to-dashboard" }),
   };

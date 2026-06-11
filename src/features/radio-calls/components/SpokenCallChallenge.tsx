@@ -15,7 +15,7 @@ interface SpokenCallChallengeProps {
   /** Live updates while the learner edits the text field or speech recognition
    *  is producing partials. */
   onTranscriptChange: (transcript: string) => void;
-  onSubmit: () => void;
+  onSubmit: (transcript: string) => void;
 }
 
 export function SpokenCallChallenge({
@@ -64,10 +64,13 @@ export function SpokenCallChallenge({
 
   const handleSubmit = () => {
     if (speech.isListening) speech.stop();
-    onTranscriptChange(textInput);
-    // Slight defer not needed — onSubmit reads parent `transcript`, and we
-    // just set it above. React batches state updates from the same handler.
-    onSubmit();
+    const draftTranscript = (
+      speech.finalTranscript ||
+      speech.interimTranscript ||
+      textInput
+    ).trim();
+    onTranscriptChange(draftTranscript);
+    onSubmit(draftTranscript);
   };
 
   const showMic = speech.isSupported && !isSubmitted;
@@ -142,7 +145,11 @@ export function SpokenCallChallenge({
         <button
           type="button"
           onClick={handleSubmit}
-          disabled={textInput.trim().length === 0 && !speech.finalTranscript}
+          disabled={
+            textInput.trim().length === 0 &&
+            !speech.finalTranscript.trim() &&
+            !speech.interimTranscript.trim()
+          }
           className={cn(
             "w-full rounded-xl bg-[var(--ifr-cta-bg)] py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--ifr-cta-bg-hover)]",
             "disabled:cursor-not-allowed disabled:opacity-50",

@@ -175,6 +175,34 @@ describe("radioSessionReducer", () => {
     expect(answer.hitElementLabels).toContain("Ready");
   });
 
+  it("spoken submit can atomically assess the current mic transcript", () => {
+    let state = radioSessionReducer(initialRadioSessionState, {
+      type: "start-scenario",
+      scenario,
+    });
+    state = radioSessionReducer(state, { type: "select-option", optionId: "B" });
+    state = radioSessionReducer(state, { type: "advance" });
+    state = radioSessionReducer(state, { type: "toggle-chip", chipId: "c1" });
+    state = radioSessionReducer(state, { type: "toggle-chip", chipId: "c2" });
+    state = radioSessionReducer(state, { type: "submit-readback" });
+    state = radioSessionReducer(state, { type: "advance" });
+
+    state = radioSessionReducer(state, {
+      type: "submit-spoken-call",
+      transcript: "tower LEF ready",
+    });
+
+    expect(state.input).toEqual({
+      kind: "spoken",
+      transcript: "tower LEF ready",
+      isSubmitted: true,
+    });
+    const answer = state.answers["q-3"];
+    if (answer?.kind !== "spoken") throw new Error("expected spoken answer");
+    expect(answer.transcript).toBe("tower LEF ready");
+    expect(answer.isCorrect).toBe(true);
+  });
+
   it("advance after the last leg transitions to results and builds the result object", () => {
     let state = radioSessionReducer(initialRadioSessionState, {
       type: "start-scenario",
