@@ -21,11 +21,33 @@ describe("realiseRadioTemplate", () => {
 
     expect(card.title).toContain("Sydney");
     expect(card.airspaceClass).toBe("C");
-    expect(card.challenge.prompt).toContain("Sydney Tower");
+    expect(card.challenge.prompt).toContain("Sydney Delivery");
     if (card.challenge.kind !== "spoken") throw new Error("expected spoken");
-    expect(card.challenge.expectedText).toContain("Sydney Tower");
+    expect(card.challenge.expectedText).toContain("Sydney Delivery");
     expect(card.challenge.expectedText).toContain(callsign.full);
     expect(card.challenge.expectedText).toContain("Charlie");
+  });
+
+  it("uses ground/delivery procedures for controlled-airspace pre-departure calls", () => {
+    const clearance = radioCallTemplates.find((t) => t.templateId === "ctl-clearance-request")!;
+    const taxi = radioCallTemplates.find((t) => t.templateId === "ctl-taxi-request")!;
+    const sydney = radioLocations.find((l) => l.icao === "YSSY")!;
+    const callsign = radioCallsigns[0]!;
+
+    const clearanceCard = realiseRadioTemplate(clearance, sydney, callsign, "Alpha");
+    const taxiCard = realiseRadioTemplate(taxi, sydney, callsign, "Bravo");
+
+    if (clearanceCard.challenge.kind !== "spoken") throw new Error("expected spoken");
+    if (taxiCard.challenge.kind !== "spoken") throw new Error("expected spoken");
+    expect(clearanceCard.challenge.expectedText).toContain("Sydney Delivery");
+    expect(clearanceCard.challenge.expectedText).not.toContain("Sydney Tower");
+    expect(taxiCard.challenge.expectedText).toContain("Sydney Ground");
+    expect(taxiCard.challenge.expectedText).toContain("POB two");
+    expect(taxiCard.challenge.expectedText).toContain("IFR");
+    expect(taxiCard.challenge.elements.find((el) => el.label === "POB")?.required).toBe(true);
+    expect(taxiCard.challenge.elements.find((el) => el.label === "Flight rules")?.required).toBe(
+      true,
+    );
   });
 
   it("produces a deterministic id for the same inputs", () => {

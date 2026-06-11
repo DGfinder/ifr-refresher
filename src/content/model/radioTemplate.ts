@@ -20,7 +20,7 @@ import type { Reference } from "@/content/model/section";
  *  - {ctaf} (e.g. "Mudgee traffic")
  *  - {runway} (the primary runway, e.g. "two nine right")
  *  - {callsign}, {callsignShort}, {aircraftType}
- *  - {destination}, {destinationCity} (provided per-template via fixedSlots)
+ *  - {destination}, {destinationCity}, {pob} (provided per-template via fixedSlots)
  *  - {atisCode} (random ICAO letter per realisation, A–Z)
  */
 export interface RadioCallTemplate {

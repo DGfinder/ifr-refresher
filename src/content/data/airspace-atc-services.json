@@ -583,7 +583,7 @@
         {
           "type": "law",
           "content": [
-            "Taxi: '[Centre] [Callsign] POB [number] IFR Taxiing [destination] For [aerodrome] RWY [number]'.",
+            "Taxi: '[Centre] [Callsign] [aircraft type] POB [number] IFR Taxiing [destination] For [aerodrome] RWY [number]'.",
             "Departure report (in ADS-B or SSR coverage): '[Centre] [Callsign] [distance and direction of fix] Passing [altitude] Climbing to [level] Estimating [fix] at [time]'.",
             "Departure report (outside ADS-B or SSR coverage): '[Centre] [Callsign] Departed [aerodrome] [time] Tracking [to intercept] [track] Climbing to [level] Estimating [fix] at [time]'.",
             "Departure report (where radio contact unable to be established on ground, SARWATCH needed): '[Centre] [Callsign] Airborne [aerodrome] [time] Tracking [to intercept] [track] Climbing to [level] Estimating [fix] at [time]'.",
@@ -621,7 +621,7 @@
         {
           "type": "ipc_questions",
           "content": [
-            "Q: What's the taxi call format at a Class G aerodrome? A: '[Centre] [Callsign] POB [number] IFR Taxiing [destination] For [aerodrome] RWY [number]'.",
+            "Q: What's the taxi call format at a Class G aerodrome? A: '[Centre] [Callsign] [aircraft type] POB [number] IFR Taxiing [destination] For [aerodrome] RWY [number]'.",
             "Q: You're departing a Class G aerodrome outside surveillance coverage. What's your departure report? A: '[Centre] [Callsign] Departed [aerodrome] [time] Tracking [to intercept] [track] Climbing to [level] Estimating [fix] at [time]'.",
             "Q: What's different about the 'airborne' departure report? A: It's used when radio contact couldn't be established on the ground and SARWATCH is needed.",
             "Q: How do you advise leaving CTA inbound to a Class G aerodrome? A: '[Centre] And all stations [aerodrome] [Callsign] [distance and direction] Leaving [level] Estimating [circuit/fix] [time] Centre and all stations [aerodrome]'.",
@@ -631,7 +631,7 @@
         {
           "type": "airline_questions",
           "content": [
-            "Q: Your first officer makes a taxi call using 'request taxi' at a Class G aerodrome. How do you correct this? A: Explain that Class G has no ATC service — we broadcast intentions, not requests. Correct format is 'IFR Taxiing [destination] For [aerodrome]'.",
+            "Q: Your first officer makes a taxi call using 'request taxi' at a Class G aerodrome. How do you correct this? A: Explain that Class G has no ATC service — we broadcast intentions, not requests. Include aircraft type and POB, then use 'IFR Taxiing [destination] For [aerodrome] RWY [number]'.",
             "Q: What's the significance of including POB in the taxi call? A: POB is recorded for search and rescue purposes. If you don't report landing and cancel SARWATCH, SAR knows how many people to look for."
           ]
         },

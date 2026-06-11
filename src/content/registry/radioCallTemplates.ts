@@ -16,15 +16,15 @@ export const radioCallTemplates: RadioCallTemplate[] = [
     phase: "pre-departure",
     applicableClasses: ["C", "D"],
     title: "Request IFR clearance — {city}",
-    prompt: "Make the initial call to {tower} to request your IFR clearance.",
+    prompt: "Make the initial call to {delivery} to request your IFR clearance.",
     summaryTemplate:
       "Pre-flight complete at {city}. ATIS information {atisCode} received. Ready to copy IFR clearance to {destination}.",
     expectedTextTemplate:
-      "{tower}, {callsign}, IFR clearance to {destination}, information {atisCode}.",
+      "{delivery}, {callsign}, IFR clearance to {destination}, information {atisCode}.",
     elements: [
       {
         label: "Addressed station",
-        acceptTemplates: ["{tower}", "{shortName} Tower", "{shortName}"],
+        acceptTemplates: ["{delivery}", "{ground}", "{shortName} Delivery", "{shortName} Ground"],
         required: true,
         hint: "Addressed station goes first per AIP GEN 3.4 initial-call format.",
       },
@@ -55,7 +55,7 @@ export const radioCallTemplates: RadioCallTemplate[] = [
       destinationShort: "Coffs",
     },
     explanation:
-      "AIP GEN 3.4 initial-call format: addressed station, callsign, request type with destination, ATIS code.",
+      "AIP GEN 3.4 initial-call format: addressed station, callsign, request type with destination, ATIS code. Use Delivery where published; otherwise use Ground/Tower as applicable.",
     refs: [
       {
         source: "AIP Australia GEN 3.4",
@@ -72,7 +72,7 @@ export const radioCallTemplates: RadioCallTemplate[] = [
     prompt: "Make the initial call to {ground} to request taxi.",
     summaryTemplate:
       "Clearance copied and readback confirmed at {city}. Switched to Ground. Ready to taxi. ATIS {atisCode} still current.",
-    expectedTextTemplate: "{ground}, {callsign}, ready for taxi, information {atisCode}.",
+    expectedTextTemplate: "{ground}, {callsign}, POB {pob}, information {atisCode}, IFR, request taxi.",
     elements: [
       {
         label: "Addressed station",
@@ -86,17 +86,32 @@ export const radioCallTemplates: RadioCallTemplate[] = [
       },
       {
         label: "Request",
-        acceptTemplates: ["ready for taxi", "request taxi", "ready to taxi"],
+        acceptTemplates: ["request taxi", "ready for taxi", "ready to taxi"],
         required: true,
+      },
+      {
+        label: "POB",
+        acceptTemplates: ["POB {pob}", "persons on board {pob}", "{pob} POB"],
+        required: true,
+        hint: "For IFR flights other than air transport operations, include persons on board.",
       },
       {
         label: "ATIS code",
         acceptTemplates: ["information {atisCode}", "{atisCode}", "with {atisCode}"],
-        required: false,
-        hint: "Recommended: confirming ATIS saves a back-and-forth.",
+        required: true,
+        hint: "Include the current ATIS designator in the taxi request.",
+      },
+      {
+        label: "Flight rules",
+        acceptTemplates: ["IFR", "instrument flight rules"],
+        required: true,
       },
     ],
-    explanation: "AIP GEN 3.4: addressed station, callsign, request, ATIS confirmation.",
+    fixedSlots: {
+      pob: "two",
+    },
+    explanation:
+      "AIP GEN 3.4: addressed station, callsign, POB for IFR flights other than air transport operations, ATIS, flight rules, and taxi request.",
     refs: [
       {
         source: "AIP Australia GEN 3.4",

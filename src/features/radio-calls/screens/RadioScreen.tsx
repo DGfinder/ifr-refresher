@@ -16,6 +16,7 @@ import { DrillDashboard } from "@/features/radio-calls/components/DrillDashboard
 import { DrillCardView } from "@/features/radio-calls/components/DrillCardView";
 import { useRadioDrillHistory } from "@/features/radio-calls/hooks/useRadioDrillHistory";
 import { cn } from "@/shared/lib/cn";
+import { ProgressBar } from "@/shared/ui/ProgressBar";
 
 type Tab = "scenarios" | "drill";
 
@@ -181,19 +182,11 @@ function ScenariosTab() {
           </p>
         </div>
 
-        <div
-          className="mb-4 h-1.5 w-full overflow-hidden rounded-full bg-[var(--ifr-surface-muted)]"
-          role="progressbar"
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuenow={progressPct}
+        <ProgressBar
+          value={progressPct}
+          className="mb-4 h-1.5 w-full bg-[var(--ifr-surface-muted)]"
           aria-label="Scenario progress"
-        >
-          <div
-            className="h-full bg-[var(--ifr-accent)] transition-all"
-            style={{ width: `${progressPct}%` }}
-          />
-        </div>
+        />
 
         <TransmissionFeed
           legs={session.currentScenario.legs}

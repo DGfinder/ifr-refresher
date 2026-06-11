@@ -2415,8 +2415,8 @@
         },
         {
           "type": "qa",
-          "question": "In a Class G IFR taxi call, what information must be included that is not required in a Class D taxi call?",
-          "answer": "Aircraft type, POB (persons on board), departure aerodrome, destination and runway.",
+          "question": "In a Class G IFR taxi call, what information is included that is not part of the Class D taxi format?",
+          "answer": "Aircraft type, departure aerodrome, destination and runway. POB is not the differentiator — it is included for IFR flights other than air transport operations in both Class G and Class D/C taxi calls.",
           "distractors": [
             "ATIS information and POB.",
             "Fuel endurance and POB.",
