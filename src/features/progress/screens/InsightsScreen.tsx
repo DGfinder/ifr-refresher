@@ -2,16 +2,41 @@
 
 import { useMemo } from "react";
 import Link from "next/link";
+import { BookmarkCheck } from "lucide-react";
 import { sections } from "@/content/registry/sections";
 import { useProgress } from "@/features/progress/hooks/useProgress";
 import { useDrill } from "@/features/drill";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
 import { Card } from "@/shared/ui/card";
 import { RadioProgressSection } from "@/features/progress/components/RadioProgressSection";
+import { getRecentBookmarks, useStudyBookmarks } from "@/features/study";
 
 export function InsightsScreen() {
   const { getCompletionStats } = useProgress();
   const { getWeakCount, getSeenCount, allQuestions } = useDrill(sections);
+  const { bookmarks, isLoaded: bookmarksLoaded } = useStudyBookmarks();
+
+  // Resolve recent bookmarks against the content registry so we can show a
+  // readable title + know where to link. Drop entries pointing at content
+  // that no longer exists (e.g. after a content rename).
+  const recentBookmarks = useMemo(() => {
+    if (!bookmarksLoaded) return [];
+    const recent = getRecentBookmarks(bookmarks, 6);
+    return recent
+      .map((b) => {
+        const section = sections.find((s) => s.sectionId === b.sectionId);
+        const mod = section?.modules.find((m) => m.id === b.moduleId);
+        if (!section || !mod) return null;
+        return {
+          sectionId: section.sectionId,
+          sectionTitle: section.sectionTitle,
+          moduleId: mod.id,
+          moduleTitle: mod.title,
+          savedAt: b.savedAt,
+        };
+      })
+      .filter((b): b is NonNullable<typeof b> => b !== null);
+  }, [bookmarks, bookmarksLoaded]);
 
   // Compute stats per section
   const sectionStats = useMemo(() => {
@@ -87,6 +112,48 @@ export function InsightsScreen() {
           })}
         </div>
       </section>
+
+      {/* Saved for review — modules the learner explicitly flagged with
+          the bookmark heart. Recent first; routes back into the reader. */}
+      {recentBookmarks.length > 0 && (
+        <section className="mb-8">
+          <h2 className="mb-4 text-lg font-semibold text-foreground">
+            Saved for review
+          </h2>
+          <ul className="space-y-2">
+            {recentBookmarks.map((b) => (
+              <li key={`${b.sectionId}:${b.moduleId}`}>
+                <Link
+                  href={`/study?section=${encodeURIComponent(b.sectionId)}&module=${encodeURIComponent(b.moduleId)}`}
+                  className="flex items-center justify-between gap-3 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-3 transition-colors hover:border-[var(--ifr-accent)]/40 hover:bg-[var(--ifr-accent)]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]"
+                >
+                  <span className="flex min-w-0 items-center gap-2">
+                    <BookmarkCheck
+                      size={14}
+                      aria-hidden="true"
+                      className="shrink-0 text-[var(--ifr-accent)]"
+                    />
+                    <span className="min-w-0">
+                      <span className="block truncate text-sm font-medium text-[var(--ifr-text)]">
+                        {b.moduleTitle}
+                      </span>
+                      <span className="block truncate text-xs text-[var(--ifr-text-muted)]">
+                        {b.sectionTitle}
+                      </span>
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 text-sm text-[var(--ifr-text-muted)]"
+                  >
+                    →
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* Radio progress (drill + scenarios) */}
       <RadioProgressSection />

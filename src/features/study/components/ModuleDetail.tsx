@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Radio } from "lucide-react";
+import { ArrowRight, Bookmark, BookmarkCheck, Radio, Sparkles } from "lucide-react";
 import type { Module } from "@/content/model/section";
 import type { ModuleStatus } from "@/features/progress";
 import { Badge } from "@/shared/ui/Badge";
@@ -11,10 +11,17 @@ import { StatusIndicator } from "@/features/progress";
 import { cn } from "@/shared/lib/cn";
 import { Button } from "@/shared/ui/button";
 import { ReadingProgress } from "@/features/study/components/ReadingProgress";
+import { useStudyBookmarks } from "@/features/study/hooks/useStudyBookmarks";
 
 interface PracticeLink {
   href: string;
   label: string;
+}
+
+interface NextModuleSuggestion {
+  id: string;
+  title: string;
+  estReadingMinutes: number;
 }
 
 interface ModuleDetailProps {
@@ -27,6 +34,11 @@ interface ModuleDetailProps {
   /** Optional CTA shown below references — used by radio-calls modules to
    * deep-link into the matching Drill tab filter. */
   practiceLink?: PracticeLink;
+  /** When this module is completed (or already was), surface this as the
+   * "next" module so the learner doesn't have to backtrack to the list. */
+  nextModule?: NextModuleSuggestion | null;
+  /** Called when the learner taps the next-module CTA. */
+  onSelectNextModule?: (moduleId: string) => void;
 }
 
 export function ModuleDetail({
@@ -36,7 +48,18 @@ export function ModuleDetail({
   onBack,
   onMarkCompleted,
   practiceLink,
+  nextModule,
+  onSelectNextModule,
 }: ModuleDetailProps) {
+  const { isBookmarked, toggleBookmark, isLoaded: bookmarksLoaded } =
+    useStudyBookmarks();
+  const bookmarked = bookmarksLoaded && isBookmarked(sectionId, module.id);
+  // A module has tappable IPC / interview question blocks. We surface a
+  // "Test yourself" CTA when it does — points the learner at /quiz for
+  // active recall practice.
+  const hasQuestions = module.content.some(
+    (b) => b.type === "ipc_questions" || b.type === "airline_questions",
+  );
   return (
     <div className="mx-auto max-w-3xl">
       {/* Reading progress — sticky bar at the very top of the page that
@@ -96,6 +119,31 @@ export function ModuleDetail({
             <StatusIndicator status={status} size="sm" />
             <span className="capitalize">{status.replace("-", " ")}</span>
           </span>
+          {/* Save for later review — separate from completion. */}
+          <button
+            type="button"
+            onClick={() => {
+              void toggleBookmark(sectionId, module.id);
+            }}
+            aria-pressed={bookmarked}
+            aria-label={bookmarked ? "Remove from saved" : "Save for review"}
+            className={cn(
+              "flex items-center gap-1 rounded-md px-1.5 py-0.5 transition-colors",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+              bookmarked
+                ? "text-[var(--ifr-accent)] hover:text-[var(--ifr-accent)]/80"
+                : "text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]",
+            )}
+          >
+            {bookmarked ? (
+              <BookmarkCheck size={14} aria-hidden="true" />
+            ) : (
+              <Bookmark size={14} aria-hidden="true" />
+            )}
+            <span className="text-xs">
+              {bookmarked ? "Saved" : "Save"}
+            </span>
+          </button>
         </div>
 
         {/* Tags — tap to filter the section's module list by that tag. */}
@@ -167,6 +215,27 @@ export function ModuleDetail({
         </Link>
       )}
 
+      {/* Test yourself — surfaces when the module has embedded Q&A blocks.
+          Points at the quiz to encourage active recall. Skipped on
+          radio-calls modules where the practiceLink already covers
+          practice. */}
+      {hasQuestions && !practiceLink && (
+        <Link
+          href="/quiz"
+          className={cn(
+            "mt-3 flex items-center justify-between gap-3 rounded-xl border border-[var(--ifr-accent)]/40 bg-[var(--ifr-accent)]/5 p-4 text-sm font-medium text-[var(--ifr-accent)] transition-colors",
+            "hover:border-[var(--ifr-accent)]/70 hover:bg-[var(--ifr-accent)]/10",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+          )}
+        >
+          <span className="flex items-center gap-2">
+            <Sparkles size={16} aria-hidden="true" />
+            Test yourself — active recall in the quiz
+          </span>
+          <span aria-hidden="true">→</span>
+        </Link>
+      )}
+
       {/* Mark as Completed button */}
       <div className="mt-8 border-t border-[var(--ifr-border)] pt-6">
         <Button
@@ -202,6 +271,39 @@ export function ModuleDetail({
             </>
           )}
         </Button>
+
+        {/* Next module — surfaces the next unread module in the same
+            section so a learner who just finished one can keep going
+            without backtracking to the list. Tap routes via the parent
+            so the URL + state stay in sync. */}
+        {nextModule && onSelectNextModule && (
+          <button
+            type="button"
+            onClick={() => onSelectNextModule(nextModule.id)}
+            className={cn(
+              "mt-4 flex w-full items-center justify-between gap-3 rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 text-left transition-colors",
+              "hover:border-[var(--ifr-accent)]/50 hover:bg-[var(--ifr-accent)]/5",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+            )}
+          >
+            <span className="min-w-0 flex-1">
+              <span className="block text-xs font-medium uppercase tracking-wide text-[var(--ifr-text-muted)]">
+                Up next
+              </span>
+              <span className="mt-1 block truncate text-sm font-medium text-[var(--ifr-text)]">
+                {nextModule.title}
+              </span>
+              <span className="mt-0.5 block text-xs text-[var(--ifr-text-muted)]">
+                {nextModule.estReadingMinutes} min read
+              </span>
+            </span>
+            <ArrowRight
+              size={18}
+              aria-hidden="true"
+              className="shrink-0 text-[var(--ifr-text-muted)]"
+            />
+          </button>
+        )}
       </div>
     </div>
   );

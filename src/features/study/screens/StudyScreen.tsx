@@ -156,6 +156,35 @@ function StudyPageContent() {
       currentSection.sectionId === RADIO_GUIDE_SECTION_ID
         ? getDrillLinkForModule(selectedModule.id)
         : null;
+    // Next unread module after this one — kept in section order so the
+    // "Up next" CTA reads like a natural progression. Walks forward from
+    // the current module and falls back to the first not-completed
+    // earlier module if the learner started midway through.
+    const currentIndex = currentSection.modules.findIndex(
+      (m) => m.id === selectedModule.id,
+    );
+    const findUnread = (start: number, end: number) => {
+      for (let i = start; i < end; i++) {
+        const candidate = currentSection.modules[i];
+        if (
+          candidate &&
+          getStatus(currentSection.sectionId, candidate.id) !== "completed"
+        ) {
+          return candidate;
+        }
+      }
+      return null;
+    };
+    const total = currentSection.modules.length;
+    const nextModule =
+      findUnread(currentIndex + 1, total) ?? findUnread(0, currentIndex);
+    const nextSuggestion = nextModule
+      ? {
+          id: nextModule.id,
+          title: nextModule.title,
+          estReadingMinutes: nextModule.estReadingMinutes,
+        }
+      : null;
     return (
       <div className="mx-auto max-w-[1100px] px-6 py-6">
         <ModuleDetail
@@ -165,6 +194,8 @@ function StudyPageContent() {
           onBack={handleBack}
           onMarkCompleted={handleMarkCompleted}
           {...(practiceLink ? { practiceLink } : {})}
+          nextModule={nextSuggestion}
+          onSelectNextModule={handleSelectModule}
         />
       </div>
     );
