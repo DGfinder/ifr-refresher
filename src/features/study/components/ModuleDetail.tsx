@@ -9,6 +9,7 @@ import { ContentBlock } from "@/content/components/ContentBlock";
 import { References } from "@/content/components/References";
 import { StatusIndicator } from "@/features/progress";
 import { cn } from "@/shared/lib/cn";
+import { Button } from "@/shared/ui/button";
 
 interface PracticeLink {
   href: string;
@@ -36,9 +37,11 @@ export function ModuleDetail({
     <div className="mx-auto max-w-3xl">
       {/* Header with back button */}
       <div className="mb-6">
-        <button
+        <Button
+          variant="ghost"
+          size="sm"
           onClick={onBack}
-          className="mb-4 inline-flex items-center gap-1 text-sm text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]"
+          className="mb-4 -ml-2 h-auto gap-1 px-2 py-1 text-sm font-normal text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]"
         >
           <svg
             className="h-4 w-4"
@@ -54,7 +57,7 @@ export function ModuleDetail({
             />
           </svg>
           Back to modules
-        </button>
+        </Button>
 
         <div className="flex flex-wrap items-start gap-3">
           <h1 className="text-2xl font-bold text-[var(--ifr-text)] md:text-3xl">
@@ -151,14 +154,13 @@ export function ModuleDetail({
 
       {/* Mark as Completed button */}
       <div className="mt-8 border-t border-[var(--ifr-border)] pt-6">
-        <button
+        <Button
           onClick={onMarkCompleted}
           disabled={status === "completed"}
+          size="default"
           className={cn(
-            "inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors",
-            status === "completed"
-              ? "cursor-not-allowed bg-[var(--ifr-success)]/10 text-[var(--ifr-success)]"
-              : "bg-[var(--ifr-cta-bg)] text-white hover:bg-[var(--ifr-cta-bg-hover)]"
+            status === "completed" &&
+              "cursor-not-allowed !bg-[var(--ifr-success)]/10 !text-[var(--ifr-success)] hover:!bg-[var(--ifr-success)]/10",
           )}
         >
           {status === "completed" ? (
@@ -184,7 +186,7 @@ export function ModuleDetail({
               Mark as Read
             </>
           )}
-        </button>
+        </Button>
       </div>
     </div>
   );

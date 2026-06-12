@@ -6,6 +6,8 @@ import { cn } from "@/shared/lib/cn";
 import type { RadioSpokenCall } from "@/content/model/radio";
 import { evaluateSpokenCall } from "@/features/radio-calls/model/spokenMatch";
 import { useSpeechRecognition } from "@/features/radio-calls/hooks/useSpeechRecognition";
+import { Button } from "@/shared/ui/button";
+import { Card } from "@/shared/ui/card";
 
 interface SpokenCallChallengeProps {
   call: RadioSpokenCall;
@@ -76,7 +78,7 @@ export function SpokenCallChallenge({
   const showMic = speech.isSupported && !isSubmitted;
 
   return (
-    <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 shadow-sm">
+    <Card className="p-4">
       <p className="mb-3 text-sm font-semibold text-[var(--ifr-text-muted)]">
         Make the call
       </p>
@@ -142,27 +144,24 @@ export function SpokenCallChallenge({
       </label>
 
       {!isSubmitted && (
-        <button
-          type="button"
+        <Button
           onClick={handleSubmit}
           disabled={
             textInput.trim().length === 0 &&
             !speech.finalTranscript.trim() &&
             !speech.interimTranscript.trim()
           }
-          className={cn(
-            "w-full rounded-xl bg-[var(--ifr-cta-bg)] py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--ifr-cta-bg-hover)]",
-            "disabled:cursor-not-allowed disabled:opacity-50",
-          )}
+          size="lg"
+          className="w-full"
         >
           Submit call
-        </button>
+        </Button>
       )}
 
       {isSubmitted && evaluation && (
         <ElementReveal call={call} evaluation={evaluation} />
       )}
-    </div>
+    </Card>
   );
 }
 

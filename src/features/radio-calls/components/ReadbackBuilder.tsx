@@ -3,6 +3,8 @@
 import { Check, X } from "lucide-react";
 import { cn } from "@/shared/lib/cn";
 import type { RadioReadback } from "@/content/model/radio";
+import { Button } from "@/shared/ui/button";
+import { Card } from "@/shared/ui/card";
 
 interface ReadbackBuilderProps {
   readback: RadioReadback;
@@ -36,7 +38,7 @@ export function ReadbackBuilder({
   });
 
   return (
-    <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 shadow-sm">
+    <Card className="p-4">
       <p className="mb-3 text-sm font-semibold text-[var(--ifr-text-muted)]">
         Required readback
       </p>
@@ -92,17 +94,14 @@ export function ReadbackBuilder({
       </ul>
 
       {!isSubmitted ? (
-        <button
-          type="button"
+        <Button
           onClick={onSubmit}
           disabled={selectedChipIds.size === 0}
-          className={cn(
-            "mt-4 w-full rounded-xl bg-[var(--ifr-cta-bg)] py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--ifr-cta-bg-hover)]",
-            "disabled:cursor-not-allowed disabled:opacity-50",
-          )}
+          size="lg"
+          className="mt-4 w-full"
         >
           Submit readback ({selectedChipIds.size} selected)
-        </button>
+        </Button>
       ) : (
         readback.explanation && (
           <div className="mt-4 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)] p-3 text-sm text-[var(--ifr-text)]">
@@ -113,6 +112,6 @@ export function ReadbackBuilder({
           </div>
         )
       )}
-    </div>
+    </Card>
   );
 }

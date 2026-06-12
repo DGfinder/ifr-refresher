@@ -6,6 +6,7 @@ import {
   getBestForScenario,
   type RadioHistoryEntry,
 } from "@/features/radio-calls/storage/radioHistoryStore";
+import { Card } from "@/shared/ui/card";
 
 interface RadioDashboardProps {
   scenarios: RadioScenario[];
@@ -16,17 +17,17 @@ interface RadioDashboardProps {
 export function RadioDashboard({ scenarios, history, onStart }: RadioDashboardProps) {
   if (scenarios.length === 0) {
     return (
-      <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-8 text-center">
+      <Card className="p-8 text-center">
         <p className="text-sm text-[var(--ifr-text-muted)]">
           No radio scenarios available yet.
         </p>
-      </div>
+      </Card>
     );
   }
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl border border-[var(--ifr-accent)]/30 bg-[var(--ifr-accent)]/5 p-5">
+      <Card className="border-[var(--ifr-accent)]/30 bg-[var(--ifr-accent)]/5 p-5 shadow-none">
         <div className="mb-2 flex items-center gap-2">
           <Radio size={16} className="text-[var(--ifr-accent)]" aria-hidden="true" />
           <p className="text-sm font-semibold text-[var(--ifr-text)]">
@@ -38,7 +39,7 @@ export function RadioDashboard({ scenarios, history, onStart }: RadioDashboardPr
           pick the correct call from four options. Everything is sourced from AIP
           Australia and MATS.
         </p>
-      </div>
+      </Card>
 
       <ul className="space-y-3" aria-label="Available radio scenarios">
         {scenarios.map((scenario) => {

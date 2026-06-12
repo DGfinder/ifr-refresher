@@ -2,6 +2,7 @@
 
 import { cn } from "@/shared/lib/cn";
 import type { RadioMCQ, RadioOptionId } from "@/content/model/radio";
+import { Card } from "@/shared/ui/card";
 
 interface NextCallChoiceProps {
   question: RadioMCQ;
@@ -13,7 +14,7 @@ export function NextCallChoice({ question, selectedOptionId, onSelect }: NextCal
   const isAnswered = selectedOptionId !== null;
 
   return (
-    <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 shadow-sm">
+    <Card className="p-4">
       <p className="mb-3 text-sm font-semibold text-[var(--ifr-text-muted)]">
         Your call
       </p>
@@ -81,6 +82,6 @@ export function NextCallChoice({ question, selectedOptionId, onSelect }: NextCal
           <p className="leading-relaxed">{question.explanation}</p>
         </div>
       )}
-    </div>
+    </Card>
   );
 }
