@@ -10,6 +10,7 @@ import { References } from "@/content/components/References";
 import { StatusIndicator } from "@/features/progress";
 import { cn } from "@/shared/lib/cn";
 import { Button } from "@/shared/ui/button";
+import { ReadingProgress } from "@/features/study/components/ReadingProgress";
 
 interface PracticeLink {
   href: string;
@@ -19,6 +20,8 @@ interface PracticeLink {
 interface ModuleDetailProps {
   module: Module;
   status: ModuleStatus;
+  /** Section id for tag-link routing. */
+  sectionId: string;
   onBack: () => void;
   onMarkCompleted: () => void;
   /** Optional CTA shown below references — used by radio-calls modules to
@@ -29,12 +32,16 @@ interface ModuleDetailProps {
 export function ModuleDetail({
   module,
   status,
+  sectionId,
   onBack,
   onMarkCompleted,
   practiceLink,
 }: ModuleDetailProps) {
   return (
     <div className="mx-auto max-w-3xl">
+      {/* Reading progress — sticky bar at the very top of the page that
+          tracks scroll position. Resets to 0 on module change via key. */}
+      <ReadingProgress trackingKey={module.id} />
       {/* Header with back button */}
       <div className="mb-6">
         <Button
@@ -91,15 +98,20 @@ export function ModuleDetail({
           </span>
         </div>
 
-        {/* Tags */}
+        {/* Tags — tap to filter the section's module list by that tag. */}
         <div className="mt-4 flex flex-wrap gap-2">
           {module.tags.map((tag) => (
-            <span
+            <Link
               key={tag}
-              className="rounded-md bg-[var(--ifr-surface-muted)] px-2.5 py-1 text-sm text-[var(--ifr-text)]"
+              href={`/study?section=${encodeURIComponent(sectionId)}&tag=${encodeURIComponent(tag)}`}
+              className={cn(
+                "rounded-md bg-[var(--ifr-surface-muted)] px-2.5 py-1 text-sm text-[var(--ifr-text)]",
+                "transition-colors hover:bg-[var(--ifr-accent)]/15 hover:text-[var(--ifr-accent)]",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+              )}
             >
               {tag}
-            </span>
+            </Link>
           ))}
         </div>
       </div>

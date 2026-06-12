@@ -1,6 +1,7 @@
 "use client";
 
 import type { ContentBlock as ContentBlockType } from "@/content/model/section";
+import { QACollapsibleItem } from "./QACollapsibleItem";
 
 // Shared IFR design token classes
 const baseCardClasses = "mb-4 rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)]/80 px-4 py-3 shadow-sm";
@@ -150,9 +151,9 @@ export function ContentBlock({ block }: ContentBlockProps) {
       return (
         <div className={baseCardClasses}>
           <p className={titleClasses}>Likely IPC Questions</p>
-          <ul className={listClasses}>
+          <ul className="space-y-2">
             {block.content.map((item, i) => (
-              <li key={i}>{item}</li>
+              <QACollapsibleItem key={i} item={item} index={i} />
             ))}
           </ul>
         </div>
@@ -162,9 +163,9 @@ export function ContentBlock({ block }: ContentBlockProps) {
       return (
         <div className={baseCardClasses}>
           <p className={titleClasses}>Airline Interview Questions</p>
-          <ul className={listClasses}>
+          <ul className="space-y-2">
             {block.content.map((item, i) => (
-              <li key={i}>{item}</li>
+              <QACollapsibleItem key={i} item={item} index={i} />
             ))}
           </ul>
         </div>

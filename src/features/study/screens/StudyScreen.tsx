@@ -44,6 +44,10 @@ function StudyPageContent() {
   const requestedSectionId = searchParams.get("section");
   const requestedCategoryId = searchParams.get("category");
   const requestedModuleId = searchParams.get("module");
+  // When a tag link from a module is followed, seed the search box with
+  // the tag so the user lands on the filtered list. Clearing search drops
+  // the filter — no separate state slice needed.
+  const requestedTag = searchParams.get("tag") ?? "";
   const initialSectionId =
     requestedSectionId && programSections.some((s) => s.sectionId === requestedSectionId)
       ? requestedSectionId
@@ -62,7 +66,7 @@ function StudyPageContent() {
 
   const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(initialCategoryId);
   const [selectedModuleId, setSelectedModuleId] = useState<string | null>(initialModuleId);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(requestedTag);
 
   // Get current section
   const currentSection = useMemo(() => {
@@ -157,6 +161,7 @@ function StudyPageContent() {
         <ModuleDetail
           module={selectedModule}
           status={moduleStatus}
+          sectionId={currentSection.sectionId}
           onBack={handleBack}
           onMarkCompleted={handleMarkCompleted}
           {...(practiceLink ? { practiceLink } : {})}
