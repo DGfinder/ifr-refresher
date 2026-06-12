@@ -2,10 +2,10 @@
 
 import { useMemo, useState, useEffect } from "react";
 import type Fuse from "fuse.js";
+import { Check, Clock } from "lucide-react";
 import type { Module } from "@/content/model/section";
 import type { ModuleStatus } from "@/features/progress";
 import { Badge } from "@/shared/ui/Badge";
-import { StatusIndicator } from "@/features/progress";
 import { NoResultsEmptyState } from "@/shared/ui/EmptyState";
 import { cn } from "@/shared/lib/cn";
 
@@ -69,57 +69,82 @@ export function ModuleList({
     );
   }
 
+  // Denser list — single column on mobile, two-column on xl. The flat
+  // vertical list keeps cards uniform-height and lets the progress dot
+  // anchor scanning down the left edge.
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+    <ul
+      className="grid gap-2 xl:grid-cols-2"
+      aria-label="Modules"
+    >
       {filteredModules.map((module) => {
         const status = getModuleStatus(module.id);
         return (
-          <button
-            key={module.id}
-            onClick={() => onSelectModule(module.id)}
-            className={cn(
-              "group rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 text-left transition-all",
-              "hover:border-[var(--ifr-accent)]/50 hover:shadow-md",
-              "focus:outline-none focus:ring-2 focus:ring-[var(--ifr-accent)]"
-            )}
-          >
-            <div className="flex items-start justify-between gap-2">
-              <div className="flex items-start gap-2">
-                <StatusIndicator status={status} className="mt-1 shrink-0" />
-                <h3 className="font-semibold text-[var(--ifr-text)] group-hover:text-[var(--ifr-accent)]">
-                  {module.title}
-                </h3>
-              </div>
-              <Badge variant={module.level}>{module.level}</Badge>
-            </div>
-
-            <p className="mt-2 line-clamp-2 text-sm text-[var(--ifr-text-muted)] pl-6">
-              {module.summary}
-            </p>
-
-            <div className="mt-3 flex items-center justify-between pl-6">
-              <div className="flex flex-wrap gap-1">
-                {module.tags.slice(0, 3).map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-md bg-[var(--ifr-surface-muted)] px-2 py-0.5 text-xs text-[var(--ifr-text)]"
+          <li key={module.id}>
+            <button
+              type="button"
+              onClick={() => onSelectModule(module.id)}
+              className={cn(
+                "group flex w-full items-start gap-3 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] px-3 py-2.5 text-left transition-all",
+                "hover:border-[var(--ifr-accent)]/50 hover:bg-[var(--ifr-surface-muted)]/30",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+                status === "completed" && "border-[var(--ifr-success)]/20",
+              )}
+            >
+              <StatusDot status={status} />
+              <div className="min-w-0 flex-1">
+                <div className="flex items-baseline justify-between gap-2">
+                  <h3
+                    className={cn(
+                      "truncate text-sm font-semibold",
+                      status === "completed"
+                        ? "text-[var(--ifr-text-muted)]"
+                        : "text-[var(--ifr-text)] group-hover:text-[var(--ifr-accent)]",
+                    )}
                   >
-                    {tag}
+                    {module.title}
+                  </h3>
+                  <span className="flex shrink-0 items-center gap-1.5 text-[11px] font-medium text-[var(--ifr-text-muted)]">
+                    <Clock size={11} aria-hidden="true" />
+                    {module.estReadingMinutes} min
+                    <Badge variant={module.level} className="ml-1 text-[10px]">
+                      {module.level}
+                    </Badge>
                   </span>
-                ))}
-                {module.tags.length > 3 && (
-                  <span className="text-xs text-[var(--ifr-text-muted)]">
-                    +{module.tags.length - 3}
-                  </span>
-                )}
+                </div>
+                <p className="line-clamp-1 text-xs text-[var(--ifr-text-muted)]">
+                  {module.summary}
+                </p>
               </div>
-              <span className="text-xs text-[var(--ifr-text-muted)]">
-                {module.estReadingMinutes} min read
-              </span>
-            </div>
-          </button>
+            </button>
+          </li>
         );
       })}
-    </div>
+    </ul>
+  );
+}
+
+interface StatusDotProps {
+  status: ModuleStatus;
+}
+
+function StatusDot({ status }: StatusDotProps) {
+  return (
+    <span
+      className={cn(
+        "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2",
+        status === "completed" &&
+          "border-[var(--ifr-success)] bg-[var(--ifr-success)] text-white",
+        status === "in-progress" &&
+          "border-[var(--ifr-accent)] bg-[var(--ifr-accent)]/15",
+        status === "not-started" && "border-[var(--ifr-border)] bg-transparent",
+      )}
+      aria-hidden="true"
+    >
+      {status === "completed" && <Check size={12} strokeWidth={3} />}
+      {status === "in-progress" && (
+        <span className="h-1.5 w-1.5 rounded-full bg-[var(--ifr-accent)]" />
+      )}
+    </span>
   );
 }

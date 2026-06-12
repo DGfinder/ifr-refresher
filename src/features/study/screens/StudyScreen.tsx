@@ -12,6 +12,7 @@ import {
 import { SearchBar } from "@/features/study/components/SearchBar";
 import { SectionSelector } from "@/features/study/components/SectionSelector";
 import { SectionPickerSheet } from "@/features/study/components/SectionPickerSheet";
+import { ContinueHero } from "@/features/study/components/ContinueHero";
 import { sections } from "@/content/registry/sections";
 import { useProgress } from "@/features/progress";
 import { cn } from "@/shared/lib/cn";
@@ -30,7 +31,7 @@ import {
 } from "@/shared/ui/accordion";
 
 function StudyPageContent() {
-  const { getStatus, setStatus, getCompletionStats } = useProgress();
+  const { progress, getStatus, setStatus, getCompletionStats } = useProgress();
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -206,6 +207,20 @@ function StudyPageContent() {
           )}
         </BreadcrumbList>
       </Breadcrumb>
+
+      {/* Continue where you left off — only renders when there are
+          in-progress modules. Surfaces above the section picker so a
+          returning learner is one tap away from their next read. */}
+      <ContinueHero
+        sections={programSections}
+        progress={progress}
+        onResume={(sectionId, moduleId) => {
+          if (sectionId !== selectedSectionId) {
+            handleSelectSection(sectionId);
+          }
+          handleSelectModule(moduleId);
+        }}
+      />
 
       {/* Mobile: single section-picker pill that opens a bottom sheet */}
       <div className="mb-4 md:hidden">
