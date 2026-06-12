@@ -50,6 +50,7 @@ export type RadioSessionAction =
   | { type: "submit-readback" }
   | { type: "set-spoken-transcript"; transcript: string }
   | { type: "submit-spoken-call"; transcript?: string }
+  | { type: "retry-current" }
   | { type: "advance" }
   | { type: "reset-to-dashboard" };
 
@@ -129,6 +130,18 @@ export function radioSessionReducer(
         ...state,
         input: { ...state.input, transcript, isSubmitted: true },
         answers: { ...state.answers, [record.questionId]: record },
+      };
+    }
+
+    case "retry-current": {
+      const challenge = currentChallenge(state);
+      if (!challenge) return state;
+      const nextAnswers = { ...state.answers };
+      delete nextAnswers[challenge.id];
+      return {
+        ...state,
+        input: inputForChallengeKind(challenge.kind),
+        answers: nextAnswers,
       };
     }
 

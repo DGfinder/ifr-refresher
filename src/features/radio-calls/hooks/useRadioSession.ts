@@ -55,6 +55,7 @@ interface UseRadioSessionReturn {
   submitReadback: () => void;
   setSpokenTranscript: (transcript: string) => void;
   submitSpokenCall: (transcript?: string) => void;
+  retryCurrent: () => void;
   advance: () => void;
   resetToDashboard: () => void;
 }
@@ -152,6 +153,7 @@ export function useRadioSession({
           ? { type: "submit-spoken-call" }
           : { type: "submit-spoken-call", transcript },
       ),
+    retryCurrent: () => dispatch({ type: "retry-current" }),
     advance: () => dispatch({ type: "advance" }),
     resetToDashboard: () => dispatch({ type: "reset-to-dashboard" }),
   };
