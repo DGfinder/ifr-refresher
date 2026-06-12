@@ -6,6 +6,7 @@ import { sections } from "@/content/registry/sections";
 import { useProgress } from "@/features/progress/hooks/useProgress";
 import { useDrill } from "@/features/drill";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
+import { Card } from "@/shared/ui/card";
 import { RadioProgressSection } from "@/features/progress/components/RadioProgressSection";
 
 export function InsightsScreen() {
@@ -42,7 +43,7 @@ export function InsightsScreen() {
 
       {/* Overall stats */}
       <section className="mb-8 grid gap-4 sm:grid-cols-3">
-        <div className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+        <Card className="rounded-lg p-4">
           <p className="text-sm text-[var(--ifr-text-muted)]">Modules completed</p>
           <p className="mt-1 text-2xl font-bold text-foreground">
             {totalStats.completed}
@@ -50,8 +51,8 @@ export function InsightsScreen() {
               /{totalStats.total}
             </span>
           </p>
-        </div>
-        <div className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+        </Card>
+        <Card className="rounded-lg p-4">
           <p className="text-sm text-[var(--ifr-text-muted)]">Questions seen</p>
           <p className="mt-1 text-2xl font-bold text-foreground">
             {seenCount}
@@ -59,11 +60,11 @@ export function InsightsScreen() {
               /{totalQuestions}
             </span>
           </p>
-        </div>
-        <div className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+        </Card>
+        <Card className="rounded-lg p-4">
           <p className="text-sm text-[var(--ifr-text-muted)]">Weak questions</p>
           <p className="mt-1 text-2xl font-bold text-[var(--ifr-warning)]">{weakCount}</p>
-        </div>
+        </Card>
       </section>
 
       {/* Section-by-section progress */}
@@ -73,10 +74,7 @@ export function InsightsScreen() {
           {sectionStats.map((section) => {
             const percent = section.total > 0 ? (section.completed / section.total) * 100 : 0;
             return (
-              <div
-                key={section.sectionId}
-                className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4"
-              >
+              <Card key={section.sectionId} className="rounded-lg p-4">
                 <div className="mb-2 flex items-center justify-between">
                   <span className="font-medium text-foreground">{section.sectionTitle}</span>
                   <span className="text-sm text-[var(--ifr-text-muted)]">
@@ -84,7 +82,7 @@ export function InsightsScreen() {
                   </span>
                 </div>
                 <ProgressBar value={percent} className="h-2 w-full" aria-label={`${section.sectionTitle} progress`} />
-              </div>
+              </Card>
             );
           })}
         </div>

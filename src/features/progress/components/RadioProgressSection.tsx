@@ -6,6 +6,7 @@ import { Check, X, Radio } from "lucide-react";
 import { cn } from "@/shared/lib/cn";
 import { radioDrillCards } from "@/content/registry/radioDrillCards";
 import type { AirspaceClass } from "@/content/model/radio";
+import { Card } from "@/shared/ui/card";
 import {
   getDrillStats,
   getPassedDrillIds,
@@ -103,7 +104,7 @@ export function RadioProgressSection() {
       </h2>
 
       {!hasAnyActivity ? (
-        <div className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 text-sm text-[var(--ifr-text-muted)]">
+        <Card className="rounded-lg p-4 text-sm text-[var(--ifr-text-muted)]">
           No radio activity yet.{" "}
           <Link
             href="/radio"
@@ -111,12 +112,12 @@ export function RadioProgressSection() {
           >
             Start a drill →
           </Link>
-        </div>
+        </Card>
       ) : (
         <div className="space-y-4">
           {/* Overall mastery + scenarios completed */}
           <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+            <Card className="rounded-lg p-4">
               <p className="text-sm text-[var(--ifr-text-muted)]">Drill cards passed</p>
               <p className="mt-1 text-2xl font-bold text-foreground">
                 {overallStats.passed}
@@ -129,8 +130,8 @@ export function RadioProgressSection() {
                 className="mt-2 h-1.5 w-full"
                 aria-label="Drill mastery"
               />
-            </div>
-            <div className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+            </Card>
+            <Card className="rounded-lg p-4">
               <p className="text-sm text-[var(--ifr-text-muted)]">Scenarios completed</p>
               <p className="mt-1 text-2xl font-bold text-foreground">
                 {scenarioHistory.length}
@@ -138,11 +139,11 @@ export function RadioProgressSection() {
               <p className="mt-2 text-xs text-[var(--ifr-text-muted)]">
                 Across the {radioDrillCards.length}-card library + multi-leg scenarios
               </p>
-            </div>
+            </Card>
           </div>
 
           {/* Per-airspace mastery */}
-          <div className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+          <Card className="rounded-lg p-4">
             <p className="mb-3 text-sm font-medium text-foreground">
               Mastery by airspace
             </p>
@@ -167,11 +168,11 @@ export function RadioProgressSection() {
                 </div>
               ))}
             </div>
-          </div>
+          </Card>
 
           {/* Recent activity */}
           {recent.length > 0 && (
-            <div className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+            <Card className="rounded-lg p-4">
               <p className="mb-3 text-sm font-medium text-foreground">Recent drills</p>
               <ul className="space-y-2 text-sm">
                 {recent.map(({ card, stats }) => (
@@ -202,7 +203,7 @@ export function RadioProgressSection() {
               >
                 Open Drill tab →
               </Link>
-            </div>
+            </Card>
           )}
         </div>
       )}
