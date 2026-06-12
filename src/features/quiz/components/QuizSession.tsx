@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { cn } from "@/shared/lib/cn";
+import { Button } from "@/shared/ui/button";
 import { Timer } from "./ui/Timer";
 import { StreakCounter } from "./ui/StreakCounter";
 import { ScoreDisplay } from "./ui/ScoreDisplay";
@@ -110,15 +111,17 @@ export function QuizSession({
     <div className="mx-auto max-w-2xl">
       {/* Top bar */}
       <div className="mb-4 flex items-center justify-between">
-        <button
+        <Button
+          variant="ghost"
+          size="icon"
           onClick={onPause}
-          className="rounded-lg p-2 text-[var(--ifr-text-muted)] transition-colors hover:bg-[var(--ifr-surface-muted)] hover:text-[var(--ifr-text)]"
           aria-label="Pause"
+          className="text-[var(--ifr-text-muted)]"
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
-        </button>
+        </Button>
 
         <div className="flex items-center gap-3">
           {showLives && <LivesDisplay lives={lives} />}
@@ -230,12 +233,9 @@ export function QuizSession({
                   : "Correct — well done."
                 : "Not quite — check the correct answer above."}
             </div>
-            <button
-              onClick={onNext}
-              className="w-full rounded-lg bg-[var(--ifr-cta-bg)] py-3 font-medium text-white transition-colors hover:bg-[var(--ifr-cta-bg-hover)]"
-            >
+            <Button onClick={onNext} size="lg" className="w-full">
               {currentIndex + 1 >= totalQuestions ? "See Results" : "Next Question"}
-            </button>
+            </Button>
           </div>
         )}
 
@@ -243,12 +243,14 @@ export function QuizSession({
         {!isAnswered && (
           <div className="flex items-center justify-between border-t border-[var(--ifr-border)] p-4">
             {mode === "learn" ? (
-              <button
+              <Button
+                variant="link"
+                size="sm"
                 onClick={onSkip}
-                className="text-sm text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]"
+                className="h-auto px-0 py-0 text-sm font-normal text-[var(--ifr-text-muted)] no-underline hover:text-[var(--ifr-text)] hover:underline"
               >
                 Skip
-              </button>
+              </Button>
             ) : (
               <div />
             )}

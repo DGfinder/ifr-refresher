@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useState, useRef, useCallback, useEffect } from "react";
+import { Button } from "@/shared/ui/button";
 import { QuizDashboard } from "@/features/quiz/components/QuizDashboard";
 import { QuizSession } from "@/features/quiz/components/QuizSession";
 import { QuizResults } from "@/features/quiz/components/QuizResults";
@@ -177,18 +178,17 @@ function QuizPageContent() {
                   Question {session.currentIndex + 1} of {session.totalQuestions}
                 </p>
                 <div className="space-y-3">
-                  <button
-                    onClick={handleResume}
-                    className="w-full rounded-lg bg-[var(--ifr-cta-bg)] py-3 font-medium text-white transition-colors hover:bg-[var(--ifr-cta-bg-hover)]"
-                  >
+                  <Button onClick={handleResume} size="lg" className="w-full">
                     Resume
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     onClick={handleEndFromPause}
-                    className="w-full rounded-lg border border-[var(--ifr-border)] py-3 font-medium text-[var(--ifr-text)] transition-colors hover:bg-[var(--ifr-surface-muted)]"
+                    variant="secondary"
+                    size="lg"
+                    className="w-full"
                   >
                     End Quiz
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

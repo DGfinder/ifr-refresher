@@ -2,6 +2,7 @@
 
 import type { SessionResults } from "./FlashcardSession";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
+import { Button } from "@/shared/ui/button";
 
 interface FlashcardResultsProps {
   results: SessionResults;
@@ -71,25 +72,29 @@ export function FlashcardResults({
       {/* CTAs */}
       <div className="space-y-3">
         {weakCount > 0 && (
-          <button
+          <Button
             onClick={onStudyWeak}
-            className="w-full rounded-xl border-2 border-amber-500/40 bg-amber-500/10 py-4 text-sm font-semibold text-amber-600 transition-all hover:border-amber-500/70 hover:bg-amber-500/20 active:scale-[0.98] dark:text-amber-400"
+            size="lg"
+            className="w-full border-2 border-amber-500/40 bg-amber-500/10 text-amber-600 hover:border-amber-500/70 hover:bg-amber-500/20 active:scale-[0.98] dark:text-amber-400"
           >
             Study Weak Cards — {weakCount} remaining
-          </button>
+          </Button>
         )}
-        <button
+        <Button
           onClick={onNewSession}
-          className="w-full rounded-xl bg-[var(--ifr-cta-bg)] py-4 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[var(--ifr-cta-bg-hover)] active:scale-[0.98]"
+          size="lg"
+          className="w-full active:scale-[0.98]"
         >
           Start Another Session
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={onBackToMenu}
-          className="w-full rounded-xl border border-[var(--ifr-border)] py-4 text-sm font-semibold text-[var(--ifr-text)] transition-all hover:bg-[var(--ifr-surface-muted)] active:scale-[0.98]"
+          variant="secondary"
+          size="lg"
+          className="w-full active:scale-[0.98]"
         >
           Back to Dashboard
-        </button>
+        </Button>
       </div>
 
       <p className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)] px-3 py-2 text-xs leading-relaxed text-[var(--ifr-text-muted)]">

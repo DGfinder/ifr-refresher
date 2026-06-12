@@ -6,6 +6,8 @@ import type { ProgramId } from "@/features/programs";
 import { ProgramSelector } from "@/features/programs";
 import { useDrill } from "@/features/drill";
 import { sections } from "@/content/registry/sections";
+import { Button } from "@/shared/ui/button";
+import { Card } from "@/shared/ui/card";
 import { cn } from "@/shared/lib/cn";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
 
@@ -163,7 +165,7 @@ export function FlashcardDashboard({
       {/* CTA */}
       <div className="pt-2">
         {queueSize === 0 ? (
-          <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)] p-5 text-center">
+          <Card className="bg-[var(--ifr-surface-muted)] p-5 text-center shadow-none">
             <p className="text-sm font-medium text-[var(--ifr-text)]">
               {studyMode === "weak"
                 ? "No weak cards — you've nailed this set. 🎯"
@@ -178,14 +180,15 @@ export function FlashcardDashboard({
                 ? 'Switch to "All Cards" to revisit everything.'
                 : "Try a different study mode or program."}
             </p>
-          </div>
+          </Card>
         ) : (
-          <button
+          <Button
             onClick={handleStart}
-            className="w-full rounded-xl bg-[var(--ifr-cta-bg)] py-4 text-base font-semibold text-white shadow-sm transition-all hover:bg-[var(--ifr-cta-bg-hover)] active:scale-[0.98]"
+            size="lg"
+            className="w-full text-base active:scale-[0.98]"
           >
             Study Now — {queueSize} card{queueSize !== 1 ? "s" : ""}
-          </button>
+          </Button>
         )}
       </div>
     </div>

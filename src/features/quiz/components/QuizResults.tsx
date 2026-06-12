@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 import { cn } from "@/shared/lib/cn";
+import { Button } from "@/shared/ui/button";
+import { Card } from "@/shared/ui/card";
 import { ProgressRing } from "./ui/ProgressRing";
 import { Confetti } from "./ui/Confetti";
 import { getScoreFeedback, formatDuration } from "@/features/quiz/model/scoring";
@@ -55,15 +57,17 @@ export function QuizResults({
   if (showMistakes) {
     return (
       <div className="mx-auto max-w-2xl">
-        <button
+        <Button
+          variant="ghost"
+          size="sm"
           onClick={() => setShowMistakes(false)}
-          className="mb-4 flex items-center gap-2 text-sm text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]"
+          className="mb-4 -ml-2 h-auto gap-2 px-2 py-1 text-sm font-normal"
         >
           <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           Back to Results
-        </button>
+        </Button>
 
         <h2 className="mb-4 text-lg font-semibold text-[var(--ifr-text)]">
           Review Mistakes ({mistakes.length})
@@ -71,10 +75,7 @@ export function QuizResults({
 
         <div className="space-y-4">
           {mistakes.map(({ answer, question }, index) => (
-            <div
-              key={question.id}
-              className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4"
-            >
+            <Card key={question.id} className="p-4">
               <div className="mb-3 text-sm text-[var(--ifr-text-muted)]">
                 Question {index + 1}
               </div>
@@ -122,7 +123,7 @@ export function QuizResults({
                   );
                 })}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </div>
@@ -179,7 +180,7 @@ export function QuizResults({
 
       {/* Section breakdown */}
       {sectionBreakdown.length > 1 && (
-        <div className="mb-6 rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+        <Card className="mb-6 p-4">
           <h3 className="mb-3 text-sm font-medium text-[var(--ifr-text-muted)]">
             By Topic
           </h3>
@@ -207,36 +208,32 @@ export function QuizResults({
               </div>
             ))}
           </div>
-        </div>
+        </Card>
       )}
 
       {/* Action buttons */}
       <div className="grid grid-cols-2 gap-3">
         {mistakes.length > 0 && (
-          <button
-            onClick={() => setShowMistakes(true)}
-            className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] py-3 font-medium text-[var(--ifr-text)] transition-colors hover:bg-[var(--ifr-surface-muted)]"
-          >
+          <Button variant="secondary" size="lg" onClick={() => setShowMistakes(true)}>
             Review Mistakes
-          </button>
+          </Button>
         )}
-        <button
+        <Button
+          size="lg"
           onClick={onPlayAgain}
-          className={cn(
-            "rounded-xl bg-[var(--ifr-cta-bg)] py-3 font-medium text-white transition-colors hover:bg-[var(--ifr-cta-bg-hover)]",
-            mistakes.length === 0 && "col-span-2"
-          )}
+          className={cn(mistakes.length === 0 && "col-span-2")}
         >
           Quiz Me Again
-        </button>
+        </Button>
       </div>
 
-      <button
+      <Button
+        variant="ghost"
         onClick={onBackToMenu}
-        className="mt-3 w-full py-2 text-sm text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]"
+        className="mt-3 w-full text-sm font-normal text-[var(--ifr-text-muted)]"
       >
         Back to Dashboard
-      </button>
+      </Button>
 
       <p className="mt-4 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)] px-3 py-2 text-xs leading-relaxed text-[var(--ifr-text-muted)]">
         <span className="font-semibold uppercase tracking-wider">Reminder · </span>

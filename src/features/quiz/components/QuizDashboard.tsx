@@ -7,6 +7,8 @@ import { SessionConfig } from "./SessionConfig";
 import { getQuizStats, getRecentHistory } from "@/features/quiz/storage/quizHistoryStore";
 import { QuizStatsSkeleton } from "@/shared/ui/Skeleton";
 import { QuizHistoryEmptyState } from "@/shared/ui/EmptyState";
+import { Button } from "@/shared/ui/button";
+import { Card } from "@/shared/ui/card";
 import type { QuizGameMode, QuizSessionConfig } from "@/features/quiz/model/types";
 
 interface QuizDashboardProps {
@@ -131,19 +133,20 @@ export function QuizDashboard({
       </div>
 
       {/* Start button */}
-      <button
+      <Button
         onClick={onStart}
         disabled={!canStart}
-        className="w-full rounded-xl bg-[var(--ifr-cta-bg)] py-4 text-lg font-semibold text-white transition-all hover:bg-[var(--ifr-cta-bg-hover)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
+        size="lg"
+        className="w-full text-lg active:scale-[0.98]"
       >
         {canStart
           ? `Quiz Me — ${availableQuestions} question${availableQuestions !== 1 ? "s" : ""} ready`
           : "No Questions Available"}
-      </button>
+      </Button>
 
       {/* Recent history or empty state */}
       {loading ? null : hasHistory ? (
-        <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+        <Card className="p-4">
           <h4 className="mb-3 text-sm font-medium text-[var(--ifr-text-muted)]">
             Recent Sessions
           </h4>
@@ -162,7 +165,7 @@ export function QuizDashboard({
               </div>
             ))}
           </div>
-        </div>
+        </Card>
       ) : (
         <QuizHistoryEmptyState />
       )}
