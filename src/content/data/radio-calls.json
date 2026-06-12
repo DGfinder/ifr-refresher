@@ -2,37 +2,69 @@
   "version": "1.0",
   "sectionId": "radio-calls",
   "sectionTitle": "Radio Calls",
-  "sectionDescription": "Phase-by-phase radiotelephony reference for Australian IFR operations. Pairs with the Radio Calls drill library — read the module, then exercise the calls in the Drill tab.",
+  "sectionDescription": "Call-type radiotelephony reference for Australian IFR operations. Use it beside the Radio Calls drill library: learn the phrase family, then practise the matching drill group.",
   "categories": [
     {
       "id": "foundations",
       "title": "Foundations",
-      "description": "Standard phrases and the mandatory-readback rule set that everything else builds on.",
-      "moduleIds": ["RADIO-001", "RADIO-002"]
+      "description": "Standard words, number handling, callsign position, and mandatory readback rules before any specific call type.",
+      "moduleIds": [
+        "RADIO-001",
+        "RADIO-002"
+      ]
     },
     {
-      "id": "controlled",
-      "title": "Controlled Airspace (Class C / D / E)",
-      "description": "Calls for the full IFR flight in controlled airspace — pre-departure through landing.",
-      "moduleIds": ["RADIO-003", "RADIO-004", "RADIO-005", "RADIO-006"]
+      "id": "clearance-ground-runway",
+      "title": "Clearance, ground & runway",
+      "description": "Clearance requests/readbacks plus taxi, line-up, takeoff, landing, runway-vacating, and post-landing calls.",
+      "moduleIds": [
+        "RADIO-003",
+        "RADIO-006"
+      ]
     },
     {
-      "id": "non-towered",
-      "title": "Non-towered (CTAF)",
-      "description": "Class G broadcasts — different rules, different format, different way of thinking about the radio.",
-      "moduleIds": ["RADIO-007"]
+      "id": "checkins-instructions-reports",
+      "title": "Check-ins, instructions & reports",
+      "description": "Centre/Approach check-ins, frequency changes, level/speed/squawk/QNH readbacks, position reports, requests, and SARTIME.",
+      "moduleIds": [
+        "RADIO-004"
+      ]
     },
     {
-      "id": "specialised",
-      "title": "Specialised Operations",
-      "description": "ATIS / RVSM / datalink / helicopter / RPAS / parachute — phraseology you won't use every flight but must know cold when you do.",
-      "moduleIds": ["RADIO-009", "RADIO-010", "RADIO-011", "RADIO-013"]
+      "id": "approach-arrival",
+      "title": "Approach & arrival",
+      "description": "Descent, holding, vectors, approach clearances, established reports, and visual-approach requests.",
+      "moduleIds": [
+        "RADIO-005"
+      ]
     },
     {
-      "id": "non-normal",
-      "title": "Non-normal Operations",
-      "description": "Distress, urgency, TCAS, lost comms, and TIBA — the calls you rarely make but must get right cold.",
-      "moduleIds": ["RADIO-008", "RADIO-012"]
+      "id": "ctaf-broadcasts",
+      "title": "CTAF broadcasts",
+      "description": "Class G non-towered broadcasts — traffic-picture calls, not ATC clearances.",
+      "moduleIds": [
+        "RADIO-007"
+      ]
+    },
+    {
+      "id": "abnormal-emergency",
+      "title": "Abnormal & emergency",
+      "description": "PAN, MAYDAY, lost comms, TCAS, fuel state, and TIBA calls that must be automatic under pressure.",
+      "moduleIds": [
+        "RADIO-008",
+        "RADIO-012"
+      ]
+    },
+    {
+      "id": "services-special",
+      "title": "Services & special operations",
+      "description": "ATIS/AAIS, RVSM, datalink voice backup, helicopter, RPAS, and parachute phraseology.",
+      "moduleIds": [
+        "RADIO-009",
+        "RADIO-010",
+        "RADIO-011",
+        "RADIO-013"
+      ]
     }
   ],
   "modules": [
@@ -42,7 +74,16 @@
       "categoryId": "foundations",
       "level": "core",
       "estReadingMinutes": 7,
-      "tags": ["phrases", "phonetic", "numbers", "time", "wilco", "unable", "say again", "casa-ac"],
+      "tags": [
+        "phrases",
+        "phonetic",
+        "numbers",
+        "time",
+        "wilco",
+        "unable",
+        "say again",
+        "casa-ac"
+      ],
       "summary": "Phonetic alphabet with exact CASA pronunciations, number transmission rules, and the full standard phrases table (CASA Table 21). The foundations every transmission relies on.",
       "content": [
         {
@@ -170,9 +211,9 @@
         {
           "type": "scenario",
           "content": [
-            "ATC: 'Mike X-ray Golf, resume own navigation.' — You can comply: 'Wilco, Mike X-ray Golf.' Resume own nav is not a mandatory readback item, so Wilco is correct.",
-            "ATC: 'Mike X-ray Golf, climb to flight level two two zero.' — Mandatory readback per CASA AC §4.1.2(e). NOT Wilco. Correct: 'Climb to flight level two two zero, Mike X-ray Golf.'",
-            "ATC: 'Mike X-ray Golf, *static* descend *static* zero.' — Garbled. 'Say again your last, Mike X-ray Golf.' (Don't say 'repeat' — that's military.)"
+            "ATC: 'Lima Mike Sierra, resume own navigation.' — You can comply: 'Wilco, Lima Mike Sierra.' Resume own nav is not a mandatory readback item, so Wilco is correct.",
+            "ATC: 'Lima Mike Sierra, climb to flight level two two zero.' — Mandatory readback per CASA AC §4.1.2(e). NOT Wilco. Correct: 'Climb to flight level two two zero, Lima Mike Sierra.'",
+            "ATC: 'Lima Mike Sierra, *static* descend *static* zero.' — Garbled. 'Say again your last, Lima Mike Sierra.' (Don't say 'repeat' — that's military.)"
           ]
         }
       ],
@@ -195,7 +236,13 @@
       "categoryId": "foundations",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["readback", "mandatory", "casr", "casa-ac", "clearance"],
+      "tags": [
+        "readback",
+        "mandatory",
+        "casr",
+        "casa-ac",
+        "clearance"
+      ],
       "summary": "The CASR Part 91 MOS §11.12 list of clearances and instructions you MUST read back verbatim — recited verbatim in CASA AC §4.1.2. Every readback drill in the library comes from this list.",
       "content": [
         {
@@ -241,7 +288,7 @@
         },
         {
           "type": "text",
-          "text": "Australian readbacks finish with the callsign, not start with it. 'Climb to seven thousand, Lima Echo Foxtrot' — not 'Lima Echo Foxtrot, climbing seven thousand'. Initial calls and broadcasts put the addressed station first, then callsign; readbacks reverse this. The CASA AC examples (e.g. Figure 35) show this pattern consistently."
+          "text": "Australian readbacks finish with the callsign, not start with it. 'Climb to seven thousand, Juliet Foxtrot Kilo' — not 'Juliet Foxtrot Kilo, climbing seven thousand'. Initial calls and broadcasts put the addressed station first, then callsign; readbacks reverse this. The CASA AC examples (e.g. Figure 35) show this pattern consistently."
         },
         {
           "type": "heading",
@@ -293,12 +340,19 @@
     },
     {
       "id": "RADIO-003",
-      "title": "Pre-departure & taxi",
-      "categoryId": "controlled",
+      "title": "Clearance, ground & departure runway",
+      "categoryId": "clearance-ground-runway",
       "level": "core",
       "estReadingMinutes": 5,
-      "tags": ["clearance", "taxi", "lineup", "takeoff", "sid", "atis"],
-      "summary": "ATIS request, IFR clearance, SID readback, taxi, line-up, and takeoff clearance. The first half-dozen calls of every controlled-airspace IFR flight.",
+      "tags": [
+        "clearance",
+        "taxi",
+        "lineup",
+        "takeoff",
+        "sid",
+        "atis"
+      ],
+      "summary": "Clearance request/readback, SID readback, taxi request, line-up readiness, and takeoff clearance. This is the clearance/ground/runway call family learners should drill together.",
       "content": [
         {
           "type": "text",
@@ -313,7 +367,7 @@
           "type": "law",
           "content": [
             "Format: '[Station] Information, [callsign], request aerodrome information.'",
-            "Example: 'Bankstown Information, Lima Echo Foxtrot, request aerodrome information.'"
+            "Example: 'Bankstown Information, Juliet Foxtrot Kilo, request aerodrome information.'"
           ]
         },
         {
@@ -325,7 +379,7 @@
           "type": "law",
           "content": [
             "Format: '[Tower / Delivery], [callsign], IFR clearance to [destination], information [ATIS code].'",
-            "Example: 'Sydney Delivery, Mike X-ray Golf, IFR clearance to Coffs Harbour, information Charlie.'",
+            "Example: 'Sydney Delivery, Lima Mike Sierra, IFR clearance to Coffs Harbour, information Charlie.'",
             "At smaller Class D fields without a separate Delivery, address Tower or Ground (slot fallback chain in practice)."
           ]
         },
@@ -338,8 +392,8 @@
           "type": "law",
           "content": [
             "Format: 'Cleared to [destination] via [route or SID], [level/climb constraint], squawk [code], [callsign].'",
-            "Example without SID: 'Cleared to Coffs Harbour via flight planned route, climb to seven thousand, squawk four one two three, Lima Echo Foxtrot.'",
-            "Example with SID: 'Cleared to Coffs Harbour via RIVET TWO departure, climb via SID to flight level one eight zero, squawk five six four three, Mike X-ray Golf.'"
+            "Example without SID: 'Cleared to Coffs Harbour via flight planned route, climb to seven thousand, squawk four one two three, Juliet Foxtrot Kilo.'",
+            "Example with SID: 'Cleared to Coffs Harbour via RIVET TWO departure, climb via SID to flight level one eight zero, squawk five six four three, Lima Mike Sierra.'"
           ]
         },
         {
@@ -351,7 +405,7 @@
           "type": "law",
           "content": [
             "Format: '[Ground], [callsign], ready for taxi, information [ATIS code].'",
-            "Example: 'Sydney Ground, Mike X-ray Golf, ready for taxi, information Charlie.'"
+            "Example: 'Sydney Ground, Lima Mike Sierra, ready for taxi, information Charlie.'"
           ]
         },
         {
@@ -363,7 +417,7 @@
           "type": "law",
           "content": [
             "Format: '[Tower], [callsign], holding point runway [X], ready.'",
-            "Example: 'Bankstown Tower, Lima Echo Foxtrot, holding point runway two nine right, ready.'",
+            "Example: 'Bankstown Tower, Juliet Foxtrot Kilo, holding point runway two nine right, ready.'",
             "Note: you announce readiness — Tower decides when. Don't say 'request take-off'."
           ]
         },
@@ -376,7 +430,7 @@
           "type": "law",
           "content": [
             "Format: 'Cleared for take-off runway [X], [callsign].'",
-            "Example: 'Cleared for take-off runway two nine right, Lima Echo Foxtrot.'",
+            "Example: 'Cleared for take-off runway two nine right, Juliet Foxtrot Kilo.'",
             "Wind, traffic info — acknowledged but NOT read back."
           ]
         },
@@ -416,12 +470,21 @@
     },
     {
       "id": "RADIO-004",
-      "title": "Climb, en-route, & handoffs",
-      "categoryId": "controlled",
+      "title": "Check-ins, instructions & position reports",
+      "categoryId": "checkins-instructions-reports",
       "level": "core",
       "estReadingMinutes": 5,
-      "tags": ["enroute", "centre", "checkin", "freq-change", "position-report", "sartime", "qnh", "squawk"],
-      "summary": "Initial Centre check-in, frequency change acks, level / speed readbacks, position reports, direct routing, QNH on descent, and SARTIME — the en-route and transition phase.",
+      "tags": [
+        "enroute",
+        "centre",
+        "checkin",
+        "freq-change",
+        "position-report",
+        "sartime",
+        "qnh",
+        "squawk"
+      ],
+      "summary": "Initial Centre/Approach check-ins, frequency changes, level/speed/heading/QNH/squawk readbacks, position reports, direct routing, descent requests, and SARTIME.",
       "content": [
         {
           "type": "heading",
@@ -432,8 +495,8 @@
           "type": "law",
           "content": [
             "Format: '[Station], [callsign], [current state + level], [cleared level if climbing/descending].'",
-            "Climbing: 'Brisbane Centre, Mike X-ray Golf, climbing flight level one eight zero for flight level two two zero.'",
-            "Descending: 'Canberra Approach, Mike X-ray Golf, descending flight level one five zero for nine thousand, information Charlie.'",
+            "Climbing: 'Brisbane Centre, Lima Mike Sierra, climbing flight level one eight zero for flight level two two zero.'",
+            "Descending: 'Canberra Approach, Lima Mike Sierra, descending flight level one five zero for nine thousand, information Charlie.'",
             "Centre needs your current state + level to sequence. Always include both 'current' and 'for' (the target level) when not in cruise."
           ]
         },
@@ -446,7 +509,7 @@
           "type": "law",
           "content": [
             "Format: '[New station] [frequency], [callsign].'",
-            "Example: 'Sydney Centre one three four decimal eight five, Mike X-ray Golf.'",
+            "Example: 'Sydney Centre one three four decimal eight five, Lima Mike Sierra.'",
             "'Decimal', not 'point'. Read the full frequency digit-by-digit. 'Roger' alone is not a frequency readback."
           ]
         },
@@ -473,8 +536,8 @@
           "type": "law",
           "content": [
             "Full (initial entry to non-radar area, or as requested): '[Callsign], [waypoint] at [time minutes], flight level [X], [next waypoint] at [ETA minutes].'",
-            "Example: 'Mike X-ray Golf, MARLE at four five, flight level two two zero, WALSH at zero eight.'",
-            "Abbreviated (when next-waypoint ETA waived): drop the next/ETA section. 'Mike X-ray Golf, MARLE at four five, flight level two two zero.'"
+            "Example: 'Lima Mike Sierra, MARLE at four five, flight level two two zero, WALSH at zero eight.'",
+            "Abbreviated (when next-waypoint ETA waived): drop the next/ETA section. 'Lima Mike Sierra, MARLE at four five, flight level two two zero.'"
           ]
         },
         {
@@ -499,7 +562,7 @@
           "type": "law",
           "content": [
             "Format: 'QNH [value digit-by-digit], [callsign].'",
-            "Example: 'QNH one zero zero eight, Mike X-ray Golf.'",
+            "Example: 'QNH one zero zero eight, Lima Mike Sierra.'",
             "Transition altitude in Australia is 10,000 ft — above, you use 1013.2 hPa standard and report flight levels; below, you use local QNH and report altitudes. Set the new QNH BEFORE descending through 10,000 ft."
           ]
         },
@@ -557,10 +620,17 @@
     {
       "id": "RADIO-005",
       "title": "Arrival & approach",
-      "categoryId": "controlled",
+      "categoryId": "approach-arrival",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["arrival", "approach", "vectoring", "hold", "established", "visual"],
+      "tags": [
+        "arrival",
+        "approach",
+        "vectoring",
+        "hold",
+        "established",
+        "visual"
+      ],
       "summary": "Initial Approach contact, descent readback, vectoring, holding instructions, approach clearance, established reports, and visual approach request.",
       "content": [
         {
@@ -596,7 +666,7 @@
           "type": "law",
           "content": [
             "Full readback: '[Hold at fix] inbound [track], [turn direction if non-standard], maintain [level], expect further clearance at [time], [callsign].'",
-            "Example: 'Hold at SMOKO inbound three five zero, right turns, maintain flight level one one zero, expect further clearance at zero five, Mike X-ray Golf.'",
+            "Example: 'Hold at SMOKO inbound three five zero, right turns, maintain flight level one one zero, expect further clearance at zero five, Lima Mike Sierra.'",
             "EFC time is your lost-comms timer — read it back and write it down."
           ]
         },
@@ -609,7 +679,7 @@
           "type": "law",
           "content": [
             "Format: 'Cleared [approach type] runway [X], [reporting instructions], [callsign].'",
-            "Example: 'Cleared ILS runway three five approach, report established, Mike X-ray Golf.'",
+            "Example: 'Cleared ILS runway three five approach, report established, Lima Mike Sierra.'",
             "Read back any reporting instruction ('report established', 'report visual') — it's a MATS readback item."
           ]
         },
@@ -622,7 +692,7 @@
           "type": "law",
           "content": [
             "Format: '[Callsign], established [approach] runway [X].'",
-            "Example: 'Mike X-ray Golf, established ILS runway three five.'",
+            "Example: 'Lima Mike Sierra, established ILS runway three five.'",
             "Short and specific. No need to repeat the cleared level or other clearance items."
           ]
         },
@@ -667,12 +737,18 @@
     },
     {
       "id": "RADIO-006",
-      "title": "Final, missed approach, & post-landing",
-      "categoryId": "controlled",
+      "title": "Landing, missed approach & runway vacating",
+      "categoryId": "clearance-ground-runway",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["landing", "going-around", "missed-approach", "vacate", "ground"],
-      "summary": "Landing clearance readback, going around (controlled), missed-approach instruction readback, vacate runway, and the Ground frequency switch.",
+      "tags": [
+        "landing",
+        "going-around",
+        "missed-approach",
+        "vacate",
+        "ground"
+      ],
+      "summary": "Landing clearance readback, going around, missed-approach instruction readback, vacating the runway, and the Ground frequency switch.",
       "content": [
         {
           "type": "heading",
@@ -683,7 +759,7 @@
           "type": "law",
           "content": [
             "Format: 'Cleared to land runway [X], [callsign].'",
-            "Example: 'Cleared to land runway three five, Mike X-ray Golf.'",
+            "Example: 'Cleared to land runway three five, Lima Mike Sierra.'",
             "Drop the wind — not a readback item. Read back 'cleared to land' verbatim (not 'landing')."
           ]
         },
@@ -708,7 +784,7 @@
           "type": "law",
           "content": [
             "Tower will issue a stack of instructions — heading, climb, and a new frequency. Read them back in the order issued.",
-            "Example: 'Runway heading, climb to four thousand, Canberra Approach one two five decimal one, Mike X-ray Golf.'"
+            "Example: 'Runway heading, climb to four thousand, Canberra Approach one two five decimal one, Lima Mike Sierra.'"
           ]
         },
         {
@@ -720,7 +796,7 @@
           "type": "law",
           "content": [
             "Format: 'Vacate [direction] via [taxiway], [new freq if issued], [callsign].'",
-            "Example: 'Vacate next right via Bravo, Ground one two one decimal nine, Mike X-ray Golf.'",
+            "Example: 'Vacate next right via Bravo, Ground one two one decimal nine, Lima Mike Sierra.'",
             "The frequency change is a mandatory readback. The vacate routing isn't strictly mandatory but reading it back confirms for Tower."
           ]
         },
@@ -735,7 +811,7 @@
         {
           "type": "scenario",
           "content": [
-            "ILS RWY 35 at Canberra: at the minima you can't acquire the runway environment. Commit: 'Going around, Mike X-ray Golf.' Tower responds with heading + climb + frequency. Read it back as one composite transmission. Switch frequency. New initial contact with Approach announcing the missed approach."
+            "ILS RWY 35 at Canberra: at the minima you can't acquire the runway environment. Commit: 'Going around, Lima Mike Sierra.' Tower responds with heading + climb + frequency. Read it back as one composite transmission. Switch frequency. New initial contact with Approach announcing the missed approach."
           ]
         }
       ],
@@ -760,10 +836,18 @@
     {
       "id": "RADIO-007",
       "title": "CTAF broadcasts (non-towered)",
-      "categoryId": "non-towered",
+      "categoryId": "ctaf-broadcasts",
       "level": "core",
       "estReadingMinutes": 8,
-      "tags": ["ctaf", "broadcast", "circuit", "inbound", "joining", "afru", "casa-ac"],
+      "tags": [
+        "ctaf",
+        "broadcast",
+        "circuit",
+        "inbound",
+        "joining",
+        "afru",
+        "casa-ac"
+      ],
       "summary": "Class G non-towered aerodromes — broadcasts to OTHER PILOTS, no ATC. CASA AC §3 prescribes the exact format, when to broadcast, the AFRU response system, and aircraft-to-aircraft coordination.",
       "content": [
         {
@@ -912,10 +996,20 @@
     {
       "id": "RADIO-008",
       "title": "Distress, urgency, & lost comms",
-      "categoryId": "non-normal",
+      "categoryId": "abnormal-emergency",
       "level": "core",
       "estReadingMinutes": 8,
-      "tags": ["mayday", "pan-pan", "tcas", "nordo", "lost-comms", "squawk-7600", "fuel", "minimum-fuel", "casa-ac"],
+      "tags": [
+        "mayday",
+        "pan-pan",
+        "tcas",
+        "nordo",
+        "lost-comms",
+        "squawk-7600",
+        "fuel",
+        "minimum-fuel",
+        "casa-ac"
+      ],
       "summary": "MAYDAY format, PAN PAN format, the 9-element emergency message structure, TCAS RA, MINIMUM FUEL vs MAYDAY FUEL, NORDO procedures including receiver-failure phraseology. Calls you rarely make but must get right cold.",
       "content": [
         {
@@ -1069,10 +1163,15 @@
     {
       "id": "RADIO-009",
       "title": "ATIS & departure information",
-      "categoryId": "specialised",
+      "categoryId": "services-special",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["atis", "aais", "departure-information", "casa-ac"],
+      "tags": [
+        "atis",
+        "aais",
+        "departure-information",
+        "casa-ac"
+      ],
       "summary": "ATIS broadcast structure, the code-letter acknowledgement rule, what to do when ATIS isn't broadcast, and AAIS at non-controlled aerodromes.",
       "content": [
         {
@@ -1166,10 +1265,16 @@
     {
       "id": "RADIO-010",
       "title": "RVSM phraseology",
-      "categoryId": "specialised",
+      "categoryId": "services-special",
       "level": "core",
       "estReadingMinutes": 4,
-      "tags": ["rvsm", "high-level", "flight-level", "turbulence", "casa-ac"],
+      "tags": [
+        "rvsm",
+        "high-level",
+        "flight-level",
+        "turbulence",
+        "casa-ac"
+      ],
       "summary": "Reduced Vertical Separation Minimum phraseology for ops between FL290 and FL410. Confirm RVSM, unable RVSM due [reason], and what ATC does when traffic is affected vs not.",
       "content": [
         {
@@ -1240,10 +1345,16 @@
     {
       "id": "RADIO-011",
       "title": "ADS-C & CPDLC voice phraseology",
-      "categoryId": "specialised",
+      "categoryId": "services-special",
       "level": "advanced",
       "estReadingMinutes": 3,
-      "tags": ["ads-c", "cpdlc", "datalink", "voice-backup", "casa-ac"],
+      "tags": [
+        "ads-c",
+        "cpdlc",
+        "datalink",
+        "voice-backup",
+        "casa-ac"
+      ],
       "summary": "Voice phraseology that accompanies the two main datalink services — what ATC says when ADS-C is degraded, and the CPDLC failure / disregard / disconnect-and-logon sequences.",
       "content": [
         {
@@ -1318,10 +1429,16 @@
     {
       "id": "RADIO-012",
       "title": "TIBA — Traffic Information Broadcasts by Aircraft",
-      "categoryId": "non-normal",
+      "categoryId": "abnormal-emergency",
       "level": "advanced",
       "estReadingMinutes": 3,
-      "tags": ["tiba", "all-stations", "ats-disruption", "non-radar", "casa-ac"],
+      "tags": [
+        "tiba",
+        "all-stations",
+        "ats-disruption",
+        "non-radar",
+        "casa-ac"
+      ],
       "summary": "Traffic Information Broadcasts by Aircraft — pilot-initiated transmissions used when ATS or aeronautical telecoms are significantly disrupted. Prefix 'ALL STATIONS', state your position / level / intentions.",
       "content": [
         {
@@ -1376,10 +1493,16 @@
     {
       "id": "RADIO-013",
       "title": "Special operations — helicopter, RPAS, parachute",
-      "categoryId": "specialised",
+      "categoryId": "services-special",
       "level": "advanced",
       "estReadingMinutes": 4,
-      "tags": ["helicopter", "rpas", "parachute", "air-taxi", "casa-ac"],
+      "tags": [
+        "helicopter",
+        "rpas",
+        "parachute",
+        "air-taxi",
+        "casa-ac"
+      ],
       "summary": "Unique phraseology for helicopter ops (AIR TAXI, pads), RPAS at controlled aerodromes (currently telephone-mostly), and parachute drops (broadcast before exit, 4-minute warning at non-controlled aerodromes).",
       "content": [
         {

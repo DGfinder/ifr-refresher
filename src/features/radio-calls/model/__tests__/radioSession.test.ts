@@ -203,6 +203,31 @@ describe("radioSessionReducer", () => {
     expect(answer.isCorrect).toBe(true);
   });
 
+  it("retry-current clears the current answer and reopens the current input", () => {
+    let state = radioSessionReducer(initialRadioSessionState, {
+      type: "start-scenario",
+      scenario,
+    });
+    state = radioSessionReducer(state, { type: "select-option", optionId: "B" });
+    state = radioSessionReducer(state, { type: "advance" });
+    state = radioSessionReducer(state, { type: "toggle-chip", chipId: "c1" });
+    state = radioSessionReducer(state, { type: "toggle-chip", chipId: "c2" });
+    state = radioSessionReducer(state, { type: "submit-readback" });
+    state = radioSessionReducer(state, { type: "advance" });
+    state = radioSessionReducer(state, {
+      type: "submit-spoken-call",
+      transcript: "tower LEF ready",
+    });
+
+    state = radioSessionReducer(state, { type: "retry-current" });
+
+    expect(state.currentLegIndex).toBe(2);
+    expect(state.input).toEqual({ kind: "spoken", transcript: "", isSubmitted: false });
+    expect(state.answers["q-3"]).toBeUndefined();
+    expect(state.answers["q-1"]).toBeDefined();
+    expect(state.answers["q-2"]).toBeDefined();
+  });
+
   it("advance after the last leg transitions to results and builds the result object", () => {
     let state = radioSessionReducer(initialRadioSessionState, {
       type: "start-scenario",

@@ -4,8 +4,8 @@
   "phase": "enroute",
   "title": "Position report (full format)",
   "briefing": {
-    "callsign": "Mike X-ray Golf",
-    "aircraftType": "King Air 350",
+    "callsign": "Juliet Foxtrot Kilo",
+    "aircraftType": "Cessna 303 Crusader",
     "flightRules": "IFR",
     "summary": "Cruising FL220 in a non-radar area. You've just passed compulsory waypoint MARLE at time 0345Z. Next waypoint is WALSH, ETA 0408Z."
   },
@@ -14,11 +14,11 @@
     "kind": "spoken",
     "id": "q-position-report",
     "prompt": "Make a full position report — you've just passed MARLE.",
-    "expectedText": "Mike X-ray Golf, MARLE at four five, flight level two two zero, WALSH at zero eight.",
+    "expectedText": "Juliet Foxtrot Kilo, MARLE at four five, flight level two two zero, WALSH at zero eight.",
     "elements": [
       {
         "label": "Callsign first",
-        "accept": ["Mike X-ray Golf", "MXG"],
+        "accept": ["Juliet Foxtrot Kilo", "JFK"],
         "required": true
       },
       {

@@ -81,12 +81,22 @@ export function DrillCardView({ card, onBack, onComplete }: DrillCardViewProps) 
     setRecord(r);
   }, [challenge, isReadbackSubmitted, selectedChipIds]);
 
-  const handleSpokenSubmit = useCallback(() => {
+  const handleSpokenSubmit = useCallback((transcript: string) => {
     if (challenge.kind !== "spoken" || isSpokenSubmitted) return;
-    const r = buildRadioSpokenAnswer(challenge, spokenTranscript);
+    const r = buildRadioSpokenAnswer(challenge, transcript);
+    setSpokenTranscript(transcript);
     setIsSpokenSubmitted(true);
     setRecord(r);
-  }, [challenge, isSpokenSubmitted, spokenTranscript]);
+  }, [challenge, isSpokenSubmitted]);
+
+  const handleRetry = useCallback(() => {
+    setSelectedOptionId(null);
+    setSelectedChipIds(new Set());
+    setIsReadbackSubmitted(false);
+    setSpokenTranscript("");
+    setIsSpokenSubmitted(false);
+    setRecord(null);
+  }, []);
 
   const handleDone = () => {
     if (record) onComplete(record);
@@ -192,6 +202,7 @@ export function DrillCardView({ card, onBack, onComplete }: DrillCardViewProps) 
           transcript={spokenTranscript}
           onTranscriptChange={setSpokenTranscript}
           onSubmit={handleSpokenSubmit}
+          onRetry={handleRetry}
         />
       )}
 

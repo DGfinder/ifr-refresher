@@ -45,7 +45,7 @@ const generated = generateRadioDrillCards({
   templates: radioCallTemplates,
   locations: radioLocations,
   callsigns: radioCallsigns,
-  callsignsPerCombination: 2,
+  callsignsPerCombination: 3,
 });
 
 const authored: RadioDrillCard[] = [

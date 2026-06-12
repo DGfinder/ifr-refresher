@@ -9,7 +9,7 @@ test.describe("Radio Calls", () => {
   });
 
   test("scenarios tab shows the dashboard", async ({ page }) => {
-    await page.goto("/radio");
+    await page.goto("/radio?tab=scenarios");
     await expect(page.getByRole("tab", { name: /Scenarios/i })).toHaveAttribute(
       "aria-selected",
       "true",
@@ -32,11 +32,14 @@ test.describe("Radio Calls", () => {
     await expect(page.getByRole("tab", { name: /Class C/i })).toBeVisible();
     await expect(page.getByRole("tab", { name: /CTAF/i }).first()).toBeVisible();
 
-    // Phase filter row.
+    // Phase filters stay available, while type headers make the long drill list scannable.
     await expect(page.getByText(/Flight phase/i)).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Clearances/i })).toBeVisible();
+    await expect(page.getByText(/IFR clearances, SID clearance readbacks/i)).toBeVisible();
 
     // Open the first drill card in the list.
-    const firstCard = page.getByRole("button", { name: /Request IFR clearance|IFR clearance/i }).first();
+    const clearanceList = page.getByRole("list", { name: /Clearances drills/i });
+    const firstCard = clearanceList.getByRole("button", { name: /Request IFR clearance/i }).first();
     await expect(firstCard).toBeVisible();
     await firstCard.click();
 
@@ -53,6 +56,7 @@ test.describe("Radio Calls", () => {
     // Submit and check the reveal includes the AIP-standard exemplar.
     await page.getByRole("button", { name: /Submit call/i }).click();
     await expect(page.getByText(/AIP-standard/i)).toBeVisible();
+    await expect(page.getByRole("button", { name: /Retry this call/i })).toBeVisible();
 
     // Mark done returns to the dashboard.
     await page.getByRole("button", { name: /Mark done/i }).click();
@@ -67,10 +71,10 @@ test.describe("Radio Calls", () => {
     await page.getByRole("tab", { name: /CTAF/i }).first().click();
 
     // Cards visible after filtering should carry the CTAF badge — assert
-    // the first visible card's row contains "CTAF".
-    const cardList = page.getByRole("list", { name: /Drill cards/i });
+    // the first visible card's row inside the CTAF type group contains "CTAF".
+    const cardList = page.getByRole("list", { name: /CTAF broadcasts drills/i }).first();
     await expect(cardList).toBeVisible();
     const firstRow = cardList.locator("li").first();
-    await expect(firstRow.getByText("CTAF")).toBeVisible();
+    await expect(firstRow.locator("span", { hasText: /^CTAF$/ })).toBeVisible();
   });
 });

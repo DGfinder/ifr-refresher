@@ -18,6 +18,7 @@ interface SpokenCallChallengeProps {
    *  is producing partials. */
   onTranscriptChange: (transcript: string) => void;
   onSubmit: (transcript: string) => void;
+  onRetry?: () => void;
 }
 
 export function SpokenCallChallenge({
@@ -26,6 +27,7 @@ export function SpokenCallChallenge({
   transcript,
   onTranscriptChange,
   onSubmit,
+  onRetry,
 }: SpokenCallChallengeProps) {
   const speech = useSpeechRecognition();
   const [textInput, setTextInput] = useState(transcript);
@@ -159,7 +161,21 @@ export function SpokenCallChallenge({
       )}
 
       {isSubmitted && evaluation && (
-        <ElementReveal call={call} evaluation={evaluation} />
+        <>
+          <ElementReveal call={call} evaluation={evaluation} />
+          {onRetry && (
+            <button
+              type="button"
+              onClick={onRetry}
+              className={cn(
+                "mt-4 w-full rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] py-3 text-sm font-semibold text-[var(--ifr-text)] transition-colors hover:bg-[var(--ifr-surface-muted)]",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+              )}
+            >
+              Retry this call
+            </button>
+          )}
+        </>
       )}
     </Card>
   );

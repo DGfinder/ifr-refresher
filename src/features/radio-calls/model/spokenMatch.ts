@@ -58,6 +58,12 @@ const CASA_AVIATION_DIGITS: Record<string, string> = {
 export function normalisePhrase(text: string): string {
   let out = text.toLowerCase().normalize("NFKD");
 
+  // Web Speech often welds waypoint + time into one token when the learner
+  // says "MARLE at four five" (e.g. "Mile45"). Expand the known compact
+  // form before digit expansion so element matching can still see the
+  // waypoint and position time separately.
+  out = out.replace(/\b(?:marle|marley|marly|marlee|mile)\s*(\d{2})\b/g, "marle at $1");
+
   // Strip punctuation EXCEPT decimal point (handled below). Keep hyphens
   // for now so CASA hyphenated forms ("fow-er", "nin-er") survive — we
   // collapse hyphens at the end.
@@ -105,6 +111,79 @@ export function normalisePhrase(text: string): string {
   return out;
 }
 
+function tokenisePhrase(text: string): string[] {
+  return normalisePhrase(text).split(" ").filter(Boolean);
+}
+
+function isWithinOneEdit(a: string, b: string): boolean {
+  if (a === b) return true;
+  if (Math.abs(a.length - b.length) > 1) return false;
+
+  let i = 0;
+  let j = 0;
+  let edits = 0;
+
+  while (i < a.length && j < b.length) {
+    if (a[i] === b[j]) {
+      i += 1;
+      j += 1;
+      continue;
+    }
+
+    edits += 1;
+    if (edits > 1) return false;
+
+    if (a.length > b.length) i += 1;
+    else if (b.length > a.length) j += 1;
+    else {
+      i += 1;
+      j += 1;
+    }
+  }
+
+  if (i < a.length || j < b.length) edits += 1;
+  return edits <= 1;
+}
+
+function tokensMatch(actual: string, expected: string): boolean {
+  if (actual === expected) return true;
+  // Web Speech near-misses on NATO/callsign words are usually a single
+  // consonant off ("Bike" for "Mike"). Keep this conservative: no fuzzy
+  // matching for short tokens or digit words.
+  if (actual.length < 4 || expected.length < 4) return false;
+  if (Object.values(DIGIT_WORDS).includes(actual) || Object.values(DIGIT_WORDS).includes(expected)) {
+    return false;
+  }
+  return isWithinOneEdit(actual, expected);
+}
+
+function includesNormalisedPhrase(haystack: string, phrase: string): boolean {
+  const expected = normalisePhrase(phrase);
+  if (!expected) return false;
+  if (haystack.includes(expected)) return true;
+
+  const haystackTokens = haystack.split(" ").filter(Boolean);
+  const phraseTokens = tokenisePhrase(phrase);
+  if (phraseTokens.length === 0 || haystackTokens.length === 0) return false;
+
+  const hasTrailingZero = phraseTokens[phraseTokens.length - 1] === "zero";
+  const windowLengths = hasTrailingZero
+    ? [phraseTokens.length, phraseTokens.length - 1]
+    : [phraseTokens.length];
+
+  return windowLengths.some((windowLength) => {
+    if (windowLength <= 0 || windowLength > haystackTokens.length) return false;
+    for (let start = 0; start <= haystackTokens.length - windowLength; start += 1) {
+      const window = haystackTokens.slice(start, start + windowLength);
+      const comparable = phraseTokens.slice(0, windowLength);
+      if (comparable.every((token, index) => tokensMatch(window[index] ?? "", token))) {
+        return true;
+      }
+    }
+    return false;
+  });
+}
+
 export interface SpokenCallEvaluation {
   isCorrect: boolean;
   hits: SpokenCallElement[];
@@ -130,7 +209,7 @@ export function evaluateSpokenCall(
 
   for (const element of call.elements) {
     const matched = element.accept.some((phrase) =>
-      haystack.includes(normalisePhrase(phrase)),
+      includesNormalisedPhrase(haystack, phrase),
     );
     if (matched) {
       hits.push(element);

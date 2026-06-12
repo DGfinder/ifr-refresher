@@ -214,6 +214,52 @@ describe("evaluateSpokenCall — element accounting", () => {
   });
 });
 
+describe("evaluateSpokenCall — Web Speech near-miss handling", () => {
+  const positionReport: RadioSpokenCall = {
+    kind: "spoken",
+    id: "position-report",
+    prompt: "Make a full position report.",
+    expectedText:
+      "Mike X-ray Golf, MARLE at four five, flight level two two zero, WALSH at zero eight.",
+    elements: [
+      { label: "Callsign first", accept: ["Mike X-ray Golf", "MXG"], required: true },
+      { label: "Position waypoint", accept: ["MARLE"], required: true },
+      {
+        label: "Time at position",
+        accept: ["at four five", "at 45", "at four-five"],
+        required: true,
+      },
+      {
+        label: "Current level",
+        accept: ["flight level two two zero", "FL220", "FL two two zero"],
+        required: true,
+      },
+      {
+        label: "Next waypoint + ETA",
+        accept: ["WALSH at zero eight", "WALSH at 08", "WALSH zero eight"],
+        required: true,
+      },
+    ],
+  };
+
+  it("scores the observed iOS transcript instead of dropping four valid elements", () => {
+    const out = evaluateSpokenCall(
+      positionReport,
+      "Bike x-ray golf Mile45 is mating Walsh 08 maintaining flight level 22",
+    );
+
+    expect(out.isCorrect).toBe(true);
+    expect(out.missedRequired).toEqual([]);
+    expect(out.hits.map((element) => element.label)).toEqual([
+      "Callsign first",
+      "Position waypoint",
+      "Time at position",
+      "Current level",
+      "Next waypoint + ETA",
+    ]);
+  });
+});
+
 describe("evaluateSpokenCall — aviation normalisation in action", () => {
   const climbReadback: RadioSpokenCall = {
     kind: "spoken",

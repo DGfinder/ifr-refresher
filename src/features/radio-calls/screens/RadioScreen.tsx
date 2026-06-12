@@ -185,6 +185,7 @@ function ScenariosTab() {
                 transcript={session.spokenTranscript}
                 onTranscriptChange={session.setSpokenTranscript}
                 onSubmit={session.submitSpokenCall}
+                onRetry={session.retryCurrent}
               />
             )}
             {session.isAnswered && (

@@ -81,11 +81,19 @@ describe("generateRadioDrillCards", () => {
     templates: radioCallTemplates,
     locations: radioLocations,
     callsigns: radioCallsigns,
-    callsignsPerCombination: 2,
+    callsignsPerCombination: 3,
   });
 
   it("produces hundreds of cards", () => {
     expect(generated.length).toBeGreaterThan(200);
+  });
+
+  it("includes LMS, JFK, and MTR across the generated callsign set", () => {
+    const generatedCallsigns = new Set(generated.map((card) => card.briefing.callsign));
+
+    expect(generatedCallsigns.has("Lima Mike Sierra")).toBe(true);
+    expect(generatedCallsigns.has("Juliet Foxtrot Kilo")).toBe(true);
+    expect(generatedCallsigns.has("Mike Tango Romeo")).toBe(true);
   });
 
   it("covers every airspace class present in the locations registry", () => {
