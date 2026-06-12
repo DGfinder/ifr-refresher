@@ -2,8 +2,12 @@
 
 import { useState, useMemo, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Check } from "lucide-react";
+import type { Module, Section } from "@/content/model/section";
+import type { ModuleStatus } from "@/features/progress";
 import { CategoryList } from "@/features/study/components/CategoryList";
 import { ModuleList } from "@/features/study/components/ModuleList";
+import { ModuleRow } from "@/features/study/components/ModuleRow";
 import { ModuleDetail } from "@/features/study/components/ModuleDetail";
 import {
   RADIO_GUIDE_SECTION_ID,
@@ -269,74 +273,29 @@ function StudyPageContent() {
         />
       </div>
 
-      {/* Mobile: categories as a vertical accordion. Default-collapsed so
-          the module list is the primary content. Each header shows category
-          progress at a glance. */}
+      {/* Mobile: categories as a vertical accordion with modules nested
+          INSIDE each category. Replaces the flat bottom module list — one
+          scrollable tree, one tap to read. The desktop sidebar + list
+          layout still kicks in at md: and above. */}
       <div className="mb-4 md:hidden">
-        <Accordion
-          type="single"
-          collapsible
-          {...(selectedCategoryId ? { defaultValue: selectedCategoryId } : {})}
-          className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] px-4"
-        >
-          {(currentSection?.categories ?? []).map((category) => {
-            const stats = getCategoryStats(category.id);
-            const isActive = selectedCategoryId === category.id;
-            return (
-              <AccordionItem key={category.id} value={category.id}>
-                <AccordionTrigger>
-                  <span className="flex flex-1 items-center justify-between gap-2">
-                    <span
-                      className={cn(
-                        "truncate text-sm",
-                        isActive
-                          ? "font-semibold text-[var(--ifr-accent)]"
-                          : "font-medium text-[var(--ifr-text)]",
-                      )}
-                    >
-                      {category.title}
-                    </span>
-                    <span className="shrink-0 text-[11px] font-medium text-[var(--ifr-text-muted)]">
-                      {stats.completed}/{stats.total}
-                    </span>
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <p className="mb-2 text-xs text-[var(--ifr-text-muted)]">
-                    {category.description}
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => handleSelectCategory(category.id)}
-                    className={cn(
-                      "w-full rounded-lg px-3 py-2 text-left text-sm font-medium transition-colors",
-                      isActive
-                        ? "bg-[var(--ifr-accent)] text-[var(--ifr-cta-fg)]"
-                        : "bg-[var(--ifr-surface-muted)] text-[var(--ifr-text)] hover:bg-[var(--ifr-accent)]/10",
-                    )}
-                  >
-                    {isActive ? "Showing modules below ✓" : "Show modules in this category"}
-                  </button>
-                </AccordionContent>
-              </AccordionItem>
-            );
-          })}
-        </Accordion>
-        {selectedCategoryId && (
-          <button
-            type="button"
-            onClick={() => handleSelectCategory(null)}
-            className="mt-2 text-xs text-[var(--ifr-text-muted)] underline-offset-2 hover:text-[var(--ifr-text)] hover:underline"
-          >
-            Show all categories
-          </button>
-        )}
+        <NestedCategoryAccordion
+          // Keying on sectionId forces a fresh-state remount when the user
+          // switches sections — avoids a set-state-in-effect to reset the
+          // open-categories list.
+          key={currentSection.sectionId}
+          section={currentSection}
+          searchQuery={searchQuery}
+          getModuleStatus={getModuleStatus}
+          getCategoryStats={getCategoryStats}
+          onSelectModule={handleSelectModule}
+        />
       </div>
 
-      {/* Main content area */}
-      <div className="flex gap-8">
-        {/* Sidebar (desktop only) */}
-        <aside className="hidden w-64 shrink-0 md:block">
+      {/* Desktop main content area — sidebar + flat module list. Mobile
+          renders the nested accordion above instead. */}
+      <div className="hidden gap-8 md:flex">
+        {/* Sidebar */}
+        <aside className="w-64 shrink-0">
           <div className="sticky top-6 rounded-lg bg-[var(--ifr-surface-muted)] p-4">
             <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               Categories
@@ -370,6 +329,160 @@ function StudyPageContent() {
         </div>
       </div>
     </div>
+  );
+}
+
+interface NestedCategoryAccordionProps {
+  section: Section;
+  searchQuery: string;
+  getModuleStatus: (moduleId: string) => ModuleStatus;
+  getCategoryStats: (categoryId: string) => { completed: number; total: number };
+  onSelectModule: (moduleId: string) => void;
+}
+
+/**
+ * Mobile-only accordion that renders modules nested inside each category.
+ *
+ * Behaviour:
+ *  - On mount, default-expand the first category that isn't fully completed
+ *    so the user lands on something actionable.
+ *  - Completed categories (all modules done) show a green ✓ and stay
+ *    collapsed by default.
+ *  - When the learner types in the search box, all categories with matching
+ *    modules force-expand to show the hits.
+ *  - Manual toggles are remembered; search override is computed on top.
+ */
+function NestedCategoryAccordion({
+  section,
+  searchQuery,
+  getModuleStatus,
+  getCategoryStats,
+  onSelectModule,
+}: NestedCategoryAccordionProps) {
+  // Per-category matching modules. When the search box is empty, every
+  // category's full module list is "matching". When the box has text, the
+  // matching list is filtered by a case-insensitive substring across title
+  // + summary + tags (kept identical to ModuleList's pre-Fuse fallback so
+  // results stay consistent across the two surfaces).
+  const matchesByCategory = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    const byId = new Map(section.modules.map((m) => [m.id, m]));
+    return section.categories.map((cat) => {
+      const mods = cat.moduleIds
+        .map((id) => byId.get(id))
+        .filter((m): m is Module => Boolean(m));
+      if (!q) return { category: cat, modules: mods };
+      const filtered = mods.filter(
+        (m) =>
+          m.title.toLowerCase().includes(q) ||
+          m.summary.toLowerCase().includes(q) ||
+          m.tags.some((t) => t.toLowerCase().includes(q)),
+      );
+      return { category: cat, modules: filtered };
+    });
+  }, [section, searchQuery]);
+
+  // Default-expand the first category that isn't fully completed. Falls
+  // back to the first category if everything's done. Computed once via
+  // useState's lazy initialiser — the component is re-mounted (via
+  // `key={sectionId}` from the parent) whenever the section changes, so
+  // the initial state always reflects the current section.
+  const [openCategories, setOpenCategories] = useState<string[]>(() => {
+    for (const cat of section.categories) {
+      const mods = cat.moduleIds;
+      if (mods.length === 0) continue;
+      const completed = mods.filter(
+        (id) => getModuleStatus(id) === "completed",
+      ).length;
+      if (completed < mods.length) return [cat.id];
+    }
+    const first = section.categories[0]?.id;
+    return first ? [first] : [];
+  });
+
+  // When search is active, force-open every category with matches. When
+  // empty, fall back to the user's manual toggles.
+  const effectiveOpen = useMemo(() => {
+    if (!searchQuery.trim()) return openCategories;
+    return matchesByCategory
+      .filter(({ modules }) => modules.length > 0)
+      .map(({ category }) => category.id);
+  }, [searchQuery, openCategories, matchesByCategory]);
+
+  // Hide categories with no matches when searching so we don't render empty
+  // expanded sections at the bottom.
+  const visible = searchQuery.trim()
+    ? matchesByCategory.filter(({ modules }) => modules.length > 0)
+    : matchesByCategory;
+
+  if (visible.length === 0) {
+    return (
+      <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-6 text-center text-sm text-[var(--ifr-text-muted)]">
+        No modules match &ldquo;{searchQuery}&rdquo; in this section.
+      </div>
+    );
+  }
+
+  return (
+    <Accordion
+      type="multiple"
+      value={effectiveOpen}
+      onValueChange={setOpenCategories}
+      className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] px-4"
+    >
+      {visible.map(({ category, modules }) => {
+        const stats = getCategoryStats(category.id);
+        const isComplete = stats.total > 0 && stats.completed === stats.total;
+        return (
+          <AccordionItem key={category.id} value={category.id}>
+            <AccordionTrigger>
+              <span className="flex flex-1 items-center justify-between gap-2">
+                <span className="flex min-w-0 items-center gap-2">
+                  {isComplete && (
+                    <Check
+                      size={14}
+                      className="shrink-0 text-[var(--ifr-success)]"
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span
+                    className={cn(
+                      "truncate text-sm font-medium",
+                      isComplete
+                        ? "text-[var(--ifr-text-muted)]"
+                        : "text-[var(--ifr-text)]",
+                    )}
+                  >
+                    {category.title}
+                  </span>
+                </span>
+                <span className="shrink-0 text-[11px] font-medium text-[var(--ifr-text-muted)]">
+                  {stats.completed}/{stats.total}
+                </span>
+              </span>
+            </AccordionTrigger>
+            <AccordionContent>
+              {category.description && (
+                <p className="mb-2 text-xs text-[var(--ifr-text-muted)]">
+                  {category.description}
+                </p>
+              )}
+              <ul className="space-y-2" aria-label={`${category.title} modules`}>
+                {modules.map((mod) => (
+                  <li key={mod.id}>
+                    <ModuleRow
+                      module={mod}
+                      status={getModuleStatus(mod.id)}
+                      onSelect={() => onSelectModule(mod.id)}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        );
+      })}
+    </Accordion>
   );
 }
 
