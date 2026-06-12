@@ -28,6 +28,22 @@ interface DrillDashboardProps {
 
 type PhaseFilter = "all" | RadioPhase;
 type ClassFilter = "all" | AirspaceClass;
+type DrillTypeGroupId =
+  | "clearances"
+  | "ground-runway"
+  | "checkins-handoffs"
+  | "position-reports"
+  | "approach-arrival"
+  | "atc-instructions"
+  | "ctaf-broadcasts"
+  | "abnormal-emergency"
+  | "services-info";
+
+interface DrillTypeGroup {
+  id: DrillTypeGroupId;
+  label: string;
+  description: string;
+}
 
 const CLASS_FILTERS: { id: ClassFilter; label: string; description: string }[] = [
   { id: "all", label: "All", description: "Every airspace" },
@@ -36,6 +52,55 @@ const CLASS_FILTERS: { id: ClassFilter; label: string; description: string }[] =
   { id: "E", label: "Class E", description: "En-route controlled" },
   { id: "CTAF", label: "CTAF", description: "Non-towered broadcasts" },
 ];
+
+const DRILL_TYPE_GROUPS: DrillTypeGroup[] = [
+  {
+    id: "clearances",
+    label: "Clearances",
+    description: "IFR clearances, SID clearance readbacks, and amended-route clearance calls.",
+  },
+  {
+    id: "ground-runway",
+    label: "Ground & runway",
+    description: "Taxi, line-up, take-off, landing, runway crossing, and runway-vacating calls.",
+  },
+  {
+    id: "checkins-handoffs",
+    label: "Check-ins & handoffs",
+    description: "Initial contact, Centre/Approach check-ins, and frequency-change acknowledgements.",
+  },
+  {
+    id: "position-reports",
+    label: "Position & reports",
+    description: "Position reports, compulsory reports, estimates, and established/on-course reports.",
+  },
+  {
+    id: "approach-arrival",
+    label: "Approach & arrival",
+    description: "Descent, holding, vectors, approach clearances, missed approach, and go-around calls.",
+  },
+  {
+    id: "atc-instructions",
+    label: "ATC instructions",
+    description: "Level, speed, squawk, QNH, direct-routing, WILCO, unable, and say-again calls.",
+  },
+  {
+    id: "ctaf-broadcasts",
+    label: "CTAF broadcasts",
+    description: "Non-towered taxi, departure, inbound, circuit, overflying, and runway broadcasts.",
+  },
+  {
+    id: "abnormal-emergency",
+    label: "Abnormal & emergency",
+    description: "PAN, MAYDAY, fuel states, lost comms, TCAS RA, and distress follow-up calls.",
+  },
+  {
+    id: "services-info",
+    label: "Services & information",
+    description: "ATIS, SARTIME, and other flight-information/service calls.",
+  },
+];
+
 
 export function DrillDashboard({
   cards,
@@ -46,8 +111,8 @@ export function DrillDashboard({
 }: DrillDashboardProps) {
   const [phaseFilter, setPhaseFilter] = useState<PhaseFilter>(initialPhase ?? "all");
   const [classFilter, setClassFilter] = useState<ClassFilter>(initialClass ?? "all");
-  const [expandedPhases, setExpandedPhases] = useState<ReadonlySet<RadioPhase>>(
-    () => new Set([initialPhase ?? "pre-departure"]),
+  const [expandedTypes, setExpandedTypes] = useState<ReadonlySet<DrillTypeGroupId>>(
+    () => new Set(["clearances"]),
   );
 
   const filtered = useMemo(() => {
@@ -58,11 +123,11 @@ export function DrillDashboard({
     });
   }, [cards, phaseFilter, classFilter]);
 
-  const groupedByPhase = useMemo(() => {
-    return RADIO_PHASES.map((phase) => ({
-      ...phase,
-      cards: filtered.filter((card) => card.phase === phase.id),
-    })).filter((phase) => phase.cards.length > 0);
+  const groupedByType = useMemo(() => {
+    return DRILL_TYPE_GROUPS.map((group) => ({
+      ...group,
+      cards: filtered.filter((card) => getDrillTypeGroupId(card) === group.id),
+    })).filter((group) => group.cards.length > 0);
   }, [filtered]);
 
   const passedIds = useMemo(() => getPassedDrillIds(attempts), [attempts]);
@@ -70,16 +135,13 @@ export function DrillDashboard({
 
   const selectPhaseFilter = (phase: PhaseFilter) => {
     setPhaseFilter(phase);
-    if (phase !== "all") {
-      setExpandedPhases((current) => new Set(current).add(phase));
-    }
   };
 
-  const togglePhase = (phase: RadioPhase) => {
-    setExpandedPhases((current) => {
+  const toggleTypeGroup = (groupId: DrillTypeGroupId) => {
+    setExpandedTypes((current) => {
       const next = new Set(current);
-      if (next.has(phase)) next.delete(phase);
-      else next.add(phase);
+      if (next.has(groupId)) next.delete(groupId);
+      else next.add(groupId);
       return next;
     });
   };
@@ -161,37 +223,40 @@ export function DrillDashboard({
       </div>
 
       {/* Card list */}
-      <div className="space-y-4" aria-label="Drill cards">
-        {groupedByPhase.map((phase) => {
-          const isExpanded = expandedPhases.has(phase.id);
+      <div className="space-y-4" aria-label="Drill cards grouped by call type">
+        {groupedByType.map((group, index) => {
+          const hasExpandedVisibleGroup = groupedByType.some((visibleGroup) =>
+            expandedTypes.has(visibleGroup.id),
+          );
+          const isExpanded = expandedTypes.has(group.id) || (!hasExpandedVisibleGroup && index === 0);
 
           return (
             <section
-              key={phase.id}
+              key={group.id}
               className="overflow-hidden rounded-2xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)]"
-              aria-labelledby={`drill-phase-${phase.id}`}
+              aria-labelledby={`drill-type-${group.id}`}
             >
               <button
                 type="button"
-                onClick={() => togglePhase(phase.id)}
+                onClick={() => toggleTypeGroup(group.id)}
                 aria-expanded={isExpanded}
-                aria-controls={`drill-phase-list-${phase.id}`}
+                aria-controls={`drill-type-list-${group.id}`}
                 className="flex w-full items-center justify-between gap-3 border-b border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)] px-4 py-3 text-left transition-colors hover:bg-[var(--ifr-accent)]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]"
               >
                 <div>
                   <h3
-                    id={`drill-phase-${phase.id}`}
+                    id={`drill-type-${group.id}`}
                     className="text-sm font-semibold text-[var(--ifr-text)]"
                   >
-                    {phase.label}
+                    {group.label}
                   </h3>
                   <p className="text-xs text-[var(--ifr-text-muted)]">
-                    {getPhaseDescription(phase.id)}
+                    {group.description}
                   </p>
                 </div>
                 <span className="flex shrink-0 items-center gap-2 text-xs font-semibold text-[var(--ifr-text-muted)]">
                   <span className="rounded-full bg-[var(--ifr-surface)] px-2 py-1">
-                    {phase.cards.length} {phase.cards.length === 1 ? "drill" : "drills"}
+                    {group.cards.length} {group.cards.length === 1 ? "drill" : "drills"}
                   </span>
                   <ChevronRight
                     size={16}
@@ -202,11 +267,11 @@ export function DrillDashboard({
               </button>
               {isExpanded && (
                 <ul
-                  id={`drill-phase-list-${phase.id}`}
+                  id={`drill-type-list-${group.id}`}
                   className="divide-y divide-[var(--ifr-border)]"
-                  aria-label={`${phase.label} drills`}
+                  aria-label={`${group.label} drills`}
                 >
-                  {phase.cards.map((card) => (
+                  {group.cards.map((card) => (
                     <DrillCardRow
                       key={card.drillId}
                       card={card}
@@ -278,6 +343,9 @@ function DrillCardRow({ card, attempts, isPassed, onOpenCard }: DrillCardRowProp
               {card.title}
             </h4>
             <div className="flex shrink-0 items-center gap-2 text-[10px] uppercase tracking-wider text-[var(--ifr-text-muted)]">
+              <span className="rounded bg-[var(--ifr-surface-muted)] px-1.5 py-0.5">
+                {getPhaseLabel(card.phase)}
+              </span>
               {card.airspaceClass && (
                 <span className="rounded bg-[var(--ifr-surface-muted)] px-1.5 py-0.5">
                   {card.airspaceClass === "CTAF" ? "CTAF" : `Class ${card.airspaceClass}`}
@@ -305,21 +373,116 @@ function DrillCardRow({ card, attempts, isPassed, onOpenCard }: DrillCardRowProp
   );
 }
 
-function getPhaseDescription(phase: RadioPhase): string {
+function getPhaseLabel(phase: RadioPhase): string {
   switch (phase) {
     case "pre-departure":
-      return "Clearances, ATIS, taxi, line-up, and take-off setup.";
+      return "Pre-departure";
     case "departure":
-      return "Initial airborne calls, climb instructions, and SID readbacks.";
+      return "Departure";
     case "enroute":
-      return "Centre check-ins, position reports, level changes, and routing.";
+      return "En-route";
     case "arrival":
-      return "Approach check-ins, descent, holds, vectors, and clearances.";
+      return "Arrival";
     case "final":
-      return "Final approach, landing, missed approach, and runway vacating.";
+      return "Final / Landing";
     case "non-normal":
-      return "PAN, MAYDAY, lost comms, and cancellation follow-up calls.";
+      return "Non-normal";
   }
+}
+
+function getDrillTypeGroupId(card: RadioDrillCard): DrillTypeGroupId {
+  const tags = card.tags?.map((tag) => tag.toLowerCase()) ?? [];
+  const haystack = [card.drillId, card.title, card.briefing.summary, card.challenge.prompt, ...tags]
+    .join(" ")
+    .toLowerCase();
+
+  if (
+    card.airspaceClass === "CTAF" ||
+    hasAny(haystack, ["ctaf", "broadcast", "traffic", "circuit", "overflying"])
+  ) {
+    return "ctaf-broadcasts";
+  }
+
+  if (
+    hasAny(haystack, [
+      "pan-pan",
+      "pan pan",
+      "mayday",
+      "distress",
+      "emergency",
+      "lost-comms",
+      "lost comms",
+      "nordo",
+      "tcas",
+      "resolution advisory",
+      "minimum fuel",
+      "mayday fuel",
+      "rvsm",
+      "unable rvsm",
+    ])
+  ) {
+    return "abnormal-emergency";
+  }
+
+  if (hasAny(haystack, ["clearance", "sid"])) {
+    return "clearances";
+  }
+
+  if (
+    hasAny(haystack, [
+      "taxi",
+      "lineup",
+      "line-up",
+      "takeoff",
+      "take-off",
+      "landing",
+      "cleared to land",
+      "runway crossing",
+      "crossing runway",
+      "vacate",
+      "clear of runway",
+    ])
+  ) {
+    return "ground-runway";
+  }
+
+  if (hasAny(haystack, ["atis", "sartime", "qnh"])) {
+    return "services-info";
+  }
+
+  if (hasAny(haystack, ["check-in", "checkin", "handoff", "frequency-change", "frequency change", "contact"])) {
+    return "checkins-handoffs";
+  }
+
+  if (hasAny(haystack, ["position-report", "position report", "compulsory-report", "compulsory report", "estimate", "established", "report"])) {
+    return "position-reports";
+  }
+
+  if (
+    hasAny(haystack, [
+      "approach",
+      "arrival",
+      "descent",
+      "descending",
+      "hold",
+      "holding",
+      "vector",
+      "ils",
+      "missed approach",
+      "go-around",
+      "going around",
+      "visual approach",
+      "cancel ifr",
+    ])
+  ) {
+    return "approach-arrival";
+  }
+
+  return "atc-instructions";
+}
+
+function hasAny(value: string, needles: readonly string[]): boolean {
+  return needles.some((needle) => value.includes(needle));
 }
 
 interface FilterChipProps {

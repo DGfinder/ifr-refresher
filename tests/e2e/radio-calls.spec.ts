@@ -32,13 +32,14 @@ test.describe("Radio Calls", () => {
     await expect(page.getByRole("tab", { name: /Class C/i })).toBeVisible();
     await expect(page.getByRole("tab", { name: /CTAF/i }).first()).toBeVisible();
 
-    // Phase filter row and grouped phase headers keep the long drill list scannable.
+    // Phase filters stay available, while type headers make the long drill list scannable.
     await expect(page.getByText(/Flight phase/i)).toBeVisible();
-    await expect(page.getByRole("heading", { name: /Pre-departure/i })).toBeVisible();
-    await expect(page.getByText(/Clearances, ATIS, taxi/i)).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Clearances/i })).toBeVisible();
+    await expect(page.getByText(/IFR clearances, SID clearance readbacks/i)).toBeVisible();
 
     // Open the first drill card in the list.
-    const firstCard = page.getByRole("button", { name: /Request IFR clearance|IFR clearance/i }).first();
+    const clearanceList = page.getByRole("list", { name: /Clearances drills/i });
+    const firstCard = clearanceList.getByRole("button", { name: /Request IFR clearance/i }).first();
     await expect(firstCard).toBeVisible();
     await firstCard.click();
 
@@ -49,7 +50,7 @@ test.describe("Radio Calls", () => {
     const textarea = page.getByPlaceholder(/type the call/i);
     await expect(textarea).toBeVisible();
     await textarea.fill(
-      "Bankstown Tower, Lima Mike Sierra, IFR clearance to Coffs Harbour, information Mike.",
+      "Bankstown Tower, Lima Echo Foxtrot, IFR clearance to Coffs Harbour, information Mike.",
     );
 
     // Submit and check the reveal includes the AIP-standard exemplar.
@@ -70,8 +71,8 @@ test.describe("Radio Calls", () => {
     await page.getByRole("tab", { name: /CTAF/i }).first().click();
 
     // Cards visible after filtering should carry the CTAF badge — assert
-    // the first visible card's row inside the first phase group contains "CTAF".
-    const cardList = page.getByRole("list", { name: /Pre-departure drills|Departure drills|En-route drills|Arrival drills|Final \/ Landing drills|Non-normal drills/i }).first();
+    // the first visible card's row inside the CTAF type group contains "CTAF".
+    const cardList = page.getByRole("list", { name: /CTAF broadcasts drills/i }).first();
     await expect(cardList).toBeVisible();
     const firstRow = cardList.locator("li").first();
     await expect(firstRow.locator("span", { hasText: /^CTAF$/ })).toBeVisible();
