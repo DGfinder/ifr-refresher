@@ -15,8 +15,10 @@ import { RadioResults } from "@/features/radio-calls/components/RadioResults";
 import { DrillDashboard } from "@/features/radio-calls/components/DrillDashboard";
 import { DrillCardView } from "@/features/radio-calls/components/DrillCardView";
 import { useRadioDrillHistory } from "@/features/radio-calls/hooks/useRadioDrillHistory";
-import { cn } from "@/shared/lib/cn";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
+import { Button } from "@/shared/ui/button";
+import { Card } from "@/shared/ui/card";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/shared/ui/tabs";
 
 type Tab = "scenarios" | "drill";
 
@@ -52,75 +54,37 @@ export function RadioScreen() {
   const [tab, setTab] = useState<Tab>(initialTab);
 
   return (
-    <div>
-      <RadioHeader tab={tab} onTabChange={setTab} />
-      {tab === "scenarios" ? (
-        <ScenariosTab />
-      ) : (
-        <DrillTab initialPhase={initialPhase} initialClass={initialClass} />
-      )}
-    </div>
-  );
-}
-
-interface RadioHeaderProps {
-  tab: Tab;
-  onTabChange: (tab: Tab) => void;
-}
-
-function RadioHeader({ tab, onTabChange }: RadioHeaderProps) {
-  return (
-    <div className="mx-auto max-w-2xl px-6 pt-6">
-      <h1 className="mb-2 text-2xl font-bold text-[var(--ifr-text)] md:text-3xl">
-        Radio Calls
-      </h1>
-      <p className="mb-4 text-sm text-[var(--ifr-text-muted)]">
-        AIP phraseology practice. Speak the call, type it, or pick it — drawn
-        from AIP GEN 3.4 / 3.6, AIP ENR 1.5, and MATS Part 4.
-      </p>
-      <div className="mb-4 flex gap-1 rounded-xl bg-[var(--ifr-surface-muted)] p-1" role="tablist">
-        <TabButton
-          label="Drill"
-          sublabel="One call at a time"
-          active={tab === "drill"}
-          onClick={() => onTabChange("drill")}
-        />
-        <TabButton
-          label="Scenarios"
-          sublabel="Multi-leg flight"
-          active={tab === "scenarios"}
-          onClick={() => onTabChange("scenarios")}
-        />
+    <Tabs value={tab} onValueChange={(v) => setTab(v as Tab)} className="block">
+      <div className="mx-auto max-w-2xl px-6 pt-6">
+        <h1 className="mb-2 text-2xl font-bold text-[var(--ifr-text)] md:text-3xl">
+          Radio Calls
+        </h1>
+        <p className="mb-4 text-sm text-[var(--ifr-text-muted)]">
+          AIP phraseology practice. Speak the call, type it, or pick it — drawn
+          from AIP GEN 3.4 / 3.6, AIP ENR 1.5, and MATS Part 4.
+        </p>
+        <TabsList className="mb-4 flex w-full">
+          <TabsTrigger value="drill" className="flex-col items-start py-2">
+            <span className="text-sm font-semibold">Drill</span>
+            <span className="text-[10px] uppercase tracking-wider opacity-70">
+              One call at a time
+            </span>
+          </TabsTrigger>
+          <TabsTrigger value="scenarios" className="flex-col items-start py-2">
+            <span className="text-sm font-semibold">Scenarios</span>
+            <span className="text-[10px] uppercase tracking-wider opacity-70">
+              Multi-leg flight
+            </span>
+          </TabsTrigger>
+        </TabsList>
       </div>
-    </div>
-  );
-}
-
-interface TabButtonProps {
-  label: string;
-  sublabel: string;
-  active: boolean;
-  onClick: () => void;
-}
-
-function TabButton({ label, sublabel, active, onClick }: TabButtonProps) {
-  return (
-    <button
-      type="button"
-      role="tab"
-      aria-selected={active}
-      onClick={onClick}
-      className={cn(
-        "flex flex-1 flex-col items-start rounded-lg px-3 py-2 text-left transition-colors",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
-        active
-          ? "bg-[var(--ifr-surface)] text-[var(--ifr-text)] shadow-sm"
-          : "text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]",
-      )}
-    >
-      <span className="text-sm font-semibold">{label}</span>
-      <span className="text-[10px] uppercase tracking-wider opacity-70">{sublabel}</span>
-    </button>
+      <TabsContent value="scenarios">
+        <ScenariosTab />
+      </TabsContent>
+      <TabsContent value="drill">
+        <DrillTab initialPhase={initialPhase} initialClass={initialClass} />
+      </TabsContent>
+    </Tabs>
   );
 }
 
@@ -155,19 +119,20 @@ function ScenariosTab() {
     return (
       <div className="mx-auto max-w-2xl px-6 pb-6">
         <div className="mb-4 flex items-center justify-between">
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={session.resetToDashboard}
-            className="text-sm text-[var(--ifr-text-muted)] transition-colors hover:text-[var(--ifr-text)]"
+            className="-ml-2 h-auto px-2 py-1 text-sm font-normal"
           >
             ← Back
-          </button>
+          </Button>
           <span className="text-xs font-medium text-[var(--ifr-text-muted)]">
             Leg {session.currentLegIndex + 1} of {session.totalLegs}
           </span>
         </div>
 
-        <div className="mb-4 rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 text-sm">
+        <Card className="mb-4 p-4 text-sm">
           <p className="font-semibold text-[var(--ifr-text)]">
             {session.currentScenario.title}
           </p>
@@ -180,7 +145,7 @@ function ScenariosTab() {
             {" · "}
             {session.currentScenario.briefing.flightRules}
           </p>
-        </div>
+        </Card>
 
         <ProgressBar
           value={progressPct}
@@ -222,23 +187,15 @@ function ScenariosTab() {
               />
             )}
             {session.isAnswered && (
-              <button
-                type="button"
-                onClick={session.advance}
-                className="mt-4 w-full rounded-xl bg-[var(--ifr-cta-bg)] py-3 font-medium text-white transition-colors hover:bg-[var(--ifr-cta-bg-hover)]"
-              >
+              <Button onClick={session.advance} size="lg" className="mt-4 w-full">
                 {session.currentLegIndex + 1 >= session.totalLegs ? "See Results" : "Continue"}
-              </button>
+              </Button>
             )}
           </>
         ) : (
-          <button
-            type="button"
-            onClick={session.advance}
-            className="w-full rounded-xl bg-[var(--ifr-cta-bg)] py-3 font-medium text-white transition-colors hover:bg-[var(--ifr-cta-bg-hover)]"
-          >
+          <Button onClick={session.advance} size="lg" className="w-full">
             {session.currentLegIndex + 1 >= session.totalLegs ? "See Results" : "Continue"}
-          </button>
+          </Button>
         )}
       </div>
     );

@@ -15,6 +15,8 @@ import { NextCallChoice } from "@/features/radio-calls/components/NextCallChoice
 import { ReadbackBuilder } from "@/features/radio-calls/components/ReadbackBuilder";
 import { SpokenCallChallenge } from "@/features/radio-calls/components/SpokenCallChallenge";
 import type { RadioAnswerRecord } from "@/features/radio-calls/model/types";
+import { Button } from "@/shared/ui/button";
+import { Card } from "@/shared/ui/card";
 
 interface DrillCardViewProps {
   card: RadioDrillCard;
@@ -95,13 +97,14 @@ export function DrillCardView({ card, onBack, onComplete }: DrillCardViewProps) 
   return (
     <div className="mx-auto max-w-2xl px-6 py-6">
       <div className="mb-4 flex items-center justify-between">
-        <button
-          type="button"
+        <Button
+          variant="ghost"
+          size="sm"
           onClick={onBack}
-          className="text-sm text-[var(--ifr-text-muted)] transition-colors hover:text-[var(--ifr-text)]"
+          className="-ml-2 h-auto px-2 py-1 text-sm font-normal"
         >
           ← Back to drills
-        </button>
+        </Button>
         <span className="text-xs font-medium uppercase tracking-wider text-[var(--ifr-text-muted)]">
           {card.phase.replace("-", " ")}
         </span>
@@ -124,7 +127,7 @@ export function DrillCardView({ card, onBack, onComplete }: DrillCardViewProps) 
       </Link>
 
       {/* Briefing card */}
-      <div className="mb-4 rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+      <Card className="mb-4 p-4">
         <h2 className="mb-2 text-lg font-semibold text-[var(--ifr-text)]">
           {card.title}
         </h2>
@@ -149,11 +152,11 @@ export function DrillCardView({ card, onBack, onComplete }: DrillCardViewProps) 
         <p className="mt-3 text-sm leading-relaxed text-[var(--ifr-text-muted)]">
           {card.briefing.summary}
         </p>
-      </div>
+      </Card>
 
       {/* Last ATC transmission, if any */}
       {card.briefing.lastTransmission && (
-        <div className="mb-4 rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)] p-3 text-sm">
+        <Card className="mb-4 bg-[var(--ifr-surface-muted)] p-3 text-sm shadow-none">
           <div className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--ifr-text-muted)]">
             <Radio size={12} aria-hidden="true" />
             <span>ATC</span>
@@ -162,7 +165,7 @@ export function DrillCardView({ card, onBack, onComplete }: DrillCardViewProps) 
             )}
           </div>
           <p className="text-[var(--ifr-text)]">{card.briefing.lastTransmission.text}</p>
-        </div>
+        </Card>
       )}
 
       {/* Challenge */}
@@ -194,22 +197,12 @@ export function DrillCardView({ card, onBack, onComplete }: DrillCardViewProps) 
 
       {isAnswered && (
         <div className="mt-4 grid grid-cols-2 gap-3">
-          <button
-            type="button"
-            onClick={onBack}
-            className={cn(
-              "rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] py-3 text-sm font-medium text-[var(--ifr-text)] transition-colors hover:bg-[var(--ifr-surface-muted)]",
-            )}
-          >
+          <Button variant="secondary" size="lg" onClick={onBack}>
             Back to drills
-          </button>
-          <button
-            type="button"
-            onClick={handleDone}
-            className="rounded-xl bg-[var(--ifr-cta-bg)] py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--ifr-cta-bg-hover)]"
-          >
+          </Button>
+          <Button size="lg" onClick={handleDone}>
             Mark done
-          </button>
+          </Button>
         </div>
       )}
 

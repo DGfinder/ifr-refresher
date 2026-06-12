@@ -8,6 +8,7 @@ import { ErrorBoundary } from "@/app-shell/error/ErrorBoundary";
 import { ContentDisclaimer } from "@/app-shell/components/ContentDisclaimer";
 import { StorageStatusBanner } from "@/app-shell/components/StorageStatusBanner";
 import { IFR_THEME } from "@/app-shell/theme/theme";
+import { TooltipProvider } from "@/shared/ui/tooltip";
 
 const barlowCondensed = Barlow_Condensed({
   variable: "--font-display",
@@ -59,13 +60,15 @@ export default function RootLayout({
       >
         <ErrorBoundary>
           <ProgramProvider>
-            <div className="min-h-screen pb-16 md:pb-0">
-              <AppHeader />
-              <StorageStatusBanner />
-              <MainNav />
-              <main>{children}</main>
-              <ContentDisclaimer />
-            </div>
+            <TooltipProvider delayDuration={200}>
+              <div className="min-h-screen pb-16 md:pb-0">
+                <AppHeader />
+                <StorageStatusBanner />
+                <MainNav />
+                <main>{children}</main>
+                <ContentDisclaimer />
+              </div>
+            </TooltipProvider>
           </ProgramProvider>
         </ErrorBoundary>
       </body>

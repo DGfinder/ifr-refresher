@@ -8,6 +8,8 @@ import type {
   RadioAnswerMap,
   RadioResult,
 } from "@/features/radio-calls/model/types";
+import { Button } from "@/shared/ui/button";
+import { Card } from "@/shared/ui/card";
 
 interface RadioResultsProps {
   scenario: RadioScenario;
@@ -63,7 +65,7 @@ export function RadioResults({
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
-      <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-6 text-center">
+      <Card className="p-6 text-center">
         <p className="text-sm font-medium uppercase tracking-wider text-[var(--ifr-text-muted)]">
           {scenario.title}
         </p>
@@ -74,9 +76,9 @@ export function RadioResults({
           {result.correctAnswers} of {result.totalQuestions} calls correct
         </p>
         <p className="mt-2 text-base font-medium text-[var(--ifr-text)]">{feedback}</p>
-      </div>
+      </Card>
 
-      <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4">
+      <Card className="p-4">
         <h3 className="mb-3 text-sm font-semibold text-[var(--ifr-text-muted)]">
           Per-call breakdown
         </h3>
@@ -135,26 +137,18 @@ export function RadioResults({
             );
           })}
         </ul>
-      </div>
+      </Card>
 
       <div className="grid grid-cols-2 gap-3">
-        <button
-          type="button"
-          onClick={onBackToDashboard}
-          className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] py-3 font-medium text-[var(--ifr-text)] transition-colors hover:bg-[var(--ifr-surface-muted)]"
-        >
+        <Button variant="secondary" size="lg" onClick={onBackToDashboard}>
           Choose Another
-        </button>
-        <button
-          type="button"
-          onClick={onPlayAgain}
-          className="rounded-xl bg-[var(--ifr-cta-bg)] py-3 font-medium text-white transition-colors hover:bg-[var(--ifr-cta-bg-hover)]"
-        >
+        </Button>
+        <Button size="lg" onClick={onPlayAgain}>
           Try Again
-        </button>
+        </Button>
       </div>
 
-      <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)] p-4 text-xs leading-relaxed text-[var(--ifr-text-muted)]">
+      <Card className="bg-[var(--ifr-surface-muted)] p-4 text-xs leading-relaxed text-[var(--ifr-text-muted)] shadow-none">
         <p className="mb-1 font-semibold uppercase tracking-wider">Reminder</p>
         <p>
           These scenarios are study material drawn from AIP Australia and MATS — they
@@ -162,7 +156,7 @@ export function RadioResults({
           standard operating procedures. Always verify against the current source
           before flight.
         </p>
-      </div>
+      </Card>
     </div>
   );
 }

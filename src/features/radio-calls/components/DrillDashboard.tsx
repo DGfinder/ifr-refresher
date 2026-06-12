@@ -14,6 +14,7 @@ import {
   getPassedDrillIds,
   type RadioDrillAttempt,
 } from "@/features/radio-calls/storage/radioDrillStore";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/shared/ui/tooltip";
 
 interface DrillDashboardProps {
   cards: RadioDrillCard[];
@@ -231,13 +232,12 @@ interface FilterChipProps {
 }
 
 function FilterChip({ label, title, active, count, onClick }: FilterChipProps) {
-  return (
+  const chip = (
     <button
       type="button"
       role="tab"
       aria-selected={active}
       onClick={onClick}
-      title={title}
       className={cn(
         "flex items-center gap-1.5 whitespace-nowrap rounded-full border px-3 py-1.5 text-sm font-medium transition-colors",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
@@ -258,5 +258,13 @@ function FilterChip({ label, title, active, count, onClick }: FilterChipProps) {
         {count}
       </span>
     </button>
+  );
+
+  if (!title) return chip;
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>{chip}</TooltipTrigger>
+      <TooltipContent>{title}</TooltipContent>
+    </Tooltip>
   );
 }
