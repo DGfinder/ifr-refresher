@@ -2,10 +2,11 @@ import { expect, test } from "@playwright/test";
 
 test.describe("Radio calls study guide", () => {
   test("organises the radio guide by call type and opens matching modules", async ({ page }) => {
-    await page.goto("/study?section=radio-calls");
+    await page.goto("/radio?tab=learn");
 
     await expect(page.getByRole("heading", { name: /^Radio Calls$/i, level: 1 })).toBeVisible();
-    await expect(page.locator("header").getByText(/Call-type radiotelephony reference/i)).toBeVisible();
+    await expect(page.getByText(/Phraseology theory/i)).toBeVisible();
+    await expect(page.getByText(/AIP-sourced phrase families/i)).toBeVisible();
 
     await expect(page.getByRole("button", { name: /Clearance, ground & runway/i }).first()).toBeVisible();
     await expect(page.getByRole("button", { name: /Check-ins, instructions & reports/i }).first()).toBeVisible();

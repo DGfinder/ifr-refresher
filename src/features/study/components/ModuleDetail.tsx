@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, Bookmark, BookmarkCheck, Radio, Sparkles } from "lucide-react";
-import type { Module } from "@/content/model/section";
+import type { ContentBlock as ContentBlockType, Module } from "@/content/model/section";
 import type { ModuleStatus } from "@/features/progress";
 import { Badge } from "@/shared/ui/Badge";
 import { ContentBlock } from "@/content/components/ContentBlock";
@@ -47,6 +47,19 @@ interface ModuleDetailProps {
    * list blocks. Used by the radio-calls Learn tab to surface canonical
    * pronunciation of each call. */
   speakable?: boolean;
+}
+
+export function orderContentBlocksForStudy(
+  blocks: readonly ContentBlockType[],
+): ContentBlockType[] {
+  const activeRecallTypes = new Set<ContentBlockType["type"]>([
+    "qa",
+    "ipc_questions",
+    "airline_questions",
+  ]);
+  const studyContent = blocks.filter((block) => !activeRecallTypes.has(block.type));
+  const activeRecall = blocks.filter((block) => activeRecallTypes.has(block.type));
+  return [...studyContent, ...activeRecall];
 }
 
 export function ModuleDetail({
@@ -188,24 +201,9 @@ export function ModuleDetail({
           coloured surfaces (law/numbers/traps) so prose only affects
           paragraph + list rhythm. */}
       <div className="prose prose-sm max-w-none dark:prose-invert prose-headings:font-semibold prose-headings:text-[var(--ifr-text)] prose-p:text-[var(--ifr-text)] prose-strong:text-[var(--ifr-text)] prose-li:text-[var(--ifr-text)] prose-a:text-[var(--ifr-accent)]">
-        {[...module.content]
-          .sort((a, b) => {
-            const ORDER: Record<string, number> = {
-              ops_context: 0,
-              numbers: 1,
-              traps: 2,
-              law: 3,
-              reference: 4,
-              qa: 5,
-              ipc_questions: 6,
-              airline_questions: 7,
-              scenario: 8,
-            };
-            return (ORDER[a.type] ?? 99) - (ORDER[b.type] ?? 99);
-          })
-          .map((block, index) => (
-            <ContentBlock key={index} block={block} speakable={speakable} />
-          ))}
+        {orderContentBlocksForStudy(module.content).map((block, index) => (
+          <ContentBlock key={index} block={block} speakable={speakable} />
+        ))}
       </div>
 
       {/* References */}

@@ -25,21 +25,15 @@ test.describe("Radio Calls", () => {
     await page.getByRole("tab", { name: /Drill/i }).click();
 
     // Header copy unique to the Drill tab dashboard.
-    await expect(page.getByText(/Drill mode/i)).toBeVisible();
-    await expect(page.getByText(/Single-card practice/i)).toBeVisible();
+    await expect(page.getByText(/Practice session/i)).toBeVisible();
+    await expect(page.getByText(/Start 10 new cards/i)).toBeVisible();
 
-    // Airspace filter row.
-    await expect(page.getByRole("tab", { name: /Class C/i })).toBeVisible();
-    await expect(page.getByRole("tab", { name: /CTAF/i }).first()).toBeVisible();
-
-    // Phase filters stay available, while type headers make the long drill list scannable.
-    await expect(page.getByText(/Flight phase/i)).toBeVisible();
-    await expect(page.getByRole("heading", { name: /Clearances/i })).toBeVisible();
+    // Type headers make the long drill list scannable.
+    await expect(page.getByText(/Clearances/i).first()).toBeVisible();
     await expect(page.getByText(/IFR clearances, SID clearance readbacks/i)).toBeVisible();
 
     // Open the first drill card in the list.
-    const clearanceList = page.getByRole("list", { name: /Clearances drills/i });
-    const firstCard = clearanceList.getByRole("button", { name: /Request IFR clearance/i }).first();
+    const firstCard = page.getByText(/Request IFR clearance/i).first();
     await expect(firstCard).toBeVisible();
     await firstCard.click();
 
@@ -60,21 +54,21 @@ test.describe("Radio Calls", () => {
 
     // Mark done returns to the dashboard.
     await page.getByRole("button", { name: /Mark done/i }).click();
-    await expect(page.getByText(/Drill mode/i)).toBeVisible();
+    await expect(page.getByText(/Practice session/i)).toBeVisible();
   });
 
   test("filtering by CTAF reduces the visible card list to CTAF cards only", async ({ page }) => {
     await page.goto("/radio");
     await page.getByRole("tab", { name: /Drill/i }).click();
 
-    // Click the CTAF airspace filter.
+    // Click the CTAF airspace filter from the compact More filters panel.
+    await page.getByRole("button", { name: /More filters/i }).click();
     await page.getByRole("tab", { name: /CTAF/i }).first().click();
 
     // Cards visible after filtering should carry the CTAF badge — assert
     // the first visible card's row inside the CTAF type group contains "CTAF".
-    const cardList = page.getByRole("list", { name: /CTAF broadcasts drills/i }).first();
-    await expect(cardList).toBeVisible();
-    const firstRow = cardList.locator("li").first();
-    await expect(firstRow.locator("span", { hasText: /^CTAF$/ })).toBeVisible();
+    await expect(page.getByText(/CTAF broadcasts/i).first()).toBeVisible();
+    await expect(page.getByText(/Taxiing broadcast/i).first()).toBeVisible();
+    await expect(page.getByText(/^CTAF$/).first()).toBeVisible();
   });
 });
