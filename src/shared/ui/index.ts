@@ -18,3 +18,26 @@ export { Tabs, TabsList, TabsTrigger, TabsContent } from "./tabs";
 export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "./tooltip";
 export { Progress } from "./progress";
 export { Separator } from "./separator";
+export {
+  Sheet,
+  SheetTrigger,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from "./sheet";
+export {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "./accordion";
+export {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "./breadcrumb";

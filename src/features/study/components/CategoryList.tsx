@@ -7,84 +7,81 @@ interface CategoryListProps {
   categories: Category[];
   selectedCategoryId: string | null;
   onSelectCategory: (categoryId: string | null) => void;
+  /** Used by the mobile accordion to show progress + module counts per
+   * category. Returns the matching modules for the section so the caller
+   * can compute counts. Optional for back-compat. */
+  getCategoryStats?: (categoryId: string) => { completed: number; total: number };
 }
 
+/**
+ * Vertical category list — designed for both the desktop sidebar and the
+ * mobile module-list page. Use within the existing structure on desktop
+ * (sidebar with `<aside>`); on mobile, wrap in a `<CategoryAccordion>` so
+ * each category collapses by default.
+ */
 export function CategoryList({
   categories,
   selectedCategoryId,
   onSelectCategory,
+  getCategoryStats,
 }: CategoryListProps) {
   return (
-    <>
-      {/* Mobile: Horizontal scrollable list */}
-      <div className="flex gap-2 overflow-x-auto pb-2 md:hidden">
-        <button
-          onClick={() => onSelectCategory(null)}
-          className={cn(
-            "shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors",
-            selectedCategoryId === null
-              ? "bg-primary text-primary-foreground"
-              : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-          )}
-        >
-          All
-        </button>
-        {categories.map((category) => (
+    <nav className="space-y-1" aria-label="Study categories">
+      <button
+        type="button"
+        onClick={() => onSelectCategory(null)}
+        className={cn(
+          "w-full rounded-lg px-3 py-2 text-left text-sm font-medium transition-colors",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+          selectedCategoryId === null
+            ? "bg-primary text-primary-foreground"
+            : "text-foreground hover:bg-secondary",
+        )}
+      >
+        All Categories
+      </button>
+      {categories.map((category) => {
+        const stats = getCategoryStats?.(category.id);
+        const isSelected = selectedCategoryId === category.id;
+        return (
           <button
             key={category.id}
+            type="button"
             onClick={() => onSelectCategory(category.id)}
             className={cn(
-              "shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors",
-              selectedCategoryId === category.id
+              "w-full rounded-lg px-3 py-2 text-left transition-colors",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+              isSelected
                 ? "bg-primary text-primary-foreground"
-                : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                : "text-foreground hover:bg-secondary",
             )}
           >
-            {category.title}
-          </button>
-        ))}
-      </div>
-
-      {/* Desktop: Vertical sidebar */}
-      <div className="hidden md:block">
-        <nav className="space-y-1" aria-label="Study categories">
-          <button
-            onClick={() => onSelectCategory(null)}
-            className={cn(
-              "w-full rounded-lg px-3 py-2 text-left text-sm font-medium transition-colors",
-              selectedCategoryId === null
-                ? "bg-primary text-primary-foreground"
-                : "text-foreground hover:bg-secondary"
-            )}
-          >
-            All Categories
-          </button>
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => onSelectCategory(category.id)}
+            <div className="flex items-baseline justify-between gap-2">
+              <span className="text-sm font-medium">{category.title}</span>
+              {stats && (
+                <span
+                  className={cn(
+                    "shrink-0 text-[11px] font-medium",
+                    isSelected
+                      ? "text-primary-foreground/80"
+                      : "text-muted-foreground",
+                  )}
+                >
+                  {stats.completed}/{stats.total}
+                </span>
+              )}
+            </div>
+            <div
               className={cn(
-                "w-full rounded-lg px-3 py-2 text-left transition-colors",
-                selectedCategoryId === category.id
-                  ? "bg-primary text-primary-foreground"
-                  : "text-foreground hover:bg-secondary"
+                "mt-0.5 line-clamp-1 text-xs",
+                isSelected ? "text-primary-foreground/80" : "text-muted-foreground",
               )}
             >
-              <div className="text-sm font-medium">{category.title}</div>
-              <div
-                className={cn(
-                  "mt-0.5 text-xs",
-                  selectedCategoryId === category.id
-                    ? "text-primary-foreground/80"
-                    : "text-muted-foreground"
-                )}
-              >
-                {category.description}
-              </div>
-            </button>
-          ))}
-        </nav>
-      </div>
-    </>
+              {category.description}
+            </div>
+          </button>
+        );
+      })}
+    </nav>
   );
 }

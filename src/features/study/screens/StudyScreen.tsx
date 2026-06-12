@@ -11,8 +11,23 @@ import {
 } from "@/features/radio-calls";
 import { SearchBar } from "@/features/study/components/SearchBar";
 import { SectionSelector } from "@/features/study/components/SectionSelector";
+import { SectionPickerSheet } from "@/features/study/components/SectionPickerSheet";
 import { sections } from "@/content/registry/sections";
 import { useProgress } from "@/features/progress";
+import { cn } from "@/shared/lib/cn";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/shared/ui/breadcrumb";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/shared/ui/accordion";
 
 function StudyPageContent() {
   const { getStatus, setStatus, getCompletionStats } = useProgress();
@@ -145,19 +160,78 @@ function StudyPageContent() {
     );
   }
 
+  // Compute per-category stats so the mobile accordion + desktop sidebar
+  // can show progress at a glance without re-walking the module list.
+  const getCategoryStats = (categoryId: string) => {
+    if (!currentSection) return { completed: 0, total: 0 };
+    const cat = currentSection.categories.find((c) => c.id === categoryId);
+    if (!cat) return { completed: 0, total: 0 };
+    const mods = currentSection.modules.filter((m) => cat.moduleIds.includes(m.id));
+    const completed = mods.filter(
+      (m) => getModuleStatus(m.id) === "completed",
+    ).length;
+    return { completed, total: mods.length };
+  };
+
+  const selectedCategoryTitle = selectedCategoryId
+    ? currentSection?.categories.find((c) => c.id === selectedCategoryId)?.title
+    : null;
+
   // Show category/module list view
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-6">
-      {/* Section selector */}
-      <SectionSelector
-        sections={programSections}
-        selectedSectionId={selectedSectionId}
-        onSelectSection={handleSelectSection}
-        getCompletionStats={getCompletionStats}
-      />
+      {/* Breadcrumb — sticky path indicator */}
+      <Breadcrumb className="mb-3">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbPage className="text-[var(--ifr-text-muted)] font-normal">
+              Study
+            </BreadcrumbPage>
+          </BreadcrumbItem>
+          {currentSection && (
+            <>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{currentSection.sectionTitle}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </>
+          )}
+          {selectedCategoryTitle && (
+            <>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{selectedCategoryTitle}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </>
+          )}
+        </BreadcrumbList>
+      </Breadcrumb>
 
-      {/* Header */}
-      <header className="mb-6">
+      {/* Mobile: single section-picker pill that opens a bottom sheet */}
+      <div className="mb-4 md:hidden">
+        <SectionPickerSheet
+          sections={programSections}
+          selectedSectionId={selectedSectionId}
+          onSelectSection={handleSelectSection}
+          getCompletionStats={getCompletionStats}
+        />
+      </div>
+
+      {/* Desktop: keep the grid — works fine, lots of horizontal room */}
+      <div className="hidden md:block">
+        <SectionSelector
+          sections={programSections}
+          selectedSectionId={selectedSectionId}
+          onSelectSection={handleSelectSection}
+          getCompletionStats={getCompletionStats}
+        />
+      </div>
+
+      {/* Compact section header (replaces the chunky title + description block).
+          On a mobile screen the breadcrumb + picker already show the section,
+          so the heading shrinks and the long description moves to a popover
+          via the section description in the sheet itself. */}
+      <header className="mb-4 hidden md:block">
         <h1 className="text-2xl font-bold text-foreground md:text-3xl">
           {currentSection?.sectionTitle}
         </h1>
@@ -172,7 +246,7 @@ function StudyPageContent() {
       </header>
 
       {/* Search bar */}
-      <div className="mb-6">
+      <div className="mb-4">
         <SearchBar
           value={searchQuery}
           onChange={setSearchQuery}
@@ -180,13 +254,68 @@ function StudyPageContent() {
         />
       </div>
 
-      {/* Categories (mobile: horizontal scroll) */}
-      <div className="mb-6 md:hidden">
-        <CategoryList
-          categories={currentSection?.categories ?? []}
-          selectedCategoryId={selectedCategoryId}
-          onSelectCategory={handleSelectCategory}
-        />
+      {/* Mobile: categories as a vertical accordion. Default-collapsed so
+          the module list is the primary content. Each header shows category
+          progress at a glance. */}
+      <div className="mb-4 md:hidden">
+        <Accordion
+          type="single"
+          collapsible
+          {...(selectedCategoryId ? { defaultValue: selectedCategoryId } : {})}
+          className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] px-4"
+        >
+          {(currentSection?.categories ?? []).map((category) => {
+            const stats = getCategoryStats(category.id);
+            const isActive = selectedCategoryId === category.id;
+            return (
+              <AccordionItem key={category.id} value={category.id}>
+                <AccordionTrigger>
+                  <span className="flex flex-1 items-center justify-between gap-2">
+                    <span
+                      className={cn(
+                        "truncate text-sm",
+                        isActive
+                          ? "font-semibold text-[var(--ifr-accent)]"
+                          : "font-medium text-[var(--ifr-text)]",
+                      )}
+                    >
+                      {category.title}
+                    </span>
+                    <span className="shrink-0 text-[11px] font-medium text-[var(--ifr-text-muted)]">
+                      {stats.completed}/{stats.total}
+                    </span>
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="mb-2 text-xs text-[var(--ifr-text-muted)]">
+                    {category.description}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => handleSelectCategory(category.id)}
+                    className={cn(
+                      "w-full rounded-lg px-3 py-2 text-left text-sm font-medium transition-colors",
+                      isActive
+                        ? "bg-[var(--ifr-accent)] text-[var(--ifr-cta-fg)]"
+                        : "bg-[var(--ifr-surface-muted)] text-[var(--ifr-text)] hover:bg-[var(--ifr-accent)]/10",
+                    )}
+                  >
+                    {isActive ? "Showing modules below ✓" : "Show modules in this category"}
+                  </button>
+                </AccordionContent>
+              </AccordionItem>
+            );
+          })}
+        </Accordion>
+        {selectedCategoryId && (
+          <button
+            type="button"
+            onClick={() => handleSelectCategory(null)}
+            className="mt-2 text-xs text-[var(--ifr-text-muted)] underline-offset-2 hover:text-[var(--ifr-text)] hover:underline"
+          >
+            Show all categories
+          </button>
+        )}
       </div>
 
       {/* Main content area */}
@@ -201,6 +330,7 @@ function StudyPageContent() {
               categories={currentSection?.categories ?? []}
               selectedCategoryId={selectedCategoryId}
               onSelectCategory={handleSelectCategory}
+              getCategoryStats={getCategoryStats}
             />
           </div>
         </aside>
@@ -209,10 +339,7 @@ function StudyPageContent() {
         <div className="min-w-0 flex-1">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-lg font-semibold text-foreground">
-              {selectedCategoryId
-                ? currentSection?.categories.find((c) => c.id === selectedCategoryId)?.title ||
-                  "Modules"
-                : "All Modules"}
+              {selectedCategoryTitle ?? "All Modules"}
             </h2>
             <span className="text-sm text-muted-foreground">
               {filteredModules.length} module
