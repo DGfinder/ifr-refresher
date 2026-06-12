@@ -33,6 +33,8 @@ export {
   getAttemptedDrillIds,
   getPassedDrillIds,
   getRecentDrillIds,
+  getRecentAttempts,
+  getDailyAttemptStreak,
   type RadioDrillAttempt,
   type RadioDrillStats,
 } from "./storage/radioDrillStore";

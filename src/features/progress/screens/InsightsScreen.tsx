@@ -3,18 +3,42 @@
 import { useMemo } from "react";
 import Link from "next/link";
 import { BookmarkCheck } from "lucide-react";
+import type { Section } from "@/content/model/section";
 import { sections } from "@/content/registry/sections";
+import radioCallsSection from "@/content/data/radio-calls.json";
 import { useProgress } from "@/features/progress/hooks/useProgress";
 import { useDrill } from "@/features/drill";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
 import { Card } from "@/shared/ui/card";
 import { RadioProgressSection } from "@/features/progress/components/RadioProgressSection";
+import { RADIO_GUIDE_SECTION_ID } from "@/features/radio-calls";
 import { getRecentBookmarks, useStudyBookmarks } from "@/features/study";
+
+// Radio-calls phraseology theory isn't in the IFR theory section list any
+// more — it lives in /radio?tab=learn. Keep the section locally available
+// so bookmarks for radio modules still resolve to a title + a working
+// deep-link.
+const RADIO_LEARN_SECTION = radioCallsSection as Section;
+
+function getModuleHref(sectionId: string, moduleId: string): string {
+  if (sectionId === RADIO_GUIDE_SECTION_ID) {
+    return `/radio?tab=learn&module=${encodeURIComponent(moduleId)}`;
+  }
+  return `/study?section=${encodeURIComponent(sectionId)}&module=${encodeURIComponent(moduleId)}`;
+}
 
 export function InsightsScreen() {
   const { getCompletionStats } = useProgress();
   const { getWeakCount, getSeenCount, allQuestions } = useDrill(sections);
   const { bookmarks, isLoaded: bookmarksLoaded } = useStudyBookmarks();
+
+  // Section lookup that includes the radio-calls Learn section so radio
+  // bookmarks still surface here (they're saved under the same sectionId
+  // as before the move).
+  const allBookmarkableSections = useMemo<Section[]>(
+    () => [...sections, RADIO_LEARN_SECTION],
+    [],
+  );
 
   // Resolve recent bookmarks against the content registry so we can show a
   // readable title + know where to link. Drop entries pointing at content
@@ -24,7 +48,9 @@ export function InsightsScreen() {
     const recent = getRecentBookmarks(bookmarks, 6);
     return recent
       .map((b) => {
-        const section = sections.find((s) => s.sectionId === b.sectionId);
+        const section = allBookmarkableSections.find(
+          (s) => s.sectionId === b.sectionId,
+        );
         const mod = section?.modules.find((m) => m.id === b.moduleId);
         if (!section || !mod) return null;
         return {
@@ -36,7 +62,7 @@ export function InsightsScreen() {
         };
       })
       .filter((b): b is NonNullable<typeof b> => b !== null);
-  }, [bookmarks, bookmarksLoaded]);
+  }, [bookmarks, bookmarksLoaded, allBookmarkableSections]);
 
   // Compute stats per section
   const sectionStats = useMemo(() => {
@@ -124,7 +150,7 @@ export function InsightsScreen() {
             {recentBookmarks.map((b) => (
               <li key={`${b.sectionId}:${b.moduleId}`}>
                 <Link
-                  href={`/study?section=${encodeURIComponent(b.sectionId)}&module=${encodeURIComponent(b.moduleId)}`}
+                  href={getModuleHref(b.sectionId, b.moduleId)}
                   className="flex items-center justify-between gap-3 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-3 transition-colors hover:border-[var(--ifr-accent)]/40 hover:bg-[var(--ifr-accent)]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]"
                 >
                   <span className="flex min-w-0 items-center gap-2">

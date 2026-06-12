@@ -39,11 +39,13 @@ export function getGuideModuleForDrill(card: RadioDrillCard): ModuleTarget {
 }
 
 /**
- * Build a /study deep-link to the matching guide module.
+ * Build a deep-link to the matching Learn-tab module on the radio page.
+ * Phraseology theory lives inside /radio now; /study no longer carries
+ * the radio-calls section.
  */
 export function getGuideUrlForDrill(card: RadioDrillCard): string {
-  const { sectionId, moduleId } = getGuideModuleForDrill(card);
-  return `/study?section=${encodeURIComponent(sectionId)}&module=${encodeURIComponent(moduleId)}`;
+  const { moduleId } = getGuideModuleForDrill(card);
+  return `/radio?tab=learn&module=${encodeURIComponent(moduleId)}`;
 }
 
 interface DrillFilter {

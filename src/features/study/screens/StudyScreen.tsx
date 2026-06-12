@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, Suspense } from "react";
+import { useState, useMemo, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Check } from "lucide-react";
 import type { Module, Section } from "@/content/model/section";
@@ -9,10 +9,6 @@ import { CategoryList } from "@/features/study/components/CategoryList";
 import { ModuleList } from "@/features/study/components/ModuleList";
 import { ModuleRow } from "@/features/study/components/ModuleRow";
 import { ModuleDetail } from "@/features/study/components/ModuleDetail";
-import {
-  RADIO_GUIDE_SECTION_ID,
-  getDrillLinkForModule,
-} from "@/features/radio-calls";
 import { SearchBar } from "@/features/study/components/SearchBar";
 import { SectionSelector } from "@/features/study/components/SectionSelector";
 import { SectionPickerSheet } from "@/features/study/components/SectionPickerSheet";
@@ -38,6 +34,21 @@ function StudyPageContent() {
   const { progress, getStatus, setStatus, getCompletionStats } = useProgress();
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  // Legacy redirect: phraseology theory used to live as a `radio-calls`
+  // section under /study. It moved into /radio?tab=learn. Forward any
+  // bookmarked /study?section=radio-calls deep-links there so older URLs,
+  // saved bookmarks, and home-screen shortcuts keep working.
+  useEffect(() => {
+    if (searchParams.get("section") !== "radio-calls") return;
+    const params = new URLSearchParams();
+    params.set("tab", "learn");
+    const moduleId = searchParams.get("module");
+    if (moduleId) params.set("module", moduleId);
+    const tag = searchParams.get("tag");
+    if (tag) params.set("tag", tag);
+    router.replace(`/radio?${params.toString()}`);
+  }, [router, searchParams]);
 
   // All sections available in study mode
   const programSections = sections;
@@ -152,10 +163,6 @@ function StudyPageContent() {
   // Show module detail view
   if (selectedModule) {
     const moduleStatus = getStatus(currentSection.sectionId, selectedModule.id);
-    const practiceLink =
-      currentSection.sectionId === RADIO_GUIDE_SECTION_ID
-        ? getDrillLinkForModule(selectedModule.id)
-        : null;
     // Next unread module after this one — kept in section order so the
     // "Up next" CTA reads like a natural progression. Walks forward from
     // the current module and falls back to the first not-completed
@@ -193,7 +200,6 @@ function StudyPageContent() {
           sectionId={currentSection.sectionId}
           onBack={handleBack}
           onMarkCompleted={handleMarkCompleted}
-          {...(practiceLink ? { practiceLink } : {})}
           nextModule={nextSuggestion}
           onSelectNextModule={handleSelectModule}
         />

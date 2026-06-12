@@ -13,7 +13,9 @@ import advancedIfrRegsAirlineOps from "../data/advanced-ifr-regs-airline-ops.jso
 import quickFireNumbers from "../data/quick-fire-numbers.json";
 import casaTraps from "../data/casa-traps.json";
 import cheatSheet from "../data/cheat-sheet.json";
-import radioCalls from "../data/radio-calls.json";
+
+// Radio-calls theory ships inside the /radio Learn tab now, not /study.
+// The radio feature imports `radio-calls.json` directly.
 
 export const sections: Section[] = [
   cheatSheet as Section,
@@ -30,5 +32,4 @@ export const sections: Section[] = [
   advancedIfrRegsAirlineOps as Section,
   quickFireNumbers as Section,
   casaTraps as Section,
-  radioCalls as Section,
 ];

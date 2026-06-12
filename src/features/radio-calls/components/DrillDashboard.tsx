@@ -1,7 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Check, ChevronRight, X } from "lucide-react";
+import {
+  Check,
+  ChevronRight,
+  Flame,
+  Play,
+  RefreshCw,
+  SlidersHorizontal,
+  X,
+} from "lucide-react";
 import { cn } from "@/shared/lib/cn";
 import type {
   AirspaceClass,
@@ -12,6 +20,8 @@ import { RADIO_PHASES } from "@/content/registry/radioDrillCards";
 import {
   getDrillStats,
   getPassedDrillIds,
+  getRecentAttempts,
+  getDailyAttemptStreak,
   type RadioDrillAttempt,
 } from "@/features/radio-calls/storage/radioDrillStore";
 import {
@@ -20,12 +30,23 @@ import {
   type RadioDrillFSRSStore,
 } from "@/features/radio-calls/storage/radioDrillFSRSStore";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/shared/ui/tooltip";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/shared/ui/sheet";
 
 interface DrillDashboardProps {
   cards: RadioDrillCard[];
   attempts: readonly RadioDrillAttempt[];
   fsrsStore: RadioDrillFSRSStore;
   onOpenCard: (drillId: string) => void;
+  /** Kick off a guided session — RadioScreen advances the learner through
+   * the queue without dropping back to the dashboard between cards. */
+  onStartSession: (cards: RadioDrillCard[]) => void;
   /** Seed the phase filter on mount — used by the /study guide module
    * deep-links into the Drill tab. Null = "all". */
   initialPhase?: RadioPhase | null;
@@ -52,6 +73,8 @@ interface DrillTypeGroup {
   label: string;
   description: string;
 }
+
+const SESSION_SIZE = 10;
 
 const CLASS_FILTERS: { id: ClassFilter; label: string; description: string }[] = [
   { id: "all", label: "All", description: "Every airspace" },
@@ -109,12 +132,53 @@ const DRILL_TYPE_GROUPS: DrillTypeGroup[] = [
   },
 ];
 
+interface CuratedPath {
+  id: string;
+  label: string;
+  description: string;
+  filter: { phase: PhaseFilter; airspaceClass: ClassFilter };
+}
+
+/**
+ * Hand-picked entry points. Each tap snaps the filter chips to a coherent
+ * slice of the library instead of asking the learner to combine
+ * phase + airspace themselves. Designed to cover the four practical
+ * starting points most pilots reach for: tower work, IFR clearance flow,
+ * non-towered, and emergencies.
+ */
+const CURATED_PATHS: CuratedPath[] = [
+  {
+    id: "class-d-circuit",
+    label: "Class D circuit work",
+    description: "Taxi, takeoff, downwind, landing",
+    filter: { phase: "all", airspaceClass: "D" },
+  },
+  {
+    id: "class-c-ifr-flow",
+    label: "Class C IFR flow",
+    description: "Clearance, SID, climb, handoffs",
+    filter: { phase: "all", airspaceClass: "C" },
+  },
+  {
+    id: "ctaf",
+    label: "CTAF non-towered",
+    description: "Broadcasts, AFRU, traffic picture",
+    filter: { phase: "all", airspaceClass: "CTAF" },
+  },
+  {
+    id: "emergency",
+    label: "Emergency cold-call",
+    description: "PAN, MAYDAY, lost comms, TCAS RA",
+    filter: { phase: "non-normal", airspaceClass: "all" },
+  },
+];
 
 export function DrillDashboard({
   cards,
   attempts,
   fsrsStore,
   onOpenCard,
+  onStartSession,
   initialPhase,
   initialClass,
 }: DrillDashboardProps) {
@@ -124,12 +188,27 @@ export function DrillDashboard({
   const [expandedTypes, setExpandedTypes] = useState<ReadonlySet<DrillTypeGroupId>>(
     () => new Set(["clearances"]),
   );
+  const [moreFiltersOpen, setMoreFiltersOpen] = useState(false);
 
   const dueIds = useMemo(() => getDueDrillIds(fsrsStore), [fsrsStore]);
   const passedIds = useMemo(() => getPassedDrillIds(attempts), [attempts]);
   const passedCount = cards.filter((c) => passedIds.has(c.drillId)).length;
   const dueCount = cards.filter((c) => dueIds.has(c.drillId)).length;
   const newCount = cards.filter((c) => !(c.drillId in fsrsStore)).length;
+  const dailyStreak = useMemo(() => getDailyAttemptStreak(attempts), [attempts]);
+
+  const recentAttempts = useMemo(
+    () => getRecentAttempts(attempts, 5),
+    [attempts],
+  );
+
+  // Card lookup for the recent-attempts strip — handles drillIds that
+  // reference deleted cards by dropping them gracefully.
+  const cardById = useMemo(() => {
+    const m = new Map<string, RadioDrillCard>();
+    for (const c of cards) m.set(c.drillId, c);
+    return m;
+  }, [cards]);
 
   // Combined filter: phase + airspace class + FSRS schedule. Sorts due
   // cards first (oldest-due first) so the most overdue surface at the top
@@ -166,8 +245,17 @@ export function DrillDashboard({
     })).filter((group) => group.cards.length > 0);
   }, [filtered]);
 
-  const selectPhaseFilter = (phase: PhaseFilter) => {
-    setPhaseFilter(phase);
+  const cardsForPath = (path: CuratedPath) =>
+    cards.filter((c) => {
+      if (path.filter.phase !== "all" && c.phase !== path.filter.phase) return false;
+      if (path.filter.airspaceClass !== "all" && c.airspaceClass !== path.filter.airspaceClass) return false;
+      return true;
+    });
+
+  const applyPath = (path: CuratedPath) => {
+    setPhaseFilter(path.filter.phase);
+    setClassFilter(path.filter.airspaceClass);
+    setScheduleFilter("all");
   };
 
   const toggleTypeGroup = (groupId: DrillTypeGroupId) => {
@@ -179,27 +267,246 @@ export function DrillDashboard({
     });
   };
 
+  const clearAllFilters = () => {
+    setPhaseFilter("all");
+    setClassFilter("all");
+    setScheduleFilter("all");
+  };
+
+  const advancedFiltersActive =
+    phaseFilter !== "all" || classFilter !== "all";
+
+  // Hero CTA queue selection — due first, then new, capped at SESSION_SIZE.
+  // Falls back to a refresh of already-passed cards when the learner has
+  // burned through everything.
+  const sessionQueue = useMemo<{
+    cards: RadioDrillCard[];
+    mode: "review" | "practice" | "refresh";
+  }>(() => {
+    if (dueCount > 0) {
+      const due = filtered.filter((c) => dueIds.has(c.drillId));
+      const fromFiltered = due.length > 0 ? due : cards.filter((c) => dueIds.has(c.drillId));
+      return {
+        cards: fromFiltered.slice(0, SESSION_SIZE),
+        mode: "review",
+      };
+    }
+    const newCards = cards.filter((c) => !(c.drillId in fsrsStore));
+    if (newCards.length > 0) {
+      return {
+        cards: shuffleStable(newCards).slice(0, SESSION_SIZE),
+        mode: "practice",
+      };
+    }
+    return {
+      cards: shuffleStable([...cards]).slice(0, SESSION_SIZE),
+      mode: "refresh",
+    };
+  }, [filtered, cards, fsrsStore, dueIds, dueCount]);
+
   return (
-    <div className="space-y-4">
-      <div className="rounded-xl border border-[var(--ifr-accent)]/30 bg-[var(--ifr-accent)]/5 p-4">
-        <p className="text-sm font-semibold text-[var(--ifr-text)]">
-          Drill mode
-        </p>
-        <p className="mt-1 text-sm leading-relaxed text-[var(--ifr-text-muted)]">
-          Single-card practice — one radio call at a time. Each card frames the
-          situation and asks you to make the call. Tap to start; mic and text
-          input both work.
-        </p>
-        <p className="mt-2 text-xs text-[var(--ifr-text-muted)]">
-          {passedCount} of {cards.length} passed · {dueCount} due now · {newCount} new
-        </p>
+    <div className="space-y-5">
+      {/* Stats row — replaces the buried "0 of 1314 passed" line. Numbers
+          up front so a returning learner sees their state immediately. */}
+      <div className="grid grid-cols-3 gap-3">
+        <StatCard
+          label="Passed"
+          value={`${passedCount}`}
+          sub={`of ${cards.length}`}
+        />
+        <StatCard
+          label="Due now"
+          value={`${dueCount}`}
+          tone={dueCount > 0 ? "warning" : "muted"}
+        />
+        <StatCard
+          label="Streak"
+          value={dailyStreak > 0 ? `${dailyStreak}d` : "—"}
+          tone={dailyStreak >= 3 ? "success" : dailyStreak >= 7 ? "warning" : "default"}
+          icon={dailyStreak >= 3 ? <Flame size={14} aria-hidden="true" /> : null}
+        />
       </div>
 
-      {/* Schedule filter (spaced repetition) */}
-      <div>
+      {/* Hero session CTA — one tap into the next batch. Beats four filter
+          rows when the learner just wants to drill what's overdue. */}
+      <button
+        type="button"
+        onClick={() => onStartSession(sessionQueue.cards)}
+        disabled={sessionQueue.cards.length === 0}
+        className={cn(
+          "flex w-full items-center justify-between gap-3 rounded-2xl border p-5 text-left transition-colors",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+          sessionQueue.cards.length === 0
+            ? "cursor-not-allowed border-[var(--ifr-border)] bg-[var(--ifr-surface)] opacity-60"
+            : "border-[var(--ifr-accent)]/40 bg-[var(--ifr-accent)]/10 hover:border-[var(--ifr-accent)]/70 hover:bg-[var(--ifr-accent)]/15",
+        )}
+      >
+        <div className="min-w-0 flex-1">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[var(--ifr-accent)]">
+            {sessionQueue.mode === "review" && "Review session"}
+            {sessionQueue.mode === "practice" && "Practice session"}
+            {sessionQueue.mode === "refresh" && "Refresh session"}
+          </p>
+          <p className="mt-1 text-base font-semibold text-[var(--ifr-text)]">
+            {sessionQueue.mode === "review" &&
+              `${sessionQueue.cards.length} due card${sessionQueue.cards.length === 1 ? "" : "s"} ready`}
+            {sessionQueue.mode === "practice" &&
+              `Start ${sessionQueue.cards.length} new card${sessionQueue.cards.length === 1 ? "" : "s"}`}
+            {sessionQueue.mode === "refresh" &&
+              `Refresh — ${sessionQueue.cards.length} random card${sessionQueue.cards.length === 1 ? "" : "s"}`}
+          </p>
+          <p className="mt-1 text-xs text-[var(--ifr-text-muted)]">
+            {sessionQueue.mode === "review" &&
+              "Spaced-repetition picks the most overdue first."}
+            {sessionQueue.mode === "practice" &&
+              "Nothing due — start working through the unseen library."}
+            {sessionQueue.mode === "refresh" &&
+              "All caught up. Keep skills warm with a quick refresh."}
+          </p>
+        </div>
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--ifr-accent)] text-white">
+          {sessionQueue.mode === "refresh" ? (
+            <RefreshCw size={18} aria-hidden="true" />
+          ) : (
+            <Play size={18} aria-hidden="true" />
+          )}
+        </span>
+      </button>
+
+      {/* Curated starting paths — opinionated entry points so a returning
+          learner doesn't have to dial in filter chips by hand. */}
+      <section aria-label="Curated drill paths">
         <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--ifr-text-muted)]">
-          Schedule
+          Start here
         </p>
+        <div className="grid grid-cols-2 gap-2">
+          {CURATED_PATHS.map((path) => {
+            const pathCards = cardsForPath(path);
+            if (pathCards.length === 0) return null;
+            const pathPassed = pathCards.filter((c) => passedIds.has(c.drillId)).length;
+            return (
+              <button
+                key={path.id}
+                type="button"
+                onClick={() => applyPath(path)}
+                className={cn(
+                  "rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-3 text-left transition-colors",
+                  "hover:border-[var(--ifr-accent)]/50 hover:bg-[var(--ifr-accent)]/5",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+                )}
+              >
+                <p className="text-sm font-semibold text-[var(--ifr-text)]">
+                  {path.label}
+                </p>
+                <p className="mt-0.5 text-[11px] text-[var(--ifr-text-muted)]">
+                  {path.description}
+                </p>
+                <p className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-[var(--ifr-text-muted)]">
+                  {pathPassed}/{pathCards.length} passed
+                </p>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Visible filter row — schedule chips (most-used) + a single
+          "More filters" trigger that opens a bottom sheet with the airspace
+          and phase chips. Saves the wall-of-chips on mobile. */}
+      <div>
+        <div className="mb-2 flex items-center justify-between">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[var(--ifr-text-muted)]">
+            Schedule
+          </p>
+          <Sheet open={moreFiltersOpen} onOpenChange={setMoreFiltersOpen}>
+            <SheetTrigger asChild>
+              <button
+                type="button"
+                className={cn(
+                  "flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+                  advancedFiltersActive
+                    ? "border-[var(--ifr-accent)] bg-[var(--ifr-accent)]/10 text-[var(--ifr-accent)]"
+                    : "border-[var(--ifr-border)] bg-[var(--ifr-surface)] text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]",
+                )}
+              >
+                <SlidersHorizontal size={12} aria-hidden="true" />
+                More filters
+                {advancedFiltersActive && (
+                  <span className="rounded-full bg-[var(--ifr-accent)]/20 px-1.5 text-[10px] font-semibold">
+                    {[phaseFilter !== "all" ? 1 : 0, classFilter !== "all" ? 1 : 0].reduce(
+                      (a, b) => a + b,
+                      0,
+                    )}
+                  </span>
+                )}
+              </button>
+            </SheetTrigger>
+            <SheetContent side="bottom" className="max-h-[80vh] overflow-y-auto">
+              <SheetHeader>
+                <SheetTitle>More filters</SheetTitle>
+                <SheetDescription>
+                  Narrow the library by airspace class or flight phase.
+                </SheetDescription>
+              </SheetHeader>
+              <div className="mt-4 space-y-5">
+                <FilterRow
+                  label="Airspace"
+                  ariaLabel="Filter drills by airspace class"
+                >
+                  {CLASS_FILTERS.map((c) => {
+                    const classCards =
+                      c.id === "all" ? cards : cards.filter((card) => card.airspaceClass === c.id);
+                    if (c.id !== "all" && classCards.length === 0) return null;
+                    return (
+                      <FilterChip
+                        key={c.id}
+                        label={c.label}
+                        title={c.description}
+                        active={classFilter === c.id}
+                        count={classCards.length}
+                        onClick={() => setClassFilter(c.id)}
+                      />
+                    );
+                  })}
+                </FilterRow>
+                <FilterRow
+                  label="Flight phase"
+                  ariaLabel="Filter drills by flight phase"
+                >
+                  <FilterChip
+                    label="All"
+                    active={phaseFilter === "all"}
+                    count={cards.length}
+                    onClick={() => setPhaseFilter("all")}
+                  />
+                  {RADIO_PHASES.map((phase) => {
+                    const phaseCards = cards.filter((c) => c.phase === phase.id);
+                    if (phaseCards.length === 0) return null;
+                    return (
+                      <FilterChip
+                        key={phase.id}
+                        label={phase.label}
+                        active={phaseFilter === phase.id}
+                        count={phaseCards.length}
+                        onClick={() => setPhaseFilter(phase.id)}
+                      />
+                    );
+                  })}
+                </FilterRow>
+                {advancedFiltersActive && (
+                  <button
+                    type="button"
+                    onClick={clearAllFilters}
+                    className="text-xs font-medium text-[var(--ifr-accent)] hover:underline"
+                  >
+                    Clear filters
+                  </button>
+                )}
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
         <div
           className="flex flex-wrap gap-2"
           role="tablist"
@@ -213,7 +520,7 @@ export function DrillDashboard({
           />
           {dueCount > 0 && (
             <FilterChip
-              label="Due now"
+              label="Due"
               title="Cards due for spaced-repetition review"
               active={scheduleFilter === "due"}
               count={dueCount}
@@ -230,67 +537,7 @@ export function DrillDashboard({
         </div>
       </div>
 
-      {/* Airspace class filter chips */}
-      <div>
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--ifr-text-muted)]">
-          Airspace
-        </p>
-        <div
-          className="flex flex-wrap gap-2"
-          role="tablist"
-          aria-label="Filter drills by airspace class"
-        >
-          {CLASS_FILTERS.map((c) => {
-            const classCards =
-              c.id === "all" ? cards : cards.filter((card) => card.airspaceClass === c.id);
-            if (c.id !== "all" && classCards.length === 0) return null;
-            return (
-              <FilterChip
-                key={c.id}
-                label={c.label}
-                title={c.description}
-                active={classFilter === c.id}
-                count={classCards.length}
-                onClick={() => setClassFilter(c.id)}
-              />
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Phase filter tabs */}
-      <div>
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--ifr-text-muted)]">
-          Flight phase
-        </p>
-        <div
-          className="flex flex-wrap gap-2 overflow-x-auto"
-          role="tablist"
-          aria-label="Filter drills by flight phase"
-        >
-          <FilterChip
-            label="All"
-            active={phaseFilter === "all"}
-            count={cards.length}
-            onClick={() => selectPhaseFilter("all")}
-          />
-          {RADIO_PHASES.map((phase) => {
-            const phaseCards = cards.filter((c) => c.phase === phase.id);
-            if (phaseCards.length === 0) return null;
-            return (
-              <FilterChip
-                key={phase.id}
-                label={phase.label}
-                active={phaseFilter === phase.id}
-                count={phaseCards.length}
-                onClick={() => selectPhaseFilter(phase.id)}
-              />
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Card list */}
+      {/* Card list grouped by call type */}
       <div className="space-y-4" aria-label="Drill cards grouped by call type">
         {groupedByType.map((group, index) => {
           const hasExpandedVisibleGroup = groupedByType.some((visibleGroup) =>
@@ -360,6 +607,109 @@ export function DrillDashboard({
           No drill cards match these filters.
         </p>
       )}
+
+      {/* Recent attempts strip — last 5 cards the learner touched. Same
+          spirit as the quiz dashboard's recent-sessions row. */}
+      {recentAttempts.length > 0 && (
+        <section aria-label="Recent attempts">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--ifr-text-muted)]">
+            Recent attempts
+          </p>
+          <ul className="space-y-1.5">
+            {recentAttempts.map((attempt) => {
+              const card = cardById.get(attempt.drillId);
+              if (!card) return null;
+              return (
+                <li key={`${attempt.attemptedAt}-${attempt.drillId}`}>
+                  <button
+                    type="button"
+                    onClick={() => onOpenCard(attempt.drillId)}
+                    className={cn(
+                      "group flex w-full items-center gap-2 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] px-3 py-2 text-left transition-colors",
+                      "hover:border-[var(--ifr-accent)]/40 hover:bg-[var(--ifr-accent)]/5",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        "flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs",
+                        attempt.isCorrect
+                          ? "bg-[var(--ifr-success)]/15 text-[var(--ifr-success)]"
+                          : "bg-[var(--ifr-danger)]/15 text-[var(--ifr-danger)]",
+                      )}
+                      aria-hidden="true"
+                    >
+                      {attempt.isCorrect ? <Check size={12} /> : <X size={12} />}
+                    </span>
+                    <span className="min-w-0 flex-1 truncate text-sm text-[var(--ifr-text)] group-hover:text-[var(--ifr-accent)]">
+                      {card.title}
+                    </span>
+                    <ChevronRight
+                      size={14}
+                      className="shrink-0 text-[var(--ifr-text-muted)]"
+                      aria-hidden="true"
+                    />
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
+    </div>
+  );
+}
+
+interface StatCardProps {
+  label: string;
+  value: string;
+  sub?: string;
+  tone?: "default" | "muted" | "success" | "warning";
+  icon?: React.ReactNode;
+}
+
+function StatCard({ label, value, sub, tone = "default", icon }: StatCardProps) {
+  return (
+    <div className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-3 text-center">
+      <div
+        className={cn(
+          "flex items-center justify-center gap-1 text-xl font-bold",
+          tone === "default" && "text-[var(--ifr-text)]",
+          tone === "muted" && "text-[var(--ifr-text-muted)]",
+          tone === "success" && "text-[var(--ifr-success)]",
+          tone === "warning" && "text-[var(--ifr-warning)]",
+        )}
+      >
+        {icon}
+        <span>{value}</span>
+        {sub && (
+          <span className="text-xs font-normal text-[var(--ifr-text-muted)]">
+            {sub}
+          </span>
+        )}
+      </div>
+      <div className="mt-0.5 text-[10px] uppercase tracking-wider text-[var(--ifr-text-muted)]">
+        {label}
+      </div>
+    </div>
+  );
+}
+
+interface FilterRowProps {
+  label: string;
+  ariaLabel: string;
+  children: React.ReactNode;
+}
+
+function FilterRow({ label, ariaLabel, children }: FilterRowProps) {
+  return (
+    <div>
+      <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--ifr-text-muted)]">
+        {label}
+      </p>
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label={ariaLabel}>
+        {children}
+      </div>
     </div>
   );
 }
@@ -551,6 +901,24 @@ function getDrillTypeGroupId(card: RadioDrillCard): DrillTypeGroupId {
 
 function hasAny(value: string, needles: readonly string[]): boolean {
   return needles.some((needle) => value.includes(needle));
+}
+
+/**
+ * Deterministic shuffle so successive renders of the same source list don't
+ * jitter the queue. Uses the card-id string hash as the sort key — same
+ * input array → same shuffled output. The hero CTA re-runs whenever the
+ * inputs change, which naturally re-shuffles when the user attempts a card.
+ */
+function shuffleStable<T extends { drillId: string }>(items: T[]): T[] {
+  return [...items].sort((a, b) => hashString(a.drillId) - hashString(b.drillId));
+}
+
+function hashString(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = (h * 31 + s.charCodeAt(i)) | 0;
+  }
+  return h;
 }
 
 interface FilterChipProps {

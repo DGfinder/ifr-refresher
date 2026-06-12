@@ -2,6 +2,7 @@
 
 import type { ContentBlock as ContentBlockType } from "@/content/model/section";
 import { QACollapsibleItem } from "./QACollapsibleItem";
+import { SpeakableLine } from "./SpeakablePhrase";
 
 // Shared IFR design token classes
 const baseCardClasses = "mb-4 rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)]/80 px-4 py-3 shadow-sm";
@@ -10,9 +11,17 @@ const listClasses = "ml-4 list-disc space-y-1 text-sm leading-relaxed text-[var(
 
 interface ContentBlockProps {
   block: ContentBlockType;
+  /** When true, surface 🔊 buttons inside law / list block items that
+   * contain quoted phraseology. Used by the radio-calls Learn tab so
+   * learners can hear the canonical rendering of each call. */
+  speakable?: boolean;
 }
 
-export function ContentBlock({ block }: ContentBlockProps) {
+function renderListItem(text: string, speakable: boolean) {
+  return speakable ? <SpeakableLine text={text} /> : text;
+}
+
+export function ContentBlock({ block, speakable = false }: ContentBlockProps) {
   switch (block.type) {
     case "heading":
       if (block.level === 2) {
@@ -39,7 +48,7 @@ export function ContentBlock({ block }: ContentBlockProps) {
           <ol className="mb-4 ml-6 list-decimal space-y-1">
             {block.items.map((item, index) => (
               <li key={index} className="leading-relaxed text-foreground/90">
-                {item}
+                {renderListItem(item, speakable)}
               </li>
             ))}
           </ol>
@@ -49,7 +58,7 @@ export function ContentBlock({ block }: ContentBlockProps) {
         <ul className="mb-4 ml-6 list-disc space-y-1">
           {block.items.map((item, index) => (
             <li key={index} className="leading-relaxed text-foreground/90">
-              {item}
+              {renderListItem(item, speakable)}
             </li>
           ))}
         </ul>
@@ -89,7 +98,7 @@ export function ContentBlock({ block }: ContentBlockProps) {
           <p className={titleClasses}>Regulation</p>
           <ul className={listClasses}>
             {block.content.map((item, i) => (
-              <li key={i}>{item}</li>
+              <li key={i}>{renderListItem(item, speakable)}</li>
             ))}
           </ul>
         </div>

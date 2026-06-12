@@ -39,6 +39,14 @@ interface ModuleDetailProps {
   nextModule?: NextModuleSuggestion | null;
   /** Called when the learner taps the next-module CTA. */
   onSelectNextModule?: (moduleId: string) => void;
+  /** Override how tag chips link out. Default routes to /study filtered by
+   * tag; the radio-calls Learn tab passes its own builder so taps stay
+   * inside /radio?tab=learn. */
+  getTagHref?: (tag: string) => string;
+  /** When true, render 🔊 buttons next to quoted phraseology inside law /
+   * list blocks. Used by the radio-calls Learn tab to surface canonical
+   * pronunciation of each call. */
+  speakable?: boolean;
 }
 
 export function ModuleDetail({
@@ -50,7 +58,13 @@ export function ModuleDetail({
   practiceLink,
   nextModule,
   onSelectNextModule,
+  getTagHref,
+  speakable = false,
 }: ModuleDetailProps) {
+  const resolveTagHref =
+    getTagHref ??
+    ((tag: string) =>
+      `/study?section=${encodeURIComponent(sectionId)}&tag=${encodeURIComponent(tag)}`);
   const { isBookmarked, toggleBookmark, isLoaded: bookmarksLoaded } =
     useStudyBookmarks();
   const bookmarked = bookmarksLoaded && isBookmarked(sectionId, module.id);
@@ -151,7 +165,7 @@ export function ModuleDetail({
           {module.tags.map((tag) => (
             <Link
               key={tag}
-              href={`/study?section=${encodeURIComponent(sectionId)}&tag=${encodeURIComponent(tag)}`}
+              href={resolveTagHref(tag)}
               className={cn(
                 "rounded-md bg-[var(--ifr-surface-muted)] px-2.5 py-1 text-sm text-[var(--ifr-text)]",
                 "transition-colors hover:bg-[var(--ifr-accent)]/15 hover:text-[var(--ifr-accent)]",
@@ -190,7 +204,7 @@ export function ModuleDetail({
             return (ORDER[a.type] ?? 99) - (ORDER[b.type] ?? 99);
           })
           .map((block, index) => (
-            <ContentBlock key={index} block={block} />
+            <ContentBlock key={index} block={block} speakable={speakable} />
           ))}
       </div>
 

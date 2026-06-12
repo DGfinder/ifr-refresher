@@ -175,3 +175,60 @@ export function getRecentDrillIds(
   }
   return out;
 }
+
+/**
+ * Most-recently-attempted single attempts (not de-duplicated by card), newest
+ * first. Powers the Drill landing's "Recent attempts" strip — the learner
+ * sees the last few cards they touched with pass/fail at a glance.
+ */
+export function getRecentAttempts(
+  attempts: readonly RadioDrillAttempt[],
+  limit: number,
+): RadioDrillAttempt[] {
+  return attempts.slice(0, limit);
+}
+
+/**
+ * Daily-attempt streak — number of consecutive calendar days (ending today
+ * or yesterday) on which the learner attempted at least one drill. Returns 0
+ * when there's no attempt today or yesterday so an idle account doesn't
+ * keep displaying a stale streak.
+ *
+ * The "yesterday" grace window matches the quiz dashboard's streak so a
+ * learner who drills late one night and early the next doesn't lose it.
+ */
+export function getDailyAttemptStreak(
+  attempts: readonly RadioDrillAttempt[],
+  now: Date = new Date(),
+): number {
+  if (attempts.length === 0) return 0;
+  const days = new Set<string>();
+  for (const a of attempts) {
+    days.add(toLocalDateKey(new Date(a.attemptedAt)));
+  }
+  const today = toLocalDateKey(now);
+  const yesterday = toLocalDateKey(addDays(now, -1));
+  if (!days.has(today) && !days.has(yesterday)) return 0;
+
+  let streak = 0;
+  let cursor = days.has(today) ? new Date(now) : addDays(now, -1);
+  while (days.has(toLocalDateKey(cursor))) {
+    streak += 1;
+    cursor = addDays(cursor, -1);
+  }
+  return streak;
+}
+
+function toLocalDateKey(d: Date): string {
+  // Local calendar day; matches the user's perception of "today" rather than UTC.
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function addDays(d: Date, days: number): Date {
+  const out = new Date(d);
+  out.setDate(out.getDate() + days);
+  return out;
+}

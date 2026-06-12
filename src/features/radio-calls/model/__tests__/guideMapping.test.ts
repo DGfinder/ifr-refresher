@@ -1,12 +1,18 @@
 import { describe, it, expect } from "vitest";
+import type { Section } from "@/content/model/section";
 import { radioDrillCards } from "@/content/registry/radioDrillCards";
-import { sections } from "@/content/registry/sections";
+import radioCallsSection from "@/content/data/radio-calls.json";
 import {
   RADIO_GUIDE_SECTION_ID,
   getDrillLinkForModule,
   getGuideModuleForDrill,
   getGuideUrlForDrill,
 } from "@/features/radio-calls/model/guideMapping";
+
+// Phraseology theory now lives inside /radio?tab=learn instead of the
+// IFR theory section list, so resolve the section locally rather than
+// via the sections registry.
+const RADIO_LEARN_SECTION = radioCallsSection as Section;
 
 describe("getGuideModuleForDrill", () => {
   it("routes CTAF cards to the CTAF module regardless of phase", () => {
@@ -46,9 +52,9 @@ describe("getGuideModuleForDrill", () => {
 });
 
 describe("getGuideUrlForDrill", () => {
-  it("builds a /study URL with section + module params", () => {
+  it("builds a /radio Learn-tab URL with the matching module param", () => {
     const card = radioDrillCards.find((c) => c.phase === "enroute" && c.airspaceClass !== "CTAF");
-    expect(getGuideUrlForDrill(card!)).toBe("/study?section=radio-calls&module=RADIO-004");
+    expect(getGuideUrlForDrill(card!)).toBe("/radio?tab=learn&module=RADIO-004");
   });
 });
 
@@ -74,15 +80,12 @@ describe("getDrillLinkForModule", () => {
 });
 
 describe("guide section integrity (cross-content check)", () => {
-  it("the radio-calls section exists in the sections registry", () => {
-    const section = sections.find((s) => s.sectionId === RADIO_GUIDE_SECTION_ID);
-    expect(section).toBeDefined();
+  it("the radio-calls section JSON matches RADIO_GUIDE_SECTION_ID", () => {
+    expect(RADIO_LEARN_SECTION.sectionId).toBe(RADIO_GUIDE_SECTION_ID);
   });
 
   it("every module id referenced by the mapping actually exists in the section", () => {
-    const section = sections.find((s) => s.sectionId === RADIO_GUIDE_SECTION_ID);
-    expect(section).toBeDefined();
-    const moduleIds = new Set(section!.modules.map((m) => m.id));
+    const moduleIds = new Set(RADIO_LEARN_SECTION.modules.map((m) => m.id));
     const referencedIds = [
       "RADIO-001",
       "RADIO-002",
@@ -99,8 +102,7 @@ describe("guide section integrity (cross-content check)", () => {
   });
 
   it("every drill card resolves to a guide module that exists", () => {
-    const section = sections.find((s) => s.sectionId === RADIO_GUIDE_SECTION_ID);
-    const moduleIds = new Set(section!.modules.map((m) => m.id));
+    const moduleIds = new Set(RADIO_LEARN_SECTION.modules.map((m) => m.id));
     for (const card of radioDrillCards) {
       const target = getGuideModuleForDrill(card);
       expect(moduleIds.has(target.moduleId)).toBe(true);

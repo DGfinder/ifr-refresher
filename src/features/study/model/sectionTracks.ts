@@ -29,7 +29,6 @@ export const SECTION_TRACKS: SectionTrack[] = [
       "en-route",
       "holding",
       "approaches",
-      "radio-calls",
     ],
   },
   {
