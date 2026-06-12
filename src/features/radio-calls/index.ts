@@ -37,6 +37,17 @@ export {
   type RadioDrillStats,
 } from "./storage/radioDrillStore";
 export {
+  loadRadioDrillFSRS,
+  clearRadioDrillFSRS,
+  getDueDrillIds,
+  getScheduledDrillIds,
+  getNextDueAt,
+  getScheduleState,
+  type RadioDrillFSRSStore,
+  type RadioDrillSchedule,
+} from "./storage/radioDrillFSRSStore";
+export { useRadioDrillFSRS } from "./hooks/useRadioDrillFSRS";
+export {
   loadRadioHistory,
   addRadioResult,
   clearRadioHistory,

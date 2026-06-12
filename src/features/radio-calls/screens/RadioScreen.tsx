@@ -15,6 +15,7 @@ import { RadioResults } from "@/features/radio-calls/components/RadioResults";
 import { DrillDashboard } from "@/features/radio-calls/components/DrillDashboard";
 import { DrillCardView } from "@/features/radio-calls/components/DrillCardView";
 import { useRadioDrillHistory } from "@/features/radio-calls/hooks/useRadioDrillHistory";
+import { useRadioDrillFSRS } from "@/features/radio-calls/hooks/useRadioDrillFSRS";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
 import { Button } from "@/shared/ui/button";
 import { Card } from "@/shared/ui/card";
@@ -228,6 +229,7 @@ interface DrillTabProps {
 function DrillTab({ initialPhase, initialClass }: DrillTabProps) {
   const [selectedDrillId, setSelectedDrillId] = useState<string | null>(null);
   const { attempts, recordAttempt } = useRadioDrillHistory();
+  const { store: fsrsStore, scheduleNext } = useRadioDrillFSRS();
 
   const currentCard = useMemo(
     () => (selectedDrillId ? getRadioDrillCardById(selectedDrillId) ?? null : null),
@@ -246,6 +248,7 @@ function DrillTab({ initialPhase, initialClass }: DrillTabProps) {
           // Fire-and-forget — the UI navigates back regardless of the
           // persist round-trip. Failures are logged in the store.
           void recordAttempt(currentCard.drillId, record.isCorrect);
+          void scheduleNext(currentCard.drillId, record.isCorrect);
           setSelectedDrillId(null);
         }}
       />
@@ -257,6 +260,7 @@ function DrillTab({ initialPhase, initialClass }: DrillTabProps) {
       <DrillDashboard
         cards={radioDrillCards}
         attempts={attempts}
+        fsrsStore={fsrsStore}
         onOpenCard={setSelectedDrillId}
         initialPhase={initialPhase}
         initialClass={initialClass}

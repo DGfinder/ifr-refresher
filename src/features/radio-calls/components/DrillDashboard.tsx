@@ -14,11 +14,17 @@ import {
   getPassedDrillIds,
   type RadioDrillAttempt,
 } from "@/features/radio-calls/storage/radioDrillStore";
+import {
+  getDueDrillIds,
+  getScheduleState,
+  type RadioDrillFSRSStore,
+} from "@/features/radio-calls/storage/radioDrillFSRSStore";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/shared/ui/tooltip";
 
 interface DrillDashboardProps {
   cards: RadioDrillCard[];
   attempts: readonly RadioDrillAttempt[];
+  fsrsStore: RadioDrillFSRSStore;
   onOpenCard: (drillId: string) => void;
   /** Seed the phase filter on mount — used by the /study guide module
    * deep-links into the Drill tab. Null = "all". */
@@ -29,6 +35,7 @@ interface DrillDashboardProps {
 
 type PhaseFilter = "all" | RadioPhase;
 type ClassFilter = "all" | AirspaceClass;
+type ScheduleFilter = "all" | "due" | "new";
 
 const CLASS_FILTERS: { id: ClassFilter; label: string; description: string }[] = [
   { id: "all", label: "All", description: "Every airspace" },
@@ -41,23 +48,44 @@ const CLASS_FILTERS: { id: ClassFilter; label: string; description: string }[] =
 export function DrillDashboard({
   cards,
   attempts,
+  fsrsStore,
   onOpenCard,
   initialPhase,
   initialClass,
 }: DrillDashboardProps) {
   const [phaseFilter, setPhaseFilter] = useState<PhaseFilter>(initialPhase ?? "all");
   const [classFilter, setClassFilter] = useState<ClassFilter>(initialClass ?? "all");
+  const [scheduleFilter, setScheduleFilter] = useState<ScheduleFilter>("all");
 
-  const filtered = useMemo(() => {
-    return cards.filter((c) => {
-      if (phaseFilter !== "all" && c.phase !== phaseFilter) return false;
-      if (classFilter !== "all" && c.airspaceClass !== classFilter) return false;
-      return true;
-    });
-  }, [cards, phaseFilter, classFilter]);
-
+  const dueIds = useMemo(() => getDueDrillIds(fsrsStore), [fsrsStore]);
   const passedIds = useMemo(() => getPassedDrillIds(attempts), [attempts]);
   const passedCount = cards.filter((c) => passedIds.has(c.drillId)).length;
+  const dueCount = cards.filter((c) => dueIds.has(c.drillId)).length;
+  const newCount = cards.filter((c) => !(c.drillId in fsrsStore)).length;
+
+  const filtered = useMemo(() => {
+    const list = cards.filter((c) => {
+      if (phaseFilter !== "all" && c.phase !== phaseFilter) return false;
+      if (classFilter !== "all" && c.airspaceClass !== classFilter) return false;
+      if (scheduleFilter === "due" && !dueIds.has(c.drillId)) return false;
+      if (scheduleFilter === "new" && c.drillId in fsrsStore) return false;
+      return true;
+    });
+    // Sort: due first (oldest-due first), then new, then later.
+    return [...list].sort((a, b) => {
+      const aState = getScheduleState(fsrsStore, a.drillId);
+      const bState = getScheduleState(fsrsStore, b.drillId);
+      const order = { due: 0, new: 1, later: 2 } as const;
+      if (order[aState] !== order[bState]) return order[aState] - order[bState];
+      // Within due: oldest due-time first so the most-overdue surface first.
+      if (aState === "due" && bState === "due") {
+        const aDue = new Date(fsrsStore[a.drillId]!.card.due).getTime();
+        const bDue = new Date(fsrsStore[b.drillId]!.card.due).getTime();
+        return aDue - bDue;
+      }
+      return 0;
+    });
+  }, [cards, phaseFilter, classFilter, scheduleFilter, dueIds, fsrsStore]);
 
   return (
     <div className="space-y-4">
@@ -71,8 +99,43 @@ export function DrillDashboard({
           input both work.
         </p>
         <p className="mt-2 text-xs text-[var(--ifr-text-muted)]">
-          {passedCount} of {cards.length} passed
+          {passedCount} of {cards.length} passed · {dueCount} due now · {newCount} new
         </p>
+      </div>
+
+      {/* Schedule filter (spaced repetition) */}
+      <div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--ifr-text-muted)]">
+          Schedule
+        </p>
+        <div
+          className="flex flex-wrap gap-2"
+          role="tablist"
+          aria-label="Filter drills by review schedule"
+        >
+          <FilterChip
+            label="All"
+            active={scheduleFilter === "all"}
+            count={cards.length}
+            onClick={() => setScheduleFilter("all")}
+          />
+          {dueCount > 0 && (
+            <FilterChip
+              label="Due now"
+              title="Cards due for spaced-repetition review"
+              active={scheduleFilter === "due"}
+              count={dueCount}
+              onClick={() => setScheduleFilter("due")}
+            />
+          )}
+          <FilterChip
+            label="New"
+            title="Cards you haven't attempted yet"
+            active={scheduleFilter === "new"}
+            count={newCount}
+            onClick={() => setScheduleFilter("new")}
+          />
+        </div>
       </div>
 
       {/* Airspace class filter chips */}
