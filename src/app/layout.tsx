@@ -9,6 +9,7 @@ import { ContentDisclaimer } from "@/app-shell/components/ContentDisclaimer";
 import { StorageStatusBanner } from "@/app-shell/components/StorageStatusBanner";
 import { IFR_THEME } from "@/app-shell/theme/theme";
 import { TooltipProvider } from "@/shared/ui/tooltip";
+import { Toaster } from "@/shared/ui/toaster";
 
 const barlowCondensed = Barlow_Condensed({
   variable: "--font-display",
@@ -68,6 +69,7 @@ export default function RootLayout({
                 <main>{children}</main>
                 <ContentDisclaimer />
               </div>
+              <Toaster />
             </TooltipProvider>
           </ProgramProvider>
         </ErrorBoundary>

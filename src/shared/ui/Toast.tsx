@@ -1,5 +1,12 @@
 "use client";
 
+/**
+ * @deprecated Use Sonner via `import { toast } from "@/shared/ui/toaster"`.
+ * The Sonner toaster is mounted at the root layout. Kept for back-compat
+ * with QuizScreen's `useToast` hook; migrating that to Sonner is a
+ * follow-up cleanup.
+ */
+
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/shared/lib/cn";
 

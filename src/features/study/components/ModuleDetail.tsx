@@ -109,8 +109,11 @@ export function ModuleDetail({
         <p className="text-[var(--ifr-text)]/90">{module.summary}</p>
       </div>
 
-      {/* Content */}
-      <div className="prose-custom">
+      {/* Content. \`prose-sm\` provides mobile-friendly line-height +
+          spacing; the existing per-block components keep their own
+          coloured surfaces (law/numbers/traps) so prose only affects
+          paragraph + list rhythm. */}
+      <div className="prose prose-sm max-w-none dark:prose-invert prose-headings:font-semibold prose-headings:text-[var(--ifr-text)] prose-p:text-[var(--ifr-text)] prose-strong:text-[var(--ifr-text)] prose-li:text-[var(--ifr-text)] prose-a:text-[var(--ifr-accent)]">
         {[...module.content]
           .sort((a, b) => {
             const ORDER: Record<string, number> = {

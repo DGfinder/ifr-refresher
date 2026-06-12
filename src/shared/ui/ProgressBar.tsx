@@ -3,6 +3,12 @@
 import type { CSSProperties } from "react";
 import { cn } from "@/shared/lib/cn";
 
+/**
+ * @deprecated Use \`Progress\` from \`@/shared/ui/progress\` (Radix-backed,
+ * better aria, smaller bundle). This kept for back-compat with existing
+ * Quiz / Flashcards / Insights consumers; new code should use
+ * \`<Progress value={…} />\`.
+ */
 interface ProgressBarProps {
   value: number;
   className?: string;

@@ -41,3 +41,9 @@ export {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "./breadcrumb";
+export {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "./collapsible";
+export { Toaster, toast } from "./toaster";

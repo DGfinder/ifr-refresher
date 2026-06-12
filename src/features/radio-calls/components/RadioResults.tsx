@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { Check, ChevronDown, ChevronRight, X, AlertCircle } from "lucide-react";
+import { Check, ChevronDown, X, AlertCircle } from "lucide-react";
 import { cn } from "@/shared/lib/cn";
 import type { RadioScenario } from "@/content/model/radio";
 import type {
@@ -10,6 +9,11 @@ import type {
 } from "@/features/radio-calls/model/types";
 import { Button } from "@/shared/ui/button";
 import { Card } from "@/shared/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/shared/ui/collapsible";
 
 interface RadioResultsProps {
   scenario: RadioScenario;
@@ -46,22 +50,10 @@ export function RadioResults({
 
   // Spoken legs that were wrong default to expanded so the learner sees
   // which elements they missed without an extra click. Everything else
-  // collapses to keep the page short.
-  const [expanded, setExpanded] = useState<Set<string>>(() => {
-    const initial = new Set<string>();
-    for (const entry of result.perLeg) {
-      if (entry.kind === "spoken" && !entry.isCorrect) initial.add(entry.legId);
-    }
-    return initial;
-  });
-
-  const toggle = (legId: string) =>
-    setExpanded((prev) => {
-      const next = new Set(prev);
-      if (next.has(legId)) next.delete(legId);
-      else next.add(legId);
-      return next;
-    });
+  // collapses to keep the page short. Default-open state is computed
+  // once per leg and passed to Radix Collapsible's `defaultOpen`.
+  const defaultOpenFor = (legId: string, kind: string, isCorrect: boolean) =>
+    kind === "spoken" && !isCorrect;
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -84,55 +76,75 @@ export function RadioResults({
         </h3>
         <ul className="space-y-2 text-sm">
           {result.perLeg.map((entry, idx) => {
-            const isExpanded = expanded.has(entry.legId);
             const answer = answers[entry.questionId];
             const canExpand = entry.kind === "spoken" && answer?.kind === "spoken";
+            const wrapperClass = cn(
+              "rounded-lg border",
+              entry.isCorrect
+                ? "border-[var(--ifr-success)]/30 bg-[var(--ifr-success)]/5"
+                : "border-[var(--ifr-danger)]/30 bg-[var(--ifr-danger)]/5",
+            );
+            const triggerClass = cn(
+              "flex w-full items-center justify-between gap-2 px-3 py-2 text-left",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)] focus-visible:ring-inset",
+              canExpand ? "cursor-pointer" : "cursor-default",
+            );
+
+            const labelAndStatus = (
+              <>
+                <span className="flex items-center gap-2 text-[var(--ifr-text)]">
+                  {canExpand && (
+                    <ChevronDown
+                      size={14}
+                      className="transition-transform [&[data-state=closed]]:rotate-[-90deg] group-data-[state=closed]:rotate-[-90deg]"
+                    />
+                  )}
+                  <span>
+                    {kindLabel(entry.kind)} {idx + 1}
+                  </span>
+                </span>
+                <span
+                  className={cn(
+                    "text-xs font-semibold",
+                    entry.isCorrect ? "text-[var(--ifr-success)]" : "text-[var(--ifr-danger)]",
+                  )}
+                >
+                  {entry.isCorrect ? "Correct" : "Incorrect"}
+                </span>
+              </>
+            );
+
+            if (!canExpand || answer?.kind !== "spoken") {
+              return (
+                <li key={entry.legId} className={wrapperClass}>
+                  <div className={triggerClass}>{labelAndStatus}</div>
+                </li>
+              );
+            }
 
             return (
-              <li
-                key={entry.legId}
-                className={cn(
-                  "rounded-lg border",
-                  entry.isCorrect
-                    ? "border-[var(--ifr-success)]/30 bg-[var(--ifr-success)]/5"
-                    : "border-[var(--ifr-danger)]/30 bg-[var(--ifr-danger)]/5",
-                )}
-              >
-                <button
-                  type="button"
-                  onClick={() => canExpand && toggle(entry.legId)}
-                  className={cn(
-                    "flex w-full items-center justify-between gap-2 px-3 py-2 text-left",
-                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)] focus-visible:ring-inset",
-                    canExpand ? "cursor-pointer" : "cursor-default",
-                  )}
-                  aria-expanded={canExpand ? isExpanded : undefined}
+              <li key={entry.legId} className={wrapperClass}>
+                <Collapsible
+                  defaultOpen={defaultOpenFor(entry.legId, entry.kind, entry.isCorrect)}
+                  className="group"
                 >
-                  <span className="flex items-center gap-2 text-[var(--ifr-text)]">
-                    {canExpand &&
-                      (isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />)}
-                    <span>
-                      {kindLabel(entry.kind)} {idx + 1}
-                    </span>
-                  </span>
-                  <span
-                    className={cn(
-                      "text-xs font-semibold",
-                      entry.isCorrect ? "text-[var(--ifr-success)]" : "text-[var(--ifr-danger)]",
-                    )}
+                  <CollapsibleTrigger
+                    className={cn(triggerClass, "group")}
+                    aria-label={`${kindLabel(entry.kind)} ${idx + 1} — ${
+                      entry.isCorrect ? "correct" : "incorrect"
+                    }, toggle breakdown`}
                   >
-                    {entry.isCorrect ? "Correct" : "Incorrect"}
-                  </span>
-                </button>
-
-                {canExpand && isExpanded && answer?.kind === "spoken" && (
-                  <SpokenLegBreakdown
-                    transcript={answer.transcript}
-                    hit={answer.hitElementLabels}
-                    missedRequired={answer.missedRequiredLabels}
-                    missedOptional={answer.missedOptionalLabels}
-                  />
-                )}
+                    {labelAndStatus}
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <SpokenLegBreakdown
+                      transcript={answer.transcript}
+                      hit={answer.hitElementLabels}
+                      missedRequired={answer.missedRequiredLabels}
+                      missedOptional={answer.missedOptionalLabels}
+                    />
+                  </CollapsibleContent>
+                </Collapsible>
               </li>
             );
           })}
