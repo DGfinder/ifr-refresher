@@ -15,9 +15,19 @@ export interface RadioCallsign {
 
 export const radioCallsigns: RadioCallsign[] = [
   {
-    full: "Lima Echo Foxtrot",
-    short: "LEF",
-    aircraftType: "PA-31 Chieftain",
+    full: "Lima Mike Sierra",
+    short: "LMS",
+    aircraftType: "Cessna 303 Crusader",
+  },
+  {
+    full: "Juliet Foxtrot Kilo",
+    short: "JFK",
+    aircraftType: "Cessna 303 Crusader",
+  },
+  {
+    full: "Mike Tango Romeo",
+    short: "MTR",
+    aircraftType: "Cessna 303 Crusader",
   },
   {
     full: "Mike X-ray Golf",
@@ -28,15 +38,5 @@ export const radioCallsigns: RadioCallsign[] = [
     full: "Bravo Romeo Alpha",
     short: "BRA",
     aircraftType: "Cessna 208 Caravan",
-  },
-  {
-    full: "Juliet Tango Hotel",
-    short: "JTH",
-    aircraftType: "Beech B58 Baron",
-  },
-  {
-    full: "Sierra Whiskey Yankee",
-    short: "SWY",
-    aircraftType: "Piper PA-44 Seminole",
   },
 ];
