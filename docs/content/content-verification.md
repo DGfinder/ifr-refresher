@@ -28,6 +28,7 @@ For any content edit:
 |---|---|---|---|---|
 | 2026-05-07 | Existing data shape/governance only | Existing local content; no rule text changed | Hermes | Added structural checker and disclaimer. Human aviation source verification still required before external/public pilot use. |
 | 2026-05-29 | Provenance coverage hardening | Existing local content; no rule text changed | Hermes | Added explicit unverified-local-study-notes provenance to the 57 modules that previously had empty refs and made empty refs a failing content check. This improves honesty/traceability but does not complete human aviation source verification. |
+| 2026-06-14 | Cheat-sheet briefing-flow modules CS-019/CS-020 | IFR Cheat Sheet (Ben Montgomery-Schinkel), V7.1 March 2024; extracted from `docs/content/IFR-Cheat-Sheet (1).pdf` using `@opendataloader/pdf` and manually checked against extracted Markdown pages/sections for Sample Departure Briefing, Sample Take-off Safety Briefing, and Sample Approach Briefing | Hermes | Added quick-study briefing prompts and Q&A only; no new regulatory minima/rules introduced. Study-aid content remains subject to human aviation review before public/paying pilot use. |
 
 ## Promotion to Tier 3/public pilot
 
