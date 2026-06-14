@@ -43,6 +43,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# generated content extracts
+/docs/content/extracted/
+
 # serwist (generated service worker)
 public/sw.js
 public/sw.js.map

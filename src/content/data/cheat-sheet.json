@@ -48,7 +48,8 @@
       "description": "Altimeter checks, take-off minima, climb gradients",
       "moduleIds": [
         "CS-008",
-        "CS-009"
+        "CS-009",
+        "CS-019"
       ]
     },
     {
@@ -68,7 +69,8 @@
         "CS-012",
         "CS-013",
         "CS-014",
-        "CS-015"
+        "CS-015",
+        "CS-020"
       ]
     }
   ],
@@ -2522,6 +2524,178 @@
         {
           "source": "Jeppesen",
           "chapter": "ATC \u2014 Communications 7"
+        }
+      ]
+    },
+    {
+      "id": "CS-019",
+      "title": "Departure & Take-off Briefing Flow",
+      "categoryId": "departure",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": [
+        "departure",
+        "briefing",
+        "take-off",
+        "engine-failure",
+        "vmca",
+        "vyse"
+      ],
+      "summary": "A concise IFR departure and take-off safety brief: chart, terrain, weather, threats, V-speeds, and the before/after-VR abnormal plan.",
+      "content": [
+        {
+          "type": "ops_context",
+          "content": [
+            "Use this as a quick-study prompt to rehearse the briefing flow. It does not replace the chart, AFM, local procedures, or instructor/operator SOPs.",
+            "The cheat-sheet departure template moves from chart setup to flying the departure, terrain/MSA, weather/QNH, and departure-specific threats before take-off."
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Chart: aerodrome, departure title, index/effective date; aid tuned/identified/tested or SID loaded with tracks, distances, heights verified and RAIM available where relevant.",
+            "Flying: read initial climb instructions, assigned altitude, tracks, turns and any published notes.",
+            "Terrain: brief MSAs and how MSA/terrain clearance will be achieved if an engine fails or the departure cannot be flown as planned.",
+            "Weather/QNH: AWIS/ATIS/TAF, wind effect on tracks, QNH reasonableness, destination still suitable.",
+            "Threats: chart notes, NOTAMs, recent chart changes, traffic, return/divert options, and any crew questions."
+          ]
+        },
+        {
+          "type": "numbers",
+          "content": [
+            "VMCA / VR / VYSE \u2014 call these speeds before brake release.",
+            "Before VR \u2014 maintain control and reject for any abnormality.",
+            "At or after VR and before VYSE \u2014 maintain control; either land because runway permits, or accelerate to VYSE and select flap up above 300 ft if that is the aircraft-specific plan.",
+            "Above VYSE \u2014 maintain control, prevent yaw, mixture up, pitch up, power up, gear up, flaps up, identify dead leg/dead engine, confirm and feather."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Briefing a generic engine-failure plan without runway length, obstacles, wind, terrain, turn direction and aircraft performance limits.",
+            "Saying 'continue' after a critical malfunction without deciding what happens if climb or level-flight performance is not achieved.",
+            "Skipping the emergency control-transfer/simulated-emergency discussion \u2014 the template explicitly prompts who has control in an actual emergency."
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "What broad items should an IFR departure briefing cover before take-off?",
+          "answer": "Chart and nav/SID setup, how the departure will be flown, terrain/MSA, weather/QNH and destination suitability, then threats such as NOTAMs, chart notes, recent changes, traffic and engine-failure return/divert options.",
+          "distractors": [
+            "Only runway, SID name, squawk and assigned altitude.",
+            "Only weather, fuel, passenger brief and taxi route.",
+            "Only take-off minima and transponder code."
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "In the sample take-off safety brief, what is the plan for an abnormality before VR?",
+          "answer": "Maintain aircraft control and reject the take-off.",
+          "distractors": [
+            "Continue to VR and assess after becoming airborne.",
+            "Feather the critical engine immediately and continue.",
+            "Accelerate to VYSE before making any decision."
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "What aircraft-specific factors should be considered for a critical malfunction at or after VR but before VYSE?",
+          "answer": "Strip/runway length, obstacles, wind and climb-gradient effect, terrain, direction of turns, aircraft performance limitations, and the likely type of malfunction.",
+          "distractors": [
+            "Only runway length and published take-off minima.",
+            "Only destination weather and alternate fuel.",
+            "Only whether the aerodrome has an IAP and PAL lighting."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "IFR Cheat Sheet (Ben Montgomery-Schinkel)",
+          "section": "Sample briefing templates \u2014 pages 34, 35 and 58, V7.1 March 2024",
+          "note": "Source/access date 2026-06-14. Extracted from docs/content/IFR-Cheat-Sheet (1).pdf using @opendataloader/pdf, then manually checked against extracted Markdown. Adapted as quick-study cockpit briefing prompts; not an operational source of truth."
+        }
+      ]
+    },
+    {
+      "id": "CS-020",
+      "title": "Approach Briefing Flow",
+      "categoryId": "approaches",
+      "level": "core",
+      "estReadingMinutes": 4,
+      "tags": [
+        "approach",
+        "briefing",
+        "missed-approach",
+        "RAIM",
+        "terrain",
+        "qnh"
+      ],
+      "summary": "A compact approach-briefing flow: chart validity, nav setup, MSA/terrain, tracks and descent steps, visual plan, missed approach, weather, alternates and threats.",
+      "content": [
+        {
+          "type": "ops_context",
+          "content": [
+            "Brief this before the approach workload rises. The point is to mentally fly the procedure and missed approach before being forced to make decisions close to minima.",
+            "The cheat-sheet template covers chart confirmation, nav setup, briefing strip/MSA, approach path, weather/QNH, alternate/fuel state and procedure-specific threats."
+          ]
+        },
+        {
+          "type": "list",
+          "style": "bullet",
+          "items": [
+            "Chart: aerodrome, approach title, index number and effective date.",
+            "Navigation setup: aid tuned/identified/tested, or approach loaded with tracks, distances and heights verified and RAIM available where relevant.",
+            "Briefing strip/terrain: read the critical chart lines and MSAs; know the terrain picture before descent.",
+            "Flying the approach: inbound track, sector entry or hold, turns, not-below steps, runway position when visual and straight-in/circling plan.",
+            "Missed approach: missed approach point, first turn or track, altitude to climb to, and aircraft reconfiguration if applicable.",
+            "Weather/fuel/threats: AWIS/ATIS/TAF, QNH reasonableness, expected visual acquisition difficulty, alternate options, fuel to hold/divert, NOTAMs, chart notes, missed-approach gradient, no-circling areas, runway condition and after-landing actions."
+          ]
+        },
+        {
+          "type": "traps",
+          "content": [
+            "Briefing only inbound course and minima. The template also requires terrain, visual manoeuvring, missed approach, weather/QNH, alternate/fuel and chart-specific threats.",
+            "Assuming a loaded GNSS approach is enough \u2014 tracks, distances, heights and RAIM availability still need to be verified where relevant.",
+            "Leaving the missed approach vague. Before starting down, name the MAPt, first track or turn, climb altitude and reconfiguration plan."
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "What should be verified when briefing a loaded GNSS approach from the cheat-sheet template?",
+          "answer": "That the approach is loaded, tracks/distances/heights have been verified, and RAIM is available where relevant.",
+          "distractors": [
+            "Only that the approach name appears in the navigator.",
+            "Only that CDI sensitivity has changed.",
+            "Only that the runway number matches the final approach course."
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "What missed-approach items should be briefed before commencing the approach?",
+          "answer": "The missed approach point, initial turn or track, altitude to climb to, and aircraft reconfiguration if applicable.",
+          "distractors": [
+            "Only the holding pattern after the missed approach.",
+            "Only the alternate and fuel remaining.",
+            "Only tower frequency and transponder code."
+          ]
+        },
+        {
+          "type": "qa",
+          "question": "Besides the chart and flying profile, what threats does the sample approach briefing prompt you to consider?",
+          "answer": "Relevant NOTAMs and chart notes, recent chart changes, missed-approach gradients versus aircraft performance, no-circling areas, runway condition and actions after landing.",
+          "distractors": [
+            "Passenger comfort, parking bay and catering.",
+            "Only QNH, tower frequency and ATIS code.",
+            "Only aircraft approach category and circling radius."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "IFR Cheat Sheet (Ben Montgomery-Schinkel)",
+          "section": "Sample briefing templates \u2014 pages 34, 35 and 58, V7.1 March 2024",
+          "note": "Source/access date 2026-06-14. Extracted from docs/content/IFR-Cheat-Sheet (1).pdf using @opendataloader/pdf, then manually checked against extracted Markdown. Adapted as quick-study cockpit briefing prompts; not an operational source of truth."
         }
       ]
     }

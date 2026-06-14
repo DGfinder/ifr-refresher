@@ -5,6 +5,7 @@ Repository utility scripts. Scripts are part of the quality contract; do not wea
 | Script | Purpose | Blocking? |
 |---|---|---|
 | `check-content.mjs` | Validates bundled aviation JSON shape, IDs, category/module links, and basic content block contracts. Warns when modules lack refs. | Yes for shape/errors; refs are currently warnings. |
+| `extract-pdf-content.mjs` | Converts source PDFs under `docs/content/` into Markdown + JSON with `@opendataloader/pdf` for human review/RAG/content drafting. Requires Java 11+. | Manual only; generated output must be reviewed before any aviation content change. |
 | `pillars-lint.sh` | Pillars governance/adoption lint. | Advisory in CI during Tier 2 adoption. |
 | `pillars-frontend-lint.sh` | Frontend Pillars lint/adoption checks. | Advisory in CI during Tier 2 adoption. |
 | `run-lighthouse.mjs` | Runs local Lighthouse budget checks using Playwright Chromium when needed. | Manual/local quality gate. |
