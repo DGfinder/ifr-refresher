@@ -1,7 +1,17 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Bookmark, BookmarkCheck, Radio, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Bookmark,
+  BookmarkCheck,
+  Brain,
+  BookOpen,
+  Library,
+  Radio,
+  Sparkles,
+} from "lucide-react";
 import type { ContentBlock as ContentBlockType, Module } from "@/content/model/section";
 import type { ModuleStatus } from "@/features/progress";
 import { Badge } from "@/shared/ui/Badge";
@@ -10,6 +20,7 @@ import { References } from "@/content/components/References";
 import { StatusIndicator } from "@/features/progress";
 import { cn } from "@/shared/lib/cn";
 import { Button } from "@/shared/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/ui/tabs";
 import { ReadingProgress } from "@/features/study/components/ReadingProgress";
 import { useStudyBookmarks } from "@/features/study/hooks/useStudyBookmarks";
 
@@ -31,8 +42,8 @@ interface ModuleDetailProps {
   sectionId: string;
   onBack: () => void;
   onMarkCompleted: () => void;
-  /** Optional CTA shown below references — used by radio-calls modules to
-   * deep-link into the matching Drill tab filter. */
+  /** Optional CTA shown in the Reference tab — used by radio-calls modules
+   * to deep-link into the matching Drill tab filter. */
   practiceLink?: PracticeLink;
   /** When this module is completed (or already was), surface this as the
    * "next" module so the learner doesn't have to backtrack to the list. */
@@ -49,16 +60,39 @@ interface ModuleDetailProps {
   speakable?: boolean;
 }
 
+/** Block types that belong on the Read tab — passive study content. */
+const READ_TYPES = new Set<ContentBlockType["type"]>([
+  "heading",
+  "text",
+  "list",
+  "hierarchy",
+  "law",
+  "numbers",
+  "ops_context",
+  "traps",
+  "scenario",
+]);
+
+/** Block types that belong on the Drill tab — active-recall content. */
+const DRILL_TYPES = new Set<ContentBlockType["type"]>([
+  "qa",
+  "ipc_questions",
+  "airline_questions",
+]);
+
+/** Block types that belong on the Reference tab — sources, related material. */
+const REFERENCE_TYPES = new Set<ContentBlockType["type"]>(["reference"]);
+
+type TabValue = "read" | "drill" | "reference";
+
 export function orderContentBlocksForStudy(
   blocks: readonly ContentBlockType[],
 ): ContentBlockType[] {
-  const activeRecallTypes = new Set<ContentBlockType["type"]>([
-    "qa",
-    "ipc_questions",
-    "airline_questions",
-  ]);
-  const studyContent = blocks.filter((block) => !activeRecallTypes.has(block.type));
-  const activeRecall = blocks.filter((block) => activeRecallTypes.has(block.type));
+  // Kept for backwards compat — used by tests + by code paths that still
+  // want a single linear ordering. Tab-based reader builds its own per-tab
+  // partition via the *_TYPES sets above.
+  const studyContent = blocks.filter((block) => !DRILL_TYPES.has(block.type));
+  const activeRecall = blocks.filter((block) => DRILL_TYPES.has(block.type));
   return [...studyContent, ...activeRecall];
 }
 
@@ -78,22 +112,53 @@ export function ModuleDetail({
     getTagHref ??
     ((tag: string) =>
       `/study?section=${encodeURIComponent(sectionId)}&tag=${encodeURIComponent(tag)}`);
+
   const { isBookmarked, toggleBookmark, isLoaded: bookmarksLoaded } =
     useStudyBookmarks();
   const bookmarked = bookmarksLoaded && isBookmarked(sectionId, module.id);
-  // A module has tappable IPC / interview question blocks. We surface a
-  // "Test yourself" CTA when it does — points the learner at /quiz for
-  // active recall practice.
-  const hasQuestions = module.content.some(
-    (b) => b.type === "ipc_questions" || b.type === "airline_questions",
-  );
+
+  // Partition the module's content blocks once per render. Order within each
+  // partition matches authoring order — we never re-sort the source content.
+  const { readBlocks, drillBlocks, referenceBlocks } = useMemo(() => {
+    const read: ContentBlockType[] = [];
+    const drill: ContentBlockType[] = [];
+    const ref: ContentBlockType[] = [];
+    for (const block of module.content) {
+      if (READ_TYPES.has(block.type)) read.push(block);
+      else if (DRILL_TYPES.has(block.type)) drill.push(block);
+      else if (REFERENCE_TYPES.has(block.type)) ref.push(block);
+    }
+    return { readBlocks: read, drillBlocks: drill, referenceBlocks: ref };
+  }, [module.content]);
+
+  // Count the prompts inside the IPC / airline blocks so the Drill tab can
+  // show "Drill (12)" instead of just "Drill". Plain qa blocks count as 1
+  // each; ipc_questions / airline_questions contain a string per question.
+  const drillCount = useMemo(() => {
+    let count = 0;
+    for (const block of drillBlocks) {
+      if (block.type === "qa") count += 1;
+      else if (block.type === "ipc_questions" || block.type === "airline_questions") {
+        count += block.content.length;
+      }
+    }
+    return count;
+  }, [drillBlocks]);
+
+  const showDrillTab = drillBlocks.length > 0;
+  const showReferenceTab =
+    referenceBlocks.length > 0 || module.refs.length > 0 || Boolean(practiceLink);
+
+  const [activeTab, setActiveTab] = useState<TabValue>("read");
+
   return (
     <div className="mx-auto max-w-3xl">
-      {/* Reading progress — sticky bar at the very top of the page that
-          tracks scroll position. Resets to 0 on module change via key. */}
-      <ReadingProgress trackingKey={module.id} />
-      {/* Header with back button */}
-      <div className="mb-6">
+      {/* Sticky reading-progress bar — remounts on module OR tab change so
+          the bar resets when content swaps under the scroll position. */}
+      <ReadingProgress trackingKey={`${module.id}:${activeTab}`} />
+
+      {/* Header */}
+      <div className="mb-5">
         <Button
           variant="ghost"
           size="sm"
@@ -146,7 +211,6 @@ export function ModuleDetail({
             <StatusIndicator status={status} size="sm" />
             <span className="capitalize">{status.replace("-", " ")}</span>
           </span>
-          {/* Save for later review — separate from completion. */}
           <button
             type="button"
             onClick={() => {
@@ -167,88 +231,126 @@ export function ModuleDetail({
             ) : (
               <Bookmark size={14} aria-hidden="true" />
             )}
-            <span className="text-xs">
-              {bookmarked ? "Saved" : "Save"}
-            </span>
+            <span className="text-xs">{bookmarked ? "Saved" : "Save"}</span>
           </button>
         </div>
 
-        {/* Tags — tap to filter the section's module list by that tag. */}
-        <div className="mt-4 flex flex-wrap gap-2">
-          {module.tags.map((tag) => (
-            <Link
-              key={tag}
-              href={resolveTagHref(tag)}
-              className={cn(
-                "rounded-md bg-[var(--ifr-surface-muted)] px-2.5 py-1 text-sm text-[var(--ifr-text)]",
-                "transition-colors hover:bg-[var(--ifr-accent)]/15 hover:text-[var(--ifr-accent)]",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
-              )}
-            >
-              {tag}
-            </Link>
-          ))}
-        </div>
+        {module.tags.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {module.tags.map((tag) => (
+              <Link
+                key={tag}
+                href={resolveTagHref(tag)}
+                className={cn(
+                  "rounded-md bg-[var(--ifr-surface-muted)] px-2.5 py-1 text-sm text-[var(--ifr-text)]",
+                  "transition-colors hover:bg-[var(--ifr-accent)]/15 hover:text-[var(--ifr-accent)]",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+                )}
+              >
+                {tag}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* Summary */}
-      <div className="mb-6 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)]/30 p-4">
+      {/* Summary — always visible above the tabs. One sentence that frames
+          why the learner is here, regardless of which tab they're on. */}
+      <div className="mb-5 rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)]/30 p-4">
         <p className="text-[var(--ifr-text)]/90">{module.summary}</p>
       </div>
 
-      {/* Content. \`prose-sm\` provides mobile-friendly line-height +
-          spacing; the existing per-block components keep their own
-          coloured surfaces (law/numbers/traps) so prose only affects
-          paragraph + list rhythm. */}
+      {/* Tabs: Read (passive study) · Drill (active recall) · Reference (sources + cross-links) */}
+      <Tabs
+        value={activeTab}
+        onValueChange={(v) => setActiveTab(v as TabValue)}
+        className="block"
+      >
+        <TabsList className="mb-5 flex w-full">
+          <TabsTrigger value="read" className="flex-1 gap-2">
+            <BookOpen size={14} aria-hidden="true" />
+            <span>Read</span>
+          </TabsTrigger>
+          {showDrillTab && (
+            <TabsTrigger value="drill" className="flex-1 gap-2">
+              <Brain size={14} aria-hidden="true" />
+              <span>Drill</span>
+              {drillCount > 0 && (
+                <span className="rounded-full bg-[var(--ifr-accent)]/15 px-1.5 text-[10px] font-semibold text-[var(--ifr-accent)]">
+                  {drillCount}
+                </span>
+              )}
+            </TabsTrigger>
+          )}
+          {showReferenceTab && (
+            <TabsTrigger value="reference" className="flex-1 gap-2">
+              <Library size={14} aria-hidden="true" />
+              <span>Reference</span>
+            </TabsTrigger>
+          )}
+        </TabsList>
+
+        <TabsContent value="read" className="mt-0">
+          <ReadTab
+            blocks={readBlocks}
+            speakable={speakable}
+            status={status}
+            onMarkCompleted={onMarkCompleted}
+            {...(nextModule !== undefined ? { nextModule } : {})}
+            {...(onSelectNextModule ? { onSelectNextModule } : {})}
+          />
+        </TabsContent>
+
+        {showDrillTab && (
+          <TabsContent value="drill" className="mt-0">
+            <DrillTab blocks={drillBlocks} hasPracticeLink={Boolean(practiceLink)} />
+          </TabsContent>
+        )}
+
+        {showReferenceTab && (
+          <TabsContent value="reference" className="mt-0">
+            <ReferenceTab
+              blocks={referenceBlocks}
+              refs={module.refs}
+              {...(practiceLink ? { practiceLink } : {})}
+            />
+          </TabsContent>
+        )}
+      </Tabs>
+    </div>
+  );
+}
+
+// ─── Tab components ───────────────────────────────────────────────────────
+
+interface ReadTabProps {
+  blocks: readonly ContentBlockType[];
+  speakable: boolean;
+  status: ModuleStatus;
+  onMarkCompleted: () => void;
+  nextModule?: NextModuleSuggestion | null;
+  onSelectNextModule?: (moduleId: string) => void;
+}
+
+function ReadTab({
+  blocks,
+  speakable,
+  status,
+  onMarkCompleted,
+  nextModule,
+  onSelectNextModule,
+}: ReadTabProps) {
+  return (
+    <>
+      {/* `prose-sm` controls paragraph rhythm for raw text/headings; the
+          per-block components keep their own surfaces (regulation cards,
+          numbers grid, callouts) so prose only affects the loose copy. */}
       <div className="prose prose-sm max-w-none dark:prose-invert prose-headings:font-semibold prose-headings:text-[var(--ifr-text)] prose-p:text-[var(--ifr-text)] prose-strong:text-[var(--ifr-text)] prose-li:text-[var(--ifr-text)] prose-a:text-[var(--ifr-accent)]">
-        {orderContentBlocksForStudy(module.content).map((block, index) => (
+        {blocks.map((block, index) => (
           <ContentBlock key={index} block={block} speakable={speakable} />
         ))}
       </div>
 
-      {/* References */}
-      <References refs={module.refs} />
-
-      {/* Optional practice CTA (radio-calls modules deep-link into Drill tab) */}
-      {practiceLink && (
-        <Link
-          href={practiceLink.href}
-          className={cn(
-            "mt-6 flex items-center justify-between gap-3 rounded-xl border border-[var(--ifr-accent)]/40 bg-[var(--ifr-accent)]/5 p-4 text-sm font-medium text-[var(--ifr-accent)] transition-colors",
-            "hover:border-[var(--ifr-accent)]/70 hover:bg-[var(--ifr-accent)]/10",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
-          )}
-        >
-          <span className="flex items-center gap-2">
-            <Radio size={16} aria-hidden="true" />
-            {practiceLink.label}
-          </span>
-          <span aria-hidden="true">→</span>
-        </Link>
-      )}
-
-      {/* Test yourself — surfaces when the module has embedded Q&A blocks.
-          Points at the quiz to encourage active recall. Skipped on
-          radio-calls modules where the practiceLink already covers
-          practice. */}
-      {hasQuestions && !practiceLink && (
-        <Link
-          href="/quiz"
-          className={cn(
-            "mt-3 flex items-center justify-between gap-3 rounded-xl border border-[var(--ifr-accent)]/40 bg-[var(--ifr-accent)]/5 p-4 text-sm font-medium text-[var(--ifr-accent)] transition-colors",
-            "hover:border-[var(--ifr-accent)]/70 hover:bg-[var(--ifr-accent)]/10",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
-          )}
-        >
-          <span className="flex items-center gap-2">
-            <Sparkles size={16} aria-hidden="true" />
-            Test yourself — active recall in the quiz
-          </span>
-          <span aria-hidden="true">→</span>
-        </Link>
-      )}
-
-      {/* Mark as Completed button */}
       <div className="mt-8 border-t border-[var(--ifr-border)] pt-6">
         <Button
           onClick={onMarkCompleted}
@@ -284,10 +386,6 @@ export function ModuleDetail({
           )}
         </Button>
 
-        {/* Next module — surfaces the next unread module in the same
-            section so a learner who just finished one can keep going
-            without backtracking to the list. Tap routes via the parent
-            so the URL + state stay in sync. */}
         {nextModule && onSelectNextModule && (
           <button
             type="button"
@@ -317,6 +415,81 @@ export function ModuleDetail({
           </button>
         )}
       </div>
+    </>
+  );
+}
+
+interface DrillTabProps {
+  blocks: readonly ContentBlockType[];
+  hasPracticeLink: boolean;
+}
+
+function DrillTab({ blocks, hasPracticeLink }: DrillTabProps) {
+  return (
+    <>
+      <div className="rounded-lg border border-sky-500/30 bg-sky-500/5 p-3 text-sm text-sky-900 dark:text-sky-100">
+        Active-recall practice. Tap a question to reveal the answer.
+      </div>
+      <div className="mt-4 prose prose-sm max-w-none dark:prose-invert">
+        {blocks.map((block, index) => (
+          <ContentBlock key={index} block={block} />
+        ))}
+      </div>
+      {!hasPracticeLink && (
+        <Link
+          href="/quiz"
+          className={cn(
+            "mt-6 flex items-center justify-between gap-3 rounded-xl border border-[var(--ifr-accent)]/40 bg-[var(--ifr-accent)]/5 p-4 text-sm font-medium text-[var(--ifr-accent)] transition-colors",
+            "hover:border-[var(--ifr-accent)]/70 hover:bg-[var(--ifr-accent)]/10",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+          )}
+        >
+          <span className="flex items-center gap-2">
+            <Sparkles size={16} aria-hidden="true" />
+            Practice these in /quiz — full active-recall mode
+          </span>
+          <span aria-hidden="true">→</span>
+        </Link>
+      )}
+    </>
+  );
+}
+
+interface ReferenceTabProps {
+  blocks: readonly ContentBlockType[];
+  refs: Module["refs"];
+  practiceLink?: PracticeLink;
+}
+
+function ReferenceTab({ blocks, refs, practiceLink }: ReferenceTabProps) {
+  return (
+    <div className="space-y-4">
+      {blocks.length > 0 && (
+        <div className="prose prose-sm max-w-none dark:prose-invert">
+          {blocks.map((block, index) => (
+            <ContentBlock key={index} block={block} />
+          ))}
+        </div>
+      )}
+
+      {refs.length > 0 && <References refs={refs} />}
+
+      {practiceLink && (
+        <Link
+          href={practiceLink.href}
+          className={cn(
+            "flex items-center justify-between gap-3 rounded-xl border border-[var(--ifr-accent)]/40 bg-[var(--ifr-accent)]/5 p-4 text-sm font-medium text-[var(--ifr-accent)] transition-colors",
+            "hover:border-[var(--ifr-accent)]/70 hover:bg-[var(--ifr-accent)]/10",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+          )}
+        >
+          <span className="flex items-center gap-2">
+            <Radio size={16} aria-hidden="true" />
+            {practiceLink.label}
+          </span>
+          <span aria-hidden="true">→</span>
+        </Link>
+      )}
     </div>
   );
 }

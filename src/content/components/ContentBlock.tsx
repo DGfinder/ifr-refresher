@@ -3,11 +3,13 @@
 import type { ContentBlock as ContentBlockType } from "@/content/model/section";
 import { QACollapsibleItem } from "./QACollapsibleItem";
 import { SpeakableLine } from "./SpeakablePhrase";
+import { Callout, StoryList } from "./Callout";
+import { RegulationCard } from "./RegulationCard";
+import { NumbersGrid } from "./NumbersGrid";
 
-// Shared IFR design token classes
+// Shared IFR design token classes used by the simpler text/heading/list blocks.
 const baseCardClasses = "mb-4 rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)]/80 px-4 py-3 shadow-sm";
 const titleClasses = "mb-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--ifr-text-muted)]";
-const listClasses = "ml-4 list-disc space-y-1 text-sm leading-relaxed text-[var(--ifr-text)]";
 
 interface ContentBlockProps {
   block: ContentBlockType;
@@ -93,29 +95,14 @@ export function ContentBlock({ block, speakable = false }: ContentBlockProps) {
       );
 
     case "law":
-      return (
-        <div className={baseCardClasses}>
-          <p className={titleClasses}>Regulation</p>
-          <ul className={listClasses}>
-            {block.content.map((item, i) => (
-              <li key={i}>{renderListItem(item, speakable)}</li>
-            ))}
-          </ul>
-        </div>
-      );
+      // Renders one card per regulation, with the citation pulled out as a
+      // small-caps header. The speakable prop currently no-ops for law blocks
+      // — the radio-calls Learn tab uses SpeakableLine through the list/text
+      // path; law blocks are passages of regulation, not phrases.
+      return <RegulationCard items={block.content} />;
 
     case "numbers":
-      if (!block.content.length) return null;
-      return (
-        <div className={baseCardClasses}>
-          <p className={titleClasses}>Key Numbers</p>
-          <ul className={listClasses}>
-            {block.content.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      );
+      return <NumbersGrid items={block.content} />;
 
     case "reference":
       if (!block.content.length) return null;
@@ -133,28 +120,10 @@ export function ContentBlock({ block, speakable = false }: ContentBlockProps) {
       );
 
     case "ops_context":
-      return (
-        <div className={baseCardClasses}>
-          <p className={titleClasses}>In Practice</p>
-          <ul className={listClasses}>
-            {block.content.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      );
+      return <Callout variant="practice" title="In Practice" items={block.content} />;
 
     case "traps":
-      return (
-        <div className={baseCardClasses}>
-          <p className={titleClasses}>Common Traps</p>
-          <ul className={listClasses}>
-            {block.content.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      );
+      return <Callout variant="trap" title="Common Traps" items={block.content} />;
 
     case "ipc_questions":
       return (
@@ -181,16 +150,7 @@ export function ContentBlock({ block, speakable = false }: ContentBlockProps) {
       );
 
     case "scenario":
-      return (
-        <div className={baseCardClasses}>
-          <p className={titleClasses}>Scenario</p>
-          <ul className={listClasses}>
-            {block.content.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      );
+      return <StoryList items={block.content} />;
 
     default:
       return null;
