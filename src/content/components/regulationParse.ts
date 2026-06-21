@@ -38,11 +38,15 @@ export function splitCitation(item: string): {
   citation: string | null;
   body: string;
 } {
-  const match = item.match(/^([A-Z][^—–]{2,140})\s+[—–]\s+([\s\S]+)$/);
-  if (!match) return { citation: null, body: item };
-  const candidate = match[1]!.trim();
+  // Split on the first ` — ` or ` – ` (space-flanked en/em-dash) — that's
+  // unambiguously the citation-vs-body separator. Citations themselves may
+  // contain unspaced dashes (e.g. "Para 1.2–1.3"), so we can't reject them
+  // wholesale; the space-flanked split keeps internal dashes intact.
+  const sepMatch = item.match(/^([A-Z][\s\S]{2,140}?)\s+[—–]\s+([\s\S]+)$/);
+  if (!sepMatch) return { citation: null, body: item };
+  const candidate = sepMatch[1]!.trim();
   if (!looksLikeCitation(candidate)) return { citation: null, body: item };
-  return { citation: candidate, body: match[2]!.trim() };
+  return { citation: candidate, body: sepMatch[2]!.trim() };
 }
 
 const CITATION_ACRONYMS =
@@ -65,15 +69,24 @@ export function splitSubject(body: string): {
   rest: string;
 } {
   // Disallow em/en-dashes inside the candidate subject — those indicate
-  // we've crossed into regulation prose, not a topic label (e.g.
-  // "Special alternate minima are NOT available — minima revert — during
-  // periods when:" should NOT be picked up as a subject).
+  // we've crossed into regulation prose, not a topic label.
   const match = body.match(
-    /^([^:.\n;—–]{2,80}(?:\([^)]+\))?[^:.\n;—–]{0,40}):\s+([\s\S]+)$/,
+    /^([^:.\n;—–]{2,55}(?:\([^)]+\))?[^:.\n;—–]{0,15}):\s+([\s\S]+)$/,
   );
   if (!match) return { subject: null, rest: body };
   const subject = match[1]!.trim();
   if (subject.endsWith(",")) return { subject: null, rest: body };
+  // Reject "subjects" that read as descriptive clauses rather than topic
+  // labels. Subjects starting with WHEN/IF/FOR/AT/TO/WHERE etc. introduce
+  // a subordinate clause leading to a colon-list — they're not topics.
+  if (/^(When|If|For|At|To|Where|While|Before|After|Despite|Although|Unless)\b/.test(subject)) {
+    return { subject: null, rest: body };
+  }
+  // Subjects shouldn't end in trailing function words either ("must set
+  // either", "should read") — heuristic guard.
+  if (/\b(either|both|the|a|an|to|of|on|in)$/i.test(subject)) {
+    return { subject: null, rest: body };
+  }
   return { subject, rest: match[2]!.trim() };
 }
 

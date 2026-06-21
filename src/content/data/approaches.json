@@ -184,11 +184,11 @@
           "type": "law",
           "content": [
             "Part 91 MOS 14.03 / AIP ENR 1.5 Para 5.3 — Prior to passing the IAF, pilots must set either: (a) the actual aerodrome QNH from an approved source; or (b) the Forecast Aerodrome (TAF) QNH; or (c) the forecast Area QNH.",
-            "Where Airservices Australia approach charts show a shaded background to minima titles (IAL charts) or published minima (DME or GNSS Arrivals), the minima have been calculated using TAF QNH. These minima may be reduced by 100FT whenever an actual aerodrome QNH is set.",
-            "Jeppesen charts have minima for both actual aerodrome QNH and forecast aerodrome QNH.",
+            "AIP ENR 1.5 Para 1.18 — Airservices shaded-minima rule: where Australian charts show a shaded background to minima titles (IAL charts) or published minima (DME or GNSS Arrivals), the minima have been calculated using TAF QNH; they may be reduced by 100 ft whenever an actual aerodrome QNH is set.",
+            "Jeppesen chart format: Jeppesen charts publish minima for both actual aerodrome QNH and forecast aerodrome QNH — read the correct column for your QNH source.",
             "Approved sources of actual QNH: ATC and ATIS (when not endorsing TAF QNH), AWIS, and Bureau of Meteorology accredited meteorological observers. An actual aerodrome QNH from an approved source is valid for 15 minutes from the time of receipt. METAR QNH does not meet this requirement.",
             "When actual aerodrome QNH is not available, ATC will report TAF QNH on the ATIS: 'ACTUAL QNH NOT AVAILABLE, AERODROME FORECAST QNH...'. Forecast QNH reported by ATC or on ATIS is not an approved source of actual QNH.",
-            "Where the forecast Area QNH is used, the minima used must be increased by 50FT."
+            "Area QNH addition: where the forecast Area QNH is used, the minima used must be increased by 50 ft."
           ]
         },
         {
@@ -284,8 +284,8 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.5 Para 1.18 — Landing minima are published on Australian approach charts as MDA/H or DA/H. Obstacle Clearance Altitude/Height is not published. Landing minima are the basis for determining AOM.",
-            "Operators must establish AOM for each aerodrome to be used for operations. After consideration of the following factors, operators may determine that their AOM should be higher than the published landing minima: (a) the type, performance and handling characteristics of the aeroplane; (b) the composition, experience and competence of the flight crew; (c) the means used to determine and report meteorological conditions."
+            "AIP ENR 1.5 Para 1.18 — Chart minima published: landing minima are published on Australian approach charts as MDA/H or DA/H. OCA/H is not published. Landing minima are the basis for determining AOM.",
+            "AIP ENR 1.5 Para 1.18 — Operator AOM responsibility: operators must establish AOM for each aerodrome to be used for operations. After consideration of the following factors, operators may determine that their AOM should be higher than the published landing minima: (a) the type, performance and handling characteristics of the aeroplane; (b) the composition, experience and competence of the flight crew; (c) the means used to determine and report meteorological conditions."
           ]
         },
         {
@@ -373,8 +373,8 @@
         {
           "type": "law",
           "content": [
-            "CASR 91.310 / Part 91 MOS 16 — For an aircraft conducting an IAP at an aerodrome that (a) has an ATC service in operation AND (b) has RVR reports available for IAPs to the relevant runway: the PIC must not descend below 1,000 ft AAL where the controlling RVR is reported by ATC as continually less than the landing minima. The controlling RVR is the TDZ RVR for non-low-visibility operations, OR the controlling zone RVR for low-visibility operations.",
-            "Despite the above, the PIC may continue the IAP if already below 1,000FT AAL when this information is received."
+            "CASR 91.310 / Part 91 MOS 16 — Approach ban trigger: for an aircraft conducting an IAP at an aerodrome that (a) has an ATC service in operation AND (b) has RVR reports available for IAPs to the relevant runway: the PIC must not descend below 1,000 ft AAL where the controlling RVR is reported by ATC as continually less than the landing minima for the IAP. (TDZ RVR for non-LVO; controlling zone RVR for LVO.)",
+            "CASR 91.310 / Part 91 MOS 16 — Already-below exception: the PIC may continue the IAP if already below 1,000 ft AAL when this information is received."
           ]
         },
         {
@@ -468,7 +468,7 @@
         {
           "type": "law",
           "content": [
-            "CASR 91.305 / AIP GEN 3.3 Para 4 — An aircraft must not be flown under the IFR lower than the published lowest safe altitude or the lowest safe altitude calculated in accordance with this section, unless permitted by CASR 91.265, 91.267 and 91.305 or another civil aviation legislation provision.",
+            "CASR 91.305 / AIP GEN 3.3 Para 4 — IFR LSALT prohibition: an aircraft must not be flown under the IFR lower than the published LSALT or the LSALT calculated in accordance with this section, unless permitted by CASR 91.265, 91.267 and 91.305 or another civil aviation legislation provision.",
             "Exceptions to flying below LSALT (VIVAT mnemonic): Visual approach or departure; Instrument approach or departure; VMC by day; ATC clearance; Take-off or landing."
           ]
         },
@@ -563,7 +563,7 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.5 Para 1.7.2 — Descent below the straight-in MDA, or continuation of the approach below the DA during APVs, may only occur when all three conditions are met (VMC mnemonic): (V) visual reference can be maintained; (M) all elements of the meteorological minima are equal to or greater than those published for the aircraft performance category (AIP ENR 1.5 Para 5.1.1); (C) the aircraft is continuously in a position from which a descent to a landing on the intended runway can be made at a normal rate of descent using normal flight manoeuvres, allowing touchdown within the touchdown zone.",
+            "AIP ENR 1.5 Para 1.7.2 — Descent below straight-in MDA / DA (VMC mnemonic): descent below the straight-in MDA, or continuation of the approach below the DA during APVs, may only occur when all three conditions are met: (V) visual reference can be maintained; (M) all elements of the meteorological minima are equal to or greater than those published for the aircraft performance category; AND (C) the aircraft is continuously in a position from which a descent to a landing on the intended runway can be made at a normal rate using normal flight manoeuvres.",
             "Note: VMC in the above mnemonic does not mean visual meteorological conditions."
           ]
         },
@@ -657,12 +657,12 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.5 Para 1.6.6 — During visual circling, descent below the circling MDA may only occur when the pilot (VMC Day Obstacle Night MDA mnemonic): (a) maintains the aircraft within the circling area; and (b) maintains a visibility along the intended flight path not less than the minimum specified on the chart; and (c) maintains visual contact with the landing runway environment (runway threshold, approach lighting or other markings identifiable with the runway); and EITHER by day, while complying with (a), (b), (c): maintains visual contact with obstacles along the intended flight path and an obstacle clearance not less than the minimum for the aircraft performance category until aligned with the landing runway; OR by day and night: from a position within the circling area on the downwind, base or final leg, completes a continuous descent from MDA to the threshold using rates of descent and manoeuvres normal to the aircraft type.",
-            "AIP ENR 1.5 Para 1.6.2 — Visual circling is prohibited in 'no circling' sectors by day in less than VMC and at night.",
-            "After initial visual contact, the basic assumption is that the runway environment will be kept in sight while at the MDA for circling.",
-            "The visual circling procedure conducted at or above the circling MDA will provide protection from obstacles within the circling area. Spot heights on IAL charts do not necessarily indicate the highest terrain or all obstacles in the circling area. Before commencing an approach, pilots should familiarise themselves with obstacle locations by studying an appropriate topographic map.",
+            "AIP ENR 1.5 Para 1.6.6 — Visual circling rule (VMC, Day Obstacle, Night MDA mnemonic): during visual circling, descent below the circling MDA may only occur when the pilot (a) maintains the aircraft within the circling area; AND (b) maintains a visibility along the intended flight path not less than the minimum specified on the chart for the procedure; AND (c) maintains visual contact with the landing runway environment; AND either by day, while complying with (a)-(c), maintains visual contact with obstacles along the flight path and an obstacle clearance not less than the minimum for the aircraft performance category until aligned with the landing runway; OR by day or night, from a position within the circling area on downwind, base or final, completes a continuous descent from MDA to the threshold using rates of descent and manoeuvres normal to the aircraft type.",
+            "AIP ENR 1.5 Para 1.6.2 — No-circling sector and night restrictions: visual circling is prohibited in 'no circling' sectors by day in less than VMC and at night.",
+            "AIP ENR 1.5 Para 1.6.6 — Runway environment in sight: after initial visual contact, the basic assumption is that the runway environment (threshold, approach lighting, or other markings identifiable with the runway) will be kept in sight while at the MDA for circling.",
+            "AIP ENR 1.5 Para 1.6.6 — Spot-height caution: the visual circling procedure conducted at or above the circling MDA provides protection from obstacles within the circling area. Spot heights on IAL charts do not necessarily indicate the highest terrain or all obstacles in the circling area. Before commencing an approach, familiarise yourself with the location and altitude of obstacles using a topographic map.",
             "Mnemonic 'VMC, Day Obstacle, Night MDA' for circling: Visibility along the intended flight path not less than chart minimum; Maintain visual contact with the runway environment; Inside the circling area; by Day — not below obstacle clearance for the aircraft category; by Night — not below MDA until established on downwind, base, or final.",
-            "AIP ENR 1.5 Para 1.6.6 Note 1(3) — Once descent below circling MDA is initiated, the obstacle protection offered by visual circling at the MDA ENDS. From that point you are responsible for ensuring required clearance from obstacles is maintained visually."
+            "AIP ENR 1.5 Para 1.6.6 Note 1(3) — Below-MDA obstacle protection ends: once descent below circling MDA is initiated, the obstacle protection offered by visual circling at the MDA ENDS. From that point the pilot is responsible for ensuring required clearance from obstacles is maintained visually."
           ]
         },
         {
@@ -855,7 +855,7 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.5 Para 2.8 — Reversal procedures (procedure turns) are depicted on applicable instrument approach charts. The procedure turn must be flown in accordance with the published chart. Unless the chart specifies otherwise, the procedure turn must be completed within the protected area depicted on the chart.",
+            "AIP ENR 1.5 Para 2.8 — Reversal procedures (procedure turns): reversal procedures are depicted on applicable instrument approach charts. The procedure turn must be flown in accordance with the published chart. Unless the chart specifies otherwise, the procedure turn must be completed within the protected airspace published for the procedure.",
             "A procedure turn is not required when the approach is conducted: (a) using radar vectors to the final approach course; (b) from a holding fix; (c) where the chart is annotated 'NoPT'; or (d) when a straight-in procedure is available and approved."
           ]
         },
@@ -940,7 +940,7 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.5 Para 1.15 — Approach speed categories are defined by VAT (speed at threshold with full landing configuration at maximum certified landing weight). Category A: VAT < 91 kt; Category B: VAT 91–120 kt; Category C: VAT 121–140 kt; Category D: VAT 141–165 kt; Category E: VAT 166–210 kt; Helicopter (H): N/A.",
+            "AIP ENR 1.5 Para 1.15 — Approach speed categories (by VAT): categories are defined by VAT (speed at threshold with full landing configuration at maximum certified landing weight): Category A: VAT < 91 kt; Category B: VAT 91–120 kt; Category C: VAT 121–140 kt; Category D: VAT 141–165 kt; Category E: VAT 166–210 kt.",
             "Initial and intermediate approach speeds: Cat A 90–150 kt (110 kt max for reversals); Cat B 120–180 kt (140 kt max for reversals); Cat C 160–240 kt; Cat D 185–250 kt; Cat E 185–250 kt; H 70–120 kt.",
             "Final approach speeds: Cat A 70–100 kt; Cat B 85–130 kt; Cat C 115–160 kt; Cat D 130–185 kt; Cat E 155–230 kt; H 60–90 kt.",
             "Maximum speeds for circling: Cat A 100 kt; Cat B 135 kt; Cat C 180 kt; Cat D 205 kt; Cat E 240 kt; H N/A.",
@@ -1033,7 +1033,7 @@
         {
           "type": "law",
           "content": [
-            "Part 61 MOS Volume 4, Schedule 8, Section 1, Table 5 — Instrument approach tolerances for flight tests are published in the Part 61 MOS and are used to assess pilot performance during instrument rating and IPC flight tests. Pilots must fly within these tolerances during any assessed approach."
+            "Part 61 MOS Vol 4 Sch 8 Sect 1 Tbl 5 — Flight-test approach tolerances: instrument approach tolerances for flight tests are published in the Part 61 MOS and used to assess pilot performance during instrument rating and IPC flight tests. Pilots must fly within these tolerances during any assessment."
           ]
         },
         {
@@ -1116,7 +1116,7 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.5 Para 7.3 — The final approach segment contains a fix at which the glide path/altimeter relationship should be verified. If the check indicates an unexplained discrepancy, the ILS/GLS approach should be discontinued.",
+            "AIP ENR 1.5 Para 7.3 — Glide path / altimeter cross-check: the final approach segment contains a fix at which the glide path / altimeter relationship should be verified. If the check indicates an unexplained discrepancy, the ILS / GLS approach should be discontinued.",
             "Pilots must conform to the following flight tolerances: (a) to ensure obstacle clearance, both LOC/GLS final approach course and glideslope should be maintained within half-scale deflection (or equivalent on expanded scale); (b) if at any time during the approach after the FAP the LOC/GLS final approach course or glideslope indicates full-scale deflection, a missed approach should be commenced."
           ]
         },
@@ -1205,9 +1205,9 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.5 Para 11 — The DME or GNSS Arrival Procedure is an instrument approach procedure that provides descent guidance along a specified track or sector, to the visual circling area of an aerodrome. Azimuth guidance is required from the specified radio navigation aid. The requirements of AIP ENR 1.5 subsections 1.6, 1.9 and 1.13 apply.",
-            "Descent is not permitted until the aircraft is established within the appropriate sector or on the specified inbound track.",
-            "If manoeuvring within a sector is required, the pilot must ensure that the aircraft is contained within the sector, at or above the appropriate segment minimum safe altitude. Manoeuvring within a sector after passing the final approach fix is prohibited."
+            "AIP ENR 1.5 Para 11 — DME / GNSS arrival overview: the DME or GNSS Arrival Procedure is an instrument approach procedure that provides descent guidance along a specified track or sector to the visual circling area of an aerodrome. Azimuth guidance is required from the specified radio navigation aid.",
+            "Descent authorisation: descent is not permitted until the aircraft is established within the appropriate sector or on the specified inbound track.",
+            "Sector containment: if manoeuvring within a sector is required, the pilot must ensure that the aircraft is contained within the sector, at or above the appropriate segment minimum safe altitude. Manoeuvring within a sector after passing the final approach fix is prohibited."
           ]
         },
         {
@@ -1295,10 +1295,10 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.5 Para 11 — The clearance 'CLEARED DME (or GNSS) ARRIVAL' constitutes a clearance for final approach and authorises descent to the minimum altitude specified in the procedure. ATC is not permitted to impose any altitude restriction on such a clearance.",
-            "When cleared for a DME or GNSS Arrival in controlled airspace, an aircraft must not orbit, enter a holding pattern, or use holding pattern entry procedures. ATC will not issue a clearance that involves holding pattern entry.",
-            "When ATC cannot issue a clearance for an unrestricted arrival, the phrase 'DESCEND TO (level) NOT BELOW DME (or GNSS) STEPS' may be used. Such an instruction authorises descent in accordance with the DME or GNSS steps only to the specified altitude.",
-            "ATC may clear an aircraft to intercept the final approach segment of another instrument approach procedure using the phrase 'DESCEND TO (level) NOT BELOW DME (or GNSS) STEPS' with further instructions prior to reaching the cleared level.",
+            "AIP ENR 1.5 Para 11 — DME / GNSS arrival clearance: the clearance 'CLEARED DME (or GNSS) ARRIVAL' constitutes a clearance for final approach and authorises descent to the minimum altitude specified in the procedure. ATC is not permitted to impose any altitude restriction on such a clearance.",
+            "Holding prohibition during DME / GNSS arrival: when cleared for a DME or GNSS Arrival in controlled airspace, an aircraft must not orbit, enter a holding pattern, or use holding pattern entry procedures. ATC will not issue a clearance that involves holding pattern entry.",
+            "Step-down clearance phraseology: when ATC cannot issue a clearance for an unrestricted arrival, the phrase 'DESCEND TO (level) NOT BELOW DME (or GNSS) STEPS' may be used. Such an instruction authorises descent in accordance with the DME or GNSS steps only to the specified altitude.",
+            "Intercepting another IAP: ATC may clear an aircraft to intercept the final approach segment of another instrument approach procedure using the phrase 'DESCEND TO (level) NOT BELOW DME (or GNSS) STEPS' with further instructions prior to reaching the cleared level.",
             "Note 1: Where the track is not aligned with the landing runway, a clearance for a DME or GNSS Arrival includes a clearance to manoeuvre within the circling area to position the aircraft on final for landing.",
             "Note 2: Some procedures commence in, or can take the aircraft into, Class G airspace on descent. Pilots should check procedures to ensure containment in CTA where required. Where possible, procedures are designed to provide 500FT separation from the CTA lower limit."
           ]
@@ -1476,8 +1476,8 @@
           "type": "law",
           "content": [
             "AIP ENR 1.5 Para 1.14 — Pilot-initiated visual approach (day only): an IFR pilot need not commence or may discontinue an IAP when: within 30NM of the aerodrome; clear of cloud; in sight of ground or water; visibility at least 5,000M or aerodrome in sight.",
-            "The pilot must maintain at an altitude not less than: if in CTA — 500FT above the lower limit of the CTA unless clearance received to depart and re-enter CTA; LSALT/MSA, DGA step, or last assigned altitude if being vectored (CASR 91.265 or 91.267).",
-            "The pilot must maintain track/heading on the route authorised until within 5NM of the aerodrome, or within 3NM with aerodrome in sight if no IAP or not authorised to use IAP or if VFR.",
+            "Visual approach altitude requirement: the pilot must maintain at an altitude not less than: in CTA — 500 ft above the lower limit of the CTA unless clearance received to depart and re-enter CTA; LSALT/MSA, DGA step, or last assigned altitude if being vectored (CASR 91.265 or 91.267).",
+            "Visual approach track requirement: the pilot must maintain track/heading on the route authorised until within 5 NM of the aerodrome, or within 3 NM with aerodrome in sight if there is no IAP, the pilot is not authorised to use the IAP, or operating VFR.",
             "Night pilot-initiated visual approach: within 30NM; visibility at least 5,000M.",
             "At night, the pilot may discontinue the IAP early if: within 5NM on PAPI; within 7NM on PAPI (ILS runway); within 10NM on glideslope; or within 14NM on YSSY runways 16L and 34L established not below glideslope and less than full-scale azimuth deflection."
           ]
@@ -1785,9 +1785,9 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.1 Para 2.14 — An aircraft required to go around from a visual approach in VMC must initially climb on runway track, remain visual, and await instructions from ATC. If the aircraft cannot clear obstacles on runway track, the aircraft may turn.",
-            "If an aircraft is unable or does not wish to land from an instrument approach in VMC, it must carry out the published instrument missed approach procedure for the approach being flown, unless ATC directs otherwise.",
-            "At Class D aerodromes with parallel runways where contra-rotating circuit operations are in progress, if ATC instructs or a pilot initiates a go around, the pilot must: (a) commence climb to circuit altitude; (b) position the aircraft on the active side and parallel to the nominated duty runway, while maintaining separation from other aircraft; and (c) follow ATC instructions or re-enter the circuit from upwind."
+            "AIP ENR 1.1 Para 2.14 — Go-around from visual approach in VMC: an aircraft required to go around from a visual approach in VMC must initially climb on runway track, remain visual, and await instructions from ATC. If the aircraft cannot clear obstacles on runway track, the aircraft may turn.",
+            "Go-around from instrument approach in VMC: if an aircraft is unable or does not wish to land from an instrument approach in VMC, it must carry out the published instrument missed approach procedure for the approach being flown, unless ATC directs otherwise.",
+            "Class D parallel-runway go-around: at Class D aerodromes with parallel runways where contra-rotating circuit operations are in progress, if ATC instructs or a pilot initiates a go around, the pilot must (a) commence climb to circuit altitude; (b) position the aircraft on the active side and parallel to the nominated runway centreline."
           ]
         },
         {
