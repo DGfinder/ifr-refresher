@@ -833,9 +833,11 @@
       "title": "Alternates: When & How",
       "categoryId": "preflight",
       "level": "core",
-      "estReadingMinutes": 4,
+      "estReadingMinutes": 5,
       "tags": [
         "alternate",
+        "ACVWPLS",
+        "mnemonic",
         "suitability",
         "night IFR",
         "PROB",
@@ -844,7 +846,7 @@
         "GNSS",
         "TSO C-129"
       ],
-      "summary": "Every reason you'd need a destination alternate — suitability, weather, wind, PROB, night IFR, GNSS restrictions, PAL, and lighting periods — collapsed into the numbers and triggers examiners actually ask.",
+      "summary": "Alternates Could Very Well Prove Life Savers — A C V W P L S. The seven trigger categories that force a destination alternate, plus the three-condition suitability test that gates every candidate.",
       "refs": [
         {
           "source": "Part 91 MOS",
@@ -869,42 +871,106 @@
       ],
       "content": [
         {
+          "type": "numbers",
+          "content": [
+            "A — Aids (Night IFR + TSO C-129 GNSS + Night VFR)",
+            "C — Clouds (more than SCT below alternate minimum)",
+            "V — Visibility (less than minimum, or ≥30% PROB fog/mist/dust below minimum)",
+            "W — Wind (crosswind or tailwind, incl. gusts, above aircraft maximum)",
+            "P — Probability / forecast (PROB30+ trigger; no TAF = need alternate with one)",
+            "L — Lighting (operating periods; PAL aerodrome alternate equipment)",
+            "S — Storms (thunderstorm 30% PROB → alternate, OR INTER 30 / TEMPO 60 hold fuel)"
+          ]
+        },
+        {
           "type": "law",
           "content": [
-            "Part 91 MOS 8.07 — Suitability: a destination alternate must be (a) suitable as a planned destination; (b) not itself an aerodrome that would require its own alternate; (c) not a helideck.",
-            "Part 91 MOS 8.04 / AIP ENR 1.1 Para 10.7.2 — Weather triggers (currency-of or 30 min prior to arrival): cloud more than SCT below alternate minimum; visibility less than minimum; visibility above minimum BUT ≥30% probability of fog/mist/dust below minimum; crosswind or tailwind component (incl. gusts) above aircraft maximum.",
-            "Part 91 MOS 8.05 / AIP ENR 1.1 Para 10.7.3 — Night IFR: alternate required if destination has no IAP, or only IAPs the pilot cannot conduct. TSO C-129 GNSS: navigation to alternate must use a non-GNSS system (ADF/VOR satisfies the CASA RPT clarification).",
-            "Part 91 MOS 8.06 / AIP ENR 1.1 Para 10.8.1.1 — Lighting operating periods: departure 10 min before to ≥30 min after take-off; arrival ≥30 min before ETA until landing and taxi complete.",
-            "AIP ENR 1.1 Para 10.7.4 — PAL/lighting alternate triggers: portable lighting without an attendant; electric lighting without standby power and no attendant for portable backup; PAL without standby power or attendant. PAL aerodrome AS alternate: aircraft must have dual VHF, OR single VHF + HF + 30 min additional holding fuel.",
-            "AIP ENR 1.1 Para 10.7.1.3 — Forecast provision: no TAF at destination = need an alternate that has a forecast."
+            "Part 91 MOS 8.07 / AIP ENR 1.1 Para 10.7.1.2 — Suitability test (prerequisite): a destination alternate must be (a) suitable as a planned destination for the flight; AND (b) not itself an aerodrome that would require its own destination alternate; AND (c) not a helideck."
+          ]
+        },
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 8.05 / AIP ENR 1.1 Para 10.7.3 — A — Aids (Night IFR): a destination alternate is required for a Night IFR flight if the destination (a) is not served by an instrument approach procedure; OR (b) is served only by IAPs the pilot is unable to conduct.",
+            "AIP ENR 1.1 Para 10.7.3.3 — A — Aids (TSO C-129 GNSS): if navigation uses a GNSS receiver certified only to (E)TSO C-129, navigation to the destination alternate must be planned using a non-GNSS system. (CASA RPT clarification: an ADF- or VOR-based plan to the alternate satisfies the rule for C-129 / C-129a receivers.)",
+            "A — Aids (Night VFR): Night VFR aircraft must provide for a suitable alternate within one hour flight time of the destination UNLESS (a) destination is served by NDB or VOR and the aircraft/pilot are equipped and competent; OR (b) the aircraft has approved GNSS and the pilot is competent in using it."
+          ]
+        },
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 8.04 / AIP ENR 1.1 Para 10.7.2 — C — Clouds trigger: an alternate is required when arrival will be during the currency of, or up to 30 minutes prior to the forecast commencement of, cloud MORE than SCT below the alternate minimum. (BKN or OVC below the minimum triggers; SCT itself does not.)"
+          ]
+        },
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 8.04 / AIP ENR 1.1 Para 10.7.2 — V — Visibility trigger: an alternate is required when arrival will be during the currency of, or up to 30 minutes prior to the forecast commencement of, (a) visibility less than the alternate minimum; OR (b) visibility above the alternate minimum BUT forecast endorsed with at least 30% probability of fog, mist, dust, or other phenomenon restricting visibility below the minimum."
+          ]
+        },
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 8.04 / AIP ENR 1.1 Para 10.7.2 — W — Wind trigger: an alternate is required when arrival will be during the currency of, or up to 30 minutes prior to the forecast commencement of, a crosswind or tailwind component above the aircraft maximum. Wind gusts must be considered — steady wind within limits but gusts exceeding still triggers."
+          ]
+        },
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.1 Para 10.7.2 — P — Probability trigger: any TAF endorsement of at least 30% probability (PROB30 or PROB40) of conditions below the alternate minima forces an alternate.",
+            "AIP ENR 1.1 Para 10.7.1.3 — P — Forecast provision: if no aerodrome forecast is available at the destination, an alternate must be planned for and that alternate must itself have an available forecast."
+          ]
+        },
+        {
+          "type": "law",
+          "content": [
+            "Part 91 MOS 8.06 / AIP ENR 1.1 Para 10.8.1.1 — L — Lighting operating periods: (a) departure — 10 min before to ≥30 min after take-off; (b) arrival — ≥30 min before ETA until landing and taxi complete.",
+            "AIP ENR 1.1 Para 10.7.4 — L — Lighting alternate triggers: portable lighting without an attendant; electric lighting without standby power and no attendant for portable backup; PAL without standby power or attendant. Each requires an alternate.",
+            "AIP ENR 1.1 Para 10.7.4 — L — PAL aerodrome as alternate: may be nominated provided the aircraft has (a) dual VHF; OR (b) single VHF + HF and carries 30 minutes additional holding fuel to allow alerting of ground staff on VHF failure."
+          ]
+        },
+        {
+          "type": "law",
+          "content": [
+            "AIP ENR 1.1 Para 10.7.2.1 — S — Storms trigger: an alternate is required when arrival will be during the currency of, or up to 30 minutes prior to the forecast commencement of, a thunderstorm or associated severe turbulence, or a forecast of at least 30% probability of such an event.",
+            "AIP ENR 1.1 Para 10.7.2.5 — S — Storms holding-fuel alternative: carry sufficient additional fuel to proceed to a suitable alternate OR to hold for (a) 30 minutes when the forecast is endorsed INTER; or (b) 60 minutes when the forecast is endorsed TEMPO."
           ]
         },
         {
           "type": "numbers",
           "content": [
-            "3 — suitability conditions (suitable destination, not itself needing alternate, not helideck)",
+            "3 — suitability conditions every alternate must satisfy",
             "30 min — look-ahead window before forecast commencement",
             "30% — minimum PROB threshold that triggers an alternate",
-            "SCT — cloud threshold: 'more than SCT' (i.e. BKN/OVC) below alternate min triggers",
+            "SCT — cloud threshold: 'more than SCT' (BKN/OVC) below minimum triggers",
             "50 NM — VFR-by-day exemption radius from departure",
             "LSALT + 500 ft / 8 km — day-only alternate minima without a usable IAP",
-            "1 hour — Night VFR alternate radius (unless NDB/VOR or approved GNSS exception)",
-            "30 min before ETA → landing taxi complete — arrival lighting period",
+            "1 hour — Night VFR alternate radius (unless NDB/VOR/approved-GNSS exception)",
+            "30 min before ETA → landing & taxi complete — arrival lighting period",
             "10 min before departure → 30 min after take-off — departure lighting period",
-            "30 min additional holding fuel — PAL aerodrome as alternate with single VHF + HF"
+            "30 min additional holding fuel — PAL aerodrome as alternate with single VHF + HF",
+            "30 min / 60 min — INTER / TEMPO thunderstorm holding-fuel duration"
           ]
         },
         {
           "type": "traps",
           "content": [
-            "Checking only ETA weather and missing the 30-min look-ahead — the most common alternate-trigger miss.",
-            "Reading 'SCT' below minima as a trigger — it isn't. The rule is 'more than SCT' (BKN/OVC).",
-            "Ignoring wind gusts when assessing crosswind/tailwind — gusts must be considered.",
-            "Treating PROB30 as 'unlikely so I'll ignore it' — 30% is a regulatory trigger.",
-            "Using a TSO C-129 GNSS as the planned nav to alternate — must use non-GNSS (or satisfy CASA RPT's ADF/VOR carve-out).",
-            "Nominating a PAL aerodrome alternate with single VHF only — need dual VHF, or VHF + HF + 30 min hold.",
-            "Treating 'alternate' as a navigation choice at night — at night an IAP you can conduct is required, or an alternate."
+            "A — Treating 'alternate' as a navigation choice at night — at night an IAP you can conduct is required, or an alternate is mandatory.",
+            "A — Using TSO C-129 GNSS as the planned nav to alternate — must use a non-GNSS system (or satisfy CASA RPT's ADF/VOR carve-out).",
+            "C — Reading 'SCT' below minima as a trigger — it isn't. The rule is 'more than SCT' (BKN/OVC).",
+            "V — Ignoring a PROB30 of fog/mist/dust because the prevailing visibility looks fine — it still triggers.",
+            "W — Ignoring wind gusts — steady wind within limits but gusts exceeding still requires an alternate.",
+            "P — Treating PROB30 as 'unlikely so I'll ignore it' — 30% is a regulatory trigger.",
+            "P — Nominating an alternate that itself has no TAF — fails the forecast-provision rule.",
+            "L — Nominating a PAL aerodrome alternate with single VHF only — need dual VHF, or VHF + HF + 30 min hold.",
+            "S — Inverting INTER (30 min hold) and TEMPO (60 min hold) — double the fuel mistake.",
+            "Checking only ETA weather and missing the 30-minute look-ahead — the most common alternate-trigger miss across all categories."
           ]
+        },
+        {
+          "type": "qa",
+          "question": "What does the mnemonic 'Alternates Could Very Well Prove Life Savers' represent?",
+          "answer": "The seven trigger categories that require a destination alternate: Aids (navigation), Clouds, Visibility, Wind, Probability, Lighting, Storms."
         },
         {
           "type": "qa",
@@ -913,53 +979,63 @@
         },
         {
           "type": "qa",
-          "question": "When must a pilot plan a destination alternate for an IFR flight on weather grounds?",
-          "answer": "When arrival is during the currency of, or up to 30 minutes prior to the forecast commencement of: cloud more than SCT below alternate minima; visibility less than alternate minima; visibility above minima with ≥30% probability of fog/mist/dust below minima; or crosswind/tailwind (incl. gusts) above aircraft maximum."
+          "question": "A — Aids: under Part 91 MOS 8.05, when must a destination alternate be planned for an IFR flight by night?",
+          "answer": "When the planned destination is not served by any IAP, OR is served only by IAPs the pilot is unable to conduct."
         },
         {
           "type": "qa",
-          "question": "What's the look-ahead window for weather alternate triggers?",
-          "answer": "30 minutes prior to forecast commencement — weather at ETA AND for the 30 minutes immediately before ETA must be assessed."
+          "question": "A — Aids: if a GNSS receiver certified only to (E)TSO C-129 is being used for navigation, how must the alternate be planned?",
+          "answer": "Navigation to the destination alternate must be planned using a navigation system other than GNSS. CASA's RPT clarification: ADF or VOR satisfies the rule."
+        },
+        {
+          "type": "qa",
+          "question": "C — Clouds: what cloud condition forces an alternate?",
+          "answer": "Cloud MORE than SCT (i.e. BKN or OVC) below the alternate minimum, within the currency of arrival or 30 minutes prior."
+        },
+        {
+          "type": "qa",
+          "question": "V — Visibility: what two visibility conditions force an alternate?",
+          "answer": "(a) visibility less than the alternate minimum; OR (b) visibility above the alternate minimum but forecast endorsed with ≥30% probability of fog/mist/dust restricting visibility below the minimum."
+        },
+        {
+          "type": "qa",
+          "question": "W — Wind: when does wind force an alternate?",
+          "answer": "When the forecast crosswind or tailwind component (gusts included) is above the aircraft maximum within the arrival window."
+        },
+        {
+          "type": "qa",
+          "question": "P — Probability: what's the minimum PROB endorsement that triggers an alternate requirement?",
+          "answer": "30% (PROB30 or PROB40) of conditions below the alternate minima."
+        },
+        {
+          "type": "qa",
+          "question": "P — Forecast provision: what must the PIC do if no aerodrome forecast is available at the destination?",
+          "answer": "Make provision for a suitable alternate that itself has an available forecast (AIP ENR 1.1 Para 10.7.1.3)."
+        },
+        {
+          "type": "qa",
+          "question": "L — Lighting: how long before ETA must aerodrome lighting be arranged to be operating?",
+          "answer": "At least 30 minutes before ETA, continuing until landing and taxi complete."
+        },
+        {
+          "type": "qa",
+          "question": "L — Lighting: can an aerodrome served by PAL be nominated as an alternate?",
+          "answer": "Yes — provided the aircraft has dual VHF, OR single VHF + HF with 30 minutes additional holding fuel to alert ground staff on VHF failure."
+        },
+        {
+          "type": "qa",
+          "question": "S — Storms: additional fuel when thunderstorms are forecast with an INTER endorsement?",
+          "answer": "Enough to proceed to a suitable alternate OR to hold for 30 minutes."
+        },
+        {
+          "type": "qa",
+          "question": "S — Storms: additional fuel when thunderstorms are forecast with a TEMPO endorsement?",
+          "answer": "Enough to proceed to a suitable alternate OR to hold for 60 minutes."
         },
         {
           "type": "qa",
           "question": "What are the alternate minima for a daytime IFR flight to an aerodrome without a usable IAP?",
           "answer": "Lowest safe altitude for the final route segment + 500 ft, and visibility 8 km."
-        },
-        {
-          "type": "qa",
-          "question": "Under Part 91 MOS 8.05, when must a destination alternate be planned for an IFR flight by night?",
-          "answer": "When the planned destination is not served by any IAP, OR is served only by IAPs the pilot is unable to conduct."
-        },
-        {
-          "type": "qa",
-          "question": "If a GNSS receiver certified only to (E)TSO C-129 is being used for navigation, how must the alternate be planned?",
-          "answer": "Navigation to the destination alternate must be planned using a navigation system other than GNSS. CASA's RPT clarification: the alternate planning may use ADF or VOR instead."
-        },
-        {
-          "type": "qa",
-          "question": "Can an aerodrome served by PAL be nominated as an alternate?",
-          "answer": "Yes — provided the aircraft has dual VHF, OR single VHF and HF with 30 minutes additional holding fuel to allow alerting of ground staff on VHF failure."
-        },
-        {
-          "type": "qa",
-          "question": "When aerodrome lighting is required for an IFR arrival, how long before ETA must it be arranged to be operating?",
-          "answer": "At least 30 minutes before ETA, continuing until landing and taxiing is complete."
-        },
-        {
-          "type": "qa",
-          "question": "What's the Night VFR alternate requirement for aircraft within one hour of destination?",
-          "answer": "Must provide a suitable alternate within one hour flight time, unless (a) destination is served by NDB or VOR and the aircraft is equipped/the pilot competent in using it, OR (b) the aircraft has approved GNSS and the pilot is competent in using it."
-        },
-        {
-          "type": "qa",
-          "question": "What's the minimum TAF probability endorsement that triggers an alternate requirement?",
-          "answer": "30%. PROB30 or higher of conditions below alternate minima forces an alternate."
-        },
-        {
-          "type": "qa",
-          "question": "Your destination has PAL but no standby power. Night landing planned, no responsible person available. Alternate required?",
-          "answer": "Yes. Without standby power AND without a responsible person to deploy portable lighting on PAL failure, an alternate is mandatory."
         }
       ]
     },

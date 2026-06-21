@@ -164,7 +164,7 @@
         {
           "type": "law",
           "content": [
-            "Part 91 MOS 8.07 / AIP ENR 1.1 Para 10.7.1.2 — The PIC may nominate an aerodrome as a destination alternate only if the aerodrome is: (a) suitable as a planned destination aerodrome for the flight; AND (b) not itself an aerodrome for which the aircraft would require a destination alternate; AND (c) not a helideck."
+            "Part 91 MOS 8.07 / AIP ENR 1.1 Para 10.7.1.2 — Suitability test: the PIC may nominate an aerodrome as a destination alternate only if it is (a) suitable as a planned destination aerodrome for the flight; AND (b) not itself an aerodrome for which the aircraft would require a destination alternate; AND (c) not a helideck."
           ]
         },
         {
@@ -265,8 +265,8 @@
         {
           "type": "law",
           "content": [
-            "Part 91 MOS 8.04 / AIP ENR 1.1 Para 10.7.2 — Except when operating VFR by day within 50 NM of the point of departure, the PIC must provide for a suitable alternate when arrival at the destination will be during the currency of, or up to 30 minutes prior to the forecast commencement of, the following: cloud — more than SCT below the alternate minimum; OR visibility — less than the alternate minimum; OR visibility — greater than the alternate minimum but forecast endorsed with at least 30% probability of fog, mist, dust, or other phenomenon restricting visibility below the alternate minimum; OR wind — a crosswind or tailwind component more than the aircraft maximum. Note: wind gusts must be considered.",
-            "AIP ENR 1.1 Para 10.7.2.10 — Alternate minima: (a) for aerodromes with an IAP the pilot is able to conduct: the alternate minima published on the chart (ENR 1.5 Section 6); (b) by day only — for aerodromes without an IAP, or with an IAP the pilot cannot conduct: lowest safe altitude for the final route segment + 500 ft and visibility 8 km."
+            "Part 91 MOS 8.04 / AIP ENR 1.1 Para 10.7.2 — Weather alternate triggers: except when operating VFR by day within 50 NM of departure, the PIC must provide for a suitable alternate when arrival at the destination will be during the currency of, or up to 30 minutes prior to the forecast commencement of, cloud — more than SCT below the alternate minimum; OR visibility — less than the alternate minimum; OR visibility — greater than the alternate minimum but forecast endorsed with at least 30% probability of fog, mist, dust, or other phenomenon restricting visibility below the alternate minimum; OR wind — a crosswind or tailwind component more than the aircraft maximum (wind gusts must be considered).",
+            "AIP ENR 1.1 Para 10.7.2.10 — Alternate minima rules: (a) for aerodromes with an IAP the pilot is able to conduct — the alternate minima published on the chart (ENR 1.5 Section 6); (b) by day only, for aerodromes without an IAP or with an IAP the pilot cannot conduct — lowest safe altitude for the final route segment + 500 ft and visibility 8 km."
           ]
         },
         {
@@ -477,9 +477,9 @@
         {
           "type": "law",
           "content": [
-            "Part 91 MOS 8.05 / AIP ENR 1.1 Para 10.7.3 — A destination alternate aerodrome must be planned for an IFR flight by night to a planned destination that is: (a) not served by an instrument approach procedure; OR (b) is served by one or more instrument approach procedures, NONE of which the pilot is able to conduct.",
-            "AIP ENR 1.1 Para 10.7.3.3 — If aircraft navigation is conducted using a GNSS receiver certified only to (E)TSO C-129, navigation to a destination alternate must be planned using a navigation system other than GNSS. (CASA clarification for RPT operators: if a TSO C-129 or C-129a GNSS is being used, an alternate must be planned for unless either the weather alternate minima are met or the alternate requirements can be met by use of ADF or VOR.)",
-            "Night VFR aircraft must provide for a suitable alternate within one hour flight time of the destination unless: (a) the destination is served by an NDB or VOR and the aircraft is fitted with the appropriate radio navigation system AND the pilot is competent in using it; OR (b) the aircraft is fitted with an approved GNSS (as defined in the relevant MOS) AND the pilot is competent in using it."
+            "Part 91 MOS 8.05 / AIP ENR 1.1 Para 10.7.3 — Night IFR alternate rule: a destination alternate must be planned for an IFR flight by night to a planned destination that is (a) not served by an instrument approach procedure; OR (b) is served by one or more instrument approach procedures, NONE of which the pilot is able to conduct.",
+            "AIP ENR 1.1 Para 10.7.3.3 — TSO C-129 GNSS restriction: if aircraft navigation is conducted using a GNSS receiver certified only to (E)TSO C-129, navigation to a destination alternate must be planned using a navigation system other than GNSS. (CASA RPT clarification: where TSO C-129 or C-129a GNSS is used, an alternate must be planned unless the weather alternate minima are met OR the alternate requirements can be met by use of ADF or VOR.)",
+            "Night VFR alternate rule: Night VFR aircraft must provide for a suitable alternate within one hour flight time of the destination unless (a) the destination is served by an NDB or VOR and the aircraft is fitted with the appropriate radio navigation system AND the pilot is competent in using it; OR (b) the aircraft is fitted with an approved GNSS (as defined in the relevant MOS) AND the pilot is competent in using it."
           ]
         },
         {
@@ -577,8 +577,8 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.1 Para 10.7.1.3 — When an aerodrome forecast is not available, the PIC must make provision for a suitable alternate that has an available forecast.",
-            "AIP ENR 1.1 Para 10.7.2 — If a TAF has been endorsed with a probability of conditions being below the alternate minima, an alternate must be planned for. (The threshold is at least 30% — i.e. PROB30 or PROB40.)"
+            "AIP ENR 1.1 Para 10.7.1.3 — Forecast provision rule: when an aerodrome forecast is not available, the PIC must make provision for a suitable alternate that has an available forecast.",
+            "AIP ENR 1.1 Para 10.7.2 — PROB endorsement trigger: if a TAF has been endorsed with a probability of conditions being below the alternate minima, an alternate must be planned for. (The threshold is at least 30% — PROB30 or PROB40.)"
           ]
         },
         {
@@ -676,8 +676,8 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.1 Para 10.7.2.1 — The PIC must provide for a suitable alternate when arrival at the destination will be during the currency of, or up to 30 minutes prior to the forecast commencement of: a thunderstorm or associated severe turbulence, or a forecast of at least 30% probability of such an event.",
-            "AIP ENR 1.1 Para 10.7.2.5 — When thunderstorms or their associated severe turbulence (or their probability) are forecast at the destination, sufficient additional fuel must be carried to permit the aircraft to proceed to a suitable alternate OR to hold for: (a) 30 minutes when the forecast is endorsed INTER; or (b) 60 minutes when the forecast is endorsed TEMPO."
+            "AIP ENR 1.1 Para 10.7.2.1 — Thunderstorm alternate trigger: the PIC must provide for a suitable alternate when arrival at the destination will be during the currency of, or up to 30 minutes prior to the forecast commencement of, a thunderstorm or associated severe turbulence, or a forecast of at least 30% probability of such an event.",
+            "AIP ENR 1.1 Para 10.7.2.5 — Thunderstorm holding-fuel alternative: when thunderstorms or their associated severe turbulence (or their probability) are forecast at the destination, sufficient additional fuel must be carried to permit the aircraft to proceed to a suitable alternate OR to hold for (a) 30 minutes when the forecast is endorsed INTER; or (b) 60 minutes when the forecast is endorsed TEMPO."
           ]
         },
         {
@@ -781,12 +781,12 @@
         {
           "type": "law",
           "content": [
-            "Part 91 MOS 8.06 / AIP ENR 1.1 Para 10.8.1.1 — When aerodrome lighting is required and PAL is not being used, the PIC or operator must ensure that arrangements have been made for the lighting to be operating during: (a) departure — 10 minutes before departure to at least 30 minutes after take-off; (b) arrival — from at least 30 minutes before ETA to the time landing and taxiing has been completed.",
-            "AIP ENR 1.1 Para 10.7.4 — Portable lighting: when a flight is planned to land at night at an aerodrome with portable runway lighting, provision must be made for flight to an alternate UNLESS a responsible person is in attendance during the period specified in 10.8.1.1 to ensure the runway lights are available.",
-            "Electric lighting, no standby power: when planning to land at night at an aerodrome with electric runway lighting (whether PAL or otherwise) but without standby power, provision must be made for an alternate UNLESS portable runway lights are available and a responsible person is in attendance to deploy them on failure of the primary lighting.",
+            "Part 91 MOS 8.06 / AIP ENR 1.1 Para 10.8.1.1 — Lighting operating periods (non-PAL): when aerodrome lighting is required and PAL is not being used, the PIC or operator must ensure lighting is operating during (a) departure — 10 minutes before departure to at least 30 minutes after take-off; (b) arrival — from at least 30 minutes before ETA to the time landing and taxiing has been completed.",
+            "AIP ENR 1.1 Para 10.7.4 — Portable runway lighting trigger: when a flight is planned to land at night at an aerodrome with portable runway lighting, provision must be made for flight to an alternate UNLESS a responsible person is in attendance during the period specified in 10.8.1.1 to ensure the runway lights are available.",
+            "Electric lighting without standby power: when planning to land at night at an aerodrome with electric runway lighting (whether PAL or otherwise) but without standby power, provision must be made for an alternate UNLESS portable runway lights are available and a responsible person is in attendance to deploy them on failure of the primary lighting.",
             "PAL with standby power: when planning to land at night at an aerodrome with PAL and standby power, provision must be made for an alternate UNLESS a responsible person is in attendance to manually switch on the lighting if PAL activation fails.",
-            "An alternate nominated under AIP ENR 1.1 paras 10.7.4.2 / 10.7.4.3 (Jeppesen 3.4.2 / 3.4.3) need not have standby power or standby portable runway lighting.",
-            "An aerodrome served by PAL may be nominated as an alternate. There is no requirement for a responsible person to be in attendance, but the aircraft must be equipped with: (a) dual VHF; OR (b) single VHF and HF and carry 30 minutes holding fuel to allow alerting of ground staff in the event of VHF failure."
+            "Alternate lighting exemption: an alternate nominated under AIP ENR 1.1 paras 10.7.4.2 / 10.7.4.3 (Jeppesen 3.4.2 / 3.4.3) need not have standby power or standby portable runway lighting.",
+            "PAL aerodrome as an alternate: an aerodrome served by PAL may be nominated as an alternate. No responsible person needs to be in attendance, but the aircraft must be equipped with (a) dual VHF; OR (b) single VHF and HF and carry 30 minutes holding fuel to allow alerting of ground staff in the event of VHF failure."
           ]
         },
         {

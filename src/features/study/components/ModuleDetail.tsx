@@ -17,6 +17,7 @@ import type { ModuleStatus } from "@/features/progress";
 import { Badge } from "@/shared/ui/Badge";
 import { ContentBlock } from "@/content/components/ContentBlock";
 import { References } from "@/content/components/References";
+import { SectionToc } from "@/content/components/SectionToc";
 import { StatusIndicator } from "@/features/progress";
 import { cn } from "@/shared/lib/cn";
 import { Button } from "@/shared/ui/button";
@@ -292,6 +293,7 @@ export function ModuleDetail({
 
         <TabsContent value="read" className="mt-0">
           <ReadTab
+            anchorPrefix={`${module.id}:read`}
             blocks={readBlocks}
             speakable={speakable}
             status={status}
@@ -303,7 +305,11 @@ export function ModuleDetail({
 
         {showDrillTab && (
           <TabsContent value="drill" className="mt-0">
-            <DrillTab blocks={drillBlocks} hasPracticeLink={Boolean(practiceLink)} />
+            <DrillTab
+              anchorPrefix={`${module.id}:drill`}
+              blocks={drillBlocks}
+              hasPracticeLink={Boolean(practiceLink)}
+            />
           </TabsContent>
         )}
 
@@ -324,6 +330,7 @@ export function ModuleDetail({
 // ─── Tab components ───────────────────────────────────────────────────────
 
 interface ReadTabProps {
+  anchorPrefix: string;
   blocks: readonly ContentBlockType[];
   speakable: boolean;
   status: ModuleStatus;
@@ -333,6 +340,7 @@ interface ReadTabProps {
 }
 
 function ReadTab({
+  anchorPrefix,
   blocks,
   speakable,
   status,
@@ -342,12 +350,16 @@ function ReadTab({
 }: ReadTabProps) {
   return (
     <>
+      <SectionToc blocks={blocks} anchorPrefix={anchorPrefix} />
+
       {/* `prose-sm` controls paragraph rhythm for raw text/headings; the
           per-block components keep their own surfaces (regulation cards,
           numbers grid, callouts) so prose only affects the loose copy. */}
       <div className="prose prose-sm max-w-none dark:prose-invert prose-headings:font-semibold prose-headings:text-[var(--ifr-text)] prose-p:text-[var(--ifr-text)] prose-strong:text-[var(--ifr-text)] prose-li:text-[var(--ifr-text)] prose-a:text-[var(--ifr-accent)]">
         {blocks.map((block, index) => (
-          <ContentBlock key={index} block={block} speakable={speakable} />
+          <div key={index} id={`${anchorPrefix}:${index}`} className="scroll-mt-20">
+            <ContentBlock block={block} speakable={speakable} />
+          </div>
         ))}
       </div>
 
@@ -420,19 +432,23 @@ function ReadTab({
 }
 
 interface DrillTabProps {
+  anchorPrefix: string;
   blocks: readonly ContentBlockType[];
   hasPracticeLink: boolean;
 }
 
-function DrillTab({ blocks, hasPracticeLink }: DrillTabProps) {
+function DrillTab({ anchorPrefix, blocks, hasPracticeLink }: DrillTabProps) {
   return (
     <>
+      <SectionToc blocks={blocks} anchorPrefix={anchorPrefix} />
       <div className="rounded-lg border border-sky-500/30 bg-sky-500/5 p-3 text-sm text-sky-900 dark:text-sky-100">
         Active-recall practice. Tap a question to reveal the answer.
       </div>
       <div className="mt-4 prose prose-sm max-w-none dark:prose-invert">
         {blocks.map((block, index) => (
-          <ContentBlock key={index} block={block} />
+          <div key={index} id={`${anchorPrefix}:${index}`} className="scroll-mt-20">
+            <ContentBlock block={block} />
+          </div>
         ))}
       </div>
       {!hasPracticeLink && (
