@@ -27,8 +27,12 @@ export function parseRegulation(item: string): RegulationParse {
 
 /**
  * Pull the citation prefix off a regulation item. We look for the en/em-dash
- * separator (` — ` or ` – `) preceded by what reads like a source token
- * (capitalised, references with slashes, paragraph numbers, etc).
+ * separator (` — ` or ` – `) preceded by what reads like an actual SOURCE
+ * citation — capitalised, AND containing either a digit (paragraph/section
+ * number, e.g. "Part 91 MOS 8.07", "AIP ENR 1.1 Para 10.7") or a recognised
+ * publication acronym (CASR, MOS, AIP, ENR, GEN, ICAO, NAIPS). The digit /
+ * acronym rule keeps short topic phrases like "Approach ban — RVR
+ * distinction" from being mis-parsed as a citation.
  */
 export function splitCitation(item: string): {
   citation: string | null;
@@ -36,7 +40,18 @@ export function splitCitation(item: string): {
 } {
   const match = item.match(/^([A-Z][^—–]{2,140})\s+[—–]\s+([\s\S]+)$/);
   if (!match) return { citation: null, body: item };
-  return { citation: match[1]!.trim(), body: match[2]!.trim() };
+  const candidate = match[1]!.trim();
+  if (!looksLikeCitation(candidate)) return { citation: null, body: item };
+  return { citation: candidate, body: match[2]!.trim() };
+}
+
+const CITATION_ACRONYMS =
+  /\b(?:CASR|MOS|AIP|ENR|GEN|AD|SUP|AIC|ICAO|NAIPS|JEPP|JEPPESEN|MATS|CASA|AC)\b/;
+
+function looksLikeCitation(candidate: string): boolean {
+  if (/\d/.test(candidate)) return true;
+  if (CITATION_ACRONYMS.test(candidate)) return true;
+  return false;
 }
 
 /**

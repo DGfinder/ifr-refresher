@@ -93,9 +93,9 @@
         {
           "type": "law",
           "content": [
-            "CASR 61.880 — IPC is valid until the end of the 12th month after the month in which the holder passes the flight test.",
-            "CASR 61.880 — If an IPC is completed within 3 months before the existing IPC expires, the new IPC runs from the existing expiry, not the new check date.",
-            "CASR 61.855 — An instrument rating authorises a pilot to fly under the IFR, or at night under the VFR.",
+            "CASR 61.880 — IPC validity period: an IPC is valid until the end of the 12th month after the month in which the holder passes the flight test.",
+            "CASR 61.880 — Early-renewal carry-over: if an IPC is completed within 3 months before the existing IPC expires, the new IPC runs from the existing expiry, not the new check date.",
+            "CASR 61.855 — IFR rating privileges: an instrument rating authorises a pilot to fly under the IFR, or at night under the VFR.",
             "CASR 61.875 — Single-pilot IFR currency: must have completed at least 1 hour of IFR flight (including 1 instrument approach) in a single-pilot operation within the previous 6 months."
           ]
         },
@@ -212,9 +212,9 @@
         {
           "type": "law",
           "content": [
-            "CASR 61.870 — To fly under the IFR, a pilot must have conducted at least 3 instrument approach operations within the previous 90 days.",
-            "CASR 61.870 — To fly a particular aircraft category under the IFR, at least 1 approach in an aircraft of the same category within 90 days is required.",
-            "CASR 61.870 — Separate 90-day currency is required for 2D approaches, 3D approaches, azimuth guidance approaches, and CDI approaches."
+            "CASR 61.870 — IFR 90-day approach currency: to fly under the IFR a pilot must have conducted at least 3 instrument approach operations within the previous 90 days.",
+            "CASR 61.870 — Aircraft-category currency: to fly a particular aircraft category under the IFR, at least 1 approach in an aircraft of the same category is required within 90 days.",
+            "CASR 61.870 — Approach-type currency split: separate 90-day currency is required for 2D approaches, 3D approaches, azimuth guidance approaches, and CDI approaches."
           ]
         },
         {
@@ -322,9 +322,9 @@
         {
           "type": "law",
           "content": [
-            "Part 91 MOS 26.08 — IFR aeroplane equipment: approved GNSS, AI, ASI (pitot heat on at least one), altimeter (alt static source), VSI, turn-and-slip, DG, compass, OAT, and clock.",
-            "Part 91 MOS 26.25 — Altitude alerting: piston and unpressurised turbine must have it above FL150 in CTA; pressurised turbine must have it in any CTA.",
-            "Part 91 MOS 26.04 — Departure with inoperative required equipment is only permitted under an approved permissible unserviceability (PU)."
+            "Part 91 MOS 26.08 — IFR aeroplane equipment list: approved GNSS, AI, ASI (pitot heat on at least one), altimeter (alt static source), VSI, turn-and-slip, DG, compass, OAT, and clock.",
+            "Part 91 MOS 26.25 — Altitude-alerting requirement: piston and unpressurised turbine aircraft must have it above FL150 in CTA; pressurised turbine must have it in any CTA.",
+            "Part 91 MOS 26.04 — Permissible unserviceability (PU): departure with inoperative required equipment is only permitted under an approved PU."
           ]
         },
         {
@@ -1056,9 +1056,9 @@
         {
           "type": "law",
           "content": [
-            "Part 91 MOS 8.08 — Special alternate weather minima require: duplicated LOC, duplicated GP, duplicated VOR, plus either duplicated DME, duplicated GNSS, or single DME and single GNSS.",
-            "AIP ENR 1.5 Para 6.2 — Special alternate minima are identified by a double asterisk adjacent to the ALTERNATE title on the approach chart.",
-            "Part 91 MOS 8.08 — Special alternate minima are NOT available when: no local METAR/SPECI or forecasting service, or no airport control service is provided."
+            "Part 91 MOS 8.08 — Equipment requirements: special alternate weather minima require duplicated LOC, duplicated GP, duplicated VOR, plus either duplicated DME, duplicated GNSS, or single DME and single GNSS.",
+            "AIP ENR 1.5 Para 6.2 — Chart marker: special alternate minima are identified by a double asterisk (**) adjacent to the ALTERNATE title on the approach chart.",
+            "Part 91 MOS 8.08 — Revert conditions: special alternate minima are NOT available when (a) no local METAR/SPECI or forecasting service is available; or (b) no airport control service is provided."
           ]
         },
         {
@@ -1135,9 +1135,9 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.7 Para 1.1 — IFR altimeter must read aerodrome elevation to within 60 ft with accurate QNH set.",
-            "AIP ENR 1.7 Para 1.2–1.3 — Error >75 ft: altimeter unserviceable. Error 60–75 ft: may fly to first landing for recheck; if error still >60 ft on recheck, unserviceable.",
-            "AIP ENR 1.7 Para 1.4 — Approved QNH sources for altimeter check: AAIS, ATC, ATIS, AWIS, CA/GRS, WATIR. NOT METAR and NOT TAF."
+            "AIP ENR 1.7 Para 1.1 — IFR altimeter tolerance: must read aerodrome elevation to within 60 ft with accurate QNH set.",
+            "AIP ENR 1.7 Para 1.2–1.3 — Tolerance bands: error >75 ft = altimeter unserviceable; error 60–75 ft = may fly to first landing for recheck (if error still >60 ft on recheck, unserviceable).",
+            "AIP ENR 1.7 Para 1.4 — Approved QNH sources: AAIS, ATC, ATIS, AWIS, CA/GRS, WATIR. NOT METAR and NOT TAF."
           ]
         },
         {
@@ -1698,9 +1698,9 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.5 Para 5.3 — Actual aerodrome QNH is valid for 15 minutes after receipt from an approved source (ATC/ATIS excl. TAF-only, AWIS, BOM accredited observer).",
-            "AIP ENR 1.5 Para 1.18 — Shaded minima on Airservices charts: TAF QNH applies by default; actual QNH allows a 100 ft reduction; area QNH requires 50 ft addition.",
-            "Part 91 MOS 14.03 — METAR QNH does NOT satisfy the requirement for actual aerodrome QNH prior to commencing an IAP."
+            "AIP ENR 1.5 Para 5.3 — Actual QNH validity: actual aerodrome QNH is valid for 15 minutes after receipt from an approved source (ATC/ATIS excl. TAF-only, AWIS, BOM accredited observer).",
+            "AIP ENR 1.5 Para 1.18 — Shaded chart minima rule: TAF QNH applies by default; actual QNH allows a 100 ft reduction; area QNH requires a 50 ft addition.",
+            "Part 91 MOS 14.03 — METAR exclusion: METAR QNH does NOT satisfy the requirement for actual aerodrome QNH prior to commencing an IAP."
           ]
         },
         {
@@ -1831,11 +1831,11 @@
         {
           "type": "law",
           "content": [
-            "CASR 91.310 — Approach ban: do not descend below 1,000 ft AAL when TDZ RVR is continuously below landing minima. Applies only when ATC and RVR reports are both available.",
-            "Part 91 MOS 16 (VMC mnemonic) — Descent below MDA or continuation below DA requires: Visual reference maintained; Minima requirements adhered to; Continuously in a position to land.",
-            "AIP ENR 1.5 Para 1.6.6 — Circling is prohibited at night in 'no-circling' sectors and at all times in less than circling VMC.",
-            "Approach ban — controlling RVR is TDZ RVR for non-LVO operations, OR controlling zone RVR for low-visibility operations (LVO).",
-            "AIP ENR 1.5 Para 1.6.6 Note 1(3) — Once descent below circling MDA is initiated, the obstacle protection from visual circling at the MDA ends; the pilot is then visually responsible for required obstacle clearance."
+            "CASR 91.310 — Approach ban: do not descend below 1,000 ft AAL when controlling RVR is continuously below landing minima. Applies only when ATC and RVR reports are both available.",
+            "Part 91 MOS 16 — Descent below MDA / continuation below DA (VMC mnemonic): requires Visual reference maintained, Minima requirements adhered to, and Continuously in a position to land at a normal rate in the touchdown zone.",
+            "AIP ENR 1.5 Para 1.6.6 — Circling prohibitions: visual circling is prohibited at night in 'no-circling' sectors and at all times in less than circling VMC.",
+            "Approach ban — Controlling RVR distinction: TDZ RVR is the controlling RVR for non-low-visibility operations; controlling zone RVR is the controlling RVR for low-visibility operations (LVO).",
+            "AIP ENR 1.5 Para 1.6.6 Note 1(3) — Below-MDA obstacle protection ends: once descent below circling MDA is initiated, the obstacle protection from visual circling at the MDA ends; the pilot is then visually responsible for required obstacle clearance."
           ]
         },
         {
@@ -2345,9 +2345,9 @@
         {
           "type": "law",
           "content": [
-            "CASR 91.795 / Part 91 MOS 24.02 — For small aeroplanes with unfactored take-off performance charts, the pilot is responsible for ensuring the runway is long enough to take off safely (CASR 91.410).",
-            "CASR 91.800 / Part 91 MOS 25.02 — For small aeroplanes with unfactored landing performance charts, the pilot is responsible for ensuring the runway is long enough to land safely.",
-            "Part 91 Plain English Guide — Recommended factors for unfactored charts account for pilot competency variation and aircraft performance degradation with age."
+            "CASR 91.795 / Part 91 MOS 24.02 — Take-off runway suitability (unfactored charts): for small aeroplanes with unfactored take-off performance charts, the pilot is responsible for ensuring the runway is long enough to take off safely (CASR 91.410).",
+            "CASR 91.800 / Part 91 MOS 25.02 — Landing runway suitability (unfactored charts): for small aeroplanes with unfactored landing performance charts, the pilot is responsible for ensuring the runway is long enough to land safely.",
+            "Part 91 Plain English Guide — Recommended performance factors: account for pilot competency variation and aircraft performance degradation with age when applying recommended factors to unfactored charts."
           ]
         },
         {
@@ -2451,9 +2451,9 @@
         {
           "type": "law",
           "content": [
-            "VHF range formula — d = 1.23 (√Htx + √Hrx), where d = distance in NM, Htx = transmitter elevation (ft), Hrx = receiver height AGL (ft).",
-            "ADS-B coverage — Airservices Australia publishes coverage charts. At 5,000 ft AGL, coverage is available over most populated areas but significant gaps exist in remote and low-altitude operations.",
-            "Below ADS-B/SSR coverage — IFR OCTA procedures apply; squawk 2000; position reports via HF or SATCOM where available."
+            "VHF line-of-sight range formula: d = 1.23 × (√Htx + √Hrx), where d is the distance in NM, Htx is the transmitter elevation (ft), and Hrx is the receiver height AGL (ft).",
+            "ADS-B coverage in Australia: Airservices Australia publishes coverage charts. At 5,000 ft AGL coverage is available over most populated areas, but significant gaps exist in remote and low-altitude operations.",
+            "Operating outside ADS-B/SSR coverage: IFR OCTA procedures apply; squawk 2000; position reports via HF or SATCOM where available."
           ]
         },
         {
@@ -2519,10 +2519,10 @@
         {
           "type": "law",
           "content": [
-            "AIP GEN 3.4 Para 6 — Prescribed phraseologies for IFR operations in Class G, D and C airspace. Pilots must use standard phraseology.",
-            "Class G taxi call includes: callsign, aircraft type, POB (for IFR flights other than air transport operations), flight rules, departure aerodrome, destination, runway.",
-            "Class D/C taxi call includes: callsign, POB, ATIS information received, flight rules, request taxi.",
-            "Class C airborne report includes: callsign, assigned heading or track, passing altitude, climbing to level. Content varies depending on whether a heading was assigned or a procedural SID is being flown."
+            "AIP GEN 3.4 Para 6 — Standard phraseology requirement: prescribed phraseologies apply for IFR operations in Class G, D and C airspace. Pilots must use standard phraseology.",
+            "Class G taxi call format: callsign, aircraft type, POB (for IFR flights other than air transport operations), flight rules, departure aerodrome, destination, runway.",
+            "Class D/C taxi call format: callsign, POB, ATIS information received, flight rules, request taxi.",
+            "Class C airborne report format: callsign, assigned heading or track, passing altitude, climbing to level. Content varies depending on whether a heading was assigned or a procedural SID is being flown."
           ]
         },
         {
