@@ -89,9 +89,9 @@
           "type": "law",
           "content": [
             "CASR 91.795 / Part 91 MOS 24.02 — Take-off performance: for small aeroplanes, AFM take-off performance charts are normally unfactored and often do not contain information for runway slope, surface conditions, or wind. It is the pilot's responsibility to be satisfied that the runway is long enough (CASR 91.410).",
-            "For aeroplanes with unfactored take-off performance charts, the following factors are recommended on the take-off distance required: (a) 1.15 for MTOW 2,000 kg or less; (b) 1.25 for MTOW 3,500 kg or greater; (c) between 2,000 kg and 3,500 kg, use linear interpolation.",
+            "Take-off recommended factors (unfactored charts): for aeroplanes with unfactored take-off performance charts, the following factors are recommended on the take-off distance required: (a) 1.15 for MTOW 2,000 kg or less; (b) 1.25 for MTOW 3,500 kg or greater; (c) between 2,000 kg and 3,500 kg, a value interpolated linearly.",
             "CASR 91.800 / Part 91 MOS 25.02 — Landing performance: for small aeroplanes, AFM landing performance charts are normally unfactored and often do not contain information for runway slope, surface conditions, or wind. It is the pilot's responsibility to be satisfied that the runway is long enough (CASR 91.410).",
-            "For aeroplanes with unfactored landing performance charts, the following factors are recommended on the landing distance required: (a) 1.15 for MTOW 2,000 kg or less; (b) 1.43 for MTOW 4,500 kg or greater; (c) between 2,000 kg and 4,500 kg, use linear interpolation."
+            "Landing recommended factors (unfactored charts): for aeroplanes with unfactored landing performance charts, the following factors are recommended on the landing distance required: (a) 1.15 for MTOW 2,000 kg or less; (b) 1.43 for MTOW 4,500 kg or greater; (c) between 2,000 kg and 4,500 kg, a value interpolated linearly."
           ]
         },
         {
@@ -149,9 +149,9 @@
         {
           "type": "law",
           "content": [
-            "The gradient rate nomograph provides a means of converting between required climb gradient (expressed as a percentage) and rate of climb (expressed in ft/min) for a given groundspeed.",
-            "The nomograph is used to verify that aircraft performance meets published departure or missed approach climb gradient requirements.",
-            "Rate of climb (ft/min) = gradient (%) × groundspeed (kt) × 0.1013 (approximately)."
+            "Purpose of the nomograph: the gradient-rate nomograph converts between a required climb gradient (expressed as a percentage) and a rate of climb (expressed in ft/min) for a given groundspeed.",
+            "Use case: the nomograph is used to verify that aircraft performance meets published departure or missed-approach climb gradient requirements.",
+            "Approximation formula: rate of climb (ft/min) ≈ gradient (%) × groundspeed (kt) × 0.1013."
           ]
         },
         {

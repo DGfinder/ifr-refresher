@@ -43,13 +43,13 @@
         {
           "type": "law",
           "content": [
-            "AIP ENR 1.7 Para 1.1 — Whenever an accurate QNH is available and the aircraft is at a known elevation, pilots must conduct an accuracy check of the aircraft altimeter(s) at some point prior to take-off. Where the first check indicates an altimeter is unserviceable, a further check may be conducted at another location on the same airfield.",
+            "AIP ENR 1.7 Para 1.1 — Pre-take-off altimeter check: whenever an accurate QNH is available and the aircraft is at a known elevation, pilots must conduct an accuracy check of the aircraft altimeter(s) at some point prior to take-off. Where the first check is performed before an accurate QNH is available, a second check must be done before take-off using the accurate QNH.",
             "AIP ENR 1.7 Para 1.2 — IFR altimeters: with accurate QNH set, the altimeter(s) should read the nominated elevation to within 60FT. If an altimeter has an error in excess of ±75FT, it must be considered unserviceable.",
             "When two altimeters are required and one reads within 60FT and the other between 60FT and 75FT: flight under IFR to the first point of landing (where re-check is possible) is approved. If the error exceeds 60FT on re-check, the altimeter must be considered unserviceable.",
             "When two altimeters are fitted but only one required: may continue IFR provided one reads within 60FT. If the remaining altimeter has an error exceeding 75FT, it must be placarded unserviceable and the maintenance release endorsed.",
             "When only one altimeter fitted and it reads between 60FT and 75FT error: flight to first point of landing for re-check is approved. If error exceeds 60FT on re-check, the altimeter is to be considered unserviceable for IFR.",
             "AIP ENR 1.7 Para 1.3 — VFR altimeters: should read site elevation to within 100FT (110FT at test sites above 3,300FT). If continuing with two altimeters and one has 100FT or more error, the faulty altimeter must be placarded unserviceable and the error noted in the maintenance release.",
-            "AIP ENR 1.7 Para 1.4 — A QNH can be considered accurate only if provided by AAIS, ATC, ATIS, AWIS, CA/GRS, or WATIR. QNH from an authorised weather forecast must not be used for checking altimeter accuracy. Site elevation must be derived from aerodrome survey data authorised by CASA or an NAA, or supplied in writing by the aerodrome operator."
+            "AIP ENR 1.7 Para 1.4 — Approved QNH sources: a QNH can be considered accurate only if provided by AAIS, ATC, ATIS, AWIS, CA/GRS, or WATIR. QNH from an authorised weather forecast must not be used for checking altimeter accuracy. Site elevation must be known to within the tolerance applicable to the altimeter type."
           ]
         },
         {
@@ -264,9 +264,9 @@
             "Standard Instrument Departure (SID): A published procedure with specific tracks, altitudes and often speed requirements designed to provide obstacle clearance and traffic management.",
             "Diverse departure: Where no SID is available or required, a diverse departure allows you to depart in any direction provided you meet the specified climb gradient, typically to a safe altitude.",
             "Obstacle Departure Procedure (ODP): A procedure designed purely for obstacle clearance, separate from traffic management considerations.",
-            "The standard diverse departure climb gradient is typically 3.3% (approximately 200 ft per nautical mile) unless otherwise published.",
-            "SIDs may require higher gradients, especially in terrain-challenged environments; these are published on the chart.",
-            "You must be able to achieve the required gradient at your actual take-off weight under the prevailing conditions."
+            "Standard diverse-departure gradient: the standard diverse-departure climb gradient is typically 3.3% (approximately 200 ft per nautical mile) unless otherwise published.",
+            "Published SID gradients: SIDs may require higher gradients, especially in terrain-challenged environments. The required gradient is published on the chart.",
+            "Pilot responsibility: the pilot must be able to achieve the required gradient at the actual take-off weight under the prevailing conditions."
           ]
         },
         {

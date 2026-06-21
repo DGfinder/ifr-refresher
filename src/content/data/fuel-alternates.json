@@ -370,10 +370,10 @@
         {
           "type": "law",
           "content": [
-            "Special alternate weather minima are available for specified approaches at some airports for use by aircraft with dual ILS/VOR approach capability.",
-            "Dual ILS/VOR approach capability must include: (a) duplicated LOC; (b) duplicated GP; (c) duplicated VOR; AND (d) either: (i) duplicated DME; (ii) duplicated GNSS; or (iii) single DME and single GNSS.",
-            "Special alternate weather minima are identified on the instrument approach chart by a double asterisk (**) adjacent to the ALTERNATE title and a note detailing the special minima.",
-            "Special alternate minima are NOT available — minima revert to standard alternate minima — during periods when: (a) local METAR/SPECI or forecasting services are not available; or (b) an airport control service is not provided."
+            "AIP ENR 1.5 Para 6.2 — Availability: special alternate weather minima are available for specified approaches at some airports for use by aircraft with dual ILS/VOR approach capability.",
+            "Part 91 MOS 8.08 — Required equipment: dual ILS/VOR approach capability must include (a) duplicated LOC; (b) duplicated GP; (c) duplicated VOR; AND (d) either (i) duplicated DME; (ii) duplicated GNSS; or (iii) single DME and single GNSS.",
+            "AIP ENR 1.5 Para 6.2 — Chart marker: special alternate weather minima are identified on the instrument approach chart by a double asterisk (**) adjacent to the ALTERNATE title and a note detailing the special minima.",
+            "Part 91 MOS 8.08 — Revert conditions: special alternate weather minima are NOT available (minima revert to standard alternate minima) during periods when (a) local METAR/SPECI or forecasting services are not available; or (b) an airport control service is not provided."
           ]
         },
         {

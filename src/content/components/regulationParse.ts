@@ -64,7 +64,13 @@ export function splitSubject(body: string): {
   subject: string | null;
   rest: string;
 } {
-  const match = body.match(/^([^:.\n;]{2,80}(?:\([^)]+\))?[^:.\n;]{0,40}):\s+([\s\S]+)$/);
+  // Disallow em/en-dashes inside the candidate subject — those indicate
+  // we've crossed into regulation prose, not a topic label (e.g.
+  // "Special alternate minima are NOT available — minima revert — during
+  // periods when:" should NOT be picked up as a subject).
+  const match = body.match(
+    /^([^:.\n;—–]{2,80}(?:\([^)]+\))?[^:.\n;—–]{0,40}):\s+([\s\S]+)$/,
+  );
   if (!match) return { subject: null, rest: body };
   const subject = match[1]!.trim();
   if (subject.endsWith(",")) return { subject: null, rest: body };

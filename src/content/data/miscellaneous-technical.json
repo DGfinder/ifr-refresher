@@ -37,7 +37,7 @@
             "VFR in Class E or G or OCTA: squawk 1200.",
             "IFR OCTA: squawk 2000.",
             "IFR in Class E or civil flights in CTA: squawk 3000.",
-            "Special purpose codes (e.g. 7600 communications failure, 7700 emergency) take precedence over the above."
+            "Special-purpose code precedence: codes such as 7600 (communications failure) and 7700 (emergency) take precedence over the routine VFR/IFR squawks."
           ]
         },
         {
@@ -126,8 +126,8 @@
         {
           "type": "law",
           "content": [
-            "Radar and ADS-B coverage in Australian airspace is depicted on charts published by CASA and Airservices Australia. Coverage varies by altitude and geographic location. ADS-B coverage at or above 5000FT is depicted on the Airservices Australia ADS-B 5000FT coverage chart.",
-            "Pilots operating IFR must be aware of whether they are within radar or ADS-B coverage, as this affects communications failure procedures and ATC surveillance capability."
+            "Australian surveillance coverage: radar and ADS-B coverage is depicted on charts published by CASA and Airservices Australia. Coverage varies by altitude and geographic location; ADS-B coverage at or above 5,000 ft is depicted on the published charts.",
+            "Pilot awareness: IFR pilots must be aware of whether they are within radar or ADS-B coverage — it affects communications-failure procedures and ATC surveillance capability."
           ]
         },
         {

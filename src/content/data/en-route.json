@@ -36,7 +36,7 @@
           "type": "law",
           "content": [
             "AIP ENR 1.7 Para 2 — At or below the transition altitude, the altimeter setting must be: (a) the current local QNH (accurate or forecast) of a station along the route within 100NM of the aircraft; or (b) the current forecast Area QNH. QNH is available from a reporting station (AAIS, ATIS, AWIS, CA/GRS, VOLMET or WATIR), a TAF, the Area QNH forecast, or from ATS.",
-            "For an operation above the transition altitude, the altimeter setting must be 1013.2 hPa.",
+            "AIP ENR 1.7 Para 2 — Standard pressure above transition altitude: for an operation above the transition altitude, the altimeter setting must be 1013.2 hPa.",
             "On climb: the altimeter setting must be changed from QNH to 1013.2 hPa after passing 10,000FT and before levelling off.",
             "On descent: just before passing the transition layer, the altimeter setting must be changed from 1013.2 hPa to the relevant altimeter setting (local QNH or Area QNH as applicable)."
           ]
