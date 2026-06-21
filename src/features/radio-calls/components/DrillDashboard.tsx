@@ -235,14 +235,21 @@ export function DrillDashboard({
     });
   }, [cards, phaseFilter, classFilter, scheduleFilter, dueIds, fsrsStore]);
 
-  // Re-partition the filtered list into drill-type groups so the dashboard
-  // can render collapsible sections per call type. Groups with no matching
-  // cards are dropped so we don't render empty headers.
+  // Re-partition the filtered list into drill-type groups, and within each
+  // group bucket variants of the same template together. The library
+  // contains 100s of generated cards that only differ by airport — they
+  // belong as one row, not one row each.
   const groupedByType = useMemo(() => {
-    return DRILL_TYPE_GROUPS.map((group) => ({
-      ...group,
-      cards: filtered.filter((card) => getDrillTypeGroupId(card) === group.id),
-    })).filter((group) => group.cards.length > 0);
+    return DRILL_TYPE_GROUPS.map((group) => {
+      const groupCards = filtered.filter(
+        (card) => getDrillTypeGroupId(card) === group.id,
+      );
+      return {
+        ...group,
+        cards: groupCards,
+        templates: bucketByTemplate(groupCards),
+      };
+    }).filter((group) => group.cards.length > 0);
   }, [filtered]);
 
   const cardsForPath = (path: CuratedPath) =>
@@ -571,7 +578,8 @@ export function DrillDashboard({
                 </div>
                 <span className="flex shrink-0 items-center gap-2 text-xs font-semibold text-[var(--ifr-text-muted)]">
                   <span className="rounded-full bg-[var(--ifr-surface)] px-2 py-1">
-                    {group.cards.length} {group.cards.length === 1 ? "drill" : "drills"}
+                    {group.templates.length}{" "}
+                    {group.templates.length === 1 ? "call type" : "call types"}
                   </span>
                   <ChevronRight
                     size={16}
@@ -584,15 +592,18 @@ export function DrillDashboard({
                 <ul
                   id={`drill-type-list-${group.id}`}
                   className="divide-y divide-[var(--ifr-border)]"
-                  aria-label={`${group.label} drills`}
+                  aria-label={`${group.label} call types`}
                 >
-                  {group.cards.map((card) => (
-                    <DrillCardRow
-                      key={card.drillId}
-                      card={card}
+                  {group.templates.map((bucket) => (
+                    <DrillTemplateRow
+                      key={bucket.key}
+                      bucket={bucket}
                       attempts={attempts}
-                      isPassed={passedIds.has(card.drillId)}
+                      passedIds={passedIds}
+                      dueIds={dueIds}
+                      fsrsStore={fsrsStore}
                       onOpenCard={onOpenCard}
+                      onStartSession={onStartSession}
                     />
                   ))}
                 </ul>
@@ -712,6 +723,312 @@ function FilterRow({ label, ariaLabel, children }: FilterRowProps) {
       </div>
     </div>
   );
+}
+
+interface TemplateBucket {
+  /** Stable bucket id — templateId for generated cards, drillId for
+   * authored single-variation cards. */
+  key: string;
+  /** Header shown for the bucket — base call-type title for templated
+   * buckets (no `— {city}` suffix), card title for authored singletons. */
+  title: string;
+  cards: RadioDrillCard[];
+}
+
+/**
+ * Bucket cards by their source template so the dashboard renders one row
+ * per call type instead of one row per airport-variation. Authored cards
+ * (no templateId) become their own single-card bucket.
+ *
+ * Bucket order matches the order cards appear in the source list — which
+ * is already FSRS-sorted (due first), so the most-overdue templates float
+ * to the top of each group.
+ */
+function bucketByTemplate(cards: RadioDrillCard[]): TemplateBucket[] {
+  const byKey = new Map<string, TemplateBucket>();
+  for (const card of cards) {
+    const key = card.templateId ?? card.drillId;
+    const existing = byKey.get(key);
+    if (existing) {
+      existing.cards.push(card);
+    } else {
+      byKey.set(key, {
+        key,
+        title: card.templateTitle ?? card.title,
+        cards: [card],
+      });
+    }
+  }
+  return Array.from(byKey.values());
+}
+
+interface DrillTemplateRowProps {
+  bucket: TemplateBucket;
+  attempts: readonly RadioDrillAttempt[];
+  passedIds: ReadonlySet<string>;
+  dueIds: ReadonlySet<string>;
+  fsrsStore: RadioDrillFSRSStore;
+  onOpenCard: (drillId: string) => void;
+  onStartSession: (cards: RadioDrillCard[]) => void;
+}
+
+/**
+ * Row representing one call-type template (e.g. "Request IFR clearance"),
+ * showing roll-up stats across every variation. Tap to start a focused
+ * session of up to 10 cards from this template (due → unseen → random);
+ * tap the expand chevron to reveal up to 10 specific variations.
+ *
+ * Single-variation buckets (authored cards) degrade to a single-card row —
+ * tap opens that card directly, no expansion needed.
+ */
+function DrillTemplateRow({
+  bucket,
+  attempts,
+  passedIds,
+  dueIds,
+  fsrsStore,
+  onOpenCard,
+  onStartSession,
+}: DrillTemplateRowProps) {
+  const [expanded, setExpanded] = useState(false);
+
+  const isSingle = bucket.cards.length === 1;
+  const singleCard = isSingle ? bucket.cards[0]! : null;
+
+  if (isSingle && singleCard) {
+    // Authored single-variation card — fall back to the old per-card row
+    // semantics. No expansion, tap opens the card.
+    return (
+      <DrillCardRow
+        card={singleCard}
+        attempts={attempts}
+        isPassed={passedIds.has(singleCard.drillId)}
+        onOpenCard={onOpenCard}
+      />
+    );
+  }
+
+  const total = bucket.cards.length;
+  const passedCount = bucket.cards.filter((c) => passedIds.has(c.drillId)).length;
+  const dueCount = bucket.cards.filter((c) => dueIds.has(c.drillId)).length;
+  const newCount = bucket.cards.filter((c) => !(c.drillId in fsrsStore)).length;
+
+  // Up to 10 variation examples for the expanded view. Prefer due → new →
+  // already-passed so the examples list reflects what the learner should
+  // actually drill next.
+  const exampleCards = selectExamples(bucket.cards, dueIds, fsrsStore, 10);
+
+  // Session pulls the same prioritised slice so tapping the row goes
+  // straight into a focused 10-card queue of this call type.
+  const startBucketSession = () => {
+    onStartSession(selectSessionFromBucket(bucket.cards, dueIds, fsrsStore));
+  };
+
+  const status: "passed" | "due" | "in-progress" | "untried" =
+    passedCount === total
+      ? "passed"
+      : dueCount > 0
+        ? "due"
+        : passedCount > 0
+          ? "in-progress"
+          : "untried";
+
+  return (
+    <li>
+      <div
+        className={cn(
+          "flex flex-col gap-1 bg-[var(--ifr-surface)] px-4 py-3",
+          "transition-colors",
+          status === "passed" && "hover:bg-[var(--ifr-success)]/5",
+          status === "due" && "hover:bg-[var(--ifr-warning)]/5",
+          (status === "in-progress" || status === "untried") &&
+            "hover:bg-[var(--ifr-accent)]/5",
+        )}
+      >
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={startBucketSession}
+            className={cn(
+              "group flex min-w-0 flex-1 items-center gap-3 text-left",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)] rounded-md",
+            )}
+            aria-label={`Practice ${bucket.title} — ${total} variations`}
+          >
+            <div
+              className={cn(
+                "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold",
+                status === "passed" && "bg-[var(--ifr-success)]/15 text-[var(--ifr-success)]",
+                status === "due" && "bg-[var(--ifr-warning)]/15 text-[var(--ifr-warning)]",
+                status === "in-progress" && "bg-[var(--ifr-accent)]/15 text-[var(--ifr-accent)]",
+                status === "untried" && "bg-[var(--ifr-surface-muted)] text-[var(--ifr-text-muted)]",
+              )}
+              aria-hidden="true"
+            >
+              {status === "passed" ? (
+                <Check size={14} />
+              ) : (
+                <span className="text-[10px] font-semibold">{passedCount}/{total}</span>
+              )}
+            </div>
+            <div className="min-w-0 flex-1">
+              <h4 className="truncate font-semibold text-[var(--ifr-text)] group-hover:text-[var(--ifr-accent)]">
+                {bucket.title}
+              </h4>
+              <p className="mt-0.5 text-xs text-[var(--ifr-text-muted)]">
+                {total} variations
+                {dueCount > 0 && ` · ${dueCount} due`}
+                {newCount > 0 && newCount !== total && ` · ${newCount} new`}
+              </p>
+            </div>
+            <span
+              className="hidden shrink-0 rounded-full bg-[var(--ifr-accent)]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--ifr-accent)] sm:inline-flex"
+              aria-hidden="true"
+            >
+              Practice
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setExpanded((v) => !v)}
+            aria-expanded={expanded}
+            aria-label={
+              expanded
+                ? `Hide ${bucket.title} examples`
+                : `Show ${bucket.title} examples`
+            }
+            className={cn(
+              "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[var(--ifr-text-muted)]",
+              "hover:bg-[var(--ifr-surface-muted)] hover:text-[var(--ifr-text)]",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+            )}
+          >
+            <ChevronRight
+              size={14}
+              className={cn("transition-transform", expanded && "rotate-90")}
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+        {expanded && (
+          <ul
+            className="mt-2 space-y-1 border-l-2 border-[var(--ifr-border)] pl-3"
+            aria-label={`${bucket.title} examples`}
+          >
+            {exampleCards.map((card) => (
+              <TemplateVariationRow
+                key={card.drillId}
+                card={card}
+                isPassed={passedIds.has(card.drillId)}
+                isDue={dueIds.has(card.drillId)}
+                isNew={!(card.drillId in fsrsStore)}
+                onOpenCard={onOpenCard}
+              />
+            ))}
+            {total > exampleCards.length && (
+              <li className="px-2 pt-1 text-[10px] uppercase tracking-wider text-[var(--ifr-text-muted)]">
+                +{total - exampleCards.length} more — tap Practice to drill the next batch
+              </li>
+            )}
+          </ul>
+        )}
+      </div>
+    </li>
+  );
+}
+
+interface TemplateVariationRowProps {
+  card: RadioDrillCard;
+  isPassed: boolean;
+  isDue: boolean;
+  isNew: boolean;
+  onOpenCard: (drillId: string) => void;
+}
+
+function TemplateVariationRow({
+  card,
+  isPassed,
+  isDue,
+  isNew,
+  onOpenCard,
+}: TemplateVariationRowProps) {
+  // Short, scannable label — prefer the departure airport / location code
+  // when the briefing has one. Falls back to the suffix of the card title
+  // after the em-dash (which is the city for generated cards).
+  const label = pickVariationLabel(card);
+  return (
+    <li>
+      <button
+        type="button"
+        onClick={() => onOpenCard(card.drillId)}
+        className={cn(
+          "group flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left",
+          "hover:bg-[var(--ifr-accent)]/10",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+        )}
+      >
+        <span
+          className={cn(
+            "h-1.5 w-1.5 shrink-0 rounded-full",
+            isPassed && "bg-[var(--ifr-success)]",
+            !isPassed && isDue && "bg-[var(--ifr-warning)]",
+            !isPassed && !isDue && isNew && "bg-[var(--ifr-text-muted)]/40",
+            !isPassed && !isDue && !isNew && "bg-[var(--ifr-accent)]/60",
+          )}
+          aria-hidden="true"
+        />
+        <span className="min-w-0 flex-1 truncate text-xs text-[var(--ifr-text)] group-hover:text-[var(--ifr-accent)]">
+          {label}
+        </span>
+        {card.airspaceClass && (
+          <span className="shrink-0 rounded bg-[var(--ifr-surface-muted)] px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-[var(--ifr-text-muted)]">
+            {card.airspaceClass === "CTAF" ? "CTAF" : `C${card.airspaceClass}`}
+          </span>
+        )}
+      </button>
+    </li>
+  );
+}
+
+function pickVariationLabel(card: RadioDrillCard): string {
+  // Generated card titles look like "Request IFR clearance — Sydney". The
+  // bit after the em-dash is what makes this variation unique.
+  const dashIdx = card.title.indexOf(" — ");
+  if (dashIdx !== -1) return card.title.slice(dashIdx + 3);
+  if (card.briefing.departure) return card.briefing.departure;
+  return card.title;
+}
+
+function selectExamples(
+  cards: RadioDrillCard[],
+  dueIds: ReadonlySet<string>,
+  fsrsStore: RadioDrillFSRSStore,
+  limit: number,
+): RadioDrillCard[] {
+  return [...cards]
+    .sort((a, b) => examplePriority(a, dueIds, fsrsStore) - examplePriority(b, dueIds, fsrsStore))
+    .slice(0, limit);
+}
+
+function selectSessionFromBucket(
+  cards: RadioDrillCard[],
+  dueIds: ReadonlySet<string>,
+  fsrsStore: RadioDrillFSRSStore,
+): RadioDrillCard[] {
+  return selectExamples(cards, dueIds, fsrsStore, SESSION_SIZE);
+}
+
+// Lower = higher priority. Due first, then never-attempted, then everything
+// else. Stable across renders so the example list doesn't shuffle on each
+// state change.
+function examplePriority(
+  card: RadioDrillCard,
+  dueIds: ReadonlySet<string>,
+  fsrsStore: RadioDrillFSRSStore,
+): number {
+  if (dueIds.has(card.drillId)) return 0;
+  if (!(card.drillId in fsrsStore)) return 1;
+  return 2;
 }
 
 interface DrillCardRowProps {

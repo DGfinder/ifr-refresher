@@ -57,6 +57,8 @@ export function realiseRadioTemplate(
   const card: RadioDrillCard = {
     version: "1.0",
     drillId,
+    templateId: template.templateId,
+    templateTitle: deriveTemplateTitle(template.title),
     phase: template.phase,
     airspaceClass: location.airspaceClass,
     title: fill(template.title, slots),
@@ -68,6 +70,17 @@ export function realiseRadioTemplate(
     card.tags = [...template.tags];
   }
   return card;
+}
+
+/**
+ * Strip the trailing `" — {city}"` (or any other slot suffix) from a template
+ * title so the UI can use it as a single header for every realised variation.
+ * "Request IFR clearance — {city}" → "Request IFR clearance".
+ */
+function deriveTemplateTitle(titleTemplate: string): string {
+  const dashIdx = titleTemplate.indexOf(" — ");
+  if (dashIdx === -1) return titleTemplate;
+  return titleTemplate.slice(0, dashIdx).trim();
 }
 
 function realiseElement(

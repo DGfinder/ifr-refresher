@@ -159,6 +159,16 @@ export interface RadioDrillCard {
   version: string;
   /** Stable id, unique across all drill cards. Persists in history. */
   drillId: string;
+  /** Generated cards set this to the source template id, so the UI can
+   * group every "Request IFR clearance — {city}" variation under a single
+   * row. Hand-authored cards omit it — they're each treated as a
+   * single-variation template by the dashboard. */
+  templateId?: string;
+  /** The base call-type title — same for every variation of a template
+   * (e.g. "Request IFR clearance" with the "— {city}" suffix stripped).
+   * Used as the header for grouped rows so the list reads as a set of
+   * distinct call types instead of 100s of look-alike rows. */
+  templateTitle?: string;
   phase: RadioPhase;
   /** Optional — generated cards always set this; hand-authored cards may
    * omit it when the airspace is implicit in the briefing text. */
