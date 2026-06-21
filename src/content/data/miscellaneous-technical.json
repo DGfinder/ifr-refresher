@@ -84,7 +84,7 @@
         {
           "type": "law",
           "content": [
-            "To determine the theoretical maximum range of VHF transmissions: d = 1.23 × (√Htx + √Hrx), where d = distance in NM, Htx = elevation in feet of transmitter, Hrx = height in feet above ground level of receiver."
+            "VHF line-of-sight range formula: to determine the theoretical maximum range of VHF transmissions, d = 1.23 × (√Htx + √Hrx), where d is distance in NM, Htx is transmitter elevation (ft), and Hrx is receiver height AGL (ft)."
           ]
         },
         {

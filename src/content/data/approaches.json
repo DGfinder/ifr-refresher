@@ -187,7 +187,7 @@
             "AIP ENR 1.5 Para 1.18 — Airservices shaded-minima rule: where Australian charts show a shaded background to minima titles (IAL charts) or published minima (DME or GNSS Arrivals), the minima have been calculated using TAF QNH; they may be reduced by 100 ft whenever an actual aerodrome QNH is set.",
             "Jeppesen chart format: Jeppesen charts publish minima for both actual aerodrome QNH and forecast aerodrome QNH — read the correct column for your QNH source.",
             "Approved sources of actual QNH: ATC and ATIS (when not endorsing TAF QNH), AWIS, and Bureau of Meteorology accredited meteorological observers. An actual aerodrome QNH from an approved source is valid for 15 minutes from the time of receipt. METAR QNH does not meet this requirement.",
-            "When actual aerodrome QNH is not available, ATC will report TAF QNH on the ATIS: 'ACTUAL QNH NOT AVAILABLE, AERODROME FORECAST QNH...'. Forecast QNH reported by ATC or on ATIS is not an approved source of actual QNH.",
+            "AIP ENR 1.5 Para 5.3 — ATIS phrase when actual QNH unavailable: ATC will report TAF QNH on the ATIS in the format 'ACTUAL QNH NOT AVAILABLE, AERODROME FORECAST QNH...'. Forecast QNH reported by ATC or on ATIS is not an approved source of actual QNH.",
             "Area QNH addition: where the forecast Area QNH is used, the minima used must be increased by 50 ft."
           ]
         },
@@ -1479,7 +1479,7 @@
             "Visual approach altitude requirement: the pilot must maintain at an altitude not less than: in CTA — 500 ft above the lower limit of the CTA unless clearance received to depart and re-enter CTA; LSALT/MSA, DGA step, or last assigned altitude if being vectored (CASR 91.265 or 91.267).",
             "Visual approach track requirement: the pilot must maintain track/heading on the route authorised until within 5 NM of the aerodrome, or within 3 NM with aerodrome in sight if there is no IAP, the pilot is not authorised to use the IAP, or operating VFR.",
             "Night pilot-initiated visual approach: within 30NM; visibility at least 5,000M.",
-            "At night, the pilot may discontinue the IAP early if: within 5NM on PAPI; within 7NM on PAPI (ILS runway); within 10NM on glideslope; or within 14NM on YSSY runways 16L and 34L established not below glideslope and less than full-scale azimuth deflection."
+            "Night IAP early-discontinuation gates: the pilot may discontinue the IAP early at night if (a) within 5 NM on PAPI; (b) within 7 NM on PAPI (ILS runway); (c) within 10 NM on glideslope; or (d) within 14 NM on YSSY runways 16L and 34L established not below glide path."
           ]
         },
         {

@@ -215,9 +215,9 @@
         {
           "type": "law",
           "content": [
-            "An IPC is valid from the date the holder passes the flight test to the end of the 12th month after the month in which the holder passes the flight test.",
-            "Alternatively, an IPC is valid for the period during which the holder is successfully participating in an operator's training and checking system for an IFR operation in the relevant aircraft.",
-            "If the holder successfully completes an IPC within 3 months before the validity of the existing check expires, the new check is valid to the end of the 12th month after the validity of the existing check (not from the date of the new check)."
+            "Standard IPC validity: an IPC is valid from the date the holder passes the flight test to the end of the 12th month after the month in which the holder passes the flight test.",
+            "Operator training-and-checking alternative: an IPC is valid for the period during which the holder is successfully participating in an operator's training and checking system for an IFR operation in the relevant aircraft.",
+            "Early-renewal carry-over: if the holder successfully completes an IPC within 3 months before the validity of the existing check expires, the new check is valid to the end of the 12th month after the validity of the existing check (not from the date of the new check)."
           ]
         },
         {
@@ -604,13 +604,13 @@
         {
           "type": "law",
           "content": [
-            "Civil Aviation Act – enables CASA to make regulations.",
+            "Civil Aviation Act: enables CASA to make regulations.",
             "CASR (Civil Aviation Safety Regulations) – legally binding regulations (e.g. Parts 61, 91, 121, 135, 139).",
             "MOS (Manuals of Standards) – detailed technical rules made under specific CASR Parts (e.g. Part 91 MOS, Part 61 MOS, Part 139 MOS).",
             "AIP (Aeronautical Information Publication) and associated documents – procedures, aeronautical information and operational detail.",
-            "Operator's Operations Manual and SOPs – company-level procedures; must comply with CASR and MOS.",
-            "Aircraft Flight Manual (AFM) / POH and limitations – legally binding limitations specific to the aircraft type and configuration.",
-            "When two sources appear to disagree, the one higher in the hierarchy wins. Company SOPs or personal habits never override legislation, MOS or AFM limitations."
+            "Operator's Operations Manual and SOPs: company-level procedures; must comply with CASR and MOS.",
+            "Aircraft Flight Manual (AFM) / POH and limitations: legally binding limitations specific to the aircraft type and configuration.",
+            "Conflict resolution: when two sources appear to disagree, the one higher in the hierarchy wins. Company SOPs or personal habits never override legislation, MOS or AFM limitations."
           ]
         },
         {
@@ -671,11 +671,11 @@
         {
           "type": "law",
           "content": [
-            "The GNSS unit must be an approved installation and appropriately certified for IFR operations in that aircraft type.",
-            "The aircraft documentation (AFM or STC) must explicitly authorise the use of that GNSS installation for IFR navigation and, where applicable, approaches.",
-            "The navigation database must be current and valid for the route and procedures being flown.",
-            "RAIM or an equivalent integrity monitoring function must be available for the phase of flight where GNSS is the primary navigation source.",
-            "In controlled airspace, if RAIM is or is expected to be unavailable for more than about 5 minutes while using GNSS for navigation, you must advise ATC and state your remaining navigation capability."
+            "Approved installation: the GNSS unit must be an approved installation and appropriately certified for IFR operations in that aircraft type.",
+            "Aircraft documentation authorisation: the AFM (or STC) must explicitly authorise the use of that GNSS installation for IFR navigation and, where applicable, approaches.",
+            "Navigation database currency: the navigation database must be current and valid for the route and procedures being flown.",
+            "RAIM availability: RAIM or an equivalent integrity monitoring function must be available for the phase of flight where GNSS is the primary navigation source.",
+            "RAIM-outage notification: in controlled airspace, if RAIM is or is expected to be unavailable for more than about 5 minutes while using GNSS for navigation, you must advise ATC and state your remaining navigation capability."
           ]
         },
         {
@@ -748,7 +748,7 @@
           "type": "law",
           "content": [
             "IFR minimum height for a leg: published LSALT for the route, OR published MSA for the sector, OR your correctly calculated LSALT.",
-            "The regulatory minimum is effectively the highest of the values that genuinely apply to your route and sector.",
+            "Highest-applies rule: the regulatory minimum is effectively the highest of the values that genuinely apply to your route and sector.",
             "Descend below LSALT/MSA only when: taking off or landing per a valid procedure; flying a published instrument approach; complying with ATC clearance that provides terrain protection; in day VMC with clear terrain avoidance."
           ]
         },
@@ -824,9 +824,9 @@
           "content": [
             "Start decision: Are reported conditions and equipment status good enough to begin the approach?",
             "Continue decision: If things deteriorate after you start, at what point are you prohibited from continuing (e.g., approaching the FAF)?",
-            "If reported visibility or RVR is below the required value, you may be prohibited from commencing the approach.",
-            "If visibility drops below required after commencing but before a defined gate, you may be prohibited from continuing.",
-            "At DA/MDA you must have required visual references in a stable configuration — a brief glimpse is not enough."
+            "Reported visibility / RVR before approach: if reported visibility or RVR is below the required value, you may be prohibited from commencing the approach.",
+            "Reported visibility / RVR during approach: if visibility drops below required after commencing but before a defined gate, you may be prohibited from continuing.",
+            "Visual references at DA / MDA: at DA/MDA you must have the required visual references in a stable configuration — a brief glimpse is not enough."
           ]
         },
         {
@@ -1000,11 +1000,11 @@
         {
           "type": "law",
           "content": [
-            "Your instrument rating gives you the right to fly under IFR and in IMC in the aircraft categories, classes and types for which you are rated.",
+            "Instrument rating privileges: your instrument rating gives you the right to fly under IFR and in IMC in the aircraft categories, classes and types for which you are rated.",
             "Those privileges are subject to recency requirements: you must have completed certain instrument flight or simulated instrument tasks in a defined period to remain current.",
-            "If recency lapses, an IPC or other approved means is required to restore full IFR privileges.",
-            "An IPC is a formal check conducted by an approved examiner to confirm you meet instrument competency standards.",
-            "A successful IPC can reset certain recency requirements and restore your ability to exercise IFR privileges."
+            "Lapsed recency: if recency lapses, an IPC or other approved means is required to restore full IFR privileges.",
+            "IPC definition: an IPC is a formal check conducted by an approved examiner to confirm you meet instrument competency standards.",
+            "IPC reset effect: a successful IPC can reset certain recency requirements and restore your ability to exercise IFR privileges."
           ]
         },
         {

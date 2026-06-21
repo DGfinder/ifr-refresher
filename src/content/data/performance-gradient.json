@@ -35,10 +35,10 @@
         {
           "type": "law",
           "content": [
-            "VMCA — Minimum Control Speed, air (red radial): critical engine inoperative, live engine at take-off power, landing gear retracted, maximum 5 degrees bank towards live engine, propeller feathered (only for aircraft with automatic feathering devices). The minimum speed at which it is possible to maintain directional control of the aircraft with the critical engine inoperative.",
-            "VMCG — Minimum Control Speed, ground: critical engine inoperative, live engine at take-off power. The minimum speed, whilst on the ground, at which it is possible to maintain directional control using only aerodynamic controls.",
-            "VSSE — Single Engine Safety Speed: the speed below which intentional simulated engine failures should not be conducted. A manufacturer-stated speed intended to provide a margin above VMCA.",
-            "VYSE — Single Engine Best Rate of Climb Speed (blue radial): critical engine inoperative, live engine at take-off power, landing gear retracted. The speed at which the best rate of climb can be achieved with the critical engine inoperative."
+            "VMCA (Minimum Control Speed — air, red radial): critical engine inoperative, live engine at take-off power, landing gear retracted, maximum 5° bank towards the live engine. Below VMCA, directional control with the critical engine inoperative cannot be assured.",
+            "VMCG (Minimum Control Speed — ground): critical engine inoperative, live engine at take-off power. The minimum speed on the ground at which it is possible to maintain control of the aeroplane using primary flight controls only (within a defined deviation from runway centreline).",
+            "VSSE (Single Engine Safety Speed): the speed below which intentional simulated engine failures should not be conducted. A manufacturer-stated speed intended to reduce the risk of loss of control during training.",
+            "VYSE (Single Engine Best Rate of Climb Speed — blue radial): critical engine inoperative, live engine at take-off power, landing gear retracted. The speed that gives the best rate of climb with one engine inoperative."
           ]
         },
         {
