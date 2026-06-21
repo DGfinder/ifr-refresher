@@ -171,8 +171,18 @@ export function SectionToc({ blocks, anchorPrefix }: SectionTocProps) {
  */
 function buildEntries(blocks: readonly ContentBlock[]): TocEntry[] {
   const out: TocEntry[] = [];
+  let previousType: ContentBlock["type"] | null = null;
   for (let i = 0; i < blocks.length; i++) {
     const block = blocks[i]!;
+    // Collapse runs of qa blocks — CS-006B and similar modules author each
+    // Q&A as its own qa block, which used to surface as 13 identical "Q&A"
+    // chips. Keep only the first in any sequential run.
+    if (block.type === "qa" && previousType === "qa") {
+      previousType = block.type;
+      continue;
+    }
+    previousType = block.type;
+
     if (block.type === "heading") {
       out.push({ index: i, label: truncate(block.text, 28) });
       continue;

@@ -1,7 +1,7 @@
 "use client";
 
 import type { ContentBlock as ContentBlockType } from "@/content/model/section";
-import { QACollapsibleItem } from "./QACollapsibleItem";
+import { QACollapsibleItem, QACard } from "./QACollapsibleItem";
 import { SpeakableLine } from "./SpeakablePhrase";
 import { Callout, StoryList } from "./Callout";
 import { RegulationCard } from "./RegulationCard";
@@ -67,14 +67,10 @@ export function ContentBlock({ block, speakable = false }: ContentBlockProps) {
       );
 
     case "qa":
-      return (
-        <div className="mb-4 rounded-lg border border-border bg-muted/50 p-4">
-          <p className="mb-2 font-medium text-foreground">
-            Q: {block.question}
-          </p>
-          <p className="text-foreground/90">A: {block.answer}</p>
-        </div>
-      );
+      // Tap-to-reveal pattern — same active-recall gate the
+      // ipc_questions / airline_questions blocks already use. The answer
+      // is hidden until the learner commits to a thought and taps.
+      return <QACard question={block.question} answer={block.answer} />;
 
     case "hierarchy":
       return (

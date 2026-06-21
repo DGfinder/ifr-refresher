@@ -32,36 +32,51 @@ export function QACollapsibleItem({ item }: QAItemProps) {
     return <li className="text-sm leading-relaxed text-[var(--ifr-text)]">{item}</li>;
   }
 
-  const { question, answer } = split;
-
   return (
     <li>
-      <Collapsible className="group rounded-lg border border-[var(--ifr-border)]/60 bg-[var(--ifr-surface)] transition-colors data-[state=open]:border-[var(--ifr-accent)]/30 data-[state=open]:bg-[var(--ifr-accent)]/5">
-        <CollapsibleTrigger
-          className={cn(
-            "flex w-full items-start justify-between gap-3 rounded-lg px-3 py-2.5 text-left",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)] focus-visible:ring-inset",
-          )}
-        >
-          <span className="text-sm font-medium leading-relaxed text-[var(--ifr-text)]">
-            {question}
-          </span>
-          <ChevronDown
-            size={16}
-            className="mt-0.5 shrink-0 text-[var(--ifr-text-muted)] transition-transform group-data-[state=open]:rotate-180"
-            aria-hidden="true"
-          />
-        </CollapsibleTrigger>
-        <CollapsibleContent className="px-3 pb-3">
-          <p className="border-t border-[var(--ifr-border)]/50 pt-2.5 text-sm leading-relaxed text-[var(--ifr-text)]">
-            <span className="mr-2 text-[10px] font-semibold uppercase tracking-wider text-[var(--ifr-accent)]">
-              Answer
-            </span>
-            {answer}
-          </p>
-        </CollapsibleContent>
-      </Collapsible>
+      <QACard question={split.question} answer={split.answer} />
     </li>
+  );
+}
+
+interface QACardProps {
+  question: string;
+  answer: string;
+}
+
+/**
+ * Structured Q&A card — same visual as QACollapsibleItem but takes
+ * `{question, answer}` directly. Used by the `qa` content block type
+ * which stores the two fields separately, so we don't have to round-trip
+ * through a "Q: ... A: ..." string just to parse it back.
+ */
+export function QACard({ question, answer }: QACardProps) {
+  return (
+    <Collapsible className="group mb-3 rounded-lg border border-[var(--ifr-border)]/60 bg-[var(--ifr-surface)] transition-colors data-[state=open]:border-[var(--ifr-accent)]/30 data-[state=open]:bg-[var(--ifr-accent)]/5">
+      <CollapsibleTrigger
+        className={cn(
+          "flex w-full items-start justify-between gap-3 rounded-lg px-3 py-2.5 text-left",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)] focus-visible:ring-inset",
+        )}
+      >
+        <span className="text-sm font-medium leading-relaxed text-[var(--ifr-text)]">
+          {question}
+        </span>
+        <ChevronDown
+          size={16}
+          className="mt-0.5 shrink-0 text-[var(--ifr-text-muted)] transition-transform group-data-[state=open]:rotate-180"
+          aria-hidden="true"
+        />
+      </CollapsibleTrigger>
+      <CollapsibleContent className="px-3 pb-3">
+        <p className="border-t border-[var(--ifr-border)]/50 pt-2.5 text-sm leading-relaxed text-[var(--ifr-text)]">
+          <span className="mr-2 text-[10px] font-semibold uppercase tracking-wider text-[var(--ifr-accent)]">
+            Answer
+          </span>
+          {answer}
+        </p>
+      </CollapsibleContent>
+    </Collapsible>
   );
 }
 
@@ -87,3 +102,4 @@ function splitQA(item: string): { question: string; answer: string } | null {
 }
 
 export { splitQA };
+
