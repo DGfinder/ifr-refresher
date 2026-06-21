@@ -221,7 +221,9 @@
             "Forgetting the 100FT reduction is only available when you have actual QNH — if ATIS says 'TAF QNH', you use the shaded (higher) minima.",
             "Missing the 15-minute validity window — if you received QNH 20 minutes ago and haven't updated, you're technically non-compliant.",
             "Not recognising the ATIS phrase 'ACTUAL QNH NOT AVAILABLE' — this is your cue that you cannot use the -100FT reduction.",
-            "Area QNH confusion: adding 50FT when you should be using it, or forgetting to add it entirely."
+            "Area QNH confusion: adding 50FT when you should be using it, or forgetting to add it entirely.",
+            "Airservices vs Jeppesen chart format mismatch — Airservices SHADES the higher (TAF QNH) minima and you read 100 ft lower when actual is set; Jeppesen publishes actual-QNH and TAF-QNH minima as two separate numbers. Read the wrong one and you either fly higher than necessary or bust the minimum.",
+            "ATIS phrase 'ACTUAL QNH NOT AVAILABLE, AERODROME FORECAST QNH …' is your trigger to switch to the higher (unshaded / TAF-QNH-published) minima — easy to miss in a long ATIS broadcast."
           ]
         },
         {
@@ -288,7 +290,10 @@
         },
         {
           "type": "numbers",
-          "content": []
+          "content": [
+            "3 — operator AOM factors to consider (aircraft type/performance, crew composition/competence, met means)",
+            "0 — OCA/H values published on Australian charts; only MDA/H and DA/H are published"
+          ]
         },
         {
           "type": "reference",
@@ -310,7 +315,9 @@
             "Assuming chart minima are your minima — operators can and do set higher AOM, especially for inexperienced crews or specific aircraft configurations.",
             "Forgetting MEL impacts on minima — inoperative equipment (e.g., autopilot, certain lighting) often requires AOM increases.",
             "Not briefing AOM vs chart minima — during flight test or line check, using the wrong number shows poor procedural knowledge.",
-            "Ignoring operator-specific restrictions — some operators add margins for unfamiliar aerodromes or night operations."
+            "Ignoring operator-specific restrictions — some operators add margins for unfamiliar aerodromes or night operations.",
+            "Carrying forward the old +50 ft 'PEC addition' to chart minima — that prescriptive addition no longer appears in the AIP. Reciting it on a checkride is a stale-knowledge flag.",
+            "Treating OCA/H as the floor — Australian charts publish MDA/H and DA/H, not OCA/H, and the operator's AOM is what you actually fly."
           ]
         },
         {
@@ -318,7 +325,9 @@
           "content": [
             "Q: What's the difference between landing minima and aerodrome operating minima? A: Landing minima are published on the chart. AOM is what you actually use — it's at least the chart minima but may be higher based on operator requirements, MEL items, or crew limitations.",
             "Q: Who establishes AOM? A: The operator must establish AOM for each aerodrome. For private ops, you're the operator. For charter/airline, it's in your operations manual.",
-            "Q: What factors might increase AOM above published minima? A: Aircraft type/performance, crew experience/competence, MEL items, and how met conditions are determined and reported."
+            "Q: What factors might increase AOM above published minima? A: Aircraft type/performance, crew experience/competence, MEL items, and how met conditions are determined and reported.",
+            "Q: Is the 50 ft PEC (pressure error correction) addition still required to chart minima? A: No — the prescriptive 50 ft PEC addition no longer appears in the AIP. Operators determine their own AOM under AIP ENR 1.5 Para 1.18 considering aircraft type, crew, and met-reporting means.",
+            "Q: What is published on an Australian instrument approach chart — OCA/H, MDA/H, or DA/H? A: MDA/H or DA/H. OCA/H is not published; landing minima are the basis for AOM."
           ]
         },
         {
@@ -364,14 +373,16 @@
         {
           "type": "law",
           "content": [
-            "CASR 91.310 / Part 91 MOS 16 — For an aircraft conducting an IAP at an aerodrome that has an ATC service in operation and for which RVR reports are available for IAPs to the relevant runway: the PIC must not descend below 1,000FT AAL where the TDZ RVR (for other than low-visibility operations) or controlling zone RVR (for low-visibility operations) is reported by ATC as continually less than the landing minima for the IAP.",
+            "CASR 91.310 / Part 91 MOS 16 — For an aircraft conducting an IAP at an aerodrome that (a) has an ATC service in operation AND (b) has RVR reports available for IAPs to the relevant runway: the PIC must not descend below 1,000 ft AAL where the controlling RVR is reported by ATC as continually less than the landing minima. The controlling RVR is the TDZ RVR for non-low-visibility operations, OR the controlling zone RVR for low-visibility operations.",
             "Despite the above, the PIC may continue the IAP if already below 1,000FT AAL when this information is received."
           ]
         },
         {
           "type": "numbers",
           "content": [
-            "1,000FT AAL — approach ban trigger height"
+            "1,000FT AAL — approach ban trigger height",
+            "TDZ RVR — controlling RVR for non-low-visibility operations",
+            "Controlling zone RVR — controlling RVR for low-visibility operations (LVO)"
           ]
         },
         {
@@ -386,7 +397,8 @@
           "content": [
             "The approach ban only applies at aerodromes with ATC and RVR reporting — most regional ports don't trigger this rule.",
             "This is a hard gate: if TDZ RVR is continuously below minima and you haven't passed 1,000FT AAL, you must hold or divert. No discretion.",
-            "The 'already below' exception protects you from impossible situations where RVR drops mid-approach."
+            "The 'already below' exception protects you from impossible situations where RVR drops mid-approach.",
+            "The rule was introduced to ensure aircraft operating in low visibility (LVO) get a chance to land instead of being delayed behind operators that have no realistic prospect of completing the approach in the prevailing conditions."
           ]
         },
         {
@@ -396,7 +408,8 @@
             "Forgetting the 'continuously' qualifier — a single below-minima report followed by improvement doesn't trigger the ban.",
             "Not knowing the exception: if you're already below 1,000FT AAL when you receive below-minima RVR, you may continue.",
             "Applying approach ban logic at non-towered aerodromes — the rule only applies where ATC and RVR are available.",
-            "Confusing approach ban with landing minima — approach ban stops you descending; landing minima govern whether you can land."
+            "Confusing approach ban with landing minima — approach ban stops you descending; landing minima govern whether you can land.",
+            "Reading the controlling RVR as TDZ regardless of operation type — LVO uses the controlling zone RVR, not the TDZ."
           ]
         },
         {
@@ -461,7 +474,9 @@
         },
         {
           "type": "numbers",
-          "content": []
+          "content": [
+            "5 — VIVAT exceptions to the LSALT prohibition (Visual approach/departure, Instrument approach/departure, VMC by day, ATC clearance, Take-off or landing)"
+          ]
         },
         {
           "type": "reference",
@@ -478,7 +493,8 @@
           "content": [
             "VIVAT is your legal protection for operating below LSALT. Without one of these exceptions, you're breaking the law.",
             "Most ops below LSALT occur during instrument approaches — the approach chart provides the lateral and vertical protection.",
-            "The 'ATC clearance' exception is commonly misunderstood: ATC can clear you below LSALT in controlled airspace, but the clearance must be explicit."
+            "The 'ATC clearance' exception is commonly misunderstood: ATC can clear you below LSALT in controlled airspace, but the clearance must be explicit.",
+            "'ATC clearance' below LSALT must be explicit — a generic radar vector that happens to take you below LSALT does not authorise descent below LSALT. The clearance must include an altitude or a published procedure that itself authorises the lower level."
           ]
         },
         {
@@ -553,7 +569,9 @@
         },
         {
           "type": "numbers",
-          "content": []
+          "content": [
+            "3 — VMC conditions required before descent below MDA / continuation below DA (Visual reference, Minima met, Continuously in position to land)"
+          ]
         },
         {
           "type": "reference",
@@ -567,7 +585,8 @@
           "type": "ops_context",
           "content": [
             "VMC is your pre-descent gate. All three conditions must be met simultaneously — missing any one means you go around.",
-            "The 'C' (continuously in position) is where most busts occur — pilots get visual reference but are too high, too fast, or offline to make the runway safely."
+            "The 'C' (continuously in position) is where most busts occur — pilots get visual reference but are too high, too fast, or offline to make the runway safely.",
+            "'Continuously in position' means a normal-rate descent that lands inside the touchdown zone of the intended runway. A steep dive to capture the threshold from above DA is not 'continuously in position'."
           ]
         },
         {
@@ -577,7 +596,8 @@
             "Confusing 'visual reference' with 'runway in sight' — visual reference means identifiable reference to the runway environment, which could be approach lights, threshold markings, or runway edge lights.",
             "Forgetting the met minima check — you need visual AND met conditions at or above published minima.",
             "Descending below MDA before MAPT — on 2D approaches, you cannot descend below MDA until the MAPT, even if you have visual reference.",
-            "Duck-under syndrome: descending below DA/MDA to 'get visual' — illegal and has killed pilots."
+            "Duck-under syndrome: descending below DA/MDA to 'get visual' — illegal and has killed pilots.",
+            "Treating MDA the same as DA — at an MDA you must NOT descend below the minimum until the missed approach point unless you can land. A DA may be momentarily descended through as you initiate the missed approach."
           ]
         },
         {
@@ -640,12 +660,17 @@
             "AIP ENR 1.5 Para 1.6.6 — During visual circling, descent below the circling MDA may only occur when the pilot (VMC Day Obstacle Night MDA mnemonic): (a) maintains the aircraft within the circling area; and (b) maintains a visibility along the intended flight path not less than the minimum specified on the chart; and (c) maintains visual contact with the landing runway environment (runway threshold, approach lighting or other markings identifiable with the runway); and EITHER by day, while complying with (a), (b), (c): maintains visual contact with obstacles along the intended flight path and an obstacle clearance not less than the minimum for the aircraft performance category until aligned with the landing runway; OR by day and night: from a position within the circling area on the downwind, base or final leg, completes a continuous descent from MDA to the threshold using rates of descent and manoeuvres normal to the aircraft type.",
             "AIP ENR 1.5 Para 1.6.2 — Visual circling is prohibited in 'no circling' sectors by day in less than VMC and at night.",
             "After initial visual contact, the basic assumption is that the runway environment will be kept in sight while at the MDA for circling.",
-            "The visual circling procedure conducted at or above the circling MDA will provide protection from obstacles within the circling area. Spot heights on IAL charts do not necessarily indicate the highest terrain or all obstacles in the circling area. Before commencing an approach, pilots should familiarise themselves with obstacle locations by studying an appropriate topographic map."
+            "The visual circling procedure conducted at or above the circling MDA will provide protection from obstacles within the circling area. Spot heights on IAL charts do not necessarily indicate the highest terrain or all obstacles in the circling area. Before commencing an approach, pilots should familiarise themselves with obstacle locations by studying an appropriate topographic map.",
+            "Mnemonic 'VMC, Day Obstacle, Night MDA' for circling: Visibility along the intended flight path not less than chart minimum; Maintain visual contact with the runway environment; Inside the circling area; by Day — not below obstacle clearance for the aircraft category; by Night — not below MDA until established on downwind, base, or final.",
+            "AIP ENR 1.5 Para 1.6.6 Note 1(3) — Once descent below circling MDA is initiated, the obstacle protection offered by visual circling at the MDA ENDS. From that point you are responsible for ensuring required clearance from obstacles is maintained visually."
           ]
         },
         {
           "type": "numbers",
-          "content": []
+          "content": [
+            "MDA — circling MDA; minimum altitude during visual circling until established on downwind/base/final and able to make a continuous normal-rate descent",
+            "0 — published obstacle clearance once you descend below circling MDA; you are visually responsible for clearance from that point on"
+          ]
         },
         {
           "type": "reference",
@@ -661,7 +686,9 @@
           "content": [
             "Circling is high-workload and statistically dangerous — most circling accidents involve loss of visual reference at low altitude in poor conditions.",
             "Day vs night rules are critical: by day you can visually clear obstacles; by night you must use the continuous descent method from downwind/base/final.",
-            "No-circling sectors exist because obstacle clearance cannot be guaranteed there — ignoring them at night is a CFIT trap."
+            "No-circling sectors exist because obstacle clearance cannot be guaranteed there — ignoring them at night is a CFIT trap.",
+            "Spot heights on IAL charts must be treated with caution — they do not necessarily indicate the highest terrain or all obstacles in the circling area, and the chart may not cover all of it. Brief from a topographic map for unfamiliar fields.",
+            "Circling approaches should be avoided when safer alternatives (runway-aligned IAP, different runway, alternate aerodrome) are available. Descent to minimum obstacle clearance during visual circling should be avoided wherever possible."
           ]
         },
         {
@@ -763,7 +790,8 @@
           "content": [
             "These radii define where you can legally circle — fly outside them and you lose obstacle clearance protection.",
             "Cat A/B aircraft have surprisingly small circling areas. In gusty conditions or with a tailwind on downwind, it's easy to blow through the boundary.",
-            "The radius is measured from each runway threshold — visualise it as overlapping circles, not a single circle."
+            "The radius is measured from each runway threshold — visualise it as overlapping circles, not a single circle.",
+            "Circling-area geometry: arcs of the published radius are drawn from EACH runway threshold; the area is the union of those arcs (plus the connecting tangents). It is not a single circle centred on the aerodrome reference point."
           ]
         },
         {

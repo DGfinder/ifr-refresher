@@ -1640,7 +1640,9 @@
           "content": [
             "Using METAR QNH as the actual aerodrome QNH for an IAP — METAR is an observation product and is NOT an approved source of actual QNH for instrument approaches.",
             "Forgetting the 15-minute clock on actual QNH — QNH obtained more than 15 minutes before the IAF must be re-obtained from an approved source.",
-            "Adding 100 ft when using actual QNH on shaded charts — actual QNH allows a REDUCTION of 100 ft below the shaded (TAF QNH) minima; the reduction is frequently applied in the wrong direction."
+            "Adding 100 ft when using actual QNH on shaded charts — actual QNH allows a REDUCTION of 100 ft below the shaded (TAF QNH) minima; the reduction is frequently applied in the wrong direction.",
+            "Adding the old 50 ft PEC to chart minima — the prescriptive PEC addition no longer appears in the AIP. Operator AOM under ENR 1.5 Para 1.18 is what you actually fly.",
+            "Looking for OCA/H on an Australian chart — only MDA/H and DA/H are published. OCA/H is not the floor in Australian charts."
           ]
         },
         {
@@ -1755,7 +1757,9 @@
           "content": [
             "CASR 91.310 — Approach ban: do not descend below 1,000 ft AAL when TDZ RVR is continuously below landing minima. Applies only when ATC and RVR reports are both available.",
             "Part 91 MOS 16 (VMC mnemonic) — Descent below MDA or continuation below DA requires: Visual reference maintained; Minima requirements adhered to; Continuously in a position to land.",
-            "AIP ENR 1.5 Para 1.6.6 — Circling is prohibited at night in 'no-circling' sectors and at all times in less than circling VMC."
+            "AIP ENR 1.5 Para 1.6.6 — Circling is prohibited at night in 'no-circling' sectors and at all times in less than circling VMC.",
+            "Approach ban — controlling RVR is TDZ RVR for non-LVO operations, OR controlling zone RVR for low-visibility operations (LVO).",
+            "AIP ENR 1.5 Para 1.6.6 Note 1(3) — Once descent below circling MDA is initiated, the obstacle protection from visual circling at the MDA ends; the pilot is then visually responsible for required obstacle clearance."
           ]
         },
         {
@@ -1774,7 +1778,8 @@
           "content": [
             "Applying the approach ban at an aerodrome without ATC or RVR reports — the approach ban only applies where both an ATC service and RVR reporting are in operation.",
             "Descending below MDA based on visual reference alone — all three VMC conditions must be met: visual reference AND above minima AND continuously in position to land.",
-            "Conducting a circling approach at night in a no-circling sector — circling at night in a no-circling sector is never permitted regardless of visual conditions."
+            "Conducting a circling approach at night in a no-circling sector — circling at night in a no-circling sector is never permitted regardless of visual conditions.",
+            "Using TDZ RVR for LVO — LVO operations are governed by the controlling zone RVR, not the TDZ RVR."
           ]
         },
         {
