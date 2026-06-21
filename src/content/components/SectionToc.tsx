@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { ContentBlock } from "@/content/model/section";
 import { cn } from "@/shared/lib/cn";
+import { parseRegulation } from "./regulationParse";
 
 interface SectionTocProps {
   /** The blocks shown in the current tab — used to derive the chip list. */
@@ -163,9 +164,10 @@ export function SectionToc({ blocks, anchorPrefix }: SectionTocProps) {
 
 /**
  * Pick the blocks worth being chips. Headings get their own chip with the
- * heading text; structural blocks (law, numbers, traps, scenario, etc.)
- * get a static label. Plain text / list paragraphs aren't navigable on
- * their own — they belong to the heading above them.
+ * heading text; LAW blocks pull the subject out of the first item so each
+ * regulation gets a meaningful chip instead of the generic "Regulation"
+ * label seven times in a row. Other structural blocks use the static type
+ * label. Plain text / list paragraphs aren't navigable on their own.
  */
 function buildEntries(blocks: readonly ContentBlock[]): TocEntry[] {
   const out: TocEntry[] = [];
@@ -173,6 +175,13 @@ function buildEntries(blocks: readonly ContentBlock[]): TocEntry[] {
     const block = blocks[i]!;
     if (block.type === "heading") {
       out.push({ index: i, label: truncate(block.text, 28) });
+      continue;
+    }
+    if (block.type === "law") {
+      const first = block.content[0] ?? "";
+      const { subject, citation } = parseRegulation(first);
+      const label = subject ?? citation ?? "Regulation";
+      out.push({ index: i, label: truncate(label, 28) });
       continue;
     }
     const staticLabel = LABEL_FOR_TYPE[block.type];
