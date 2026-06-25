@@ -441,7 +441,7 @@ function DrillTab({ anchorPrefix, blocks, hasPracticeLink }: DrillTabProps) {
   return (
     <>
       <SectionToc blocks={blocks} anchorPrefix={anchorPrefix} />
-      <div className="rounded-lg border border-sky-500/30 bg-sky-500/5 p-3 text-sm text-sky-900 dark:text-sky-100">
+      <div className="rounded-lg border border-[var(--ifr-info)]/40 bg-[var(--ifr-info-soft)] p-3 text-sm text-[var(--ifr-info)]">
         Active-recall practice. Tap a question to reveal the answer.
       </div>
       <div className="mt-4 prose prose-sm max-w-none dark:prose-invert">

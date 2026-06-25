@@ -23,9 +23,7 @@ export function NumbersGrid({ items }: NumbersGridProps) {
           aria-hidden="true"
           className="text-[var(--ifr-text-muted)]"
         />
-        <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--ifr-text-muted)]">
-          Key Numbers
-        </p>
+        <p className="eyebrow">Key Numbers</p>
       </header>
       <dl className="divide-y divide-[var(--ifr-border)]/60">
         {items.map((item, i) => {

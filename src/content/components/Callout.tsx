@@ -19,16 +19,16 @@ interface CalloutProps {
 
 const VARIANTS = {
   trap: {
-    surface: "border-[var(--ifr-warning)]/30 bg-[var(--ifr-warning)]/5",
+    surface: "border-[var(--ifr-warning)]/40 bg-[var(--ifr-warning-soft)]",
     title: "text-[var(--ifr-warning)]",
     icon: AlertTriangle,
     iconColor: "text-[var(--ifr-warning)]",
   },
   practice: {
-    surface: "border-sky-500/30 bg-sky-500/5",
-    title: "text-sky-700 dark:text-sky-300",
+    surface: "border-[var(--ifr-info)]/40 bg-[var(--ifr-info-soft)]",
+    title: "text-[var(--ifr-info)]",
     icon: Lightbulb,
-    iconColor: "text-sky-600 dark:text-sky-400",
+    iconColor: "text-[var(--ifr-info)]",
   },
   reference: {
     surface: "border-[var(--ifr-border)] bg-[var(--ifr-surface-muted)]/50",
@@ -57,14 +57,7 @@ export function Callout({ variant, title, items }: CalloutProps) {
     >
       <header className="mb-2 flex items-center gap-1.5">
         <Icon size={14} aria-hidden="true" className={v.iconColor} />
-        <p
-          className={cn(
-            "text-[10px] font-semibold uppercase tracking-[0.12em]",
-            v.title,
-          )}
-        >
-          {title}
-        </p>
+        <p className={cn("eyebrow", v.title)}>{title}</p>
       </header>
       <ul className="space-y-1.5">
         {items.map((item, i) => (
@@ -99,9 +92,7 @@ export function StoryList({ items }: StoryListProps) {
           aria-hidden="true"
           className="text-[var(--ifr-accent)]"
         />
-        <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--ifr-accent)]">
-          Worked Scenario
-        </p>
+        <p className="eyebrow-accent">Worked Scenario</p>
       </header>
       <ol className="space-y-3">
         {items.map((item, i) => (

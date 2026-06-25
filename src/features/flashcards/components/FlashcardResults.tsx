@@ -39,14 +39,14 @@ export function FlashcardResults({
           <div className="text-2xl font-bold tabular-nums text-[var(--ifr-text)]">{total}</div>
           <div className="mt-1 text-xs font-medium text-[var(--ifr-text-muted)]">Reviewed</div>
         </div>
-        <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 text-center">
-          <div className="text-2xl font-bold tabular-nums text-emerald-600 dark:text-emerald-400">
+        <div className="rounded-xl border border-[var(--ifr-success)]/30 bg-[var(--ifr-success-soft)] p-4 text-center">
+          <div className="text-2xl font-bold tabular-nums text-[var(--ifr-success)]">
             {gotIt}
           </div>
           <div className="mt-1 text-xs font-medium text-[var(--ifr-text-muted)]">Got It</div>
         </div>
-        <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 text-center">
-          <div className="text-2xl font-bold tabular-nums text-amber-600 dark:text-amber-400">
+        <div className="rounded-xl border border-[var(--ifr-warning)]/30 bg-[var(--ifr-warning-soft)] p-4 text-center">
+          <div className="text-2xl font-bold tabular-nums text-[var(--ifr-warning)]">
             {unsure}
           </div>
           <div className="mt-1 text-xs font-medium text-[var(--ifr-text-muted)]">Unsure</div>
@@ -75,7 +75,7 @@ export function FlashcardResults({
           <Button
             onClick={onStudyWeak}
             size="lg"
-            className="w-full border-2 border-amber-500/40 bg-amber-500/10 text-amber-600 hover:border-amber-500/70 hover:bg-amber-500/20 active:scale-[0.98] dark:text-amber-400"
+            className="w-full border-2 border-[var(--ifr-warning)]/40 bg-[var(--ifr-warning-soft)] text-[var(--ifr-warning)] hover:border-[var(--ifr-warning)]/70 hover:bg-[var(--ifr-warning)]/20 active:scale-[0.98]"
           >
             Study Weak Cards — {weakCount} remaining
           </Button>

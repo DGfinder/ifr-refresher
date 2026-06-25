@@ -53,7 +53,7 @@ function ToastCard({ toast, onDismiss }: ToastProps) {
     error:   "border-[var(--ifr-danger)]/40 bg-[var(--ifr-danger)]/10 text-[var(--ifr-danger)]",
     warning: "border-[var(--ifr-warning)]/40 bg-[var(--ifr-warning)]/10 text-[var(--ifr-warning)]",
     info:    "border-[var(--ifr-border)] bg-[var(--ifr-surface)] text-[var(--ifr-text)]",
-    milestone: "border-amber-500/40 bg-amber-500/10 text-amber-400",
+    milestone: "border-[var(--ifr-warning)]/40 bg-[var(--ifr-warning-soft)] text-[var(--ifr-warning)]",
   };
 
   const variant = toast.variant ?? "info";

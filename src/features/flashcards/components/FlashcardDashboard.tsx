@@ -111,8 +111,8 @@ export function FlashcardDashboard({
           <div className="text-2xl font-bold tabular-nums text-[var(--ifr-text)]">{newCount}</div>
           <div className="mt-1 text-xs font-medium text-[var(--ifr-text-muted)]">New</div>
         </div>
-        <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 text-center">
-          <div className="text-2xl font-bold tabular-nums text-amber-600 dark:text-amber-400">
+        <div className="rounded-xl border border-[var(--ifr-warning)]/30 bg-[var(--ifr-warning-soft)] p-4 text-center">
+          <div className="text-2xl font-bold tabular-nums text-[var(--ifr-warning)]">
             {weakCount}
           </div>
           <div className="mt-1 text-xs font-medium text-[var(--ifr-text-muted)]">Weak</div>

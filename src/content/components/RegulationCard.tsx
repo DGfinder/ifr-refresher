@@ -42,9 +42,7 @@ export function RegulationCard({ items }: RegulationCardProps) {
               </h3>
             )}
             {subline && (
-              <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--ifr-text-muted)]">
-                {subline}
-              </p>
+              <p className="eyebrow mt-1">{subline}</p>
             )}
             <div className={cn(heading || subline ? "mt-3" : null)}>
               {clauses.length <= 1 ? (

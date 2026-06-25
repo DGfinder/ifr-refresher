@@ -144,7 +144,7 @@ export function FlashcardSession({ queue, programId, onEnd }: FlashcardSessionPr
           <CardProgress current={currentIndex + 1} total={total} />
         </div>
         {streak >= 3 && (
-          <div className="flex shrink-0 items-center gap-1 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-600 dark:text-amber-400">
+          <div className="flex shrink-0 items-center gap-1 rounded-full border border-[var(--ifr-warning)]/30 bg-[var(--ifr-warning-soft)] px-3 py-1 text-xs font-semibold text-[var(--ifr-warning)]">
             <span>🔥</span>
             <span>{streak}</span>
           </div>
@@ -169,12 +169,12 @@ export function FlashcardSession({ queue, programId, onEnd }: FlashcardSessionPr
 
         {/* Swipe direction hints */}
         {isDragging && dragX > 20 && (
-          <div className="pointer-events-none absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-xl border-2 border-emerald-500/60 bg-emerald-500/20 px-3 py-2 text-sm font-bold text-emerald-600 dark:text-emerald-400">
+          <div className="pointer-events-none absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-xl border-2 border-[var(--ifr-success)]/60 bg-[var(--ifr-success)]/20 px-3 py-2 text-sm font-bold text-[var(--ifr-success)]">
             Got it ✓
           </div>
         )}
         {isDragging && dragX < -20 && (
-          <div className="pointer-events-none absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-xl border-2 border-amber-500/60 bg-amber-500/20 px-3 py-2 text-sm font-bold text-amber-600 dark:text-amber-400">
+          <div className="pointer-events-none absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-xl border-2 border-[var(--ifr-warning)]/60 bg-[var(--ifr-warning)]/20 px-3 py-2 text-sm font-bold text-[var(--ifr-warning)]">
             ↩ Unsure
           </div>
         )}

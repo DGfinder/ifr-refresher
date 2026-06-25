@@ -9,7 +9,7 @@ import { NumbersGrid } from "./NumbersGrid";
 
 // Shared IFR design token classes used by the simpler text/heading/list blocks.
 const baseCardClasses = "mb-4 rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)]/80 px-4 py-3 shadow-sm";
-const titleClasses = "mb-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--ifr-text-muted)]";
+const titleClasses = "eyebrow mb-2 block";
 
 interface ContentBlockProps {
   block: ContentBlockType;

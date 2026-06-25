@@ -70,9 +70,7 @@ export function QACard({ question, answer }: QACardProps) {
       </CollapsibleTrigger>
       <CollapsibleContent className="px-3 pb-3">
         <p className="border-t border-[var(--ifr-border)]/50 pt-2.5 text-sm leading-relaxed text-[var(--ifr-text)]">
-          <span className="mr-2 text-[10px] font-semibold uppercase tracking-wider text-[var(--ifr-accent)]">
-            Answer
-          </span>
+          <span className="eyebrow-accent mr-2">Answer</span>
           {answer}
         </p>
       </CollapsibleContent>
