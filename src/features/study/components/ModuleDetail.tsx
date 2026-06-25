@@ -114,9 +114,14 @@ export function ModuleDetail({
     ((tag: string) =>
       `/study?section=${encodeURIComponent(sectionId)}&tag=${encodeURIComponent(tag)}`);
 
-  const { isBookmarked, toggleBookmark, isLoaded: bookmarksLoaded } =
-    useStudyBookmarks();
+  const {
+    isBookmarked,
+    isPending: isBookmarkPending,
+    toggleBookmark,
+    isLoaded: bookmarksLoaded,
+  } = useStudyBookmarks();
   const bookmarked = bookmarksLoaded && isBookmarked(sectionId, module.id);
+  const bookmarkPending = isBookmarkPending(sectionId, module.id);
 
   // Partition the module's content blocks once per render. Order within each
   // partition matches authoring order — we never re-sort the source content.
@@ -218,10 +223,13 @@ export function ModuleDetail({
               void toggleBookmark(sectionId, module.id);
             }}
             aria-pressed={bookmarked}
+            aria-busy={bookmarkPending || undefined}
             aria-label={bookmarked ? "Remove from saved" : "Save for review"}
+            disabled={bookmarkPending}
             className={cn(
               "flex items-center gap-1 rounded-md px-1.5 py-0.5 transition-colors",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+              "disabled:cursor-progress disabled:opacity-70",
               bookmarked
                 ? "text-[var(--ifr-accent)] hover:text-[var(--ifr-accent)]/80"
                 : "text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]",

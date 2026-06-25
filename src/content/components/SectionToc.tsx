@@ -146,8 +146,12 @@ export function SectionToc({ blocks, anchorPrefix }: SectionTocProps) {
                 window.scrollTo({ top, behavior: "smooth" });
               }}
               className={cn(
-                "shrink-0 whitespace-nowrap rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+                // Min-h-11 (44 px) keeps the hit target above the WCAG 2.5.5
+                // AAA + Apple HIG threshold even though the visible chip
+                // looks compact. min-w-11 covers single-letter chips.
+                "inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center whitespace-nowrap rounded-full border px-3 py-2 text-xs font-medium transition-colors",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]",
+                "active:scale-[0.97]",
                 active
                   ? "border-[var(--ifr-accent)] bg-[var(--ifr-accent)] text-white"
                   : "border-[var(--ifr-border)] bg-[var(--ifr-surface)] text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]",
