@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { FlashcardDashboard, buildSessionQueue, type StudyMode } from "@/features/flashcards/components/FlashcardDashboard";
 import { FlashcardSession, type SessionResults } from "@/features/flashcards/components/FlashcardSession";
 import { FlashcardResults } from "@/features/flashcards/components/FlashcardResults";
@@ -9,13 +10,14 @@ import { useToast } from "@/shared/ui/toast/useToast";
 import { useDrill } from "@/features/drill";
 import { sections } from "@/content/registry/sections";
 import type { ProgramId } from "@/features/programs";
+import { STUDY_PROGRAMS } from "@/features/programs";
 import type { DrillQuestion } from "@/features/drill";
 
 type FlashcardPhase = "dashboard" | "session" | "results";
 
-function FlashcardPageContent() {
+function FlashcardPageContent({ initialProgramId }: { initialProgramId: ProgramId }) {
   const [phase, setPhase] = useState<FlashcardPhase>("dashboard");
-  const [programId, setProgramId] = useState<ProgramId>("cheat_sheet");
+  const [programId, setProgramId] = useState<ProgramId>(initialProgramId);
   const [studyMode, setStudyMode] = useState<StudyMode>("all");
   const [sessionQueue, setSessionQueue] = useState<DrillQuestion[]>([]);
   const [lastResults, setLastResults] = useState<SessionResults | null>(null);
@@ -113,6 +115,18 @@ function FlashcardPageContent() {
   );
 }
 
+function FlashcardPageWithUrlProgram() {
+  const searchParams = useSearchParams();
+  const requestedProgram = searchParams.get("program");
+  const initialProgramId: ProgramId = requestedProgram && STUDY_PROGRAMS.some((program) => program.id === requestedProgram)
+    ? requestedProgram as ProgramId
+    : "cheat_sheet";
+
+  // Remount when the URL-selected pathway changes so an in-progress session
+  // cannot retain cards from the previous program.
+  return <FlashcardPageContent key={initialProgramId} initialProgramId={initialProgramId} />;
+}
+
 export function FlashcardScreen() {
   return (
     <Suspense
@@ -124,7 +138,7 @@ export function FlashcardScreen() {
         </div>
       }
     >
-      <FlashcardPageContent />
+      <FlashcardPageWithUrlProgram />
     </Suspense>
   );
 }

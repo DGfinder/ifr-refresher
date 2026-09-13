@@ -1,7 +1,11 @@
 export { QuizScreen } from "./screens/QuizScreen";
 export { useKeyboardNav } from "./hooks/useKeyboardNav";
 export { useQuizSession } from "./hooks/useQuizSession";
-export { buildQuizQuestions } from "./model/buildQuizQuestions";
+export {
+  buildQuizQuestions,
+  getQuizEligibleQuestions,
+  hasValidAuthoredDistractors,
+} from "./model/buildQuizQuestions";
 export {
   calculatePercentage,
   calculatePoints,

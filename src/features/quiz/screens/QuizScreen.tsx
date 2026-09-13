@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState, useRef, useCallback, useEffect } from "react";
+import { Suspense, useState, useRef, useCallback, useEffect, useMemo } from "react";
 import { Button } from "@/shared/ui/button";
 import { QuizDashboard } from "@/features/quiz/components/QuizDashboard";
 import { QuizSession } from "@/features/quiz/components/QuizSession";
@@ -13,6 +13,7 @@ import { useDrill } from "@/features/drill";
 import { sections } from "@/content/registry/sections";
 import type { ProgramId } from "@/features/programs";
 import type { QuizOptionId } from "@/features/drill";
+import { getQuizEligibleQuestions } from "@/features/quiz/model/buildQuizQuestions";
 
 // Streak milestones to celebrate
 const STREAK_MILESTONES = new Set([3, 5, 10, 15, 20]);
@@ -26,6 +27,10 @@ function QuizPageContent() {
 
   // Get available questions count
   const { filteredQuestions } = useDrill(sections, { programId });
+  const quizEligibleQuestions = useMemo(
+    () => getQuizEligibleQuestions(filteredQuestions),
+    [filteredQuestions],
+  );
 
   // Quiz session state
   const session = useQuizSession({
@@ -100,7 +105,7 @@ function QuizPageContent() {
         );
         if (pct >= 90) {
           showToast({
-            message: `Excellent — ${pct}%! IFR ready. ✈️`,
+            message: `Excellent — ${pct}% on this quiz. ✈️`,
             variant: "success",
             durationMs: 4000,
           });
@@ -140,7 +145,9 @@ function QuizPageContent() {
           config={session.config}
           onChangeConfig={session.setConfig}
           onStart={session.startSession}
-          availableQuestions={filteredQuestions.length}
+          availableQuestions={quizEligibleQuestions.length}
+          studyQuestions={filteredQuestions.length}
+          programId={programId}
         />
       )}
 

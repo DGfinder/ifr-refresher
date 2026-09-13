@@ -61,7 +61,7 @@ export function useDrill(
   const [stats, setStats] = useState<DrillState>({});
   const [isHydrated, setIsHydrated] = useState(false);
 
-  const fsrs = useFSRS();
+  const { migrateAgainst, rateCard, getDueCards, getNewCards } = useFSRS();
 
   // Build all questions from sections (memoised: stable as long as sections
   // is stable, which it is for the bundled registry).
@@ -96,11 +96,11 @@ export function useDrill(
       // FSRS keys live in a separate store; migrate them against the same
       // question list once on mount. Fire-and-forget — the next FSRS access
       // will see the migrated store.
-      fsrs.migrateAgainst(allQuestions).catch(() => {
+      migrateAgainst(allQuestions).catch(() => {
         // Ignore — original store still readable.
       });
     })();
-  }, [allQuestions, fsrs]);
+  }, [allQuestions, migrateAgainst]);
 
   // Persist stats to IndexedDB
   useEffect(() => {
@@ -134,6 +134,10 @@ export function useDrill(
     };
 
     // Apply merged DrillFilter
+    if (mergedFilter.sectionIds && mergedFilter.sectionIds.length > 0) {
+      questions = questions.filter((q) => mergedFilter.sectionIds!.includes(q.sectionId));
+    }
+
     if (mergedFilter.kinds && mergedFilter.kinds.length > 0) {
       questions = questions.filter((q) => mergedFilter.kinds!.includes(q.kind));
     }
@@ -200,9 +204,9 @@ export function useDrill(
     // Also update FSRS card when in FSRS mode
     if (mode === 'fsrs') {
       const fsrsRating = rating === 'got-it' ? 'good' : 'again';
-      fsrs.rateCard(questionId, fsrsRating).catch(console.error);
+      rateCard(questionId, fsrsRating).catch(console.error);
     }
-  }, [mode, fsrs]);
+  }, [mode, rateCard]);
 
   // Get next question using the selection algorithm
   const getNextQuestion = useCallback((): DrillQuestion | null => {
@@ -211,12 +215,12 @@ export function useDrill(
 
     // FSRS mode: use due cards
     if (mode === 'fsrs') {
-      const dueCards = fsrs.getDueCards(candidates);
+      const dueCards = getDueCards(candidates);
       if (dueCards.length > 0) {
         return dueCards[Math.floor(Math.random() * dueCards.length)] ?? null;
       }
       // Fall back to new cards if nothing due
-      const newCards = fsrs.getNewCards(candidates);
+      const newCards = getNewCards(candidates);
       if (newCards.length > 0) {
         return newCards[Math.floor(Math.random() * newCards.length)] ?? null;
       }
@@ -245,7 +249,7 @@ export function useDrill(
 
     // 3. Random among ties
     return weakest[Math.floor(Math.random() * weakest.length)]?.question ?? null;
-  }, [filteredQuestions, stats, mode, fsrs]);
+  }, [filteredQuestions, stats, mode, getDueCards, getNewCards]);
 
   // Get count of weak questions (unsure > gotIt)
   const getWeakCount = useCallback((): number => {

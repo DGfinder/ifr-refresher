@@ -11,6 +11,7 @@ test("quiz can start and advance after an answer", async ({ page }) => {
   await page.goto("/quiz");
   await page.getByRole("button", { name: /Quiz Me/i }).click();
   await expect(page.getByText(/Question 1 of/i)).toBeVisible();
+  await expect(page.getByRole("button").filter({ hasText: /Option \d/ })).toHaveCount(0);
   await page.getByRole("button", { name: /^A\b/ }).click();
   await expect(page.getByRole("button", { name: /Next Question|See Results/i })).toBeVisible();
 });

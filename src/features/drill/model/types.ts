@@ -14,7 +14,7 @@ export interface DrillQuestion {
   moduleTitle: string;
   prompt: string;                // The question text
   answer: string;
-  /** Pre-authored distractors from QABlock. When present (3 items), used directly in quiz mode instead of pool-based selection. */
+  /** Pre-authored distractors from QABlock. Scored quiz mode uses only structurally valid authored sets of three. */
   distractors?: string[];
   kind: QuestionSourceKind;
   level?: "core" | "advanced" | "airline";
@@ -22,6 +22,7 @@ export interface DrillQuestion {
 }
 
 export interface DrillFilter {
+  sectionIds?: string[];
   kinds?: QuestionSourceKind[];
   tags?: string[];
   levels?: ("core" | "advanced" | "airline")[];
@@ -66,7 +67,14 @@ export interface QuizStats {
 export type QuizMode = "idle" | "in-progress" | "finished";
 
 // Drill program types
-export type DrillProgramId = "ipc" | "airline" | "godmode" | "custom" | "cheat_sheet";
+export type DrillProgramId =
+  | "ipc"
+  | "instrument_rating"
+  | "airline"
+  | "airline_transition"
+  | "godmode"
+  | "custom"
+  | "cheat_sheet";
 
 export interface DrillProgram {
   id: DrillProgramId;

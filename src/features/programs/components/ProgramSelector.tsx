@@ -11,8 +11,10 @@ interface ProgramSelectorProps {
 
 const SHORT_NAMES: Record<ProgramId, string> = {
   cheat_sheet: "Quick Study",
+  instrument_rating: "Instrument Rating",
   ipc_oral: "IPC Prep",
-  god_mode: "God Mode",
+  airline_transition: "Airline Transition",
+  god_mode: "Comprehensive Review",
 };
 
 export function ProgramSelector({ value, onChange }: ProgramSelectorProps) {
@@ -27,6 +29,8 @@ export function ProgramSelector({ value, onChange }: ProgramSelectorProps) {
           return (
             <button
               key={program.id}
+              type="button"
+              aria-pressed={isSelected}
               onClick={() => onChange(program.id)}
               className={cn(
                 "min-h-[36px] whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-medium transition-colors",

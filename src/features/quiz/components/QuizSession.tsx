@@ -233,6 +233,17 @@ export function QuizSession({
                   : "Correct — well done."
                 : "Not quite — check the correct answer above."}
             </div>
+            <a
+              href={`/study?section=${encodeURIComponent(currentQuestion.sectionId)}&module=${encodeURIComponent(currentQuestion.moduleId)}`}
+              target="_blank"
+              rel="noreferrer"
+              className="mb-4 inline-flex text-sm font-medium text-[var(--ifr-accent)] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifr-focus-ring)]"
+            >
+              Review lesson and sources
+            </a>
+            <p className="sr-only" role="status" aria-label="Answer review announcement">
+              Answer recorded. Review lesson and sources opens in a new tab.
+            </p>
             <Button onClick={onNext} size="lg" className="w-full">
               {currentIndex + 1 >= totalQuestions ? "See Results" : "Next Question"}
             </Button>

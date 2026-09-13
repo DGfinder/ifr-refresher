@@ -9,6 +9,13 @@ export const drillPrograms: DrillProgram[] = [
     defaultMode: "flashcards",
   },
   {
+    id: "instrument_rating",
+    label: "Instrument Rating",
+    description: "Broad IFR flashcards across regulations, procedures, equipment, approaches, and numerics.",
+    sectionIds: ["administrative-part61", "airspace-atc-services", "fuel-alternates", "departure", "en-route", "holding", "approaches", "performance-gradient", "miscellaneous-technical", "quick-fire-numbers", "casa-traps-gotchas", "cheat-sheet"],
+    defaultMode: "flashcards",
+  },
+  {
     id: "airline",
     label: "Airline Interview",
     description: "Advanced regulations, airline scenarios, and panel discussion topics.",
@@ -16,9 +23,16 @@ export const drillPrograms: DrillProgram[] = [
     defaultMode: "quiz",
   },
   {
+    id: "airline_transition",
+    label: "Airline Transition",
+    description: "Advanced IFR operations, airline scenarios, and panel-style discussion topics.",
+    sectionIds: ["advanced-ifr-regs-airline-ops", "airline-scenarios-panel", "quick-fire-numbers"],
+    defaultMode: "quiz",
+  },
+  {
     id: "godmode",
-    label: "God Mode",
-    description: "All sections, all questions. Full-system stress test.",
+    label: "Comprehensive Review",
+    description: "All sections and question types for a broad review of the available library.",
     sectionIds: [],
     defaultMode: "flashcards",
   },

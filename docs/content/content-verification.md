@@ -9,6 +9,7 @@ This project is a study refresher, not an operational source of truth. IFR/CASA/
 - Automated structural check: `npm run content:check`.
 - The structural checker now fails any module without at least one source/reference or explicit provenance note.
 - Human source verification is required for rule/number/reference changes.
+- Lesson pages expose "Source verification pending" until a completed aviation review is recorded. The sources tab opens references and existing edition/access notes without treating those notes as review sign-off. Marking a lesson read records reading only.
 
 ## Content change checklist
 

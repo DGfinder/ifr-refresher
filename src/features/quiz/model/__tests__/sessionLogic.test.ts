@@ -19,6 +19,7 @@ const makeDrill = (i: number): DrillQuestion => ({
   moduleTitle: "Mod",
   prompt: `Q ${i}?`,
   answer: `A ${i}`,
+  distractors: [`Wrong ${i}A`, `Wrong ${i}B`, `Wrong ${i}C`],
   kind: "legacy_qa",
   level: "core",
   tags: [],

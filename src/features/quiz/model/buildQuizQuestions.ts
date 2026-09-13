@@ -2,9 +2,6 @@ import type { DrillQuestion, QuizQuestion, QuizOption, QuizOptionId } from "@/fe
 
 const OPTION_IDS: QuizOptionId[] = ["A", "B", "C", "D"];
 
-/**
- * Shuffle an array using Fisher-Yates algorithm
- */
 function shuffle<T>(array: T[]): T[] {
   const result = [...array];
   for (let i = result.length - 1; i > 0; i--) {
@@ -16,91 +13,56 @@ function shuffle<T>(array: T[]): T[] {
   return result;
 }
 
+function normalizedOption(value: string): string {
+  return value.trim().toLowerCase();
+}
+
 /**
- * Build quiz questions from drill questions with distractors.
- *
- * Distractor priority (per question):
- *   1. Pre-authored distractors on the DrillQuestion (exact 3) — highest quality
- *   2. Module-scoped pool: other answers from the same module
- *   3. Section-scoped pool: other answers from the same section
- *   4. Global pool: all unique answers across all questions
+ * A scored quiz question must be an authored four-option MCQ. We deliberately
+ * do not borrow answers from other cards: an answer that is correct elsewhere
+ * is not necessarily a plausible or safe distractor for this question.
  */
+export function hasValidAuthoredDistractors(question: DrillQuestion): boolean {
+  const { answer, distractors } = question;
+  if (!question.prompt.trim() || !answer.trim() || !distractors || distractors.length !== 3) return false;
+
+  const normalizedAnswer = normalizedOption(answer);
+  const normalizedDistractors = distractors.map((distractor) => normalizedOption(distractor));
+
+  return normalizedDistractors.every(Boolean)
+    && !normalizedDistractors.includes(normalizedAnswer)
+    && new Set(normalizedDistractors).size === 3;
+}
+
+/** Return only questions that can be presented as authored scored MCQs. */
+export function getQuizEligibleQuestions(drillQuestions: DrillQuestion[]): DrillQuestion[] {
+  return drillQuestions.filter(hasValidAuthoredDistractors);
+}
+
+/** Build scored quiz questions exclusively from structurally valid authored MCQs. */
 export function buildQuizQuestions(
   drillQuestions: DrillQuestion[],
-  limit?: number
+  limit?: number,
 ): QuizQuestion[] {
-  if (drillQuestions.length === 0) return [];
+  const selectedQuestions = shuffle(getQuizEligibleQuestions(drillQuestions))
+    .slice(0, limit ?? drillQuestions.length);
 
-  // Pre-build answer pools grouped by module and section (unique answers only)
-  const answersByModule: Record<string, Set<string>> = {};
-  const answersBySection: Record<string, Set<string>> = {};
-
-  for (const q of drillQuestions) {
-    const moduleKey = `${q.sectionId}::${q.moduleId}`;
-    const moduleSet = answersByModule[moduleKey] ?? new Set<string>();
-    moduleSet.add(q.answer);
-    answersByModule[moduleKey] = moduleSet;
-
-    const sectionSet = answersBySection[q.sectionId] ?? new Set<string>();
-    sectionSet.add(q.answer);
-    answersBySection[q.sectionId] = sectionSet;
-  }
-
-  // Global unique answer pool (fallback)
-  const allAnswers = [...new Set(drillQuestions.map((q) => q.answer))];
-
-  // Shuffle and limit questions (no limit = use entire pool)
-  const selectedQuestions = shuffle(drillQuestions).slice(0, limit ?? drillQuestions.length);
-
-  return selectedQuestions.map((dq) => {
-    const correctAnswer = dq.answer;
-    let distractors: string[];
-
-    // Priority 1: pre-authored distractors
-    if (dq.distractors && dq.distractors.length === 3) {
-      distractors = dq.distractors;
-    } else {
-      // Priority 2: module-scoped pool
-      const moduleKey = `${dq.sectionId}::${dq.moduleId}`;
-      let pool = [...(answersByModule[moduleKey] || [])].filter((a) => a !== correctAnswer);
-
-      // Priority 3: section-scoped pool (if module didn't have enough)
-      if (pool.length < 3) {
-        const sectionPool = [...(answersBySection[dq.sectionId] || [])].filter(
-          (a) => a !== correctAnswer && !pool.includes(a)
-        );
-        pool = [...pool, ...sectionPool];
-      }
-
-      // Priority 4: global pool (last resort)
-      if (pool.length < 3) {
-        const globalPool = allAnswers.filter((a) => a !== correctAnswer && !pool.includes(a));
-        pool = [...pool, ...globalPool];
-      }
-
-      distractors = shuffle(pool).slice(0, 3);
-
-      // Absolute fallback: pad if somehow still empty
-      while (distractors.length < 3) {
-        distractors.push(`Option ${distractors.length + 2}`);
-      }
-    }
-
-    // Place correct answer + distractors in random positions
-    const allOptions = shuffle([correctAnswer, ...distractors]);
-    const correctIndex = allOptions.indexOf(correctAnswer);
+  return selectedQuestions.map((question) => {
+    // Eligibility guarantees this is a non-empty, distinct set of three.
+    const distractors = question.distractors!;
+    const allOptions = shuffle([question.answer, ...distractors]);
+    const correctIndex = allOptions.indexOf(question.answer);
     const correctOptionId = OPTION_IDS[correctIndex]!;
-
     const options: QuizOption[] = allOptions.map((text, index) => ({
       id: OPTION_IDS[index]!,
       text,
     }));
 
     return {
-      id: dq.id,
-      sectionId: dq.sectionId,
-      moduleId: dq.moduleId,
-      prompt: dq.prompt,
+      id: question.id,
+      sectionId: question.sectionId,
+      moduleId: question.moduleId,
+      prompt: question.prompt,
       correctOptionId,
       options,
     };

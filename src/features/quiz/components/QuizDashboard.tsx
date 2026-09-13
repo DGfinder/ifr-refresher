@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { cn } from "@/shared/lib/cn";
 import { ModeSelector } from "./ModeSelector";
 import { SessionConfig } from "./SessionConfig";
@@ -10,12 +11,15 @@ import { QuizHistoryEmptyState } from "@/shared/ui/EmptyState";
 import { Button } from "@/shared/ui/button";
 import { Card } from "@/shared/ui/card";
 import type { QuizGameMode, QuizSessionConfig } from "@/features/quiz/model/types";
+import type { ProgramId } from "@/features/programs";
 
 interface QuizDashboardProps {
   config: QuizSessionConfig;
   onChangeConfig: (updates: Partial<QuizSessionConfig>) => void;
   onStart: () => void;
   availableQuestions: number;
+  studyQuestions: number;
+  programId: ProgramId;
 }
 
 type StatsType = Awaited<ReturnType<typeof getQuizStats>>;
@@ -36,6 +40,8 @@ export function QuizDashboard({
   onChangeConfig,
   onStart,
   availableQuestions,
+  studyQuestions,
+  programId,
 }: QuizDashboardProps) {
   const [stats, setStats] = useState<StatsType>(DEFAULT_STATS);
   const [recentHistory, setRecentHistory] = useState<HistoryType>([]);
@@ -132,6 +138,28 @@ export function QuizDashboard({
         />
       </div>
 
+      {availableQuestions === 0 && (
+        <Card className="border-[var(--ifr-warning)]/30 bg-[var(--ifr-warning-soft)] p-5">
+          <p className="text-sm font-semibold text-[var(--ifr-text)]">
+            No scored questions with authored answer options are available for this program.
+          </p>
+          <p className="mt-1 text-sm text-[var(--ifr-text-muted)]">
+            Quizzes use only questions with an authored answer and three distinct authored distractors.
+            {studyQuestions > 0 && ` ${studyQuestions} study card${studyQuestions === 1 ? " is" : "s are"} still available in Flashcards.`}
+          </p>
+          <Button asChild variant="outline" className="mt-4">
+            <Link href={`/flashcard?program=${programId}`}>Study Flashcards</Link>
+          </Button>
+        </Card>
+      )}
+
+      {availableQuestions > 0 && (
+        <p className="rounded-lg bg-[var(--ifr-surface-muted)] px-4 py-3 text-sm text-[var(--ifr-text-muted)]">
+          {availableQuestions} scored question{availableQuestions === 1 ? " has" : "s have"} authored answer options.
+          {availableQuestions < 10 && " Choose All to use the current assessment bank."}
+        </p>
+      )}
+
       {/* Start button */}
       <Button
         onClick={onStart}
@@ -140,7 +168,7 @@ export function QuizDashboard({
         className="w-full text-lg active:scale-[0.98]"
       >
         {canStart
-          ? `Quiz Me — ${availableQuestions} question${availableQuestions !== 1 ? "s" : ""} ready`
+          ? `Quiz Me — ${availableQuestions} question${availableQuestions !== 1 ? "s" : ""}`
           : "No Questions Available"}
       </Button>
 

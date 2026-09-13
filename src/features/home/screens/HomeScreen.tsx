@@ -6,6 +6,7 @@ import { sections } from "@/content/registry/sections";
 import { useProgress } from "@/features/progress";
 import { useDrill } from "@/features/drill";
 import { ProgressBar } from "@/shared/ui";
+import { STUDY_PROGRAMS } from "@/features/programs";
 
 // Cheat sheet is the primary content — show its categories on the homepage
 const cheatSheetSection = sections.find((s) => s.sectionId === "cheat-sheet");
@@ -47,10 +48,10 @@ export function HomeScreen() {
           </div>
           <div className="mb-4">
             <div className="mb-2 flex justify-between text-sm">
-              <span className="text-[var(--ifr-text-muted)]">Overall completion</span>
+              <span className="text-[var(--ifr-text-muted)]">Cheat sheet completion</span>
               <span className="font-medium text-foreground">{progressPercent}%</span>
             </div>
-            <ProgressBar value={progressPercent} className="h-2 w-full bg-[var(--ifr-surface-muted)]" aria-label="Overall completion" />
+            <ProgressBar value={progressPercent} className="h-2 w-full bg-[var(--ifr-surface-muted)]" aria-label="Cheat sheet completion" />
           </div>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
@@ -61,19 +62,18 @@ export function HomeScreen() {
             </div>
             <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
               <div className="text-2xl font-bold text-[var(--ifr-warning)]">{weakCount}</div>
-              <div className="text-xs text-[var(--ifr-text-muted)]">To review</div>
+              <div className="text-xs text-[var(--ifr-text-muted)]">To review (all library)</div>
             </div>
           </div>
         </section>
       ) : (
         <section className="mb-8 rounded-lg border border-[var(--ifr-accent)]/30 bg-[var(--ifr-accent)]/5 p-5">
           <h2 className="mb-2 text-lg font-semibold text-foreground">
-            Everything you need for your next IPC
+            A focused IPC refresher
           </h2>
           <p className="text-sm leading-relaxed text-[var(--ifr-text-muted)]">
-            {cheatSheetStats.total} short modules covering the CASR references, the numbers worth
-            memorising, and the traps examiners look for. Works offline — use it at the airport
-            or in the crew room.
+            {cheatSheetStats.total} short modules covering selected CASR references, useful numbers,
+            and common traps. Works offline — use it at the airport or in the crew room.
           </p>
         </section>
       )}
@@ -115,6 +115,24 @@ export function HomeScreen() {
         </div>
       </section>
 
+      <section className="mb-8">
+        <h2 className="mb-4 text-lg font-semibold text-foreground">Learning pathways</h2>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {STUDY_PROGRAMS.filter((program) => program.id !== "cheat_sheet").map((program) => (
+            <Link
+              key={program.id}
+              href={`/flashcard?program=${encodeURIComponent(program.id)}`}
+              className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 transition-colors hover:border-[var(--ifr-accent)]/50"
+            >
+              <div className="font-medium text-foreground">{program.name}</div>
+              <p className="mt-1 text-xs leading-snug text-[var(--ifr-text-muted)]">
+                {program.description}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* Cheat sheet categories — primary entry points */}
       {cheatSheetSection && (
         <section>
@@ -133,7 +151,7 @@ export function HomeScreen() {
               return (
                 <Link
                   key={category.id}
-                  href={`/study?section=cheat-sheet`}
+                  href={`/study?section=cheat-sheet&category=${encodeURIComponent(category.id)}`}
                   className="flex items-center justify-between rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 transition-colors hover:border-[var(--ifr-accent)]/50"
                 >
                   <div className="min-w-0 flex-1">

@@ -3,11 +3,11 @@ import { expect, test } from "@playwright/test";
 test("completed study progress persists after reload", async ({ page }) => {
   await page.goto("/study?section=administrative-part61&module=ADM-001");
   await page.getByRole("button", { name: /Mark as Read/i }).click();
-  await expect(page.getByRole("button", { name: /Module Complete/i })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Read", exact: true })).toBeDisabled();
 
   await page.reload({ waitUntil: "domcontentloaded" });
 
-  await expect(page.getByRole("button", { name: /Module Complete/i })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Read", exact: true })).toBeDisabled();
 });
 
 test("blocked browser storage leaves study content readable and shows degraded banner", async ({ page }) => {

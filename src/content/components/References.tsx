@@ -9,13 +9,15 @@ interface ReferencesProps {
 }
 
 export function References({ refs }: ReferencesProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   if (refs.length === 0) return null;
 
   return (
     <div className="mt-8 border-t border-border pt-4">
       <button
+        type="button"
+        aria-expanded={isExpanded}
         onClick={() => setIsExpanded(!isExpanded)}
         className="flex w-full items-center justify-between text-sm font-medium text-muted-foreground hover:text-foreground"
       >

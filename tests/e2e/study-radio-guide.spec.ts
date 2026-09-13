@@ -19,6 +19,9 @@ test.describe("Radio calls study guide", () => {
     await page.getByRole("button", { name: /Clearance, ground & departure runway/i }).click();
     await expect(page.getByRole("heading", { name: /Clearance, ground & departure runway/i })).toBeVisible();
     await expect(page.getByText(/Sydney Delivery, Lima Mike Sierra/i)).toBeVisible();
+    await page.getByRole("tab", { name: "Reference", exact: true }).click();
     await expect(page.getByRole("link", { name: /Practice pre-departure calls/i })).toBeVisible();
+    await page.getByRole("link", { name: /Practice pre-departure calls/i }).click();
+    await expect(page).toHaveURL(/tab=drill.*phase=pre-departure/);
   });
 });

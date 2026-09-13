@@ -11,7 +11,7 @@ interface ProgramContextValue {
 const ProgramContext = createContext<ProgramContextValue | undefined>(undefined);
 const STORAGE_KEY = "ifrProgramId";
 
-const VALID_PROGRAM_IDS: DrillProgramId[] = ["ipc", "airline", "godmode", "custom", "cheat_sheet"];
+const VALID_PROGRAM_IDS: DrillProgramId[] = ["ipc", "instrument_rating", "airline", "airline_transition", "godmode", "custom", "cheat_sheet"];
 
 export function ProgramProvider({ children }: { children: ReactNode }) {
   const [programId, setProgramIdState] = useState<DrillProgramId>("custom");

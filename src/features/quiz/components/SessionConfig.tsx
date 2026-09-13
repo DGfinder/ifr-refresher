@@ -37,7 +37,7 @@ export function SessionConfig({
             const isDisabled = typeof option === "number" && option > availableQuestions;
             const isSelected = questionCount === option;
             const disabledReason = isDisabled
-              ? `Only ${availableQuestions} question${availableQuestions === 1 ? "" : "s"} available for the current filters.`
+              ? `Only ${availableQuestions} question${availableQuestions === 1 ? "" : "s"} with authored answer options are available.`
               : undefined;
 
             return (

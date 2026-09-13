@@ -17,6 +17,7 @@ import type { ModuleStatus } from "@/features/progress";
 import { Badge } from "@/shared/ui/Badge";
 import { ContentBlock } from "@/content/components/ContentBlock";
 import { References } from "@/content/components/References";
+import { SourceReviewStatus } from "@/content/components/SourceReviewStatus";
 import { SectionToc } from "@/content/components/SectionToc";
 import { StatusIndicator } from "@/features/progress";
 import { cn } from "@/shared/lib/cn";
@@ -215,7 +216,7 @@ export function ModuleDetail({
           </span>
           <span className="flex items-center gap-1.5">
             <StatusIndicator status={status} size="sm" />
-            <span className="capitalize">{status.replace("-", " ")}</span>
+            <span className="capitalize">{status === "completed" ? "Read" : status.replace("-", " ")}</span>
           </span>
           <button
             type="button"
@@ -270,6 +271,9 @@ export function ModuleDetail({
       </div>
 
       {/* Tabs: Read (passive study) · Drill (active recall) · Reference (sources + cross-links) */}
+      {showReferenceTab && (
+        <SourceReviewStatus refs={module.refs} onViewReferences={() => setActiveTab("reference")} />
+      )}
       <Tabs
         value={activeTab}
         onValueChange={(v) => setActiveTab(v as TabValue)}
@@ -374,6 +378,7 @@ function ReadTab({
       <div className="mt-8 border-t border-[var(--ifr-border)] pt-6">
         <Button
           onClick={onMarkCompleted}
+          aria-label={status === "completed" ? "Read" : "Mark as Read"}
           disabled={status === "completed"}
           size="default"
           className={cn(
@@ -384,7 +389,7 @@ function ReadTab({
           {status === "completed" ? (
             <>
               <StatusIndicator status="completed" size="sm" />
-              Module Complete
+              Read
             </>
           ) : (
             <>
@@ -470,7 +475,7 @@ function DrillTab({ anchorPrefix, blocks, hasPracticeLink }: DrillTabProps) {
         >
           <span className="flex items-center gap-2">
             <Sparkles size={16} aria-hidden="true" />
-            Practice these in /quiz — full active-recall mode
+            Open quiz practice
           </span>
           <span aria-hidden="true">→</span>
         </Link>
