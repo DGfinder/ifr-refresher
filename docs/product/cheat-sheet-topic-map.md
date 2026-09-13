@@ -12,6 +12,8 @@ Retain as source information, outside the learning-progress count: contents (1â€
 
 ## Administrational
 
+Chapter draft: [Administrational](../curriculum/administrational.md). All six mapped topics are included, with source-based conditions and operational exercises.
+
 | Stable topic ID | Original topic | Pages | Existing candidates to compare |
 |---|---|---:|---|
 | admin-definitions | Part 61 Definitions | 6 | ADM-001 |

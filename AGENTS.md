@@ -18,6 +18,7 @@ Read `docs/product/curriculum-reset.md` before proposing or implementing learnin
 
 - The supplied IFR Cheat Sheet V7.1 is the canonical starting curriculum: follow its topics, order and scope. Current CASA/Airservices publications govern regulatory correctness.
 - Build text-first. Map every lesson to exact cheat-sheet pages before authoring it. Any extension must identify its parent topic, source and specific learning need.
+- Owner clarification: prioritise source-faithful content and operational understanding now; current-publication verification is deferred and must not block drafting. Verbatim passages from the supplied cheat sheet are authorised. Attribute them and separate authored explanations/scenarios from source wording. Keep edition notes at the end of lessons and editorial verification work in the log; never relabel the supplied edition as verified current.
 - Use one canonical lesson per topic. Summaries, questions and future diagrams belong to that lesson; do not create parallel topic libraries or duplicate banks of facts.
 - The reset starts with a topic-to-page map and one complete holding lesson for owner review before expanding the lesson pattern across the curriculum. Do not bulk-generate or automatically migrate existing content.
 - Keep the core experience to contents/search → lesson → related next topic. Do not stack section-card grids, category lists and module grids on the same screen.

@@ -37,6 +37,8 @@ Pages 1–5 supply contents, edition notes and introduction. Preserve the source
 
 ## One lesson format
 
+Owner clarification: use the supplied cheat-sheet text directly where useful, with attribution, and build plain-English operational context and worked scenarios around it. Current-publication verification is deferred for this authoring stage. This changes the drafting priority, not the source edition. Keep editorial review mechanics out of the main learning narrative.
+
 1. Topic title and what the pilot should be able to explain or decide.
 2. Core knowledge in readable prose, with the relevant conditions and exceptions alongside it.
 3. A worked example only where it materially aids understanding.

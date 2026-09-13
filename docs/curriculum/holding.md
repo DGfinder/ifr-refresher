@@ -1,122 +1,160 @@
 # Holding
 
-**Text-first review draft · 13 September 2026**
+A hold is a way of keeping the aircraft within a defined pattern while you wait or prepare for what comes next. The practical task is to arrive with a plan, fly the entry, establish the inbound track, manage the hold and be ready to leave it as cleared.
 
-Source topics: **Sector Entries** (IFR Cheat Sheet V7.1, pp.38–39) and **Holding Limitations** (p.40). Topic IDs: `holding-entries`, `holding-limitations`.
+## Before reaching the fix
 
-**Review status:** the supplied 2024 text and sector illustration have been inspected. Current AIP ENR verification and instructor review remain outstanding. This draft is for reviewing the lesson's content and teaching sequence; it has not replaced the site's holding material. The source notes at the end identify the remaining checks.
+Brief the **fix, inbound holding track, turn direction, level, speed and outbound time or distance limit**. Then identify your arrival heading and the appropriate entry. Also establish what you know about leaving: an onward clearance, a departure time or position, or an instruction to await further clearance.
 
-## What you should be able to explain
+The inbound holding track is the ground path towards the fix. The reciprocal describes the opposite direction. The turn direction determines the holding side. Heading is where the aircraft points; track is where it travels over the ground. Wind can make the two different.
 
-Given a holding clearance or published hold, identify the inbound holding track and holding side, select and describe an entry, explain how to establish and maintain the hold, and distinguish the inbound holding course from the route you are cleared to fly afterwards.
+In the cockpit, this means having more than “it is a teardrop” in mind. You should be able to say what you will do at the fix, which track you want next, what ends that leg, and how you will return inbound.
 
-## Understand the hold before choosing an entry
+## Sector Entries
 
-Start with the holding fix. The **inbound holding track** (the inbound course) is the ground path towards that fix. The turn direction determines which side of that inbound track contains the pattern. A right-turn hold and a left-turn hold with the same inbound track are different patterns.
+Use the correct right-turn or left-turn sector layout, oriented to the inbound holding track, and relate the arrival heading to it. Page 39 of the cheat sheet shows both layouts. Learn the relationship between the fix, holding side and sectors before relying on a memorised picture in one orientation.
 
-Keep three quantities separate: the heading on which you arrive at the fix, the inbound holding track, and any onward track after leaving the hold. The aircraft's heading is where its nose points; its track is its path over the ground. Wind can make them different. An entry's required ground track does not, by itself, give the heading needed to fly it.
+### Sector 1 — parallel entry
 
-Before reaching the fix, be able to state the fix, inbound track, turn direction, assigned level, applicable speed and time/distance limits, and what the clearance says about leaving. This is a teaching briefing checklist, not standard radio phraseology. If the clearance does not establish the onward instruction, the shape of the racetrack cannot supply it.
+The cheat sheet states:
 
-## Sector Entries — source pages 38–39
+> a) On reaching the holding fix, the aircraft is turned onto an outbound heading for the appropriate time (taken from over or abeam the holding fix whichever is later), or until the reaching the limiting DME distance if earlier; then
+>
+> b) the aircraft is turned onto the holding side to intercept the inbound track or to return to the fix; and then
+>
+> c) on the second arrival over the holding fix, the aircraft is turned to follow the holding pattern.
 
-The source shows three entry sectors and separate diagrams for right and left turns. Orient the appropriate sector diagram to the inbound holding track, then relate the arrival heading to it. Do not select the entry merely by noting that the aircraft is somewhere north or south of the fix. The examples below deliberately avoid sector boundaries; boundary flexibility and restricted entries at particular fixes must be checked against the current AIP before this lesson is released.
+Think of the entry as an outbound parallel leg followed by a return onto the holding side. It positions you to join the pattern. Reaching the fix for the first time and becoming established in the hold are different stages.
 
-### Sector 1: parallel entry
+### Sector 2 — offset or teardrop entry
 
-On reaching the fix, fly an outbound entry leg parallel to the inbound holding track. Use the heading needed to achieve that ground track; wind may make heading and track differ. Fly the applicable time, measured from over or abeam the holding fix, whichever occurs later, or to the limiting DME distance if that occurs earlier. Turn onto the holding side to intercept the inbound track or return to the fix. At the second arrival over the fix, follow the holding pattern.
+The cheat sheet states:
 
-The important sequence is **outbound entry leg → turn onto the holding side → inbound to the fix → holding pattern**. The entry manoeuvre is not simply the established racetrack repeated from a different starting point. (p.38)
+> a) On reaching the holding fix, the aircraft is turned onto a heading to make good a track of 30 degrees from the reciprocal of the inbound track on the holding side; then
+>
+> b) flown outbound:
+>
+> 1. for the appropriate period of time from the holding fix, where timing is specified, up to a maximum of 1 minute and 30 seconds; or, if earlier
+> 2. until the appropriate limiting DME distance is attained, where distance is specified; then
+>
+> c) the aircraft is turned in the direction of the holding pattern to intercept the inbound holding track; then
+>
+> d) on second arrival over the holding fix, the aircraft is turned to follow the holding pattern.
 
-### Sector 2: offset or teardrop entry
+First find the reciprocal of the inbound track. Put the 30° offset on the holding side. Then determine the heading needed to achieve that track. The source says **make good a track**: adding or subtracting 30° does not calculate a wind-corrected heading.
 
-At the fix, choose a heading that makes good a track **30° from the reciprocal of the inbound track, on the holding side**. Fly the applicable outbound time, with the source specifying a maximum of 1 minute 30 seconds where timing is used, or to the specified limiting DME distance if reached earlier. Turn in the holding direction to intercept the inbound holding track. At the second arrival over the fix, follow the pattern.
+### Sector 3 — direct entry
 
-First find the reciprocal, then put the offset on the correct side. Only then consider the heading needed for the wind. The 30° describes the desired track offset; it is not an instruction to apply a fixed heading change regardless of wind. (p.38)
+The cheat sheet states:
 
-### Sector 3: direct entry
+> On reaching the holding fix, the aircraft is turned to follow the holding pattern. Outbound timing begins abeam the fix, or when the abeam position cannot be determined, from completion of the outbound turn.
 
-At the fix, turn to follow the holding pattern. The source's direct-entry paragraph starts outbound timing abeam the fix; **if the abeam position cannot be determined**, its fallback is completion of the outbound turn. Preserve that condition when describing the procedure. (p.38)
+The fallback matters: completion of the turn is the reference in this entry paragraph **when the abeam position cannot be determined**.
 
-The source separately limits **DME arc entry** to Sector 1 or Sector 3. Do not assume every type of arrival permits all three entries. (p.38)
+For a DME arc entry, the cheat sheet specifies Sector 1 or Sector 3. Do not assume that every arrival permits all three entries.
 
-### Work through one orientation
+### Apply it: approaching the hold
 
-Assume an illustrative **360° inbound track, right turns and nil wind**. The holding side is east of the inbound track; the reciprocal outbound track is 180°. These assumptions describe a teaching example, not a published procedure.
+**Situation:** You are approaching an illustrative right-turn hold with a 360° inbound track. Your arrival heading is 135°. Assume nil wind for this example.
 
-Rotating the right-turn illustration on source page 39 to this orientation gives these examples:
+**Before reading on:** Which entry applies, which side contains the hold, and what track will you fly after the fix?
 
-| Heading arriving at the fix | Entry | Explain what happens next |
-|---|---|---|
-| 360° | Sector 3, direct | Turn right to follow the holding pattern. |
-| 135° | Sector 2, offset | Make good the 150° offset track on the holding side, then turn right to intercept 360° inbound. |
-| 225° | Sector 1, parallel | Fly the outbound parallel entry, then turn onto the holding side to return inbound and establish the hold. |
+**Work through it:** The holding side is east of the inbound track. The source's sector layout places this arrival in Sector 2. The reciprocal of 360° is 180°; the 30° offset towards the eastern holding side gives **150°**. After the applicable outbound time or distance, turn right to intercept **360° inbound**. At the next passage of the fix, follow the holding pattern.
 
-For the offset example, 360° reciprocal is 180°. Moving 30° towards the eastern holding side gives **150°**, not 210°. Because nil wind is explicitly assumed, heading and track coincide in this example. With wind, the desired track remains the reference, but the required heading can differ.
+With nil wind, heading and track coincide. With wind, 150° remains the desired offset track, but the heading may differ. A 210° offset would put this example on the wrong side.
 
-These are derived teaching examples, not answers copied from the cheat sheet. Both research and owner review independently used the source illustration's orientation. They still require comparison with the current AIP figure before release, particularly before adding boundary questions or left-turn variants.
+For comparison, in the same nil-wind, 360° inbound, right-turn pattern, an arrival heading of 360° gives a direct entry; 225° gives a parallel entry. These are orientation examples away from sector boundaries, derived from the page 39 illustration.
 
-## Holding Limitations — source page 40
+**Cockpit relevance:** Decide the sequence before crossing the fix. Identifying an entry name without knowing the next track and leg limit leaves the most useful work unfinished.
 
-Once established, the task is to keep returning to the fix on the inbound holding track while respecting the applicable limits. Merely crossing the fix is not evidence that the inbound leg has been flown correctly.
+## Holding Limitations
 
-### Speed and leg limits
+### Speed
 
-The source records the following maximum holding speeds:
+The cheat sheet gives these maximum indicated airspeeds:
 
-| Altitude band | Maximum IAS in the source |
+| Altitude | Maximum KIAS |
 |---|---:|
-| Up to and including FL140 | 230 KIAS; 170 KIAS where the approach is limited to Categories A and B only |
-| Above FL140, up to and including FL200 | 240 KIAS |
-| Above FL200 | 265 KIAS |
+| Up to and including FL140 | 230 |
+| Up to and including FL140, where the approach is limited to Categories A and B only | 170 |
+| Above FL140 to FL200 inclusive | 240 |
+| Above FL200 | 265 |
 
-The 170 KIAS qualification is about the approach being limited to those categories. Do not replace it with “every Category A aircraft always holds at 170 KIAS.” A maximum is a limit, not a target speed to attain.
+The 170 KIAS qualification concerns the approach being limited to Categories A and B. It is not a statement that every Category A aircraft must always use that maximum. A maximum is a limit, not an instruction to accelerate to it.
 
-For the established hold, the source starts outbound timing **abeam the fix or on attaining the outbound heading, whichever is later**. Its time/distance limit is 1 minute up to and including FL140, or 1.5 minutes above FL140, subject to the time or distance limit specified on the chart. Read this alongside the particular entry procedure; do not turn one sentence into a rule for every phase of entering and holding.
+### Timing and distance
+
+The cheat sheet states:
+
+> Outbound timing begins abeam the fix or on attaining the outbound heading, whichever comes later.
+
+It limits the outbound leg to:
+
+> (1) up to and inc. FL140 – 1 minute or the time or distance limit specified on the chart;
+>
+> (2) above FL140 – 1.5 minutes or the time or the distance limit specified on the chart.
+
+Identify the phase you are flying. The entry paragraphs give their own timing references; this section describes the holding limitation. “Always start the timer overhead” and “never start it overhead” both discard information needed to apply the right procedure.
+
+**Situation:** You are established in a timed hold at FL150 and are cleared to descend to FL130 within the hold. No different charted leg limit applies in this exercise.
+
+**Decision:** What changes as you pass through FL140?
+
+The source's altitude bands change the outbound time limit from 1.5 minutes to 1 minute and the general maximum IAS from 240 to 230 KIAS. The Category A/B-only qualification still needs consideration where applicable. Brief the change as part of the descent rather than carrying the previous limits into the lower band. This example identifies the changed limits; it does not prescribe how to alter a partially completed leg.
 
 ### Turns and wind
 
-In nil wind, the source specifies 25° bank or rate one, whichever requires the lesser bank. It also requires allowance in heading and timing for wind so that the inbound track is regained **before passing the holding fix inbound**.
+The cheat sheet states:
 
-If you are repeatedly displaced from the inbound track, explain what your navigation indications and known or estimated wind tell you. The lesson cannot derive a precise heading or timing correction from “I crossed the fix early” alone. The comparison time, leg flown and other observations matter. An unexplained instruction such as “change the next outbound leg to 1:20” would teach a guess, not a method.
+> All turns in nil wind should be at a bank angle of 25° or rate one, whichever requires the lesser bank.
 
-## Leaving the hold and the inbound course
+It also states:
 
-Apply the track distinction from the opening briefing: brief the onward clearance or published procedure separately, including its applicable altitude and any specified time or position for departure. This is supplementary teaching context to connect the source topics; current AIP departure provisions still need to be checked as recorded below.
+> Allowance should be made in heading and in timing to compensate for the effects of wind to ensure the inbound track is regained before passing the holding fix inbound.
 
-For a reasoning exercise, suppose the hold is inbound 360° and the later instruction explicitly requires passing the fix before proceeding on an onward track of 090°. While completing the inbound leg, 360° remains the holding reference. After passing the fix in accordance with that instruction, 090° is the onward reference. This is an invented, simplified ground-track exercise, not ATC phraseology or a complete clearance to execute; terrain, level, timing and other procedure requirements are deliberately not modelled.
+The objective is to regain the inbound **track before the fix**. Merely crossing the fix after an untidy turn does not demonstrate that you have achieved that objective.
 
-If the onward instruction were different, the answer would change. You cannot determine departure solely from the inbound course, nor assume that an expected clearance or approach time is itself permission to leave.
+**Situation:** On the next inbound leg, the navigation indication still shows you displaced from the required track as you approach the fix. You also believe the leg took less time than expected.
 
-Page 40 also records a **250 KT IAS exit provision for jet aircraft leaving an en-route hold in CTA**, unless otherwise published or advised by ATC, with pilots able to request a variation. Retain that scope. It must not become a generic “leave every hold at 250 kt” answer, especially in a lesson about an approach hold.
+**Decision:** Can those observations alone justify “reduce the next outbound leg to 1:20”?
+
+No. Establish what time you were comparing against, which leg was timed, your groundspeed and the available wind information. Use the navigation indications to assess the track error. The principle is to adjust heading and timing to regain inbound before the fix; an unexplained numerical correction teaches a guess. Wind affects more than the shape of the turn drawn on paper.
+
+## Leaving the hold
+
+The **inbound holding track** and the **onward track** answer different questions. One brings you to the holding fix; the other comes from what you are cleared or required to fly afterwards.
+
+**Situation:** You are established inbound on 360°. For this exercise, an onward instruction explicitly requires you to pass the fix and then proceed on a 090° track, maintaining the assigned level. This is a simplified scenario, not standard radio phraseology.
+
+**Decision:** Do you continue on 360°, repeat the hold, or transition to 090°?
+
+Complete the inbound segment to the fix, then transition to the instructed onward track. The holding course does not automatically become the departure course. Conversely, the onward track does not replace the inbound leg before the point specified in the instruction. Any other altitude, time or procedural conditions remain part of the task.
+
+Before leaving, brief the next route or approach, its relevant constraints and the aircraft configuration needed. An expected time alone does not tell you the route to fly or substitute for an onward clearance.
+
+The cheat sheet's exit-speed provision is specifically scoped:
+
+> For ATC traffic management, jet aircraft in CTA must leave an en route holding pattern at 250KT IAS, unless otherwise published or advised by ATC. Pilots may request a variation to this requirement.
+
+Do not turn that into “depart every hold at 250 kt.” The aircraft type, airspace and kind of hold are part of the statement.
+
+## Use the holding time deliberately
+
+While maintaining the pattern, reassess why you are holding and what will change the decision. An approach delay may give you time to update weather, brief the approach and configure the aircraft, but it also consumes fuel. Keep the aircraft's progress through the hold clear while doing that work.
+
+For example, if another delay is advised, consider the fuel needed for the remaining plan and the point at which you would need an alternative. In a crew, allocate flying, monitoring and preparation tasks; single-pilot, sequence preparation so it does not displace flying and navigation. These are operational discussion prompts, not additional fuel rules or operator procedures.
 
 ## Explain it aloud
 
-**1. You know the inbound track is 360°. Is that enough to select the entry?**
+1. **What do you need before selecting an entry?** The holding fix, inbound track, turn direction and arrival heading relative to the correct sector layout, with any applicable entry restrictions.
+2. **Why is the example's offset track 150°?** The reciprocal is 180°, and the 30° offset must lie on the eastern holding side. Nil wind is what makes 150° also the heading in this example.
+3. **What tells you the entry has achieved its purpose?** You can return inbound and follow the holding pattern, rather than simply name the entry or cross the fix once.
+4. **What is the objective of wind correction?** Regain the inbound track before passing the holding fix inbound, accounting for wind in heading and timing.
+5. **What determines the track after leaving?** The onward clearance or published procedure, including where and when the transition is required—not the inbound holding track alone.
+6. **What operational decision continues while you hold?** Whether the remaining plan is still workable as delay, weather, fuel and workload change.
 
-No. You also need the turn direction and arrival heading in relation to the correctly oriented entry sectors, plus any restrictions relevant to that fix or arrival. Inbound track alone does not locate the arrival within the sectors.
+## Source notes
 
-**2. Why is the teardrop track 150° in the worked example?**
+Core procedures and limits: Ben Montgomery-Schinkel, *IFR Cheat Sheet*, V7.1, 30 March 2024, pp.38–40. Blockquotes reproduce the supplied text with line wrapping and list formatting normalised. The speed table expands the source's altitude bands for readability. Page 39 contains the entry-sector illustrations. Source-listed references are AIP ENR 1.5 paragraphs 3.4 and 3.3 respectively.
 
-The reciprocal is 180° and the right-turn hold lies east of the inbound track. The 30° offset towards that side produces 150°. Nil wind makes that also the heading in this example; it is not a wind-correction rule.
-
-**3. Does completing an entry finish the task?**
-
-No. You must establish and maintain the inbound track, respect the speed and time/distance limits, and account for wind. Describe the next inbound leg rather than stopping your explanation at the name of the entry.
-
-**4. Can you use “start timing overhead” or “never start overhead” for every entry?**
-
-No. Identify the entry and phase first. Page 38 describes their timing references; page 40 provides the general holding limitation. Preserve the specific conditions rather than memorising an absolute slogan.
-
-**5. Does a 360° inbound holding course mean you leave on 360°?**
-
-Not necessarily. Identify the onward clearance or procedure. In the example it expressly requires 090° after the fix; the inbound holding course remains 360° until that transition.
-
-## Source and editorial notes
-
-- Teaching source: Ben Montgomery-Schinkel, *IFR Cheat Sheet*, V7.1, 30 March 2024, pages 38–40. Text extracted and page 39 rendered for inspection on 13 September 2026. Page 39 credits an AIP figure accessed in December 2021.
-- Source-listed references: AIP ENR 1.5 §3.4 for entries and §3.3 for limitations; the source also names Jeppesen Terminal Holding Procedures. These references describe the supplied edition and are not independently verified current paragraph numbers.
-- Current official starting point: [Airservices AIP gateway](https://airservices.gov.au/aip/aip.asp). [Data.Airservices](https://data.airservicesaustralia.com/) lists the AIP Book cycle as 3 September 2026. The current ENR text/figure was not obtained in this pass; an indexed March PDF URL returned 404. No current-verification claim is made from a search snippet.
-- Required before release: inspect the current entry figure and heading/boundary provisions; confirm entries at restricted fixes, timing qualifications, speed and exit limits; verify holding-clearance departure provisions and distinguish expected times from clearance. Suggested search targets from earlier AIP wording are ENR 1.5 §§3.1–3.8, not verified current citations.
-- Supplementary authoring: briefing checklist, heading/track explanation, nil-wind orientation examples, departure reasoning exercise and oral questions. Their purpose is to connect the source facts into pilot decisions. They are not quotations, published charts or operator procedures.
-- Instructor review: pending. No result from these questions establishes competence or predicts an IPC outcome.
+Explanations, worked situations and oral questions are authored teaching additions. Examples use stated assumptions and are not published procedures. This chapter uses the supplied edition; current-publication comparison is deferred at the owner's request. Editorial notes and outstanding source work belong in the content-verification log rather than throughout the lesson.
