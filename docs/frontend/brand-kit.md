@@ -1,48 +1,22 @@
-# Brand Kit Decision Log — IFR Refresher
+# IFR workbook design system
 
-Project: IFR Refresher / IFR Quick Study
-Tier: T2 now; T3 before public/paying pilot
-Date: 2026-05-07
+Decision date: 13 September 2026. Status: implemented first direction for local review.
 
-## Density default
-Choice: medium-dense.
-Benchmark: quiz card and study module list.
-Rationale: pilots use this as a fast refresher, so the UI should be compact enough for preflight/crew-room use without feeling like a dense ops table.
+## Intent
+A practical Australian flight-training workbook. Prioritise reading, recall and manipulating an example. Keep navigation labels literal and avoid decorative instrument panels, gradients and emoji navigation.
 
-## Border radius
-Choice: 12px–24px cards, rounded controls.
-Rationale: approachable study app, not an aircraft system UI; maintain enough softness for mobile.
+## Foundations
+- Source Sans 3 for body, controls and headings; IBM Plex Mono for numerical values. Fonts are bundled by Next at build time.
+- Light paper surfaces, navy ink, restrained blue actions. Dark mode uses the same semantic hierarchy.
+- Amber means caution/review, green completed action, red error. Always accompany colour with text or an icon. Reading progress never implies pilot competence.
+- Use existing IFR CSS tokens in globals.css. No page-level hex colours.
+- Panels: 16px radius. Controls: 8px radius. Spacing follows 4/8px increments; content width 1100px.
+- Body 16px with 1.6 line height; supporting text generally 14px. Titles in sentence case.
+- Lucide line icons, typically 20�24px, decorative when adjacent to a visible label.
+- New controls have at least 44px targets, visible keyboard focus and explicit selected states. Respect reduced motion.
 
-## Body font
-Font: Plus Jakarta Sans.
-Rationale: readable on mobile and less generic than default Inter/Geist.
+## Working examples
+`/design-system` is the live specimen. `/principles` demonstrates diagrams, segmented controls, range inputs, source notes and revealable explanations. The home page and shared shell adopt this direction. Existing deeper screens inherit fonts and tokens; their component-level cleanup is a follow-on, not claimed complete.
 
-## Display font
-Font: Barlow Condensed.
-Rationale: aviation/instrument-panel character for headings.
-
-## Mono font
-Font: JetBrains Mono.
-Where used: numeric values, quiz/card counters, technical values where needed.
-
-## Primary container treatment
-Choice: outlined cards with restrained shadows.
-Where used: quiz cards, study modules, dashboard stats.
-Where forbidden: dense lists that need scan speed should stay flatter.
-
-## Status colour semantics
-- Success: `--ifr-success`
-- Warning/review/weak: `--ifr-warning`
-- Danger/incorrect: `--ifr-danger`
-- Neutral pending: `--ifr-text-muted`
-- Stale/degraded/offline: warning + explicit text
-- Disabled: muted border/text plus explanation where relevant
-- Unknown: muted/neutral, not red
-
-## Hero/data/empty-state treatment
-Choice: typography-first with small aviation emoji/icon accents.
-Rationale: keep the app fast and study-focused; avoid decorative SaaS slop.
-
-## Anti-slop exceptions
-- Dark cockpit/night theme is deliberate for aviation context.
-- Emoji icons are allowed in first-run/empty states but should not replace accessible labels.
+## Visual teaching
+Use authored SVG for geometry and calculations. Text equivalents accompany diagrams. Use generated imagery only where atmosphere or visual recognition helps learning and exact geometry is unnecessary. No generated artwork is needed for these three lessons.

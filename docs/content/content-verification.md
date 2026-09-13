@@ -39,3 +39,18 @@ Before public/paying/external pilot use:
 - Add source URLs/parts/chapters where missing.
 - Add date/version metadata for each section or module.
 - Decide review cadence and stale-content warning threshold.
+
+## Visual workbook — 13 September 2026
+
+Scope: new `/principles` holding geometry, 2D/3D approach guidance and gradient/groundspeed relationships. Original explanations and schematic SVGs; no copied cheat-sheet artwork or new regulatory minima.
+
+Teaching reference: Ben Montgomery-Schinkel, IFR Cheat Sheet V7.1, 30 March 2024, pages 38–40, 41/44 and 57 respectively. Supplied Downloads PDF matches the repository PDF by SHA-256.
+
+Primary comparisons accessed 13 September 2026:
+- Airservices AIP ENR 1.5 holding procedures, complete edition 19 March 2026: https://www.airservicesaustralia.com/aip/current/aip/complete_19MAR2026.pdf
+- CASA instrument approach operations (page last updated 5 December 2021): https://www.casa.gov.au/licences-and-certificates/pilots/ratings-reviews-and-endorsements/instrument-ratings/instrument-approach-operations
+- Airservices Aeronautical Chart User Guide v5 effective 7 August 2026, conversion tables: https://www.airservicesaustralia.com/aip/current/iaipchart/Aeronauticalchartuserguide.pdf
+
+Review corrections: the approach schematic places the illustrative path above constraint marks. Advisory VNAV does not guarantee obstacle protection; CASA classifies using it to manage descent as a 3D operation for recent-experience purposes, even on a lateral-only procedure. The explanation preserves that distinction.
+
+Gradient output uses 1852 m/NM and 0.3048 m/ft; 5% at 120 kt gives approximately 608 ft/min. Automated tests check conversions, speed proportionality, invalid inputs and URL fallback. Holding is nominal geometry only, without entry selection, wind correction or protected-airspace calculations. Human instructor source sign-off remains pending; editorial comparison is not operational approval.

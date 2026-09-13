@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BookOpen, Layers, ClipboardCheck, ArrowUpRight, Route, TrendingUp, ChartNoAxesCombined } from "lucide-react";
 import { useMemo } from "react";
 import { sections } from "@/content/registry/sections";
 import { useProgress } from "@/features/progress";
@@ -27,10 +28,13 @@ export function HomeScreen() {
     : 0;
 
   return (
-    <div className="mx-auto max-w-[1100px] px-6 py-6">
-      <p className="mb-6 text-[var(--ifr-text-muted)]">
-        Brush up before your IPC, stay sharp between flights.
-      </p>
+    <div className="workbook-page">
+      <header className="mb-8 border-b border-[var(--ifr-border)] pb-8">
+        <p className="eyebrow mb-3">Your next session</p>
+        <h1 className="workbook-title">Your IFR refresher</h1>
+        <p className="workbook-lead">Refresh the principles, practise recalling them, and work through the areas that need another look.</p>
+        <Link href="/study?section=cheat-sheet" className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg bg-[var(--ifr-cta-bg)] px-5 py-2 font-semibold text-[var(--ifr-cta-fg)] hover:bg-[var(--ifr-cta-bg-hover)]">Open the workbook <ArrowUpRight size={18} aria-hidden="true" /></Link>
+      </header>
 
       {/* Progress Summary */}
       {cheatSheetStats.completed > 0 ? (
@@ -48,21 +52,21 @@ export function HomeScreen() {
           </div>
           <div className="mb-4">
             <div className="mb-2 flex justify-between text-sm">
-              <span className="text-[var(--ifr-text-muted)]">Cheat sheet completion</span>
+              <span className="text-[var(--ifr-text-muted)]">Cheat sheet reading progress</span>
               <span className="font-medium text-foreground">{progressPercent}%</span>
             </div>
-            <ProgressBar value={progressPercent} className="h-2 w-full bg-[var(--ifr-surface-muted)]" aria-label="Cheat sheet completion" />
+            <ProgressBar value={progressPercent} className="h-2 w-full bg-[var(--ifr-surface-muted)]" aria-label="Cheat sheet reading progress" />
           </div>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
               <div className="text-2xl font-bold text-foreground">
                 {cheatSheetStats.completed}/{cheatSheetStats.total}
               </div>
-              <div className="text-xs text-[var(--ifr-text-muted)]">Modules completed</div>
+              <div className="text-sm text-[var(--ifr-text-muted)]">Modules read</div>
             </div>
             <div className="rounded-lg bg-[var(--ifr-surface-muted)] p-3 text-center">
               <div className="text-2xl font-bold text-[var(--ifr-warning)]">{weakCount}</div>
-              <div className="text-xs text-[var(--ifr-text-muted)]">To review (all library)</div>
+              <div className="text-sm text-[var(--ifr-text-muted)]">To review (all library)</div>
             </div>
           </div>
         </section>
@@ -84,37 +88,47 @@ export function HomeScreen() {
         <div className="grid gap-4 sm:grid-cols-3">
           <Link
             href="/study?section=cheat-sheet"
-            className="flex flex-col items-center rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-5 text-center transition-colors hover:border-[var(--ifr-accent)]/50"
+            className="flex flex-col items-start rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-5 text-left transition-colors hover:border-[var(--ifr-accent)]/50"
           >
-            <span className="mb-2 text-2xl">📖</span>
+            <BookOpen className="mb-3 text-[var(--ifr-accent)]" size={24} aria-hidden="true" />
             <span className="font-medium text-foreground">Study</span>
-            <span className="mt-1 text-xs text-[var(--ifr-text-muted)]">
-              CASR refs with plain-English context
+            <span className="mt-1 text-sm text-[var(--ifr-text-muted)]">
+              Read explanations and source notes
             </span>
           </Link>
           <Link
             href="/flashcard"
-            className="flex flex-col items-center rounded-lg border border-[var(--ifr-accent)] bg-[var(--ifr-accent)]/10 p-5 text-center transition-colors hover:bg-[var(--ifr-accent)]/20"
+            className="flex flex-col items-start rounded-xl border border-[var(--ifr-accent)] bg-[var(--ifr-accent)]/10 p-5 text-left transition-colors hover:bg-[var(--ifr-accent)]/20"
           >
-            <span className="mb-2 text-2xl">🎯</span>
+            <Layers className="mb-3 text-[var(--ifr-accent)]" size={24} aria-hidden="true" />
             <span className="font-medium text-[var(--ifr-accent)]">Flashcards</span>
-            <span className="mt-1 text-xs text-[var(--ifr-text-muted)]">
-              Focuses on what you get wrong
+            <span className="mt-1 text-sm text-[var(--ifr-text-muted)]">
+              Recall an answer, then review it
             </span>
           </Link>
           <Link
             href="/quiz"
-            className="flex flex-col items-center rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-5 text-center transition-colors hover:border-[var(--ifr-accent)]/50"
+            className="flex flex-col items-start rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-5 text-left transition-colors hover:border-[var(--ifr-accent)]/50"
           >
-            <span className="mb-2 text-2xl">✅</span>
+            <ClipboardCheck className="mb-3 text-[var(--ifr-accent)]" size={24} aria-hidden="true" />
             <span className="font-medium text-foreground">Quiz</span>
-            <span className="mt-1 text-xs text-[var(--ifr-text-muted)]">
-              Timed multiple choice, IPC-style
+            <span className="mt-1 text-sm text-[var(--ifr-text-muted)]">
+              Check your understanding
             </span>
           </Link>
         </div>
       </section>
 
+      <section className="mb-10 workbook-panel overflow-hidden">
+        <div className="border-b border-[var(--ifr-border)] p-5 md:p-6">
+          <p className="eyebrow mb-2">Learn by changing the example</p>
+          <h2 className="text-2xl font-semibold">See the principle at work</h2>
+          <p className="mt-2 text-[var(--ifr-text-muted)]">Move a control, follow the diagram, then explain what changed.</p>
+        </div>
+        <div className="divide-y divide-[var(--ifr-border)]">
+          {[{ id: "holding", name: "Holding geometry", detail: "Track, turn direction and the four parts of a hold", Icon: Route }, { id: "approach", name: "Approach guidance", detail: "What 2D and 3D guidance provide", Icon: ChartNoAxesCombined }, { id: "gradient", name: "Gradient & groundspeed", detail: "Why more groundspeed needs more feet per minute", Icon: TrendingUp }].map(({ id, name, detail, Icon }) => <Link key={id} href={`/principles?lesson=${id}`} className="flex items-center gap-4 p-5 hover:bg-[var(--ifr-surface-muted)] md:px-6"><Icon size={24} className="shrink-0 text-[var(--ifr-accent)]" aria-hidden="true" /><span className="flex-1"><span className="block font-semibold">{name}</span><span className="text-sm text-[var(--ifr-text-muted)]">{detail}</span></span><ArrowUpRight size={20} aria-hidden="true" /></Link>)}
+        </div>
+      </section>
       <section className="mb-8">
         <h2 className="mb-4 text-lg font-semibold text-foreground">Learning pathways</h2>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -125,7 +139,7 @@ export function HomeScreen() {
               className="rounded-lg border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-4 transition-colors hover:border-[var(--ifr-accent)]/50"
             >
               <div className="font-medium text-foreground">{program.name}</div>
-              <p className="mt-1 text-xs leading-snug text-[var(--ifr-text-muted)]">
+              <p className="mt-1 text-sm leading-snug text-[var(--ifr-text-muted)]">
                 {program.description}
               </p>
             </Link>
@@ -158,7 +172,7 @@ export function HomeScreen() {
                     <div className="font-medium text-foreground truncate">
                       {category.title}
                     </div>
-                    <div className="mt-0.5 text-xs leading-snug text-[var(--ifr-text-muted)]">
+                    <div className="mt-0.5 text-sm leading-snug text-[var(--ifr-text-muted)]">
                       {category.description}
                     </div>
                   </div>
@@ -171,6 +185,7 @@ export function HomeScreen() {
           </div>
         </section>
       )}
+      <footer className="mt-10 border-t border-[var(--ifr-border)] pt-5 text-sm text-[var(--ifr-text-muted)]">Built for deliberate practice. <Link href="/design-system" className="workbook-link">Explore the design system</Link></footer>
     </div>
   );
 }

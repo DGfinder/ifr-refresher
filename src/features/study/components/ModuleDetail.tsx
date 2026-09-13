@@ -270,6 +270,8 @@ export function ModuleDetail({
         <p className="text-[var(--ifr-text)]/90">{module.summary}</p>
       </div>
 
+      {(["holding", "approaches", "performance-gradient"].includes(sectionId)) && <Link href={`/principles?lesson=${sectionId === "holding" ? "holding" : sectionId === "approaches" ? "approach" : "gradient"}`} className="workbook-link mb-5 min-h-11">Explore this principle visually <ArrowRight size={18} aria-hidden="true" /></Link>}
+
       {/* Tabs: Read (passive study) · Drill (active recall) · Reference (sources + cross-links) */}
       {showReferenceTab && (
         <SourceReviewStatus refs={module.refs} onViewReferences={() => setActiveTab("reference")} />

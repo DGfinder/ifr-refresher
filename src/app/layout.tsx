@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow_Condensed, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Source_Sans_3, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { ProgramProvider } from "@/features/programs";
 import { MainNav } from "@/app-shell/components/MainNav";
@@ -11,20 +11,17 @@ import { IFR_THEME } from "@/app-shell/theme/theme";
 import { TooltipProvider } from "@/shared/ui/tooltip";
 import { Toaster } from "@/shared/ui/toaster";
 
-const barlowCondensed = Barlow_Condensed({
-  variable: "--font-display",
+const interfaceFont = Source_Sans_3({
+  variable: "--font-interface",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-sans",
+const numericFont = IBM_Plex_Mono({
+  variable: "--font-numeric",
   subsets: ["latin"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -57,16 +54,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${barlowCondensed.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[var(--ifr-bg)] text-[var(--ifr-text)]`}
+        className={`${interfaceFont.variable} ${numericFont.variable} font-sans antialiased bg-[var(--ifr-bg)] text-[var(--ifr-text)]`}
       >
         <ErrorBoundary>
           <ProgramProvider>
             <TooltipProvider delayDuration={200}>
-              <div className="min-h-screen pb-16 md:pb-0">
+              <div className="min-h-screen pb-24 md:pb-0">
                 <AppHeader />
                 <StorageStatusBanner />
                 <MainNav />
-                <main>{children}</main>
+                <main id="main-content">{children}</main>
                 <ContentDisclaimer />
               </div>
               <Toaster />

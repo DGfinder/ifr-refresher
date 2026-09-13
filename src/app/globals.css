@@ -8,9 +8,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-display: var(--font-display);
+  --font-sans: var(--font-interface), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-numeric), ui-monospace, monospace;
+  --font-display: var(--font-interface), ui-sans-serif, system-ui, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -51,14 +51,19 @@
 
 :root {
   /* IFR Brand Tokens - Light Theme */
-  --ifr-bg: #F7F8FA;
+  --ifr-bg: #F5F7FB;
   --ifr-surface: #FFFFFF;
-  --ifr-surface-muted: #F3F4F6;
-  --ifr-border: #E5E7EB;
-  --ifr-text: #0F172A;
-  --ifr-text-muted: #6B7280;
-  --ifr-accent: #1F2933;
-  --ifr-accent-soft: #E0E7FF;
+  --ifr-surface-muted: #EDF2F8;
+  --ifr-border: #CBD5E3;
+  --ifr-text: #14263E;
+  --ifr-text-muted: #506178;
+  --ifr-accent: #175CD3;
+  --ifr-accent-soft: #EAF1FF;
+  --ifr-navy: #14263E;
+  --ifr-on-navy: #F7FAFF;
+  --ifr-diagram-grid: #DCE5F0;
+  --ifr-radius-control: 0.5rem;
+  --ifr-radius-panel: 1rem;
   --ifr-success: #15803D;
   --ifr-warning: #B45309;
   --ifr-danger: #B91C1C;
@@ -70,14 +75,14 @@
   --ifr-warning-soft: #FEF3C7;
   --ifr-danger-soft: #FEE2E2;
   --ifr-info-soft: #E0F2FE;
-  --ifr-focus-ring: #4F46E5;
+  --ifr-focus-ring: #175CD3;
   /* Primary call-to-action — separated from --ifr-accent so dark mode can
      use a saturated colour without overriding accent uses elsewhere. */
-  --ifr-cta-bg: #1F2933;
-  --ifr-cta-bg-hover: #34404D;
+  --ifr-cta-bg: #175CD3;
+  --ifr-cta-bg-hover: #124AA8;
   --ifr-cta-fg: #FFFFFF;
 
-  --radius: 0.625rem;
+  --radius: 0.5rem;
   /* Map to IFR tokens */
   --background: var(--ifr-bg);
   --foreground: var(--ifr-text);
@@ -114,14 +119,15 @@
 
 .dark {
   /* IFR Brand Tokens - Dark Theme (Cockpit at Night) */
-  --ifr-bg: #020617;
-  --ifr-surface: #131C2A;
-  --ifr-surface-muted: #020617;
-  --ifr-border: #1F2937;
-  --ifr-text: #E5E7EB;
-  --ifr-text-muted: #9CA3AF;
-  --ifr-accent: #E5E7FF;
-  --ifr-accent-soft: #1E293B;
+  --ifr-bg: #0D1726;
+  --ifr-surface: #152238;
+  --ifr-surface-muted: #1D304A;
+  --ifr-border: #344A66;
+  --ifr-text: #EDF3FC;
+  --ifr-text-muted: #ADBDD2;
+  --ifr-accent: #8AB9FF;
+  --ifr-accent-soft: #1D3458;
+  --ifr-diagram-grid: #263C58;
   --ifr-success: #22C55E;
   --ifr-warning: #FBBF24;
   --ifr-danger: #F97373;
@@ -132,11 +138,11 @@
   --ifr-warning-soft: rgba(251, 191, 36, 0.12);
   --ifr-danger-soft: rgba(249, 115, 115, 0.12);
   --ifr-info-soft: rgba(56, 189, 248, 0.12);
-  --ifr-focus-ring: #4F46E5;
-  /* In dark mode the slate accent is too light for a button background, so
-     CTAs use saturated indigo. Hover bumps to indigo-600. */
-  --ifr-cta-bg: #4338CA;
-  --ifr-cta-bg-hover: #4F46E5;
+  --ifr-focus-ring: #8AB9FF;
+  /* Dark-mode actions use saturated blue with white text; the lighter
+     accent remains reserved for links, icons and selected states. */
+  --ifr-cta-bg: #175CD3;
+  --ifr-cta-bg-hover: #1D69EC;
   --ifr-cta-fg: #FFFFFF;
 
   /* Map to IFR tokens */
@@ -194,10 +200,10 @@
      just changing the text-* token (e.g. `eyebrow text-[var(--ifr-accent)]`).
   */
   .eyebrow {
-    @apply text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--ifr-text-muted)];
+    @apply text-xs font-semibold uppercase tracking-[0.1em] text-[var(--ifr-text-muted)];
   }
   .eyebrow-accent {
-    @apply text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--ifr-accent)];
+    @apply text-xs font-semibold uppercase tracking-[0.1em] text-[var(--ifr-accent)];
   }
 }
 
@@ -209,14 +215,28 @@
     @apply bg-background text-foreground;
   }
 
-  /* Aviation atmosphere: instrument panel horizon glow */
-  .dark body {
-    background-image: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(79, 70, 229, 0.06) 0%, transparent 60%);
-    background-attachment: fixed;
+  body { font-size: 1rem; line-height: 1.6; }
+  h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; }
+  button, input, select, textarea { font: inherit; }
+  :where(a, button, input, select, summary):focus-visible {
+    outline: 3px solid var(--ifr-focus-ring);
+    outline-offset: 3px;
   }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+}
 
-  /* Amber accent line beneath the header (instrument panel edge) */
-  .dark header {
-    box-shadow: 0 1px 0 0 rgba(251, 191, 36, 0.35);
-  }
+@layer components {
+  .workbook-page { @apply mx-auto max-w-[1100px] px-5 py-8 md:px-8 md:py-12; }
+  .workbook-panel { @apply rounded-2xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)]; }
+  .workbook-title { @apply text-3xl font-semibold tracking-tight md:text-4xl; }
+  .workbook-lead { @apply mt-3 max-w-2xl text-lg leading-relaxed text-[var(--ifr-text-muted)]; }
+  .workbook-number { @apply font-mono tabular-nums; }
+  .workbook-link { @apply inline-flex items-center gap-2 font-semibold text-[var(--ifr-accent)] underline-offset-4 hover:underline; }
+  .principle-svg { width: 100%; height: auto; overflow: visible; }
+  .principle-svg text { fill: var(--ifr-text-muted); font-family: var(--font-interface), sans-serif; font-size: 18px; }
+  .principle-control { @apply w-full accent-[var(--ifr-cta-bg)]; min-height: 44px; }
+  .principle-segment { @apply min-h-11 rounded-lg border border-[var(--ifr-border)] px-3 py-2 text-sm font-semibold; }
+  .principle-segment[aria-pressed="true"] { @apply border-[var(--ifr-accent)] bg-[var(--ifr-accent-soft)] text-[var(--ifr-accent)]; }
 }
