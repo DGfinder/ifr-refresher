@@ -35,6 +35,8 @@ The repository Lighthouse launcher fails on Windows with `spawn npm ENOENT`. The
 
 The frontend advisory shell script could not complete because Python 3 is unavailable in the Git Bash environment. Its partial output also flags existing inline styles. No lint, tests or gate thresholds were weakened.
 
+The Pillars advisory check was run against the committed diff. It flags the scope limits: 29 changed files exceed the default limit of 8, and approximately 762 changed lines exceed 400. The multi-feature work is saved for review, not represented as merge-gate clean. Split delivery into smaller review units before applying the repository's standard merge gate; do not raise thresholds merely to pass it.
+
 The production dependency audit reports 8 existing findings: 1 critical, 6 high and 1 moderate, including Next.js. This change leaves package.json and the lockfile unchanged. Resolve and re-audit these before a public release; successful browser tests do not clear dependency findings.
 
 ## Instructional and product assessment
