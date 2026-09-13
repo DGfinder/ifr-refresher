@@ -12,6 +12,20 @@
 - Styling: Tailwind CSS v4 plus IFR CSS tokens in `src/app/globals.css`.
 - Offline: Serwist service worker plus IndexedDB/local storage for progress.
 
+## Curriculum reset — owner direction, 13 September 2026
+
+Read `docs/product/curriculum-reset.md` before proposing or implementing learning content, navigation or UI changes. This supersedes the earlier feature-expansion and visual-workbook direction.
+
+- The supplied IFR Cheat Sheet V7.1 is the canonical starting curriculum: follow its topics, order and scope. Current CASA/Airservices publications govern regulatory correctness.
+- Build text-first. Map every lesson to exact cheat-sheet pages before authoring it. Any extension must identify its parent topic, source and specific learning need.
+- Use one canonical lesson per topic. Summaries, questions and future diagrams belong to that lesson; do not create parallel topic libraries or duplicate banks of facts.
+- The reset starts with a topic-to-page map and one complete holding lesson for owner review before expanding the lesson pattern across the curriculum. Do not bulk-generate or automatically migrate existing content.
+- Keep the core experience to contents/search → lesson → related next topic. Do not stack section-card grids, category lists and module grids on the same screen.
+- Defer separate visual galleries, dashboards, gamification, multiple study modes and airline extensions from the reset's initial learner experience. Preserve existing work as a recoverable baseline rather than deleting it indiscriminately.
+- Passing build, lint or tests proves neither instructional usefulness nor aviation correctness. Report code verification, source review and rendered UX verification separately; never imply an unperformed check passed.
+- Before claiming a redesigned learner flow is complete, inspect its actual rendered desktop/mobile views and keyboard path under the applicable browser-tool permissions. If this cannot be done, explicitly report the flow as unverified.
+- Do not use diagram disclaimers to justify omitting the lesson's central learning objective. For holding, entry, inbound course and departure as cleared are essential scope; an isolated racetrack rotation is not a complete holding lesson.
+
 ## Data classes
 
 - Study content: public/internal aviation study material.
