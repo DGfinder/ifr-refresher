@@ -30,7 +30,12 @@ export function ReadingText({ document }: { document: ReadingDocument }) {
           <tbody>{block.rows.map((row, rowIndex) => <tr key={rowIndex}>
             {block.sharedRows?.includes(rowIndex)
               ? <td className="reading-shared-row" colSpan={row.length}>{row.join(" ").trim()}</td>
-              : row.map((cell, cellIndex) => cellIndex === 0 ? <th scope="row" key={cellIndex}>{cell}</th> : <td key={cellIndex}>{cell}</td>)}
+              : row.map((cell, cellIndex) => {
+                if (cellIndex !== 0) return <td key={cellIndex}>{cell}</td>;
+                const span = block.firstColumnSpans?.[rowIndex] ?? 1;
+                if (span === 0) return null;
+                return <th scope={span > 1 ? "rowgroup" : "row"} rowSpan={span} key={cellIndex}>{cell}</th>;
+              })}
           </tr>)}</tbody>
         </table>
       </div>;

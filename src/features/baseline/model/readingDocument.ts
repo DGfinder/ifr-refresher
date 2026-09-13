@@ -4,7 +4,7 @@ import figureAssets from "./figureAssets.json";
 type TextBlock = { kind: "paragraph" | "reference" | "note" | "heading" | "call"; text: string };
 export type ReadingItem = { text: string; children?: ReadingItem[] };
 type ListBlock = { kind: "list"; items: ReadingItem[] };
-type TableBlock = { kind: "table"; headers: string[]; rows: string[][]; sharedRows?: number[] };
+type TableBlock = { kind: "table"; headers: string[]; rows: string[][]; sharedRows?: number[]; firstColumnSpans?: number[] };
 type FigureBlock = { kind: "figure"; text: string; page: number; image: { src: string; width: number; height: number } };
 export type ReadingDocument = { title: string; blocks: (TextBlock | ListBlock | TableBlock | FigureBlock)[] };
 
@@ -12,7 +12,7 @@ export type ReadingDocument = { title: string; blocks: (TextBlock | ListBlock | 
 // This is a presentation map, never an automatic interpretation of arbitrary PDF text.
 type Range = readonly [number, number];
 type ItemPlan = Range | { range: Range; children: ItemPlan[] };
-type Plan = { kind: TextBlock["kind"] | "figure"; range: Range } | { kind: "list"; items: ItemPlan[] } | { kind: "table"; range: Range; headers?: string[]; rows?: string[][]; sharedRows?: number[] };
+type Plan = { kind: TextBlock["kind"] | "figure"; range: Range } | { kind: "list"; items: ItemPlan[] } | { kind: "table"; range: Range; headers?: string[]; rows?: string[][]; sharedRows?: number[]; firstColumnSpans?: number[] };
 type ReviewedPlan = { topicId: string; page: number; titleRange: Range | null; blocks: Plan[] };
 const plans: Record<string, { page: number; blocks: Plan[] }> = {
   "admin-definitions": { page: 6, blocks: [
@@ -63,7 +63,7 @@ export function readingDocument(topicId: string, page: number, text: string): Re
         // PDF extraction may read columns first. Validate all tokens when restoring row order.
         const tokens = (value: string) => compact(value).split(" ").sort().join(" ");
         if (tokens([...block.headers, ...block.rows.flat()].join(" ")) !== tokens(rangeText(block.range))) validTables = false;
-        return { kind: "table", headers: block.headers, rows: block.rows, ...(block.sharedRows ? { sharedRows: block.sharedRows } : {}) };
+        return { kind: "table", headers: block.headers, rows: block.rows, ...(block.sharedRows ? { sharedRows: block.sharedRows } : {}), ...(block.firstColumnSpans ? { firstColumnSpans: block.firstColumnSpans } : {}) };
       }
       const tableLines = lines.slice(block.range[0], block.range[1] + 1).map(compact);
       // This reviewed two-column table places each four-digit code at the row end.

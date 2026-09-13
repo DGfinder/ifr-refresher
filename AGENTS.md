@@ -14,6 +14,12 @@
 
 ## Curriculum reset — owner direction, 13 September 2026
 
+Latest scope extension: owner authorised agents to add applicable Australian examples to other topics where useful. Use short, contextual prose (situation, action, reason), simple titles and nearby source references. Do not force an example onto every topic. Root reviews and integrates agent research; source text remains unchanged. This supersedes the three-pilot limit below.
+
+Writing standard for new explanations: write for someone encountering the example for the first time. Establish the pilot’s position, aircraft and relevant conditions before introducing a decision or calculation. Use short, connected sentences and explain what each number represents. KISS means removing repetition and generic commentary, not removing necessary context or writing in shorthand. Keep essential definitions beside the numbers they explain. Preserve distinctions such as cruise time versus time to landing and assumed versus aircraft-specific fuel flow. Apply this to authored additions only; baseline source wording stays immutable.
+
+Latest authorisation: trial three Australian operational examples within their existing topics: fuel/alternates, equipment defects and landing minima. Preserve baseline wording. These additions require targeted current official references and explicit fictional assumptions; broader enrichment and baseline regulatory revision remain deferred. See `docs/reviews/2026-09-13-operational-pilots.md`.
+
 Read `docs/product/curriculum-reset.md` before proposing or implementing learning content, navigation or UI changes. This supersedes the earlier feature-expansion and visual-workbook direction.
 
 - The supplied IFR Cheat Sheet V7.1 is the canonical starting curriculum: follow its topics, order and scope. Current CASA/Airservices publications govern regulatory correctness.

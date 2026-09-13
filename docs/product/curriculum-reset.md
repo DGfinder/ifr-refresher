@@ -1,5 +1,11 @@
 # Curriculum reset
 
+Latest owner authorisation: extend relevant Australian operational examples beyond the three pilots, using agent drafts reviewed by root. Use brief, human-readable situations and decisions within existing parent topics. Skip topics where an example merely repeats the reference or requires unsupported aircraft/procedure details. Keep the immutable source baseline and single contents structure. This supersedes the earlier three-pilot scope limit.
+
+## Current stage — three operational pilots
+
+The owner has now authorised a trial of Australian-only operational context for fuel/alternates, equipment defects and landing minima. Add each beneath its existing source topic, retaining the captured baseline unchanged. Use explicit scenario assumptions, a decision with revealable reasoning, Part 91/135/121 comparisons and one changed-fact exercise. Current official references are checked for these additions only. This supersedes the earlier enrichment deferral for these three examples; it does not authorise expansion across the syllabus. See `docs/reviews/2026-09-13-operational-pilots.md`.
+
 ## Latest owner correction — baseline first
 
 Capture the supplied cheat sheet before adding operational context. Current work is source capture only. Earlier lesson enrichment directions below describe a future stage and are superseded for now. The 58-page baseline is in docs/curriculum/baseline; enriched Holding and Administrational drafts are parked in docs/curriculum/deferred-context. Do not continue those drafts or migrate them into the baseline.

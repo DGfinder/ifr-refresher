@@ -69,6 +69,30 @@
 .reading-prose .reading-call { white-space: pre-line; border-left: 2px solid var(--ifr-border); padding-left: 20px; }
 .reading-prose .reading-requirements li { margin: 0.5em 0; }
 .reading-prose .reading-shared-row { text-align: center; font-style: italic; background: var(--ifr-surface-muted); }
+.operational-context { margin-top: 48px; padding-top: 32px; border-top: 2px solid var(--ifr-border); font-size: 18px; line-height: 1.65; scroll-margin-top: 24px; }
+.operational-context h2 { font-size: 28px; font-weight: 600; line-height: 1.25; margin: 8px 0 18px; }
+.operational-context h3 { font-size: 22px; font-weight: 600; margin: 30px 0 12px; }
+.operational-context h4 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+.operational-context p { margin-bottom: 16px; }
+.operational-context .operational-meta, .operational-context .operational-references { font-size: 14px; color: var(--ifr-text-muted); }
+.operational-context a { text-decoration: underline; text-underline-offset: 3px; color: var(--ifr-accent); overflow-wrap: anywhere; }
+.operational-context summary { min-height: 44px; padding: 10px 0; cursor: pointer; font-weight: 600; }
+.operational-assumptions { margin: 20px 0; padding: 0 16px; border-left: 2px solid var(--ifr-border); font-size: 16px; }
+.operational-context ul, .operational-context ol { padding-left: 24px; margin: 12px 0 20px; }
+.operational-context ul { list-style: disc; }
+.operational-context ol { list-style: decimal; }
+.operational-context li { margin: 10px 0; }
+.operational-facts { margin: 24px 0; }
+.operational-facts > div { padding: 12px 0; border-bottom: 1px solid var(--ifr-border); }
+.operational-facts dt { font-size: 15px; color: var(--ifr-text-muted); }
+.operational-facts dd { font-weight: 600; margin-top: 4px; }
+.operational-facts .operational-definition { font-size: 16px; font-weight: 400; margin: 8px 0 0; }
+.operational-answer { border-top: 1px solid var(--ifr-border); border-bottom: 1px solid var(--ifr-border); padding: 4px 0; }
+.operational-answer[open] { padding-bottom: 16px; }
+.operational-decision { font-weight: 600; margin-top: 14px; }
+.operational-parts > section { padding: 20px 0; border-bottom: 1px solid var(--ifr-border); }
+.operational-context .operational-references { list-style: none; padding: 0; margin-bottom: 0; }
+.operational-source-note { padding: 16px; background: var(--ifr-surface-muted); font-size: 16px; }
 .baseline-original { background: var(--ifr-surface); border: 1px solid var(--ifr-border); }
 .baseline-original img { display: block; width: 100%; height: auto; }
 .baseline-original figcaption { padding: 12px; font-size: 14px; color: var(--ifr-text-muted); }

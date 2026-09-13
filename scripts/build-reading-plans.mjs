@@ -22,6 +22,7 @@ maps.set("approach-visual-atc:51", { topicId: "approach-visual-atc", page: 51, t
   ] },
 ] });
 for (const plan of maps.values()) {
+  if (plan.topicId === "preflight-fuel") for (const item of plan.blocks) if (item.kind === "table") item.firstColumnSpans = [3, 0, 0, 1, 1];
   if (plan.topicId.startsWith("phraseology-")) for (const item of plan.blocks) if (item.kind === "paragraph") item.kind = "call";
 }
 writeFileSync("src/features/baseline/model/reviewedPlans.json", JSON.stringify([...maps.values()], null, 2) + "\n");

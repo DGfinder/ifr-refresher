@@ -1,0 +1,101 @@
+[
+  {
+    "parentTopic": "admin-equipment",
+    "title": "Before departure",
+    "situation": "You’re preparing a Part 135 flight from Jandakot when the aircraft’s only approved GNSS fails. The approach and missed approach you planned require GNSS. Your VOR/DME and tablet still work.",
+    "action": "You cannot keep that plan with the equipment available. Record the defect and establish whether the aircraft may fly under its maintenance requirements and any applicable approved MEL. Then assess whether another route and approach can be flown with the remaining equipment.",
+    "reason": "Permission to fly with a defect does not restore the missing navigation capability. In this example, the tablet is not an approved substitute.",
+    "sourceUrl": "https://www.legislation.gov.au/F2020L01622/latest",
+    "sourceLabel": "Part 135 MOS 11.04 — equipment serviceability"
+  },
+  {
+    "parentTopic": "approach-landing-minima",
+    "title": "Before the approach",
+    "situation": "You’re briefing a Part 135 straight-in non-precision approach with no approach lighting. For this fictional exercise, the chart gives an MDA of 800 ft and visibility of 3,000 m. The aircraft manual requires 900 ft and 3,000 m; your operator requires 950 ft and 4,000 m.",
+    "action": "Brief 950 ft and 4,000 m. Compare the altitude values separately from visibility, taking the highest applicable value for each.",
+    "reason": "All heights here are MDA in feet AMSL, using the same QNH basis. The aircraft category and other adjustments have already been accounted for. These are invented training figures. This example follows the July 2026 minima provisions, which differ from the retained 2024 extract above.",
+    "sourceUrl": "https://www.legislation.gov.au/F2020L01514/2026-07-09/2026-07-09/text/original/epub/OEBPS/document_1/document_1.html",
+    "sourceLabel": "Part 91 MOS 15.10(5)–(6) — straight-in approach without approach lighting"
+  },
+  {
+    "parentTopic": "general-performance",
+    "title": "Before departure",
+    "situation": "You’re departing a regional Western Australian aerodrome on a hot afternoon. The runway is long enough for the calculated take-off distance, but terrain rises beyond it.",
+    "action": "Check the climb and obstacle-clearance performance at your planned weight and temperature as well. If the aircraft cannot clear the obstacles with the required margin, reduce the load or change the departure plan before taking off.",
+    "reason": "Enough runway to become airborne does not establish that you can safely climb away. For this Part 91 example, use the applicable aircraft performance data for the conditions.",
+    "sourceUrl": "https://www.legislation.gov.au/F2020L01514/2026-07-09/2026-07-09/text/original/epub/OEBPS/document_1/document_1.html",
+    "sourceLabel": "Part 91 MOS 24.02 — take-off performance"
+  },
+  {
+    "parentTopic": "departure-altimeter",
+    "title": "Before departure",
+    "situation": "Before an IFR departure, you set the accurate QNH from AWIS and compare your altimeter with the known survey elevation at your position. It reads 90 ft too high. These are illustrative readings.",
+    "action": "Check the setting and comparison point. If the 90 ft error remains, treat that altimeter as inoperative; do not adjust QNH simply to make the indication match the ground.",
+    "reason": "An error greater than 75 ft is outside the Part 91 IFR limit. Whether the flight can proceed depends on the required equipment and defect status. A working second altimeter does not automatically clear the departure.",
+    "sourceUrl": "https://www.legislation.gov.au/F2020L01514/2026-07-09/2026-07-09/text/original/epub/OEBPS/document_1/document_1.html",
+    "sourceLabel": "Part 91 MOS 10.03–10.06 — pre-flight altimeter checks"
+  },
+  {
+    "parentTopic": "departure-minima",
+    "title": "Before departure",
+    "situation": "You’re preparing a Part 91 IFR departure in a single-engine aeroplane at a regional Australian aerodrome. In this example, the ceiling is 500 ft and visibility is 1,500 m. This is not a low-visibility take-off operation.",
+    "action": "Delay the departure. Although the ceiling exceeds 300 ft, visibility is below the applicable 2,000 m take-off minimum.",
+    "reason": "Both conditions have to be satisfied. Seeing enough runway to start the take-off does not replace the visibility requirement.",
+    "sourceUrl": "https://www.legislation.gov.au/F2020L01514/2026-07-09/2026-07-09/text/original/epub/OEBPS/document_1/document_1.html",
+    "sourceLabel": "Part 91 MOS 15.06 — take-off minima for other aeroplanes"
+  },
+  {
+    "parentTopic": "enroute-qnh",
+    "title": "In-flight example",
+    "situation": "You’re descending towards 8,000 ft on an IFR flight over inland Western Australia. The altimeters are still set to 1013.2 hPa. You have the current forecast Area QNH for your position.",
+    "action": "Set the relevant QNH just before descending through the transition layer, and cross-check both altimeters. Continue the descent using altitude referenced to QNH.",
+    "reason": "Your clearance to an altitude and the terrain-safe altitudes on your chart need the correct pressure reference. Leaving the standard setting selected can make the indicated altitude misleading.",
+    "sourceUrl": "https://www.legislation.gov.au/F2020L01514/2026-07-09/2026-07-09/text/original/epub/OEBPS/document_1/document_1.html",
+    "sourceLabel": "Part 91 MOS 11.02 — altimeter setting and transition layer"
+  },
+  {
+    "parentTopic": "alternates-suitability",
+    "title": "Before departure",
+    "situation": "You’re planning a night IFR flight in northern Australia. A nearby aerodrome looks convenient as an alternate, but its only instrument approach is one you are not authorised to fly.",
+    "action": "Choose another suitable alternate with an approach you can conduct. An approach drawn on a chart is no help if it is unavailable to you or your aircraft.",
+    "reason": "Under these assumptions, the proposed night IFR alternate would itself require an alternate because you cannot conduct its IAP. It fails the alternate-suitability test.",
+    "sourceUrl": "https://www.legislation.gov.au/F2020L01514/2026-07-09/2026-07-09/text/original/epub/OEBPS/document_1/document_1.html",
+    "sourceLabel": "Part 91 MOS 8.05 and 8.07 — alternate navigation and suitability"
+  },
+  {
+    "parentTopic": "alternates-special-minima",
+    "title": "Before departure",
+    "situation": "You’re checking a regional Australian aerodrome as an alternate. For this example, special alternate minima are published, but the tower will be closed at your planned arrival time.",
+    "action": "Use the ordinary applicable alternate minima for your assessment. If the forecast does not meet them, revise the plan rather than relying on the lower special minima.",
+    "reason": "Special alternate minima cannot be used without an aerodrome control service. Meeting the aircraft equipment requirements alone is not enough.",
+    "sourceUrl": "https://www.legislation.gov.au/F2020L01514/2026-07-09/2026-07-09/text/original/epub/OEBPS/document_1/document_1.html",
+    "sourceLabel": "Part 91 MOS 8.08(2)–(3) — special alternate minima"
+  },
+  {
+    "parentTopic": "approach-qnh",
+    "title": "Before the approach",
+    "situation": "You’re approaching a regional Australian aerodrome after a lengthy hold. You received its actual QNH from AWIS 20 minutes ago and are about to start the instrument approach.",
+    "action": "Obtain an updated QNH from an approved source and set it before passing the initial approach fix. Do not assume the earlier value is still valid just because you have not heard a change.",
+    "reason": "Actual aerodrome QNH cannot be used for the approach more than 15 minutes after you received it. If you instead use forecast Area QNH, the approach minima must be increased by 50 ft.",
+    "sourceUrl": "https://www.legislation.gov.au/F2020L01514/2026-07-09/2026-07-09/text/original/epub/OEBPS/document_1/document_1.html",
+    "sourceLabel": "Part 91 MOS 14.03 — instrument approach QNH"
+  },
+  {
+    "parentTopic": "approach-missed",
+    "title": "In-flight example",
+    "situation": "You’re flying an ILS approach at an Australian aerodrome. You reach the briefed decision altitude while still in cloud, without the required visual reference.",
+    "action": "Initiate the missed approach immediately. Follow the briefed published track, climb and turn instructions; do not keep descending to see whether the runway appears.",
+    "reason": "Decision altitude is the point to act. Flying the missed approach as published preserves the intended procedure protection, provided its performance and navigation requirements are met.",
+    "sourceUrl": "https://www.casa.gov.au/licences-and-certificates/pilots/ratings-reviews-and-endorsements/instrument-ratings/instrument-approach-operations",
+    "sourceLabel": "CASA — instrument approach operations"
+  },
+  {
+    "parentTopic": "gradient-nomograph",
+    "title": "Before departure",
+    "situation": "You’re planning an IFR flight in Tasmania. For this calculation exercise, a procedure requires a 3% climb gradient and you expect 120 kt groundspeed during the climb. These are training inputs, not a published procedure.",
+    "action": "At 120 kt, you travel 2 NM each minute. A 3% gradient is approximately 182 ft per NM, so you need about 365 ft/min. Compare that requirement with the aircraft’s available climb performance in the planned conditions.",
+    "reason": "Use groundspeed, not indicated airspeed. At 150 kt groundspeed, the same gradient needs about 456 ft/min. Moving faster over the ground means you must gain height faster to follow the same gradient.",
+    "sourceUrl": "/source/reference-v7-1/original.pdf#page=57",
+    "sourceLabel": "Source page 57 — gradient/rate nomograph; worked unit conversion"
+  }
+]
