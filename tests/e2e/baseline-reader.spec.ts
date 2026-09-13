@@ -31,18 +31,20 @@ test("holding diagram and text are both accessible", async ({ page }) => {
   const original = source.getByRole("img");
   await expect(original).toBeVisible();
   await expect.poll(() => original.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-  await source.getByRole("button", { name: "Text", exact: true }).click();
-  await expect(source.getByText(/Right Turns/)).toBeVisible();
+  await expect(original).toHaveAttribute("src", /figure-holding-entries-39/);
   await source.getByRole("button", { name: "Original page", exact: true }).click();
   await expect(original).toBeVisible();
+  await expect(original).toHaveAttribute("src", /page-39/);
+  await source.getByRole("button", { name: "Reading view", exact: true }).click();
+  await expect(original).toHaveAttribute("src", /figure-holding-entries-39/);
 });
 
 test("brand comparison keeps source wording and offers narrow previews", async ({ page }) => {
   await page.goto("/design-system");
-  const content = await page.locator(".baseline-source-text").first().textContent();
-  for (const name of ["Field manual", "Night reading", "Technical manual"]) {
+  const content = await page.locator(".reading-prose").first().textContent();
+  for (const name of ["Night reading", "Technical manual"]) {
     await page.getByRole("button", { name: new RegExp(name) }).click();
-    await expect(page.locator(".baseline-source-text").first()).toHaveText(content!);
+    await expect(page.locator(".reading-prose").first()).toHaveText(content!);
   }
   await page.getByRole("button", { name: "Narrow", exact: true }).click();
   await expect(page.locator(".brand-preview")).toHaveClass(/brand-phone/);

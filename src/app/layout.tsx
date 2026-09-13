@@ -23,7 +23,7 @@ const numericFont = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "IFR Quick Study",
-  description: "Read the Australian IFR Cheat Sheet in its original topic order, with access to the original source pages.",
+  description: "Australian IFR knowledge, organised for clear reading and quick reference.",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",

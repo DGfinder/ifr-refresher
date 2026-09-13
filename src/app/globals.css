@@ -51,15 +51,15 @@
 
 :root {
   /* IFR Brand Tokens - Light Theme */
-  --ifr-bg: #F5F7FB;
+  --ifr-bg: #ffffff;
   --ifr-surface: #FFFFFF;
-  --ifr-surface-muted: #EDF2F8;
-  --ifr-border: #CBD5E3;
-  --ifr-text: #14263E;
-  --ifr-text-muted: #506178;
-  --ifr-accent: #175CD3;
-  --ifr-accent-soft: #EAF1FF;
-  --ifr-navy: #14263E;
+  --ifr-surface-muted: #edf3fc;
+  --ifr-border: #cbd6e3;
+  --ifr-text: #12263e;
+  --ifr-text-muted: #52637a;
+  --ifr-accent: #1457c5;
+  --ifr-accent-soft: #edf3fc;
+  --ifr-navy: #12263e;
   --ifr-on-navy: #F7FAFF;
   --ifr-diagram-grid: #DCE5F0;
   --ifr-radius-control: 0.5rem;
@@ -75,10 +75,10 @@
   --ifr-warning-soft: #FEF3C7;
   --ifr-danger-soft: #FEE2E2;
   --ifr-info-soft: #E0F2FE;
-  --ifr-focus-ring: #175CD3;
+  --ifr-focus-ring: #1457c5;
   /* Primary call-to-action — separated from --ifr-accent so dark mode can
      use a saturated colour without overriding accent uses elsewhere. */
-  --ifr-cta-bg: #175CD3;
+  --ifr-cta-bg: #1457c5;
   --ifr-cta-bg-hover: #124AA8;
   --ifr-cta-fg: #FFFFFF;
 
@@ -118,15 +118,15 @@
 }
 
 .dark {
-  /* IFR Brand Tokens - Dark Theme (Cockpit at Night) */
-  --ifr-bg: #0D1726;
-  --ifr-surface: #152238;
-  --ifr-surface-muted: #1D304A;
-  --ifr-border: #344A66;
-  --ifr-text: #EDF3FC;
-  --ifr-text-muted: #ADBDD2;
-  --ifr-accent: #8AB9FF;
-  --ifr-accent-soft: #1D3458;
+  /* IFR Brand Tokens - Dark Theme (Night reading) */
+  --ifr-bg: #101c2b;
+  --ifr-surface: #101c2b;
+  --ifr-surface-muted: #1e3348;
+  --ifr-border: #35485f;
+  --ifr-text: #e8edf4;
+  --ifr-text-muted: #a8b9ce;
+  --ifr-accent: #7ed5e4;
+  --ifr-accent-soft: #1e3348;
   --ifr-diagram-grid: #263C58;
   --ifr-success: #22C55E;
   --ifr-warning: #FBBF24;
@@ -138,10 +138,10 @@
   --ifr-warning-soft: rgba(251, 191, 36, 0.12);
   --ifr-danger-soft: rgba(249, 115, 115, 0.12);
   --ifr-info-soft: rgba(56, 189, 248, 0.12);
-  --ifr-focus-ring: #8AB9FF;
+  --ifr-focus-ring: #7ed5e4;
   /* Dark-mode actions use saturated blue with white text; the lighter
      accent remains reserved for links, icons and selected states. */
-  --ifr-cta-bg: #175CD3;
+  --ifr-cta-bg: #1457c5;
   --ifr-cta-bg-hover: #1D69EC;
   --ifr-cta-fg: #FFFFFF;
 

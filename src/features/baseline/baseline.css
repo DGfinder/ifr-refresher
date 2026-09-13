@@ -39,6 +39,36 @@
 .baseline-view-toggle button { min-height: 44px; padding: 8px 12px; border-radius: 5px; font-size: 14px; }
 .baseline-view-toggle button[aria-pressed=true] { background: var(--ifr-accent-soft); color: var(--ifr-accent); font-weight: 600; }
 .baseline-source-text { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 18px; line-height: 1.75; }
+.reading-prose {
+  --tw-prose-body: var(--ifr-text); --tw-prose-headings: var(--ifr-text);
+  --tw-prose-bold: var(--ifr-text); --tw-prose-links: var(--ifr-accent);
+  --tw-prose-counters: var(--ifr-text-muted); --tw-prose-bullets: var(--ifr-text-muted);
+  --tw-prose-th-borders: var(--ifr-border); --tw-prose-td-borders: var(--ifr-border);
+  max-width: 68ch; font-size: 18px; line-height: 1.65; overflow-wrap: anywhere;
+}
+.reading-prose p { margin: 0 0 1.2em; }
+.reading-prose .reading-reference { color: var(--ifr-text-muted); font-size: 15px; line-height: 1.5; margin: 2em 0 1.25em; }
+.reading-prose .reading-reference:first-child { margin-top: 0; }
+.reading-prose .reading-note { border-left: 2px solid var(--ifr-border); padding-left: 16px; font-size: 16px; }
+.reading-prose .reading-list { list-style: none; padding: 0; margin: 0 0 1.2em; }
+.reading-prose .reading-list li { display: grid; grid-template-columns: 2.8em minmax(0, 1fr); gap: 0.3em; padding: 0; margin: 0.35em 0; }
+.reading-prose .reading-marker { color: var(--ifr-text-muted); font-variant-numeric: tabular-nums; }
+.reading-prose .reading-list .reading-list { margin: 0.6em 0 1em; }
+.reading-prose table { width: 100%; margin: 1.5em 0; font-size: 17px; line-height: 1.5; border-collapse: collapse; }
+.reading-prose th, .reading-prose td { text-align: left; padding: 14px 12px; vertical-align: top; border-bottom: 1px solid var(--ifr-border); }
+.reading-prose thead th { background: var(--ifr-accent-soft); font-size: 15px; font-weight: 600; }
+.reading-prose tbody th { font-weight: 400; }
+.reading-prose td:last-child { font-family: var(--font-numeric), monospace; white-space: nowrap; }
+.reading-prose h2 { font-size: 22px; line-height: 1.35; font-weight: 600; margin: 1.8em 0 0.8em; }
+.reading-table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5em 0; }
+.reading-table-scroll table { margin: 0; min-width: 100%; }
+.reading-prose td:last-child { font-family: inherit; white-space: normal; }
+.reading-prose .reading-figure { margin: 1.5em 0; }
+.reading-figure img { width: 100%; height: auto; margin: 0; }
+.reading-figure figcaption { font-size: 14px; color: var(--ifr-text-muted); }
+.reading-prose .reading-call { white-space: pre-line; border-left: 2px solid var(--ifr-border); padding-left: 20px; }
+.reading-prose .reading-requirements li { margin: 0.5em 0; }
+.reading-prose .reading-shared-row { text-align: center; font-style: italic; background: var(--ifr-surface-muted); }
 .baseline-original { background: var(--ifr-surface); border: 1px solid var(--ifr-border); }
 .baseline-original img { display: block; width: 100%; height: auto; }
 .baseline-original figcaption { padding: 12px; font-size: 14px; color: var(--ifr-text-muted); }

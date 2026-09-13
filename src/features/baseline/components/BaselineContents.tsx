@@ -14,7 +14,7 @@ export function BaselineContents({ topics }: { topics: BaselineCatalogItem[] }) 
   return (
     <div className="baseline-contents">
       <header className="baseline-heading">
-        <p className="baseline-kicker">IFR Cheat Sheet · V7.1</p>
+        <p className="baseline-kicker">Australian IFR</p>
         <h1>Contents</h1>
         <p className="baseline-byline">Ben Montgomery-Schinkel · 30 March 2024</p>
       </header>
@@ -42,7 +42,7 @@ export function BaselineContents({ topics }: { topics: BaselineCatalogItem[] }) 
         ))}</div>
       )}
       <footer className="baseline-source-note">
-        <a href="/source/ifr-cheat-sheet-v7-1/original.pdf" target="_blank" rel="noreferrer">Open original cheat sheet <ArrowUpRight size={16} aria-hidden="true" /><span className="sr-only"> (new tab)</span></a>
+        <a href="/source/reference-v7-1/original.pdf" target="_blank" rel="noreferrer">Open source PDF <ArrowUpRight size={16} aria-hidden="true" /><span className="sr-only"> (new tab)</span></a>
         <span>58 source pages · front matter included in PDF</span>
       </footer>
     </div>

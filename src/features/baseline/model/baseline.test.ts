@@ -27,10 +27,10 @@ describe("baseline reader source integrity", () => {
   });
 
   it("ships the unchanged PDF and every referenced original page", () => {
-    const pdf = readFileSync(resolve("public/source/ifr-cheat-sheet-v7-1/original.pdf"));
+    const pdf = readFileSync(resolve("public/source/reference-v7-1/original.pdf"));
     expect(createHash("sha256").update(pdf).digest("hex")).toBe(capture.sha256);
     for (let page = 1; page <= 58; page++) {
-      expect(existsSync(resolve(`public/source/ifr-cheat-sheet-v7-1/page-${page}.webp`))).toBe(true);
+      expect(existsSync(resolve(`public/source/reference-v7-1/page-${page}.webp`))).toBe(true);
     }
     expect(originalPageFirst.has(39)).toBe(true);
     expect(originalPageFirst.has(57)).toBe(true);

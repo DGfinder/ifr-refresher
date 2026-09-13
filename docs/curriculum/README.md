@@ -2,6 +2,8 @@
 
 ## Current stage: capture the baseline
 
+The captured baseline now has reviewed reading layouts across all 51 topics: paragraphs, lists, tables and retained original diagrams. This is a presentation change only; operational enrichment remains deferred.
+
 [Open the cheat-sheet baseline](baseline/README.md).
 
 [Browse its 51 source topics](baseline/contents.md), in the original order, with no added teaching content.

@@ -1,0 +1,47 @@
+{
+  "general-vmc:18": {
+    "src": "/source/reference-v7-1/figure-general-vmc-18.webp",
+    "width": 729,
+    "height": 510
+  },
+  "general-vhf-range:19": {
+    "src": "/source/reference-v7-1/figure-general-vhf-range-19.webp",
+    "width": 385,
+    "height": 55
+  },
+  "general-surveillance:20": {
+    "src": "/source/reference-v7-1/figure-general-surveillance-20.webp",
+    "width": 664,
+    "height": 1022
+  },
+  "holding-entries:39": {
+    "src": "/source/reference-v7-1/figure-holding-entries-39.webp",
+    "width": 710,
+    "height": 404
+  },
+  "approach-procedure-turns:47": {
+    "src": "/source/reference-v7-1/figure-approach-procedure-turns-47.webp",
+    "width": 731,
+    "height": 430
+  },
+  "approach-test-tolerances:48": {
+    "src": "/source/reference-v7-1/figure-approach-test-tolerances-48.webp",
+    "width": 729,
+    "height": 388
+  },
+  "approach-visual-atc:51": {
+    "src": "/source/reference-v7-1/figure-approach-visual-atc-51.webp",
+    "width": 656,
+    "height": 355
+  },
+  "approach-visual-requirements:52": {
+    "src": "/source/reference-v7-1/figure-approach-visual-requirements-52.webp",
+    "width": 576,
+    "height": 847
+  },
+  "gradient-nomograph:57": {
+    "src": "/source/reference-v7-1/figure-gradient-nomograph-57.webp",
+    "width": 731,
+    "height": 1001
+  }
+}

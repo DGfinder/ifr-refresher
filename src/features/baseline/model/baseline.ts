@@ -3,7 +3,7 @@ import source from "../../../../docs/curriculum/baseline/topics.json";
 export const baselineTopics = source.topics;
 export const baselineCatalog = baselineTopics.map(({ id, title, chapter, parent, source_pages }) => ({ id, title, chapter, parent, pages: source_pages }));
 export type BaselineCatalogItem = typeof baselineCatalog[number];
-export const sourcePdf = "/source/ifr-cheat-sheet-v7-1/original.pdf";
+export const sourcePdf = "/source/reference-v7-1/original.pdf";
 
 export function findBaselineTopic(id: string) {
   return baselineTopics.find((topic) => topic.id === id);

@@ -1,0 +1,3522 @@
+[
+  {
+    "topicId": "enroute-qnh",
+    "page": 36,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              4,
+              4
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              6,
+              6
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              10,
+              10
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              15,
+              15
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          17,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "enroute-navigation",
+    "page": 37,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              4,
+              4
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              6,
+              6
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              10,
+              10
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              11,
+              11
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          15,
+          15
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          16,
+          16
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          17,
+          17
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          19,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "enroute-deviations",
+    "page": 37,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "holding-entries",
+    "page": 38,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              9,
+              9
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          15,
+          15
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          16,
+          16
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              17,
+              17
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          19,
+          19
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              20,
+              20
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          21,
+          21
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          22,
+          22
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          23,
+          23
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          24,
+          24
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          25,
+          25
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          26,
+          26
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          27,
+          27
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          28,
+          28
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          29,
+          29
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          30,
+          30
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          31,
+          31
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          32,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "holding-entries",
+    "page": 39,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "figure",
+        "range": [
+          0,
+          -1
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "holding-limitations",
+    "page": 40,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          4,
+          9
+        ],
+        "headers": [
+          "Altitude",
+          "Max KIAS"
+        ],
+        "rows": [
+          [
+            "Up to and inc. FL140",
+            "230"
+          ],
+          [
+            "",
+            "170*"
+          ],
+          [
+            "ABV FL140",
+            "240"
+          ],
+          [
+            "Above FL200",
+            "265"
+          ]
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          15,
+          15
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          16,
+          16
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          17,
+          17
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          19,
+          19
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          20,
+          20
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          21,
+          21
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          22,
+          22
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          23,
+          23
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          24,
+          24
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          25,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-types",
+    "page": 41,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "figure",
+        "range": [
+          1,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-aom",
+    "page": 42,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          12,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-ban",
+    "page": 43,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              9,
+              9
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              10,
+              10
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          15,
+          15
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          16,
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-lsalt",
+    "page": 43,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-below-minima",
+    "page": 44,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              11,
+              11
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              12,
+              12
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              15,
+              15
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              16,
+              16
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              17,
+              17
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          19,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-circling",
+    "page": 45,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          15,
+          15
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          16,
+          16
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          17,
+          17
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              19,
+              19
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          20,
+          20
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              21,
+              21
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          22,
+          22
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          23,
+          23
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              24,
+              24
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          25,
+          25
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          26,
+          26
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          27,
+          27
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          28,
+          28
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          29,
+          29
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          30,
+          30
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          31,
+          31
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          32,
+          32
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          33,
+          33
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          34,
+          34
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          35,
+          35
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          36,
+          36
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              37,
+              37
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-circling",
+    "page": 46,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          15,
+          15
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          16,
+          16
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          17,
+          17
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          19,
+          19
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          20,
+          20
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          21,
+          21
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              22,
+              22
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          23,
+          23
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          24,
+          24
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          25,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-circling-areas",
+    "page": 47,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          3,
+          13
+        ],
+        "headers": [
+          "Aircraft category",
+          "Circling area (NM)",
+          "Obstacle clearance (ft)"
+        ],
+        "rows": [
+          [
+            "A",
+            "1.68",
+            "300"
+          ],
+          [
+            "B",
+            "2.66",
+            "300"
+          ],
+          [
+            "C",
+            "4.20",
+            "400"
+          ],
+          [
+            "D",
+            "5.28",
+            "400"
+          ],
+          [
+            "E",
+            "6.94",
+            "500"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-procedure-turns",
+    "page": 47,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "figure",
+        "range": [
+          0,
+          -1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          4,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-speeds",
+    "page": 48,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          3,
+          23
+        ],
+        "headers": [
+          "ACFT CAT",
+          "VAT",
+          "Initial and intermediate approach speeds",
+          "Final approach speeds",
+          "Max speeds for circling",
+          "Max speeds for missed approach"
+        ],
+        "rows": [
+          [
+            "A",
+            "< 91",
+            "90 – 150 (110*)",
+            "70 – 100",
+            "100",
+            "110"
+          ],
+          [
+            "B",
+            "91 – 120",
+            "120 – 180 (140*)",
+            "85 – 130",
+            "135",
+            "150"
+          ],
+          [
+            "C",
+            "121 – 140",
+            "160 – 240",
+            "115 – 160",
+            "180",
+            "240"
+          ],
+          [
+            "D",
+            "141 – 165",
+            "185 – 250",
+            "130 – 185",
+            "205",
+            "265"
+          ],
+          [
+            "E",
+            "166 – 210",
+            "185 – 250",
+            "155 – 230",
+            "240",
+            "275"
+          ],
+          [
+            "H",
+            "N/A",
+            "70 – 120",
+            "60 – 90",
+            "N/A",
+            "90"
+          ],
+          [
+            "* Max speed for reversal procedures",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-test-tolerances",
+    "page": 48,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "figure",
+        "range": [
+          0,
+          -1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          2,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-ils-tolerances",
+    "page": 49,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              7,
+              7
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              9,
+              9
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              10,
+              10
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-arrivals",
+    "page": 49,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-arrivals-cta",
+    "page": 49,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-arrivals-cta",
+    "page": 50,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          15,
+          15
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          16,
+          16
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          17,
+          17
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          19,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-visual-atc",
+    "page": 51,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "figure",
+        "range": [
+          1,
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-visual-requirements",
+    "page": 52,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "figure",
+        "range": [
+          1,
+          31
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-landing-minima",
+    "page": 53,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              2,
+              4
+            ],
+            "children": [
+              {
+                "range": [
+                  5,
+                  6
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  7,
+                  7
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  8,
+                  9
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "range": [
+              10,
+              12
+            ],
+            "children": [
+              {
+                "range": [
+                  13,
+                  14
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  15,
+                  15
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  16,
+                  17
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  18,
+                  18
+                ],
+                "children": [
+                  {
+                    "range": [
+                      19,
+                      19
+                    ],
+                    "children": []
+                  },
+                  {
+                    "range": [
+                      20,
+                      21
+                    ],
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "range": [
+                  22,
+                  22
+                ],
+                "children": [
+                  {
+                    "range": [
+                      23,
+                      24
+                    ],
+                    "children": []
+                  },
+                  {
+                    "range": [
+                      25,
+                      27
+                    ],
+                    "children": []
+                  },
+                  {
+                    "range": [
+                      28,
+                      28
+                    ],
+                    "children": []
+                  },
+                  {
+                    "range": [
+                      29,
+                      30
+                    ],
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "range": [
+                  31,
+                  32
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  33,
+                  35
+                ],
+                "children": [
+                  {
+                    "range": [
+                      36,
+                      37
+                    ],
+                    "children": []
+                  },
+                  {
+                    "range": [
+                      38,
+                      38
+                    ],
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          39,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-landing-minima",
+    "page": 54,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "note",
+        "range": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              2,
+              4
+            ],
+            "children": [
+              {
+                "range": [
+                  5,
+                  6
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  7,
+                  7
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  8,
+                  9
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "range": [
+              10,
+              12
+            ],
+            "children": [
+              {
+                "range": [
+                  13,
+                  14
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  15,
+                  15
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  16,
+                  17
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  18,
+                  21
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "range": [
+              22,
+              24
+            ],
+            "children": [
+              {
+                "range": [
+                  25,
+                  26
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  27,
+                  27
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  28,
+                  29
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "range": [
+              30,
+              32
+            ],
+            "children": [
+              {
+                "range": [
+                  33,
+                  34
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  35,
+                  35
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  36,
+                  37
+                ],
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-missed",
+    "page": 55,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              13,
+              13
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              15,
+              15
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          16,
+          16
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          17,
+          17
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          19,
+          19
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          21,
+          21
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          22,
+          22
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              23,
+              23
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          24,
+          24
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              25,
+              25
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              26,
+              26
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              27,
+              27
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              28,
+              28
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-go-around-vmc",
+    "page": 56,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              6,
+              6
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              10,
+              10
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              12,
+              12
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          15,
+          15
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          16,
+          16
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          17,
+          17
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          19,
+          19
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          20,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "gradient-nomograph",
+    "page": 57,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "figure",
+        "range": [
+          2,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-briefing",
+    "page": 58,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          15,
+          15
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          16,
+          16
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          17,
+          17
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          19,
+          19
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          20,
+          20
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          21,
+          21
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          22,
+          22
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          23,
+          23
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          24,
+          24
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          25,
+          25
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              26,
+              26
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              27,
+              27
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              28,
+              28
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              29,
+              29
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              30,
+              30
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              31,
+              31
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              32,
+              32
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          33,
+          33
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              34,
+              34
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

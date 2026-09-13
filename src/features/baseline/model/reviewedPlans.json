@@ -1,0 +1,4828 @@
+[
+  {
+    "topicId": "admin-mos",
+    "page": 7,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            2,
+            3
+          ],
+          {
+            "range": [
+              4,
+              4
+            ],
+            "children": [
+              [
+                5,
+                5
+              ],
+              [
+                6,
+                7
+              ],
+              [
+                8,
+                8
+              ],
+              [
+                9,
+                9
+              ],
+              [
+                10,
+                10
+              ],
+              [
+                11,
+                11
+              ],
+              {
+                "range": [
+                  12,
+                  12
+                ],
+                "children": [
+                  [
+                    13,
+                    13
+                  ],
+                  [
+                    14,
+                    14
+                  ]
+                ]
+              },
+              [
+                15,
+                15
+              ],
+              [
+                16,
+                16
+              ],
+              [
+                17,
+                17
+              ],
+              [
+                18,
+                18
+              ],
+              [
+                19,
+                19
+              ],
+              [
+                20,
+                20
+              ],
+              [
+                21,
+                21
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "admin-ipc-validity",
+    "page": 7,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            9
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          13
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "admin-privileges",
+    "page": 8,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            5
+          ]
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          6,
+          7
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            9,
+            10
+          ],
+          [
+            11,
+            14
+          ],
+          {
+            "range": [
+              15,
+              15
+            ],
+            "children": [
+              [
+                16,
+                18
+              ],
+              [
+                19,
+                23
+              ],
+              [
+                24,
+                26
+              ]
+            ]
+          },
+          [
+            27,
+            29
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "admin-recency",
+    "page": 9,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          3,
+          25
+        ],
+        "headers": [
+          "",
+          "Requirement (in an aircraft or approved flight simulation training device)"
+        ],
+        "rows": [
+          [
+            "To fly under the IFR",
+            "Must have conducted at least three instrument approach operations within the previous 90 days"
+          ],
+          [
+            "To pilot an aircraft of a particular category",
+            "Must have conducted at least one instrument approach operation in an aircraft of the same category (refer to Definitions) within the previous 90 days"
+          ],
+          [
+            "2D approach",
+            "Must have conducted at least one 2D instrument approach within the previous 90 days"
+          ],
+          [
+            "3D approach",
+            "Must have conducted at least one 3D instrument approach within the previous 90 days"
+          ],
+          [
+            "Azimuth guidance",
+            "Must have conducted at least one 2D instrument approach using azimuth guidance within the previous 90 days"
+          ],
+          [
+            "Course deviation indicator",
+            "Must have conducted at least one instrument approach using a CDI within the previous 90 days"
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          26,
+          27
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            28,
+            29
+          ],
+          [
+            30,
+            31
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "admin-recency",
+    "page": 10,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            2,
+            5
+          ],
+          {
+            "range": [
+              6,
+              6
+            ],
+            "children": [
+              [
+                7,
+                7
+              ],
+              [
+                8,
+                9
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "admin-equipment",
+    "page": 11,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          2,
+          12
+        ],
+        "headers": [
+          "Requirements"
+        ],
+        "rows": [
+          [
+            "Approved GNSS"
+          ],
+          [
+            "AI1 7"
+          ],
+          [
+            "ASI2 3"
+          ],
+          [
+            "ALT3"
+          ],
+          [
+            "VSI3"
+          ],
+          [
+            "T+S4 5 7"
+          ],
+          [
+            "DG6 7"
+          ],
+          [
+            "Compass"
+          ],
+          [
+            "OAT"
+          ],
+          [
+            "Clock8"
+          ]
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            13,
+            14
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            18,
+            19
+          ],
+          [
+            20,
+            21
+          ],
+          [
+            22,
+            23
+          ],
+          [
+            24,
+            24
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "admin-equipment",
+    "page": 12,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              2,
+              3
+            ],
+            "children": [
+              [
+                4,
+                5
+              ],
+              [
+                6,
+                7
+              ],
+              [
+                8,
+                9
+              ]
+            ]
+          },
+          {
+            "range": [
+              10,
+              10
+            ],
+            "children": [
+              [
+                11,
+                11
+              ],
+              [
+                12,
+                13
+              ],
+              [
+                14,
+                15
+              ]
+            ]
+          },
+          [
+            16,
+            19
+          ]
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          20,
+          20
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          21,
+          22
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            23,
+            24
+          ],
+          {
+            "range": [
+              25,
+              25
+            ],
+            "children": [
+              [
+                26,
+                27
+              ],
+              [
+                28,
+                28
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "admin-equipment",
+    "page": 13,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          1,
+          7
+        ],
+        "headers": [],
+        "rows": [
+          [
+            "Equipment illumination inc. checklists and documents"
+          ],
+          [
+            "Compatible with each item of equipment"
+          ],
+          [
+            "In a normal position, can read all placards and instrument markings, eyes shielded from direct and reflected light"
+          ],
+          [
+            "Variable intensity"
+          ],
+          [
+            "Cabin lighting for seatbelt, oxygen normal and emergency exits"
+          ],
+          [
+            "Independent portable light for each FCM"
+          ]
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          9,
+          11
+        ],
+        "headers": [],
+        "rows": [
+          [
+            "1 red beacon, or"
+          ],
+          [
+            "2 white strobes, or"
+          ],
+          [
+            "A combination of these"
+          ]
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          13,
+          13
+        ],
+        "headers": [],
+        "rows": [
+          [
+            "Operating by night, at least 1 landing light"
+          ]
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          15,
+          15
+        ],
+        "headers": [],
+        "rows": [
+          [
+            "Operating by night, must be fitted"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "general-speeds",
+    "page": 14,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "heading",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            6
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          8
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          13
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          14,
+          14
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          15,
+          17
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            19,
+            19
+          ],
+          [
+            20,
+            20
+          ],
+          [
+            21,
+            21
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          22,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "general-comms-failure",
+    "page": 15,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          4
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            12
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            14,
+            15
+          ],
+          [
+            16,
+            18
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          19,
+          19
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            20,
+            20
+          ],
+          [
+            21,
+            21
+          ],
+          [
+            22,
+            23
+          ],
+          [
+            24,
+            25
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          26,
+          26
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            27,
+            27
+          ],
+          [
+            28,
+            28
+          ],
+          [
+            29,
+            30
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          31,
+          31
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          32,
+          32
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            33,
+            34
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          35,
+          35
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          36,
+          36
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            37,
+            39
+          ],
+          [
+            40,
+            41
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "general-comms-failure",
+    "page": 16,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "list",
+        "items": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            10
+          ],
+          [
+            11,
+            14
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          15,
+          15
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            16,
+            17
+          ],
+          [
+            18,
+            19
+          ],
+          [
+            20,
+            21
+          ],
+          [
+            22,
+            22
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          23,
+          23
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            24,
+            28
+          ],
+          [
+            29,
+            29
+          ],
+          [
+            30,
+            31
+          ],
+          [
+            32,
+            33
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "general-performance",
+    "page": 17,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "heading",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          14
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            15,
+            15
+          ],
+          [
+            16,
+            16
+          ],
+          [
+            17,
+            17
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          19,
+          21
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          22,
+          27
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          28,
+          31
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            32,
+            32
+          ],
+          [
+            33,
+            33
+          ],
+          [
+            34,
+            34
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "general-vmc",
+    "page": 18,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "figure",
+        "range": [
+          2,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "general-vhf-range",
+    "page": 19,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "figure",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "general-surveillance",
+    "page": 20,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "figure",
+        "range": [
+          1,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "general-light-signals",
+    "page": 21,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          4,
+          29
+        ],
+        "headers": [
+          "Light Signal",
+          "In Flight",
+          "On Airport"
+        ],
+        "rows": [
+          [
+            "Steady green",
+            "Authorised to land if pilot satisfied no collision risk exists",
+            "Authorised to take-off if pilot satisfied no collision risk exists"
+          ],
+          [
+            "Steady red",
+            "Give way to other aircraft and continue circling",
+            "Stop"
+          ],
+          [
+            "Green flashes",
+            "Return for landing",
+            "Authorised to taxi if pilot satisfied no collision risk exists"
+          ],
+          [
+            "Red flashes",
+            "Airport unsafe – do not land",
+            "Taxi clear of landing area in use"
+          ],
+          [
+            "White flashes",
+            "No significance",
+            "Return to starting point on airport"
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          31,
+          31
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          32,
+          32
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            33,
+            33
+          ],
+          [
+            34,
+            34
+          ],
+          [
+            35,
+            37
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          38,
+          38
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            39,
+            39
+          ],
+          [
+            40,
+            42
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "phraseology-class-g",
+    "page": 22,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          4,
+          11
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          14,
+          15
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          16,
+          21
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          22,
+          23
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          24,
+          29
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          30,
+          32
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          33,
+          38
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          40,
+          41
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          42,
+          48
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          49,
+          50
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          51,
+          54
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "phraseology-class-d",
+    "page": 23,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "heading",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          3,
+          6
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          7,
+          8
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          9,
+          12
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          14,
+          19
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          20,
+          22
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          23,
+          25
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          26,
+          26
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          27,
+          30
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          31,
+          32
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          33,
+          36
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          37,
+          37
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          38,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "phraseology-class-c",
+    "page": 24,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "heading",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          3,
+          6
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          7,
+          8
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          9,
+          12
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          14,
+          19
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          20,
+          22
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          23,
+          25
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          26,
+          28
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          29,
+          33
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          34,
+          36
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          37,
+          40
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          41,
+          42
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          43,
+          47
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          48,
+          49
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          50,
+          54
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          55,
+          55
+        ]
+      },
+      {
+        "kind": "call",
+        "range": [
+          56,
+          60
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "preflight-fuel",
+    "page": 25,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          3,
+          12
+        ],
+        "headers": [
+          "Aircraft",
+          "Flight Rules",
+          "Final Reserve Fuel",
+          "Contingency Fuel"
+        ],
+        "rows": [
+          [
+            "MTOW ≤ 5700 kg",
+            "Day VFR",
+            "30 minutes",
+            "-"
+          ],
+          [
+            "",
+            "Night VFR",
+            "45 minutes",
+            "-"
+          ],
+          [
+            "",
+            "IFR",
+            "45 minutes",
+            "-"
+          ],
+          [
+            "Turbojet or > 5700 kg turboprop",
+            "IFR or VFR",
+            "30 minutes",
+            "5%"
+          ],
+          [
+            "Piston > 5700 kg",
+            "IFR or VFR",
+            "45 minutes",
+            "5%"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "alternates-suitability",
+    "page": 26,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          5
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            9,
+            9
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "alternates-triggers",
+    "page": 26,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "heading",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          6
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            9
+          ]
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          10,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            13,
+            15
+          ],
+          [
+            16,
+            19
+          ]
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          20,
+          21
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          22,
+          24
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          25,
+          26
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "alternates-triggers",
+    "page": 27,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "note",
+        "range": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            9
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          11,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          18
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            19,
+            21
+          ],
+          [
+            22,
+            22
+          ],
+          [
+            23,
+            26
+          ],
+          [
+            27,
+            28
+          ]
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          29,
+          29
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          30,
+          30
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          31,
+          32
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          33,
+          34
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          35,
+          36
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          37,
+          38
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "alternates-triggers",
+    "page": 28,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "heading",
+        "range": [
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          6
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            7,
+            8
+          ],
+          [
+            9,
+            10
+          ]
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          11,
+          12
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          19
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          20,
+          20
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          21,
+          27
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          28,
+          30
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          31,
+          31
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          32,
+          35
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          36,
+          38
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          39,
+          39
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "alternates-triggers",
+    "page": 29,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "range": [
+          0,
+          2
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            6
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          7,
+          7
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          8,
+          9
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          12
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            13,
+            14
+          ]
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          15,
+          16
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          17,
+          19
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            20,
+            20
+          ],
+          [
+            21,
+            21
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "alternates-special-minima",
+    "page": 29,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          6
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          {
+            "range": [
+              10,
+              10
+            ],
+            "children": [
+              [
+                11,
+                11
+              ],
+              [
+                12,
+                12
+              ],
+              [
+                13,
+                13
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "alternates-special-minima",
+    "page": 30,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "range": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "departure-altimeter",
+    "page": 31,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          5
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          6,
+          8
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          9,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          19
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          20,
+          24
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          25,
+          29
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          30,
+          31
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          32,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "departure-altimeter",
+    "page": 32,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          2,
+          3
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          4,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "departure-minima",
+    "page": 33,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          5
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ]
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            10,
+            11
+          ],
+          {
+            "range": [
+              12,
+              14
+            ],
+            "children": [
+              [
+                15,
+                16
+              ],
+              [
+                17,
+                17
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          18,
+          19
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          20,
+          20
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            21,
+            21
+          ],
+          [
+            22,
+            22
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          23,
+          23
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            24,
+            24
+          ]
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          25,
+          26
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          27,
+          27
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          28,
+          28
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              29,
+              29
+            ],
+            "children": [
+              [
+                30,
+                30
+              ],
+              [
+                31,
+                32
+              ],
+              [
+                33,
+                33
+              ]
+            ]
+          },
+          [
+            34,
+            35
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "departure-briefing",
+    "page": 34,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "heading",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          2,
+          7
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          10
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          11,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          16
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          17,
+          17
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          23
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          24,
+          24
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            25,
+            25
+          ],
+          [
+            26,
+            26
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          27,
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "departure-safety-briefing",
+    "page": 35,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "range": [
+          1,
+          4
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          5,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          8
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            9,
+            10
+          ]
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          11,
+          14
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          15,
+          16
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          17,
+          17
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            18,
+            19
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          20,
+          21
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          22,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "enroute-qnh",
+    "page": 36,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            6
+          ]
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          7,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          12
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          15
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          17,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "enroute-navigation",
+    "page": 37,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            10
+          ],
+          [
+            11,
+            15
+          ]
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          16,
+          16
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          17,
+          17
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          18
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          19,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "enroute-deviations",
+    "page": 37,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          5,
+          10
+        ],
+        "headers": [
+          "Navigation Tolerance"
+        ],
+        "rows": [
+          [
+            "NDB ± 5°"
+          ],
+          [
+            "LOC/VOR Half-scale deflection"
+          ],
+          [
+            "RNP/RNAV Outside the prescribed RNP/RNAV value"
+          ],
+          [
+            "DME ± 2 NM"
+          ],
+          [
+            "VISUAL 1 NM"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "holding-entries",
+    "page": 38,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            4,
+            7
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            10,
+            11
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          12,
+          12
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            13,
+            15
+          ],
+          {
+            "range": [
+              16,
+              16
+            ],
+            "children": [
+              [
+                17,
+                19
+              ],
+              [
+                20,
+                21
+              ]
+            ]
+          },
+          [
+            22,
+            23
+          ],
+          [
+            24,
+            25
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          26,
+          26
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          27,
+          29
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          30,
+          30
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          31,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "holding-entries",
+    "page": 39,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "figure",
+        "range": [
+          0,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "holding-limitations",
+    "page": 40,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          4,
+          9
+        ],
+        "headers": [
+          "Altitude",
+          "Max KIAS"
+        ],
+        "rows": [
+          [
+            "Up to and inc. FL140",
+            "230"
+          ],
+          [
+            "",
+            "170*"
+          ],
+          [
+            "ABV FL140",
+            "240"
+          ],
+          [
+            "Above FL200",
+            "265"
+          ]
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          12
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          13,
+          13
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            14,
+            15
+          ],
+          [
+            16,
+            17
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          19
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          20,
+          22
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          23,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-types",
+    "page": 41,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          3,
+          4
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          10,
+          11
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            12,
+            12
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            16,
+            16
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          17,
+          18
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            19,
+            19
+          ],
+          [
+            20,
+            20
+          ]
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          21,
+          23
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            24,
+            24
+          ],
+          [
+            25,
+            25
+          ],
+          [
+            26,
+            26
+          ],
+          [
+            27,
+            27
+          ],
+          [
+            28,
+            28
+          ],
+          [
+            29,
+            29
+          ],
+          [
+            30,
+            30
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-aom",
+    "page": 42,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          5
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          6,
+          8
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ]
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          12,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-ban",
+    "page": 43,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          3,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          15,
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-lsalt",
+    "page": 43,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          3
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          4,
+          4
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          10,
+          13
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-below-minima",
+    "page": 44,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            7
+          ]
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          10
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            15
+          ],
+          [
+            16,
+            19
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-circling",
+    "page": 45,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ]
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          12
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            13,
+            13
+          ],
+          [
+            14,
+            15
+          ],
+          [
+            16,
+            18
+          ],
+          {
+            "range": [
+              19,
+              19
+            ],
+            "children": [
+              [
+                20,
+                23
+              ]
+            ]
+          },
+          {
+            "range": [
+              24,
+              24
+            ],
+            "children": [
+              [
+                25,
+                28
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          29,
+          29
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            30,
+            35
+          ],
+          [
+            36,
+            37
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-circling",
+    "page": 46,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "range": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            2,
+            5
+          ]
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          7,
+          9
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          10,
+          11
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          12,
+          13
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          14,
+          17
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          18,
+          19
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          20,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-circling-areas",
+    "page": 47,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          3,
+          13
+        ],
+        "headers": [
+          "Aircraft category",
+          "Circling area (NM)",
+          "Obstacle clearance (ft)"
+        ],
+        "rows": [
+          [
+            "A",
+            "1.68",
+            "300"
+          ],
+          [
+            "B",
+            "2.66",
+            "300"
+          ],
+          [
+            "C",
+            "4.20",
+            "400"
+          ],
+          [
+            "D",
+            "5.28",
+            "400"
+          ],
+          [
+            "E",
+            "6.94",
+            "500"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-procedure-turns",
+    "page": 47,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "figure",
+        "range": [
+          3,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-speeds",
+    "page": 48,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          2,
+          2
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          3,
+          23
+        ],
+        "headers": [
+          "ACFT CAT",
+          "VAT",
+          "Initial and intermediate approach speeds",
+          "Final approach speeds",
+          "Max speeds for circling",
+          "Max speeds for missed approach"
+        ],
+        "rows": [
+          [
+            "A",
+            "< 91",
+            "90 – 150 (110*)",
+            "70 – 100",
+            "100",
+            "110"
+          ],
+          [
+            "B",
+            "91 – 120",
+            "120 – 180 (140*)",
+            "85 – 130",
+            "135",
+            "150"
+          ],
+          [
+            "C",
+            "121 – 140",
+            "160 – 240",
+            "115 – 160",
+            "180",
+            "240"
+          ],
+          [
+            "D",
+            "141 – 165",
+            "185 – 250",
+            "130 – 185",
+            "205",
+            "265"
+          ],
+          [
+            "E",
+            "166 – 210",
+            "185 – 250",
+            "155 – 230",
+            "240",
+            "275"
+          ],
+          [
+            "H",
+            "N/A",
+            "70 – 120",
+            "60 – 90",
+            "N/A",
+            "90"
+          ],
+          [
+            "* Max speed for reversal procedures",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-test-tolerances",
+    "page": 48,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "figure",
+        "range": [
+          0,
+          -1
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-ils-tolerances",
+    "page": 49,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          6
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            7,
+            9
+          ],
+          [
+            10,
+            12
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-arrivals",
+    "page": 49,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-arrivals-cta",
+    "page": 49,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-arrivals-cta",
+    "page": 50,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "paragraph",
+        "range": [
+          0,
+          3
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          4,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          11
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          12,
+          14
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          15,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-visual-atc",
+    "page": 51,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          3,
+          3
+        ]
+      },
+      {
+        "kind": "table",
+        "range": [
+          4,
+          16
+        ],
+        "headers": [
+          "Day",
+          "Night"
+        ],
+        "sharedRows": [
+          0
+        ],
+        "rows": [
+          [
+            "may be issued when...",
+            ""
+          ],
+          [
+            "Within 30NM",
+            "Within 30NM"
+          ],
+          [
+            "Continuous visual reference to ground or water",
+            "Continuous visual reference to ground or water"
+          ],
+          [
+            "VIS 5000M",
+            "VIS 5000M"
+          ],
+          [
+            "-",
+            "If being vectored, assigned MVA and given heading or tracking instructions to intercept final or to position within circling area"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-visual-requirements",
+    "page": 52,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "figure",
+        "range": [
+          3,
+          31
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-landing-minima",
+    "page": 53,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              2,
+              4
+            ],
+            "children": [
+              {
+                "range": [
+                  5,
+                  6
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  7,
+                  7
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  8,
+                  9
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "range": [
+              10,
+              12
+            ],
+            "children": [
+              {
+                "range": [
+                  13,
+                  14
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  15,
+                  15
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  16,
+                  17
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  18,
+                  18
+                ],
+                "children": [
+                  {
+                    "range": [
+                      19,
+                      19
+                    ],
+                    "children": []
+                  },
+                  {
+                    "range": [
+                      20,
+                      21
+                    ],
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "range": [
+                  22,
+                  22
+                ],
+                "children": [
+                  {
+                    "range": [
+                      23,
+                      24
+                    ],
+                    "children": []
+                  },
+                  {
+                    "range": [
+                      25,
+                      27
+                    ],
+                    "children": []
+                  },
+                  {
+                    "range": [
+                      28,
+                      28
+                    ],
+                    "children": []
+                  },
+                  {
+                    "range": [
+                      29,
+                      30
+                    ],
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "range": [
+                  31,
+                  32
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  33,
+                  35
+                ],
+                "children": [
+                  {
+                    "range": [
+                      36,
+                      37
+                    ],
+                    "children": []
+                  },
+                  {
+                    "range": [
+                      38,
+                      38
+                    ],
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          39,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-landing-minima",
+    "page": 54,
+    "titleRange": null,
+    "blocks": [
+      {
+        "kind": "note",
+        "range": [
+          0,
+          1
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          {
+            "range": [
+              2,
+              4
+            ],
+            "children": [
+              {
+                "range": [
+                  5,
+                  6
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  7,
+                  7
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  8,
+                  9
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "range": [
+              10,
+              12
+            ],
+            "children": [
+              {
+                "range": [
+                  13,
+                  14
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  15,
+                  15
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  16,
+                  17
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  18,
+                  21
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "range": [
+              22,
+              24
+            ],
+            "children": [
+              {
+                "range": [
+                  25,
+                  26
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  27,
+                  27
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  28,
+                  29
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "range": [
+              30,
+              32
+            ],
+            "children": [
+              {
+                "range": [
+                  33,
+                  34
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  35,
+                  35
+                ],
+                "children": []
+              },
+              {
+                "range": [
+                  36,
+                  37
+                ],
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-missed",
+    "page": 55,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          5
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          6,
+          6
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            7,
+            11
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            14,
+            15
+          ],
+          [
+            16,
+            17
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            19,
+            19
+          ]
+        ]
+      },
+      {
+        "kind": "reference",
+        "range": [
+          21,
+          21
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          22,
+          22
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            23,
+            24
+          ],
+          [
+            25,
+            25
+          ],
+          [
+            26,
+            26
+          ],
+          [
+            27,
+            27
+          ],
+          [
+            28,
+            28
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-go-around-vmc",
+    "page": 56,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "reference",
+        "range": [
+          1,
+          2
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          3,
+          6
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          7,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          13
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            14,
+            14
+          ],
+          [
+            15,
+            16
+          ],
+          [
+            17,
+            17
+          ]
+        ]
+      },
+      {
+        "kind": "note",
+        "range": [
+          18,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "gradient-nomograph",
+    "page": 57,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "figure",
+        "range": [
+          2,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "approach-briefing",
+    "page": 58,
+    "titleRange": [
+      0,
+      0
+    ],
+    "blocks": [
+      {
+        "kind": "heading",
+        "range": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          2,
+          7
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          8,
+          8
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          9,
+          9
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          10,
+          10
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          11,
+          18
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          19,
+          19
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          20,
+          23
+        ]
+      },
+      {
+        "kind": "heading",
+        "range": [
+          24,
+          24
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          25,
+          25
+        ]
+      },
+      {
+        "kind": "list",
+        "items": [
+          [
+            26,
+            26
+          ],
+          [
+            27,
+            27
+          ],
+          [
+            28,
+            28
+          ],
+          [
+            29,
+            29
+          ],
+          [
+            30,
+            30
+          ],
+          [
+            31,
+            31
+          ],
+          [
+            32,
+            32
+          ]
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "range": [
+          33,
+          34
+        ]
+      }
+    ]
+  }
+]

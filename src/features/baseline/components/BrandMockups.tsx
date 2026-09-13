@@ -1,13 +1,12 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { BookOpen, FileText, Moon, Monitor, Smartphone } from "lucide-react";
+import { BookOpen, Moon, Monitor, Smartphone } from "lucide-react";
 import "../brand-mockups.css";
 
 const directions = [
-  { id: "technical", number: "01", name: "Technical manual", Icon: BookOpen, description: "White paper, navy text and precise blue accents. Source Sans 3 throughout; numbers in IBM Plex Mono.", tradeoff: "The clearest starting point for quick reference and longer reading." },
-  { id: "editorial", number: "02", name: "Field manual", Icon: FileText, description: "Warm paper, ink-blue headings and a Georgia reading face. Sans-serif navigation keeps the controls distinct.", tradeoff: "More like a printed reference book; larger type and looser spacing favour sustained reading." },
-  { id: "night", number: "03", name: "Night reading", Icon: Moon, description: "Deep navy surfaces, soft light text and restrained cyan. A compact heading and generous body spacing.", tradeoff: "A dedicated dark reading direction. It is a visual concept, not a claim about cockpit suitability." },
+  { id: "technical", number: "01", name: "Technical manual", Icon: BookOpen, description: "White paper, navy text and precise blue accents. Source Sans 3 throughout; numbers in IBM Plex Mono.", tradeoff: "The light theme used throughout IFR Quick Study." },
+  { id: "night", number: "02", name: "Night reading", Icon: Moon, description: "Deep navy surfaces, soft light text and restrained cyan. A compact heading and generous body spacing.", tradeoff: "The dark theme used throughout IFR Quick Study." },
 ] as const;
 
 export function BrandMockups({ children }: { children: ReactNode }) {
@@ -16,7 +15,7 @@ export function BrandMockups({ children }: { children: ReactNode }) {
   const direction = directions.find((item) => item.id === selected)!;
   return (
     <div className="brand-lab">
-      <header><p className="baseline-kicker">Brand exploration</p><h1>Three directions. One reader.</h1><p>Compare the same source content before choosing a design system.</p></header>
+      <header><p className="baseline-kicker">Design system</p><h1>One reader. Light and dark.</h1><p>Technical manual for light mode. Night reading for dark mode.</p></header>
       <div className="brand-options" aria-label="Brand directions">{directions.map(({ id, number, name, Icon, description }) => (
         <button key={id} type="button" className={`brand-option brand-${id}`} aria-pressed={selected === id} onClick={() => setSelected(id)}>
           <span className="brand-option-top"><span>{number}</span><Icon size={22} strokeWidth={1.7} aria-hidden="true" /></span>
