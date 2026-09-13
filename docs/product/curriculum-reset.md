@@ -4,7 +4,7 @@
 
 Capture the supplied cheat sheet before adding operational context. Current work is source capture only. Earlier lesson enrichment directions below describe a future stage and are superseded for now. The 58-page baseline is in docs/curriculum/baseline; enriched Holding and Administrational drafts are parked in docs/curriculum/deferred-context. Do not continue those drafts or migrate them into the baseline.
 
-Owner direction recorded 13 September 2026. Status: agreed principles and proposed delivery sequence; replacement lessons and screens have not yet been built.
+Owner direction recorded 13 September 2026. Subsequent authorisation: implement the captured baseline reader and brand mockups. The app now serves 51 source topics and three isolated style comparisons; operational enrichment remains deferred. Rendered UX review remains outstanding.
 
 ## Problem being corrected
 

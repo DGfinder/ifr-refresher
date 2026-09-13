@@ -1,5 +1,6 @@
-import { StudyScreen } from "@/features/study";
+import { BaselineContents } from "@/features/baseline/components/BaselineContents";
+import { baselineCatalog } from "@/features/baseline/model/baseline";
 
 export default function Page() {
-  return <StudyScreen />;
+  return <BaselineContents topics={baselineCatalog} />;
 }

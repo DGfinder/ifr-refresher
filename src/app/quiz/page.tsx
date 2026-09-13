@@ -1,5 +1,3 @@
-import { QuizScreen } from "@/features/quiz";
+import { redirect } from "next/navigation";
 
-export default function Page() {
-  return <QuizScreen />;
-}
+export default function Page() { redirect("/study"); }

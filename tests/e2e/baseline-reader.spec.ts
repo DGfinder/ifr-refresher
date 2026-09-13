@@ -1,0 +1,89 @@
+import { expect, test } from "@playwright/test";
+import { AxeBuilder } from "@axe-core/playwright";
+
+test("contents exposes 51 source topics and filters to holding", async ({ page }) => {
+  await page.goto("/study");
+  await expect(page.getByRole("heading", { name: "Contents", exact: true })).toBeVisible();
+  await expect(page.locator(".baseline-topic-link")).toHaveCount(51);
+  await page.getByLabel("Find a topic").fill("holding");
+  await expect(page.locator(".baseline-topic-link")).toHaveCount(2);
+  await page.getByRole("link", { name: /^Sector Entries/ }).click();
+  await expect(page).toHaveURL(/\/study\/holding-entries$/);
+  await expect(page.getByRole("heading", { name: "Sector Entries", exact: true })).toBeVisible();
+  await expect(page.getByText("On reaching the holding fix", { exact: false }).first()).toBeVisible();
+  await page.getByRole("navigation", { name: "Previous and next topic" }).getByRole("link", { name: /Next.*Holding Limitations/ }).click();
+  await expect(page).toHaveURL(/\/study\/holding-limitations$/);
+  await page.getByRole("link", { name: "All contents" }).click();
+  await expect(page.locator(".baseline-topic-link")).toHaveCount(51);
+});
+
+test("empty search can be cleared", async ({ page }) => {
+  await page.goto("/");
+  await page.getByLabel("Find a topic").fill("zzzz-no-topic");
+  await expect(page.getByText(/No topics match/)).toBeVisible();
+  await page.getByRole("button", { name: "Clear search" }).click();
+  await expect(page.locator(".baseline-topic-link")).toHaveCount(51);
+});
+
+test("holding diagram and text are both accessible", async ({ page }) => {
+  await page.goto("/study/holding-entries");
+  const source = page.getByRole("region", { name: "Source page 39", exact: true });
+  const original = source.getByRole("img");
+  await expect(original).toBeVisible();
+  await expect.poll(() => original.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  await source.getByRole("button", { name: "Text", exact: true }).click();
+  await expect(source.getByText(/Right Turns/)).toBeVisible();
+  await source.getByRole("button", { name: "Original page", exact: true }).click();
+  await expect(original).toBeVisible();
+});
+
+test("brand comparison keeps source wording and offers narrow previews", async ({ page }) => {
+  await page.goto("/design-system");
+  const content = await page.locator(".baseline-source-text").first().textContent();
+  for (const name of ["Field manual", "Night reading", "Technical manual"]) {
+    await page.getByRole("button", { name: new RegExp(name) }).click();
+    await expect(page.locator(".baseline-source-text").first()).toHaveText(content!);
+  }
+  await page.getByRole("button", { name: "Narrow", exact: true }).click();
+  await expect(page.locator(".brand-preview")).toHaveClass(/brand-phone/);
+});
+
+for (const route of ["quiz", "flashcard", "drill", "radio", "insights", "principles"]) {
+  test(`retired /${route} opens baseline contents`, async ({ page }) => {
+    await page.goto(`/${route}`);
+    await expect(page).toHaveURL(/\/study$/);
+    await expect(page.getByRole("heading", { name: "Contents", exact: true })).toBeVisible();
+  });
+}
+
+test("unknown source topic returns not found", async ({ page }) => {
+  const response = await page.goto("/study/not-a-source-topic");
+  expect(response?.status()).toBe(404);
+});
+
+for (const path of ["/study", "/study/holding-entries", "/study/admin-equipment", "/design-system"]) {
+  test(`accessible source interface: ${path}`, async ({ page }) => {
+    await page.goto(path);
+    const results = await new AxeBuilder({ page }).analyze();
+    expect(results.violations).toEqual([]);
+  });
+}
+
+for (const width of [320, 390, 768, 1366]) {
+  test(`source reader has no page overflow at ${width}`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    for (const path of ["/study", "/study/approach-arrivals-cta", "/design-system"]) {
+      await page.goto(path);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1)).toBe(true);
+    }
+  });
+}
+
+test("keyboard can reach contents search", async ({ page }) => {
+  await page.goto("/study");
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("link", { name: "Skip to content" })).toBeFocused();
+  await page.keyboard.press("Enter");
+  await page.keyboard.press("Tab");
+  await expect(page.getByLabel("Find a topic")).toBeFocused();
+});

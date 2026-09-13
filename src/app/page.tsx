@@ -1,5 +1,6 @@
-import { HomeScreen } from "@/features/home";
+import { BaselineContents } from "@/features/baseline/components/BaselineContents";
+import { baselineCatalog } from "@/features/baseline/model/baseline";
 
 export default function Page() {
-  return <HomeScreen />;
+  return <BaselineContents topics={baselineCatalog} />;
 }

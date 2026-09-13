@@ -1,22 +1,13 @@
-# IFR workbook design system
+# Baseline reader brand exploration
 
-Decision date: 13 September 2026. Status: implemented first direction for local review.
+13 September 2026. Three owner-requested local concepts; final brand selection remains open. /design-system previews the actual Holding Entries reader at wide and narrow widths. Source wording and reading controls are identical.
 
-## Intent
-A practical Australian flight-training workbook. Prioritise reading, recall and manipulating an example. Keep navigation labels literal and avoid decorative instrument panels, gradients and emoji navigation.
+| Direction | Typography | Palette |
+| --- | --- | --- |
+| Technical manual | Source Sans 3; IBM Plex Mono numbers | White, navy, restrained blue |
+| Field manual | Georgia reading text; sans-serif controls | Warm paper, ink blue |
+| Night reading | Source Sans 3; mono section labels | Deep navy, light text, cyan |
 
-## Foundations
-- Source Sans 3 for body, controls and headings; IBM Plex Mono for numerical values. Fonts are bundled by Next at build time.
-- Light paper surfaces, navy ink, restrained blue actions. Dark mode uses the same semantic hierarchy.
-- Amber means caution/review, green completed action, red error. Always accompany colour with text or an icon. Reading progress never implies pilot competence.
-- Use existing IFR CSS tokens in globals.css. No page-level hex colours.
-- Panels: 16px radius. Controls: 8px radius. Spacing follows 4/8px increments; content width 1100px.
-- Body 16px with 1.6 line height; supporting text generally 14px. Titles in sentence case.
-- Lucide line icons, typically 20–24px, decorative when adjacent to a visible label.
-- New controls have at least 44px targets, visible keyboard focus and explicit selected states. Respect reduced motion.
+Technical manual is the initial recommendation for reference reading. Tokens are scoped in src/features/baseline/brand-mockups.css; selection changes only the comparison preview. The baseline uses semantic IFR tokens, 18px text, generous line spacing, full titles and ruled lists. Labelled controls have selected states and 44px minimum targets. Lucide icons supplement labels.
 
-## Working examples
-`/design-system` is the live specimen. `/principles` demonstrates diagrams, segmented controls, range inputs, source notes and revealable explanations. The home page and shared shell adopt this direction. Existing deeper screens inherit fonts and tokens; their component-level cleanup is a follow-on, not claimed complete.
-
-## Visual teaching
-Use authored SVG for geometry and calculations. Text equivalents accompany diagrams. Use generated imagery only where atmosphere or visual recognition helps learning and exact geometry is unnecessary. No generated artwork is needed for these three lessons.
+The earlier visual workbook is superseded. No generated instructional images or operational context were added. Original PDF diagrams remain available. Rendered desktop/mobile and keyboard review remains outstanding; these are implemented concepts, not a visually verified or approved design system.

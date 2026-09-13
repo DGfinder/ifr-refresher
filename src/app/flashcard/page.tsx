@@ -1,5 +1,3 @@
-import { FlashcardScreen } from "@/features/flashcards";
+import { redirect } from "next/navigation";
 
-export default function Page() {
-  return <FlashcardScreen />;
-}
+export default function Page() { redirect("/study"); }

@@ -1,41 +1,13 @@
 import Link from "next/link";
 
-export default function AboutPage() {
-  return (
-    <div className="mx-auto max-w-[820px] px-6 py-8">
-      <h1 className="text-3xl font-bold text-[var(--ifr-text)]">About IFR Refresher</h1>
-      <p className="mt-4 text-[var(--ifr-text-muted)]">
-        IFR Refresher is a private study aid for refreshing instrument-flight knowledge. It is designed for quick study, flashcards, and quiz practice, including offline use after first load.
-      </p>
-
-      <section className="mt-8 rounded-xl border border-[var(--ifr-warning)]/40 bg-[var(--ifr-warning)]/10 p-5">
-        <h2 className="text-lg font-semibold text-[var(--ifr-warning)]">Operational disclaimer</h2>
-        <p className="mt-2 text-sm leading-relaxed text-[var(--ifr-text)]">
-          This app is not legal, operational, or company-approved flight guidance. Always verify requirements against current CASA, AIP, ERSA, aircraft flight manual, operator procedures, current charts, NOTAMs, and ATC instructions before flight.
-        </p>
-        <p className="mt-2 text-sm leading-relaxed text-[var(--ifr-text-muted)]">
-          Offline content may be stale. Treat it as memory-refresh support only.
-        </p>
-      </section>
-
-      <section className="mt-8 grid gap-4 sm:grid-cols-2">
-        <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-5">
-          <h2 className="font-semibold text-[var(--ifr-text)]">Current content status</h2>
-          <p className="mt-2 text-sm text-[var(--ifr-text-muted)]">
-            Structural content checks are automated, but aviation source verification is still a human review task before public or external pilot use.
-          </p>
-        </div>
-        <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] p-5">
-          <h2 className="font-semibold text-[var(--ifr-text)]">Offline/PWA status</h2>
-          <p className="mt-2 text-sm text-[var(--ifr-text-muted)]">
-            The app is intended to keep study routes available offline after first load. Progress is local-only browser data.
-          </p>
-        </div>
-      </section>
-
-      <Link href="/study" className="mt-8 inline-flex rounded-xl bg-[var(--ifr-accent)] px-5 py-3 text-sm font-semibold text-white hover:bg-[var(--ifr-accent)]/90">
-        Back to study
-      </Link>
+export default function SourceNotesPage() {
+  return <div className="baseline-contents">
+    <header className="baseline-heading"><p className="baseline-kicker">Source notes</p><h1>IFR Cheat Sheet</h1><p className="baseline-byline">Ben Montgomery-Schinkel · V7.1 · 30 March 2024</p></header>
+    <div className="mt-6 space-y-5 text-lg leading-relaxed">
+      <p>This reader follows the supplied cheat sheet&apos;s topic order and retains its source wording. Text extraction can flatten tables and omit diagrams; use Original page to see the source layout.</p>
+      <p>The original PDF includes all 58 pages, its introduction, edition notes and author credits. This is the supplied 2024 edition.</p>
+      <a className="baseline-source-link" href="/source/ifr-cheat-sheet-v7-1/original.pdf" target="_blank" rel="noreferrer">Open original PDF<span className="sr-only"> (new tab)</span></a>
+      <p><Link href="/study" className="baseline-source-link">Back to contents</Link></p>
     </div>
-  );
+  </div>;
 }

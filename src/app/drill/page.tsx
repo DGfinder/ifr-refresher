@@ -1,5 +1,3 @@
-import { DrillScreen } from "@/features/drill";
+import { redirect } from "next/navigation";
 
-export default function Page() {
-  return <DrillScreen />;
-}
+export default function Page() { redirect("/study"); }

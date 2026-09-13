@@ -1,15 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Source_Sans_3, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { ProgramProvider } from "@/features/programs";
+import "@/features/baseline/baseline.css";
 import { MainNav } from "@/app-shell/components/MainNav";
 import { AppHeader } from "@/app-shell/components/AppHeader";
 import { ErrorBoundary } from "@/app-shell/error/ErrorBoundary";
 import { ContentDisclaimer } from "@/app-shell/components/ContentDisclaimer";
-import { StorageStatusBanner } from "@/app-shell/components/StorageStatusBanner";
 import { IFR_THEME } from "@/app-shell/theme/theme";
-import { TooltipProvider } from "@/shared/ui/tooltip";
-import { Toaster } from "@/shared/ui/toaster";
 
 const interfaceFont = Source_Sans_3({
   variable: "--font-interface",
@@ -26,7 +23,7 @@ const numericFont = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "IFR Quick Study",
-  description: "Study IFR law and theory on the go. Offline-ready flashcards and quizzes for instrument-rated pilots.",
+  description: "Read the Australian IFR Cheat Sheet in its original topic order, with access to the original source pages.",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
@@ -57,18 +54,12 @@ export default function RootLayout({
         className={`${interfaceFont.variable} ${numericFont.variable} font-sans antialiased bg-[var(--ifr-bg)] text-[var(--ifr-text)]`}
       >
         <ErrorBoundary>
-          <ProgramProvider>
-            <TooltipProvider delayDuration={200}>
-              <div className="min-h-screen pb-24 md:pb-0">
-                <AppHeader />
-                <StorageStatusBanner />
-                <MainNav />
-                <main id="main-content">{children}</main>
-                <ContentDisclaimer />
-              </div>
-              <Toaster />
-            </TooltipProvider>
-          </ProgramProvider>
+          <div className="min-h-screen">
+            <AppHeader />
+            <MainNav />
+            <main id="main-content" tabIndex={-1}>{children}</main>
+            <ContentDisclaimer />
+          </div>
         </ErrorBoundary>
       </body>
     </html>
