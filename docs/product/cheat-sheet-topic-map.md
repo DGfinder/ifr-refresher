@@ -1,5 +1,7 @@
 # Canonical curriculum: IFR Cheat Sheet V7.1
 
+Current stage: [capture the unchanged source baseline](../curriculum/baseline/README.md). Enriched drafts linked below are deferred and are not baseline content.
+
 Mapped 13 September 2026 from the supplied Ben Montgomery-Schinkel IFR Cheat Sheet, dated 30 March 2024. Page numbers are the printed PDF pages (also the PDF viewer page numbers). Luna extracted the contents and checked heading starts in page text; the owner reviewed the hierarchy and migration decisions.
 
 **Status: source inventory, not regulatory sign-off.** These are source topics to author, not approved existing lessons. Candidate IDs identify material to compare, never permission to copy it. Official references, currentness and teaching objectives must be completed in each authored lesson. Adjacent topics can share a page; a range does not imply ownership of every statement on those pages.
@@ -12,7 +14,7 @@ Retain as source information, outside the learning-progress count: contents (1�
 
 ## Administrational
 
-Chapter draft: [Administrational](../curriculum/administrational.md). All six mapped topics are included, with source-based conditions and operational exercises.
+Deferred enriched draft (not baseline): [Administrational](../curriculum/deferred-context/administrational.md). All six mapped topics are included, with source-based conditions and operational exercises.
 
 | Stable topic ID | Original topic | Pages | Existing candidates to compare |
 |---|---|---:|---|
@@ -57,7 +59,7 @@ The additional RADIO-* modules are outside this initial source map. Compare only
 | Stable topic ID | Original topic | Pages | Existing candidates to compare |
 |---|---|---:|---|
 | alternates-suitability | Suitability of Alternates | 26 | FAL-002, CS-006B |
-| alternates-triggers | Alternates Could Very Well Prove Life Savers | 26–28 | CS-006B and parts of FAL-002/003/005/006/007/008; no single approved equivalent |
+| alternates-triggers | Alternates Could Very Well Prove Life Savers | 26–29 | CS-006B and parts of FAL-002/003/005/006/007/008; no single approved equivalent |
 | alternates-special-minima | Special Alternate Weather Minima | 29–30 | FAL-004, CS-007 |
 
 Keep the mnemonic's conditions together and map its internal headings during authoring. Do not lose navigation-aid, forecast, lighting or weather qualifications by treating each existing FAL module as a source-defined standalone lesson.
@@ -88,7 +90,7 @@ DEP-003 is additional material, not an extra source heading. Any useful explanat
 | holding-entries | Sector Entries | 38–39 | HLD-001, part of CS-011; new visual is not adequate coverage |
 | holding-limitations | Holding Limitations | 40 | HLD-002, part of CS-011 |
 
-The review draft presents both subtopics in one Holding chapter so entry, established holding and departure can be taught in sequence. It does not create a third holding overview to study separately. See [holding lesson](../curriculum/holding.md) and [migration findings](holding-migration-review.md).
+The review draft presents both subtopics in one Holding chapter so entry, established holding and departure can be taught in sequence. It does not create a third holding overview to study separately. See [holding lesson](../curriculum/deferred-context/holding.md) and [migration findings](holding-migration-review.md).
 
 ## Approaches
 

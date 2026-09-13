@@ -4,6 +4,8 @@ This project is a study refresher, not an operational source of truth. IFR/CASA/
 
 ## Current status
 
+- Baseline organisation: 51 topics now contain exact source-page text fragments, with stored character offsets. Checked that all extracted body text on pages 6–58 is accounted for without overlap; corrected alternates coverage to include its continuation on page 29. This is source-capture integrity work, not regulatory verification. No explanations, scenarios or live-app changes were added.
+
 - Content development continued with `docs/curriculum/administrational.md`, covering the six source topics on pp.6–13. Source excerpts, tables and authored scenarios preserve the supplied edition. No current-publication comparison was performed, as requested. No live app content or routes changed; runtime checks were not rerun for Markdown-only authoring.
 
 - Owner direction after the curriculum draft: current-publication verification is deferred while developing source-faithful content. `docs/curriculum/holding.md` now uses attributed passages from the supplied PDF, authored operational explanations and worked scenarios. Verification commentary has moved out of its teaching body; no claim of current regulatory verification is added.
@@ -70,3 +72,7 @@ Terra researched holding and withdrew an initially overstated current-source cla
 Post-draft review: Terra independently confirmed the nil-wind example geometry and requested clearer parallel-track wording and consistent track/course terminology; both corrections applied. Luna confirmed the source hierarchy and coverage. Repetition of the departure distinction was shortened; entry-specific timing qualifications were deliberately retained rather than compressed. Checks cover Markdown links, unique topic IDs, encoding and diff whitespace. Runtime/build/browser checks were not rerun because only authoring documents and project instructions changed.
 
 Administrational editorial review: Terra checked the draft against the supplied pp.6–13. Corrected the circling scenario to refer to the most recent IPC and made IFR operation explicit in the altitude-alerting scenario. The review found no discrepancy in the date examples, recency distinction or equipment-footnote mapping. This is source-fidelity review, not a current-publication check.
+
+## Owner correction: baseline capture precedes enrichment
+
+Captured all 58 source pages in docs/curriculum/baseline without authored instructional additions. Compared source PDF SHA-256 with the supplied Downloads PDF and checked every saved page against a fresh extraction. Original PDF remains unchanged and preserves tables/diagrams absent from text extraction. Previous enriched chapters moved to deferred-context, not accepted as baseline content. No app changes or runtime checks in this documentation-only correction.

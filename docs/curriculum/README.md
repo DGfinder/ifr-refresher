@@ -1,12 +1,13 @@
-# IFR curriculum drafts
+# IFR curriculum
 
-These chapters follow the supplied IFR Cheat Sheet V7.1. Source wording and conditions form the foundation; explanations, situations and reasoned answers connect that knowledge to a proposed flight.
+## Current stage: capture the baseline
 
-## Written chapters
+[Open the cheat-sheet baseline](baseline/README.md).
 
-1. [Administrational](administrational.md) — source pp.6–13: definitions, MOS, IPC validity, privileges, recent experience and equipment.
-2. [Holding](holding.md) — source pp.38–40: entries, established holding, limitations and departure context.
+[Browse its 51 source topics](baseline/contents.md), in the original order, with no added teaching content.
 
-Holding was the first example chapter. New authoring proceeds from the beginning of the source. Next: General Operational Knowledge, pp.14–21.
+The baseline is the unchanged supplied PDF plus an unedited, page-numbered text capture of all 58 pages. Preserve its wording, structure, conditions, footnotes and diagrams before developing anything further.
 
-The [full topic map](../product/cheat-sheet-topic-map.md) preserves the remaining topics and their order. These documents are content drafts; the application's existing screens and banks have not been replaced by them.
+Operational context, explanations, scenarios and oral questions are later work. The earlier [Administrational](deferred-context/administrational.md) and [Holding](deferred-context/holding.md) drafts are parked as deferred material; they are not the baseline or approved chapter content.
+
+The app remains unchanged.
