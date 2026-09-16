@@ -91,6 +91,16 @@ describe("practice corpus", () => {
         expect(item.kind, describeItem(item)).not.toBe("call");
       }
     });
+
+    it("asks per-category questions about Category B only", () => {
+      // That is the aeroplane being flown. The other categories stay as
+      // flashcards and serve as this question's wrong answers.
+      const perCategory = scoreable.filter((item) => /\b(?:category|cat)\s+[A-E]\b/i.test(item.prompt));
+      expect(perCategory.length).toBeGreaterThan(0);
+      for (const item of perCategory) {
+        expect(/\b(?:category|cat)\s+B\b/i.test(item.prompt), describeItem(item)).toBe(true);
+      }
+    });
   });
 
   describe("section adapter", () => {

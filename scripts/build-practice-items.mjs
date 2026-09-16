@@ -595,6 +595,11 @@ function familyStem(prompt) {
     .trim();
 }
 
+/** A prompt asking about one aircraft performance category, e.g. "Category D". */
+const CATEGORY_PROMPT = /\b(?:category|cat)\s+[A-E]\b/i;
+const CATEGORY_B = /\b(?:category|cat)\s+B\b/i;
+const isCategoryPrompt = (item) => CATEGORY_PROMPT.test(item.prompt);
+
 function addSiblingDistractors(allItems) {
   const families = new Map();
   for (const item of allItems) {
@@ -610,7 +615,16 @@ function addSiblingDistractors(allItems) {
   let filled = 0;
   for (const family of families.values()) {
     if (family.length < 4) continue;
-    for (const item of family) {
+
+    // Where a family is one question asked per aircraft category, only the
+    // Category B member is worth scoring — that is the aeroplane being flown.
+    // The other categories stay as flashcards and serve as this question's
+    // wrong answers, which is exactly the confusion worth testing.
+    const scoreable = family.some(isCategoryPrompt)
+      ? family.filter((item) => CATEGORY_B.test(item.prompt))
+      : family;
+
+    for (const item of scoreable) {
       if (item.distractors?.length === 3) continue;
       const normalised = item.answer.trim().toLowerCase();
       const candidates = family
