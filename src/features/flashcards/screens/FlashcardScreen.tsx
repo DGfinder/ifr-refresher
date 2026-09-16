@@ -127,7 +127,14 @@ function FlashcardPageWithUrlProgram() {
   return <FlashcardPageContent key={initialProgramId} initialProgramId={initialProgramId} />;
 }
 
-export function FlashcardScreen() {
+/**
+ * `program` pins the pathway, for routes that are a fixed slice of practice —
+ * /radio is the phraseology chapter. Without it the pathway comes from the
+ * `?program=` query string, which needs the Suspense boundary below.
+ */
+export function FlashcardScreen({ program }: { program?: ProgramId } = {}) {
+  if (program) return <FlashcardPageContent key={program} initialProgramId={program} />;
+
   return (
     <Suspense
       fallback={

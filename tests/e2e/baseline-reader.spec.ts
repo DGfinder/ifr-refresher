@@ -1,12 +1,28 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import { AxeBuilder } from "@axe-core/playwright";
+
+/**
+ * Type into the contents search and wait for the filter to actually apply.
+ *
+ * The contents list is server-rendered, so the input exists before React has
+ * hydrated and attached its onChange. A plain fill() that lands in that window
+ * is silently dropped — which is why the search tests flaked under parallel
+ * load. Retry the fill until the filtered result appears.
+ */
+async function search(page: Page, query: string, expected: () => Promise<void>) {
+  await expect(async () => {
+    await page.getByLabel("Find a topic").fill(query);
+    await expected();
+  }).toPass({ timeout: 15_000 });
+}
 
 test("contents exposes 51 source topics and filters to holding", async ({ page }) => {
   await page.goto("/study");
   await expect(page.getByRole("heading", { name: "Contents", exact: true })).toBeVisible();
   await expect(page.locator(".baseline-topic-link")).toHaveCount(51);
-  await page.getByLabel("Find a topic").fill("holding");
-  await expect(page.locator(".baseline-topic-link")).toHaveCount(2);
+  await search(page, "holding", async () => {
+    await expect(page.locator(".baseline-topic-link")).toHaveCount(2, { timeout: 2000 });
+  });
   await page.getByRole("link", { name: /^Sector Entries/ }).click();
   await expect(page).toHaveURL(/\/study\/holding-entries$/);
   await expect(page.getByRole("heading", { name: "Sector Entries", exact: true })).toBeVisible();
@@ -19,8 +35,9 @@ test("contents exposes 51 source topics and filters to holding", async ({ page }
 
 test("empty search can be cleared", async ({ page }) => {
   await page.goto("/");
-  await page.getByLabel("Find a topic").fill("zzzz-no-topic");
-  await expect(page.getByText(/No topics match/)).toBeVisible();
+  await search(page, "zzzz-no-topic", async () => {
+    await expect(page.getByText(/No topics match/)).toBeVisible({ timeout: 2000 });
+  });
   await page.getByRole("button", { name: "Clear search" }).click();
   await expect(page.locator(".baseline-topic-link")).toHaveCount(51);
 });
@@ -59,9 +76,22 @@ test("retired /principles opens baseline contents", async ({ page }) => {
 
 test("/radio drills the phraseology chapter", async ({ page }) => {
   await page.goto("/radio");
-  await expect(page).toHaveURL(/\/flashcard\?program=phraseology$/);
   await expect(page.getByRole("button", { name: "Radio calls" })).toBeVisible();
   await expect(page.locator("body")).not.toContainText("No cards available");
+});
+
+test("main navigation reaches every mode and marks the current one", async ({ page }) => {
+  const nav = page.getByRole("navigation", { name: "Main navigation" });
+  for (const [path, label] of [
+    ["/study", "Contents"],
+    ["/flashcard", "Practice"],
+    ["/radio", "Radio"],
+    ["/quiz", "Quiz"],
+    ["/insights", "Insights"],
+  ] as const) {
+    await page.goto(path);
+    await expect(nav.getByRole("link", { name: label })).toHaveAttribute("aria-current", "page");
+  }
 });
 
 // Drill is the FSRS engine behind the flashcard UI, not a mode of its own.
