@@ -1,7 +1,15 @@
 import type { Section, Module, Category, ContentBlock } from "@/content/model/section";
 import generated from "./items.generated.json";
 
-export type PracticeItemKind = "definition" | "list" | "step" | "clause" | "table" | "cloze";
+export type PracticeItemKind =
+  | "definition"
+  | "list"
+  | "step"
+  | "clause"
+  | "table"
+  | "cloze"
+  /** A radio call script; the prompt is the situation. */
+  | "call";
 
 export interface PracticeItem {
   topicId: string;

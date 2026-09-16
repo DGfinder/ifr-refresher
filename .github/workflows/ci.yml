@@ -33,6 +33,11 @@ jobs:
       - name: Content check
         run: npm run content:check
 
+      # items.generated.json is committed. Without this, a generator change can
+      # land without its regenerated output and the two drift apart unnoticed.
+      - name: Practice items up to date
+        run: npm run practice:check
+
       - name: Production build
         run: npm run build
 

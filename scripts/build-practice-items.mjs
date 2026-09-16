@@ -85,22 +85,21 @@ const REG_HEADING = /^((?:CASR|CAO|CAR)\s[\d.]+[A-Z]?)\s*[–—-]\s*(.+)$/;
 const LETTERED = /^\(?\s*([a-z]{1,2})\s*\)\s*(.+)$/i;
 const LABELLED_CLAUSE = /^\(?\s*[a-z]{1,2}\s*\)\s*([A-Z][A-Za-z/ ]{2,28})\.\s+(.+)$/;
 
-/**
- * A flattened table row: a short label followed by a quantity, e.g.
- * "Day VFR 30 minutes -" or "Up to and inc. FL140 230". These carry the
- * numbers most worth drilling, and prose extractors miss them entirely.
- */
-const TABLE_ROW =
-  /^(.{3,48}?)\s+((?:\d{1,3}(?:,\d{3})?(?:\.\d)?\s?(?:ft|FT|feet|NM|nm|KT|KIAS|kt|knots|M|KM|km|kg|days|months|minutes|minute|mins|min|hours|%|°)|FL\d{2,3})(?:\s*[-–]\s*\S*)?)$/;
-
 /** Sub-headings inside a topic, e.g. "Sector 3 entry (Direct Entry)". */
 const SUB_HEADING = /^((?:Sector \d|DME Arc)[A-Za-z0-9 ()]{0,40})$/;
 
-/** An enumerated step: "(i) ...", "(a) ...", "a. ...", "b) ...". */
-const ENUM_ITEM = /^\(?\s*([a-z]{1,3}|\d{1,2})\s*[).]\s+(.{10,})$/i;
+/**
+ * An enumerated step: "(i) ...", "(a) ...", "a. ...", "b) ...".
+ *
+ * The marker must be a lowercase single letter, a roman numeral or a number.
+ * A looser `[a-z]{1,3}` matches ordinary prose — this source is full of
+ * sentences ending "QNH.", "ATC.", "NM." — and turns a wrapped sentence into a
+ * bogus enumerated item whose "answer" is the next sentence.
+ */
+const ENUM_ITEM = /^\(?\s*((?:[ivx]{1,3}|[a-z])|\d{1,2})\s*[).]\s+(.{10,})$/;
 
 /** Any enumerated line, including one-word list members like "(e) airship". */
-const ENUM_ANY = /^\(?\s*(?:[a-z]{1,3}|\d{1,2})\s*[).]\s+\S/i;
+const ENUM_ANY = /^\(?\s*(?:(?:[ivx]{1,3}|[a-z])|\d{1,2})\s*[).]\s+\S/;
 
 /** A step long enough to be an instruction rather than a list member. */
 const STEP_MIN_CHARS = 40;
@@ -113,9 +112,22 @@ const STEP_MIN_CHARS = 40;
 function headingFor(lines, index) {
   for (let i = index - 1; i >= 0 && index - i <= 8; i--) {
     const candidate = lines[i];
+    // A member of this same list is not its lead-in; keep walking past it.
     if (ENUM_ANY.test(candidate)) continue;
-    if (/^(?:CASR|CAO|CAR|AIP|ERSA|Part\s\d|Note)/i.test(candidate)) continue;
-    if (!isUsableHeading(candidate)) continue;
+
+    // A colon-terminated line is the lead-in, whatever its length. Length was
+    // the original test, and it silently skipped long lead-ins to grab an
+    // earlier list's heading — pairing one rule's question with another
+    // rule's answer.
+    if (candidate.trim().endsWith(":")) {
+      return candidate.replace(/[:.]$/, "").replace(/^[—–-]\s*/, "").trim();
+    }
+
+    // Anything else that opens a new structural unit means we have walked out
+    // of this list's scope. Stop rather than reach further back: no context is
+    // better than the wrong context.
+    if (/^(?:CASR|CAO|CAR|AIP|ERSA|Part\s\d|Note|\()/i.test(candidate)) return null;
+    if (!isUsableHeading(candidate)) return null;
     return candidate.replace(/[:.]$/, "").trim();
   }
   return null;
@@ -131,6 +143,8 @@ function isUsableHeading(line) {
   if (text.length < 6 || text.length > 60) return false;
   if (text.endsWith(";")) return false;
   if (/^\d/.test(text)) return false;
+  // Citations, footnotes and bullets are not questions anyone can answer.
+  if (/^[(*•▪]/.test(text)) return false;
   if (/^(?:and|or|either|both|note)\b/i.test(text)) return false;
   const words = text.split(/\s+/).filter((w) => /[A-Za-z]/.test(w));
   return words.length >= 2;
@@ -148,9 +162,13 @@ function runOfListMembers(lines, index) {
     if (!m) break;
     const body = (m.length === 3 ? m[2] : m[1]).trim();
     if (body.length >= STEP_MIN_CHARS) break;
-    const cleaned = body.replace(/[;.]$/, "").trim();
-    // The source puts conjunctions on their own lines; they are not members.
-    if (/^(?:and|or|either|either:|both)$/i.test(cleaned)) continue;
+    // The source puts conjunctions on their own lines and at the end of
+    // members; neither is part of the member.
+    const cleaned = body
+      .replace(/[;.]$/, "")
+      .replace(/[;,]?\s*\b(?:and|or)\s*$/i, "")
+      .trim();
+    if (!cleaned || /^(?:and|or|either|either:|both)$/i.test(cleaned)) continue;
     members.push(cleaned);
   }
   return members;
@@ -313,29 +331,15 @@ function extract(topic, pool) {
       continue;
     }
 
-    // 4. Flattened table row: label -> quantity. The densest examinable facts
-    //    in the document sit in tables, not prose.
-    const row = TABLE_ROW.exec(line);
-    if (row) {
-      const label = row[1].replace(/[-–|]+$/, "").trim();
-      const value = row[2].replace(/\s*[-–]\s*$/, "").trim();
-      const looksLikeLabel = /[a-z]/i.test(label) && label.split(" ").length <= 8;
-      if (looksLikeLabel && value) {
-        const tag = /^FL/.test(value) ? "fl" : unitTag(value.replace(/[\d,. ]/g, ""));
-        const candidates = (pool.get(tag) ?? []).filter((c) => c !== value);
-        push({
-          kind: "table",
-          prompt: `${title} — ${label}?`,
-          answer: value,
-          ...(candidates.length >= 3
-            ? { distractors: pickThree(candidates, `${topic.id}:${label}`) }
-            : {}),
-        });
-        continue;
-      }
-    }
+    // Tables are read from the positional layout (extractor 0), never from this
+    // flattened text. Running TABLE_ROW over `repair()`ed lines is exactly the
+    // mistake the layout re-extraction exists to correct: it read "Up to and
+    // inc. FL140 | 230" as label "Up to and inc." and value "FL140", losing the
+    // 230 KIAS that is the actual answer, and it dropped the Day/Night column
+    // header from the visual approach table so a day-only criterion read as
+    // unconditional. Three items, three wrong.
 
-    // 5. Cloze over a quantity, where the surrounding sentence carries meaning.
+    // 4. Cloze over a quantity, where the surrounding sentence carries meaning.
     if (line.length >= 50 && line.length <= 400) {
       const hits = [...line.matchAll(QUANTITY)];
       if (hits.length === 1) {
@@ -376,7 +380,7 @@ function pickThree(candidates, seed) {
     h ^= seed.charCodeAt(i);
     h = (h + ((h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24))) >>> 0;
   }
-  const ranked = [...candidates].sort((a, b) => a.localeCompare(b));
+  const ranked = [...candidates].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
   const out = [];
   for (let i = 0; i < 3 && ranked.length; i++) {
     h = (h * 16777619) >>> 0;
@@ -425,8 +429,14 @@ function tablesUnderHeading(page, title) {
   const headingLine = page.linePositions.find(
     (l) => l.text.trim().toLowerCase() === title.trim().toLowerCase(),
   );
-  // Heading not found on this page (continuation pages): the whole page is ours.
-  if (!headingLine) return page.tables;
+  if (!headingLine) {
+    // Heading not found. On a page this topic has to itself, it is a
+    // continuation page and the tables are ours. On a shared page, attribution
+    // is unknown — and taking every table would hand one topic its
+    // neighbour's, so take none.
+    const owners = rawTopics.filter((t) => t.source_pages.includes(page.page));
+    return owners.length === 1 ? page.tables : [];
+  }
 
   // PDF y grows upward, so "below the heading" means a smaller y.
   const nextHeadingY = page.linePositions
@@ -461,6 +471,32 @@ try {
   overrides = JSON.parse(readFileSync(OVERRIDES, "utf8"));
 } catch {
   // Optional file; absence just means no topic is overridden.
+}
+
+// A typo'd topic id would silently fall back to the extractor's output for a
+// topic the extractor is known to get wrong, which is the failure this file
+// exists to prevent. Fail loudly instead.
+{
+  const known = new Set(rawTopics.map((t) => t.id));
+  const problems = [];
+  for (const [topicId, entry] of Object.entries(overrides.topics ?? {})) {
+    if (!known.has(topicId)) problems.push(`unknown topic id "${topicId}"`);
+    if (!Array.isArray(entry?.items) || entry.items.length === 0) {
+      problems.push(`"${topicId}" has no items`);
+      continue;
+    }
+    entry.items.forEach((item, index) => {
+      if (!item?.prompt?.trim() || !item?.answer?.trim()) {
+        problems.push(`"${topicId}" item ${index} is missing a prompt or answer`);
+      }
+      if (!item?.kind) problems.push(`"${topicId}" item ${index} is missing a kind`);
+    });
+  }
+  if (problems.length) {
+    console.error("Invalid overrides.json:");
+    for (const problem of problems) console.error(`  - ${problem}`);
+    process.exit(1);
+  }
 }
 
 /**
@@ -589,6 +625,63 @@ function addSiblingDistractors(allItems) {
   return filled;
 }
 
+/**
+ * Final gate: drop anything that is not a well-formed question.
+ *
+ * The extractors work on shape, and shape alone cannot tell a complete clause
+ * from one severed mid-sentence by a line wrap. Since a wrong or meaningless
+ * answer is worse than a missing one, everything doubtful dies here rather
+ * than being patched into plausibility upstream. Transcribed items are exempt:
+ * they were written by hand against the page image.
+ */
+const DANGLING_TAIL =
+  /\b(?:the|a|an|of|for|to|in|on|at|and|or|is|are|be|not|exceed|within|see\s+ENR|than|with|from|by)$/i;
+
+function isWellFormed(item) {
+  if (item.source === "transcribed") return true;
+  const prompt = item.prompt?.trim() ?? "";
+  const answer = item.answer?.trim() ?? "";
+  if (!prompt || !answer) return false;
+
+  const context = prompt.split("—").slice(1).join("—").trim();
+  // A cloze prompt carries the sentence itself, so it must be whole. Others
+  // carry a lead-in, which becomes unreadable past a sentence or so.
+  if (item.kind === "cloze") {
+    const sentence = context.replace(/^fill the blank:\s*/i, "");
+    if (DANGLING_TAIL.test(sentence.replace(/[?:]+$/, ""))) return false;
+    // Starts with the severed tail of the previous sentence, e.g. "QNH. These
+    // minima may be reduced by ...". A real opening clause is longer than an
+    // abbreviation before its first full stop.
+    const firstStop = sentence.indexOf(". ");
+    if (firstStop >= 0 && firstStop <= 5) return false;
+    // Starts mid-clause.
+    if (/^[a-z)]/.test(sentence)) return false;
+  } else if (context.length > 160) {
+    return false;
+  }
+  // The source's author notes describe rules that no longer apply; drilling a
+  // rescinded figure teaches the wrong thing.
+  if (/author[’'`]?s note/i.test(prompt)) return false;
+  // Severed mid-sentence by a line wrap.
+  if (DANGLING_TAIL.test(answer)) return false;
+  // An unclosed citation or parenthetical means the tail was lost.
+  if ((answer.match(/\(/g) ?? []).length !== (answer.match(/\)/g) ?? []).length) return false;
+  // Too short to be an answer to anything.
+  if (answer.length < 4) return false;
+  // The prompt gives its own answer away.
+  if (answer.length > 3 && prompt.toLowerCase().includes(answer.toLowerCase())) return false;
+  // A prompt that is only a stem, e.g. "Within?"
+  const asked = prompt.split("—").pop().trim();
+  if (asked.replace(/[?:]/g, "").trim().split(/\s+/).length < 2) return false;
+  return true;
+}
+
+const beforeGate = items.length;
+const kept = items.filter(isWellFormed);
+items.length = 0;
+items.push(...kept);
+const suppressed = beforeGate - items.length;
+
 const siblingFilled = addSiblingDistractors(items);
 
 const payload = {
@@ -623,5 +716,6 @@ const quizEligible = items.filter((i) => i.distractors?.length === 3).length;
 console.log(`Wrote ${items.length} practice items across ${topics.length} topics.`);
 console.log("  by kind:", Object.entries(byKind).map(([k, v]) => `${k}=${v}`).join("  "));
 console.log(`  quiz-eligible: ${quizEligible} (${siblingFilled} from sibling rows)`);
+console.log(`  suppressed by the well-formed gate: ${suppressed}`);
 console.log(`  thin topics (<3 items): ${thin.length}`);
 for (const t of thin) console.log(`    ${t.id} (${t.count})`);

@@ -1,7 +1,7 @@
 {
   "generatedFrom": "docs/curriculum/baseline/topics.json",
   "generator": "scripts/build-practice-items.mjs",
-  "itemCount": 236,
+  "itemCount": 194,
   "items": [
     {
       "topicId": "admin-definitions",
@@ -251,32 +251,8 @@
       "topicTitle": "Communications Failure",
       "chapter": "General Operational Knowledge",
       "kind": "step",
-      "prompt": "Communications Failure — In Flight (i)?",
-      "answer": "during the hours of daylight - by rocking the aircraft's wings; and"
-    },
-    {
-      "topicId": "general-comms-failure",
-      "topicTitle": "Communications Failure",
-      "chapter": "General Operational Knowledge",
-      "kind": "step",
-      "prompt": "Communications Failure — In Flight (ii)?",
-      "answer": "during the hours of darkness - by flashing on and off twice the aircraft's landing lights or, if not so equipped, by switching on and off twice its navigation lights."
-    },
-    {
-      "topicId": "general-comms-failure",
-      "topicTitle": "Communications Failure",
-      "chapter": "General Operational Knowledge",
-      "kind": "step",
       "prompt": "Communications Failure — On the Ground (i)?",
       "answer": "during the hours of daylight: by waggling the aircraft's ailerons or rudder"
-    },
-    {
-      "topicId": "general-comms-failure",
-      "topicTitle": "Communications Failure",
-      "chapter": "General Operational Knowledge",
-      "kind": "step",
-      "prompt": "Communications Failure — On the Ground (ii)?",
-      "answer": "during the hours of darkness: by flashing on and off twice the aircraft's landing lights or, if not so equipped, by switching on and off twice its navigation lights."
     },
     {
       "topicId": "general-comms-failure",
@@ -323,24 +299,8 @@
       "topicTitle": "Communications Failure",
       "chapter": "General Operational Knowledge",
       "kind": "step",
-      "prompt": "Communications Failure — If in Controlled/Restricted Airspace or IFR in any airspace (a)?",
-      "answer": "Stay in VMC and land at the most suitable aerodrome (note special procedures if proceeding to a Class D)."
-    },
-    {
-      "topicId": "general-comms-failure",
-      "topicTitle": "Communications Failure",
-      "chapter": "General Operational Knowledge",
-      "kind": "step",
       "prompt": "Communications Failure — If in IMC or are uncertain of maintaining VMC (b)?",
       "answer": "If no clearance limit received and acknowledged, proceed in accordance with the latest ATC route clearance acknowledged and climb to planned level."
-    },
-    {
-      "topicId": "general-comms-failure",
-      "topicTitle": "Communications Failure",
-      "chapter": "General Operational Knowledge",
-      "kind": "step",
-      "prompt": "Communications Failure — If in IMC or are uncertain of maintaining VMC (i)?",
-      "answer": "maintain last assigned level, or MSA if higher, for three minutes and/or"
     },
     {
       "topicId": "general-comms-failure",
@@ -426,33 +386,9 @@
       "topicId": "general-performance",
       "topicTitle": "Aeroplane Weight and Performance Limitations",
       "chapter": "General Operational Knowledge",
-      "kind": "step",
-      "prompt": "Aeroplane Weight and Performance Limitations — Take-off performance for aeroplanes (b)?",
-      "answer": "1.25 for MTOW of 3,500 kg or greater; and"
-    },
-    {
-      "topicId": "general-performance",
-      "topicTitle": "Aeroplane Weight and Performance Limitations",
-      "chapter": "General Operational Knowledge",
-      "kind": "step",
-      "prompt": "Aeroplane Weight and Performance Limitations — Take-off performance for aeroplanes (c)?",
-      "answer": "Between 2,000 kg and 3,500 kg, use linear interpolation"
-    },
-    {
-      "topicId": "general-performance",
-      "topicTitle": "Aeroplane Weight and Performance Limitations",
-      "chapter": "General Operational Knowledge",
       "kind": "definition",
       "prompt": "Aeroplane Weight and Performance Limitations — what does CASR 91.800 cover?",
       "answer": "Landing performance"
-    },
-    {
-      "topicId": "general-performance",
-      "topicTitle": "Aeroplane Weight and Performance Limitations",
-      "chapter": "General Operational Knowledge",
-      "kind": "step",
-      "prompt": "Aeroplane Weight and Performance Limitations — Landing Distance Required (c)?",
-      "answer": "Between 2,000 kg and 4,500 kg, use linear interpolation"
     },
     {
       "topicId": "general-vmc",
@@ -588,14 +524,6 @@
       "kind": "step",
       "prompt": "Light Signals to Aircraft — In flight (1)?",
       "answer": "during the hours of daylight: by rocking the aircraft’s wings"
-    },
-    {
-      "topicId": "general-light-signals",
-      "topicTitle": "Light Signals to Aircraft",
-      "chapter": "General Operational Knowledge",
-      "kind": "step",
-      "prompt": "Light Signals to Aircraft — In flight (2)?",
-      "answer": "during the hours of darkness: by flashing on and off twice the aircraft’s landing lights or, if not so equipped, by switching on and off twice its navigation lights"
     },
     {
       "topicId": "general-light-signals",
@@ -812,74 +740,11 @@
       "page": 24
     },
     {
-      "topicId": "preflight-fuel",
-      "topicTitle": "Fuel Requirements",
-      "chapter": "Preflight",
-      "kind": "table",
-      "prompt": "Fuel Requirements — Day VFR?",
-      "answer": "30 minutes",
-      "distractors": [
-        "10 minutes",
-        "60 minutes",
-        "1 minute"
-      ]
-    },
-    {
-      "topicId": "preflight-fuel",
-      "topicTitle": "Fuel Requirements",
-      "chapter": "Preflight",
-      "kind": "table",
-      "prompt": "Fuel Requirements — Night VFR?",
-      "answer": "45 minutes",
-      "distractors": [
-        "10 minutes",
-        "15 minutes",
-        "1 minute"
-      ]
-    },
-    {
-      "topicId": "preflight-fuel",
-      "topicTitle": "Fuel Requirements",
-      "chapter": "Preflight",
-      "kind": "table",
-      "prompt": "Fuel Requirements — IFR?",
-      "answer": "45 minutes",
-      "distractors": [
-        "1 minute",
-        "10 minutes",
-        "1.5 minutes"
-      ]
-    },
-    {
-      "topicId": "alternates-suitability",
-      "topicTitle": "Suitability of Alternates",
-      "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Suitability of Alternates — (Jepp ATC – Airports and Ground Aids 3.1.2) (a)?",
-      "answer": "suitable as a planned destination aerodrome for the flight; and"
-    },
-    {
-      "topicId": "alternates-suitability",
-      "topicTitle": "Suitability of Alternates",
-      "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Suitability of Alternates — (Jepp ATC – Airports and Ground Aids 3.1.2) (b)?",
-      "answer": "not itself an aerodrome for which the aircraft would require a destination alternate aerodrome; and"
-    },
-    {
       "topicId": "alternates-triggers",
       "topicTitle": "Alternates Could Very Well Prove Life Savers",
       "chapter": "Preflight",
       "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — (Jepp ATC – Airports and Ground Aids 3.3) (a)?",
-      "answer": "not served by an instrument approach procedure; or"
-    },
-    {
-      "topicId": "alternates-triggers",
-      "topicTitle": "Alternates Could Very Well Prove Life Savers",
-      "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — (Jepp ATC – Airports and Ground Aids 3.3) (b)?",
+      "prompt": "Alternates Could Very Well Prove Life Savers — Part 91 aircraft: A destination alternate aerodrome must be planned for an IFR flight by night to a planned destination aerodrome that is (b)?",
       "answer": "is served by 1 or more instrument approach procedures, none of which the pilot is able to conduct."
     },
     {
@@ -887,86 +752,24 @@
       "topicTitle": "Alternates Could Very Well Prove Life Savers",
       "chapter": "Preflight",
       "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — For IFR flights, the alternate minima are as follows (a)?",
-      "answer": "For aerodromes with an instrument approach procedure that the pilot is able to conduct, the alternate minima published on the chart (see ENR"
+      "prompt": "Alternates Could Very Well Prove Life Savers — Night VFR aircraft must provide for a suitable alternate aerodrome within one hour flight time of the destination unless (b)?",
+      "answer": "the aircraft is fitted with an approved GNSS, as defined in the relevant"
     },
     {
       "topicId": "alternates-triggers",
       "topicTitle": "Alternates Could Very Well Prove Life Savers",
       "chapter": "Preflight",
       "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — For IFR flights, the alternate minima are as follows (b)?",
-      "answer": "By day only – for aerodromes without an instrument approach procedure, or that has an instrument approach procedure but the pilot is unable to conduct that procedure, the alternate minima is the lowest safe altitude for the final route segment plus 500FT and a visibility of 8KM."
-    },
-    {
-      "topicId": "alternates-triggers",
-      "topicTitle": "Alternates Could Very Well Prove Life Savers",
-      "chapter": "Preflight",
-      "kind": "cloze",
-      "prompt": "Alternates Could Very Well Prove Life Savers — fill the blank: Except when operating an aircraft under the VFR by day within _____ of the point of departure, the pilot in command must provide for a suitable alternate aerodrome when arrival at the destination will be during the currency of, or up to",
-      "answer": "50 NM",
-      "distractors": [
-        "14 NM",
-        "1 NM",
-        "2 NM"
-      ]
-    },
-    {
-      "topicId": "alternates-triggers",
-      "topicTitle": "Alternates Could Very Well Prove Life Savers",
-      "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — (Jepp ATC – Airports and Ground Aids 2.1) (a)?",
-      "answer": "departure: 10 minutes before departure to at least 30 minutes after take- off"
-    },
-    {
-      "topicId": "alternates-triggers",
-      "topicTitle": "Alternates Could Very Well Prove Life Savers",
-      "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — (Jepp ATC – Airports and Ground Aids 2.1) (b)?",
-      "answer": "arrival: from at least 30 minutes before ETA to the time landing and taxiing has been completed."
-    },
-    {
-      "topicId": "alternates-triggers",
-      "topicTitle": "Alternates Could Very Well Prove Life Savers",
-      "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — Lighting Systems for Alternate Aerodrome (b)?",
+      "prompt": "Alternates Could Very Well Prove Life Savers — There is no requirement for a responsible person to be in attendance, but the aircraft must be equipped with (b)?",
       "answer": "single VHF and HF and carries 30 minutes holding fuel to allow for the alerting of ground staff in the event of a failure of the aircraft’s VHF communication."
-    },
-    {
-      "topicId": "alternates-triggers",
-      "topicTitle": "Alternates Could Very Well Prove Life Savers",
-      "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — (Jepp ATC – Airports and Ground Aids 3.2.1) (d)?",
-      "answer": "a thunderstorm or associated severe turbulence, or a forecast of at least a 30% probability of such an event"
-    },
-    {
-      "topicId": "alternates-triggers",
-      "topicTitle": "Alternates Could Very Well Prove Life Savers",
-      "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — (Jepp ATC – Airports and Ground Aids 3.2.5) (a)?",
-      "answer": "30 minutes when the forecast is endorsed INTER; or"
-    },
-    {
-      "topicId": "alternates-triggers",
-      "topicTitle": "Alternates Could Very Well Prove Life Savers",
-      "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — (Jepp ATC – Airports and Ground Aids 3.2.5) (b)?",
-      "answer": "60 minutes when the forecast is endorsed TEMPO."
     },
     {
       "topicId": "alternates-special-minima",
       "topicTitle": "Special Alternate Weather Minima",
       "chapter": "Preflight",
-      "kind": "list",
-      "prompt": "Special Alternate Weather Minima — Special Alternate Weather Minima. List them.",
-      "answer": "duplicated LOC; and; duplicated GP; and; duplicated VOR; and; duplicated DME; or; duplicated GNSS; or; single DME and single GNSS",
-      "itemCount": 6
+      "kind": "step",
+      "prompt": "Special Alternate Weather Minima — (minima will revert to the standard alternate minima) during periods when (b)?",
+      "answer": "an airport control service is not provided"
     },
     {
       "topicId": "departure-altimeter",
@@ -1051,24 +854,16 @@
       "topicTitle": "Take-off Minima",
       "chapter": "Departure",
       "kind": "step",
-      "prompt": "Take-off Minima — The take-off minima are (a)?",
-      "answer": "the meteorological conditions are less than the take-off minima for the aircraft; or"
-    },
-    {
-      "topicId": "departure-minima",
-      "topicTitle": "Take-off Minima",
-      "chapter": "Departure",
-      "kind": "step",
-      "prompt": "Take-off Minima — The take-off minima are (i)?",
-      "answer": "at or above the landing minima for any IAP that the pilot in command is able to conduct at the aerodrome; or"
-    },
-    {
-      "topicId": "departure-minima",
-      "topicTitle": "Take-off Minima",
-      "chapter": "Departure",
-      "kind": "step",
-      "prompt": "Take-off Minima — The take-off minima are (ii)?",
+      "prompt": "Take-off Minima — A pilot in command must not commence a take-off if, at the time of take-off (ii)?",
       "answer": "such as to allow a visual approach for the return to land."
+    },
+    {
+      "topicId": "departure-minima",
+      "topicTitle": "Take-off Minima",
+      "chapter": "Departure",
+      "kind": "step",
+      "prompt": "Take-off Minima — A qualifying multi-engine aeroplane means an IFR multi-engine aeroplane that is (b)?",
+      "answer": "in the event of an engine failure – capable of maintaining terrain clearance until reaching the minimum height for IFR flight."
     },
     {
       "topicId": "departure-briefing",
@@ -1184,19 +979,11 @@
       "topicId": "enroute-qnh",
       "topicTitle": "Local QNH, Area QNH and Transition Layers",
       "chapter": "En Route",
-      "kind": "step",
-      "prompt": "Local QNH, Area QNH and Transition Layers — (Jepp ATC – General Flight Procedures 1.2) (a)?",
-      "answer": "the current local QNH (either an accurate QNH or forecast QNH) of a station along the route within 100NM of the aircraft; or"
-    },
-    {
-      "topicId": "enroute-qnh",
-      "topicTitle": "Local QNH, Area QNH and Transition Layers",
-      "chapter": "En Route",
       "kind": "cloze",
       "prompt": "Local QNH, Area QNH and Transition Layers — fill the blank: On climb, the altimeter setting must be changed from QNH to 1013.2hPa after passing _____ and before levelling off.",
       "answer": "10,000 FT",
       "distractors": [
-        "60 FT",
+        "60 ft",
         "300 feet",
         "3,300 FT"
       ]
@@ -1206,67 +993,8 @@
       "topicTitle": "Navigation Requirements Under the IFR",
       "chapter": "En Route",
       "kind": "step",
-      "prompt": "Navigation Requirements Under the IFR — An aircraft operating under the IFR must be navigated by (a)?",
-      "answer": "an approved area navigation system that meets performance requirements of the intended airspace or route; or"
-    },
-    {
-      "topicId": "enroute-navigation",
-      "topicTitle": "Navigation Requirements Under the IFR",
-      "chapter": "En Route",
-      "kind": "step",
       "prompt": "Navigation Requirements Under the IFR — An aircraft operating under the IFR must be navigated by (b)?",
       "answer": "use of a radio navigation system or systems where, after making allowance for tracking errors of ± 9° from the last positive fix, the aircraft will come within the rated coverage of a radio aid which can be used as a fix. The maximum time interval between fixes must not exceed two hours"
-    },
-    {
-      "topicId": "enroute-navigation",
-      "topicTitle": "Navigation Requirements Under the IFR",
-      "chapter": "En Route",
-      "kind": "step",
-      "prompt": "Navigation Requirements Under the IFR — An aircraft operating under the IFR must be navigated by (c)?",
-      "answer": "visual reference to the ground or water by day, on route segments where suitable enroute radio navigation aids are not available, provided that weather conditions permit flight in VMC and the visual position fixing requirements of AIP ENR 1.1 Para 4.1.2.1.b (Jepp ATC – General Flight"
-    },
-    {
-      "topicId": "enroute-deviations",
-      "topicTitle": "Deviations in Controlled Airspace",
-      "chapter": "En Route",
-      "kind": "table",
-      "prompt": "Deviations in Controlled Airspace — VISUAL?",
-      "answer": "1 NM",
-      "page": 37,
-      "distractors": [
-        "5 NM",
-        "10 NM",
-        "7 NM"
-      ]
-    },
-    {
-      "topicId": "enroute-deviations",
-      "topicTitle": "Deviations in Controlled Airspace",
-      "chapter": "En Route",
-      "kind": "table",
-      "prompt": "Deviations in Controlled Airspace — NDB ±?",
-      "answer": "5°"
-    },
-    {
-      "topicId": "enroute-deviations",
-      "topicTitle": "Deviations in Controlled Airspace",
-      "chapter": "En Route",
-      "kind": "table",
-      "prompt": "Deviations in Controlled Airspace — DME ±?",
-      "answer": "2 NM",
-      "distractors": [
-        "50 NM",
-        "1 NM",
-        "100 NM"
-      ]
-    },
-    {
-      "topicId": "holding-entries",
-      "topicTitle": "Sector Entries",
-      "chapter": "Holding",
-      "kind": "clause",
-      "prompt": "Sector Entries — describe Sector 1 entry (Parallel Entry).",
-      "answer": "a) On reaching the holding fix, the aircraft is turned onto an outbound heading for the appropriate time (taken from over or abeam the holding fix whichever is later), or until the reaching the limiting DME distance if earlier; then"
     },
     {
       "topicId": "holding-entries",
@@ -1291,14 +1019,6 @@
       "kind": "step",
       "prompt": "Sector Entries — Sector 1 entry (Parallel Entry) (c)?",
       "answer": "on the second arrival over the holding fix, the aircraft is turned to follow the holding pattern."
-    },
-    {
-      "topicId": "holding-entries",
-      "topicTitle": "Sector Entries",
-      "chapter": "Holding",
-      "kind": "clause",
-      "prompt": "Sector Entries — describe Sector 2 entry (Offset or Teardrop Entry).",
-      "answer": "a) On reaching the holding fix, the aircraft is turned onto a heading to make good a track of 30 degrees from the reciprocal of the inbound track on the holding side; then"
     },
     {
       "topicId": "holding-entries",
@@ -1361,56 +1081,8 @@
       "topicTitle": "Holding Limitations",
       "chapter": "Holding",
       "kind": "clause",
-      "prompt": "Holding Limitations — Speed?",
-      "answer": "IAS must not exceed"
-    },
-    {
-      "topicId": "holding-limitations",
-      "topicTitle": "Holding Limitations",
-      "chapter": "Holding",
-      "kind": "table",
-      "prompt": "Holding Limitations — Up to and inc.?",
-      "answer": "FL140"
-    },
-    {
-      "topicId": "holding-limitations",
-      "topicTitle": "Holding Limitations",
-      "chapter": "Holding",
-      "kind": "step",
-      "prompt": "Holding Limitations — *Where the approach is limited to Cat A and B only (b)?",
-      "answer": "Outbound timing begins abeam the fix or on attaining the outbound heading, whichever comes later."
-    },
-    {
-      "topicId": "holding-limitations",
-      "topicTitle": "Holding Limitations",
-      "chapter": "Holding",
-      "kind": "clause",
       "prompt": "Holding Limitations — Time/Distance outbound?",
       "answer": "The outbound leg must be no longer than:"
-    },
-    {
-      "topicId": "holding-limitations",
-      "topicTitle": "Holding Limitations",
-      "chapter": "Holding",
-      "kind": "step",
-      "prompt": "Holding Limitations — *Where the approach is limited to Cat A and B only (1)?",
-      "answer": "up to and inc. FL140 – 1 minute or the time or distance limit specified on the chart"
-    },
-    {
-      "topicId": "holding-limitations",
-      "topicTitle": "Holding Limitations",
-      "chapter": "Holding",
-      "kind": "step",
-      "prompt": "Holding Limitations — *Where the approach is limited to Cat A and B only (2)?",
-      "answer": "above FL140 – 1.5 minutes or the time or the distance limit specified on the chart."
-    },
-    {
-      "topicId": "holding-limitations",
-      "topicTitle": "Holding Limitations",
-      "chapter": "Holding",
-      "kind": "clause",
-      "prompt": "Holding Limitations — Turns?",
-      "answer": "All turns in nil wind should be at a bank angle of 25° or rate one, whichever requires the lesser bank."
     },
     {
       "topicId": "holding-limitations",
@@ -1419,14 +1091,6 @@
       "kind": "clause",
       "prompt": "Holding Limitations — Wind allowance?",
       "answer": "Allowance should be made in heading and in timing to compensate for the effects of wind to ensure the inbound track is regained before passing the holding fix inbound."
-    },
-    {
-      "topicId": "holding-limitations",
-      "topicTitle": "Holding Limitations",
-      "chapter": "Holding",
-      "kind": "clause",
-      "prompt": "Holding Limitations — Exiting?",
-      "answer": "For ATC traffic management, jet aircraft in CTA must leave an en route holding pattern at 250KT IAS, unless otherwise published or advised by ATC. Pilots may request a variation to this requirement."
     },
     {
       "topicId": "approach-types",
@@ -1472,22 +1136,6 @@
       "topicId": "approach-qnh",
       "topicTitle": "Setting QNH Before IAF",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Setting QNH Before IAF — Prior to passing the IAF, pilots are required to set either (a)?",
-      "answer": "the actual aerodrome QNH from an approved source, or"
-    },
-    {
-      "topicId": "approach-qnh",
-      "topicTitle": "Setting QNH Before IAF",
-      "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Setting QNH Before IAF — Prior to passing the IAF, pilots are required to set either (QNH)?",
-      "answer": "These minima may be reduced by 100FT whenever an actual aerodrome"
-    },
-    {
-      "topicId": "approach-qnh",
-      "topicTitle": "Setting QNH Before IAF",
-      "chapter": "Approaches",
       "kind": "cloze",
       "prompt": "Setting QNH Before IAF — fill the blank: Approved sources of actual QNH are ATC and ATIS except when the aerodrome forecast QNH is provided, AWIS and Bureau of Meteorology accredited meteorological observers. An actual aerodrome QNH obtained from an approved source is valid for a period of _____ from the time of receipt.",
       "answer": "15 minutes",
@@ -1522,19 +1170,6 @@
       "answer": "The means used to determine and report meteorological conditions."
     },
     {
-      "topicId": "approach-aom",
-      "topicTitle": "Aerodrome Operating Minima",
-      "chapter": "Approaches",
-      "kind": "cloze",
-      "prompt": "Aerodrome Operating Minima — fill the blank: Author’s Note: the prescriptive _____ PEC addition no longer appears in the AIP.",
-      "answer": "50 feet",
-      "distractors": [
-        "300 feet",
-        "1,000 feet",
-        "10,000 FT"
-      ]
-    },
-    {
       "topicId": "approach-ban",
       "topicTitle": "Approach Ban for IFR Flights",
       "chapter": "Approaches",
@@ -1544,7 +1179,7 @@
       "distractors": [
         "3,300 FT",
         "300 ft",
-        "60 ft"
+        "60 FT"
       ]
     },
     {
@@ -1555,7 +1190,7 @@
       "prompt": "Approach Ban for IFR Flights — fill the blank: Despite the above, the PIC may continue the IAP if already below _____ AAL when this information is received.",
       "answer": "1,000 feet",
       "distractors": [
-        "60 ft",
+        "60 FT",
         "300 feet",
         "110 FT"
       ]
@@ -1613,23 +1248,7 @@
       "topicTitle": "Circling Approaches and Visual Circling",
       "chapter": "Approaches",
       "kind": "step",
-      "prompt": "Circling Approaches and Visual Circling — By night not below MDA until downwind, base or final (a)?",
-      "answer": "Maintains the aircraft within the circling area; and"
-    },
-    {
-      "topicId": "approach-circling",
-      "topicTitle": "Circling Approaches and Visual Circling",
-      "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Circling Approaches and Visual Circling — By night not below MDA until downwind, base or final (b)?",
-      "answer": "Maintains a visibility, along the intended flight path, not less than the minimum specified on the chart for the procedure; and"
-    },
-    {
-      "topicId": "approach-circling",
-      "topicTitle": "Circling Approaches and Visual Circling",
-      "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Circling Approaches and Visual Circling — By night not below MDA until downwind, base or final (c)?",
+      "prompt": "Circling Approaches and Visual Circling — During visual circling, descent below the circling MDA may only occur when the pilot (c)?",
       "answer": "Maintains visual contact with the landing runway environment (i.e., the runway threshold or approach lighting or other markings identifiable with the runway); and either"
     },
     {
@@ -1637,7 +1256,7 @@
       "topicTitle": "Circling Approaches and Visual Circling",
       "chapter": "Approaches",
       "kind": "step",
-      "prompt": "Circling Approaches and Visual Circling — • By day and night (1)?",
+      "prompt": "Circling Approaches and Visual Circling — Note 1: The concept is as follows (1)?",
       "answer": "The pilot maintains visual contact with the landing runway while the aircraft is circled at MDA to a position within the traffic pattern that intercepts a normal downwind, base or final approach. If the MDA is above the downwind height, the pilot maintains MDA and downwind spacing until he/she reaches a position from which descent at normal approach rates to join base can be made (see Figure 1)."
     },
     {
@@ -1645,7 +1264,7 @@
       "topicTitle": "Circling Approaches and Visual Circling",
       "chapter": "Approaches",
       "kind": "step",
-      "prompt": "Circling Approaches and Visual Circling — • By day and night (2)?",
+      "prompt": "Circling Approaches and Visual Circling — Note 1: The concept is as follows (2)?",
       "answer": "When daylight exists and obstacles can be seen, the pilot has the option of descending from MDA from any position within the circling area while maintaining an obstacle clearance not less than that required for the aircraft performance category."
     },
     {
@@ -1653,7 +1272,7 @@
       "topicTitle": "Circling Approaches and Visual Circling",
       "chapter": "Approaches",
       "kind": "step",
-      "prompt": "Circling Approaches and Visual Circling — • By day and night (3)?",
+      "prompt": "Circling Approaches and Visual Circling — Note 1: The concept is as follows (3)?",
       "answer": "Once the pilot initiates descent below circling MDA, the obstacle protection offered by visual circling at the MDA ends and he/she is responsible for ensuring the required clearance from obstacles is maintained visually."
     },
     {
@@ -2027,46 +1646,60 @@
       "source": "transcribed"
     },
     {
-      "topicId": "approach-visual-atc",
-      "topicTitle": "Visual Approaches — rules related to ATC",
+      "topicId": "approach-landing-minima",
+      "topicTitle": "Landing Minima",
       "chapter": "Approaches",
-      "kind": "table",
-      "prompt": "Visual Approaches — rules related to ATC — Within 30NM Within?",
-      "answer": "30NM",
-      "distractors": [
-        "2 NM",
-        "5 NM",
-        "1 NM"
-      ]
-    },
-    {
-      "topicId": "approach-visual-requirements",
-      "topicTitle": "Visual Approach Requirements for IFR Flights",
-      "chapter": "Approaches",
-      "kind": "table",
-      "prompt": "Visual Approach Requirements for IFR Flights — Within?",
-      "answer": "30NM",
-      "distractors": [
-        "2 NM",
-        "14 NM",
-        "1 NM"
-      ]
+      "kind": "step",
+      "prompt": "Landing Minima — the minimum altitude must not be below whichever of the following is the highest (a)?",
+      "answer": "the circling minimum altitude specified on the instrument approach chart for the IAP being conducted"
     },
     {
       "topicId": "approach-landing-minima",
       "topicTitle": "Landing Minima",
       "chapter": "Approaches",
       "kind": "step",
-      "prompt": "Landing Minima — Landing Minima (a)?",
-      "answer": "the DA or DH specified on the instrument approach chart for the"
+      "prompt": "Landing Minima — the minimum altitude must not be below whichever of the following is the highest (b)?",
+      "answer": "the relevant minima specified in the AFM"
     },
     {
       "topicId": "approach-landing-minima",
       "topicTitle": "Landing Minima",
       "chapter": "Approaches",
       "kind": "step",
-      "prompt": "Landing Minima — Landing Minima (c)?",
-      "answer": "relevant minima specified in the operator’s exposition or operations manual."
+      "prompt": "Landing Minima — the minimum altitude must not be below whichever of the following is the highest (c)?",
+      "answer": "the relevant minima specified in the operator’s exposition or operations manual."
+    },
+    {
+      "topicId": "approach-landing-minima",
+      "topicTitle": "Landing Minima",
+      "chapter": "Approaches",
+      "kind": "step",
+      "prompt": "Landing Minima — the minimum altitude must not be below whichever of the following is the highest (6)?",
+      "answer": "Despite subsection (4), if the aircraft is conducting a circling manoeuvre"
+    },
+    {
+      "topicId": "approach-landing-minima",
+      "topicTitle": "Landing Minima",
+      "chapter": "Approaches",
+      "kind": "step",
+      "prompt": "Landing Minima — the minimum visibility must not be below whichever of the following is the highest (a)?",
+      "answer": "the circling minimum visibility specified on the instrument approach chart for the IAP being conducted"
+    },
+    {
+      "topicId": "approach-landing-minima",
+      "topicTitle": "Landing Minima",
+      "chapter": "Approaches",
+      "kind": "step",
+      "prompt": "Landing Minima — the minimum visibility must not be below whichever of the following is the highest (b)?",
+      "answer": "the relevant minima specified in the AFM"
+    },
+    {
+      "topicId": "approach-landing-minima",
+      "topicTitle": "Landing Minima",
+      "chapter": "Approaches",
+      "kind": "step",
+      "prompt": "Landing Minima — the minimum visibility must not be below whichever of the following is the highest (c)?",
+      "answer": "the relevant minima specified in the operator’s exposition or operations manual."
     },
     {
       "topicId": "approach-missed",
@@ -2107,22 +1740,6 @@
       "kind": "step",
       "prompt": "Missed Approaches — Navigational tolerance means 1 of the following (e)?",
       "answer": "for operations based on visual navigation – 1 NM from the cleared track"
-    },
-    {
-      "topicId": "approach-go-around-vmc",
-      "topicTitle": "Go Around and Missed Approach Procedure in VMC",
-      "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Go Around and Missed Approach Procedure in VMC — Go Around and Missed Approach Procedure in VMC (b)?",
-      "answer": "position the aircraft on the active side and parallel to the nominated duty runway, while maintaining separation from other aircraft; and"
-    },
-    {
-      "topicId": "approach-go-around-vmc",
-      "topicTitle": "Go Around and Missed Approach Procedure in VMC",
-      "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Go Around and Missed Approach Procedure in VMC — Go Around and Missed Approach Procedure in VMC (c)?",
-      "answer": "follow ATC instructions or re-enter the circuit from upwind"
     },
     {
       "topicId": "gradient-nomograph",
