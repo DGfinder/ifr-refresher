@@ -1,7 +1,7 @@
 {
   "generatedFrom": "docs/curriculum/baseline/topics.json",
   "generator": "scripts/build-practice-items.mjs",
-  "itemCount": 230,
+  "itemCount": 249,
   "items": [
     {
       "topicId": "admin-definitions",
@@ -968,33 +968,211 @@
       "topicId": "alternates-triggers",
       "topicTitle": "Alternates Could Very Well Prove Life Savers",
       "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — Part 91 aircraft: A destination alternate aerodrome must be planned for an IFR flight by night to a planned destination aerodrome that is (b)?",
-      "answer": "is served by 1 or more instrument approach procedures, none of which the pilot is able to conduct."
+      "kind": "clause",
+      "prompt": "Alternate weather — over what window must the forecast conditions be considered?",
+      "answer": "Arrival during the currency of, or up to 30 minutes prior to the forecast commencement of, the listed conditions.",
+      "distractors": [
+        "Arrival during the currency of, or up to 60 minutes prior to the forecast commencement",
+        "Arrival during the currency of the conditions only",
+        "Arrival within 30 minutes either side of the forecast commencement"
+      ],
+      "page": 27,
+      "source": "transcribed"
     },
     {
       "topicId": "alternates-triggers",
       "topicTitle": "Alternates Could Very Well Prove Life Savers",
       "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — Night VFR aircraft must provide for a suitable alternate aerodrome within one hour flight time of the destination unless (b)?",
-      "answer": "the aircraft is fitted with an approved GNSS, as defined in the relevant"
+      "kind": "clause",
+      "prompt": "Alternate weather — cloud: what triggers an alternate?",
+      "answer": "More than SCT below the alternate minimum.",
+      "distractors": [
+        "More than BKN below the alternate minimum",
+        "Any cloud below the alternate minimum",
+        "More than SCT below the landing minimum"
+      ],
+      "page": 27,
+      "source": "transcribed"
     },
     {
       "topicId": "alternates-triggers",
       "topicTitle": "Alternates Could Very Well Prove Life Savers",
       "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Alternates Could Very Well Prove Life Savers — There is no requirement for a responsible person to be in attendance, but the aircraft must be equipped with (b)?",
-      "answer": "single VHF and HF and carries 30 minutes holding fuel to allow for the alerting of ground staff in the event of a failure of the aircraft’s VHF communication."
+      "kind": "list",
+      "prompt": "Alternate weather — visibility: what two cases trigger an alternate?",
+      "answer": "Visibility less than the alternate minimum; or visibility greater than the alternate minimum but the forecast endorsed with at least a 30 per cent probability of fog, mist, dust or any other phenomenon restricting visibility below the alternate minimum",
+      "distractors": [
+        "Visibility less than the alternate minimum only",
+        "Visibility less than the alternate minimum, or any PROB endorsement at all",
+        "Visibility less than the landing minimum, or a 40 per cent probability of restriction"
+      ],
+      "page": 27,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-triggers",
+      "topicTitle": "Alternates Could Very Well Prove Life Savers",
+      "chapter": "Preflight",
+      "kind": "clause",
+      "prompt": "Alternate weather — wind: what triggers an alternate, and what must be considered with it?",
+      "answer": "A crosswind or tailwind component more than the maximum for the aircraft. Wind gusts must be considered.",
+      "distractors": [
+        "A crosswind component more than the maximum for the aircraft; gusts are disregarded",
+        "A total wind of 25 kt or more, gusts included",
+        "A tailwind component only; crosswind is covered by the landing minima"
+      ],
+      "page": 27,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-triggers",
+      "topicTitle": "Alternates Could Very Well Prove Life Savers",
+      "chapter": "Preflight",
+      "kind": "clause",
+      "prompt": "Alternate weather — which flights are excepted from the cloud, visibility and wind requirement?",
+      "answer": "Flights operating under the VFR by day within 50 NM of the point of departure.",
+      "distractors": [
+        "Flights under the VFR by day within 30 NM of the point of departure",
+        "Flights under the VFR by day or night within 50 NM of the point of departure",
+        "Flights under the IFR within 50 NM of the point of departure"
+      ],
+      "page": 27,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-triggers",
+      "topicTitle": "Alternates Could Very Well Prove Life Savers",
+      "chapter": "Preflight",
+      "kind": "table",
+      "prompt": "Alternate weather — thunderstorms: how much holding fuel for a forecast endorsed INTER?",
+      "answer": "30 minutes",
+      "distractors": [
+        "60 minutes",
+        "45 minutes",
+        "15 minutes"
+      ],
+      "page": 29,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-triggers",
+      "topicTitle": "Alternates Could Very Well Prove Life Savers",
+      "chapter": "Preflight",
+      "kind": "table",
+      "prompt": "Alternate weather — thunderstorms: how much holding fuel for a forecast endorsed TEMPO?",
+      "answer": "60 minutes",
+      "distractors": [
+        "30 minutes",
+        "45 minutes",
+        "90 minutes"
+      ],
+      "page": 29,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-triggers",
+      "topicTitle": "Alternates Could Very Well Prove Life Savers",
+      "chapter": "Preflight",
+      "kind": "clause",
+      "prompt": "Alternate weather — what probability of a thunderstorm or associated severe turbulence triggers an alternate?",
+      "answer": "A forecast of the event, or a forecast of at least a 30 per cent probability of it.",
+      "distractors": [
+        "At least a 40 per cent probability",
+        "At least a 20 per cent probability",
+        "Any probability at all"
+      ],
+      "page": 29,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-triggers",
+      "topicTitle": "Alternates Could Very Well Prove Life Savers",
+      "chapter": "Preflight",
+      "kind": "clause",
+      "prompt": "Alternate weather — what applies when no aerodrome forecast is available?",
+      "answer": "The pilot in command must make provision for a suitable alternate that has an available forecast.",
+      "distractors": [
+        "The area forecast may be used instead, with minima increased by 50 ft",
+        "The flight may proceed if the destination has an instrument approach",
+        "A PROB30 must be assumed and holding fuel carried"
+      ],
+      "page": 27,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-triggers",
+      "topicTitle": "Alternates Could Very Well Prove Life Savers",
+      "chapter": "Preflight",
+      "kind": "list",
+      "prompt": "Alternate lighting — when aerodrome lighting is required and PAL is not used, over what periods must it be arranged to operate?",
+      "answer": "Departure: from 10 minutes before departure to at least 30 minutes after take-off. Arrival: from at least 30 minutes before ETA until landing and taxiing has been completed",
+      "distractors": [
+        "Departure: 30 minutes before to 10 minutes after take-off. Arrival: 10 minutes before ETA until landing",
+        "Departure: 10 minutes before to 30 minutes after take-off. Arrival: 15 minutes before ETA until landing",
+        "Departure and arrival: 30 minutes either side"
+      ],
+      "page": 28,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-triggers",
+      "topicTitle": "Alternates Could Very Well Prove Life Savers",
+      "chapter": "Preflight",
+      "kind": "list",
+      "prompt": "Alternate lighting — a PAL aerodrome may be nominated as an alternate with no responsible person in attendance if the aircraft has what?",
+      "answer": "Dual VHF; or single VHF and HF, carrying 30 minutes holding fuel to allow for alerting ground staff if the aircraft's VHF fails",
+      "distractors": [
+        "Dual VHF only",
+        "Single VHF and HF, carrying 60 minutes holding fuel",
+        "Dual VHF and HF, with no additional fuel requirement"
+      ],
+      "page": 29,
+      "source": "transcribed"
     },
     {
       "topicId": "alternates-special-minima",
       "topicTitle": "Special Alternate Weather Minima",
       "chapter": "Preflight",
-      "kind": "step",
-      "prompt": "Special Alternate Weather Minima — (minima will revert to the standard alternate minima) during periods when (b)?",
-      "answer": "an airport control service is not provided"
+      "kind": "list",
+      "prompt": "Special Alternate Weather Minima — what must dual ILS/VOR approach capability include?",
+      "answer": "Duplicated LOC; duplicated GP; duplicated VOR; and either duplicated DME, duplicated GNSS, or single DME and single GNSS",
+      "distractors": [
+        "Duplicated LOC, GP and DME only",
+        "Duplicated LOC and VOR, with single GP and single DME",
+        "Duplicated LOC, GP, VOR, DME and GNSS, with no alternative permitted"
+      ],
+      "page": 29,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-special-minima",
+      "topicTitle": "Special Alternate Weather Minima",
+      "chapter": "Preflight",
+      "kind": "clause",
+      "prompt": "Special Alternate Weather Minima — how are they identified on a chart?",
+      "answer": "By a double asterisk adjacent to the ALTERNATE title, and an accompanying note.",
+      "distractors": [
+        "By a single asterisk adjacent to the ALTERNATE title",
+        "By a shaded background to the minima block",
+        "By a bold ALTERNATE title with no other marking"
+      ],
+      "page": 29,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-special-minima",
+      "topicTitle": "Special Alternate Weather Minima",
+      "chapter": "Preflight",
+      "kind": "list",
+      "prompt": "Special Alternate Weather Minima — when do they revert to the standard alternate minima?",
+      "answer": "When local METAR/SPECI or forecasting services are not available; or when an airport control service is not provided",
+      "distractors": [
+        "When the aerodrome forecast is endorsed INTER or TEMPO",
+        "When the aircraft is not equipped with dual GNSS",
+        "When arrival is outside tower hours only"
+      ],
+      "page": 30,
+      "source": "transcribed"
     },
     {
       "topicId": "departure-altimeter",
@@ -1463,38 +1641,136 @@
       "topicId": "approach-qnh",
       "topicTitle": "Setting QNH Before IAF",
       "chapter": "Approaches",
-      "kind": "cloze",
-      "prompt": "Setting QNH Before IAF — fill the blank: Approved sources of actual QNH are ATC and ATIS except when the aerodrome forecast QNH is provided, AWIS and Bureau of Meteorology accredited meteorological observers. An actual aerodrome QNH obtained from an approved source is valid for a period of _____ from the time of receipt.",
-      "answer": "15 minutes",
+      "kind": "list",
+      "prompt": "Setting QNH Before IAF — which three QNH may be set prior to passing the IAF?",
+      "answer": "The actual aerodrome QNH from an approved source; the Forecast Aerodrome (TAF) QNH; or the forecast area QNH",
       "distractors": [
-        "10 minutes",
-        "60 minutes",
-        "1 minute"
-      ]
+        "Actual aerodrome QNH; METAR QNH; or forecast area QNH",
+        "Actual aerodrome QNH; TAF QNH; or 1013.2 hPa",
+        "Actual aerodrome QNH or TAF QNH only"
+      ],
+      "page": 42,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-qnh",
+      "topicTitle": "Setting QNH Before IAF",
+      "chapter": "Approaches",
+      "kind": "list",
+      "prompt": "Setting QNH Before IAF — what are the approved sources of actual QNH?",
+      "answer": "ATC and ATIS — except when the aerodrome forecast QNH is being provided — AWIS, and Bureau of Meteorology accredited meteorological observers",
+      "distractors": [
+        "ATC, ATIS, AWIS, METAR and Bureau of Meteorology accredited observers",
+        "ATC and ATIS only",
+        "AWIS and METAR only"
+      ],
+      "page": 42,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-qnh",
+      "topicTitle": "Setting QNH Before IAF",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Setting QNH Before IAF — how long is an actual aerodrome QNH valid?",
+      "answer": "15 minutes from the time of receipt",
+      "distractors": [
+        "30 minutes from the time of receipt",
+        "60 minutes from the time of receipt",
+        "10 minutes from the time of receipt"
+      ],
+      "page": 42,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-qnh",
+      "topicTitle": "Setting QNH Before IAF",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Setting QNH Before IAF — does a METAR QNH meet the actual QNH requirement?",
+      "answer": "No. The source notes specifically that METAR QNH does not meet this requirement.",
+      "distractors": [
+        "Yes, a METAR QNH is an approved source of actual QNH",
+        "Yes, but only within 15 minutes of issue",
+        "Yes, but the minima must be increased by 50 ft"
+      ],
+      "page": 42,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-qnh",
+      "topicTitle": "Setting QNH Before IAF",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Setting QNH Before IAF — is a forecast QNH passed by ATC or on the ATIS an approved source of actual QNH?",
+      "answer": "No. When actual aerodrome QNH is not available ATC reports the TAF QNH on the ATIS as \"ACTUAL QNH NOT AVAILABLE, AERODROME FORECAST QNH…\", and that is not an approved source of actual QNH.",
+      "distractors": [
+        "Yes, once ATC has passed it, it counts as actual QNH",
+        "Yes, provided it is received within 15 minutes",
+        "Yes, but only for the alternate minima"
+      ],
+      "page": 42,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-qnh",
+      "topicTitle": "Setting QNH Before IAF",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Setting QNH Before IAF — when the forecast area QNH is used, what happens to the minima?",
+      "answer": "They must be increased by 50 ft",
+      "distractors": [
+        "They must be increased by 100 ft",
+        "They may be reduced by 50 ft",
+        "They are unchanged"
+      ],
+      "page": 42,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-qnh",
+      "topicTitle": "Setting QNH Before IAF",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Setting QNH Before IAF — when may minima on a shaded-background Airservices chart be reduced by 100 ft?",
+      "answer": "Those minima are calculated assuming the use of TAF QNH, so they may be reduced by 100 ft whenever an actual aerodrome QNH is set.",
+      "distractors": [
+        "Whenever the forecast area QNH is set",
+        "Whenever ATC passes a forecast QNH on the ATIS",
+        "Whenever the aerodrome is in sight"
+      ],
+      "page": 42,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-aom",
       "topicTitle": "Aerodrome Operating Minima",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Aerodrome Operating Minima — AOM should be higher than the published landing minima (a)?",
-      "answer": "The type, performance and handling characteristics of the aeroplane."
+      "kind": "clause",
+      "prompt": "Aerodrome Operating Minima — how are landing minima published on Australian approach charts?",
+      "answer": "As MDA/H or DA/H. Obstacle Clearance Altitude/Height is not published. Landing minima are the basis for determining AOM.",
+      "distractors": [
+        "As OCA/H, which is the basis for determining AOM",
+        "As MDA/H only; DA/H is published separately by the operator",
+        "As the operator's AOM, which the chart reproduces"
+      ],
+      "page": 42,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-aom",
       "topicTitle": "Aerodrome Operating Minima",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Aerodrome Operating Minima — AOM should be higher than the published landing minima (b)?",
-      "answer": "The composition, experience and competence of the flight crew."
-    },
-    {
-      "topicId": "approach-aom",
-      "topicTitle": "Aerodrome Operating Minima",
-      "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Aerodrome Operating Minima — AOM should be higher than the published landing minima (c)?",
-      "answer": "The means used to determine and report meteorological conditions."
+      "kind": "list",
+      "prompt": "Aerodrome Operating Minima — what three factors may lead an operator to set AOM higher than the published landing minima?",
+      "answer": "The type, performance and handling characteristics of the aeroplane; the composition, experience and competence of the flight crew; and the means used to determine and report meteorological conditions",
+      "distractors": [
+        "Aircraft category; runway length; and the forecast wind",
+        "The approach type; the aid in use; and the time of day",
+        "Aircraft performance; the alternate available; and the fuel on board"
+      ],
+      "page": 42,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-ban",
@@ -1905,6 +2181,11 @@
       "prompt": "DME or GNSS Arrivals — when is descent permitted?",
       "answer": "Not until the aircraft is established within the appropriate sector or on the specified inbound track.",
       "page": 49,
+      "distractors": [
+        "Once cleared for the arrival, regardless of position",
+        "Once within 30 NM of the aerodrome",
+        "Once established on any inbound track within the sector's outer boundary"
+      ],
       "source": "transcribed"
     },
     {
@@ -1915,6 +2196,11 @@
       "prompt": "DME or GNSS Arrivals — what applies when manoeuvring within a sector?",
       "answer": "The pilot must ensure the aircraft is contained within the sector, at or above the appropriate segment minimum safe altitude. Manoeuvring within a sector after passing the final approach fix is prohibited.",
       "page": 49,
+      "distractors": [
+        "Manoeuvring within a sector is permitted at any point on the arrival",
+        "Manoeuvring is permitted after the final approach fix if the aerodrome is in sight",
+        "Manoeuvring is permitted below segment minimum safe altitude once visual"
+      ],
       "source": "transcribed"
     },
     {
@@ -1925,6 +2211,11 @@
       "prompt": "DME or GNSS Arrivals in controlled airspace — what does \"CLEARED DME (or GNSS) ARRIVAL\" authorise?",
       "answer": "It constitutes a clearance for final approach and authorises descent to the minimum altitude specified in the appropriate DME or GNSS arrival procedure. ATC is not permitted to impose any altitude restriction on such a clearance.",
       "page": 49,
+      "distractors": [
+        "Descent to the MSA only, with further descent requiring a separate clearance",
+        "A clearance for final approach, on which ATC may impose an altitude restriction",
+        "Descent to the circling minima, provided the aerodrome is in sight"
+      ],
       "source": "transcribed"
     },
     {
@@ -1935,6 +2226,11 @@
       "prompt": "DME or GNSS Arrivals in controlled airspace — what must an aircraft not do once cleared?",
       "answer": "It must not orbit, enter a holding pattern, or use holding pattern entry procedures. ATC will not issue a clearance for a DME or GNSS arrival that involves a holding pattern entry procedure.",
       "page": 49,
+      "distractors": [
+        "It must not descend below the segment minimum safe altitude",
+        "It must not accept a visual approach",
+        "It must not change speed without advising ATC"
+      ],
       "source": "transcribed"
     },
     {
@@ -1945,6 +2241,11 @@
       "prompt": "Visual Approaches issued by ATC — by day, when may one be issued?",
       "answer": "Within 30 NM; continuous visual reference to ground or water; visibility 5000 m",
       "page": 51,
+      "distractors": [
+        "Within 30 NM; clear of cloud; visibility 5000 m",
+        "Within 50 NM; continuous visual reference to ground or water; visibility 5000 m",
+        "Within 30 NM; continuous visual reference to ground or water; visibility 8 km"
+      ],
       "source": "transcribed"
     },
     {
@@ -1965,6 +2266,11 @@
       "prompt": "Visual Approaches issued by ATC — what does night add over day?",
       "answer": "The vectoring condition: if being vectored the aircraft must be assigned MVA and given heading or tracking instructions to intercept final or to position within the circling area.",
       "page": 51,
+      "distractors": [
+        "Nothing — the day and night conditions are identical",
+        "A reduced range of 15 NM instead of 30 NM",
+        "A requirement for the aerodrome to be in sight"
+      ],
       "source": "transcribed"
     },
     {
@@ -1975,6 +2281,11 @@
       "prompt": "Visual Approach Requirements — by day, when need the pilot not commence, or may discontinue, an IAP?",
       "answer": "Within 30 NM; clear of cloud; in sight of ground or water; visibility 5000 m or the aerodrome in sight",
       "page": 52,
+      "distractors": [
+        "Within 30 NM; clear of cloud; in sight of ground or water; visibility 8 km",
+        "Within 50 NM; clear of cloud; in sight of ground or water; visibility 5000 m",
+        "Clear of cloud; in sight of ground or water; visibility 5000 m"
+      ],
       "source": "transcribed"
     },
     {
@@ -2010,6 +2321,11 @@
       "prompt": "Visual Approach Requirements — in CTA, what altitude must be maintained?",
       "answer": "Not less than 500 ft above the lower limit of the CTA, unless clearance has been received to depart and re-enter CTA.",
       "page": 52,
+      "distractors": [
+        "Not less than 1000 ft above the lower limit of the CTA",
+        "Not less than 500 ft above the lower limit of the CTA, with no exception",
+        "Not less than the LSALT for the segment"
+      ],
       "source": "transcribed"
     },
     {
@@ -2020,6 +2336,11 @@
       "prompt": "Visual Approach Requirements — by night, what is the minimum altitude outside that CTA case?",
       "answer": "LSALT/MSA, the DGA step, or the last assigned altitude if being vectored.",
       "page": 52,
+      "distractors": [
+        "500 ft above the lower limit of the CTA in all cases",
+        "LSALT/MSA only — a DGA step may not be used",
+        "The last assigned altitude in all cases"
+      ],
       "source": "transcribed"
     },
     {
@@ -2030,6 +2351,11 @@
       "prompt": "Visual Approach Requirements — by day, how long must track or heading on the authorised route be maintained?",
       "answer": "Until within 5 NM.",
       "page": 52,
+      "distractors": [
+        "Until within 3 NM",
+        "Until within the circling area",
+        "Until within 10 NM"
+      ],
       "source": "transcribed"
     },
     {
@@ -2112,41 +2438,131 @@
       "topicId": "approach-missed",
       "topicTitle": "Missed Approaches",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Missed Approaches — Navigational tolerance means 1 of the following (a)?",
-      "answer": "for PBN operations – the RNP value for the segment of the IAP being conducted"
+      "kind": "list",
+      "prompt": "Missed Approaches — the source's \"So Not Visual ROFL\" mnemonic covers which six triggers?",
+      "answer": "Straight-in landing cannot be effected; Not visual at the DA/RA height or MAPT; RAIM warning or loss of RAIM; Outside navigational tolerance in the final segment; Failure or suspect aid below MSA; Lost visual reference during circling",
+      "page": 55,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-missed",
       "topicTitle": "Missed Approaches",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Missed Approaches — Navigational tolerance means 1 of the following (b)?",
-      "answer": "for VOR or LOC-based operations – full-scale deflection of the CDI"
+      "kind": "clause",
+      "prompt": "Missed Approaches — \"So\": when can a straight-in landing not be effected?",
+      "answer": "Unless a circling approach can be conducted in weather conditions equal to, or better than, those specified for circling.",
+      "distractors": [
+        "Unless the aerodrome is in sight by the MAPT",
+        "Unless the visibility is at or above 5000 m",
+        "Unless the aircraft is within the circling area"
+      ],
+      "page": 55,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-missed",
       "topicTitle": "Missed Approaches",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Missed Approaches — Navigational tolerance means 1 of the following (c)?",
-      "answer": "for NDB-based operations – +/- 5º from the specified bearing"
+      "kind": "clause",
+      "prompt": "Missed Approaches — \"R\": when does a RAIM problem require a missed approach?",
+      "answer": "A RAIM warning or loss of RAIM after the IAF, or when below the MSA.",
+      "distractors": [
+        "A RAIM warning at any point after departure",
+        "A RAIM warning after the FAF only",
+        "A RAIM warning while above the MSA"
+      ],
+      "page": 55,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-missed",
       "topicTitle": "Missed Approaches",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Missed Approaches — Navigational tolerance means 1 of the following (d)?",
-      "answer": "for DME-based operations – +/- 2 NM from the required arc"
+      "kind": "clause",
+      "prompt": "Missed Approaches — \"F\": when does a failed or suspect aid require a missed approach?",
+      "answer": "Failure of an aid, or a suspect aid, while below the MSA.",
+      "distractors": [
+        "Failure of an aid at any altitude",
+        "Failure of an aid while above the MSA",
+        "Failure of an aid only after the MAPT"
+      ],
+      "page": 55,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-missed",
       "topicTitle": "Missed Approaches",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Missed Approaches — Navigational tolerance means 1 of the following (e)?",
-      "answer": "for operations based on visual navigation – 1 NM from the cleared track"
+      "kind": "table",
+      "prompt": "Missed Approaches — navigational tolerance for NDB-based operations?",
+      "answer": "± 5° from the specified bearing",
+      "distractors": [
+        "± 2° from the specified bearing",
+        "± 10° from the specified bearing",
+        "Full-scale deflection of the CDI"
+      ],
+      "page": 55,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-missed",
+      "topicTitle": "Missed Approaches",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Missed Approaches — navigational tolerance for DME-based operations?",
+      "answer": "± 2 NM from the required arc",
+      "distractors": [
+        "± 1 NM from the required arc",
+        "± 5 NM from the required arc",
+        "± 2° from the required arc"
+      ],
+      "page": 55,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-missed",
+      "topicTitle": "Missed Approaches",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Missed Approaches — navigational tolerance for VOR or LOC-based operations?",
+      "answer": "Full-scale deflection of the CDI",
+      "distractors": [
+        "Half-scale deflection of the CDI",
+        "± 5° from the specified radial",
+        "± 2 NM from the specified track"
+      ],
+      "page": 55,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-missed",
+      "topicTitle": "Missed Approaches",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Missed Approaches — navigational tolerance for operations based on visual navigation?",
+      "answer": "1 NM from the cleared track",
+      "distractors": [
+        "2 NM from the cleared track",
+        "5 NM from the cleared track",
+        "Within the circling area"
+      ],
+      "page": 55,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-missed",
+      "topicTitle": "Missed Approaches",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Missed Approaches — navigational tolerance for PBN operations?",
+      "answer": "The RNP value for the segment of the IAP being conducted.",
+      "distractors": [
+        "Full-scale deflection of the CDI",
+        "± 2 NM from the cleared track",
+        "The RNP value for the en route segment"
+      ],
+      "page": 55,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-go-around-vmc",
