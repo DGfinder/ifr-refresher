@@ -9,7 +9,6 @@ const LINKS = [
   { href: "/radio", label: "Radio", match: (path: string) => path.startsWith("/radio") },
   { href: "/quiz", label: "Quiz", match: (path: string) => path.startsWith("/quiz") },
   { href: "/insights", label: "Insights", match: (path: string) => path.startsWith("/insights") },
-  { href: "/design-system", label: "Design system", match: (path: string) => path.startsWith("/design-system") },
 ];
 
 export function MainNav() {
