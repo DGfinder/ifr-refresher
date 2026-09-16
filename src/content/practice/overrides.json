@@ -1384,6 +1384,395 @@
           "page": 57
         }
       ]
+    },
+    "holding-entries": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-38.webp, AIP ENR 1.5 Para 3.4. The source is precise about heading versus track; the questions keep that distinction.",
+      "items": [
+        {
+          "kind": "clause",
+          "prompt": "Sector Entries — Sector 1 (parallel): is the outbound leg flown as a heading or a track, and for how long?",
+          "answer": "A heading. The aircraft is turned onto an outbound heading for the appropriate time — taken from over or abeam the holding fix, whichever is later — or until reaching the limiting DME distance if that comes earlier.",
+          "distractors": [
+            "A track. The aircraft is turned onto the outbound track for the appropriate time from over the fix",
+            "A heading, for the appropriate time taken from over the fix only",
+            "A track, until the limiting DME distance in all cases"
+          ],
+          "page": 38
+        },
+        {
+          "kind": "clause",
+          "prompt": "Sector Entries — Sector 1 (parallel): what happens after the outbound leg?",
+          "answer": "The aircraft is turned onto the holding side to intercept the inbound track or to return to the fix; then on the second arrival over the fix it is turned to follow the holding pattern.",
+          "distractors": [
+            "The aircraft is turned away from the holding side to intercept the inbound track",
+            "The aircraft turns directly onto the inbound track and continues in the pattern from the first arrival",
+            "The aircraft holds the outbound heading until the inbound track is intercepted from the non-holding side"
+          ],
+          "page": 38
+        },
+        {
+          "kind": "clause",
+          "prompt": "Sector Entries — Sector 2 (offset or teardrop): heading or track, and at what angle?",
+          "answer": "Turned onto a heading to make good a track of 30 degrees from the reciprocal of the inbound track, on the holding side.",
+          "distractors": [
+            "Turned onto a heading of 30 degrees from the reciprocal of the inbound track, on the holding side",
+            "Turned onto a heading to make good a track of 45 degrees from the reciprocal, on the holding side",
+            "Turned onto a heading to make good a track of 30 degrees from the reciprocal, on the non-holding side"
+          ],
+          "page": 38
+        },
+        {
+          "kind": "table",
+          "prompt": "Sector Entries — Sector 2 (offset or teardrop): maximum outbound time where timing is specified?",
+          "answer": "1 minute and 30 seconds",
+          "distractors": [
+            "1 minute",
+            "2 minutes",
+            "1 minute and 15 seconds"
+          ],
+          "page": 38
+        },
+        {
+          "kind": "clause",
+          "prompt": "Sector Entries — Sector 3 (direct): when does outbound timing begin?",
+          "answer": "Abeam the fix, or — when the abeam position cannot be determined — from completion of the outbound turn.",
+          "distractors": [
+            "On passing the fix, in all cases",
+            "On attaining the outbound heading, in all cases",
+            "From completion of the outbound turn, in all cases"
+          ],
+          "page": 38
+        },
+        {
+          "kind": "clause",
+          "prompt": "Sector Entries — how is a DME arc entry flown?",
+          "answer": "Having reached the fix, enter the holding pattern in accordance with either the Sector 1 or Sector 3 entry procedure.",
+          "distractors": [
+            "In accordance with either the Sector 1 or Sector 2 entry procedure",
+            "In accordance with the Sector 2 entry procedure",
+            "Direct entry only, regardless of arrival direction"
+          ],
+          "page": 38
+        },
+        {
+          "kind": "list",
+          "prompt": "Sector Entries — name the three sector entries and the fourth case the source covers.",
+          "answer": "Sector 1 parallel entry; Sector 2 offset or teardrop entry; Sector 3 direct entry; and the DME arc entry",
+          "page": 38
+        }
+      ]
+    },
+    "holding-limitations": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-40.webp, AIP ENR 1.5 Para 3.3.",
+      "items": [
+        {
+          "kind": "table",
+          "prompt": "Holding Limitations — maximum IAS up to and including FL140?",
+          "answer": "230 KIAS, or 170 KIAS where the approach is limited to Cat A and B only",
+          "distractors": [
+            "240 KIAS, or 170 KIAS where the approach is limited to Cat A and B only",
+            "230 KIAS, or 200 KIAS where the approach is limited to Cat A and B only",
+            "265 KIAS, or 170 KIAS where the approach is limited to Cat A and B only"
+          ],
+          "page": 40
+        },
+        {
+          "kind": "table",
+          "prompt": "Holding Limitations — maximum IAS above FL140?",
+          "answer": "240 KIAS",
+          "distractors": [
+            "230 KIAS",
+            "265 KIAS",
+            "250 KIAS"
+          ],
+          "page": 40
+        },
+        {
+          "kind": "table",
+          "prompt": "Holding Limitations — maximum IAS above FL200?",
+          "answer": "265 KIAS",
+          "distractors": [
+            "240 KIAS",
+            "250 KIAS",
+            "230 KIAS"
+          ],
+          "page": 40
+        },
+        {
+          "kind": "clause",
+          "prompt": "Holding Limitations — when does outbound timing begin?",
+          "answer": "Abeam the fix, or on attaining the outbound heading, whichever comes later.",
+          "distractors": [
+            "Abeam the fix, or on attaining the outbound heading, whichever comes first",
+            "On passing the fix in all cases",
+            "On completion of the outbound turn in all cases"
+          ],
+          "page": 40
+        },
+        {
+          "kind": "table",
+          "prompt": "Holding Limitations — maximum outbound leg up to and including FL140?",
+          "answer": "1 minute, or the time or distance limit specified on the chart",
+          "distractors": [
+            "1.5 minutes, or the time or distance limit specified on the chart",
+            "2 minutes, or the time or distance limit specified on the chart",
+            "1 minute 30 seconds in all cases"
+          ],
+          "page": 40
+        },
+        {
+          "kind": "table",
+          "prompt": "Holding Limitations — maximum outbound leg above FL140?",
+          "answer": "1.5 minutes, or the time or distance limit specified on the chart",
+          "distractors": [
+            "1 minute, or the time or distance limit specified on the chart",
+            "2 minutes, or the time or distance limit specified on the chart",
+            "2.5 minutes in all cases"
+          ],
+          "page": 40
+        },
+        {
+          "kind": "clause",
+          "prompt": "Holding Limitations — what bank angle should be used for turns in nil wind?",
+          "answer": "25 degrees or rate one, whichever requires the lesser bank.",
+          "distractors": [
+            "25 degrees or rate one, whichever requires the greater bank",
+            "30 degrees or rate one, whichever requires the lesser bank",
+            "Rate one in all cases"
+          ],
+          "page": 40
+        },
+        {
+          "kind": "clause",
+          "prompt": "Holding Limitations — what is wind allowance made in, and to achieve what?",
+          "answer": "In heading and in timing, to ensure the inbound track is regained before passing the holding fix inbound.",
+          "distractors": [
+            "In heading only, to ensure the inbound track is regained before passing the fix",
+            "In timing only, to ensure the outbound leg is not exceeded",
+            "In heading and timing, to ensure the outbound track is maintained"
+          ],
+          "page": 40
+        },
+        {
+          "kind": "clause",
+          "prompt": "Holding Limitations — at what speed must jet aircraft leave an en route holding pattern in CTA, and can it be varied?",
+          "answer": "250 KT IAS, unless otherwise published or advised by ATC. Pilots may request a variation to this requirement.",
+          "distractors": [
+            "250 KT IAS, and no variation may be requested",
+            "230 KT IAS, unless otherwise published or advised by ATC",
+            "265 KT IAS, unless otherwise published or advised by ATC"
+          ],
+          "page": 40
+        }
+      ]
+    },
+    "approach-circling": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-45.webp, AIP ENR 1.5 Para 1.6.6. The source's mnemonic is “VMC, Day Obstacle, Night MDA” and, as the author notes, VMC there is a memory device and does not mean visual meteorological conditions.",
+      "items": [
+        {
+          "kind": "list",
+          "prompt": "Circling Approaches — the source's “VMC, Day Obstacle, Night MDA” mnemonic covers what?",
+          "answer": "Visibility along the flight path not less than specified for circling; Maintain visual contact with the landing environment; inside the Circling area; by Day not below obstacle clearance; by Night not below MDA until downwind, base or final",
+          "page": 45
+        },
+        {
+          "kind": "list",
+          "prompt": "Circling Approaches — descent below the circling MDA may occur only when the pilot maintains which three things?",
+          "answer": "The aircraft within the circling area; a visibility along the intended flight path not less than the minimum specified on the chart; and visual contact with the landing runway environment",
+          "distractors": [
+            "The aircraft within the circling area; visibility not less than 5000 m; and the aerodrome in sight",
+            "The aircraft within 3 NM; visibility not less than the chart minimum; and visual contact with the runway",
+            "The aircraft within the circling area; visibility not less than the chart minimum; and continuous visual reference to ground or water"
+          ],
+          "page": 45
+        },
+        {
+          "kind": "clause",
+          "prompt": "Circling Approaches — what counts as the landing runway environment?",
+          "answer": "The runway threshold, or approach lighting, or other markings identifiable with the runway.",
+          "distractors": [
+            "The runway threshold only",
+            "The aerodrome beacon or any aerodrome lighting",
+            "Any part of the aerodrome, including the terminal or apron"
+          ],
+          "page": 45
+        },
+        {
+          "kind": "clause",
+          "prompt": "Circling Approaches — by day, what additional condition allows descent from MDA?",
+          "answer": "Maintaining visual contact with obstacles along the intended flight path and an obstacle clearance not less than the minimum for the aircraft performance category, until aligned with the landing runway.",
+          "distractors": [
+            "Maintaining visual contact with the runway threshold until aligned with the landing runway",
+            "Maintaining an obstacle clearance not less than 300 ft regardless of category",
+            "Being established within 3 NM of the threshold"
+          ],
+          "page": 45
+        },
+        {
+          "kind": "clause",
+          "prompt": "Circling Approaches — by day and night, what is the alternative to the obstacle option?",
+          "answer": "From a position within the circling area on the downwind, base or final leg, complete a continuous descent from MDA to the threshold using rates of descent and manoeuvres normal to the aircraft type.",
+          "distractors": [
+            "From any position within the circling area, descend at any rate once the runway is in sight",
+            "From a position within the circling area on final only, complete a continuous descent from MDA",
+            "From downwind, descend below MDA once the aerodrome is in sight, levelling at circuit height"
+          ],
+          "page": 45
+        },
+        {
+          "kind": "clause",
+          "prompt": "Circling Approaches — does the source's “VMC” mnemonic mean visual meteorological conditions?",
+          "answer": "No. The author notes it is a memory device only.",
+          "distractors": [
+            "Yes — VMC criteria must be met throughout the circling manoeuvre",
+            "Yes, but only by night",
+            "Yes, unless ATC advises otherwise"
+          ],
+          "page": 45
+        }
+      ]
+    },
+    "general-comms-failure": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-15.webp, ERSA EMERG 1.5.",
+      "items": [
+        {
+          "kind": "clause",
+          "prompt": "Communications Failure — what applies throughout all communications failure procedures?",
+          "answer": "Maintain terrain clearance throughout all procedures.",
+          "distractors": [
+            "Squawk 7600 before anything else",
+            "Remain in VMC throughout",
+            "Proceed to the alternate immediately"
+          ],
+          "page": 15
+        },
+        {
+          "kind": "table",
+          "prompt": "Communications Failure — what code is squawked in controlled or restricted airspace, or IFR in any airspace?",
+          "answer": "7600",
+          "distractors": [
+            "7500",
+            "7700",
+            "7000"
+          ],
+          "page": 15
+        },
+        {
+          "kind": "clause",
+          "prompt": "Communications Failure — in flight by day, how does an aircraft indicate a radio failure?",
+          "answer": "By rocking the aircraft's wings. The signal should not be expected on the base and final legs of the approach.",
+          "distractors": [
+            "By waggling the ailerons or rudder",
+            "By flashing the landing lights on and off twice",
+            "By rocking the wings, including on base and final"
+          ],
+          "page": 15
+        },
+        {
+          "kind": "clause",
+          "prompt": "Communications Failure — on the ground by day, how does an aircraft indicate a radio failure?",
+          "answer": "By waggling the aircraft's ailerons or rudder.",
+          "distractors": [
+            "By rocking the aircraft's wings",
+            "By flashing the landing lights on and off twice",
+            "By switching the navigation lights on and off twice"
+          ],
+          "page": 15
+        },
+        {
+          "kind": "clause",
+          "prompt": "Communications Failure — by night, how does an aircraft indicate a radio failure, in flight or on the ground?",
+          "answer": "By flashing the landing lights on and off twice, or if not so equipped, by switching the navigation lights on and off twice.",
+          "distractors": [
+            "By rocking the wings and flashing the landing lights together",
+            "By switching the navigation lights on and off twice only",
+            "By flashing the anti-collision beacon twice"
+          ],
+          "page": 15
+        },
+        {
+          "kind": "list",
+          "prompt": "Communications Failure — VFR in Class G airspace: what four actions?",
+          "answer": "Remain in VMC; broadcast intentions prefixed “TRANSMITTING BLIND”; remain VFR in Class G and land at the nearest suitable aerodrome; and report arrival to ATS if on SARTIME or reporting schedules",
+          "distractors": [
+            "Squawk 7600; remain in VMC; land at the nearest suitable aerodrome; and report arrival to ATS",
+            "Remain in VMC; squawk 7700; continue to the planned destination; and report arrival to ATS",
+            "Remain in VMC; broadcast intentions; continue to the destination; and cancel SARTIME on landing"
+          ],
+          "page": 15
+        },
+        {
+          "kind": "list",
+          "prompt": "Communications Failure — in controlled or restricted airspace, or IFR in any airspace: what three actions?",
+          "answer": "Squawk 7600; listen out on ATIS and/or voice modulated NAVAIDs; and transmit intentions and make normal position reports, assuming the transmitter is operating and prefixing calls with “TRANSMITTING BLIND”",
+          "distractors": [
+            "Squawk 7700; listen out on ATIS; and transmit intentions prefixed “TRANSMITTING BLIND”",
+            "Squawk 7600; remain in VMC; and land at the nearest suitable aerodrome",
+            "Squawk 7600; listen out on the area frequency only; and make no further transmissions"
+          ],
+          "page": 15
+        },
+        {
+          "kind": "clause",
+          "prompt": "Communications Failure — IFR, in VMC and certain of maintaining it: what applies?",
+          "answer": "Stay in VMC and land at the most suitable aerodrome, noting the special procedures if proceeding to a Class D.",
+          "distractors": [
+            "Continue in accordance with the last acknowledged route clearance and climb to planned level",
+            "Stay in VMC and continue to the planned destination regardless of distance",
+            "Descend to LSALT and hold until communications are restored"
+          ],
+          "page": 15
+        },
+        {
+          "kind": "clause",
+          "prompt": "Communications Failure — IFR, in IMC or uncertain of maintaining VMC, with no clearance limit acknowledged: what applies?",
+          "answer": "Proceed in accordance with the latest acknowledged ATC route clearance and climb to the planned level.",
+          "distractors": [
+            "Proceed to the nearest suitable aerodrome and descend to the circling minima",
+            "Maintain the last assigned level and track to the destination",
+            "Squawk 7700 and descend to LSALT"
+          ],
+          "page": 15
+        }
+      ]
+    },
+    "general-transponders": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-18.webp, AIP ENR 1.6 Para 7.1.4.",
+      "items": [
+        {
+          "kind": "table",
+          "prompt": "Transponder codes — VFR in Class E or G, or OCTA?",
+          "answer": "1200",
+          "distractors": [
+            "2000",
+            "3000",
+            "1000"
+          ],
+          "page": 18
+        },
+        {
+          "kind": "table",
+          "prompt": "Transponder codes — IFR OCTA?",
+          "answer": "2000",
+          "distractors": [
+            "1200",
+            "3000",
+            "2200"
+          ],
+          "page": 18
+        },
+        {
+          "kind": "table",
+          "prompt": "Transponder codes — IFR in Class E, or civil flights in CTA?",
+          "answer": "3000",
+          "distractors": [
+            "2000",
+            "1200",
+            "3100"
+          ],
+          "page": 18
+        }
+      ]
     }
   }
 }
