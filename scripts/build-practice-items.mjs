@@ -22,6 +22,7 @@ import { dirname, resolve } from "node:path";
 const here = dirname(fileURLToPath(import.meta.url));
 const SOURCE = resolve(here, "../docs/curriculum/baseline/topics.json");
 const LAYOUT = resolve(here, "../docs/curriculum/baseline/layout.json");
+const OVERRIDES = resolve(here, "../src/content/practice/overrides.json");
 const OUT = resolve(here, "../src/content/practice/items.generated.json");
 
 /**
@@ -448,10 +449,26 @@ function isOtherTopicHeading(text, title) {
 
 const pool = quantityPool(topics);
 
+/**
+ * Hand-written items for topics the extractor cannot serve — in this source,
+ * tables whose row meaning lives in arrow glyphs that carry no Unicode. These
+ * are transcribed from the page image, and a topic listed here replaces
+ * whatever the extractor produced for it rather than adding to it.
+ */
+let overrides = { topics: {} };
+try {
+  overrides = JSON.parse(readFileSync(OVERRIDES, "utf8"));
+} catch {
+  // Optional file; absence just means no topic is overridden.
+}
+
 const items = [];
 const perTopic = [];
 for (const topic of topics) {
-  const extracted = extract(topic, pool);
+  const override = overrides.topics?.[topic.id];
+  const extracted = override
+    ? override.items.map((item) => ({ ...item, source: "transcribed" }))
+    : extract(topic, pool);
   perTopic.push({ id: topic.id, title: topic.title, count: extracted.length });
   for (const item of extracted) {
     items.push({

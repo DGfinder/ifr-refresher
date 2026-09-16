@@ -1,7 +1,7 @@
 {
   "generatedFrom": "docs/curriculum/baseline/topics.json",
   "generator": "scripts/build-practice-items.mjs",
-  "itemCount": 122,
+  "itemCount": 129,
   "items": [
     {
       "topicId": "admin-definitions",
@@ -283,6 +283,76 @@
       "kind": "step",
       "prompt": "Aeroplane Weight and Performance Limitations — Landing Distance Required (c)?",
       "answer": "Between 2,000 kg and 4,500 kg, use linear interpolation"
+    },
+    {
+      "topicId": "general-vmc",
+      "topicTitle": "Visual Meteorological Conditions",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Visual Meteorological Conditions — Class G and Class E: flight visibility?",
+      "answer": "5000 m; 8 km above 10,000 ft",
+      "page": 18,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-vmc",
+      "topicTitle": "Visual Meteorological Conditions",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Visual Meteorological Conditions — Class G and Class E: distance from cloud?",
+      "answer": "1500 m horizontally, 1000 ft vertically",
+      "page": 18,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-vmc",
+      "topicTitle": "Visual Meteorological Conditions",
+      "chapter": "General Operational Knowledge",
+      "kind": "clause",
+      "prompt": "Visual Meteorological Conditions — Class G: when may you instead remain clear of cloud and in sight of ground or water?",
+      "answer": "When below 3000 ft AMSL or 1000 ft AGL, whichever is higher, provided radio is carried and used on the appropriate frequency.",
+      "page": 18,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-vmc",
+      "topicTitle": "Visual Meteorological Conditions",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Visual Meteorological Conditions — Class D: flight visibility?",
+      "answer": "5000 m",
+      "page": 18,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-vmc",
+      "topicTitle": "Visual Meteorological Conditions",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Visual Meteorological Conditions — Class D: distance from cloud?",
+      "answer": "600 m horizontally, 1000 ft above, 500 ft below",
+      "page": 18,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-vmc",
+      "topicTitle": "Visual Meteorological Conditions",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Visual Meteorological Conditions — Class C: flight visibility?",
+      "answer": "5000 m; 8 km above 10,000 ft",
+      "page": 18,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-vmc",
+      "topicTitle": "Visual Meteorological Conditions",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Visual Meteorological Conditions — Class C: distance from cloud?",
+      "answer": "1500 m horizontally, 1000 ft vertically",
+      "page": 18,
+      "source": "transcribed"
     },
     {
       "topicId": "general-transponders",

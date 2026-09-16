@@ -14,6 +14,12 @@ export interface PracticeItem {
   distractors?: string[];
   page?: number;
   itemCount?: number;
+  /**
+   * "transcribed" means the item was hand-written from the page image because
+   * the source table's meaning lives in glyphs the text layer does not carry.
+   * Absent means the extractor derived it from the captured text.
+   */
+  source?: "transcribed";
 }
 
 export const practiceItems = generated.items as PracticeItem[];

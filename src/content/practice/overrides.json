@@ -1,0 +1,52 @@
+{
+  "_comment": "Hand-written items for topics the extractor cannot serve. In this source those are tables whose row meaning lives in arrow glyphs with no Unicode mapping, so the text layer holds only the bare figure. Each entry is transcribed from the page image named in sourceNote; a topic listed here replaces the extractor's output for that topic. Verify against the figure in the reader before trusting a number.",
+  "topics": {
+    "general-vmc": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-18.webp. Arrow glyphs in the source denote direction: horizontal from cloud, vertical from cloud, above, below.",
+      "items": [
+        {
+          "kind": "table",
+          "prompt": "Visual Meteorological Conditions — Class G and Class E: flight visibility?",
+          "answer": "5000 m; 8 km above 10,000 ft",
+          "page": 18
+        },
+        {
+          "kind": "table",
+          "prompt": "Visual Meteorological Conditions — Class G and Class E: distance from cloud?",
+          "answer": "1500 m horizontally, 1000 ft vertically",
+          "page": 18
+        },
+        {
+          "kind": "clause",
+          "prompt": "Visual Meteorological Conditions — Class G: when may you instead remain clear of cloud and in sight of ground or water?",
+          "answer": "When below 3000 ft AMSL or 1000 ft AGL, whichever is higher, provided radio is carried and used on the appropriate frequency.",
+          "page": 18
+        },
+        {
+          "kind": "table",
+          "prompt": "Visual Meteorological Conditions — Class D: flight visibility?",
+          "answer": "5000 m",
+          "page": 18
+        },
+        {
+          "kind": "table",
+          "prompt": "Visual Meteorological Conditions — Class D: distance from cloud?",
+          "answer": "600 m horizontally, 1000 ft above, 500 ft below",
+          "page": 18
+        },
+        {
+          "kind": "table",
+          "prompt": "Visual Meteorological Conditions — Class C: flight visibility?",
+          "answer": "5000 m; 8 km above 10,000 ft",
+          "page": 18
+        },
+        {
+          "kind": "table",
+          "prompt": "Visual Meteorological Conditions — Class C: distance from cloud?",
+          "answer": "1500 m horizontally, 1000 ft vertically",
+          "page": 18
+        }
+      ]
+    }
+  }
+}
