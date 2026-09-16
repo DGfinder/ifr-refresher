@@ -281,6 +281,385 @@
           "page": 41
         }
       ]
+    },
+    "admin-equipment": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-11.webp, page-12.webp and page-13.webp. Part 91 MOS Chapter 26.",
+      "items": [
+        {
+          "kind": "list",
+          "prompt": "Aircraft Equipment — what must be fitted for aeroplane IFR flight?",
+          "answer": "Approved GNSS; AI; ASI; ALT; VSI; turn and slip; DG; compass; OAT; clock",
+          "page": 11
+        },
+        {
+          "kind": "clause",
+          "prompt": "Aircraft Equipment — what is required of the ASI and the pressure instruments?",
+          "answer": "Pitot heat on at least one ASI. The ASI, ALT and VSI need an alternate static source or a balanced pair of flush static ports.",
+          "page": 11
+        },
+        {
+          "kind": "clause",
+          "prompt": "Aircraft Equipment — what power supply do the AI, turn and slip, and DG require?",
+          "answer": "Primary and alternate power supply, unless independent of the turn and slip or a second AI is required. There must also be equipment showing adequate power supply to the gyroscopic instruments.",
+          "page": 11
+        },
+        {
+          "kind": "clause",
+          "prompt": "Aircraft Equipment — when is slip alone acceptable instead of turn and slip, and may the clock be worn?",
+          "answer": "Slip only if a second AI is available. The clock can be worn.",
+          "page": 11
+        },
+        {
+          "kind": "list",
+          "prompt": "Altitude alerting — which aircraft must be fitted with altitude alerting equipment for an IFR flight?",
+          "answer": "A piston-engine aircraft in controlled airspace above FL 150; an unpressurised turbine-engine aircraft in controlled airspace above FL 150; a pressurised turbine-engine aircraft in any controlled airspace",
+          "page": 12
+        },
+        {
+          "kind": "list",
+          "prompt": "Altitude alerting — what must the equipment do?",
+          "answer": "Include an assigned altitude indicator; alert the flight crew when approaching a preselected altitude; alert the flight crew, including by an aural warning, if deviating from a preselected altitude",
+          "page": 12
+        },
+        {
+          "kind": "clause",
+          "prompt": "Altitude alerting — what applies to any other aircraft under the IFR in controlled airspace?",
+          "answer": "It must be fitted with altitude alerting equipment that at least includes an assigned altitude indicator.",
+          "page": 12
+        },
+        {
+          "kind": "clause",
+          "prompt": "Flight with inoperative equipment — when may required equipment be inoperative?",
+          "answer": "Only where another section of the Chapter provides otherwise, or where the defect has been approved as a permissible unserviceability for that aircraft for the flight and the equipment is fitted or carried in accordance with that permissible unserviceability.",
+          "page": 12
+        },
+        {
+          "kind": "list",
+          "prompt": "Cockpit and cabin lighting — what is required?",
+          "answer": "Equipment illumination including checklists and documents; compatible with each item of equipment; from a normal position all placards and instrument markings readable with eyes shielded from direct and reflected light; variable intensity; cabin lighting for seatbelt, oxygen normal and emergency exits; an independent portable light for each flight crew member",
+          "page": 13
+        },
+        {
+          "kind": "clause",
+          "prompt": "Anti-collision lights — what satisfies the requirement?",
+          "answer": "One red beacon, or two white strobes, or a combination of these.",
+          "page": 13
+        },
+        {
+          "kind": "clause",
+          "prompt": "Landing and navigation lights — what is required by night?",
+          "answer": "At least one landing light, and navigation lights must be fitted.",
+          "page": 13
+        }
+      ]
+    },
+    "departure-altimeter": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-31.webp, AIP ENR 1.7 Paras 1.1 to 1.3.",
+      "items": [
+        {
+          "kind": "clause",
+          "prompt": "Altimeter Checks — when must a pre-flight altimeter accuracy check be conducted?",
+          "answer": "Whenever an accurate QNH is available and the aircraft is at a known elevation, at some point prior to take-off.",
+          "page": 31
+        },
+        {
+          "kind": "table",
+          "prompt": "Altimeter Checks — with an accurate QNH set, what must an IFR altimeter read, and at what error is it unserviceable?",
+          "answer": "It should read the nominated elevation to within 60 ft. An error in excess of ± 75 ft means the altimeter must be considered unserviceable.",
+          "page": 31
+        },
+        {
+          "kind": "clause",
+          "prompt": "Altimeter Checks — two altimeters required, and the remaining one is in error by between 60 and 75 ft. What is permitted?",
+          "answer": "One altimeter must read the nominated elevation to within 60 ft. With the remaining altimeter between 60 and 75 ft, flight under the IFR to the first point of landing, where the altimeter can be re-checked, is approved. If it then shows an error in excess of 60 ft on the second check, it must be considered unserviceable for flight under the IFR.",
+          "page": 31
+        },
+        {
+          "kind": "clause",
+          "prompt": "Altimeter Checks — two altimeters fitted but only one required for the category of operation. What applies?",
+          "answer": "The aircraft may continue to operate under the IFR provided one altimeter reads the nominated elevation to within 60 ft. Should the remaining altimeter be in error by more than 75 ft it must be placarded unserviceable and the maintenance release appropriately endorsed.",
+          "page": 31
+        },
+        {
+          "kind": "clause",
+          "prompt": "Altimeter Checks — only one altimeter fitted, in error by between 60 and 75 ft. What is permitted?",
+          "answer": "Flight under the IFR to the first point of landing, where the accuracy can be re-checked, is approved. If the second check shows an error in excess of 60 ft the altimeter is to be considered unserviceable for flight under the IFR.",
+          "page": 31
+        },
+        {
+          "kind": "table",
+          "prompt": "Altimeter Checks — what tolerance applies to a VFR altimeter?",
+          "answer": "With an accurate QNH set it should read site elevation to within 100 ft, or 110 ft at test sites above 3,300 ft, to be accepted as serviceable by the pilot.",
+          "page": 31
+        },
+        {
+          "kind": "clause",
+          "prompt": "Altimeter Checks — if the first check indicates an altimeter is unserviceable, what may the pilot do?",
+          "answer": "Conduct a further check at another location on the same airfield — for example the first on the tarmac and the second at the runway threshold — to determine serviceability.",
+          "page": 31
+        }
+      ]
+    },
+    "approach-below-minima": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-44.webp, AIP ENR 1.5 Para 1.7.2. The source's VMC mnemonic is a memory device and does not mean visual meteorological conditions.",
+      "items": [
+        {
+          "kind": "list",
+          "prompt": "Descent Below the Straight-in MDA or DA — the source's \"VMC\" mnemonic stands for what three conditions?",
+          "answer": "Visual reference can be maintained; Minima requirements adhered to; Continuously in a position where a landing can be made with normal rates of descent and manoeuvres",
+          "page": 44
+        },
+        {
+          "kind": "clause",
+          "prompt": "Descent Below the Straight-in MDA or DA — what must be true of the meteorological minima?",
+          "answer": "All elements of the meteorological minima must be equal to or greater than those published for the aircraft performance category.",
+          "page": 44
+        },
+        {
+          "kind": "clause",
+          "prompt": "Descent Below the Straight-in MDA or DA — what position must the aircraft be in?",
+          "answer": "Continuously in a position from which a descent to a landing on the intended runway can be made at a normal rate of descent using normal flight manoeuvres, allowing touchdown within the touchdown zone of the runway of intended landing.",
+          "page": 44
+        },
+        {
+          "kind": "clause",
+          "prompt": "Descent Below the Straight-in MDA or DA — does the source's \"VMC\" mnemonic mean visual meteorological conditions?",
+          "answer": "No. The author notes it is a mnemonic device only.",
+          "page": 44
+        }
+      ]
+    },
+    "approach-arrivals": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-49.webp, AIP ENR 1.5 Para 11.",
+      "items": [
+        {
+          "kind": "definition",
+          "prompt": "DME or GNSS Arrivals — what is the procedure, and what guidance does it provide?",
+          "answer": "An instrument approach procedure providing descent guidance along a specified track or sector to the visual circling area of an aerodrome. Azimuth guidance is required from the specified radio navigation aid.",
+          "page": 49
+        },
+        {
+          "kind": "clause",
+          "prompt": "DME or GNSS Arrivals — when is descent permitted?",
+          "answer": "Not until the aircraft is established within the appropriate sector or on the specified inbound track.",
+          "page": 49
+        },
+        {
+          "kind": "clause",
+          "prompt": "DME or GNSS Arrivals — what applies when manoeuvring within a sector?",
+          "answer": "The pilot must ensure the aircraft is contained within the sector, at or above the appropriate segment minimum safe altitude. Manoeuvring within a sector after passing the final approach fix is prohibited.",
+          "page": 49
+        }
+      ]
+    },
+    "approach-ils-tolerances": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-49.webp, AIP ENR 1.5 Para 7.3.",
+      "items": [
+        {
+          "kind": "clause",
+          "prompt": "Instrument Approach Tolerances (ILS) — what is verified at the fix in the final approach segment, and what if it disagrees?",
+          "answer": "The glide path/altimeter relationship. If the check indicates an unexplained discrepancy, the ILS/GLS approach should be discontinued.",
+          "page": 49
+        },
+        {
+          "kind": "clause",
+          "prompt": "Instrument Approach Tolerances (ILS) — what deflection must be maintained for obstacle clearance?",
+          "answer": "Both the LOC/GLS final approach course and the glideslope should be maintained within half scale deflection, or the equivalent on an expanded scale.",
+          "page": 49
+        },
+        {
+          "kind": "clause",
+          "prompt": "Instrument Approach Tolerances (ILS) — what requires a missed approach after the FAP?",
+          "answer": "If at any time after the FAP the LOC/GLS final approach course or glideslope indicates full scale deflection, a missed approach should be commenced.",
+          "page": 49
+        }
+      ]
+    },
+    "approach-arrivals-cta": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-49.webp, AIP ENR 1.5 Para 11.",
+      "items": [
+        {
+          "kind": "clause",
+          "prompt": "DME or GNSS Arrivals in controlled airspace — what does \"CLEARED DME (or GNSS) ARRIVAL\" authorise?",
+          "answer": "It constitutes a clearance for final approach and authorises descent to the minimum altitude specified in the appropriate DME or GNSS arrival procedure. ATC is not permitted to impose any altitude restriction on such a clearance.",
+          "page": 49
+        },
+        {
+          "kind": "clause",
+          "prompt": "DME or GNSS Arrivals in controlled airspace — what must an aircraft not do once cleared?",
+          "answer": "It must not orbit, enter a holding pattern, or use holding pattern entry procedures. ATC will not issue a clearance for a DME or GNSS arrival that involves a holding pattern entry procedure.",
+          "page": 49
+        }
+      ]
+    },
+    "general-vhf-range": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-19.webp.",
+      "items": [
+        {
+          "kind": "definition",
+          "prompt": "VHF Theoretical Maximum Range — what is the formula?",
+          "answer": "d = 1.23 × (√Htx + √Hrx)",
+          "page": 19
+        },
+        {
+          "kind": "list",
+          "prompt": "VHF Theoretical Maximum Range — what are the terms and their units?",
+          "answer": "d = distance in NM; Htx = elevation in feet of the transmitter; Hrx = height in feet above ground level of the receiver",
+          "page": 19
+        },
+        {
+          "kind": "clause",
+          "prompt": "VHF Theoretical Maximum Range — a transmitter at 400 ft and an aircraft at 10,000 ft AGL. What is the theoretical maximum range?",
+          "answer": "About 148 NM. d = 1.23 × (√400 + √10000) = 1.23 × (20 + 100) = 147.6 NM.",
+          "page": 19
+        }
+      ]
+    },
+    "departure-briefing": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-34.webp. The source gives a briefing template; these items drill its headings and what belongs under each.",
+      "items": [
+        {
+          "kind": "list",
+          "prompt": "Sample Departure Briefing — what are the five headings?",
+          "answer": "Chart; Flying the Departure; Terrain; Weather; Considerations and Questions",
+          "page": 34
+        },
+        {
+          "kind": "clause",
+          "prompt": "Sample Departure Briefing — what do you brief under Chart?",
+          "answer": "The aerodrome, departure title and index number, and its effective date. Then either the aid tuned, identified and tested to the frequency, or that the SID has been loaded with tracks, distances and heights verified and RAIM available.",
+          "page": 34
+        },
+        {
+          "kind": "clause",
+          "prompt": "Sample Departure Briefing — what do you brief under Flying the Departure and Terrain?",
+          "answer": "Read the initial climb instructions from the chart and discuss the assigned altitude. For terrain, discuss MSAs.",
+          "page": 34
+        },
+        {
+          "kind": "clause",
+          "prompt": "Sample Departure Briefing — what do you brief under Weather?",
+          "answer": "Conditions from AWIS, ATIS or TAF; the effect of wind on tracks; QNH and confirm it is reasonable; and conditions at the destination, confirming they remain suitable.",
+          "page": 34
+        },
+        {
+          "kind": "list",
+          "prompt": "Sample Departure Briefing — what falls under Considerations and Questions?",
+          "answer": "Relevant chart notes and NOTAMs for the aerodrome and departure; the plan to achieve MSA after an engine failure and the options to return or divert; meteorological conditions and QNH; special considerations such as recent chart changes and traffic; and any further items or questions from the other crew member",
+          "page": 34
+        }
+      ]
+    },
+    "departure-safety-briefing": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-35.webp.",
+      "items": [
+        {
+          "kind": "list",
+          "prompt": "Take-off Safety Briefing — which three speeds do you state?",
+          "answer": "VMCA; VR; VYSE",
+          "page": 35
+        },
+        {
+          "kind": "clause",
+          "prompt": "Take-off Safety Briefing — any abnormality before VR?",
+          "answer": "Maintain aircraft control and reject the take-off.",
+          "page": 35
+        },
+        {
+          "kind": "clause",
+          "prompt": "Take-off Safety Briefing — a critical malfunction at or after VR and before VYSE?",
+          "answer": "Maintain aircraft control, then either land because the runway permits, or accelerate to VYSE selecting flap up above 300 feet.",
+          "page": 35
+        },
+        {
+          "kind": "clause",
+          "prompt": "Take-off Safety Briefing — a malfunction above VYSE?",
+          "answer": "Maintain aircraft control, prevent yaw, mixture up, pitch up, power up, gear up, flaps up, then dead leg – dead engine, confirm and feather.",
+          "page": 35
+        },
+        {
+          "kind": "list",
+          "prompt": "Take-off Safety Briefing — what informs the plan at each particular take-off?",
+          "answer": "Strip length; obstacles; wind for increased climb gradient; terrain and direction of turns; aircraft performance limitations; the type of malfunction that could occur",
+          "page": 35
+        },
+        {
+          "kind": "clause",
+          "prompt": "Take-off Safety Briefing — what do you brief on the basis of meteorological conditions, terrain and facilities?",
+          "answer": "Whether you will circle to land, turning towards the live engine if appropriate, or continue to a nominated alternative; and what you will do if performance is not achieved to climb or maintain level flight.",
+          "page": 35
+        }
+      ]
+    },
+    "approach-briefing": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-58.webp.",
+      "items": [
+        {
+          "kind": "list",
+          "prompt": "Sample Approach Briefing — what are the five headings?",
+          "answer": "Chart; Briefing Strip and Terrain; Flying the Approach; Weather; Considerations and Questions",
+          "page": 58
+        },
+        {
+          "kind": "clause",
+          "prompt": "Sample Approach Briefing — what do you brief under Chart?",
+          "answer": "The aerodrome, approach title and index number, and its effective date. Then either the aid tuned, identified and tested to the frequency, or that the approach has been loaded with tracks, distances and heights verified and RAIM available.",
+          "page": 58
+        },
+        {
+          "kind": "clause",
+          "prompt": "Sample Approach Briefing — what do you brief under Briefing Strip and Terrain?",
+          "answer": "Read the first two lines of the Jeppesen Briefing Strip left to right, including MSAs.",
+          "page": 58
+        },
+        {
+          "kind": "list",
+          "prompt": "Sample Approach Briefing — what do you cover under Flying the Approach?",
+          "answer": "The inbound track and any applicable sector entries or holds; how the approach is flown, with tracks, turns and not-below descent steps; where the runway will be when visual and how you will manoeuvre to land; the missed approach point, the missed approach track and climb altitude; and any aircraft reconfiguration for the missed approach",
+          "page": 58
+        },
+        {
+          "kind": "clause",
+          "prompt": "Sample Approach Briefing — what do you brief under Weather?",
+          "answer": "Expected conditions from AWIS, ATIS or TAF including any difficulty becoming visual; QNH confirmed reasonable; and alternate options with the fuel available to hold or divert.",
+          "page": 58
+        },
+        {
+          "kind": "list",
+          "prompt": "Sample Approach Briefing — what special considerations does the source list?",
+          "answer": "Relevant NOTAMs for the approach and aerodrome; relevant chart notes; recent changes to the chart; missed approach gradients versus aircraft performance; no-circling areas; runway condition; actions after landing",
+          "page": 58
+        }
+      ]
+    },
+    "gradient-nomograph": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-57.webp. Only the equivalences the chart labels explicitly are used; read the figure itself to interpolate.",
+      "items": [
+        {
+          "kind": "definition",
+          "prompt": "Gradient Rate Nomograph — what does it give, and from what entering arguments?",
+          "answer": "The climb or descent rate, entered with gradient (as a percentage, ft/NM or degrees) and ground speed.",
+          "page": 57
+        },
+        {
+          "kind": "table",
+          "prompt": "Gradient Rate Nomograph — what gradient in percent and ft/NM corresponds to 3.0 degrees?",
+          "answer": "5.2 per cent, or 318.4 ft/NM — the standard glide path.",
+          "page": 57
+        },
+        {
+          "kind": "table",
+          "prompt": "Gradient Rate Nomograph — what gradient in percent and ft/NM corresponds to 6.5 degrees?",
+          "answer": "11.5 per cent, or 700 ft/NM — the top of the chart's scale.",
+          "page": 57
+        },
+        {
+          "kind": "table",
+          "prompt": "Gradient Rate Nomograph — what are the ranges of the three scales?",
+          "answer": "Ground speed 60 to 300 knots; climb/descent rate 152 to 3500 fpm; gradient 2.5 to 11.5 per cent, 152 to 700 ft/NM, or 1.5 to 6.5 degrees.",
+          "page": 57
+        }
+      ]
     }
   }
 }
