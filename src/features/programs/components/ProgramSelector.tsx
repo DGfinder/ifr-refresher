@@ -9,14 +9,6 @@ interface ProgramSelectorProps {
   onChange: (programId: ProgramId) => void;
 }
 
-const SHORT_NAMES: Record<ProgramId, string> = {
-  cheat_sheet: "Quick Study",
-  instrument_rating: "Instrument Rating",
-  ipc_oral: "IPC Prep",
-  airline_transition: "Airline Transition",
-  god_mode: "Comprehensive Review",
-};
-
 export function ProgramSelector({ value, onChange }: ProgramSelectorProps) {
   const currentProgram = STUDY_PROGRAMS.find((p) => p.id === value);
 
@@ -40,7 +32,7 @@ export function ProgramSelector({ value, onChange }: ProgramSelectorProps) {
                   : "border-[var(--ifr-border)] bg-[var(--ifr-surface)] text-[var(--ifr-text-muted)] hover:text-[var(--ifr-text)]"
               )}
             >
-              {SHORT_NAMES[program.id]}
+              {program.name}
             </button>
           );
         })}

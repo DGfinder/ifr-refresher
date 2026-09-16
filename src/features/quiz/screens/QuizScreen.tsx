@@ -10,7 +10,7 @@ import { ToastContainer } from "@/shared/ui/Toast";
 import { useQuizSession } from "@/features/quiz/hooks/useQuizSession";
 import { useToast } from "@/shared/ui/toast/useToast";
 import { useDrill } from "@/features/drill";
-import { sections } from "@/content/registry/sections";
+import { practiceSections as sections } from "@/content/practice";
 import type { ProgramId } from "@/features/programs";
 import type { QuizOptionId } from "@/features/drill";
 import { getQuizEligibleQuestions } from "@/features/quiz/model/buildQuizQuestions";

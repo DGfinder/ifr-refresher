@@ -8,7 +8,7 @@ import { FlipCard } from "./ui/FlipCard";
 import { RatingButtons } from "./ui/RatingButtons";
 import { CardProgress } from "./ui/CardProgress";
 import { useDrill, getModuleContext } from "@/features/drill";
-import { sections } from "@/content/registry/sections";
+import { practiceSections as sections } from "@/content/practice";
 
 export interface SessionResults {
   total: number;
@@ -207,8 +207,10 @@ export function FlashcardSession({ queue, programId, onEnd }: FlashcardSessionPr
                   </p>
                 </div>
                 <div className="border-t border-[var(--ifr-accent)]/20 pt-3">
+                  {/* The source topic, so a revealed answer can be traced back
+                      to the chapter it came from. */}
                   <span className="rounded-full border border-[var(--ifr-accent)]/30 bg-[var(--ifr-accent)]/10 px-2.5 py-1 text-xs font-medium text-[var(--ifr-accent)]">
-                    {currentCard.kind}
+                    {currentCard.moduleTitle}
                   </span>
                 </div>
               </div>

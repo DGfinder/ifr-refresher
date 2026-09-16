@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import Link from "next/link";
 import { BookmarkCheck } from "lucide-react";
 import type { Section } from "@/content/model/section";
-import { sections } from "@/content/registry/sections";
+import { practiceSections as sections } from "@/content/practice";
 import radioCallsSection from "@/content/data/radio-calls.json";
 import { useProgress } from "@/features/progress/hooks/useProgress";
 import { useDrill } from "@/features/drill";

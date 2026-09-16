@@ -7,7 +7,7 @@ import { Card } from "@/shared/ui/card";
 import { ProgressRing } from "./ui/ProgressRing";
 import { Confetti } from "./ui/Confetti";
 import { getScoreFeedback, formatDuration } from "@/features/quiz/model/scoring";
-import { sections } from "@/content/registry/sections";
+import { practiceSections as sections } from "@/content/practice";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
 import type { QuizAnswer, QuizResult } from "@/features/quiz/model/types";
 import type { QuizQuestion } from "@/features/drill";

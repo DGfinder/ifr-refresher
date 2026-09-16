@@ -1,3 +1,5 @@
-import { redirect } from "next/navigation";
+import { InsightsScreen } from "@/features/progress";
 
-export default function Page() { redirect("/study"); }
+export default function Page() {
+  return <InsightsScreen />;
+}

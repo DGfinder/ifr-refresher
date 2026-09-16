@@ -8,7 +8,7 @@ import { FlashcardResults } from "@/features/flashcards/components/FlashcardResu
 import { ToastContainer } from "@/shared/ui/Toast";
 import { useToast } from "@/shared/ui/toast/useToast";
 import { useDrill } from "@/features/drill";
-import { sections } from "@/content/registry/sections";
+import { practiceSections as sections } from "@/content/practice";
 import type { ProgramId } from "@/features/programs";
 import { STUDY_PROGRAMS } from "@/features/programs";
 import type { DrillQuestion } from "@/features/drill";

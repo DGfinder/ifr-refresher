@@ -5,7 +5,7 @@ import type { DrillQuestion, DrillState } from "@/features/drill";
 import type { ProgramId } from "@/features/programs";
 import { ProgramSelector } from "@/features/programs";
 import { useDrill } from "@/features/drill";
-import { sections } from "@/content/registry/sections";
+import { practiceSections as sections } from "@/content/practice";
 import { Button } from "@/shared/ui/button";
 import { Card } from "@/shared/ui/card";
 import { cn } from "@/shared/lib/cn";

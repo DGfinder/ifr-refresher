@@ -50,13 +50,35 @@ test("brand comparison keeps source wording and offers narrow previews", async (
   await expect(page.locator(".brand-preview")).toHaveClass(/brand-phone/);
 });
 
-for (const route of ["quiz", "flashcard", "drill", "radio", "insights", "principles"]) {
+// Radio and principles still need source work the baseline cannot yet carry,
+// so they stay pointed at the contents.
+for (const route of ["radio", "principles"]) {
   test(`retired /${route} opens baseline contents`, async ({ page }) => {
     await page.goto(`/${route}`);
     await expect(page).toHaveURL(/\/study$/);
     await expect(page.getByRole("heading", { name: "Contents", exact: true })).toBeVisible();
   });
 }
+
+// Drill is the FSRS engine behind the flashcard UI, not a mode of its own.
+test("/drill lands on the one practice surface", async ({ page }) => {
+  await page.goto("/drill");
+  await expect(page).toHaveURL(/\/flashcard$/);
+});
+
+test("practice offers every generated item", async ({ page }) => {
+  await page.goto("/flashcard");
+  await expect(page.getByRole("button", { name: "All topics" })).toBeVisible();
+  // The dashboard counts New/Weak/Total from the generated practice items.
+  await expect(page.getByText(/\bTotal\b/)).toBeVisible();
+  await expect(page.locator("body")).not.toContainText("No cards available");
+});
+
+test("insights counts the practice corpus", async ({ page }) => {
+  await page.goto("/insights");
+  await expect(page.getByRole("heading", { name: "Insights" })).toBeVisible();
+  await expect(page.getByText(/Questions seen/)).toBeVisible();
+});
 
 test("unknown source topic returns not found", async ({ page }) => {
   const response = await page.goto("/study/not-a-source-topic");

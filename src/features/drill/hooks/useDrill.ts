@@ -154,11 +154,6 @@ export function useDrill(
       );
     }
 
-    // Cheat Sheet: filter to cheat-sheet section only
-    if (programId === "cheat_sheet") {
-      questions = questions.filter((q) => q.sectionId === "cheat-sheet");
-    }
-
     // Dev console logging
     if (process.env.NODE_ENV === "development" && programId) {
       console.debug("[IFR] Program sizes", {
