@@ -483,7 +483,10 @@ try {
 // topic the extractor is known to get wrong, which is the failure this file
 // exists to prevent. Fail loudly instead.
 {
-  const known = new Set(rawTopics.map((t) => t.id));
+  const known = new Set([
+    ...rawTopics.map((t) => t.id),
+    ...JSON.parse(readFileSync(RADIO, "utf8")).topics.map((t) => t.id),
+  ]);
   const problems = [];
   for (const [topicId, entry] of Object.entries(overrides.topics ?? {})) {
     if (!known.has(topicId)) problems.push(`unknown topic id "${topicId}"`);

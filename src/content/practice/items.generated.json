@@ -1,7 +1,7 @@
 {
   "generatedFrom": "docs/curriculum/baseline/topics.json",
   "generator": "scripts/build-practice-items.mjs",
-  "itemCount": 341,
+  "itemCount": 378,
   "items": [
     {
       "topicId": "admin-definitions",
@@ -3860,12 +3860,403 @@
       "answer": "Brisbane Radio {High Frequency (HF) service}"
     },
     {
+      "topicId": "radio-phonetic-alphabet",
+      "topicTitle": "Phonetic alphabet",
+      "chapter": "Radio — Fundamentals",
+      "kind": "table",
+      "prompt": "Phonetic alphabet — J?",
+      "answer": "JULIETT, pronounced JEW lee ETT",
+      "distractors": [
+        "JULIET, pronounced JEW lee et",
+        "JUNO, pronounced JOO noh",
+        "JULIETTE, pronounced joo lee ETT"
+      ],
+      "page": 13,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-phonetic-alphabet",
+      "topicTitle": "Phonetic alphabet",
+      "chapter": "Radio — Fundamentals",
+      "kind": "table",
+      "prompt": "Phonetic alphabet — Q?",
+      "answer": "QUEBEC, pronounced keh BECK",
+      "distractors": [
+        "QUEBEC, pronounced KWEH beck",
+        "QUEEN, pronounced KWEEN",
+        "QUADRANT, pronounced KWOD rant"
+      ],
+      "page": 13,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-phonetic-alphabet",
+      "topicTitle": "Phonetic alphabet",
+      "chapter": "Radio — Fundamentals",
+      "kind": "table",
+      "prompt": "Phonetic alphabet — X?",
+      "answer": "X RAY, pronounced ECKS ray",
+      "distractors": [
+        "XRAY, pronounced ZEE ray",
+        "EXRAY, pronounced EX ray",
+        "X RAY, pronounced EKS RAY with equal emphasis"
+      ],
+      "page": 13,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-phonetic-alphabet",
+      "topicTitle": "Phonetic alphabet",
+      "chapter": "Radio — Fundamentals",
+      "kind": "table",
+      "prompt": "Phonetic alphabet — which letters are pronounced with no emphasised syllable, being single-syllable words?",
+      "answer": "G (GOLF) and M (MIKE)",
+      "distractors": [
+        "G (GOLF) and K (KILO)",
+        "M (MIKE) and W (WHISKEY)",
+        "C (CHARLIE) and T (TANGO)"
+      ],
+      "page": 13,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-phonetic-alphabet",
+      "topicTitle": "Phonetic alphabet",
+      "chapter": "Radio — Fundamentals",
+      "kind": "clause",
+      "prompt": "Phonetic alphabet — how does the manual show which syllable to emphasise?",
+      "answer": "The emphasised syllables are printed in UPPER CASE.",
+      "distractors": [
+        "They are printed in bold",
+        "They are underlined",
+        "They are marked with an apostrophe"
+      ],
+      "page": 13,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-phonetic-alphabet",
+      "topicTitle": "Phonetic alphabet",
+      "chapter": "Radio — Fundamentals",
+      "kind": "truefalse",
+      "prompt": "Phonetic alphabet — C may be pronounced either CHAR lee or SHAR lee. True or false?",
+      "answer": "True",
+      "distractors": [
+        "False"
+      ],
+      "page": 13,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-phonetic-alphabet",
+      "topicTitle": "Phonetic alphabet",
+      "chapter": "Radio — Fundamentals",
+      "kind": "truefalse",
+      "prompt": "Phonetic alphabet — U may be pronounced either YOU nee form or OO nee form. True or false?",
+      "answer": "True",
+      "distractors": [
+        "False"
+      ],
+      "page": 13,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-pronouncing-numbers",
+      "topicTitle": "Pronouncing numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "table",
+      "prompt": "Pronouncing numbers — 3?",
+      "answer": "TREE",
+      "distractors": [
+        "THREE",
+        "TREY",
+        "TER-EE"
+      ],
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-pronouncing-numbers",
+      "topicTitle": "Pronouncing numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "table",
+      "prompt": "Pronouncing numbers — 4?",
+      "answer": "FOW-er",
+      "distractors": [
+        "FOR",
+        "FOUR-er",
+        "FOH-er"
+      ],
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-pronouncing-numbers",
+      "topicTitle": "Pronouncing numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "table",
+      "prompt": "Pronouncing numbers — 5?",
+      "answer": "FIFE",
+      "distractors": [
+        "FIVE",
+        "FI-ver",
+        "FEEV"
+      ],
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-pronouncing-numbers",
+      "topicTitle": "Pronouncing numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "table",
+      "prompt": "Pronouncing numbers — 9?",
+      "answer": "NIN-er",
+      "distractors": [
+        "NINE",
+        "NIGH-ner",
+        "NEEN-er"
+      ],
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-pronouncing-numbers",
+      "topicTitle": "Pronouncing numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "table",
+      "prompt": "Pronouncing numbers — decimal?",
+      "answer": "DAY-SEE-MAL",
+      "distractors": [
+        "DEH-si-mal",
+        "POINT",
+        "DEC-i-mal"
+      ],
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-pronouncing-numbers",
+      "topicTitle": "Pronouncing numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "table",
+      "prompt": "Pronouncing numbers — thousand?",
+      "answer": "TOU-SAND",
+      "distractors": [
+        "THOU-zand",
+        "TOU-zend",
+        "TOW-sand"
+      ],
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-pronouncing-numbers",
+      "topicTitle": "Pronouncing numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "truefalse",
+      "prompt": "Pronouncing numbers — 8 is pronounced AIT. True or false?",
+      "answer": "True",
+      "distractors": [
+        "False"
+      ],
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-pronouncing-numbers",
+      "topicTitle": "Pronouncing numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "truefalse",
+      "prompt": "Pronouncing numbers — 0 is pronounced OH. True or false?",
+      "answer": "False",
+      "distractors": [
+        "True"
+      ],
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
       "topicId": "radio-transmitting-numbers",
       "topicTitle": "Transmitting numbers",
       "chapter": "Radio — Fundamentals",
       "kind": "step",
       "prompt": "Transmitting numbers — As shown in Table 12 , flight levels are transmitted by pronouncing (a)?",
       "answer": "for flight levels in whole hundreds, the digit of the whole hundred followed by the word ‘ HUNDRED ’ , otherwise"
+    },
+    {
+      "topicId": "radio-transmitting-numbers",
+      "topicTitle": "Transmitting numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "clause",
+      "prompt": "Transmitting numbers — what is the general rule?",
+      "answer": "All numbers, except those specifically detailed, are transmitted by pronouncing each digit separately.",
+      "distractors": [
+        "All numbers are transmitted as whole numbers",
+        "Numbers below 100 are transmitted whole, above 100 as separate digits",
+        "All numbers are transmitted as separate digits with no exceptions"
+      ],
+      "page": 15,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-transmitting-numbers",
+      "topicTitle": "Transmitting numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "clause",
+      "prompt": "Transmitting numbers — how are flight levels transmitted?",
+      "answer": "For whole hundreds, the digit of the whole hundred followed by the word HUNDRED; otherwise by individual digits.",
+      "distractors": [
+        "Always by individual digits",
+        "Always as a whole number, for example flight level one hundred and eighty",
+        "For whole thousands, the digit followed by THOUSAND; otherwise by individual digits"
+      ],
+      "page": 15,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-transmitting-numbers",
+      "topicTitle": "Transmitting numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "clause",
+      "prompt": "Transmitting numbers — in a surveillance environment, are headings magnetic or true, and must DEGREES be said?",
+      "answer": "Degrees magnetic. The word DEGREES may be omitted if no confusion or ambiguity will result.",
+      "distractors": [
+        "Degrees true; DEGREES must always be said",
+        "Degrees magnetic; DEGREES must always be said",
+        "Degrees true; DEGREES may be omitted"
+      ],
+      "page": 15,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-transmitting-numbers",
+      "topicTitle": "Transmitting numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "table",
+      "prompt": "Transmitting numbers — how is runway 19L transmitted?",
+      "answer": "Runway one nine left",
+      "distractors": [
+        "Runway nineteen left",
+        "Runway one niner left",
+        "Runway one nine lima"
+      ],
+      "page": 15,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-transmitting-numbers",
+      "topicTitle": "Transmitting numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "clause",
+      "prompt": "Transmitting numbers — how is a gusting surface wind transmitted?",
+      "answer": "As a direction, then MINIMUM with the lower speed, then MAXIMUM with the higher — for example wind one six zero degrees minimum one eight knots maximum three zero knots.",
+      "distractors": [
+        "As direction, speed, then GUSTING and the higher speed",
+        "As direction and the maximum speed only",
+        "As direction, then the average of the two speeds"
+      ],
+      "page": 15,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-transmitting-numbers",
+      "topicTitle": "Transmitting numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "truefalse",
+      "prompt": "Transmitting numbers — the word SURFACE may be omitted from a surface wind transmission if no confusion will result. True or false?",
+      "answer": "True",
+      "distractors": [
+        "False"
+      ],
+      "page": 15,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-establishment-and-continuation-of",
+      "topicTitle": "Establishment and continuation of",
+      "chapter": "Radio — Fundamentals",
+      "kind": "clause",
+      "prompt": "Establishing communications — who is responsible for establishing communications?",
+      "answer": "The station that has communications traffic to transmit.",
+      "distractors": [
+        "Always the aircraft",
+        "Always the ground station",
+        "Whichever station transmitted last"
+      ],
+      "page": 27,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-establishment-and-continuation-of",
+      "topicTitle": "Establishment and continuation of",
+      "chapter": "Radio — Fundamentals",
+      "kind": "clause",
+      "prompt": "Establishing communications — what call signs are used on first contact?",
+      "answer": "The full call sign of both the flight and the station being contacted. Naming the manufacturer, model or type is optional.",
+      "distractors": [
+        "The aircraft call sign only",
+        "An abbreviated call sign, with the full call sign only if requested",
+        "The full call sign of the flight and the abbreviated name of the station"
+      ],
+      "page": 27,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-establishment-and-continuation-of",
+      "topicTitle": "Establishment and continuation of",
+      "chapter": "Radio — Fundamentals",
+      "kind": "clause",
+      "prompt": "Establishing communications — what response is NOT to be used when inviting a station to proceed?",
+      "answer": "GO AHEAD. Using both call signs is itself the invitation to proceed.",
+      "distractors": [
+        "PASS YOUR MESSAGE",
+        "STANDBY",
+        "ROGER"
+      ],
+      "page": 27,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-establishment-and-continuation-of",
+      "topicTitle": "Establishment and continuation of",
+      "chapter": "Radio — Fundamentals",
+      "kind": "table",
+      "prompt": "Repetition of messages — SAY AGAIN?",
+      "answer": "Repeat the entire message",
+      "distractors": [
+        "Repeat the last word only",
+        "Confirm you received the message",
+        "Repeat only the part in doubt"
+      ],
+      "page": 27,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-establishment-and-continuation-of",
+      "topicTitle": "Establishment and continuation of",
+      "chapter": "Radio — Fundamentals",
+      "kind": "truefalse",
+      "prompt": "Establishing communications — the location or ground station name may be omitted once satisfactory communication is established. True or false?",
+      "answer": "True",
+      "distractors": [
+        "False"
+      ],
+      "page": 27,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-establishment-and-continuation-of",
+      "topicTitle": "Establishment and continuation of",
+      "chapter": "Radio — Fundamentals",
+      "kind": "truefalse",
+      "prompt": "Establishing communications — stating the aircraft type on first contact is mandatory. True or false?",
+      "answer": "False",
+      "distractors": [
+        "True"
+      ],
+      "page": 27,
+      "source": "transcribed"
     },
     {
       "topicId": "radio-radio-test-procedures",
@@ -4189,6 +4580,150 @@
       "kind": "step",
       "prompt": "States of emergency — The states of emergency are classified as follows (b)?",
       "answer": "Urgency: A condition concerning the safety of an aircraft or other vehicle, or of some person on board or within sight, but does not require immediate assistance."
+    },
+    {
+      "topicId": "radio-emergency-message",
+      "topicTitle": "Emergency message",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "list",
+      "prompt": "Emergency message — what order does the manual give for the content?",
+      "answer": "MAYDAY or PAN PAN three times; name of the station addressed; call sign; type of aircraft; nature of the emergency; intention of the pilot in command; present or last known position, level and heading; pilot qualifications; then any other useful information",
+      "distractors": [
+        "Call sign; MAYDAY three times; nature of the emergency; position; intentions; POB",
+        "MAYDAY three times; call sign; position; POB; fuel remaining; intentions",
+        "Name of the station addressed; MAYDAY three times; call sign; nature of the emergency; endurance"
+      ],
+      "page": 137,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-emergency-message",
+      "topicTitle": "Emergency message",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "clause",
+      "prompt": "Emergency message — what does the manual mean by other useful information?",
+      "answer": "For example endurance remaining, POB, aircraft colour or markings, and any survival aids.",
+      "distractors": [
+        "Only the endurance remaining and POB",
+        "The aircraft registration and the operator's name",
+        "The departure point and destination"
+      ],
+      "page": 137,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-emergency-message",
+      "topicTitle": "Emergency message",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "clause",
+      "prompt": "Emergency message — are pilot qualifications required in a distress message?",
+      "answer": "No. There is no requirement to include them, but the information may help ATS plan a course of action suited to the pilot's ability.",
+      "distractors": [
+        "Yes, they must always be included",
+        "Yes, but only for a student pilot",
+        "No, and they should not be transmitted"
+      ],
+      "page": 137,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-emergency-message",
+      "topicTitle": "Emergency message",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "list",
+      "prompt": "Emergency message — what pilot qualifications does the manual list?",
+      "answer": "Student pilot; no instrument qualification; private IFR rating; instrument rating",
+      "distractors": [
+        "Student pilot; PPL; CPL; ATPL",
+        "No instrument qualification; instrument rating; instructor rating",
+        "Student pilot; night VFR; private IFR rating; instrument rating"
+      ],
+      "page": 137,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-emergency-message",
+      "topicTitle": "Emergency message",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "truefalse",
+      "prompt": "Emergency message — the station addressed is named before the call sign. True or false?",
+      "answer": "True",
+      "distractors": [
+        "False"
+      ],
+      "page": 137,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-distress-message",
+      "topicTitle": "Distress message",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "clause",
+      "prompt": "Distress and urgency — what is the distress signal, and how many times is it spoken?",
+      "answer": "MAYDAY, spoken three times.",
+      "distractors": [
+        "MAYDAY, spoken once",
+        "PAN PAN, spoken three times",
+        "MAYDAY, spoken twice"
+      ],
+      "page": 138,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-distress-message",
+      "topicTitle": "Distress message",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "clause",
+      "prompt": "Distress and urgency — what is the urgency signal, and how many times is it spoken?",
+      "answer": "PAN PAN, spoken three times.",
+      "distractors": [
+        "PAN PAN, spoken once",
+        "MAYDAY, spoken three times",
+        "PAN, spoken twice"
+      ],
+      "page": 139,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-distress-message",
+      "topicTitle": "Distress message",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "clause",
+      "prompt": "Distress and urgency — how does ATS acknowledge each?",
+      "answer": "ROGER MAYDAY for a distress call, and ROGER PAN for an urgency call.",
+      "distractors": [
+        "ROGER for both",
+        "MAYDAY ACKNOWLEDGED and PAN ACKNOWLEDGED",
+        "COPIED MAYDAY and COPIED PAN"
+      ],
+      "page": 138,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-distress-message",
+      "topicTitle": "Distress message",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "truefalse",
+      "prompt": "Distress and urgency — a distress call reports position, level, heading and POB. True or false?",
+      "answer": "True",
+      "distractors": [
+        "False"
+      ],
+      "page": 138,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "radio-distress-message",
+      "topicTitle": "Distress message",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "truefalse",
+      "prompt": "Distress and urgency — PAN PAN is used when the aircraft is in grave and imminent danger. True or false?",
+      "answer": "False",
+      "distractors": [
+        "True"
+      ],
+      "page": 139,
+      "source": "transcribed"
     },
     {
       "topicId": "radio-speechless-communications",
