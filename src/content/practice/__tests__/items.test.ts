@@ -26,6 +26,9 @@ describe("practice corpus", () => {
   it("never lets a prompt give away its own answer", () => {
     for (const item of practiceItems) {
       if (item.answer.length <= 3) continue;
+      // A true/false prompt ends "True or false?", so it necessarily contains
+      // its own verdict. The answer is the judgement, not the wording.
+      if (item.kind === "truefalse") continue;
       expect(item.prompt.toLowerCase(), describeItem(item)).not.toContain(
         item.answer.toLowerCase(),
       );
@@ -61,6 +64,28 @@ describe("practice corpus", () => {
     for (const item of generated) {
       expect(/author[’'`]?s note/i.test(item.prompt), describeItem(item)).toBe(false);
     }
+  });
+
+  describe("true/false", () => {
+    const verdicts = practiceItems.filter((item) => item.kind === "truefalse");
+
+    it("has some", () => {
+      expect(verdicts.length).toBeGreaterThan(0);
+    });
+
+    it("carries exactly one distractor, and the pair is True and False", () => {
+      for (const item of verdicts) {
+        expect(item.distractors, describeItem(item)).toHaveLength(1);
+        const pair = [item.answer, item.distractors![0]!].map((v) => v.toLowerCase()).sort();
+        expect(pair, describeItem(item)).toEqual(["false", "true"]);
+      }
+    });
+
+    it("asks something, rather than presenting a bare verdict", () => {
+      for (const item of verdicts) {
+        expect(item.prompt.toLowerCase(), describeItem(item)).toContain("true or false");
+      }
+    });
   });
 
   describe("quiz options", () => {
@@ -121,12 +146,14 @@ describe("practice corpus", () => {
       }
     });
 
-    it("only passes through a structurally valid set of three distractors", () => {
+    it("only passes through a scoreable distractor set — three, or a true/false pair", () => {
       for (const section of practiceSections) {
         for (const topicModule of section.modules) {
           for (const block of topicModule.content) {
             if (block.type !== "qa" || !block.distractors) continue;
-            expect(block.distractors).toHaveLength(3);
+            expect([1, 3], `${topicModule.id}: ${block.question}`).toContain(
+              block.distractors.length,
+            );
           }
         }
       }

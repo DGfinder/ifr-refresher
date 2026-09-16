@@ -285,7 +285,7 @@ export function QuizSession({
 
       {/* Keyboard hints */}
       <div className="mt-4 text-center text-xs text-[var(--ifr-text-muted)]">
-        Press 1-4 to answer {isAnswered && "• Enter for next"}
+        Press 1-{currentQuestion.options.length} to answer {isAnswered && "• Enter for next"}
       </div>
     </div>
   );

@@ -98,7 +98,11 @@ function processBlock(
         id: mintId(seenIds, section.sectionId, module.id, kind, block.question),
         prompt: block.question,
         answer: block.answer,
-        ...(block.distractors && block.distractors.length === 3 ? { distractors: block.distractors } : {}),
+        // Three for an MCQ, or one for a true/false pair. Anything else is not
+        // a shape the quiz can score, so it is dropped here.
+        ...(block.distractors && (block.distractors.length === 3 || block.distractors.length === 1)
+          ? { distractors: block.distractors }
+          : {}),
         kind,
         tags: [...(module.tags || []), kind],
       });

@@ -9,7 +9,9 @@ export type PracticeItemKind =
   | "table"
   | "cloze"
   /** A radio call script; the prompt is the situation. */
-  | "call";
+  | "call"
+  /** A statement to be judged; the answer is the verdict. */
+  | "truefalse";
 
 export interface PracticeItem {
   topicId: string;
@@ -74,8 +76,11 @@ function toSections(items: PracticeItem[]): Section[] {
           type: "qa",
           question: item.prompt,
           answer: item.answer,
-          // buildQuizQuestions only scores a set of exactly three.
-          ...(item.distractors?.length === 3 ? { distractors: item.distractors } : {}),
+          // buildQuizQuestions scores a set of exactly three, or a
+          // true/false pair carried as a single distractor.
+          ...(item.distractors?.length === 3 || item.distractors?.length === 1
+            ? { distractors: item.distractors }
+            : {}),
         }),
       ),
       refs: [],

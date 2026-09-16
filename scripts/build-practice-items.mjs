@@ -546,11 +546,18 @@ const items = [];
 const perTopic = [];
 for (const topic of topics) {
   const override = overrides.topics?.[topic.id];
-  const extracted = override
-    ? override.items.map((item) => ({ ...item, source: "transcribed" }))
-    : topic.chapter === "Phraseology"
-      ? radioCallItems(topic)
-      : extract(topic, pool);
+  const derived =
+    topic.chapter === "Phraseology" ? radioCallItems(topic) : extract(topic, pool);
+  // An override normally replaces what the extractor produced, because it is
+  // there precisely where extraction cannot work. `"mode": "extend"` keeps both,
+  // for topics where the derived items are sound and the override only adds a
+  // format the extractor cannot produce — true/false over the radio calls.
+  const transcribed = (override?.items ?? []).map((item) => ({ ...item, source: "transcribed" }));
+  const extracted = !override
+    ? derived
+    : override.mode === "extend"
+      ? [...derived, ...transcribed]
+      : transcribed;
   perTopic.push({ id: topic.id, title: topic.title, count: extracted.length });
   for (const item of extracted) {
     items.push({
@@ -736,7 +743,9 @@ writeFileSync(OUT, serialised);
 
 const byKind = items.reduce((acc, i) => ((acc[i.kind] = (acc[i.kind] ?? 0) + 1), acc), {});
 const thin = perTopic.filter((t) => t.count < 3);
-const quizEligible = items.filter((i) => i.distractors?.length === 3).length;
+const quizEligible = items.filter(
+  (i) => i.distractors?.length === 3 || i.distractors?.length === 1,
+).length;
 console.log(`Wrote ${items.length} practice items across ${topics.length} topics.`);
 console.log("  by kind:", Object.entries(byKind).map(([k, v]) => `${k}=${v}`).join("  "));
 console.log(`  quiz-eligible: ${quizEligible} (${siblingFilled} from sibling rows)`);

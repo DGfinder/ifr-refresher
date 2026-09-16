@@ -1456,8 +1456,63 @@
           "prompt": "Sample Departure Briefing — what falls under Considerations and Questions?",
           "answer": "Relevant chart notes and NOTAMs for the aerodrome and departure; the plan to achieve MSA after an engine failure and the options to return or divert; meteorological conditions and QNH; special considerations such as recent chart changes and traffic; and any further items or questions from the other crew member",
           "page": 34
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Departure briefing — MSAs are discussed under Terrain. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 34
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Departure briefing — the plan to achieve MSA after an engine failure is discussed under Considerations and Questions. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 34
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Departure briefing — destination weather is discussed as well as departure weather. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 34
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Departure briefing — the effective date of the chart is stated. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 34
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Departure briefing — RAIM availability is confirmed when a SID has been loaded. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 34
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Departure briefing — relevant NOTAMs are covered under Weather. True or false?",
+          "answer": "False",
+          "distractors": [
+            "True"
+          ],
+          "page": 34
         }
-      ]
+      ],
+      "mode": "extend"
     },
     "departure-safety-briefing": {
       "sourceNote": "Transcribed from public/source/reference-v7-1/page-35.webp.",
@@ -1497,8 +1552,63 @@
           "prompt": "Take-off Safety Briefing — what do you brief on the basis of meteorological conditions, terrain and facilities?",
           "answer": "Whether you will circle to land, turning towards the live engine if appropriate, or continue to a nominated alternative; and what you will do if performance is not achieved to climb or maintain level flight.",
           "page": 35
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Take-off safety briefing — any abnormality before VR means maintain aircraft control and reject the take-off. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 35
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Take-off safety briefing — at or after VR and before VYSE, one option is to land because the runway permits. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 35
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Take-off safety briefing — flap is selected up above 300 feet when accelerating to VYSE. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 35
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Take-off safety briefing — above VYSE the order is prevent yaw, mixture up, pitch up, power up, gear up, flaps up. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 35
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Take-off safety briefing — if circling to land, you turn towards the dead engine. True or false?",
+          "answer": "False",
+          "distractors": [
+            "True"
+          ],
+          "page": 35
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Take-off safety briefing — VMCA, VR and VYSE are the three speeds stated. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 35
         }
-      ]
+      ],
+      "mode": "extend"
     },
     "approach-briefing": {
       "sourceNote": "Transcribed from public/source/reference-v7-1/page-58.webp.",
@@ -1538,8 +1648,63 @@
           "prompt": "Sample Approach Briefing — what special considerations does the source list?",
           "answer": "Relevant NOTAMs for the approach and aerodrome; relevant chart notes; recent changes to the chart; missed approach gradients versus aircraft performance; no-circling areas; runway condition; actions after landing",
           "page": 58
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Approach briefing — the first two lines of the Jeppesen Briefing Strip are read left to right, including MSAs. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 58
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Approach briefing — the missed approach point, track and climb altitude are all briefed. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 58
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Approach briefing — missed approach gradients are compared against aircraft performance. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 58
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Approach briefing — no-circling areas are covered under Considerations. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 58
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Approach briefing — fuel available to hold or divert is covered under Weather. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 58
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Approach briefing — actions after landing are not part of the briefing. True or false?",
+          "answer": "False",
+          "distractors": [
+            "True"
+          ],
+          "page": 58
         }
-      ]
+      ],
+      "mode": "extend"
     },
     "gradient-nomograph": {
       "sourceNote": "Transcribed from public/source/reference-v7-1/page-57.webp. Only the equivalences the chart labels explicitly are used; read the figure itself to interpolate.",
@@ -1567,8 +1732,54 @@
           "prompt": "Gradient Rate Nomograph — what are the ranges of the three scales?",
           "answer": "Ground speed 60 to 300 knots; climb/descent rate 152 to 3500 fpm; gradient 2.5 to 11.5 per cent, 152 to 700 ft/NM, or 1.5 to 6.5 degrees.",
           "page": 57
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Gradient nomograph — a 3.0 degree gradient is 5.2 per cent. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 57
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Gradient nomograph — a 3.0 degree gradient is 318.4 ft/NM. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 57
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Gradient nomograph — the chart is entered with gradient and ground speed to give a climb or descent rate. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 57
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Gradient nomograph — the chart is entered with gradient and airspeed rather than ground speed. True or false?",
+          "answer": "False",
+          "distractors": [
+            "True"
+          ],
+          "page": 57
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Gradient nomograph — the gradient scale tops out at 11.5 per cent, or 700 ft/NM. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 57
         }
-      ]
+      ],
+      "mode": "extend"
     },
     "holding-entries": {
       "sourceNote": "Transcribed from public/source/reference-v7-1/page-38.webp, AIP ENR 1.5 Para 3.4. The source is precise about heading versus track; the questions keep that distinction.",
@@ -2204,6 +2415,159 @@
           "page": 53
         }
       ]
+    },
+    "phraseology-class-g": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-22.webp, AIP GEN 3.4 Para 6.",
+      "items": [
+        {
+          "kind": "truefalse",
+          "prompt": "Class G taxi call — you state POB for IFR flights other than air transport operations. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 22
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Class G taxi call — you state the runway you will be using. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 22
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Class G departure report in ADS-B or SSR coverage — you give a distance and direction from a location. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 22
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Class G departure report outside ADS-B or SSR coverage — you report the time of departure. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 22
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Class G departure report — you include an estimate for the next reporting point. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 22
+        }
+      ],
+      "mode": "extend"
+    },
+    "phraseology-class-d": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-23.webp, AIP GEN 3.4 Para 6.",
+      "items": [
+        {
+          "kind": "truefalse",
+          "prompt": "Class D — where a Delivery frequency is specified, the airways clearance request is made to Delivery. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 23
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Class D — where no Delivery frequency is specified, the airways clearance request is made to Ground. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 23
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Class D — the taxi call includes the ATIS information letter. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 23
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Class D — the tower transfer call when ready for departure is simply callsign and \"Ready\". True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 23
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Class D — the taxi call includes POB for IFR flights other than RPT. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 23
+        }
+      ],
+      "mode": "extend"
+    },
+    "phraseology-class-c": {
+      "sourceNote": "Transcribed from public/source/reference-v7-1/page-24.webp, AIP GEN 3.4 Para 6.",
+      "items": [
+        {
+          "kind": "truefalse",
+          "prompt": "Class C — the airborne report when assigned a heading includes the direction of turn and the heading. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 24
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Class C — when instructed to maintain runway heading, the airborne report states that you are maintaining runway heading. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 24
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Class C — the airborne report includes both the level passing and the level climbing to. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 24
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Class C — on a procedural SID that does not require an assigned heading, no heading is reported. True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 24
+        },
+        {
+          "kind": "truefalse",
+          "prompt": "Class C — the tower transfer call when ready for departure is simply callsign and \"Ready\". True or false?",
+          "answer": "True",
+          "distractors": [
+            "False"
+          ],
+          "page": 24
+        }
+      ],
+      "mode": "extend"
     }
   }
 }

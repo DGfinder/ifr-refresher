@@ -22,9 +22,24 @@ function normalizedOption(value: string): string {
  * do not borrow answers from other cards: an answer that is correct elsewhere
  * is not necessarily a plausible or safe distractor for this question.
  */
+/**
+ * A true/false question: the answer and its single distractor are the two
+ * verdicts. Some material has no plausible fourth option — a radio call either
+ * includes an element or it does not — and inventing two more wrong answers to
+ * reach a four-option shape would only pad the question.
+ */
+export function isTrueFalse(question: DrillQuestion): boolean {
+  const { answer, distractors } = question;
+  if (!distractors || distractors.length !== 1) return false;
+  const pair = [normalizedOption(answer), normalizedOption(distractors[0]!)].sort();
+  return pair[0] === "false" && pair[1] === "true";
+}
+
 export function hasValidAuthoredDistractors(question: DrillQuestion): boolean {
   const { answer, distractors } = question;
-  if (!question.prompt.trim() || !answer.trim() || !distractors || distractors.length !== 3) return false;
+  if (!question.prompt.trim() || !answer.trim() || !distractors) return false;
+  if (isTrueFalse(question)) return true;
+  if (distractors.length !== 3) return false;
 
   const normalizedAnswer = normalizedOption(answer);
   const normalizedDistractors = distractors.map((distractor) => normalizedOption(distractor));
@@ -48,10 +63,17 @@ export function buildQuizQuestions(
     .slice(0, limit ?? drillQuestions.length);
 
   return selectedQuestions.map((question) => {
-    // Eligibility guarantees this is a non-empty, distinct set of three.
+    // Eligibility guarantees this is a non-empty, distinct set of three, or a
+    // true/false pair.
     const distractors = question.distractors!;
-    const allOptions = shuffle([question.answer, ...distractors]);
-    const correctIndex = allOptions.indexOf(question.answer);
+    // True always reads first. Shuffling two verdicts gains nothing and makes
+    // the reader re-check which way round they are on every question.
+    const allOptions = isTrueFalse(question)
+      ? ["True", "False"]
+      : shuffle([question.answer, ...distractors]);
+    const correctIndex = allOptions.findIndex(
+      (option) => normalizedOption(option) === normalizedOption(question.answer),
+    );
     const correctOptionId = OPTION_IDS[correctIndex]!;
     const options: QuizOption[] = allOptions.map((text, index) => ({
       id: OPTION_IDS[index]!,
