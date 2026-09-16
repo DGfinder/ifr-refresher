@@ -1,7 +1,7 @@
 {
   "generatedFrom": "docs/curriculum/baseline/topics.json",
   "generator": "scripts/build-practice-items.mjs",
-  "itemCount": 248,
+  "itemCount": 256,
   "items": [
     {
       "topicId": "admin-definitions",
@@ -134,6 +134,11 @@
       "prompt": "Aircraft Equipment — what is required of the ASI and the pressure instruments?",
       "answer": "Pitot heat on at least one ASI. The ASI, ALT and VSI need an alternate static source or a balanced pair of flush static ports.",
       "page": 11,
+      "distractors": [
+        "Pitot heat on all ASIs, and an alternate static source",
+        "Pitot heat on at least one ASI; no alternate static source is required",
+        "An alternate static source only; pitot heat is not required"
+      ],
       "source": "transcribed"
     },
     {
@@ -154,6 +159,11 @@
       "prompt": "Aircraft Equipment — when is slip alone acceptable instead of turn and slip, and may the clock be worn?",
       "answer": "Slip only if a second AI is available. The clock can be worn.",
       "page": 11,
+      "distractors": [
+        "Slip only if a second altimeter is available; the clock must be panel mounted",
+        "Slip only if an approved GNSS is fitted; the clock can be worn",
+        "Slip is never acceptable; the clock must be panel mounted"
+      ],
       "source": "transcribed"
     },
     {
@@ -184,6 +194,11 @@
       "prompt": "Altitude alerting — what applies to any other aircraft under the IFR in controlled airspace?",
       "answer": "It must be fitted with altitude alerting equipment that at least includes an assigned altitude indicator.",
       "page": 12,
+      "distractors": [
+        "No altitude alerting equipment is required",
+        "It must be fitted with full altitude alerting equipment including aural warning",
+        "It must be fitted with an assigned altitude indicator only above FL 150"
+      ],
       "source": "transcribed"
     },
     {
@@ -214,6 +229,11 @@
       "prompt": "Anti-collision lights — what satisfies the requirement?",
       "answer": "One red beacon, or two white strobes, or a combination of these.",
       "page": 13,
+      "distractors": [
+        "One red beacon and two white strobes, both required",
+        "Two red beacons, or one white strobe",
+        "One white strobe only"
+      ],
       "source": "transcribed"
     },
     {
@@ -224,6 +244,11 @@
       "prompt": "Landing and navigation lights — what is required by night?",
       "answer": "At least one landing light, and navigation lights must be fitted.",
       "page": 13,
+      "distractors": [
+        "At least two landing lights, and navigation lights",
+        "At least one landing light; navigation lights are optional",
+        "Navigation lights only"
+      ],
       "source": "transcribed"
     },
     {
@@ -620,6 +645,11 @@
       "prompt": "VHF Theoretical Maximum Range — what is the formula?",
       "answer": "d = 1.23 × (√Htx + √Hrx)",
       "page": 19,
+      "distractors": [
+        "d = 1.23 × (Htx + Hrx)",
+        "d = 1.25 × (√Htx + √Hrx)",
+        "d = 2 × (√Htx + √Hrx)"
+      ],
       "source": "transcribed"
     },
     {
@@ -640,31 +670,162 @@
       "prompt": "VHF Theoretical Maximum Range — a transmitter at 400 ft and an aircraft at 10,000 ft AGL. What is the theoretical maximum range?",
       "answer": "About 148 NM. d = 1.23 × (√400 + √10000) = 1.23 × (20 + 100) = 147.6 NM.",
       "page": 19,
+      "distractors": [
+        "About 123 NM",
+        "About 200 NM",
+        "About 74 NM"
+      ],
       "source": "transcribed"
     },
     {
       "topicId": "general-light-signals",
       "topicTitle": "Light Signals to Aircraft",
       "chapter": "General Operational Knowledge",
-      "kind": "step",
-      "prompt": "Light Signals to Aircraft — In flight (1)?",
-      "answer": "during the hours of daylight: by rocking the aircraft’s wings"
+      "kind": "table",
+      "prompt": "Light Signals — steady green, in flight?",
+      "answer": "Authorised to land, if the pilot is satisfied no collision risk exists",
+      "distractors": [
+        "Return for landing",
+        "Give way to other aircraft and continue circling",
+        "Authorised to take off"
+      ],
+      "page": 21,
+      "source": "transcribed"
     },
     {
       "topicId": "general-light-signals",
       "topicTitle": "Light Signals to Aircraft",
       "chapter": "General Operational Knowledge",
-      "kind": "step",
-      "prompt": "Light Signals to Aircraft — On the ground (1)?",
-      "answer": "during the hours of daylight: by moving the aircraft’s ailerons or rudder"
+      "kind": "table",
+      "prompt": "Light Signals — steady green, on the airport?",
+      "answer": "Authorised to take off, if the pilot is satisfied no collision risk exists",
+      "distractors": [
+        "Authorised to taxi, if the pilot is satisfied no collision risk exists",
+        "Stop",
+        "Return to the starting point on the airport"
+      ],
+      "page": 21,
+      "source": "transcribed"
     },
     {
       "topicId": "general-light-signals",
       "topicTitle": "Light Signals to Aircraft",
       "chapter": "General Operational Knowledge",
-      "kind": "step",
-      "prompt": "Light Signals to Aircraft — On the ground (2)?",
-      "answer": "during the hours of darkness: by flashing on and off twice the aircraft’s landing lights or, if not so equipped, by switching on and off twice its navigation lights"
+      "kind": "table",
+      "prompt": "Light Signals — steady red, in flight?",
+      "answer": "Give way to other aircraft and continue circling",
+      "distractors": [
+        "Airport unsafe — do not land",
+        "Stop",
+        "Return for landing"
+      ],
+      "page": 21,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-light-signals",
+      "topicTitle": "Light Signals to Aircraft",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Light Signals — steady red, on the airport?",
+      "answer": "Stop",
+      "distractors": [
+        "Taxi clear of the landing area in use",
+        "Return to the starting point on the airport",
+        "Give way to other aircraft"
+      ],
+      "page": 21,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-light-signals",
+      "topicTitle": "Light Signals to Aircraft",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Light Signals — green flashes, in flight?",
+      "answer": "Return for landing",
+      "distractors": [
+        "Authorised to land if no collision risk exists",
+        "Airport unsafe — do not land",
+        "No significance"
+      ],
+      "page": 21,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-light-signals",
+      "topicTitle": "Light Signals to Aircraft",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Light Signals — green flashes, on the airport?",
+      "answer": "Authorised to taxi, if the pilot is satisfied no collision risk exists",
+      "distractors": [
+        "Authorised to take off if no collision risk exists",
+        "Taxi clear of the landing area in use",
+        "Return to the starting point on the airport"
+      ],
+      "page": 21,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-light-signals",
+      "topicTitle": "Light Signals to Aircraft",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Light Signals — red flashes, in flight?",
+      "answer": "Airport unsafe — do not land",
+      "distractors": [
+        "Give way to other aircraft and continue circling",
+        "Return for landing",
+        "No significance"
+      ],
+      "page": 21,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-light-signals",
+      "topicTitle": "Light Signals to Aircraft",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Light Signals — red flashes, on the airport?",
+      "answer": "Taxi clear of the landing area in use",
+      "distractors": [
+        "Stop",
+        "Return to the starting point on the airport",
+        "Authorised to taxi if no collision risk exists"
+      ],
+      "page": 21,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-light-signals",
+      "topicTitle": "Light Signals to Aircraft",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Light Signals — white flashes, in flight?",
+      "answer": "No significance",
+      "distractors": [
+        "Return for landing",
+        "Airport unsafe — do not land",
+        "Return to the starting point on the airport"
+      ],
+      "page": 21,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-light-signals",
+      "topicTitle": "Light Signals to Aircraft",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Light Signals — white flashes, on the airport?",
+      "answer": "Return to the starting point on the airport",
+      "distractors": [
+        "Taxi clear of the landing area in use",
+        "Stop",
+        "No significance"
+      ],
+      "page": 21,
+      "source": "transcribed"
     },
     {
       "topicId": "phraseology-class-g",
@@ -947,6 +1108,11 @@
       "prompt": "Suitability of Alternates — an aerodrome may be nominated as a destination alternate only if it is what three things?",
       "answer": "Suitable as a planned destination aerodrome for the flight; not itself an aerodrome for which the aircraft would require a destination alternate; and not a helideck",
       "page": 26,
+      "distractors": [
+        "Suitable as a planned destination; served by an instrument approach; and not a helideck",
+        "Suitable as a planned destination; within one hour flight time; and not a helideck",
+        "Suitable as a planned destination; not itself requiring an alternate; and served by PAL"
+      ],
       "source": "transcribed"
     },
     {
@@ -977,6 +1143,11 @@
       "prompt": "Suitability of Alternates — IFR alternate minima where there is no instrument approach, or the pilot cannot conduct it?",
       "answer": "By day only: the lowest safe altitude for the final route segment plus 500 ft, and a visibility of 8 km.",
       "page": 26,
+      "distractors": [
+        "By day only: the lowest safe altitude for the final route segment plus 1000 ft, and a visibility of 8 km",
+        "By day or night: the lowest safe altitude for the final route segment plus 500 ft, and a visibility of 8 km",
+        "By day only: the lowest safe altitude for the final route segment plus 500 ft, and a visibility of 5000 m"
+      ],
       "source": "transcribed"
     },
     {
@@ -987,6 +1158,11 @@
       "prompt": "Suitability of Alternates — what applies if navigation uses a GNSS receiver certified only to (E)TSO C-129?",
       "answer": "Navigation to a destination alternate must be planned using a navigation system other than GNSS.",
       "page": 26,
+      "distractors": [
+        "Navigation to the alternate may still be planned using that GNSS",
+        "An alternate is not required if the GNSS is serviceable",
+        "The alternate must be served by an ILS"
+      ],
       "source": "transcribed"
     },
     {
@@ -1283,25 +1459,76 @@
       "topicId": "departure-minima",
       "topicTitle": "Take-off Minima",
       "chapter": "Departure",
-      "kind": "step",
-      "prompt": "Take-off Minima — The take-off minima in this section apply to a take-off that (b)?",
-      "answer": "is not conducted using a qualifying multi-engine aeroplane."
+      "kind": "table",
+      "prompt": "Take-off Minima — for an aeroplane that is not a qualifying multi-engine aeroplane, what are the minima?",
+      "answer": "A cloud ceiling of 300 ft and a visibility of 2000 m",
+      "distractors": [
+        "A cloud ceiling of 300 ft and a visibility of 800 m",
+        "A cloud ceiling of 500 ft and a visibility of 2000 m",
+        "A cloud ceiling of 200 ft and a visibility of 1500 m"
+      ],
+      "page": 33,
+      "source": "transcribed"
     },
     {
       "topicId": "departure-minima",
       "topicTitle": "Take-off Minima",
       "chapter": "Departure",
-      "kind": "step",
-      "prompt": "Take-off Minima — A pilot in command must not commence a take-off if, at the time of take-off (ii)?",
-      "answer": "such as to allow a visual approach for the return to land."
+      "kind": "table",
+      "prompt": "Take-off Minima — for a qualifying multi-engine aeroplane, what are the minima?",
+      "answer": "A visibility of 800 m, with no cloud ceiling requirement. The author notes this can be reduced to 550 m under certain conditions.",
+      "distractors": [
+        "A visibility of 550 m, with no cloud ceiling requirement",
+        "A cloud ceiling of 300 ft and a visibility of 800 m",
+        "A visibility of 2000 m, with no cloud ceiling requirement"
+      ],
+      "page": 33,
+      "source": "transcribed"
     },
     {
       "topicId": "departure-minima",
       "topicTitle": "Take-off Minima",
       "chapter": "Departure",
-      "kind": "step",
-      "prompt": "Take-off Minima — A qualifying multi-engine aeroplane means an IFR multi-engine aeroplane that is (b)?",
-      "answer": "in the event of an engine failure – capable of maintaining terrain clearance until reaching the minimum height for IFR flight."
+      "kind": "list",
+      "prompt": "Take-off Minima — when must a pilot in command not commence a take-off?",
+      "answer": "If the meteorological conditions are less than the take-off minima for the aircraft; or if the conditions that would exist on returning to land because of engine failure are not at or above the landing minima for an IAP the pilot can conduct, or such as to allow a visual approach for the return",
+      "distractors": [
+        "If the meteorological conditions are less than the take-off minima for the aircraft, only",
+        "If the conditions are less than the landing minima at the destination",
+        "If the conditions are less than the alternate minima at the departure aerodrome"
+      ],
+      "page": 33,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "departure-minima",
+      "topicTitle": "Take-off Minima",
+      "chapter": "Departure",
+      "kind": "list",
+      "prompt": "Take-off Minima — what crewing makes an aeroplane a qualifying multi-engine aeroplane?",
+      "answer": "Operated by at least 2 pilots; or by 1 pilot if piston or turboprop powered and fitted with operative autofeather; or by 1 pilot if turbojet powered",
+      "distractors": [
+        "Operated by at least 2 pilots in all cases",
+        "Operated by 1 pilot if fitted with an autopilot, regardless of engine type",
+        "Operated by at least 2 pilots, or by 1 pilot if turbojet powered"
+      ],
+      "page": 33,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "departure-minima",
+      "topicTitle": "Take-off Minima",
+      "chapter": "Departure",
+      "kind": "clause",
+      "prompt": "Take-off Minima — what performance must a qualifying multi-engine aeroplane have after an engine failure?",
+      "answer": "It must be capable of maintaining terrain clearance until reaching the minimum height for IFR flight.",
+      "distractors": [
+        "It must be capable of maintaining 500 ft per minute climb to the MSA",
+        "It must be capable of returning to land at the departure aerodrome",
+        "It must be capable of maintaining terrain clearance until reaching the circling minima"
+      ],
+      "page": 33,
+      "source": "transcribed"
     },
     {
       "topicId": "departure-briefing",
@@ -1444,6 +1671,11 @@
       "prompt": "Navigation Requirements Under the IFR — navigating by radio navigation aids: what tracking error allowance applies, and what is the maximum interval between fixes?",
       "answer": "After allowing for tracking errors of ± 9° from the last positive fix, the aircraft must come within the rated coverage of a radio aid usable as a fix. The maximum time interval between fixes must not exceed two hours.",
       "page": 37,
+      "distractors": [
+        "± 5° from the last positive fix, with a maximum of two hours between fixes",
+        "± 9° from the last positive fix, with a maximum of one hour between fixes",
+        "± 9° from the last positive fix, with no maximum interval between fixes"
+      ],
       "source": "transcribed"
     },
     {
@@ -1454,6 +1686,11 @@
       "prompt": "Navigation Requirements Under the IFR — when may visual reference to the ground or water be used?",
       "answer": "By day, on route segments where suitable enroute radio navigation aids are not available, provided weather permits flight in VMC and the visual position fixing requirements can be met.",
       "page": 37,
+      "distractors": [
+        "By day or night, where suitable enroute aids are not available",
+        "By day, anywhere along the route at the pilot's discretion",
+        "By day, where aids are unavailable, provided the aircraft remains within 50 NM of departure"
+      ],
       "source": "transcribed"
     },
     {
@@ -1464,6 +1701,11 @@
       "prompt": "Navigation Requirements Under the IFR — the author's rule of thumb for distance able to be flown?",
       "answer": "6.66 × rated coverage. The two-hour maximum between fixes still applies, and a fix can be achieved before station passage with GNSS or a co-located DME within rated coverage.",
       "page": 37,
+      "distractors": [
+        "3.33 × rated coverage",
+        "1.23 × rated coverage",
+        "6.66 × rated coverage, with no time limit between fixes"
+      ],
       "source": "transcribed"
     },
     {
@@ -1474,6 +1716,11 @@
       "prompt": "Deviations in Controlled Airspace — when must the pilot notify ATC?",
       "answer": "Immediately, for any of the listed navigation deviations.",
       "page": 37,
+      "distractors": [
+        "Within 5 minutes of the deviation being detected",
+        "On first contact with the next sector",
+        "Only if the deviation exceeds twice the tolerance"
+      ],
       "source": "transcribed"
     },
     {
@@ -1484,6 +1731,11 @@
       "prompt": "Deviations in Controlled Airspace — NDB tolerance?",
       "answer": "± 5°",
       "page": 37,
+      "distractors": [
+        "± 2°",
+        "± 10°",
+        "Half-scale deflection"
+      ],
       "source": "transcribed"
     },
     {
@@ -1494,6 +1746,11 @@
       "prompt": "Deviations in Controlled Airspace — LOC/VOR tolerance?",
       "answer": "Half-scale deflection",
       "page": 37,
+      "distractors": [
+        "Full-scale deflection",
+        "± 5°",
+        "± 2 NM"
+      ],
       "source": "transcribed"
     },
     {
@@ -1514,6 +1771,11 @@
       "prompt": "Deviations in Controlled Airspace — DME tolerance?",
       "answer": "± 2 NM",
       "page": 37,
+      "distractors": [
+        "± 1 NM",
+        "± 5 NM",
+        "Half-scale deflection"
+      ],
       "source": "transcribed"
     },
     {
@@ -1524,6 +1786,11 @@
       "prompt": "Deviations in Controlled Airspace — visual tolerance?",
       "answer": "1 NM",
       "page": 37,
+      "distractors": [
+        "2 NM",
+        "5 NM",
+        "Within the circling area"
+      ],
       "source": "transcribed"
     },
     {
@@ -1769,6 +2036,11 @@
       "prompt": "Types of Instrument Approaches — which are 2D?",
       "answer": "NDB; VOR; DME or GNSS arrival procedure; RNP APCH LNAV and RNP APCH LP (previously RNAV GNSS); LLZ",
       "page": 41,
+      "distractors": [
+        "NDB; VOR; ILS; RNP APCH LNAV and RNP APCH LP; LLZ",
+        "NDB; VOR; DME or GNSS arrival procedure; RNP-LPV; LLZ",
+        "NDB; VOR; DME or GNSS arrival procedure; RNP APCH LNAV and RNP APCH LP; GLS"
+      ],
       "source": "transcribed"
     },
     {
@@ -1779,6 +2051,11 @@
       "prompt": "Types of Instrument Approaches — which are 3D?",
       "answer": "ILS; MLS; GLS; RNP-LNAV/VNAV (Baro); RNP-LPV",
       "page": 41,
+      "distractors": [
+        "ILS; MLS; GLS; RNP APCH LNAV; RNP-LPV",
+        "ILS; MLS; GLS; VOR; RNP-LPV",
+        "ILS; LLZ; GLS; RNP-LNAV/VNAV (Baro); RNP-LPV"
+      ],
       "source": "transcribed"
     },
     {
@@ -1789,6 +2066,11 @@
       "prompt": "Types of Instrument Approaches — which are azimuth guidance operations?",
       "answer": "NDB; DME or GNSS arrival procedure using an ADF",
       "page": 41,
+      "distractors": [
+        "NDB; VOR; DME or GNSS arrival procedure using an ADF",
+        "NDB only",
+        "ILS; LLZ; NDB"
+      ],
       "source": "transcribed"
     },
     {
@@ -1983,6 +2265,11 @@
       "prompt": "Descent Below the Straight-in MDA or DA — the source's \"VMC\" mnemonic stands for what three conditions?",
       "answer": "Visual reference can be maintained; Minima requirements adhered to; Continuously in a position where a landing can be made with normal rates of descent and manoeuvres",
       "page": 44,
+      "distractors": [
+        "Visual reference can be maintained; Minima requirements adhered to; Circling area not exited",
+        "Visual meteorological conditions; Minima adhered to; Continuously in a position to land",
+        "Visual reference maintained; MDA not exceeded; Continuous descent commenced"
+      ],
       "source": "transcribed"
     },
     {
@@ -1993,6 +2280,11 @@
       "prompt": "Descent Below the Straight-in MDA or DA — what must be true of the meteorological minima?",
       "answer": "All elements of the meteorological minima must be equal to or greater than those published for the aircraft performance category.",
       "page": 44,
+      "distractors": [
+        "The visibility alone must be equal to or greater than that published",
+        "All elements must be equal to or greater than those published for the aerodrome, regardless of category",
+        "All elements must be within 10 per cent of those published for the category"
+      ],
       "source": "transcribed"
     },
     {
@@ -2013,6 +2305,11 @@
       "prompt": "Descent Below the Straight-in MDA or DA — does the source's \"VMC\" mnemonic mean visual meteorological conditions?",
       "answer": "No. The author notes it is a mnemonic device only.",
       "page": 44,
+      "distractors": [
+        "Yes — visual meteorological conditions must exist",
+        "Yes, by night only",
+        "Yes, unless ATC advises otherwise"
+      ],
       "source": "transcribed"
     },
     {
@@ -2163,6 +2460,11 @@
       "prompt": "Reversal Procedures — a 45°/180° procedure turn: outbound timing, and the 45° leg?",
       "answer": "Outbound 1 to 3 minutes, then the 45° leg for 1 minute (Cat A and B) or 1 minute 15 seconds (Cat C and D), before the 180° turn.",
       "page": 47,
+      "distractors": [
+        "Outbound 1 to 3 minutes, then the 45° leg for 1 minute 15 seconds (Cat A and B) or 1 minute (Cat C and D)",
+        "Outbound 1 to 2 minutes, then the 45° leg for 1 minute regardless of category",
+        "Outbound 1 to 3 minutes, then the 45° leg for 45 seconds (Cat A and B) or 1 minute (Cat C and D)"
+      ],
       "source": "transcribed"
     },
     {
@@ -2173,6 +2475,11 @@
       "prompt": "Reversal Procedures — an 80°/260° procedure turn: outbound timing?",
       "answer": "1 to 3 minutes.",
       "page": 47,
+      "distractors": [
+        "1 to 2 minutes",
+        "1 minute 15 seconds",
+        "3 minutes in all cases"
+      ],
       "source": "transcribed"
     },
     {
@@ -2183,6 +2490,11 @@
       "prompt": "Reversal Procedures — base turns: what outbound legs are published?",
       "answer": "1, 2 or 3 minutes, or the published DME distance.",
       "page": 47,
+      "distractors": [
+        "1 or 2 minutes only, with no DME option",
+        "1, 2, 3 or 4 minutes, or the published DME distance",
+        "2 or 3 minutes, or the published DME distance"
+      ],
       "source": "transcribed"
     },
     {
@@ -2298,6 +2610,11 @@
       "prompt": "Instrument Approach Tolerances (flight test) — 2D approach lateral path tracking, using azimuth guidance?",
       "answer": "Within ± 5° of nominated track",
       "page": 48,
+      "distractors": [
+        "Within ± 2° of nominated track",
+        "Within ± 10° of nominated track",
+        "Within half-scale deflection"
+      ],
       "source": "transcribed"
     },
     {
@@ -2308,6 +2625,11 @@
       "prompt": "Instrument Approach Tolerances (flight test) — 2D approach lateral path tracking, using a lateral course deviation indicator?",
       "answer": "Within ± ½ scale deflection of nominated track",
       "page": 48,
+      "distractors": [
+        "Within full-scale deflection of nominated track",
+        "Within ± 5° of nominated track",
+        "Within ± 2 NM of nominated track"
+      ],
       "source": "transcribed"
     },
     {
@@ -2318,6 +2640,11 @@
       "prompt": "Instrument Approach Tolerances (flight test) — 2D approach tracking on a DME or GNSS arc?",
       "answer": "Within ± 2 NM of the arc",
       "page": 48,
+      "distractors": [
+        "Within ± 1 NM of the arc",
+        "Within ± 5 NM of the arc",
+        "Within ± 2° of the arc"
+      ],
       "source": "transcribed"
     },
     {
@@ -2328,6 +2655,11 @@
       "prompt": "Instrument Approach Tolerances (flight test) — 3D approach vertical path?",
       "answer": "± ½ scale deflection, or ± 75 ft for an RNP BARO VNAV procedure",
       "page": 48,
+      "distractors": [
+        "± full-scale deflection, or ± 75 ft for an RNP BARO VNAV procedure",
+        "± ½ scale deflection, or ± 100 ft for an RNP BARO VNAV procedure",
+        "± ½ scale deflection only; no RNP BARO VNAV allowance"
+      ],
       "source": "transcribed"
     },
     {
@@ -2338,6 +2670,11 @@
       "prompt": "Instrument Approach Tolerances (flight test) — minimum altitude?",
       "answer": "+100 ft, −0 ft at the published minima descent altitude; the missed approach must not be initiated below decision altitude.",
       "page": 48,
+      "distractors": [
+        "+50 ft, −0 ft at the published minima descent altitude",
+        "+100 ft, −50 ft at the published minima descent altitude",
+        "+100 ft, −0 ft, and the missed approach may be initiated below decision altitude"
+      ],
       "source": "transcribed"
     },
     {
@@ -2358,6 +2695,11 @@
       "prompt": "Instrument Approach Tolerances (ILS) — what is verified at the fix in the final approach segment, and what if it disagrees?",
       "answer": "The glide path/altimeter relationship. If the check indicates an unexplained discrepancy, the ILS/GLS approach should be discontinued.",
       "page": 49,
+      "distractors": [
+        "The localiser alignment; if it disagrees, continue and advise ATC",
+        "The DME distance; if it disagrees, discontinue the approach",
+        "The glide path/altimeter relationship; if it disagrees, continue to the DA"
+      ],
       "source": "transcribed"
     },
     {
@@ -2368,6 +2710,11 @@
       "prompt": "Instrument Approach Tolerances (ILS) — what deflection must be maintained for obstacle clearance?",
       "answer": "Both the LOC/GLS final approach course and the glideslope should be maintained within half scale deflection, or the equivalent on an expanded scale.",
       "page": 49,
+      "distractors": [
+        "Full scale deflection, or the equivalent on an expanded scale",
+        "Quarter scale deflection, or the equivalent on an expanded scale",
+        "Half scale deflection on the localiser only; the glideslope is advisory"
+      ],
       "source": "transcribed"
     },
     {
@@ -2378,6 +2725,11 @@
       "prompt": "Instrument Approach Tolerances (ILS) — what requires a missed approach after the FAP?",
       "answer": "If at any time after the FAP the LOC/GLS final approach course or glideslope indicates full scale deflection, a missed approach should be commenced.",
       "page": 49,
+      "distractors": [
+        "Half scale deflection of the localiser or glideslope",
+        "Full scale deflection of the localiser only",
+        "Any deviation from the glidepath/altimeter relationship"
+      ],
       "source": "transcribed"
     },
     {
@@ -2599,57 +2951,91 @@
       "topicId": "approach-landing-minima",
       "topicTitle": "Landing Minima",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Landing Minima — the minimum altitude must not be below whichever of the following is the highest (a)?",
-      "answer": "the circling minimum altitude specified on the instrument approach chart for the IAP being conducted"
+      "kind": "list",
+      "prompt": "Landing Minima — for an RNP APCH-LNAV/VNAV, RNP APCH-LPV or precision approach, the minimum altitude must not be below whichever is highest of what?",
+      "answer": "The DA or DH on the instrument approach chart for the IAP being conducted; the relevant minima in the AFM; or the relevant minima in the operator's exposition or operations manual",
+      "distractors": [
+        "The DA or DH on the chart; the MDA for the circling procedure; or the operator's minima",
+        "The DA or DH on the chart; the LSALT for the final segment; or the AFM minima",
+        "The DA or DH on the chart only"
+      ],
+      "page": 53,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-landing-minima",
       "topicTitle": "Landing Minima",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Landing Minima — the minimum altitude must not be below whichever of the following is the highest (b)?",
-      "answer": "the relevant minima specified in the AFM"
+      "kind": "list",
+      "prompt": "Landing Minima — the minimum visibility must not be below whichever is highest of what?",
+      "answer": "The RVR or visibility on the instrument approach chart; the relevant minima in the AFM; or the relevant minima in the operator's exposition or operations manual",
+      "distractors": [
+        "The RVR on the chart only",
+        "The RVR or visibility on the chart; the alternate minima; or the operator's minima",
+        "The RVR or visibility on the chart; the AFM minima; or 800 m, whichever is greatest in all cases"
+      ],
+      "page": 53,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-landing-minima",
       "topicTitle": "Landing Minima",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Landing Minima — the minimum altitude must not be below whichever of the following is the highest (c)?",
-      "answer": "the relevant minima specified in the operator’s exposition or operations manual."
+      "kind": "list",
+      "prompt": "Landing Minima — when does a minimum visibility of 800 m apply?",
+      "answer": "Only if the TDZ RVR report is not available, or the approach lighting system normally available beyond 420 m from the threshold is inoperative",
+      "distractors": [
+        "Only if the TDZ RVR report is not available, or high intensity runway edge lighting is not in operation",
+        "Only if the approach lighting beyond 210 m from the threshold is inoperative",
+        "Whenever the approach is flown without a flight director"
+      ],
+      "page": 53,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-landing-minima",
       "topicTitle": "Landing Minima",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Landing Minima — the minimum altitude must not be below whichever of the following is the highest (6)?",
-      "answer": "Despite subsection (4), if the aircraft is conducting a circling manoeuvre"
+      "kind": "list",
+      "prompt": "Landing Minima — when does a minimum visibility of 1200 m apply?",
+      "answer": "If the approach cannot be flown to at least the landing minima using a flight director, HUD or autopilot; or the aircraft has no operative failure warning system for the primary attitude and heading reference systems; or high intensity runway edge lighting is not in operation; or the approach lighting normally available beyond 210 m from the threshold is inoperative",
+      "distractors": [
+        "Only if high intensity runway edge lighting is not in operation",
+        "Only if the approach lighting normally available for the runway is inoperative",
+        "If the TDZ RVR report is not available, or the approach lighting beyond 420 m is inoperative"
+      ],
+      "page": 53,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-landing-minima",
       "topicTitle": "Landing Minima",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Landing Minima — the minimum visibility must not be below whichever of the following is the highest (a)?",
-      "answer": "the circling minimum visibility specified on the instrument approach chart for the IAP being conducted"
+      "kind": "table",
+      "prompt": "Landing Minima — what visibility applies if the approach lighting normally available for the runway is inoperative?",
+      "answer": "1500 m",
+      "distractors": [
+        "1200 m",
+        "800 m",
+        "2000 m"
+      ],
+      "page": 53,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-landing-minima",
       "topicTitle": "Landing Minima",
       "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Landing Minima — the minimum visibility must not be below whichever of the following is the highest (b)?",
-      "answer": "the relevant minima specified in the AFM"
-    },
-    {
-      "topicId": "approach-landing-minima",
-      "topicTitle": "Landing Minima",
-      "chapter": "Approaches",
-      "kind": "step",
-      "prompt": "Landing Minima — the minimum visibility must not be below whichever of the following is the highest (c)?",
-      "answer": "the relevant minima specified in the operator’s exposition or operations manual."
+      "kind": "clause",
+      "prompt": "Landing Minima — when does 1.5 times the charted RVR or visibility apply?",
+      "answer": "Only if a lighting failure has occurred on a runway at a controlled aerodrome and doubled spacing of runway edge lights results.",
+      "distractors": [
+        "Whenever a lighting failure has occurred at any aerodrome",
+        "Whenever the approach lighting system is inoperative",
+        "Whenever the TDZ RVR report is unavailable at a controlled aerodrome"
+      ],
+      "page": 53,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-missed",
@@ -2789,6 +3175,11 @@
       "prompt": "Go Around in VMC — going around from a visual approach, what must the aircraft do?",
       "answer": "Except as specified in ERSA for specific locations, initially climb on runway track, remain visual and await instructions from ATC. If obstacles on runway track cannot be cleared, the aircraft may turn.",
       "page": 56,
+      "distractors": [
+        "Turn immediately onto the published missed approach track and climb",
+        "Climb on runway track and carry out the published instrument missed approach",
+        "Enter the circuit from upwind and await instructions"
+      ],
       "source": "transcribed"
     },
     {
@@ -2799,6 +3190,11 @@
       "prompt": "Go Around in VMC — unable or unwilling to land from an instrument approach in VMC: what applies?",
       "answer": "Carry out the published instrument missed approach procedure for the approach being flown, unless ATC directs otherwise.",
       "page": 56,
+      "distractors": [
+        "Climb on runway track, remain visual and await ATC instructions",
+        "Enter the circuit from upwind and re-position for another approach",
+        "Carry out the published missed approach only if ATC directs it"
+      ],
       "source": "transcribed"
     },
     {
