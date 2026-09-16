@@ -6,7 +6,9 @@ export function ContentDisclaimer() {
       <div className="rounded-xl border border-[var(--ifr-border)] bg-[var(--ifr-surface)] px-4 py-3">
         <strong className="text-[var(--ifr-text)]">Study aid only.</strong>{" "}
         Verify requirements against current CASA, AIP, ERSA, aircraft manuals, operator procedures, and charts before flight. Offline content may be stale.
-        <Link href="/about" className="ml-1 text-[var(--ifr-accent)] hover:underline">
+        {/* Underlined at rest, not only on hover: axe link-in-text-block requires a
+            non-colour cue for links sitting inside a paragraph. */}
+        <Link href="/about" className="ml-1 text-[var(--ifr-accent)] underline underline-offset-2">
           Content notes
         </Link>
       </div>
