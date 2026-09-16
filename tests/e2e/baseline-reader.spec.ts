@@ -74,10 +74,15 @@ test("retired /principles opens baseline contents", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Contents", exact: true })).toBeVisible();
 });
 
-test("/radio drills the phraseology chapter", async ({ page }) => {
+test("/radio drills the phraseology chapter, pinned to that pathway", async ({ page }) => {
   await page.goto("/radio");
-  await expect(page.getByRole("button", { name: "Radio calls" })).toBeVisible();
   await expect(page.locator("body")).not.toContainText("No cards available");
+  // The route fixes the pathway, so the program pills must not offer a way out
+  // of it while the nav still marks Radio as current.
+  await expect(page.getByRole("button", { name: "All topics" })).toHaveCount(0);
+  await expect(
+    page.getByRole("navigation", { name: "Main navigation" }).getByRole("link", { name: "Radio" }),
+  ).toHaveAttribute("aria-current", "page");
 });
 
 test("main navigation reaches every mode and marks the current one", async ({ page }) => {

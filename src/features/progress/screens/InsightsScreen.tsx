@@ -5,26 +5,15 @@ import Link from "next/link";
 import { BookmarkCheck } from "lucide-react";
 import type { Section } from "@/content/model/section";
 import { practiceSections as sections } from "@/content/practice";
-import radioCallsSection from "@/content/data/radio-calls.json";
 import { useProgress } from "@/features/progress/hooks/useProgress";
 import { useDrill } from "@/features/drill";
 import { ProgressBar } from "@/shared/ui/ProgressBar";
 import { Card } from "@/shared/ui/card";
-import { RadioProgressSection } from "@/features/progress/components/RadioProgressSection";
-import { RADIO_GUIDE_SECTION_ID } from "@/features/radio-calls";
 import { getRecentBookmarks, useStudyBookmarks } from "@/features/study";
 
-// Radio-calls phraseology theory isn't in the IFR theory section list any
-// more — it lives in /radio?tab=learn. Keep the section locally available
-// so bookmarks for radio modules still resolve to a title + a working
-// deep-link.
-const RADIO_LEARN_SECTION = radioCallsSection as Section;
-
-function getModuleHref(sectionId: string, moduleId: string): string {
-  if (sectionId === RADIO_GUIDE_SECTION_ID) {
-    return `/radio?tab=learn&module=${encodeURIComponent(moduleId)}`;
-  }
-  return `/study?section=${encodeURIComponent(sectionId)}&module=${encodeURIComponent(moduleId)}`;
+// A bookmarked module is a baseline topic, and the reader routes by topic id.
+function getModuleHref(_sectionId: string, moduleId: string): string {
+  return `/study/${encodeURIComponent(moduleId)}`;
 }
 
 export function InsightsScreen() {
@@ -36,7 +25,7 @@ export function InsightsScreen() {
   // bookmarks still surface here (they're saved under the same sectionId
   // as before the move).
   const allBookmarkableSections = useMemo<Section[]>(
-    () => [...sections, RADIO_LEARN_SECTION],
+    () => sections,
     [],
   );
 
@@ -181,14 +170,11 @@ export function InsightsScreen() {
         </section>
       )}
 
-      {/* Radio progress (drill + scenarios) */}
-      <RadioProgressSection />
-
       {/* CTA for weak focus */}
       {weakCount > 0 && (
         <section>
           <Link
-            href="/drill"
+            href="/flashcard"
             className="inline-block rounded-lg border border-[var(--ifr-warning)] bg-[var(--ifr-warning)]/10 px-6 py-3 text-sm font-medium text-[var(--ifr-warning)] transition-colors hover:bg-[var(--ifr-warning)]/20"
           >
             Review {weakCount} weak question{weakCount !== 1 ? "s" : ""}

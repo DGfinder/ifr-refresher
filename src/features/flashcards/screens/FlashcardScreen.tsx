@@ -15,7 +15,7 @@ import type { DrillQuestion } from "@/features/drill";
 
 type FlashcardPhase = "dashboard" | "session" | "results";
 
-function FlashcardPageContent({ initialProgramId }: { initialProgramId: ProgramId }) {
+function FlashcardPageContent({ initialProgramId, pinned = false }: { initialProgramId: ProgramId; pinned?: boolean }) {
   const [phase, setPhase] = useState<FlashcardPhase>("dashboard");
   const [programId, setProgramId] = useState<ProgramId>(initialProgramId);
   const [studyMode, setStudyMode] = useState<StudyMode>("all");
@@ -91,6 +91,7 @@ function FlashcardPageContent({ initialProgramId }: { initialProgramId: ProgramI
           studyMode={studyMode}
           onChangeStudyMode={setStudyMode}
           onStart={handleStart}
+          showProgramSelector={!pinned}
         />
       )}
 
@@ -133,7 +134,7 @@ function FlashcardPageWithUrlProgram() {
  * `?program=` query string, which needs the Suspense boundary below.
  */
 export function FlashcardScreen({ program }: { program?: ProgramId } = {}) {
-  if (program) return <FlashcardPageContent key={program} initialProgramId={program} />;
+  if (program) return <FlashcardPageContent key={program} initialProgramId={program} pinned />;
 
   return (
     <Suspense

@@ -1,7 +1,7 @@
 {
   "generatedFrom": "docs/curriculum/baseline/topics.json",
   "generator": "scripts/build-practice-items.mjs",
-  "itemCount": 194,
+  "itemCount": 227,
   "items": [
     {
       "topicId": "admin-definitions",
@@ -740,6 +740,131 @@
       "page": 24
     },
     {
+      "topicId": "preflight-fuel",
+      "topicTitle": "Fuel Requirements",
+      "chapter": "Preflight",
+      "kind": "table",
+      "prompt": "Fuel Requirements — MTOW 5700 kg or below, day VFR: final reserve and contingency fuel?",
+      "answer": "30 minutes final reserve; no contingency fuel",
+      "page": 25,
+      "source": "transcribed",
+      "distractors": [
+        "30 minutes final reserve; 5 per cent contingency fuel",
+        "45 minutes final reserve; 5 per cent contingency fuel",
+        "45 minutes final reserve; no contingency fuel"
+      ]
+    },
+    {
+      "topicId": "preflight-fuel",
+      "topicTitle": "Fuel Requirements",
+      "chapter": "Preflight",
+      "kind": "table",
+      "prompt": "Fuel Requirements — MTOW 5700 kg or below, night VFR: final reserve and contingency fuel?",
+      "answer": "45 minutes final reserve; no contingency fuel",
+      "page": 25,
+      "source": "transcribed",
+      "distractors": [
+        "30 minutes final reserve; 5 per cent contingency fuel",
+        "30 minutes final reserve; no contingency fuel",
+        "45 minutes final reserve; 5 per cent contingency fuel"
+      ]
+    },
+    {
+      "topicId": "preflight-fuel",
+      "topicTitle": "Fuel Requirements",
+      "chapter": "Preflight",
+      "kind": "table",
+      "prompt": "Fuel Requirements — MTOW 5700 kg or below, IFR: final reserve and contingency fuel?",
+      "answer": "45 minutes final reserve; no contingency fuel",
+      "page": 25,
+      "source": "transcribed",
+      "distractors": [
+        "30 minutes final reserve; no contingency fuel",
+        "30 minutes final reserve; 5 per cent contingency fuel",
+        "45 minutes final reserve; 5 per cent contingency fuel"
+      ]
+    },
+    {
+      "topicId": "preflight-fuel",
+      "topicTitle": "Fuel Requirements",
+      "chapter": "Preflight",
+      "kind": "table",
+      "prompt": "Fuel Requirements — turbojet, or turboprop above 5700 kg, IFR or VFR: final reserve and contingency fuel?",
+      "answer": "30 minutes final reserve; 5 per cent contingency fuel",
+      "page": 25,
+      "source": "transcribed",
+      "distractors": [
+        "45 minutes final reserve; no contingency fuel",
+        "30 minutes final reserve; no contingency fuel",
+        "45 minutes final reserve; 5 per cent contingency fuel"
+      ]
+    },
+    {
+      "topicId": "preflight-fuel",
+      "topicTitle": "Fuel Requirements",
+      "chapter": "Preflight",
+      "kind": "table",
+      "prompt": "Fuel Requirements — piston above 5700 kg, IFR or VFR: final reserve and contingency fuel?",
+      "answer": "45 minutes final reserve; 5 per cent contingency fuel",
+      "page": 25,
+      "source": "transcribed",
+      "distractors": [
+        "30 minutes final reserve; no contingency fuel",
+        "30 minutes final reserve; 5 per cent contingency fuel",
+        "45 minutes final reserve; no contingency fuel"
+      ]
+    },
+    {
+      "topicId": "alternates-suitability",
+      "topicTitle": "Suitability of Alternates",
+      "chapter": "Preflight",
+      "kind": "list",
+      "prompt": "Suitability of Alternates — an aerodrome may be nominated as a destination alternate only if it is what three things?",
+      "answer": "Suitable as a planned destination aerodrome for the flight; not itself an aerodrome for which the aircraft would require a destination alternate; and not a helideck",
+      "page": 26,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-suitability",
+      "topicTitle": "Suitability of Alternates",
+      "chapter": "Preflight",
+      "kind": "list",
+      "prompt": "Suitability of Alternates — Part 91 aircraft: when must a destination alternate be planned for an IFR flight by night?",
+      "answer": "When the planned destination is not served by an instrument approach procedure, or is served by one or more that the pilot is unable to conduct",
+      "page": 26,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-suitability",
+      "topicTitle": "Suitability of Alternates",
+      "chapter": "Preflight",
+      "kind": "clause",
+      "prompt": "Suitability of Alternates — IFR alternate minima where the pilot can conduct an instrument approach at the alternate?",
+      "answer": "The alternate minima published on the chart.",
+      "page": 26,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-suitability",
+      "topicTitle": "Suitability of Alternates",
+      "chapter": "Preflight",
+      "kind": "clause",
+      "prompt": "Suitability of Alternates — IFR alternate minima where there is no instrument approach, or the pilot cannot conduct it?",
+      "answer": "By day only: the lowest safe altitude for the final route segment plus 500 ft, and a visibility of 8 km.",
+      "page": 26,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "alternates-suitability",
+      "topicTitle": "Suitability of Alternates",
+      "chapter": "Preflight",
+      "kind": "clause",
+      "prompt": "Suitability of Alternates — what applies if navigation uses a GNSS receiver certified only to (E)TSO C-129?",
+      "answer": "Navigation to a destination alternate must be planned using a navigation system other than GNSS.",
+      "page": 26,
+      "source": "transcribed"
+    },
+    {
       "topicId": "alternates-triggers",
       "topicTitle": "Alternates Could Very Well Prove Life Savers",
       "chapter": "Preflight",
@@ -992,9 +1117,101 @@
       "topicId": "enroute-navigation",
       "topicTitle": "Navigation Requirements Under the IFR",
       "chapter": "En Route",
-      "kind": "step",
-      "prompt": "Navigation Requirements Under the IFR — An aircraft operating under the IFR must be navigated by (b)?",
-      "answer": "use of a radio navigation system or systems where, after making allowance for tracking errors of ± 9° from the last positive fix, the aircraft will come within the rated coverage of a radio aid which can be used as a fix. The maximum time interval between fixes must not exceed two hours"
+      "kind": "list",
+      "prompt": "Navigation Requirements Under the IFR — by what three means may an aircraft be navigated?",
+      "answer": "An approved area navigation system meeting the performance requirements of the intended airspace or route; a radio navigation system or systems; or visual reference to the ground or water by day",
+      "page": 37,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "enroute-navigation",
+      "topicTitle": "Navigation Requirements Under the IFR",
+      "chapter": "En Route",
+      "kind": "clause",
+      "prompt": "Navigation Requirements Under the IFR — navigating by radio navigation aids: what tracking error allowance applies, and what is the maximum interval between fixes?",
+      "answer": "After allowing for tracking errors of ± 9° from the last positive fix, the aircraft must come within the rated coverage of a radio aid usable as a fix. The maximum time interval between fixes must not exceed two hours.",
+      "page": 37,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "enroute-navigation",
+      "topicTitle": "Navigation Requirements Under the IFR",
+      "chapter": "En Route",
+      "kind": "clause",
+      "prompt": "Navigation Requirements Under the IFR — when may visual reference to the ground or water be used?",
+      "answer": "By day, on route segments where suitable enroute radio navigation aids are not available, provided weather permits flight in VMC and the visual position fixing requirements can be met.",
+      "page": 37,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "enroute-navigation",
+      "topicTitle": "Navigation Requirements Under the IFR",
+      "chapter": "En Route",
+      "kind": "clause",
+      "prompt": "Navigation Requirements Under the IFR — the author's rule of thumb for distance able to be flown?",
+      "answer": "6.66 × rated coverage. The two-hour maximum between fixes still applies, and a fix can be achieved before station passage with GNSS or a co-located DME within rated coverage.",
+      "page": 37,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "enroute-deviations",
+      "topicTitle": "Deviations in Controlled Airspace",
+      "chapter": "En Route",
+      "kind": "clause",
+      "prompt": "Deviations in Controlled Airspace — when must the pilot notify ATC?",
+      "answer": "Immediately, for any of the listed navigation deviations.",
+      "page": 37,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "enroute-deviations",
+      "topicTitle": "Deviations in Controlled Airspace",
+      "chapter": "En Route",
+      "kind": "table",
+      "prompt": "Deviations in Controlled Airspace — NDB tolerance?",
+      "answer": "± 5°",
+      "page": 37,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "enroute-deviations",
+      "topicTitle": "Deviations in Controlled Airspace",
+      "chapter": "En Route",
+      "kind": "table",
+      "prompt": "Deviations in Controlled Airspace — LOC/VOR tolerance?",
+      "answer": "Half-scale deflection",
+      "page": 37,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "enroute-deviations",
+      "topicTitle": "Deviations in Controlled Airspace",
+      "chapter": "En Route",
+      "kind": "table",
+      "prompt": "Deviations in Controlled Airspace — RNP/RNAV tolerance?",
+      "answer": "Outside the prescribed RNP/RNAV value",
+      "page": 37,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "enroute-deviations",
+      "topicTitle": "Deviations in Controlled Airspace",
+      "chapter": "En Route",
+      "kind": "table",
+      "prompt": "Deviations in Controlled Airspace — DME tolerance?",
+      "answer": "± 2 NM",
+      "page": 37,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "enroute-deviations",
+      "topicTitle": "Deviations in Controlled Airspace",
+      "chapter": "En Route",
+      "kind": "table",
+      "prompt": "Deviations in Controlled Airspace — visual tolerance?",
+      "answer": "1 NM",
+      "page": 37,
+      "source": "transcribed"
     },
     {
       "topicId": "holding-entries",
@@ -1646,6 +1863,106 @@
       "source": "transcribed"
     },
     {
+      "topicId": "approach-visual-atc",
+      "topicTitle": "Visual Approaches — rules related to ATC",
+      "chapter": "Approaches",
+      "kind": "list",
+      "prompt": "Visual Approaches issued by ATC — by day, when may one be issued?",
+      "answer": "Within 30 NM; continuous visual reference to ground or water; visibility 5000 m",
+      "page": 51,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-visual-atc",
+      "topicTitle": "Visual Approaches — rules related to ATC",
+      "chapter": "Approaches",
+      "kind": "list",
+      "prompt": "Visual Approaches issued by ATC — by night, when may one be issued?",
+      "answer": "Within 30 NM; continuous visual reference to ground or water; visibility 5000 m; and, if being vectored, assigned MVA and given heading or tracking instructions to intercept final or to position within the circling area",
+      "page": 51,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-visual-atc",
+      "topicTitle": "Visual Approaches — rules related to ATC",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Visual Approaches issued by ATC — what does night add over day?",
+      "answer": "The vectoring condition: if being vectored the aircraft must be assigned MVA and given heading or tracking instructions to intercept final or to position within the circling area.",
+      "page": 51,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-visual-requirements",
+      "topicTitle": "Visual Approach Requirements for IFR Flights",
+      "chapter": "Approaches",
+      "kind": "list",
+      "prompt": "Visual Approach Requirements — by day, when need the pilot not commence, or may discontinue, an IAP?",
+      "answer": "Within 30 NM; clear of cloud; in sight of ground or water; visibility 5000 m or the aerodrome in sight",
+      "page": 52,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-visual-requirements",
+      "topicTitle": "Visual Approach Requirements for IFR Flights",
+      "chapter": "Approaches",
+      "kind": "list",
+      "prompt": "Visual Approach Requirements — by night, when need the pilot not commence, or may discontinue, an IAP?",
+      "answer": "Clear of cloud; in sight of ground or water; visibility 5000 m. There is no 30 NM provision by night, and the aerodrome being in sight does not substitute for the visibility.",
+      "page": 52,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-visual-requirements",
+      "topicTitle": "Visual Approach Requirements for IFR Flights",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Visual Approach Requirements — in CTA, what altitude must be maintained?",
+      "answer": "Not less than 500 ft above the lower limit of the CTA, unless clearance has been received to depart and re-enter CTA.",
+      "page": 52,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-visual-requirements",
+      "topicTitle": "Visual Approach Requirements for IFR Flights",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Visual Approach Requirements — by night, what is the minimum altitude outside that CTA case?",
+      "answer": "LSALT/MSA, the DGA step, or the last assigned altitude if being vectored.",
+      "page": 52,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-visual-requirements",
+      "topicTitle": "Visual Approach Requirements for IFR Flights",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Visual Approach Requirements — by day, how long must track or heading on the authorised route be maintained?",
+      "answer": "Until within 5 NM.",
+      "page": 52,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-visual-requirements",
+      "topicTitle": "Visual Approach Requirements for IFR Flights",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Visual Approach Requirements — by night, how long must track or heading on the authorised route be maintained?",
+      "answer": "Until within the circling area; or within 3 NM with the aerodrome in sight if there is no IAP, the pilot is not authorised to use it, or the flight is VFR.",
+      "page": 52,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-visual-requirements",
+      "topicTitle": "Visual Approach Requirements for IFR Flights",
+      "chapter": "Approaches",
+      "kind": "list",
+      "prompt": "Visual Approach Requirements — by night, what guidance distances allow the approach to continue?",
+      "answer": "5 NM on PAPI; 7 NM on PAPI for an ILS runway; 10 NM on glideslope; or 14 NM for YSSY runways 16L and 34L established not below glideslope and less than full scale azimuth deflection",
+      "page": 52,
+      "source": "transcribed"
+    },
+    {
       "topicId": "approach-landing-minima",
       "topicTitle": "Landing Minima",
       "chapter": "Approaches",
@@ -1740,6 +2057,46 @@
       "kind": "step",
       "prompt": "Missed Approaches — Navigational tolerance means 1 of the following (e)?",
       "answer": "for operations based on visual navigation – 1 NM from the cleared track"
+    },
+    {
+      "topicId": "approach-go-around-vmc",
+      "topicTitle": "Go Around and Missed Approach Procedure in VMC",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Go Around in VMC — going around from a visual approach, what must the aircraft do?",
+      "answer": "Except as specified in ERSA for specific locations, initially climb on runway track, remain visual and await instructions from ATC. If obstacles on runway track cannot be cleared, the aircraft may turn.",
+      "page": 56,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-go-around-vmc",
+      "topicTitle": "Go Around and Missed Approach Procedure in VMC",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Go Around in VMC — unable or unwilling to land from an instrument approach in VMC: what applies?",
+      "answer": "Carry out the published instrument missed approach procedure for the approach being flown, unless ATC directs otherwise.",
+      "page": 56,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-go-around-vmc",
+      "topicTitle": "Go Around and Missed Approach Procedure in VMC",
+      "chapter": "Approaches",
+      "kind": "list",
+      "prompt": "Go Around in VMC — at a Class D aerodrome with parallel runways and contra-rotating circuits, what must the pilot do?",
+      "answer": "Commence climb to circuit altitude; position on the active side and parallel to the nominated duty runway while maintaining separation from other aircraft; and follow ATC instructions or re-enter the circuit from upwind",
+      "page": 56,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-go-around-vmc",
+      "topicTitle": "Go Around and Missed Approach Procedure in VMC",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Go Around in VMC — what does the author advise if there is doubt about which procedure applies?",
+      "answer": "Seek clarification from ATC. Confusion could arise from a clearance such as \"cleared visual approach runway 01, track via the ILS\".",
+      "page": 56,
+      "source": "transcribed"
     },
     {
       "topicId": "gradient-nomograph",

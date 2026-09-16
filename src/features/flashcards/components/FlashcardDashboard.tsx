@@ -19,6 +19,8 @@ interface FlashcardDashboardProps {
   studyMode: StudyMode;
   onChangeStudyMode: (mode: StudyMode) => void;
   onStart: (queue: DrillQuestion[]) => void;
+  /** Hidden when the route fixes the pathway, e.g. /radio. */
+  showProgramSelector?: boolean;
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -76,6 +78,7 @@ export function FlashcardDashboard({
   studyMode,
   onChangeStudyMode,
   onStart,
+  showProgramSelector = true,
 }: FlashcardDashboardProps) {
   const { filteredQuestions, stats, getWeakCount, getSeenCount } = useDrill(sections, {
     programId,
@@ -103,7 +106,7 @@ export function FlashcardDashboard({
   return (
     <div className="space-y-6">
       {/* Program selector */}
-      <ProgramSelector value={programId} onChange={onChangeProgramId} />
+      {showProgramSelector && <ProgramSelector value={programId} onChange={onChangeProgramId} />}
 
       {/* Stats strip */}
       <div className="grid grid-cols-3 gap-3">
