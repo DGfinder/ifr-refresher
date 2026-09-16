@@ -1466,7 +1466,12 @@
       "prompt": "Circling Areas — Category A: circling area radius and obstacle clearance?",
       "answer": "1.68 NM; 300 ft",
       "page": 47,
-      "source": "transcribed"
+      "source": "transcribed",
+      "distractors": [
+        "4.20 NM; 400 ft",
+        "6.94 NM; 500 ft",
+        "2.66 NM; 300 ft"
+      ]
     },
     {
       "topicId": "approach-circling-areas",
@@ -1476,7 +1481,12 @@
       "prompt": "Circling Areas — Category B: circling area radius and obstacle clearance?",
       "answer": "2.66 NM; 300 ft",
       "page": 47,
-      "source": "transcribed"
+      "source": "transcribed",
+      "distractors": [
+        "1.68 NM; 300 ft",
+        "6.94 NM; 500 ft",
+        "4.20 NM; 400 ft"
+      ]
     },
     {
       "topicId": "approach-circling-areas",
@@ -1486,7 +1496,12 @@
       "prompt": "Circling Areas — Category C: circling area radius and obstacle clearance?",
       "answer": "4.20 NM; 400 ft",
       "page": 47,
-      "source": "transcribed"
+      "source": "transcribed",
+      "distractors": [
+        "1.68 NM; 300 ft",
+        "2.66 NM; 300 ft",
+        "5.28 NM; 400 ft"
+      ]
     },
     {
       "topicId": "approach-circling-areas",
@@ -1496,7 +1511,12 @@
       "prompt": "Circling Areas — Category D: circling area radius and obstacle clearance?",
       "answer": "5.28 NM; 400 ft",
       "page": 47,
-      "source": "transcribed"
+      "source": "transcribed",
+      "distractors": [
+        "1.68 NM; 300 ft",
+        "4.20 NM; 400 ft",
+        "2.66 NM; 300 ft"
+      ]
     },
     {
       "topicId": "approach-circling-areas",
@@ -1506,7 +1526,12 @@
       "prompt": "Circling Areas — Category E: circling area radius and obstacle clearance?",
       "answer": "6.94 NM; 500 ft",
       "page": 47,
-      "source": "transcribed"
+      "source": "transcribed",
+      "distractors": [
+        "1.68 NM; 300 ft",
+        "2.66 NM; 300 ft",
+        "4.20 NM; 400 ft"
+      ]
     },
     {
       "topicId": "approach-procedure-turns",
@@ -1556,7 +1581,12 @@
       "prompt": "Approach Speeds — Category A: VAT, and max speeds for circling and missed approach?",
       "answer": "VAT below 91; circling 100; missed approach 110",
       "page": 48,
-      "source": "transcribed"
+      "source": "transcribed",
+      "distractors": [
+        "VAT 121–140; circling 180; missed approach 240",
+        "VAT 141–165; circling 205; missed approach 265",
+        "VAT 166–210; circling 240; missed approach 275"
+      ]
     },
     {
       "topicId": "approach-speeds",
@@ -1566,7 +1596,12 @@
       "prompt": "Approach Speeds — Category B: VAT, and max speeds for circling and missed approach?",
       "answer": "VAT 91–120; circling 135; missed approach 150",
       "page": 48,
-      "source": "transcribed"
+      "source": "transcribed",
+      "distractors": [
+        "VAT 121–140; circling 180; missed approach 240",
+        "VAT 141–165; circling 205; missed approach 265",
+        "VAT 166–210; circling 240; missed approach 275"
+      ]
     },
     {
       "topicId": "approach-speeds",
@@ -1576,7 +1611,12 @@
       "prompt": "Approach Speeds — Category C: VAT, and max speeds for circling and missed approach?",
       "answer": "VAT 121–140; circling 180; missed approach 240",
       "page": 48,
-      "source": "transcribed"
+      "source": "transcribed",
+      "distractors": [
+        "VAT 141–165; circling 205; missed approach 265",
+        "VAT 166–210; circling 240; missed approach 275",
+        "VAT 91–120; circling 135; missed approach 150"
+      ]
     },
     {
       "topicId": "approach-speeds",
@@ -1586,7 +1626,12 @@
       "prompt": "Approach Speeds — Category D: VAT, and max speeds for circling and missed approach?",
       "answer": "VAT 141–165; circling 205; missed approach 265",
       "page": 48,
-      "source": "transcribed"
+      "source": "transcribed",
+      "distractors": [
+        "VAT 121–140; circling 180; missed approach 240",
+        "VAT below 91; circling 100; missed approach 110",
+        "VAT 166–210; circling 240; missed approach 275"
+      ]
     },
     {
       "topicId": "approach-speeds",
@@ -1596,7 +1641,12 @@
       "prompt": "Approach Speeds — Category E: VAT, and max speeds for circling and missed approach?",
       "answer": "VAT 166–210; circling 240; missed approach 275",
       "page": 48,
-      "source": "transcribed"
+      "source": "transcribed",
+      "distractors": [
+        "VAT 121–140; circling 180; missed approach 240",
+        "VAT 141–165; circling 205; missed approach 265",
+        "VAT 91–120; circling 135; missed approach 150"
+      ]
     },
     {
       "topicId": "approach-speeds",

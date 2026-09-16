@@ -480,6 +480,68 @@ for (const topic of topics) {
   }
 }
 
+/**
+ * Fill in distractors from sibling rows of the same table.
+ *
+ * The quiz deliberately refuses to borrow an answer from an unrelated card,
+ * because a fact that is true elsewhere is not a safe wrong answer here. Rows
+ * of one table asked in one shape are the exception: "Circling Areas —
+ * Category B?" is precisely the plausible wrong answer to "Category A?", and
+ * that is how the question gets asked in an oral.
+ *
+ * A sibling answer identical to the correct one is skipped — several classes
+ * share the same minima, and a "wrong" option that is actually right would
+ * make the question unanswerable.
+ */
+/**
+ * The prompt with its varying token blanked, so rows of one table collapse to a
+ * single stem: "Circling Areas — Category A: ..." and "... Category B: ..." both
+ * become "circling areas — category _: ...". Items that differ in more than the
+ * token are not siblings, and must not lend each other options.
+ */
+function familyStem(prompt) {
+  const text = prompt.toLowerCase().trim();
+  // These prompts read "Topic — Qualifier: question?". The question after the
+  // colon is what makes two rows the same question, so group on that; the
+  // qualifier before it is exactly what varies between rows.
+  const colon = text.lastIndexOf(":");
+  const stem = colon > 0 ? text.slice(colon + 1) : text;
+  return stem
+    .replace(/\b(category|class|sector)\s+[a-z0-9]+\b/g, "$1 _")
+    .replace(/\b[0-9]+(\.[0-9]+)?\b/g, "_")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function addSiblingDistractors(allItems) {
+  const families = new Map();
+  for (const item of allItems) {
+    const key = `${item.topicId}::${item.kind}::${familyStem(item.prompt)}`;
+    const family = families.get(key);
+    if (family) family.push(item);
+    else families.set(key, [item]);
+  }
+
+  let filled = 0;
+  for (const family of families.values()) {
+    if (family.length < 4) continue;
+    for (const item of family) {
+      if (item.distractors?.length === 3) continue;
+      const normalised = item.answer.trim().toLowerCase();
+      const candidates = family
+        .filter((other) => other !== item && other.answer.trim().toLowerCase() !== normalised)
+        .map((other) => other.answer);
+      const unique = [...new Set(candidates)];
+      if (unique.length < 3) continue;
+      item.distractors = pickThree(unique, `${item.topicId}:${item.prompt}`);
+      filled += 1;
+    }
+  }
+  return filled;
+}
+
+const siblingFilled = addSiblingDistractors(items);
+
 const payload = {
   generatedFrom: "docs/curriculum/baseline/topics.json",
   generator: "scripts/build-practice-items.mjs",
@@ -508,7 +570,9 @@ writeFileSync(OUT, serialised);
 
 const byKind = items.reduce((acc, i) => ((acc[i.kind] = (acc[i.kind] ?? 0) + 1), acc), {});
 const thin = perTopic.filter((t) => t.count < 3);
+const quizEligible = items.filter((i) => i.distractors?.length === 3).length;
 console.log(`Wrote ${items.length} practice items across ${topics.length} topics.`);
 console.log("  by kind:", Object.entries(byKind).map(([k, v]) => `${k}=${v}`).join("  "));
+console.log(`  quiz-eligible: ${quizEligible} (${siblingFilled} from sibling rows)`);
 console.log(`  thin topics (<3 items): ${thin.length}`);
 for (const t of thin) console.log(`    ${t.id} (${t.count})`);
