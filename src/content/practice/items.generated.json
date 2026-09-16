@@ -1,7 +1,7 @@
 {
   "generatedFrom": "docs/curriculum/baseline/topics.json",
   "generator": "scripts/build-practice-items.mjs",
-  "itemCount": 129,
+  "itemCount": 163,
   "items": [
     {
       "topicId": "admin-definitions",
@@ -75,6 +75,66 @@
       "kind": "definition",
       "prompt": "Recent Experience Requirements — what does CASR 61.875 cover?",
       "answer": "Limitations on exercise of privileges of instrument ratings – recent experience: single pilot"
+    },
+    {
+      "topicId": "general-speeds",
+      "topicTitle": "Speed Definitions",
+      "chapter": "General Operational Knowledge",
+      "kind": "definition",
+      "prompt": "Speed Definitions — what is VMCA, and which radial marks it?",
+      "answer": "Minimum control speed, air — the red radial. The minimum speed at which it is possible to maintain directional control of the aircraft with the critical engine inoperative.",
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-speeds",
+      "topicTitle": "Speed Definitions",
+      "chapter": "General Operational Knowledge",
+      "kind": "list",
+      "prompt": "Speed Definitions — on what conditions is VMCA determined?",
+      "answer": "Critical engine inoperative; live engine at take-off power; landing gear retracted; a maximum of 5 degrees bank towards the live engine; propeller feathered (only for aircraft with automatic feathering devices)",
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-speeds",
+      "topicTitle": "Speed Definitions",
+      "chapter": "General Operational Knowledge",
+      "kind": "definition",
+      "prompt": "Speed Definitions — what is VMCG?",
+      "answer": "Minimum control speed, ground. The minimum speed, whilst on the ground, at which it is possible to maintain direction using only aerodynamic controls — critical engine inoperative, live engine at take-off power.",
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-speeds",
+      "topicTitle": "Speed Definitions",
+      "chapter": "General Operational Knowledge",
+      "kind": "definition",
+      "prompt": "Speed Definitions — what is VSSE, and what is it for?",
+      "answer": "Single engine safety speed: the speed below which intentional simulated engine failures should not be conducted. A manufacturer-stated speed intended to provide a margin above VMCA.",
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-speeds",
+      "topicTitle": "Speed Definitions",
+      "chapter": "General Operational Knowledge",
+      "kind": "definition",
+      "prompt": "Speed Definitions — what is VYSE, and which radial marks it?",
+      "answer": "Single engine best rate of climb speed — the blue radial. The speed at which the best rate of climb can be achieved with the critical engine inoperative.",
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-speeds",
+      "topicTitle": "Speed Definitions",
+      "chapter": "General Operational Knowledge",
+      "kind": "list",
+      "prompt": "Speed Definitions — on what conditions is VYSE determined?",
+      "answer": "Critical engine inoperative; live engine at take-off power; landing gear retracted",
+      "page": 14,
+      "source": "transcribed"
     },
     {
       "topicId": "general-comms-failure",
@@ -851,6 +911,46 @@
       "answer": "For ATC traffic management, jet aircraft in CTA must leave an en route holding pattern at 250KT IAS, unless otherwise published or advised by ATC. Pilots may request a variation to this requirement."
     },
     {
+      "topicId": "approach-types",
+      "topicTitle": "Types of Instrument Approaches",
+      "chapter": "Approaches",
+      "kind": "list",
+      "prompt": "Types of Instrument Approaches — which are 2D?",
+      "answer": "NDB; VOR; DME or GNSS arrival procedure; RNP APCH LNAV and RNP APCH LP (previously RNAV GNSS); LLZ",
+      "page": 41,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-types",
+      "topicTitle": "Types of Instrument Approaches",
+      "chapter": "Approaches",
+      "kind": "list",
+      "prompt": "Types of Instrument Approaches — which are 3D?",
+      "answer": "ILS; MLS; GLS; RNP-LNAV/VNAV (Baro); RNP-LPV",
+      "page": 41,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-types",
+      "topicTitle": "Types of Instrument Approaches",
+      "chapter": "Approaches",
+      "kind": "list",
+      "prompt": "Types of Instrument Approaches — which are azimuth guidance operations?",
+      "answer": "NDB; DME or GNSS arrival procedure using an ADF",
+      "page": 41,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-types",
+      "topicTitle": "Types of Instrument Approaches",
+      "chapter": "Approaches",
+      "kind": "list",
+      "prompt": "Types of Instrument Approaches — which are course deviation indicator operations?",
+      "answer": "ILS; LLZ; RNP APCH LNAV and RNP APCH LP; RNP-LNAV/VNAV (Baro); RNP-LPV; VOR; DME/GNSS arrival procedure using a CDI",
+      "page": 41,
+      "source": "transcribed"
+    },
+    {
       "topicId": "approach-qnh",
       "topicTitle": "Setting QNH Before IAF",
       "chapter": "Approaches",
@@ -997,6 +1097,246 @@
       "kind": "step",
       "prompt": "Circling Approaches and Visual Circling — • By day and night (3)?",
       "answer": "Once the pilot initiates descent below circling MDA, the obstacle protection offered by visual circling at the MDA ends and he/she is responsible for ensuring the required clearance from obstacles is maintained visually."
+    },
+    {
+      "topicId": "approach-circling-areas",
+      "topicTitle": "Circling Areas",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Circling Areas — Category A: circling area radius and obstacle clearance?",
+      "answer": "1.68 NM; 300 ft",
+      "page": 47,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-circling-areas",
+      "topicTitle": "Circling Areas",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Circling Areas — Category B: circling area radius and obstacle clearance?",
+      "answer": "2.66 NM; 300 ft",
+      "page": 47,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-circling-areas",
+      "topicTitle": "Circling Areas",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Circling Areas — Category C: circling area radius and obstacle clearance?",
+      "answer": "4.20 NM; 400 ft",
+      "page": 47,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-circling-areas",
+      "topicTitle": "Circling Areas",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Circling Areas — Category D: circling area radius and obstacle clearance?",
+      "answer": "5.28 NM; 400 ft",
+      "page": 47,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-circling-areas",
+      "topicTitle": "Circling Areas",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Circling Areas — Category E: circling area radius and obstacle clearance?",
+      "answer": "6.94 NM; 500 ft",
+      "page": 47,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-procedure-turns",
+      "topicTitle": "Procedure Turns",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Reversal Procedures — a 45°/180° procedure turn: outbound timing, and the 45° leg?",
+      "answer": "Outbound 1 to 3 minutes, then the 45° leg for 1 minute (Cat A and B) or 1 minute 15 seconds (Cat C and D), before the 180° turn.",
+      "page": 47,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-procedure-turns",
+      "topicTitle": "Procedure Turns",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Reversal Procedures — an 80°/260° procedure turn: outbound timing?",
+      "answer": "1 to 3 minutes.",
+      "page": 47,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-procedure-turns",
+      "topicTitle": "Procedure Turns",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Reversal Procedures — base turns: what outbound legs are published?",
+      "answer": "1, 2 or 3 minutes, or the published DME distance.",
+      "page": 47,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-procedure-turns",
+      "topicTitle": "Procedure Turns",
+      "chapter": "Approaches",
+      "kind": "list",
+      "prompt": "Reversal Procedures — name the three types.",
+      "answer": "45°/180° procedure turn; 80°/260° procedure turn; base turn",
+      "page": 47,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-speeds",
+      "topicTitle": "Approach Speeds",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Approach Speeds — Category A: VAT, and max speeds for circling and missed approach?",
+      "answer": "VAT below 91; circling 100; missed approach 110",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-speeds",
+      "topicTitle": "Approach Speeds",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Approach Speeds — Category B: VAT, and max speeds for circling and missed approach?",
+      "answer": "VAT 91–120; circling 135; missed approach 150",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-speeds",
+      "topicTitle": "Approach Speeds",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Approach Speeds — Category C: VAT, and max speeds for circling and missed approach?",
+      "answer": "VAT 121–140; circling 180; missed approach 240",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-speeds",
+      "topicTitle": "Approach Speeds",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Approach Speeds — Category D: VAT, and max speeds for circling and missed approach?",
+      "answer": "VAT 141–165; circling 205; missed approach 265",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-speeds",
+      "topicTitle": "Approach Speeds",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Approach Speeds — Category E: VAT, and max speeds for circling and missed approach?",
+      "answer": "VAT 166–210; circling 240; missed approach 275",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-speeds",
+      "topicTitle": "Approach Speeds",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Approach Speeds — Category A: initial/intermediate and final approach speed ranges?",
+      "answer": "Initial and intermediate 90–150 (110 max for reversal procedures); final 70–100",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-speeds",
+      "topicTitle": "Approach Speeds",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Approach Speeds — Category B: initial/intermediate and final approach speed ranges?",
+      "answer": "Initial and intermediate 120–180 (140 max for reversal procedures); final 85–130",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-speeds",
+      "topicTitle": "Approach Speeds",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Approach Speeds — Category C: initial/intermediate and final approach speed ranges?",
+      "answer": "Initial and intermediate 160–240; final 115–160",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-speeds",
+      "topicTitle": "Approach Speeds",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Approach Speeds — helicopters: speeds?",
+      "answer": "Initial and intermediate 70–120; final 60–90; missed approach 90. No VAT and no circling speed.",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-test-tolerances",
+      "topicTitle": "Instrument Approach Tolerances — Flight Tests",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Instrument Approach Tolerances (flight test) — 2D approach lateral path tracking, using azimuth guidance?",
+      "answer": "Within ± 5° of nominated track",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-test-tolerances",
+      "topicTitle": "Instrument Approach Tolerances — Flight Tests",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Instrument Approach Tolerances (flight test) — 2D approach lateral path tracking, using a lateral course deviation indicator?",
+      "answer": "Within ± ½ scale deflection of nominated track",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-test-tolerances",
+      "topicTitle": "Instrument Approach Tolerances — Flight Tests",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Instrument Approach Tolerances (flight test) — 2D approach tracking on a DME or GNSS arc?",
+      "answer": "Within ± 2 NM of the arc",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-test-tolerances",
+      "topicTitle": "Instrument Approach Tolerances — Flight Tests",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Instrument Approach Tolerances (flight test) — 3D approach vertical path?",
+      "answer": "± ½ scale deflection, or ± 75 ft for an RNP BARO VNAV procedure",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-test-tolerances",
+      "topicTitle": "Instrument Approach Tolerances — Flight Tests",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Instrument Approach Tolerances (flight test) — minimum altitude?",
+      "answer": "+100 ft, −0 ft at the published minima descent altitude; the missed approach must not be initiated below decision altitude.",
+      "page": 48,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-test-tolerances",
+      "topicTitle": "Instrument Approach Tolerances — Flight Tests",
+      "chapter": "Approaches",
+      "kind": "clause",
+      "prompt": "Instrument Approach Tolerances (flight test) — 3D approach lateral path tracking?",
+      "answer": "As for 2D, according to the lateral path guidance being used.",
+      "page": 48,
+      "source": "transcribed"
     },
     {
       "topicId": "approach-ils-tolerances",
