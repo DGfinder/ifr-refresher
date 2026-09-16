@@ -2991,6 +2991,178 @@
           "page": 139
         }
       ]
+    },
+    "radio-ifr-arrivals-at-a-non-controlled-aerodrome": {
+      "mode": "extend",
+      "sourceNote": "Transcribed from CASA Multi-Part AC 64.B-02 / AC 91-35 / AC 172-05, Radiotelephony manual for flight operations, v1.0 December 2025, section 3.4, Figure 21.",
+      "items": [
+        {
+          "kind": "clause",
+          "prompt": "IFR arrival at a non-controlled aerodrome — what should you tell ATS, and why?",
+          "answer": "That you are switching from the area frequency, so that communications are entirely on the CTAF.",
+          "distractors": [
+            "That you are commencing the approach, so ATS can pass traffic",
+            "That you are cancelling IFR, so ATS can close the flight plan",
+            "Nothing — the change to CTAF is made without advising ATS"
+          ],
+          "page": 42
+        },
+        {
+          "kind": "call",
+          "prompt": "IFR arrival at a non-controlled aerodrome — leaving the area frequency, 10 miles north-east of Minetown. What do you say to Centre?",
+          "answer": "CENTRE\nPQR\n10 MILES NORTH-EAST OF MINETOWN\nCHANGING TO CTAF",
+          "page": 42
+        },
+        {
+          "kind": "call",
+          "prompt": "IFR arrival at a non-controlled aerodrome — first broadcast on the CTAF, 10 miles north-east, passing 3,000, positioning for a straight-in approach runway 14. What do you say?",
+          "answer": "MINETOWN TRAFFIC\nKING AIR PQR\nIFR\n10 MILES NORTH-EAST OF MINETOWN\nPASSING 3,000\nPOSITIONING FOR STRAIGHT-IN APPROACH RUNWAY 14\nMINETOWN",
+          "page": 42
+        },
+        {
+          "kind": "clause",
+          "prompt": "IFR arrival at a non-controlled aerodrome — what does the CTAF broadcast open and close with?",
+          "answer": "It opens with the traffic address — MINETOWN TRAFFIC — and closes with the location again, MINETOWN.",
+          "distractors": [
+            "It opens and closes with the aircraft call sign",
+            "It opens with the call sign and closes with the intentions",
+            "It opens with the location and needs no closing element"
+          ],
+          "page": 42
+        }
+      ]
+    },
+    "radio-ifr-departures-from-a-non-controlled-aerodrome": {
+      "mode": "extend",
+      "sourceNote": "Transcribed from CASA Multi-Part AC 64.B-02 / AC 91-35 / AC 172-05, Radiotelephony manual for flight operations, v1.0 December 2025, section 3.5, Figures 22 and 23.",
+      "items": [
+        {
+          "kind": "clause",
+          "prompt": "IFR departure from a non-controlled aerodrome — when should you report to ATC, and what if you cannot reach them?",
+          "answer": "Report to ATC on taxiing. If unable to establish contact, broadcast the expected ATS reports on the area frequency. These are additional to any necessary CTAF calls.",
+          "distractors": [
+            "Report to ATC once airborne; if unable, continue and report at the first reporting point",
+            "Report to ATC before start; if unable, the flight may not depart IFR",
+            "Report on taxiing; if unable, the CTAF broadcasts replace the ATS reports"
+          ],
+          "page": 42
+        },
+        {
+          "kind": "call",
+          "prompt": "IFR departure from a non-controlled aerodrome — taxiing at Minetown for Thornhill, King Air, 4 POB, runway 14. What do you say to Centre after establishing contact?",
+          "answer": "PQR\nIFR KING AIR\n4 POB\nTAXIING MINETOWN FOR THORNHILL\nRUNWAY 14\nREQUEST CLEARANCE",
+          "page": 43
+        },
+        {
+          "kind": "call",
+          "prompt": "IFR departure — Centre clears you to Thornhill via MAKIR flight planned route, FL120, squawk 4512, area QNH 1014. What is your read back?",
+          "answer": "CLEARED TO THORNHILL VIA MAKIR\nFLIGHT PLANNED ROUTE\nFLIGHT LEVEL 120\nSQUAWK 4512\nAREA QNH 1014\nPQR",
+          "page": 43
+        },
+        {
+          "kind": "call",
+          "prompt": "IFR departure — the standard CTAF broadcast while taxiing at Minetown, via Alfa to the holding point runway 14. What do you say?",
+          "answer": "MINETOWN TRAFFIC\nKING AIR PQR\nIFR\nTAXIING VIA ALFA TO HOLDING POINT RUNWAY 14\nMINETOWN",
+          "page": 43
+        },
+        {
+          "kind": "call",
+          "prompt": "IFR departure report where identification is NOT expected — departed Minetown at 23, tracking 310, climbing to FL120, estimating MAKIR at 50. What do you say?",
+          "answer": "PQR\nDEPARTED MINETOWN 23 TRACKING 310\nCLIMBING TO FLIGHT LEVEL 120\nESTIMATING MAKIR 50",
+          "page": 44
+        },
+        {
+          "kind": "call",
+          "prompt": "IFR departure report where identification IS expected — 5 miles north-east of Minetown, passing 3,000, climbing to FL120, estimating MAKIR at 45. What do you say?",
+          "answer": "PQR\n5 MILES NORTHEAST OF MINETOWN\nPASSING 3,000\nCLIMBING TO FLIGHT LEVEL 120\nESTIMATING MAKIR 45",
+          "page": 44
+        },
+        {
+          "kind": "clause",
+          "prompt": "IFR departure report — what differs between the surveillance and non-surveillance versions?",
+          "answer": "Without surveillance you report the departure time and track. With surveillance you report a position relative to the aerodrome and the level passing, and ATS replies IDENTIFIED.",
+          "distractors": [
+            "Without surveillance you report a position and level passing; with surveillance, the departure time",
+            "The reports are identical; only the reply differs",
+            "Without surveillance no departure report is required"
+          ],
+          "page": 44
+        },
+        {
+          "kind": "clause",
+          "prompt": "IFR departure from a non-controlled aerodrome — are the reports to ATC instead of the CTAF broadcasts?",
+          "answer": "No. Reports to ATC are additional to the recommended positional broadcasts on the CTAF.",
+          "distractors": [
+            "Yes — once in contact with ATC the CTAF broadcasts may be omitted",
+            "Yes, provided the aerodrome has no other known traffic",
+            "Only the taxi broadcast is additional; the rest replace the CTAF calls"
+          ],
+          "page": 42
+        }
+      ]
+    },
+    "radio-ifr-arrivals": {
+      "mode": "extend",
+      "sourceNote": "Transcribed from CASA Multi-Part AC 64.B-02 / AC 91-35 / AC 172-05, Radiotelephony manual for flight operations, v1.0 December 2025, section 6.5, Figure 104.",
+      "items": [
+        {
+          "kind": "clause",
+          "prompt": "IFR arrivals — what does Approach normally advise on initial contact?",
+          "answer": "The type of approach to be expected.",
+          "distractors": [
+            "The landing runway and the wind",
+            "The expected holding delay",
+            "The QNH and transition level"
+          ],
+          "page": 105
+        },
+        {
+          "kind": "clause",
+          "prompt": "IFR arrivals — once cleared to descend, when must you commence descent?",
+          "answer": "Within one minute, unless another time or point is specified, or the clearance is issued as 'when ready'.",
+          "distractors": [
+            "Within three minutes, unless otherwise specified",
+            "Immediately, with no exception",
+            "At the pilot's discretion, unless a time is specified"
+          ],
+          "page": 105
+        },
+        {
+          "kind": "call",
+          "prompt": "IFR arrival — first contact with Approach, passing FL150 descending to 8,000, information Bravo. What do you say?",
+          "answer": "THORNHILL APPROACH\nFASTAIR 345\nPASSING FLIGHT LEVEL 150 DESCENDING TO 8,000\nINFORMATION BRAVO",
+          "page": 105
+        },
+        {
+          "kind": "call",
+          "prompt": "IFR arrival — Approach says descend to 6,000, expect RNP Zulu approach runway 10. What is your read back?",
+          "answer": "DESCEND TO 6,000\nFASTAIR 345",
+          "page": 105
+        },
+        {
+          "kind": "call",
+          "prompt": "IFR arrival — Approach says descend to 4,000, cleared RNP Zulu runway 10 approach, report Whiskey Foxtrot. What is your read back?",
+          "answer": "LEAVING 6,000\nDESCEND TO 4,000\nCLEARED RNP ZULU RUNWAY 10 APPROACH\nFASTAIR 345",
+          "page": 105
+        },
+        {
+          "kind": "call",
+          "prompt": "IFR arrival — you have been told to contact Thornhill Tower on 118.1. What is your read back, and then your first call to Tower?",
+          "answer": "THORNHILL TOWER 118.1\nFASTAIR 345\n— then —\nTHORNHILL TOWER\nFASTAIR 345",
+          "page": 105
+        },
+        {
+          "kind": "clause",
+          "prompt": "IFR arrival — what extra element does the read back of a descent clearance carry when you are already descending to a previously assigned level?",
+          "answer": "The level you are leaving — for example LEAVING 6,000, DESCEND TO 4,000.",
+          "distractors": [
+            "The rate of descent being used",
+            "The time at which descent will commence",
+            "Nothing extra; the new level alone is read back"
+          ],
+          "page": 105
+        }
+      ]
     }
   }
 }
