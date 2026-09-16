@@ -1,7 +1,7 @@
 {
   "generatedFrom": "docs/curriculum/baseline/topics.json",
   "generator": "scripts/build-practice-items.mjs",
-  "itemCount": 227,
+  "itemCount": 230,
   "items": [
     {
       "topicId": "admin-definitions",
@@ -9,7 +9,12 @@
       "chapter": "Administrational",
       "kind": "definition",
       "prompt": "Part 61 Definitions — what does CASR 61.015 cover?",
-      "answer": "Definition of category of aircraft for Part 61"
+      "answer": "Definition of category of aircraft for Part 61",
+      "distractors": [
+        "Limitations on exercise of privileges of instrument ratings – instrument proficiency check Paragraph 3",
+        "Take-off performance",
+        "Definition of class of aircraft for Part 61"
+      ]
     },
     {
       "topicId": "admin-definitions",
@@ -26,7 +31,12 @@
       "chapter": "Administrational",
       "kind": "definition",
       "prompt": "Part 61 Definitions — what does CASR 61.020 cover?",
-      "answer": "Definition of class of aircraft for Part 61"
+      "answer": "Definition of class of aircraft for Part 61",
+      "distractors": [
+        "Limitations on exercise of privileges of instrument ratings – recent experience: single pilot",
+        "Landing performance",
+        "Definition of category of aircraft for Part 61"
+      ]
     },
     {
       "topicId": "admin-mos",
@@ -34,7 +44,12 @@
       "chapter": "Administrational",
       "kind": "definition",
       "prompt": "Part 61 Manual of Standards — what does CASR 61.035 cover?",
-      "answer": "Issue of Manual of Standards for Part 61"
+      "answer": "Issue of Manual of Standards for Part 61",
+      "distractors": [
+        "Limitations on exercise of privileges of instrument ratings – instrument proficiency check Paragraph 3",
+        "Limitations on exercise of privileges of instrument ratings – recent experience: single pilot",
+        "Definition of category of aircraft for Part 61"
+      ]
     },
     {
       "topicId": "admin-ipc-validity",
@@ -42,7 +57,12 @@
       "chapter": "Administrational",
       "kind": "definition",
       "prompt": "Validity of an Instrument Proficiency Check — what does CASR 61.880 cover?",
-      "answer": "Limitations on exercise of privileges of instrument ratings – instrument proficiency check Paragraph 3"
+      "answer": "Limitations on exercise of privileges of instrument ratings – instrument proficiency check Paragraph 3",
+      "distractors": [
+        "Limitations on exercise of privileges of instrument ratings – recent experience: single pilot",
+        "Definition of category of aircraft for Part 61",
+        "Definition of class of aircraft for Part 61"
+      ]
     },
     {
       "topicId": "admin-privileges",
@@ -50,7 +70,12 @@
       "chapter": "Administrational",
       "kind": "definition",
       "prompt": "Privileges and Limitations of an Instrument Rating — what does CASR 61.855 cover?",
-      "answer": "Privileges of instrument ratings"
+      "answer": "Privileges of instrument ratings",
+      "distractors": [
+        "Limitations on exercise of privileges of instrument ratings – recent experience: general",
+        "Limitations on exercise of privileges of instrument ratings – recent experience: single pilot",
+        "Definition of category of aircraft for Part 61"
+      ]
     },
     {
       "topicId": "admin-privileges",
@@ -58,7 +83,12 @@
       "chapter": "Administrational",
       "kind": "definition",
       "prompt": "Privileges and Limitations of an Instrument Rating — what does CASR 61.860 cover?",
-      "answer": "Limitations on exercise of privileges of instrument ratings – general"
+      "answer": "Limitations on exercise of privileges of instrument ratings – general",
+      "distractors": [
+        "Issue of Manual of Standards for Part 61",
+        "Minimum heights – IFR flights",
+        "Definition of category of aircraft for Part 61"
+      ]
     },
     {
       "topicId": "admin-recency",
@@ -66,7 +96,12 @@
       "chapter": "Administrational",
       "kind": "definition",
       "prompt": "Recent Experience Requirements — what does CASR 61.870 cover?",
-      "answer": "Limitations on exercise of privileges of instrument ratings – recent experience: general"
+      "answer": "Limitations on exercise of privileges of instrument ratings – recent experience: general",
+      "distractors": [
+        "Definition of category of aircraft for Part 61",
+        "Privileges of instrument ratings",
+        "Definition of class of aircraft for Part 61"
+      ]
     },
     {
       "topicId": "admin-recency",
@@ -74,7 +109,12 @@
       "chapter": "Administrational",
       "kind": "definition",
       "prompt": "Recent Experience Requirements — what does CASR 61.875 cover?",
-      "answer": "Limitations on exercise of privileges of instrument ratings – recent experience: single pilot"
+      "answer": "Limitations on exercise of privileges of instrument ratings – recent experience: single pilot",
+      "distractors": [
+        "Issue of Manual of Standards for Part 61",
+        "Landing performance",
+        "Definition of category of aircraft for Part 61"
+      ]
     },
     {
       "topicId": "admin-equipment",
@@ -247,6 +287,36 @@
       "source": "transcribed"
     },
     {
+      "topicId": "general-speeds",
+      "topicTitle": "Speed Definitions",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Speed Definitions — which radials mark VMCA and VYSE?",
+      "answer": "VMCA is the red radial; VYSE is the blue radial",
+      "distractors": [
+        "VMCA is the blue radial; VYSE is the red radial",
+        "VMCA is the red radial; VSSE is the blue radial",
+        "VMCG is the red radial; VYSE is the blue radial"
+      ],
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "general-speeds",
+      "topicTitle": "Speed Definitions",
+      "chapter": "General Operational Knowledge",
+      "kind": "table",
+      "prompt": "Speed Definitions — what bank angle is allowed when VMCA is determined?",
+      "answer": "A maximum of 5 degrees towards the live engine",
+      "distractors": [
+        "A maximum of 5 degrees towards the dead engine",
+        "A maximum of 3 degrees towards the live engine",
+        "Wings level"
+      ],
+      "page": 14,
+      "source": "transcribed"
+    },
+    {
       "topicId": "general-comms-failure",
       "topicTitle": "Communications Failure",
       "chapter": "General Operational Knowledge",
@@ -380,7 +450,12 @@
       "chapter": "General Operational Knowledge",
       "kind": "definition",
       "prompt": "Aeroplane Weight and Performance Limitations — what does CASR 91.795 cover?",
-      "answer": "Take-off performance"
+      "answer": "Take-off performance",
+      "distractors": [
+        "Limitations on exercise of privileges of instrument ratings – general",
+        "Definition of class of aircraft for Part 61",
+        "Definition of category of aircraft for Part 61"
+      ]
     },
     {
       "topicId": "general-performance",
@@ -388,7 +463,12 @@
       "chapter": "General Operational Knowledge",
       "kind": "definition",
       "prompt": "Aeroplane Weight and Performance Limitations — what does CASR 91.800 cover?",
-      "answer": "Landing performance"
+      "answer": "Landing performance",
+      "distractors": [
+        "Definition of class of aircraft for Part 61",
+        "Issue of Manual of Standards for Part 61",
+        "Definition of category of aircraft for Part 61"
+      ]
     },
     {
       "topicId": "general-vmc",
@@ -397,6 +477,11 @@
       "kind": "table",
       "prompt": "Visual Meteorological Conditions — Class G and Class E: flight visibility?",
       "answer": "5000 m; 8 km above 10,000 ft",
+      "distractors": [
+        "5000 m at all levels",
+        "8 km; 5000 m above 10,000 ft",
+        "1500 m; 8 km above 10,000 ft"
+      ],
       "page": 18,
       "source": "transcribed"
     },
@@ -407,6 +492,11 @@
       "kind": "table",
       "prompt": "Visual Meteorological Conditions — Class G and Class E: distance from cloud?",
       "answer": "1500 m horizontally, 1000 ft vertically",
+      "distractors": [
+        "600 m horizontally, 1000 ft above, 500 ft below",
+        "1500 m horizontally, 500 ft vertically",
+        "1000 m horizontally, 1000 ft vertically"
+      ],
       "page": 18,
       "source": "transcribed"
     },
@@ -427,6 +517,11 @@
       "kind": "table",
       "prompt": "Visual Meteorological Conditions — Class D: flight visibility?",
       "answer": "5000 m",
+      "distractors": [
+        "5000 m; 8 km above 10,000 ft",
+        "1500 m",
+        "8 km"
+      ],
       "page": 18,
       "source": "transcribed"
     },
@@ -437,6 +532,11 @@
       "kind": "table",
       "prompt": "Visual Meteorological Conditions — Class D: distance from cloud?",
       "answer": "600 m horizontally, 1000 ft above, 500 ft below",
+      "distractors": [
+        "1500 m horizontally, 1000 ft vertically",
+        "600 m horizontally, 500 ft above, 1000 ft below",
+        "1000 m horizontally, 1000 ft above, 500 ft below"
+      ],
       "page": 18,
       "source": "transcribed"
     },
@@ -913,6 +1013,11 @@
       "kind": "table",
       "prompt": "Altimeter Checks — with an accurate QNH set, what must an IFR altimeter read, and at what error is it unserviceable?",
       "answer": "It should read the nominated elevation to within 60 ft. An error in excess of ± 75 ft means the altimeter must be considered unserviceable.",
+      "distractors": [
+        "Within 75 ft, and unserviceable beyond ± 100 ft",
+        "Within 50 ft, and unserviceable beyond ± 75 ft",
+        "Within 60 ft, and unserviceable beyond ± 100 ft"
+      ],
       "page": 31,
       "source": "transcribed"
     },
@@ -953,6 +1058,11 @@
       "kind": "table",
       "prompt": "Altimeter Checks — what tolerance applies to a VFR altimeter?",
       "answer": "With an accurate QNH set it should read site elevation to within 100 ft, or 110 ft at test sites above 3,300 ft, to be accepted as serviceable by the pilot.",
+      "distractors": [
+        "Within 100 ft, or 110 ft at test sites above 5,000 ft",
+        "Within 75 ft, or 100 ft at test sites above 3,300 ft",
+        "Within 110 ft, or 120 ft at test sites above 3,300 ft"
+      ],
       "page": 31,
       "source": "transcribed"
     },
@@ -1418,7 +1528,12 @@
       "chapter": "Approaches",
       "kind": "definition",
       "prompt": "Flying Below Lowest Safe Altitude — what does CASR 91.305 cover?",
-      "answer": "Minimum heights – IFR flights"
+      "answer": "Minimum heights – IFR flights",
+      "distractors": [
+        "Definition of category of aircraft for Part 61",
+        "Limitations on exercise of privileges of instrument ratings – general",
+        "Definition of class of aircraft for Part 61"
+      ]
     },
     {
       "topicId": "approach-below-minima",
@@ -1869,6 +1984,21 @@
       "kind": "list",
       "prompt": "Visual Approach Requirements — by night, when need the pilot not commence, or may discontinue, an IAP?",
       "answer": "Clear of cloud; in sight of ground or water; visibility 5000 m. There is no 30 NM provision by night, and the aerodrome being in sight does not substitute for the visibility.",
+      "page": 52,
+      "source": "transcribed"
+    },
+    {
+      "topicId": "approach-visual-requirements",
+      "topicTitle": "Visual Approach Requirements for IFR Flights",
+      "chapter": "Approaches",
+      "kind": "table",
+      "prompt": "Visual Approach Requirements — which day provisions do NOT carry over to night?",
+      "answer": "The 30 NM provision, and accepting the aerodrome in sight in place of 5000 m visibility",
+      "distractors": [
+        "Being clear of cloud, and in sight of ground or water",
+        "The 5000 m visibility, and being clear of cloud",
+        "None — the day and night requirements are the same"
+      ],
       "page": 52,
       "source": "transcribed"
     },

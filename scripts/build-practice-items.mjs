@@ -585,9 +585,11 @@ function familyStem(prompt) {
   const text = prompt.toLowerCase().trim();
   // These prompts read "Topic — Qualifier: question?". The question after the
   // colon is what makes two rows the same question, so group on that; the
-  // qualifier before it is exactly what varies between rows.
+  // qualifier before it is exactly what varies between rows. Without a colon,
+  // the topic title is the varying part, so drop everything before the dash.
   const colon = text.lastIndexOf(":");
-  const stem = colon > 0 ? text.slice(colon + 1) : text;
+  const dash = text.lastIndexOf("—");
+  const stem = colon > 0 ? text.slice(colon + 1) : dash > 0 ? text.slice(dash + 1) : text;
   return stem
     .replace(/\b(category|class|sector)\s+[a-z0-9]+\b/g, "$1 _")
     .replace(/\b[0-9]+(\.[0-9]+)?\b/g, "_")
@@ -606,7 +608,15 @@ function addSiblingDistractors(allItems) {
     // Radio calls are multi-line scripts. They belong in recall, not in a
     // four-option list where every option is a paragraph.
     if (item.kind === "call") continue;
-    const key = `${item.topicId}::${item.kind}::${familyStem(item.prompt)}`;
+    // "What does CASR 61.870 cover?" is the same question wherever it is asked,
+    // and another regulation's title is a fair wrong answer to it — so these
+    // group across topics. Everything else stays within its own topic, where
+    // the sibling relationship is what makes an option plausible rather than
+    // merely different.
+    const key =
+      item.kind === "definition"
+        ? `definition::${familyStem(item.prompt)}`
+        : `${item.topicId}::${item.kind}::${familyStem(item.prompt)}`;
     const family = families.get(key);
     if (family) family.push(item);
     else families.set(key, [item]);

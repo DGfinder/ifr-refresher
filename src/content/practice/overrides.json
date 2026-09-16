@@ -180,6 +180,17 @@
           "page": 52
         },
         {
+          "kind": "table",
+          "prompt": "Visual Approach Requirements — which day provisions do NOT carry over to night?",
+          "answer": "The 30 NM provision, and accepting the aerodrome in sight in place of 5000 m visibility",
+          "distractors": [
+            "Being clear of cloud, and in sight of ground or water",
+            "The 5000 m visibility, and being clear of cloud",
+            "None — the day and night requirements are the same"
+          ],
+          "page": 52
+        },
+        {
           "kind": "clause",
           "prompt": "Visual Approach Requirements — in CTA, what altitude must be maintained?",
           "answer": "Not less than 500 ft above the lower limit of the CTA, unless clearance has been received to depart and re-enter CTA.",
@@ -247,12 +258,22 @@
           "kind": "table",
           "prompt": "Visual Meteorological Conditions — Class G and Class E: flight visibility?",
           "answer": "5000 m; 8 km above 10,000 ft",
+          "distractors": [
+            "5000 m at all levels",
+            "8 km; 5000 m above 10,000 ft",
+            "1500 m; 8 km above 10,000 ft"
+          ],
           "page": 18
         },
         {
           "kind": "table",
           "prompt": "Visual Meteorological Conditions — Class G and Class E: distance from cloud?",
           "answer": "1500 m horizontally, 1000 ft vertically",
+          "distractors": [
+            "600 m horizontally, 1000 ft above, 500 ft below",
+            "1500 m horizontally, 500 ft vertically",
+            "1000 m horizontally, 1000 ft vertically"
+          ],
           "page": 18
         },
         {
@@ -265,12 +286,22 @@
           "kind": "table",
           "prompt": "Visual Meteorological Conditions — Class D: flight visibility?",
           "answer": "5000 m",
+          "distractors": [
+            "5000 m; 8 km above 10,000 ft",
+            "1500 m",
+            "8 km"
+          ],
           "page": 18
         },
         {
           "kind": "table",
           "prompt": "Visual Meteorological Conditions — Class D: distance from cloud?",
           "answer": "600 m horizontally, 1000 ft above, 500 ft below",
+          "distractors": [
+            "1500 m horizontally, 1000 ft vertically",
+            "600 m horizontally, 500 ft above, 1000 ft below",
+            "1000 m horizontally, 1000 ft above, 500 ft below"
+          ],
           "page": 18
         },
         {
@@ -489,6 +520,28 @@
           "prompt": "Speed Definitions — on what conditions is VYSE determined?",
           "answer": "Critical engine inoperative; live engine at take-off power; landing gear retracted",
           "page": 14
+        },
+        {
+          "kind": "table",
+          "prompt": "Speed Definitions — which radials mark VMCA and VYSE?",
+          "answer": "VMCA is the red radial; VYSE is the blue radial",
+          "distractors": [
+            "VMCA is the blue radial; VYSE is the red radial",
+            "VMCA is the red radial; VSSE is the blue radial",
+            "VMCG is the red radial; VYSE is the blue radial"
+          ],
+          "page": 14
+        },
+        {
+          "kind": "table",
+          "prompt": "Speed Definitions — what bank angle is allowed when VMCA is determined?",
+          "answer": "A maximum of 5 degrees towards the live engine",
+          "distractors": [
+            "A maximum of 5 degrees towards the dead engine",
+            "A maximum of 3 degrees towards the live engine",
+            "Wings level"
+          ],
+          "page": 14
         }
       ]
     },
@@ -605,6 +658,11 @@
           "kind": "table",
           "prompt": "Altimeter Checks — with an accurate QNH set, what must an IFR altimeter read, and at what error is it unserviceable?",
           "answer": "It should read the nominated elevation to within 60 ft. An error in excess of ± 75 ft means the altimeter must be considered unserviceable.",
+          "distractors": [
+            "Within 75 ft, and unserviceable beyond ± 100 ft",
+            "Within 50 ft, and unserviceable beyond ± 75 ft",
+            "Within 60 ft, and unserviceable beyond ± 100 ft"
+          ],
           "page": 31
         },
         {
@@ -629,6 +687,11 @@
           "kind": "table",
           "prompt": "Altimeter Checks — what tolerance applies to a VFR altimeter?",
           "answer": "With an accurate QNH set it should read site elevation to within 100 ft, or 110 ft at test sites above 3,300 ft, to be accepted as serviceable by the pilot.",
+          "distractors": [
+            "Within 100 ft, or 110 ft at test sites above 5,000 ft",
+            "Within 75 ft, or 100 ft at test sites above 3,300 ft",
+            "Within 110 ft, or 120 ft at test sites above 3,300 ft"
+          ],
           "page": 31
         },
         {
