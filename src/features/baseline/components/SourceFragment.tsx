@@ -11,7 +11,6 @@ export function SourceFragment({ page, text, showOriginalFirst, document }: { pa
   return (
     <section className="baseline-fragment" aria-label={`Source page ${page}`}>
       <div className="baseline-fragment-toolbar">
-        <span className="baseline-page-ref">Source page {page}</span>
         <div className="baseline-view-toggle" aria-label={`Page ${page} view`}>
           <button type="button" aria-pressed={!original} onClick={() => setOriginal(false)}>{document ? "Reading view" : "Text"}</button>
           <button type="button" aria-pressed={original} onClick={() => setOriginal(true)}>Original page</button>

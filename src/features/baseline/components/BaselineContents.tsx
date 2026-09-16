@@ -2,21 +2,50 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, ArrowUpRight } from "lucide-react";
+import { Search, ArrowUpRight, ChevronRight } from "lucide-react";
 import type { BaselineCatalogItem } from "../model/baseline";
+
+type ChapterNode =
+  | { kind: "topic"; topic: BaselineCatalogItem }
+  | { kind: "group"; parent: string; topics: BaselineCatalogItem[] };
+
+// Source order is meaningful, so walk the list once and open a group when the parent changes
+// rather than collecting all parented topics together.
+function groupByChapter(topics: BaselineCatalogItem[]) {
+  const chapters: { name: string; count: number; nodes: ChapterNode[] }[] = [];
+  for (const topic of topics) {
+    let chapter = chapters[chapters.length - 1];
+    if (chapter?.name !== topic.chapter) {
+      chapter = { name: topic.chapter, count: 0, nodes: [] };
+      chapters.push(chapter);
+    }
+    chapter.count += 1;
+    if (!topic.parent) {
+      chapter.nodes.push({ kind: "topic", topic });
+      continue;
+    }
+    const last = chapter.nodes[chapter.nodes.length - 1];
+    if (last?.kind === "group" && last.parent === topic.parent) last.topics.push(topic);
+    else chapter.nodes.push({ kind: "group", parent: topic.parent, topics: [topic] });
+  }
+  return chapters;
+}
+
+function TopicLink({ topic }: { topic: BaselineCatalogItem }) {
+  return <Link href={`/study/${topic.id}`} className="baseline-topic-link">{topic.title}</Link>;
+}
 
 export function BaselineContents({ topics }: { topics: BaselineCatalogItem[] }) {
   const [query, setQuery] = useState("");
   const needle = query.trim().toLocaleLowerCase();
   const matches = topics.filter((topic) => `${topic.title} ${topic.chapter} ${topic.parent ?? ""}`.toLocaleLowerCase().includes(needle));
-  const chapters = [...new Set(matches.map((topic) => topic.chapter))];
+  const chapters = groupByChapter(matches);
+  const searching = needle.length > 0;
 
   return (
     <div className="baseline-contents">
       <header className="baseline-heading">
-        <p className="baseline-kicker">Australian IFR</p>
         <h1>Contents</h1>
-        <p className="baseline-byline">Ben Montgomery-Schinkel · 30 March 2024</p>
       </header>
       <div className="baseline-search">
         <label htmlFor="topic-search">Find a topic</label>
@@ -28,17 +57,22 @@ export function BaselineContents({ topics }: { topics: BaselineCatalogItem[] }) 
       </div>
       {matches.length === 0 ? <div className="baseline-empty"><p>No topics match “{query}”.</p><button type="button" onClick={() => setQuery("")}>Clear search</button></div> : (
         <div className="baseline-chapters">{chapters.map((chapter) => (
-          <section key={chapter} aria-label={chapter}>
-            <h2>{chapter}</h2>
-            <ul>{matches.filter((topic) => topic.chapter === chapter).map((topic, index, group) => (
-              <li key={topic.id}>
-                {topic.parent && (index === 0 || group[index - 1]?.parent !== topic.parent) && <h3 className="baseline-subgroup">{topic.parent}</h3>}
-                <Link href={`/study/${topic.id}`} className="baseline-topic-link">
-                  <span>{topic.title}</span><span className="baseline-page-ref">{topic.pages.length === 1 ? topic.pages[0] : `${topic.pages[0]}–${topic.pages[topic.pages.length - 1]}`}</span>
-                </Link>
+          // Remount on search state change so the open default is reapplied after a manual toggle.
+          <details key={`${chapter.name}:${searching}`} className="baseline-chapter" open={searching}>
+            <summary>
+              <ChevronRight size={18} aria-hidden="true" />
+              <h2>{chapter.name}</h2>
+              <span className="baseline-chapter-count">{chapter.count}</span>
+            </summary>
+            <ul className="baseline-topic-list">{chapter.nodes.map((node) => (node.kind === "topic" ? (
+              <li key={node.topic.id}><TopicLink topic={node.topic} /></li>
+            ) : (
+              <li key={node.parent} className="baseline-subgroup">
+                <h3>{node.parent}</h3>
+                <ul className="baseline-topic-list">{node.topics.map((topic) => <li key={topic.id}><TopicLink topic={topic} /></li>)}</ul>
               </li>
-            ))}</ul>
-          </section>
+            )))}</ul>
+          </details>
         ))}</div>
       )}
       <footer className="baseline-source-note">

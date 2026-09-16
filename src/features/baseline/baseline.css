@@ -14,14 +14,24 @@
 .baseline-search-field input { width: 100%; min-width: 0; min-height: 48px; background: transparent; font-size: 18px; }
 .baseline-search-field input:focus-visible { outline-offset: 1px; }
 .baseline-search [role=status] { margin-top: 10px; }
-.baseline-chapters { display: grid; gap: 32px; }
-.baseline-chapters h2 { margin-bottom: 10px; font-size: 22px; font-weight: 600; }
+.baseline-chapters { display: grid; gap: 4px; }
 .baseline-chapters ul, .baseline-outline ul { list-style: none; padding: 0; margin: 0; }
-.baseline-topic-link { display: flex; align-items: baseline; gap: 20px; justify-content: space-between; padding: 13px 0; min-height: 48px; border-bottom: 1px solid var(--ifr-border); font-size: 18px; line-height: 1.4; }
-.baseline-topic-link > span:first-child { overflow-wrap: anywhere; }
+/* Each chapter expands and contracts; the chevron rotates to show which state it is in. */
+.baseline-chapter { border-bottom: 1px solid var(--ifr-border); }
+.baseline-chapter > summary { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 14px 2px; min-height: 48px; list-style: none; }
+.baseline-chapter > summary::-webkit-details-marker { display: none; }
+.baseline-chapter > summary:hover h2 { color: var(--ifr-accent); }
+.baseline-chapter > summary > svg { flex-shrink: 0; color: var(--ifr-text-muted); transition: transform 150ms ease; }
+.baseline-chapter[open] > summary > svg { transform: rotate(90deg); }
+.baseline-chapter h2 { font-size: 22px; font-weight: 600; line-height: 1.25; overflow-wrap: anywhere; }
+.baseline-chapter-count { margin-left: auto; flex-shrink: 0; font-size: 13px; color: var(--ifr-text-muted); }
+/* Topics sit indented under their chapter heading; the rule carries the nesting down the group.
+   Scoped past `.baseline-chapters ul` above, which would otherwise reset the indent to zero. */
+.baseline-chapters .baseline-topic-list { margin: 2px 0 18px 11px; padding: 6px 0 6px 22px; border-left: 1px solid var(--ifr-border); }
+.baseline-topic-link { display: flex; align-items: baseline; padding: 11px 0; min-height: 44px; font-size: 18px; line-height: 1.4; overflow-wrap: anywhere; }
 .baseline-topic-link:hover { color: var(--ifr-accent); }
-.baseline-page-ref { font-family: var(--font-numeric), monospace; font-size: 13px; color: var(--ifr-text-muted); flex-shrink: 0; }
-.baseline-subgroup { margin: 20px 0 2px; font-size: 16px; font-weight: 600; color: var(--ifr-text-muted); }
+.baseline-subgroup > h3 { margin: 14px 0 2px; font-size: 16px; font-weight: 600; color: var(--ifr-text-muted); }
+.baseline-subgroup > .baseline-topic-list { margin-bottom: 4px; }
 .baseline-source-note { border-top: 1px solid var(--ifr-border); margin-top: 36px; padding-top: 20px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; font-size: 14px; color: var(--ifr-text-muted); }
 .baseline-source-note a, .baseline-source-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--ifr-accent); text-decoration: underline; text-underline-offset: 4px; }
 .baseline-empty button { color: var(--ifr-accent); min-height: 44px; text-decoration: underline; }
@@ -34,7 +44,7 @@
 .baseline-outline nav a[aria-current] { border-color: var(--ifr-accent); background: var(--ifr-accent-soft); color: var(--ifr-accent); }
 .baseline-article { min-width: 0; }
 .baseline-fragment { margin-top: 30px; }
-.baseline-fragment-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; border-top: 1px solid var(--ifr-border); padding-top: 12px; margin-bottom: 22px; }
+.baseline-fragment-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; border-top: 1px solid var(--ifr-border); padding-top: 12px; margin-bottom: 22px; }
 .baseline-view-toggle { display: flex; gap: 4px; }
 .baseline-view-toggle button { min-height: 44px; padding: 8px 12px; border-radius: 5px; font-size: 14px; }
 .baseline-view-toggle button[aria-pressed=true] { background: var(--ifr-accent-soft); color: var(--ifr-accent); font-weight: 600; }
@@ -98,7 +108,6 @@
 .baseline-original figcaption { padding: 12px; font-size: 14px; color: var(--ifr-text-muted); }
 .baseline-original figcaption a { text-decoration: underline; }
 .baseline-transcription-note { font-size: 14px; color: var(--ifr-text-muted); padding: 12px 0; margin-bottom: 16px; border-bottom: 1px solid var(--ifr-border); }
-.baseline-attribution { margin-top: 36px; font-size: 14px; color: var(--ifr-text-muted); }
 .baseline-pagination { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--ifr-border); }
 .baseline-pagination a { font-size: 16px; line-height: 1.4; min-height: 48px; }
 .baseline-pagination a > span { display: flex; gap: 8px; align-items: center; color: var(--ifr-text-muted); font-size: 14px; margin-bottom: 8px; }
