@@ -202,7 +202,8 @@ export function FlashcardSession({ queue, programId, onEnd }: FlashcardSessionPr
             back={
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex flex-1 items-start">
-                  <p className="text-sm leading-relaxed text-[var(--ifr-text)] md:text-base">
+                  {/* Radio call answers are scripts; keep them line by line. */}
+                  <p className="whitespace-pre-line text-sm leading-relaxed text-[var(--ifr-text)] md:text-base">
                     {currentCard.answer}
                   </p>
                 </div>

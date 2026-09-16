@@ -50,15 +50,19 @@ test("brand comparison keeps source wording and offers narrow previews", async (
   await expect(page.locator(".brand-preview")).toHaveClass(/brand-phone/);
 });
 
-// Radio and principles still need source work the baseline cannot yet carry,
-// so they stay pointed at the contents.
-for (const route of ["radio", "principles"]) {
-  test(`retired /${route} opens baseline contents`, async ({ page }) => {
-    await page.goto(`/${route}`);
-    await expect(page).toHaveURL(/\/study$/);
-    await expect(page.getByRole("heading", { name: "Contents", exact: true })).toBeVisible();
-  });
-}
+// Principles still needs source work the baseline cannot yet carry.
+test("retired /principles opens baseline contents", async ({ page }) => {
+  await page.goto("/principles");
+  await expect(page).toHaveURL(/\/study$/);
+  await expect(page.getByRole("heading", { name: "Contents", exact: true })).toBeVisible();
+});
+
+test("/radio drills the phraseology chapter", async ({ page }) => {
+  await page.goto("/radio");
+  await expect(page).toHaveURL(/\/flashcard\?program=phraseology$/);
+  await expect(page.getByRole("button", { name: "Radio calls" })).toBeVisible();
+  await expect(page.locator("body")).not.toContainText("No cards available");
+});
 
 // Drill is the FSRS engine behind the flashcard UI, not a mode of its own.
 test("/drill lands on the one practice surface", async ({ page }) => {

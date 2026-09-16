@@ -1,6 +1,6 @@
 import type { DrillFilter } from "@/features/drill";
 
-export type ProgramId = "cheat_sheet" | "instrument_rating" | "ipc_oral";
+export type ProgramId = "cheat_sheet" | "instrument_rating" | "ipc_oral" | "phraseology";
 
 export interface StudyProgram {
   id: ProgramId;

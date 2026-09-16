@@ -39,6 +39,17 @@ export const STUDY_PROGRAMS: StudyProgram[] = [
       levels: ["core"],
     },
   },
+  {
+    id: "phraseology",
+    name: "Radio calls",
+    description: "Class G, D and C phraseology — the situation is the prompt, the call script is the answer.",
+    recommendedUse: "Use to rehearse calls out loud. Say it, then reveal the script and compare.",
+    filter: {
+      sectionIds: ["phraseology"],
+      kinds: ["legacy_qa"],
+      levels: ["core"],
+    },
+  },
 ];
 
 export function getProgramById(id: ProgramId): StudyProgram | undefined {

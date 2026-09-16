@@ -23,6 +23,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const SOURCE = resolve(here, "../docs/curriculum/baseline/topics.json");
 const LAYOUT = resolve(here, "../docs/curriculum/baseline/layout.json");
 const OVERRIDES = resolve(here, "../src/content/practice/overrides.json");
+const READING_PLANS = resolve(here, "../src/features/baseline/model/reviewedPlans.json");
 const OUT = resolve(here, "../src/content/practice/items.generated.json");
 
 /**
@@ -462,13 +463,58 @@ try {
   // Optional file; absence just means no topic is overridden.
 }
 
+/**
+ * The phraseology pages are a sequence of situation headings each followed by
+ * the call to make. The reviewed reading plans already model that as heading
+ * and call blocks, so pair them up rather than re-deriving the structure: the
+ * situation becomes the prompt and the call script becomes the answer.
+ */
+function radioCallItems(topic) {
+  const plans = JSON.parse(readFileSync(READING_PLANS, "utf8"));
+  const list = Array.isArray(plans) ? plans : Object.values(plans);
+  const out = [];
+
+  for (const page of topic.pages) {
+    const plan = list.find((p) => p && p.topicId === topic.id && p.page === page);
+    if (!plan) continue;
+    const source = rawTopics
+      .find((t) => t.id === topic.id)
+      .fragments.find((f) => f.page === page);
+    if (!source) continue;
+    const lines = source.text.split("\n");
+    const textOf = ([start, end]) =>
+      lines
+        .slice(start, end + 1)
+        .map((line) => line.trim())
+        .filter(Boolean);
+
+    for (let i = 0; i < plan.blocks.length - 1; i++) {
+      const heading = plan.blocks[i];
+      const call = plan.blocks[i + 1];
+      if (heading.kind !== "heading" || call.kind !== "call") continue;
+      const situation = textOf(heading.range).join(" ");
+      const script = textOf(call.range);
+      if (!situation || script.length < 2) continue;
+      out.push({
+        kind: "call",
+        prompt: `${topic.title} — ${situation}: what do you say?`,
+        answer: script.join("\n"),
+        page,
+      });
+    }
+  }
+  return out;
+}
+
 const items = [];
 const perTopic = [];
 for (const topic of topics) {
   const override = overrides.topics?.[topic.id];
   const extracted = override
     ? override.items.map((item) => ({ ...item, source: "transcribed" }))
-    : extract(topic, pool);
+    : topic.chapter === "Phraseology"
+      ? radioCallItems(topic)
+      : extract(topic, pool);
   perTopic.push({ id: topic.id, title: topic.title, count: extracted.length });
   for (const item of extracted) {
     items.push({
@@ -516,6 +562,9 @@ function familyStem(prompt) {
 function addSiblingDistractors(allItems) {
   const families = new Map();
   for (const item of allItems) {
+    // Radio calls are multi-line scripts. They belong in recall, not in a
+    // four-option list where every option is a paragraph.
+    if (item.kind === "call") continue;
     const key = `${item.topicId}::${item.kind}::${familyStem(item.prompt)}`;
     const family = families.get(key);
     if (family) family.push(item);

@@ -1,7 +1,7 @@
 {
   "generatedFrom": "docs/curriculum/baseline/topics.json",
   "generator": "scripts/build-practice-items.mjs",
-  "itemCount": 214,
+  "itemCount": 236,
   "items": [
     {
       "topicId": "admin-definitions",
@@ -612,6 +612,204 @@
       "kind": "step",
       "prompt": "Light Signals to Aircraft — On the ground (2)?",
       "answer": "during the hours of darkness: by flashing on and off twice the aircraft’s landing lights or, if not so equipped, by switching on and off twice its navigation lights"
+    },
+    {
+      "topicId": "phraseology-class-g",
+      "topicTitle": "Class G Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class G Airports — Taxi: what do you say?",
+      "answer": "Brisbane Centre\nABC\nCessna 310\nPOB 2 (for IFR flights other than air transport operations)\nIFR\nTaxiing Roma\nFor Archerfield\nRWY 18",
+      "page": 22
+    },
+    {
+      "topicId": "phraseology-class-g",
+      "topicTitle": "Class G Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class G Airports — Departure Report In ADS-B or SSR Coverage: what do you say?",
+      "answer": "Brisbane Centre\nABC\n3 miles east of Longreach\nPassing 2000\nClimbing to 9000\nEstimating MOVBA at 25",
+      "page": 22
+    },
+    {
+      "topicId": "phraseology-class-g",
+      "topicTitle": "Class G Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class G Airports — Departure Report Outside ADS-B or SSR Coverage: what do you say?",
+      "answer": "Brisbane Centre\nABC\nDeparted Blackall 51\nTracking [to intercept] 236\nClimbing to 10000\nEstimating EXXON at 21",
+      "page": 22
+    },
+    {
+      "topicId": "phraseology-class-g",
+      "topicTitle": "Class G Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class G Airports — Departure Report Where radio contact was unable to be established on the ground and a SARWATCH needs to begin: what do you say?",
+      "answer": "Brisbane Centre\nABC\nAirborne Blackall 51\nTracking [to intercept] 305\nClimbing to 10000\nEstimating Longreach at 26",
+      "page": 22
+    },
+    {
+      "topicId": "phraseology-class-g",
+      "topicTitle": "Class G Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class G Airports — Inbound If leaving CTA on descent: what do you say?",
+      "answer": "Brisbane Centre\nAnd all stations Longreach\nABC\nCessna 310\n35 miles northwest of Moranbah\nLeaving 10000\nEstimating the circuit 55",
+      "page": 22
+    },
+    {
+      "topicId": "phraseology-class-g",
+      "topicTitle": "Class G Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class G Airports — Centre and all stations Longreach Cancel SAR: what do you say?",
+      "answer": "Brisbane Centre\nABC\nLanded Longreach\nCancel SARWATCH",
+      "page": 22
+    },
+    {
+      "topicId": "phraseology-class-d",
+      "topicTitle": "Class D Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class D Airports — Airways Clearance Delivery Where a Delivery frequency is specified: what do you say?",
+      "answer": "Tamworth Delivery\nABC\nTo Wagga\nRequest clearance",
+      "page": 23
+    },
+    {
+      "topicId": "phraseology-class-d",
+      "topicTitle": "Class D Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class D Airports — Airways Clearance Delivery Where no Delivery frequency is specified: what do you say?",
+      "answer": "Mackay Ground\nABC\nTo Townsville\nRequest clearance",
+      "page": 23
+    },
+    {
+      "topicId": "phraseology-class-d",
+      "topicTitle": "Class D Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class D Airports — Taxi: what do you say?",
+      "answer": "Mackay Ground\nABC\nPOB 2 (for IFR flights other than RPT)\nInformation Alpha\nIFR\nRequest taxi",
+      "page": 23
+    },
+    {
+      "topicId": "phraseology-class-d",
+      "topicTitle": "Class D Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class D Airports — Tower transfer When close to, or at, the holding point and ready for departure: what do you say?",
+      "answer": "Mackay Tower\nABC\nReady",
+      "page": 23
+    },
+    {
+      "topicId": "phraseology-class-d",
+      "topicTitle": "Class D Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class D Airports — Departure Report: what do you say?",
+      "answer": "Albury Tower\nABC\nTracking 166 from the VOR\nClimbing to 7000",
+      "page": 23
+    },
+    {
+      "topicId": "phraseology-class-d",
+      "topicTitle": "Class D Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class D Airports — Departure Report When Departing via a SID: what do you say?",
+      "answer": "Sunshine Coast Tower\nABC\nTracking via the MOOLO 1\nClimbing to 8000",
+      "page": 23
+    },
+    {
+      "topicId": "phraseology-class-d",
+      "topicTitle": "Class D Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class D Airports — Inbound: what do you say?",
+      "answer": "Mackay Tower\nABC\nCessna 310\nInformation Alpha\n25 miles on the 135 radial\nDescending to 6000\n[Visual]",
+      "page": 23
+    },
+    {
+      "topicId": "phraseology-class-c",
+      "topicTitle": "Class C Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class C Airports — Airways Clearance Delivery Where a Delivery frequency is specified: what do you say?",
+      "answer": "Townsville Delivery\nABC\nTo Cairns\nRequest clearance",
+      "page": 24
+    },
+    {
+      "topicId": "phraseology-class-c",
+      "topicTitle": "Class C Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class C Airports — Airways Clearance Delivery Where no Delivery frequency is specified: what do you say?",
+      "answer": "Essendon Ground\nABC\nTo Albury\nRequest clearance",
+      "page": 24
+    },
+    {
+      "topicId": "phraseology-class-c",
+      "topicTitle": "Class C Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class C Airports — Taxi: what do you say?",
+      "answer": "Canberra Ground\nABC\nPOB 2 (for IFR flights other than RPT)\nInformation Alpha\nIFR\nRequest taxi",
+      "page": 24
+    },
+    {
+      "topicId": "phraseology-class-c",
+      "topicTitle": "Class C Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class C Airports — Tower transfer When close to, or at, the holding point and ready for departure: what do you say?",
+      "answer": "Canberra Tower\nABC\nReady",
+      "page": 24
+    },
+    {
+      "topicId": "phraseology-class-c",
+      "topicTitle": "Class C Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class C Airports — Airborne Report Tracking via a SID where a heading has been assigned to you: what do you say?",
+      "answer": "Canberra Departures\nABC\nTurning left 020\nPassing 3000\nClimbing to 9000",
+      "page": 24
+    },
+    {
+      "topicId": "phraseology-class-c",
+      "topicTitle": "Class C Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class C Airports — Airborne Report Tracking via a Procedural SID that does not require a heading to be assigned to you: what do you say?",
+      "answer": "Canberra Departures\nABC\nPassing 3000\nClimbing to 9000",
+      "page": 24
+    },
+    {
+      "topicId": "phraseology-class-c",
+      "topicTitle": "Class C Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class C Airports — Airborne Report When instructed to maintain RWY heading: what do you say?",
+      "answer": "Canberra Departures\nABC\nMaintaining runway heading\nPassing 3000\nClimbing to 9000",
+      "page": 24
+    },
+    {
+      "topicId": "phraseology-class-c",
+      "topicTitle": "Class C Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class C Airports — Airborne Report When assigned heading approximates RWY bearing: what do you say?",
+      "answer": "Canberra Departures\nABC\nHeading 120\nPassing 3000\nClimbing to 9000",
+      "page": 24
+    },
+    {
+      "topicId": "phraseology-class-c",
+      "topicTitle": "Class C Airports",
+      "chapter": "Phraseology",
+      "kind": "call",
+      "prompt": "Class C Airports — First contact with Approach: what do you say?",
+      "answer": "Brisbane Approach\nABC\nCleared to 6000\nInformation Echo\n[Visual]",
+      "page": 24
     },
     {
       "topicId": "preflight-fuel",
