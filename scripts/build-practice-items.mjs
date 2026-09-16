@@ -24,6 +24,7 @@ const SOURCE = resolve(here, "../docs/curriculum/baseline/topics.json");
 const LAYOUT = resolve(here, "../docs/curriculum/baseline/layout.json");
 const OVERRIDES = resolve(here, "../src/content/practice/overrides.json");
 const READING_PLANS = resolve(here, "../src/features/baseline/model/reviewedPlans.json");
+const RADIO = resolve(here, "../docs/curriculum/radiotelephony/topics.json");
 const OUT = resolve(here, "../src/content/practice/items.generated.json");
 
 /**
@@ -58,7 +59,10 @@ const NOISE = /^(?:Accessed from|https?:\/\/|Right Turns|Left Turns)/i;
  * starts lowercase, whereas headings, labels and table rows start with a capital,
  * a digit or a marker — that is a far more reliable signal than line length.
  */
-function repair(raw) {
+/** A numbered clause marker in the radiotelephony manual, e.g. "4.1.2 ". */
+const CLAUSE_NUMBER = /^\d{1,2}\.\d{1,2}(?:\.\d{1,2})?\s+/;
+
+function repair(raw, { markerRuled = false } = {}) {
   const lines = raw
     .replace(PAGE_FURNITURE, "\n")
     .split("\n")
@@ -68,11 +72,13 @@ function repair(raw) {
   const out = [];
   for (const line of lines) {
     const previous = out[out.length - 1];
-    const continues =
-      previous !== undefined &&
-      !OPENS_UNIT.test(line) &&
-      /^[a-z]/.test(line) &&
-      !/[.;:]$/.test(previous);
+    // The cheat sheet wraps onto lowercase, which is the reliable signal there.
+    // The radiotelephony manual wraps onto acronyms — "...read back to" / "ATC:"
+    // — so case says nothing; only a structural marker starts a new unit.
+    const startsUnit = markerRuled
+      ? OPENS_UNIT.test(line) || CLAUSE_NUMBER.test(line) || /^Note[:\s]/i.test(line)
+      : OPENS_UNIT.test(line) || !/^[a-z]/.test(line);
+    const continues = previous !== undefined && !startsUnit && !/[.;:]$/.test(previous);
     if (continues) out[out.length - 1] = `${previous} ${line}`;
     else out.push(line);
   }
@@ -542,9 +548,28 @@ function radioCallItems(topic) {
   return out;
 }
 
+/**
+ * Radio topics come from the CASA radiotelephony manual rather than the study
+ * baseline. Their lines are already positionally extracted, so they only need
+ * the same wrap repair before going through the same shape extractors.
+ */
+const radioTopics = JSON.parse(readFileSync(RADIO, "utf8")).topics.map((t) => ({
+  id: t.id,
+  title: t.title,
+  chapter: t.chapter,
+  parent: null,
+  pages: t.source_pages,
+  // Clause numbers are structure, not content; left in, they appear in every
+  // prompt and every lead-in.
+  lines: repair(t.lines.join("\n"), { markerRuled: true }).map((line) =>
+    line.replace(CLAUSE_NUMBER, "").trim(),
+  ),
+  tableRows: [],
+}));
+
 const items = [];
 const perTopic = [];
-for (const topic of topics) {
+for (const topic of [...topics, ...radioTopics]) {
   const override = overrides.topics?.[topic.id];
   const derived =
     topic.chapter === "Phraseology" ? radioCallItems(topic) : extract(topic, pool);

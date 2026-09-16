@@ -42,10 +42,21 @@ export const STUDY_PROGRAMS: StudyProgram[] = [
   {
     id: "phraseology",
     name: "Radio calls",
-    description: "Class G, D and C phraseology — the situation is the prompt, the call script is the answer.",
-    recommendedUse: "Use to rehearse calls out loud. Say it, then reveal the script and compare.",
+    description:
+      "Class G, D and C example calls from the cheat sheet, plus radiotelephony procedure from the CASA manual — read backs, position reports, surveillance and emergency phraseology.",
+    recommendedUse: "Use to rehearse calls out loud. Say it, then reveal and compare.",
     filter: {
-      sectionIds: ["phraseology"],
+      sectionIds: [
+        "phraseology",
+        "radio-fundamentals",
+        "radio-non-controlled-aerodromes",
+        "radio-controlled-airspace",
+        "radio-controlled-aerodromes",
+        "radio-approach-and-departures",
+        "radio-surveillance-services",
+        "radio-area-control",
+        "radio-distress-and-urgency",
+      ],
       kinds: ["legacy_qa"],
       levels: ["core"],
     },

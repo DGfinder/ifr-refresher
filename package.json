@@ -21,6 +21,8 @@
     "lighthouse": "node scripts/run-lighthouse.mjs",
     "content:check": "node scripts/check-content.mjs",
     "source:extract-layout": "node scripts/extract-source-layout.mjs",
+    "source:extract-radio": "node scripts/extract-source-layout.mjs --source radiotelephony",
+    "radio:build-topics": "node scripts/build-radio-topics.mjs",
     "practice:build": "node scripts/build-practice-items.mjs",
     "practice:check": "node scripts/build-practice-items.mjs --check",
     "content:extract-pdf": "node scripts/extract-pdf-content.mjs"

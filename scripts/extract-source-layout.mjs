@@ -14,13 +14,41 @@
  * the reading-order lines and any detected tables.
  */
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const PDF = resolve(here, "../public/source/reference-v7-1/original.pdf");
-const OUT = resolve(here, "../docs/curriculum/baseline/layout.json");
+
+/**
+ * Sources this script can extract. The cheat sheet is the study baseline; the
+ * CASA radiotelephony manual is the source for the radio section, which the
+ * cheat sheet covers in three pages and cannot support on its own.
+ */
+const SOURCES = {
+  "reference-v7-1": {
+    pdf: resolve(here, "../public/source/reference-v7-1/original.pdf"),
+    out: resolve(here, "../docs/curriculum/baseline/layout.json"),
+  },
+  radiotelephony: {
+    pdf: resolve(
+      here,
+      "../docs/content/multipart-ac-64b-02-ac-91-35-and-ac-172-05-radiotelephony-manual-for-flight-operations.pdf",
+    ),
+    out: resolve(here, "../docs/curriculum/radiotelephony/layout.json"),
+  },
+};
+
+const sourceName = process.argv.includes("--source")
+  ? process.argv[process.argv.indexOf("--source") + 1]
+  : "reference-v7-1";
+const source = SOURCES[sourceName];
+if (!source) {
+  console.error(`Unknown source "${sourceName}". Known: ${Object.keys(SOURCES).join(", ")}`);
+  process.exit(1);
+}
+const PDF = source.pdf;
+const OUT = source.out;
 
 /** Text runs whose baselines are within this many points belong to one row. */
 const ROW_TOLERANCE = 3.2;
@@ -152,8 +180,15 @@ for (let n = 1; n <= pdf.numPages; n++) {
     lines: rows.map((r) => toCells(r).map((c) => c.text).join("  ")).filter(Boolean),
     // Keep every line's baseline so a table can be tied to the topic heading
     // above it when a page carries more than one topic.
+    // Keep each line's cells with their origins. Scenario transcripts in the
+    // radiotelephony manual put the speaker in a narrow left column, vertically
+    // centred against a multi-line transmission on the right, so the rows are
+    // not uniformly two-celled and turns can only be rebuilt from geometry.
     linePositions: rows
-      .map((r) => ({ y: Math.round(r.y), text: toCells(r).map((c) => c.text).join("  ") }))
+      .map((r) => {
+        const cells = toCells(r);
+        return { y: Math.round(r.y), text: cells.map((c) => c.text).join("  "), cells };
+      })
       .filter((l) => l.text),
     tables: detectTables(rows),
   });
@@ -162,7 +197,8 @@ for (let n = 1; n <= pdf.numPages; n++) {
 if (only) {
   console.log(JSON.stringify(pages[0], null, 2));
 } else {
-  writeFileSync(OUT, JSON.stringify({ source: "reference-v7-1", pages }, null, 2) + "\n");
+  mkdirSync(dirname(OUT), { recursive: true });
+  writeFileSync(OUT, JSON.stringify({ source: sourceName, pages }, null, 2) + "\n");
   const withTables = pages.filter((p) => p.tables.length);
   console.log(`Extracted ${pages.length} pages.`);
   console.log(`  pages with tables: ${withTables.length}`);

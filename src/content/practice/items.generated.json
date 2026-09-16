@@ -1,7 +1,7 @@
 {
   "generatedFrom": "docs/curriculum/baseline/topics.json",
   "generator": "scripts/build-practice-items.mjs",
-  "itemCount": 294,
+  "itemCount": 341,
   "items": [
     {
       "topicId": "admin-definitions",
@@ -3810,6 +3810,409 @@
       ],
       "page": 58,
       "source": "transcribed"
+    },
+    {
+      "topicId": "radio-explanation-of-scenarios",
+      "topicTitle": "Explanation of scenarios",
+      "chapter": "Radio — Fundamentals",
+      "kind": "step",
+      "prompt": "Explanation of scenarios — Ground stations may also be further identified by example call signs as follows (a)?",
+      "answer": "Capricorn Centre – an air traffic service centre providing area control and flight information services"
+    },
+    {
+      "topicId": "radio-explanation-of-scenarios",
+      "topicTitle": "Explanation of scenarios",
+      "chapter": "Radio — Fundamentals",
+      "kind": "step",
+      "prompt": "Explanation of scenarios — Ground stations may also be further identified by example call signs as follows (b)?",
+      "answer": "Capricorn Approach, Departures, Tower, and Ground - air traffic control units for a major aerodrome"
+    },
+    {
+      "topicId": "radio-explanation-of-scenarios",
+      "topicTitle": "Explanation of scenarios",
+      "chapter": "Radio — Fundamentals",
+      "kind": "step",
+      "prompt": "Explanation of scenarios — Ground stations may also be further identified by example call signs as follows (c)?",
+      "answer": "Thornhill Approach and Tower - a medium density Class C aerodrome"
+    },
+    {
+      "topicId": "radio-explanation-of-scenarios",
+      "topicTitle": "Explanation of scenarios",
+      "chapter": "Radio — Fundamentals",
+      "kind": "step",
+      "prompt": "Explanation of scenarios — Ground stations may also be further identified by example call signs as follows (d)?",
+      "answer": "Sunshine Tower – a Class D aerodrome in a regional location"
+    },
+    {
+      "topicId": "radio-explanation-of-scenarios",
+      "topicTitle": "Explanation of scenarios",
+      "chapter": "Radio — Fundamentals",
+      "kind": "step",
+      "prompt": "Explanation of scenarios — Ground stations may also be further identified by example call signs as follows (e)?",
+      "answer": "Suburbs Tower – a Class D aerodrome supporting high-density training operations and located in a capital city"
+    },
+    {
+      "topicId": "radio-explanation-of-scenarios",
+      "topicTitle": "Explanation of scenarios",
+      "chapter": "Radio — Fundamentals",
+      "kind": "step",
+      "prompt": "Explanation of scenarios — Ground stations may also be further identified by example call signs as follows (f)?",
+      "answer": "Brisbane Radio {High Frequency (HF) service}"
+    },
+    {
+      "topicId": "radio-transmitting-numbers",
+      "topicTitle": "Transmitting numbers",
+      "chapter": "Radio — Fundamentals",
+      "kind": "step",
+      "prompt": "Transmitting numbers — As shown in Table 12 , flight levels are transmitted by pronouncing (a)?",
+      "answer": "for flight levels in whole hundreds, the digit of the whole hundred followed by the word ‘ HUNDRED ’ , otherwise"
+    },
+    {
+      "topicId": "radio-radio-test-procedures",
+      "topicTitle": "Radio test procedures",
+      "chapter": "Radio — Fundamentals",
+      "kind": "step",
+      "prompt": "Radio test procedures — Test transmissions should take the following form (a)?",
+      "answer": "the identification of the station being called"
+    },
+    {
+      "topicId": "radio-radio-test-procedures",
+      "topicTitle": "Radio test procedures",
+      "chapter": "Radio — Fundamentals",
+      "kind": "list",
+      "prompt": "Radio test procedures — Test transmissions should take the following form. List them.",
+      "answer": "identification of the station calling; the words RADIO CHECK; the frequency being used",
+      "itemCount": 3
+    },
+    {
+      "topicId": "radio-radio-test-procedures",
+      "topicTitle": "Radio test procedures",
+      "chapter": "Radio — Fundamentals",
+      "kind": "step",
+      "prompt": "Radio test procedures — Replies to test transmissions should be as follows (a)?",
+      "answer": "the identification of the station calling"
+    },
+    {
+      "topicId": "radio-radio-test-procedures",
+      "topicTitle": "Radio test procedures",
+      "chapter": "Radio — Fundamentals",
+      "kind": "step",
+      "prompt": "Radio test procedures — Replies to test transmissions should be as follows (b)?",
+      "answer": "the identification of the station replying"
+    },
+    {
+      "topicId": "radio-radio-test-procedures",
+      "topicTitle": "Radio test procedures",
+      "chapter": "Radio — Fundamentals",
+      "kind": "step",
+      "prompt": "Radio test procedures — Replies to test transmissions should be as follows (c)?",
+      "answer": "information regarding the readability of the transmission."
+    },
+    {
+      "topicId": "radio-operating-at-a-non-controlled-aerodrome",
+      "topicTitle": "Operating at a non-controlled aerodrome",
+      "chapter": "Radio — Non-controlled aerodromes",
+      "kind": "cloze",
+      "prompt": "Operating at a non-controlled aerodrome — fill the blank: ‘ I n the vicinity’ is within _____ and at a height above the aerodrome that could result in conflict with operations at the aerodrome.",
+      "answer": "10 NM",
+      "distractors": [
+        "100 NM",
+        "1 NM",
+        "14 NM"
+      ]
+    },
+    {
+      "topicId": "radio-operating-at-a-non-controlled-aerodrome",
+      "topicTitle": "Operating at a non-controlled aerodrome",
+      "chapter": "Radio — Non-controlled aerodromes",
+      "kind": "step",
+      "prompt": "Operating at a non-controlled aerodrome — Before arriving at a non-controlled aerodrome, pilots should monitor their radios and broadcast their intentions in accordance with the following (a)?",
+      "answer": "When in the vicinity of an aerodrome published on aeronautical charts, listen and broadcast as necessary on the CTAF (126.7 MHz if not nominated or discrete)."
+    },
+    {
+      "topicId": "radio-operating-at-a-non-controlled-aerodrome",
+      "topicTitle": "Operating at a non-controlled aerodrome",
+      "chapter": "Radio — Non-controlled aerodromes",
+      "kind": "step",
+      "prompt": "Operating at a non-controlled aerodrome — Before arriving at a non-controlled aerodrome, pilots should monitor their radios and broadcast their intentions in accordance with the following (b)?",
+      "answer": "When aerodromes are located within a Mandatory Broadcast Area, listen and broadcast as necessary on the frequency for the Mandatory Broadcast Area."
+    },
+    {
+      "topicId": "radio-operating-at-a-non-controlled-aerodrome",
+      "topicTitle": "Operating at a non-controlled aerodrome",
+      "chapter": "Radio — Non-controlled aerodromes",
+      "kind": "step",
+      "prompt": "Operating at a non-controlled aerodrome — Before arriving at a non-controlled aerodrome, pilots should monitor their radios and broadcast their intentions in accordance with the following (c)?",
+      "answer": "In all other cases, CASA recommends that pilots listen and broadcast as necessary on the Area Frequency."
+    },
+    {
+      "topicId": "radio-operating-at-a-non-controlled-aerodrome",
+      "topicTitle": "Operating at a non-controlled aerodrome",
+      "chapter": "Radio — Non-controlled aerodromes",
+      "kind": "cloze",
+      "prompt": "Operating at a non-controlled aerodrome — fill the blank: • An AFRU confirmation will be either the name of the aerodrome plus ‘ CTAF ’ or, if any aircraft transmissions have been received by the AFRU within the last _____ , a low volume 300 millisecond tone.",
+      "answer": "5 minutes",
+      "distractors": [
+        "10 minutes",
+        "1 minute",
+        "45 minutes"
+      ]
+    },
+    {
+      "topicId": "radio-parachute-operations-in-non-controlled",
+      "topicTitle": "Parachute operations in non-controlled",
+      "chapter": "Radio — Non-controlled aerodromes",
+      "kind": "cloze",
+      "prompt": "Parachute operations in non-controlled — fill the blank: If the parachuting occurs in the vicinity of a non-controlled aerodrome, an additional broadcast should be made not less than _____ before the parachutists leave the aircraft.",
+      "answer": "4 minutes",
+      "distractors": [
+        "1 minute",
+        "15 minutes",
+        "10 minutes"
+      ]
+    },
+    {
+      "topicId": "radio-non-controlled-aerodromes-with-an-aerodrome",
+      "topicTitle": "Non-controlled aerodromes with an aerodrome",
+      "chapter": "Radio — Non-controlled aerodromes",
+      "kind": "step",
+      "prompt": "Non-controlled aerodromes with an aerodrome — Communications at aerodromes with local flight information services are like those at other non- controlled aerodromes without these services, except that (a)?",
+      "answer": "during hours of operation of the aerodrome information service, a pilot should initiate communication by calling the service ‘ (unit identifier) INFORMATION/RADIO ’ (as appropriate to the service provided - AFIS, SFIS or CA/GRS)"
+    },
+    {
+      "topicId": "radio-non-controlled-aerodromes-with-an-aerodrome",
+      "topicTitle": "Non-controlled aerodromes with an aerodrome",
+      "chapter": "Radio — Non-controlled aerodromes",
+      "kind": "step",
+      "prompt": "Non-controlled aerodromes with an aerodrome — Communications at aerodromes with local flight information services are like those at other non- controlled aerodromes without these services, except that (b)?",
+      "answer": "after the initial communication according to subparagraph a., subsequent reports should be addressed to ‘ (location) TRAFFIC'"
+    },
+    {
+      "topicId": "radio-non-controlled-aerodromes-with-an-aerodrome",
+      "topicTitle": "Non-controlled aerodromes with an aerodrome",
+      "chapter": "Radio — Non-controlled aerodromes",
+      "kind": "step",
+      "prompt": "Non-controlled aerodromes with an aerodrome — Communications at aerodromes with local flight information services are like those at other non- controlled aerodromes without these services, except that (c)?",
+      "answer": "positional reports specified for the 10NM position should instead be made at or before the boundary of the relevant Broadcast Area (BA)"
+    },
+    {
+      "topicId": "radio-non-controlled-aerodromes-with-an-aerodrome",
+      "topicTitle": "Non-controlled aerodromes with an aerodrome",
+      "chapter": "Radio — Non-controlled aerodromes",
+      "kind": "step",
+      "prompt": "Non-controlled aerodromes with an aerodrome — Communications at aerodromes with local flight information services are like those at other non- controlled aerodromes without these services, except that (d)?",
+      "answer": "the service at some locations requires a departure report for both IFR and VFR aircraft on the BA frequency (see AIP ERSA for the requirements that apply at each location)"
+    },
+    {
+      "topicId": "radio-non-controlled-aerodromes-with-an-aerodrome",
+      "topicTitle": "Non-controlled aerodromes with an aerodrome",
+      "chapter": "Radio — Non-controlled aerodromes",
+      "kind": "step",
+      "prompt": "Non-controlled aerodromes with an aerodrome — Communications at aerodromes with local flight information services are like those at other non- controlled aerodromes without these services, except that (e)?",
+      "answer": "the service may relay clearances to IFR flights."
+    },
+    {
+      "topicId": "radio-read-back-requirements",
+      "topicTitle": "Read back requirements",
+      "chapter": "Radio — Controlled airspace",
+      "kind": "step",
+      "prompt": "Read back requirements — The following parts of a relevant ATC clearance or instruction must always be read back to ATC (a)?",
+      "answer": "ATC route clearances, including any amendments"
+    },
+    {
+      "topicId": "radio-amended-route-or-level",
+      "topicTitle": "Amended route or level",
+      "chapter": "Radio — Controlled airspace",
+      "kind": "step",
+      "prompt": "Amended route or level — The prefixes ‘ AMENDED ’ and ‘ RE CLEARED’ are not used (b)?",
+      "answer": "during normal progressive climb/descent instructions."
+    },
+    {
+      "topicId": "radio-level-instructions",
+      "topicTitle": "Level instructions",
+      "chapter": "Radio — Controlled airspace",
+      "kind": "cloze",
+      "prompt": "Level instructions — fill the blank: When ATC asks a pilot to ‘ REPORT LEVEL', or ‘ VERIFY LEVEL', the pilot should report the current level of the aircraft to the nearest _____ . However, when asked to ‘ REPORT LAST VACATED LEVEL' this should be the last 100-foo interval the aircraft has passed. This is because ATC may apply a vertical separation based on the reported level.",
+      "answer": "100 feet",
+      "distractors": [
+        "10,000 FT",
+        "50 FT",
+        "60 FT"
+      ]
+    },
+    {
+      "topicId": "radio-essential-traffic",
+      "topicTitle": "Essential traffic",
+      "chapter": "Radio — Controlled airspace",
+      "kind": "step",
+      "prompt": "Essential traffic — Essential traffic information may include (a)?",
+      "answer": "direction of flight of aircraft concerned"
+    },
+    {
+      "topicId": "radio-essential-traffic",
+      "topicTitle": "Essential traffic",
+      "chapter": "Radio — Controlled airspace",
+      "kind": "step",
+      "prompt": "Essential traffic — Essential traffic information may include (b)?",
+      "answer": "type and wake turbulence category (if relevant) of aircraft concerned"
+    },
+    {
+      "topicId": "radio-essential-traffic",
+      "topicTitle": "Essential traffic",
+      "chapter": "Radio — Controlled airspace",
+      "kind": "step",
+      "prompt": "Essential traffic — Essential traffic information may include (d)?",
+      "answer": "estimated time over the reporting point or place where the aircraft's flight paths are expected to cross"
+    },
+    {
+      "topicId": "radio-essential-traffic",
+      "topicTitle": "Essential traffic",
+      "chapter": "Radio — Controlled airspace",
+      "kind": "step",
+      "prompt": "Essential traffic — Essential traffic information may include (iv)?",
+      "answer": "for parallel runway operations, the runway being used by the aircraft concerned."
+    },
+    {
+      "topicId": "radio-essential-traffic",
+      "topicTitle": "Essential traffic",
+      "chapter": "Radio — Controlled airspace",
+      "kind": "cloze",
+      "prompt": "Essential traffic — fill the blank: Communicator Communication PQR TRAFFIC ATS 12 O'CLOCK _____ JRG CESSNA 172 CONDUCTING AIR WORK 5 MILES NORTHEAST OF SMALLVILLE 5,500 AND BELOW LOOKING PQR pilot … PQR TRAFFIC IN SIGHT Figure 45: Traffic information",
+      "answer": "3 NM",
+      "distractors": [
+        "30 NM",
+        "1 NM",
+        "10 NM"
+      ]
+    },
+    {
+      "topicId": "radio-position-reports-to-ats",
+      "topicTitle": "Position reports to ATS",
+      "chapter": "Radio — Controlled airspace",
+      "kind": "list",
+      "prompt": "Position reports to ATS — A position report normally comprises. List them.",
+      "answer": "aircraft identification; position; time; level; next position and ETA",
+      "itemCount": 5
+    },
+    {
+      "topicId": "radio-frequency-management-after-take-off",
+      "topicTitle": "Frequency management after take-off",
+      "chapter": "Radio — Controlled aerodromes",
+      "kind": "step",
+      "prompt": "Frequency management after take-off — Class D aerodromes 5.8.1.1 After take-off at a Class D aerodrome, pilots should remain on the tower frequency until (a)?",
+      "answer": "if operating in the local circuit – until after the final landing."
+    },
+    {
+      "topicId": "radio-frequency-management-after-take-off",
+      "topicTitle": "Frequency management after take-off",
+      "chapter": "Radio — Controlled aerodromes",
+      "kind": "step",
+      "prompt": "Frequency management after take-off — Class C aerodromes 5.8.2.1 If departing from a Class C aerodrome (not remaining in the circuit), pilots should remain on aerodrome frequency until (c)?",
+      "answer": "if operating in the local circuit – until after the final landing."
+    },
+    {
+      "topicId": "radio-training-manoeuvres",
+      "topicTitle": "Training manoeuvres",
+      "chapter": "Radio — Controlled aerodromes",
+      "kind": "step",
+      "prompt": "Training manoeuvres — Pilots may request a variety of training manoeuvres, including (b)?",
+      "answer": "a touch and go – whereby an aircraft lands and takes off without coming to a stop"
+    },
+    {
+      "topicId": "radio-training-manoeuvres",
+      "topicTitle": "Training manoeuvres",
+      "chapter": "Radio — Controlled aerodromes",
+      "kind": "step",
+      "prompt": "Training manoeuvres — Pilots may request a variety of training manoeuvres, including (c)?",
+      "answer": "a stop and go – whereby an aircraft lands, stops momentarily on the runway then takes off again"
+    },
+    {
+      "topicId": "radio-training-manoeuvres",
+      "topicTitle": "Training manoeuvres",
+      "chapter": "Radio — Controlled aerodromes",
+      "kind": "step",
+      "prompt": "Training manoeuvres — Pilots may request a variety of training manoeuvres, including (d)?",
+      "answer": "for an IFR flight, a precision approach involving a coupled or autoland operation in conditions where ATC is not required to protect the ILS critical or sensitive area"
+    },
+    {
+      "topicId": "radio-visual-or-visual-approach",
+      "topicTitle": "Visual or visual approach",
+      "chapter": "Radio — Approach and departures",
+      "kind": "step",
+      "prompt": "Visual or visual approach — ‘Visual’ 6.6.1.1 The word ‘ visual ’ in radiotelephony means (a)?",
+      "answer": "When used by ATC – an instruction to a pilot to see and avoid obstacles while conducting flight below the relevant lowest safe altitude (LSALT), whether a minimum vectoring altitude"
+    },
+    {
+      "topicId": "radio-ats-surveillance-services-traffic-information",
+      "topicTitle": "ATS surveillance services – traffic information",
+      "chapter": "Radio — Surveillance services",
+      "kind": "step",
+      "prompt": "ATS surveillance services – traffic information — Whenever practicable, information regarding traffic on a conflicting path should be given in the following form (a)?",
+      "answer": "relative bearing of the conflicting traffic in terms of the 12-hour clock"
+    },
+    {
+      "topicId": "radio-ats-surveillance-services-traffic-information",
+      "topicTitle": "ATS surveillance services – traffic information",
+      "chapter": "Radio — Surveillance services",
+      "kind": "step",
+      "prompt": "ATS surveillance services – traffic information — Whenever practicable, information regarding traffic on a conflicting path should be given in the following form (c)?",
+      "answer": "direction of the flight of the conflicting traffic"
+    },
+    {
+      "topicId": "radio-ats-surveillance-services-traffic-information",
+      "topicTitle": "ATS surveillance services – traffic information",
+      "chapter": "Radio — Surveillance services",
+      "kind": "step",
+      "prompt": "ATS surveillance services – traffic information — Whenever practicable, information regarding traffic on a conflicting path should be given in the following form (d)?",
+      "answer": "any other pertinent information such as unknown, slow moving, fast moving, closing, opposite (or same) direction, overtaking, crossing left to right (or right to left), and if known, aircraft type and level, climbing or descending."
+    },
+    {
+      "topicId": "radio-reduced-vertical-separation-minimum-rvsm",
+      "topicTitle": "Reduced Vertical Separation Minimum (RVSM)",
+      "chapter": "Radio — Area control",
+      "kind": "step",
+      "prompt": "Reduced Vertical Separation Minimum (RVSM) — Pilots should report non-approved status during operations in, or vertical transit through, RVSM airspace as follows (a)?",
+      "answer": "at initial call on any channel within RVSM airspace"
+    },
+    {
+      "topicId": "radio-states-of-emergency",
+      "topicTitle": "States of emergency",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "step",
+      "prompt": "States of emergency — The states of emergency are classified as follows (a)?",
+      "answer": "Distress: A condition of being threatened by serious and/or imminent danger and of requiring immediate assistance."
+    },
+    {
+      "topicId": "radio-states-of-emergency",
+      "topicTitle": "States of emergency",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "step",
+      "prompt": "States of emergency — The states of emergency are classified as follows (b)?",
+      "answer": "Urgency: A condition concerning the safety of an aircraft or other vehicle, or of some person on board or within sight, but does not require immediate assistance."
+    },
+    {
+      "topicId": "radio-speechless-communications",
+      "topicTitle": "Speechless communications",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "step",
+      "prompt": "Speechless communications — Pilot response to questions from ATS (a)?",
+      "answer": "Affirm or acknowledgment one (1) distinct transmission."
+    },
+    {
+      "topicId": "radio-speechless-communications",
+      "topicTitle": "Speechless communications",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "step",
+      "prompt": "Speechless communications — Pilot response to questions from ATS (b)?",
+      "answer": "Negative two (2) separate and distinct transmissions."
+    },
+    {
+      "topicId": "radio-speechless-communications",
+      "topicTitle": "Speechless communications",
+      "chapter": "Radio — Distress and urgency",
+      "kind": "step",
+      "prompt": "Speechless communications — Pilot response to questions from ATS (c)?",
+      "answer": "Say again three (3) separate and distinct transmissions."
     }
   ]
 }
